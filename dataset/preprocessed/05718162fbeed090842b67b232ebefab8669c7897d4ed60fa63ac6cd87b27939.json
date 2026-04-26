@@ -1,0 +1,43 @@
+{
+  "hash": "05718162fbeed090842b67b232ebefab8669c7897d4ed60fa63ac6cd87b27939",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  wefujn.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\wefujn.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\wefujn.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\wefujn.exe  [sha256: 1f934b524e002371...]\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] MASM\n  [Linker] Microsoft Linker\n\nPE SECTIONS (entropy):\n  .text        entropy=6.38\n  .rdata       entropy=5.25\n  .data        entropy=4.04\n  .rsrc        entropy=4.68\n  [overlay]    entropy=3.434326410293579  size=11280\n",
+  "ground_truth": {
+    "hash": "05718162fbeed090842b67b232ebefab8669c7897d4ed60fa63ac6cd87b27939",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9143,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\wefujn.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "hash": "38f47eb6ee9d4f6673c8f1ddb94bc9da874eeb87e84d1527371dd9226a90ff15",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nIP TRAFFIC (1):\n  165.194.123.67:8008 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  Initech.exe\n    C:\\windows\\system32\\cmd.exe /c del /q Initech.exe >> NUL\n    C:\\ProgramData\\Initech\\Initech.exe /run\n\nCOMMAND EXECUTIONS (2):\n  ((null)) c:\\windows\\system32\\cmd.exe/c del /q C:\\38f47eb6ee9d4f6673c8f1ddb94bc9da874eeb87e84d1527371dd9226a90ff15\" >> NUL\" [(null)]\n  c:\\windows\\system32\\cmd.exe /c del /q \"Initech.exe\" >> NUL\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (11):\n  - encode data using XOR\n  - get common file path\n  - download and write a file\n  - get hostname\n  - check OS version\n  - get MAC address on Windows\n  - query or enumerate registry value\n  - get file size\n  - get session user name\n  - accept command line arguments\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - Process::Create Process [C0017]\n  - File System::Create File [C0016]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Check Mutex [C0043]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - set current directory\n  - Communication::HTTP Communication::Download URL [C0002.006]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - File System::Writes File [C0052]\n  - Command and Control::C2 Communication::Server to Client File Transfer [B0030.003]\n  - receive and write data from server to client\n  - Communication::Socket Communication::Receive Data [C0001.006]\n  - Discovery::System Information Discovery [E1082]\n  - Communication::DNS Communication::Resolve [C0011.001]\n  - Communication::Socket Communication::Initialize Winsock Library [C0001.009]\n  - get OS version\n  - Communication::Socket Communication::Set Socket Config [C0001.001]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - get MAC address on Windows\n  - Operating System::Registry::Query Registry Value [C0036.006]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  Initech.exe  [sha256: 5f0a2c968e580ae2...]\n  C:\\ProgramData\\Initech\\Initech.exe  [sha256: 108731062d231111...]\n\nFILES WRITTEN (1):\n  C:\\Program Files\\Common Files\\Initech\\Initech.exe\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Graphics = \"C:\\ProgramData\\Initech\\Initech.exe\" /run\n\nMUTEXES CREATED (2):\n  MUTEX394039_4830023\n  ShimCacheMutex\n\nPROCESSES CREATED (2):\n  C:\\Program Files\\Common Files\\Initech\\Initech.exe\" /run\"\n  c:\\windows\\system32\\cmd.exe c:\\windows\\system32\\cmd.exe\" /c del /q \"C:\\38f47eb6ee9d4f6673c8f1ddb94bc9da874eeb87e84d1527371dd9226a90ff15\" >> NUL\"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA, WinExec\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.32\n  .rdata       entropy=4.98\n  .data        entropy=0.38\n  .CRT         entropy=0.06\n  .rsrc        entropy=3.9\n  [overlay]    entropy=5.370486259460449  size=5984\n",
+  "ground_truth": {
+    "hash": "38f47eb6ee9d4f6673c8f1ddb94bc9da874eeb87e84d1527371dd9226a90ff15",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8429,
+    "malicious_count": 59,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1033",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get hostname"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1087",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1105",
+        "signature_description": "download and write a file"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "create process on Windows",
+      "create or open file",
+      "delay execution",
+      "encode data using XOR",
+      "create or open registry key",
+      "check mutex",
+      "contain loop",
+      "get common file path",
+      "create a process with modified I/O handles and window",
+      "set current directory",
+      "download URL",
+      "receive data",
+      "write file on Windows",
+      "download and write a file",
+      "receive and write data from server to client",
+      "receive data on socket",
+      "get hostname",
+      "resolve DNS",
+      "initialize Winsock library",
+      "get OS version",
+      "check OS version",
+      "set socket configuration",
+      "set registry value",
+      "get MAC address on Windows",
+      "query or enumerate registry value",
+      "send data on socket",
+      "send data",
+      "create directory",
+      "get file size",
+      "read file on Windows",
+      "write and execute a file",
+      "create pipe",
+      "terminate process",
+      "get session user name",
+      "accept command line arguments",
+      "create mutex",
+      "check mutex and exit",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "165.194.123.67"
+      ],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Graphics"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "C:\\ProgramData\\Initech\\Initech.exe",
+        "Initech.exe"
+      ],
+      "mutexes": [
+        "MUTEX394039_4830023",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\Program Files\\Common Files\\Initech\\Initech.exe\" /run\"",
+        "c:\\windows\\system32\\cmd.exe c:\\windows\\system32\\cmd.exe\" /c del /q \"C:\\38f47eb6ee9d4f6673c8f1ddb94bc9da874eeb87e84d1527371dd9226a90ff15\" >> NUL\""
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

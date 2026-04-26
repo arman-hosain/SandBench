@@ -1,0 +1,140 @@
+{
+  "hash": "4243cc89747b918bfd60112a48d7c75f5f1e70ddca175f29d9ae5061ef5ff679",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  0.0.0.0.in-addr.arpa.\n\nIP TRAFFIC (4):\n  1.234.83.146:11170 (TCP)\n  133.242.129.155:11110 (TCP)\n  218.54.31.165:11110 (TCP)\n  218.54.31.226:11110 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    zaalu.exe\n      ywtot.exe\n        zaalu.exe\n        zaalu.exe\n        zaalu.exe\n        zaalu.exe\n        zaalu.exe\n        zaalu.exe\n        zaalu.exe\n        zaalu.exe\n        zaalu.exe\n        zaalu.exe\n        zaalu.exe\n        zaalu.exe\n\nCOMMAND EXECUTIONS (5):\n  ((null)) C:\\WINDOWS\\system32\\fuefy.exe [(null)]\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_uinsey.bat(null) [(null)]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\tulea.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\_uinsey.bat\n  cmd /c \"\"C:\\DOCUME~1\\ADMINI~1\\LOCALS~1\\Temp\\_uinsey.bat\" \"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (12):\n  - set file attributes\n  - encode data using XOR\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - check if file exists\n  - get common file path\n  - download and write a file\n  - interact with driver via control codes\n  - get file size\n  - check OS version\n  - get MAC address on Windows\n  - query or enumerate registry value\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - File System::Create File [C0016]\n  - File System::Get File Attributes [C0049]\n  - File System::Set File Attributes [C0050]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Communication::Socket Communication::Create TCP Socket [C0001.011]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - reference absolute stream path on Windows\n  - Process::Create Process [C0017]\n  - Process::Create Thread [C0038]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Terminate Process [C0018]\n  - Process::Allocate Thread Local Storage [C0040]\n  - contain loop\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Writes File [C0052]\n  - File System::Delete File [C0047]\n  - File System::Read File [C0051]\n  - Data::Checksum::CRC32 [C0032.001]\n  - File System::Create Directory [C0046]\n  - Communication::Socket Communication::Receive Data [C0001.006]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  fuefy.exe  [sha256: 15e4ef5ab1d9d04c...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\tulea.exe  [sha256: 936f6889188e3367...]\n\nFILES WRITTEN (8):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_uinsey.bat\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\golfinfo.ini\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\golfinfo.ini\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\ywtot.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\_uinsey.bat\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\golfinfo.ini\n  C:\\WINDOWS\\system32\\fuefy.exe\n  C:\\WINDOWS\\system32\\zaalu.exe\n\nOTHER REGISTRY KEYS SET (6):\n  HKCU\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\Run\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\Run\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\WINDOWS\\\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\TrayKe\n\nMUTEXES CREATED (10):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  ShimCacheMutex\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n\nPROCESSES CREATED (3):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_uinsey.bat\" \"\n  C:\\WINDOWS\\system32\\cmd.exe\n  C:\\WINDOWS\\system32\\fuefy.exe C:\\WINDOWS\\system32\\fuefy.exe\" \"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [sfx] WinZip\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=3.5\n  .rsrc        entropy=7.55\n  .reloc       entropy=4.46\n  [overlay]    entropy=4.729889869689941  size=2611\n",
+  "ground_truth": {
+    "hash": "4243cc89747b918bfd60112a48d7c75f5f1e70ddca175f29d9ae5061ef5ff679",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8592,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "check OS version"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "check if file exists"
+      },
+      {
+        "id": "T1105",
+        "signature_description": "download and write a file"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "create or open file",
+      "get file attributes",
+      "set file attributes",
+      "encode data using XOR",
+      "create TCP socket",
+      "delay execution",
+      "reference absolute stream path on Windows",
+      "create process on Windows",
+      "create thread",
+      "create or open registry key",
+      "terminate process",
+      "allocate thread local storage",
+      "contain loop",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "check if file exists",
+      "write file on Windows",
+      "delete file",
+      "get common file path",
+      "read file on Windows",
+      "hash data with CRC32",
+      "create directory",
+      "receive data on socket",
+      "receive data",
+      "download and write a file",
+      "receive and write data from server to client",
+      "send data on socket",
+      "send data",
+      "resolve DNS",
+      "initialize Winsock library",
+      "connect TCP socket",
+      "act as TCP client",
+      "hash data using SHA1",
+      "interact with driver via control codes",
+      "write and execute a file",
+      "get file size",
+      "get OS version",
+      "check OS version",
+      "extract resource via kernel32 functions",
+      "get MAC address on Windows",
+      "set registry value",
+      "query or enumerate registry value",
+      "linked against XZip",
+      "contain a resource (.rsrc) section",
+      "contains PDB path",
+      "linked against ZLIB"
+    ],
+    "iocs": {
+      "ips": [
+        "1.234.83.146",
+        "133.242.129.155",
+        "218.54.31.165",
+        "218.54.31.226"
+      ],
+      "domains": [
+        "0.0.0.0.in-addr.arpa."
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 6,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\tulea.exe",
+        "fuefy.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "ShimCacheMutex",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_uinsey.bat\" \"",
+        "C:\\WINDOWS\\system32\\cmd.exe",
+        "C:\\WINDOWS\\system32\\fuefy.exe C:\\WINDOWS\\system32\\fuefy.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

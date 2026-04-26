@@ -1,0 +1,53 @@
+{
+  "hash": "06930bf41ca3118449cebfdf72889d1243c495410e9c627a8e0b656e7ae17228",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  c:\\52bt02.exe\n  c:\\82l0381.exe\n  c:\\d67b65.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - contain obfuscated stackstrings\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - contain loop\n  - resolve function by parsing PE exports\n  - Data::Decompress Data [C0025]\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  52bt02.exe  [sha256: 0cf8a716fa7161d8...]\n  82l0381.exe  [sha256: b83e076558f12d85...]\n  d67b65.exe  [sha256: f283276a68e0b487...]\n\nFILES WRITTEN (3):\n  c:\\52bt02.exe\n  c:\\82l0381.exe\n  c:\\d67b65.exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (3):\n  c:\\52bt02.exe\n  c:\\82l0381.exe\n  c:\\d67b65.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Packer] DxPack\n  Packers: {'F-PROT': 'UPX_LZMA'}\n\nPE SECTIONS (entropy):\n  .rsrc        entropy=2.99\n  .rsrc        entropy=7.58\n  [overlay]    entropy=4.36655855178833  size=75034\n",
+  "ground_truth": {
+    "hash": "06930bf41ca3118449cebfdf72889d1243c495410e9c627a8e0b656e7ae17228",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.875,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "decompress data using LZO",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "52bt02.exe",
+        "82l0381.exe",
+        "d67b65.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "c:\\52bt02.exe",
+        "c:\\82l0381.exe",
+        "c:\\d67b65.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

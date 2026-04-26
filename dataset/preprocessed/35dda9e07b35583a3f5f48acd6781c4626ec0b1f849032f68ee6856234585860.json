@@ -1,0 +1,63 @@
+{
+  "hash": "35dda9e07b35583a3f5f48acd6781c4626ec0b1f849032f68ee6856234585860",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  C:\\Users\\Olivia\\AppData\\Local\\Temp\\SMIi8nCiK.exe\n  C:\\WINDOWS\\MSWDM.EXE\n  C:\\WINDOWS\\MSWDM.EXE\n  C:\\Users\\Olivia\\AppData\\Local\\Temp\\SMIi8nCiK.exe\n  C:\\WINDOWS\\MSWDM.EXE\n\nCOMMAND EXECUTIONS (4):\n  C:\\Users\\Olivia\\AppData\\Local\\Temp\\SMIi8nCiK.exe\n  C:\\WINDOWS\\MSWDM.EXE\n  -r!C:\\WINDOWS\\dev3E76.tmp!C:\\Users\\Olivia\\AppData\\Local\\Temp\\SMIi8nCiK.exe! !\n  -e!C:\\WINDOWS\\dev3E76.tmp!C:\\Users\\Olivia\\AppData\\Local\\Temp\\SMII8NCIK.EXE!\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - packed with ASPack\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - contain loop\n  - Anti-Static Analysis::Software Packing [F0001]\n  - Execution::Install Additional Program [B0023]\n  - contain a resource (.rsrc) section\n  - (internal) packer file limitation\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  35DDA9E07B35583A3F5F48ACD6781C4626EC0B1F849032F68EE6856234585860  [sha256: acd05d44d89f6175...]\n  MSWDM.EXE  [sha256: de69f73b3a878254...]\n  C:\\WINDOWS\\MSWDM.EXE  [sha256: de69f73b3a878254...]\n\nFILES WRITTEN (30):\n  C:\\Program Files\\Common Files\\Microsoft Shared\\DW\\DWTRIG20.EXE\n  C:\\Program Files\\Internet Explorer\\Connection Wizard\\icwconn2.exe\n  C:\\Program Files\\Internet Explorer\\Connection Wizard\\icwrmind.exe\n  C:\\Program Files\\Internet Explorer\\Connection Wizard\\icwtutor.exe\n  C:\\Program Files\\Internet Explorer\\Connection Wizard\\inetwiz.exe\n  C:\\Program Files\\Internet Explorer\\Connection Wizard\\isignup.exe\n  C:\\Program Files\\Messenger\\msmsgs.exe\n  C:\\Program Files\\Microsoft Office\\Office10\\excel.exe\n  C:\\Program Files\\Movie Maker\\moviemk.exe\n  C:\\Program Files\\NetMeeting\\cb32.exe\n  C:\\Program Files\\NetMeeting\\conf.exe\n  C:\\Program Files\\NetMeeting\\wb32.exe\n  C:\\Program Files\\Oracle\\VirtualBox Guest Additions\\VBoxControl.exe\n  C:\\Program Files\\Oracle\\VirtualBox Guest Additions\\VBoxDrvInst.exe\n  C:\\Program Files\\Oracle\\VirtualBox Guest Additions\\VBoxTray.exe\n  C:\\Program Files\\Oracle\\VirtualBox Guest Additions\\VBoxWHQLFake.exe\n  C:\\Program Files\\Oracle\\VirtualBox Guest Additions\\uninst.exe\n  C:\\Program Files\\Outlook Express\\msimn.exe\n  C:\\Program Files\\Outlook Express\\oemig50.exe\n  C:\\Program Files\\Outlook Express\\setup50.exe\n\nPERSISTENCE REGISTRY KEYS (4):\n  HKLM\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\RUN = WDM\n  HKLM\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\RUNSERVICES = WDM\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\RunServices\\WDM = MSWDM.EXE\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\WDM = MSWDM.EXE\n\nMUTEXES CREATED (2):\n  Local\\SM0:4932:168:WilStaging_02\n  ShimCacheMutex\n\nMUTEXES OPENED (1):\n  Local\\ShimViewer\n\nPROCESSES CREATED (3):\n  C:\\Users\\Olivia\\AppData\\Local\\Temp\\SMIi8nCiK.exe\n  C:\\WINDOWS\\MSWDM.EXE\n  C:\\WINDOWS\\MSWDM.EXE  -r!C:\\WINDOWS\\dev3.tmp!C:\\35dda9e07b35583a3f5f48acd6781c4626ec0b1f849032f68ee6856234585860! !\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  advapi32.dll: OpenProcessToken\n  kernel32.dll: GetProcAddress\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [sfx] temporary EXE SFX\n  [Packer] ASPack\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Overlay] EXE file\n  Packers: {'PEiD': 'ASPack v2.12'}\n\nPE SECTIONS (entropy):\n  .text        entropy=7.97\n  .rdata       entropy=7.9\n  .data        entropy=7.63\n  .rsrc        entropy=2.37\n  .aspack      entropy=5.61\n  .adata       entropy=2.65\n  [overlay]    entropy=6.637526988983154  size=39282\n",
+  "ground_truth": {
+    "hash": "35dda9e07b35583a3f5f48acd6781c4626ec0b1f849032f68ee6856234585860",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9028,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "agent",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with ASPack"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "contain loop",
+      "packed with ASPack",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "(internal) packer file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\RUN",
+        "HKLM\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\RUNSERVICES",
+        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\RunServices\\WDM",
+        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\WDM"
+      ],
+      "registry_all_count": 4,
+      "files_dropped": [
+        "35DDA9E07B35583A3F5F48ACD6781C4626EC0B1F849032F68EE6856234585860",
+        "C:\\WINDOWS\\MSWDM.EXE",
+        "MSWDM.EXE"
+      ],
+      "mutexes": [
+        "Local\\SM0:4932:168:WilStaging_02",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\Users\\Olivia\\AppData\\Local\\Temp\\SMIi8nCiK.exe",
+        "C:\\WINDOWS\\MSWDM.EXE",
+        "C:\\WINDOWS\\MSWDM.EXE  -r!C:\\WINDOWS\\dev3.tmp!C:\\35dda9e07b35583a3f5f48acd6781c4626ec0b1f849032f68ee6856234585860! !"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Lastline",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

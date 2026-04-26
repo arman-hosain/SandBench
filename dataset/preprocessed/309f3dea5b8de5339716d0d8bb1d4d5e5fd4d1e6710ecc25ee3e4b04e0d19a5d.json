@@ -1,0 +1,68 @@
+{
+  "hash": "309f3dea5b8de5339716d0d8bb1d4d5e5fd4d1e6710ecc25ee3e4b04e0d19a5d",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://globalbmis.com/acp/users/Targ-1405USmp.enc  UA: Updates downloader\n\nDNS LOOKUPS (1):\n  globalbmis.com \u2192 204.11.56.48\n\nIP TRAFFIC (2):\n  204.11.56.48:80 (TCP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (2):\n  AudioSrv\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe\" \"\n\nCOMMAND EXECUTIONS (4):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  ( 4344 - cmd.exe ) c:\\windows\\system32\\cmd.exe /c \"c:\\users\\user41~1\\appdata\\local\\temp\\escoeqtwbb.exe\"\n  ( 1996 - escoeqtwbb.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\escoeqtwbb.exe\n  ( 4400 - budha.exe ) \"c:\\users\\user41~1\\appdata\\local\\temp\\budha.exe\" \n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - access PEB ldr_data\n  - parse PE header\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - access PEB ldr_data\n  - contain loop\n  - resolve function by parsing PE exports\n  - parse PE header\n  - Anti-Behavioral Analysis::Debugger Detection::Anti-debugging Instructions [B0001.034]\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - contain a resource (.rsrc) section\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  budha.exe  [sha256: a1dccbaf58071b3e...]\n  c:\\users\\user41~1\\appdata\\local\\temp\\budha.exe  [sha256: ca2b61f45cf45753...]\n\nFILES WRITTEN (3):\n  ( 1996 - escoeqtwbb.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\budha.exe\n  ( 4400 - budha.exe ) c:\\users\\USER\\appdata\\roaming\\microsoft\\windows\\cookies\\p12zcusw.txt\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe\n\nOTHER REGISTRY KEYS SET (4):\n  \\registry\\user\\s-1-5-21-2589874625-3071026754-1203412979-1000\\software\\microsoft\\windows\\currentversion\\internet setting\n  \\registry\\user\\s-1-5-21-2589874625-3071026754-1203412979-1000\\software\\microsoft\\windows\\currentversion\\internet setting\n  \\registry\\user\\s-1-5-21-2589874625-3071026754-1203412979-1000\\software\\microsoft\\windows\\currentversion\\internet setting\n  \\registry\\user\\s-1-5-21-2589874625-3071026754-1203412979-1000\\software\\microsoft\\windows\\currentversion\\internet setting\n\nMUTEXES CREATED (1):\n  RasPbFile\n\nMUTEXES OPENED (2):\n  MidiMapper_Configure\n  MidiMapper_modLongMessage_RefCnt\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe\" \"\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] FASM\n\nPE SECTIONS (entropy):\n  UPX0         entropy=4.9\n  UPX1         entropy=7.52\n  .rsrc        entropy=5.01\n  .imports     entropy=2.77\n  [overlay]    entropy=3.422952175140381  size=10316\n",
+  "ground_truth": {
+    "hash": "309f3dea5b8de5339716d0d8bb1d4d5e5fd4d1e6710ecc25ee3e4b04e0d19a5d",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8732,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "agent",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with UPX"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "PEB access",
+      "access PEB ldr_data",
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "parse PE header",
+      "execute anti-debugging instructions",
+      "packed with UPX",
+      "contain a resource (.rsrc) section",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [
+        "204.11.56.48",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "globalbmis.com"
+      ],
+      "urls": [
+        "http://globalbmis.com/acp/users/Targ-1405USmp.enc"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 4,
+      "files_dropped": [
+        "budha.exe",
+        "c:\\users\\user41~1\\appdata\\local\\temp\\budha.exe"
+      ],
+      "mutexes": [
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "ReaQta-Hive",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork"
+  ]
+}

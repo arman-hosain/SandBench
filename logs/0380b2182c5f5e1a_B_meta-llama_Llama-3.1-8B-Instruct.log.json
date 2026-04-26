@@ -1,0 +1,222 @@
+{
+  "hash": "0380b2182c5f5e1a3b981bfaeef061f4409b8c26d01f57651ee3fe73a11ab68b",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a complex execution chain, numerous CAPA rule matches indicating evasion techniques, and a suspicious file identity with PE imports from KERNEL32.dll. Additionally, the presence of highlighted calls to SetWindowsHookExA and the dropping of a file with a high entropy section suggest malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior, including the use of obfuscation, encryption, and anti-debugging techniques, suggests a Trojan-like behavior. The sample's purpose appears to be to evade detection and maintain persistence on the system.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1084\", \"name\": \"Keylogging: Software\"},\n      {\"id\": \"T1113\", \"name\": \"Screen Capture\"},\n      {\"id\": \"T1056\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1218\", \"name\": \"File and Directory Discovery\"},\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"},\n      {\"id\": \"T1012\", \"name\": \"Query Registry\"},\n      {\"id\": \"T1055\", \"name\": \"Process Discovery\"},\n      {\"id\": \"T1081\", \"name\": \"System Service Discovery\"},\n      {\"id\": \"T1114\", \"name\": \"Screen Capture: Image\"},\n      {\"id\": \"T1115\", \"name\": \"Video Capture\"},\n      {\"id\": \"T1035\", \"name\": \"Network Share Discovery\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 2879,
+      "response_chars": 1058,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a complex execution chain, numerous CAPA rule matches indicating evasion techniques, and a suspicious file identity with PE imports from KERNEL32.dll. Additionally, the presence of highlighted calls to SetWindowsHookExA and the dropping of a file with a high entropy section suggest malicious intent.\"\n  },\n  \"q2\": {\n   ",
+      "elapsed_seconds": 4.9
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "6 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 6,
+      "ttps_found": [
+        "T1027",
+        "T1056",
+        "T1082",
+        "T1084",
+        "T1113",
+        "T1218"
+      ],
+      "hallucinated_ttps": [
+        "T1084",
+        "T1218"
+      ],
+      "ttp_tp": 4,
+      "ttp_fp": 2
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- query or enumerate registry value\n- get process heap flags\n- enumerate files on Windows\n- open clipboard\n- capture webcam image\n- access PEB ldr_data\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact techniq",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1012",
+        "T1027",
+        "T1035",
+        "T1055",
+        "T1056",
+        "T1081",
+        "T1082",
+        "T1084",
+        "T1113",
+        "T1114",
+        "T1115",
+        "T1218"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 6,
+      "best_ttp_fp": 6
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "4 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 4,
+      "ttps_found": [
+        "T1012",
+        "T1027",
+        "T1035",
+        "T1055",
+        "T1056",
+        "T1081",
+        "T1082",
+        "T1084",
+        "T1113",
+        "T1114",
+        "T1115",
+        "T1218"
+      ],
+      "hallucinated_ttps": [
+        "T1035",
+        "T1055",
+        "T1081",
+        "T1084",
+        "T1114",
+        "T1218"
+      ],
+      "ttp_tp": 6,
+      "ttp_fp": 6
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- get process heap flags\n- enumerate files on Windows\n- capture webcam image\n- access PEB ldr_data\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- ",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "refinement_rejected",
+      "iteration": 2,
+      "reason": "response not in structured format - keeping previous output",
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a complex execution chain, numerous CAPA rule matches indicating evasion techniques, and a suspicious file identity with"
+    },
+    {
+      "step": 8,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1012",
+        "T1027",
+        "T1035",
+        "T1055",
+        "T1056",
+        "T1081",
+        "T1082",
+        "T1084",
+        "T1113",
+        "T1114",
+        "T1115",
+        "T1218"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 6,
+      "best_ttp_fp": 6
+    },
+    {
+      "step": 9,
+      "type": "refinement_stopped",
+      "iteration": 2,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 6,
+      "ttp_fp": 6
+    }
+  ],
+  "total_llm_calls": 3,
+  "total_elapsed": 49.29,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8732
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.5455,
+      "ttp_precision": 0.5,
+      "ttp_recall": 0.6,
+      "gt_ttps": [
+        "T1012",
+        "T1027",
+        "T1056",
+        "T1057",
+        "T1082",
+        "T1083",
+        "T1113",
+        "T1115",
+        "T1125",
+        "T1129"
+      ],
+      "pred_ttps": [
+        "T1012",
+        "T1027",
+        "T1035",
+        "T1055",
+        "T1056",
+        "T1081",
+        "T1082",
+        "T1084",
+        "T1113",
+        "T1114",
+        "T1115",
+        "T1218"
+      ],
+      "tp": 6,
+      "q3_hallucinated_ttps": [
+        "T1035",
+        "T1055",
+        "T1081",
+        "T1084",
+        "T1114",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1057",
+        "T1083",
+        "T1125",
+        "T1129"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5455,
+      "breakdown": {
+        "ttp_f1": 0.5455
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

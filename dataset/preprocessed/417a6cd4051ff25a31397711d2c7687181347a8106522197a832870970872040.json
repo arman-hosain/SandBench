@@ -1,0 +1,106 @@
+{
+  "hash": "417a6cd4051ff25a31397711d2c7687181347a8106522197a832870970872040",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  GET https://sellmakers.com/images/s_icon/twitter_hover.exe\n  GET https://freedataverification.com/PublicSectorJobs.info_files/body_top.exe\n\nDNS LOOKUPS (2):\n  freedataverification.com\n  sellmakers.com \u2192 23.20.239.12\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  9ea3b552397db83b9b7b8a2064007193.exe\n    70e7e900b0607b40c6952fd7eb21aefe.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\hromi.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\user\\AppData\\Local\\Temp\\hromi.exe \n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - get common file path\n  - get file size\n  - download and write a file\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - Process::Create Process [C0017]\n  - Communication::HTTP Communication [C0002]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - Communication::HTTP Communication::Send Request [C0002.003]\n  - Communication::HTTP Communication::Create Request [C0002.012]\n  - File System::Delete File [C0047]\n  - Process::Terminate Process [C0018]\n  - File System::Read File [C0051]\n  - Communication::HTTP Communication::Connect to Server [C0002.009]\n  - Communication::HTTP Communication::Get Response [C0002.017]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - File System::Writes File [C0052]\n  - Command and Control::C2 Communication::Server to Client File Transfer [B0030.003]\n  - Execution::Install Additional Program [B0023]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - read and send data from client to server\n  - receive and write data from server to client\n  - contain a resource (.rsrc) section\n\nHIGHLIGHTED CALLS:\n  C:\\Users\\r.vult\\AppData\\Local\\Temp\\hromi.exe\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  hromi.exe  [sha256: 7659dfb2fbb3736b...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\hromi.exe  [sha256: 1575d55b49dc4cb7...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\hromi.exe\n\nMUTEXES CREATED (1):\n  RasPbFile\n\nPROCESSES CREATED (30):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\hromi.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\hromi.exe\" \"\n  C:\\Users\\RA491~1.VUL\\AppData\\Local\\Temp\\cf4c950b40409a2c289fceafd392b044.exe \n  C:\\Users\\RA491~1.VUL\\AppData\\Local\\Temp\\hromi.exe \n  C:\\Windows\\System32\\slui.exe -Embedding\n  C:\\Windows\\System32\\wevtutil.exe query-events microsoft-windows-powershell/operational /rd:true /e:root /format:xml /uni:true\n  C:\\Windows\\system32\\AUDIODG.EXE 0x5e0\n  C:\\Windows\\system32\\schtasks.exe /delete /f /TN Microsoft\\Windows\\Customer Experience Improvement Program\\Uploader\n  C:\\Windows\\system32\\wbem\\wmiprvse.exe -Embedding\n  C:\\fqybrlfwyx\\bin\\GTANRNiGQ.exe inject 2852 2856 \\HNcKmxSRKiN.dll\n  C:\\fqybrlfwyx\\bin\\GTANRNiGQ.exe inject 3052 3056 \\HNcKmxSRKiN.dll\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=5.65\n  .rdata       entropy=3.9\n  .data        entropy=0.22\n  .rsrc        entropy=5.07\n  .reloc       entropy=0.0\n  [overlay]    entropy=3.4978203773498535  size=3854\n",
+  "ground_truth": {
+    "hash": "417a6cd4051ff25a31397711d2c7687181347a8106522197a832870970872040",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9583,
+    "malicious_count": 69,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1105",
+        "signature_description": "download and write a file"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "create process on Windows",
+      "get HTTP content length",
+      "contain loop",
+      "get common file path",
+      "get file size",
+      "send HTTP request",
+      "create HTTP request",
+      "delete file",
+      "terminate process",
+      "read file on Windows",
+      "connect to HTTP server",
+      "read data from Internet",
+      "receive data",
+      "write file on Windows",
+      "download and write a file",
+      "write and execute a file",
+      "send data",
+      "read and send data from client to server",
+      "receive and write data from server to client",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [
+        "freedataverification.com",
+        "sellmakers.com"
+      ],
+      "urls": [
+        "https://freedataverification.com/PublicSectorJobs.info_files/body_top.exe",
+        "https://sellmakers.com/images/s_icon/twitter_hover.exe"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\hromi.exe",
+        "hromi.exe"
+      ],
+      "mutexes": [
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\hromi.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\hromi.exe\" \"",
+        "C:\\Users\\RA491~1.VUL\\AppData\\Local\\Temp\\cf4c950b40409a2c289fceafd392b044.exe ",
+        "C:\\Users\\RA491~1.VUL\\AppData\\Local\\Temp\\hromi.exe ",
+        "C:\\Windows\\System32\\slui.exe -Embedding",
+        "C:\\Windows\\System32\\wevtutil.exe query-events microsoft-windows-powershell/operational /rd:true /e:root /format:xml /uni:true",
+        "C:\\Windows\\system32\\AUDIODG.EXE 0x5e0",
+        "C:\\Windows\\system32\\schtasks.exe /delete /f /TN Microsoft\\Windows\\Customer Experience Improvement Program\\Uploader",
+        "C:\\Windows\\system32\\wbem\\wmiprvse.exe -Embedding",
+        "C:\\fqybrlfwyx\\bin\\GTANRNiGQ.exe inject 2852 2856 \\HNcKmxSRKiN.dll",
+        "C:\\fqybrlfwyx\\bin\\GTANRNiGQ.exe inject 3052 3056 \\HNcKmxSRKiN.dll",
+        "C:\\fqybrlfwyx\\bin\\StpW.exe /Terminate",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -1024388025-11959039-1817404573-1344232247-252485496-1940283996-1521755363-1542277180",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -1140941018-1658250247-1717939131957711513-2903062311514668242110890588-1489001444",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -1329068923-502373388-103559265760847516-1767785378-82001178420964834236704329",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -158863816863811877410345903499131855481569968716780831755215148563066100",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -17211212316427735213844581602511356021379724309-7558205481579941125-2122219495",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -18344800112068996604-14673804071541634424-13284466384980932788805202981852361090",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -6031044813214331764475681771220722368-6927152538322936741485095110487576187",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -901423249-863539329-92442808-7103357796834213776974943741806142715-790219786",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 1257339451-252549062-1481997508-11069460611974395811444552149051201091219275642",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 1349343491-48244231484219500897029982-17982076981664138521227150961620451723",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 1735048655-20024068291732898612-211846161051715383715073985472199083571766828543",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 1850163887028858751973624043-18089151851080482304-1035565801812131969-917874928",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 1876908778-16295328432577203913316070081447954701-830186646-126491316945974836",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 194595573113359576701346657477328633852-2047463942745020336-16022208421301654124",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 2087410050359203957-1488654309180903398745184356-813061337355205421-1593984681",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 259094322215100286-1173782542854045143-1690867899-18484741741264316779173547731",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 528378694-491729079-938896115-11787991043942336291008168039-414911387-135907704",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 8233230151359431039-2029280628-1468783335-1315757740-644086686-1532294001-97531526",
+        "wmiadap.exe /F /T /R"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "Yomi Hunter"
+  ]
+}

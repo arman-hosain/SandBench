@@ -1,0 +1,79 @@
+{
+  "hash": "01f5ecacb43227299477c0c0cd8c71b14f623714005c1b88d53950e316f4f2d3",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including DNS lookups for known malicious domains (carder.bit, ransomware.bit, ipv4bot.whatismyipaddress.com), dropping executable files to user directories and AppData, creating persistence via Registry RunOnce keys, and utilizing anti-analysis techniques like obfuscated stackstrings and runtime function linking. The presence of 'ransom_id' in mutex names and the domain 'ransomware.bit' strongly indicate malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Ransomware\"],\n    \"explanation\": \"The sample performs reconnaissance (DNS lookups for 'carder' and 'ransomware' domains), drops payloads, and establishes persistence. The specific mention of 'ransomware.bit' in DNS queries and 'ransom_id' in mutexes suggests ransomware capabilities, while the initial delivery and execution pattern fits a Trojan or Dropper profile.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1071.001\", \"name\": \"Web Protocols: HTTP\"},\n      {\"id\": \"T1070.004\", \"name\": \"Indicator Removal on Host: Clear Windows Event Logs\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1562.001\", \"name\": \"Impair Defenses: Disable or Modify Tools\"},\n      {\"id\": \"T1053.005\", \"name\": \"Scheduled Task/Job: Windows Task Scheduler\"},\n      {\"id\": \"T1547.001\", \"name\": \"Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder\"},\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 3665,
+      "response_chars": 1524,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including DNS lookups for known malicious domains (carder.bit, ransomware.bit, ipv4bot.whatismyipaddress.com), dropping executable files to user directories and AppData, creating persistence via Registry RunOnce keys, and utilizing anti-analysis techniques like obfuscated stackstrings ",
+      "elapsed_seconds": 8.31
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 8.31,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9437
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.2222,
+      "ttp_precision": 0.1429,
+      "ttp_recall": 0.5,
+      "gt_ttps": [
+        "T1027",
+        "T1129"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1070",
+        "T1071",
+        "T1547",
+        "T1562"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1053",
+        "T1055",
+        "T1070",
+        "T1071",
+        "T1547",
+        "T1562"
+      ],
+      "q3_missed_ttps": [
+        "T1129"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2222,
+      "breakdown": {
+        "ttp_f1": 0.2222
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

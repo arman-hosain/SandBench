@@ -1,0 +1,93 @@
+{
+  "hash": "35a165c14c0a4cee8bd438a17da02638b9c82bd0538469e7c6b11b9260b9c8bf",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nIP TRAFFIC (1):\n  178.33.169.14:80 ()\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  <PATH_SAMPLE.EXE>\n    %TEMP%\\java.exe\n    %TEMP%\\svchost.exe\n  %TEMP%\\svchost.exe\n    %WINDIR%\\microsoft.net\\framework\\v2.0.50727\\vbc.exe\n  %WINDIR%\\microsoft.net\\framework\\v2.0.50727\\vbc.exe\n    %WINDIR%\\microsoft.net\\framework\\v2.0.50727\\cvtres.exe\n  %WINDIR%\\microsoft.net\\framework\\v2.0.50727\\cvtres.exe\n  <SYSTEM32>\\svchost.exe\n  %TEMP%\\java.exe\n  <SYSTEM32>\\conhost.exe\n  <SYSTEM32>\\conhost.exe\n  <SYSTEM32>\\wbem\\wmiprvse.exe\n  <PATH_SAMPLE.EXE>\n    %TEMP%\\java.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - decode data using Base64 in .NET\n  - check if file exists\n  - reference anti-VM strings targeting VirtualBox\n\nCAPA RULE MATCHES (MBC):\n  - Process::Create Process [C0017]\n  - Data::Decode Data::Base64 [C0053.001]\n  - access .NET resource\n  - File System::Delete File [C0047]\n  - Discovery::File and Directory Discovery [E1083]\n  - unmanaged call\n  - compiled to the .NET platform\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (20):\n  %TEMP%\\280ly8wk2.resources  [sha256: a5d54306c43a066d...]\n  %TEMP%\\java.exe  [sha256: df24b51772ff4959...]\n  %TEMP%\\lekzfy.resources  [sha256: 01fa56f46e8e61d8...]\n  %TEMP%\\msnpsharp.dll  [sha256: cae1b97f3bb7e41d...]\n  %TEMP%\\ofq3zl02.0.vb  [sha256: 6d93cc7e48650c64...]\n  %TEMP%\\ofq3zl02.cmdline  [sha256: 311a44d9125d4444...]\n  %TEMP%\\ofq3zl02.exe  [sha256: 46a5db5793e2b278...]\n  %TEMP%\\ofq3zl02.out  [sha256: 87569091bcb05b8b...]\n  %TEMP%\\res2175.tmp  [sha256: 1fa52888ed45dc1a...]\n  %TEMP%\\svchost.exe  [sha256: 6838ff8b67e04171...]\n  %TEMP%\\vbc2165.tmp  [sha256: cae2ff7b71559839...]\n  %APPDATA%\\microsoft\\windows\\start menu\\programs\\startup\\svchost.exe  [sha256: 6838ff8b67e04171...]\n  <REM_DRIVE>:\\bloc-notes.exe  [sha256: 6838ff8b67e04171...]\n  %TEMP%\\dlztms.resources  [sha256: a5d54306c43a066d...]\n  %TEMP%\\gdqdqshb.0.vb  [sha256: 5c4aca2f534e89e2...]\n  %TEMP%\\gdqdqshb.cmdline  [sha256: a594f502213886d2...]\n  %TEMP%\\gdqdqshb.exe  [sha256: 9bdb7ceb453da637...]\n  %TEMP%\\gdqdqshb.out  [sha256: 5476919a9dfda50e...]\n  %TEMP%\\res573c.tmp  [sha256: cc9249e1defb0003...]\n  %TEMP%\\vbc573b.tmp  [sha256: e61fdf6263fe72a7...]\n\nOTHER REGISTRY KEYS SET (10):\n  \\REGISTRY\\A\\{4adab3b2-100d-11ea-aa54-c4d3f9a8e430}\\DefaultObjectStore\\ObjectTable\\E9\\_ObjectId_\n  \\REGISTRY\\A\\{4adab3b2-100d-11ea-aa54-c4d3f9a8e430}\\DefaultObjectStore\\LruList\\CurrentLru\n  \\REGISTRY\\A\\{4adab3b2-100d-11ea-aa54-c4d3f9a8e430}\\DefaultObjectStore\\LruList\\00000000000002FF\\ObjectId\n  \\REGISTRY\\A\\{4adab3b2-100d-11ea-aa54-c4d3f9a8e430}\\DefaultObjectStore\\LruList\\00000000000002FF\\ObjectLru\n  \\REGISTRY\\A\\{4adab3b2-100d-11ea-aa54-c4d3f9a8e430}\\DefaultObjectStore\\ObjectTable\\E9\\_ObjectLru_\n  \\REGISTRY\\A\\{4adab3b2-100d-11ea-aa54-c4d3f9a8e430}\\DefaultObjectStore\\ObjectTable\\E9\\_FileId_\n  \\REGISTRY\\A\\{4adab3b2-100d-11ea-aa54-c4d3f9a8e430}\\DefaultObjectStore\\ObjectTable\\E9\\_Usn_\n  \\REGISTRY\\A\\{4adab3b2-100d-11ea-aa54-c4d3f9a8e430}\\DefaultObjectStore\\ObjectTable\\E9\\_UsnJournalId_\n  \\REGISTRY\\A\\{4adab3b2-100d-11ea-aa54-c4d3f9a8e430}\\DefaultObjectStore\\ObjectTable\\E9\\Indexes\\FileIdIndex-{c84d25cd-f368-\n  \\REGISTRY\\A\\{4adab3b2-100d-11ea-aa54-c4d3f9a8e430}\\DefaultObjectStore\\IndexTable\\FileIdIndex-{c84d25cd-f368-11e4-889d-80\n\nMUTEXES CREATED (6):\n  \\Sessions\\1\\BaseNamedObjects\\Global\\.net clr networking\n  \\Sessions\\1\\BaseNamedObjects\\Global\\CorDBIPCSetupSyncEvent_1444\n  \\Sessions\\1\\BaseNamedObjects\\Global\\CorDBIPCSetupSyncEvent_1640\n  \\Sessions\\1\\BaseNamedObjects\\Global\\CorDBIPCSetupSyncEvent_2580\n  \\Sessions\\1\\BaseNamedObjects\\Global\\CorDBIPCSetupSyncEvent_884\n  \\Sessions\\1\\BaseNamedObjects\\Windows svchost\n\nPROCESSES CREATED (8):\n  %TEMP%\\java.exe\n  %TEMP%\\svchost.exe\n  %WINDIR%\\microsoft.net\\framework\\v2.0.50727\\cvtres.exe\n  %WINDIR%\\microsoft.net\\framework\\v2.0.50727\\vbc.exe\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\conhost.exe\n  <SYSTEM32>\\svchost.exe\n  <SYSTEM32>\\wbem\\wmiprvse.exe\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Library] .NET\n  [Compiler] VB.NET\n  [Compiler] VB.NET\n  [Library] .NET\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': '.NET executable'}\n",
+  "ground_truth": {
+    "hash": "35a165c14c0a4cee8bd438a17da02638b9c82bd0538469e7c6b11b9260b9c8bf",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.6957,
+    "malicious_count": 48,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "depress",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1083",
+        "signature_description": "check if file exists"
+      },
+      {
+        "id": "T1140",
+        "signature_description": "decode data using Base64 in .NET"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "create process on Windows",
+      "decode data using Base64 in .NET",
+      "access .NET resource",
+      "delete file",
+      "check if file exists",
+      "unmanaged call",
+      "compiled to the .NET platform",
+      "reference anti-VM strings targeting VirtualBox"
+    ],
+    "iocs": {
+      "ips": [
+        "178.33.169.14"
+      ],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 68,
+      "files_dropped": [
+        "%APPDATA%\\microsoft\\windows\\start menu\\programs\\startup\\svchost.exe",
+        "%TEMP%\\280ly8wk2.resources",
+        "%TEMP%\\dlztms.resources",
+        "%TEMP%\\gdqdqshb.0.vb",
+        "%TEMP%\\gdqdqshb.cmdline",
+        "%TEMP%\\gdqdqshb.exe",
+        "%TEMP%\\gdqdqshb.out",
+        "%TEMP%\\java.exe",
+        "%TEMP%\\lekzfy.resources",
+        "%TEMP%\\msnpsharp.dll",
+        "%TEMP%\\ofq3zl02.0.vb",
+        "%TEMP%\\ofq3zl02.cmdline",
+        "%TEMP%\\ofq3zl02.exe",
+        "%TEMP%\\ofq3zl02.out",
+        "%TEMP%\\res2175.tmp",
+        "%TEMP%\\res573c.tmp",
+        "%TEMP%\\svchost.exe",
+        "%TEMP%\\vbc2165.tmp",
+        "%TEMP%\\vbc573b.tmp",
+        "<REM_DRIVE>:\\bloc-notes.exe"
+      ],
+      "mutexes": [
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\.net clr networking",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CorDBIPCSetupSyncEvent_1444",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CorDBIPCSetupSyncEvent_1640",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CorDBIPCSetupSyncEvent_2580",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CorDBIPCSetupSyncEvent_884",
+        "\\Sessions\\1\\BaseNamedObjects\\Windows svchost"
+      ],
+      "processes": [
+        "%TEMP%\\java.exe",
+        "%TEMP%\\svchost.exe",
+        "%WINDIR%\\microsoft.net\\framework\\v2.0.50727\\cvtres.exe",
+        "%WINDIR%\\microsoft.net\\framework\\v2.0.50727\\vbc.exe",
+        "<PATH_SAMPLE.EXE>",
+        "<SYSTEM32>\\conhost.exe",
+        "<SYSTEM32>\\svchost.exe",
+        "<SYSTEM32>\\wbem\\wmiprvse.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "Dr.Web vxCube"
+  ]
+}

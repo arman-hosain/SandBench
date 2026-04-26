@@ -1,0 +1,189 @@
+{
+  "hash": "03b08bed9db015931667780ae576b11254fa841925322b51fc99621ac57668bb",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity, including multiple GET requests to various IP addresses and a DNS lookup. Additionally, it opens the RASMAN service, which is not a typical behavior for a benign program. The presence of anti-VM strings and the ability to accept command line arguments also suggest malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior suggests that it is a Trojan, as it appears to be a downloader or a dropper that communicates with its command and control server. The fact that it opens the RASMAN service and creates mutexes also suggests that it is a Trojan.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1047\", \"name\": \"Network Service Scanning\"},\n      {\"id\": \"T1052\", \"name\": \"Exfiltration Over Command and Control Channel\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"},\n      {\"id\": \"T1219\", \"name\": \"System Service Discovery\"},\n      {\"id\": \"T1220\", \"name\": \"Remote Services\"},\n      {\"id\": \"T1056\", \"name\": \"Input Capture\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1053\", \"name\": \"Scheduled Task/Job\"},\n      {\"id\": \"T1051\", \"name\": \"File and Directory Discovery\"},\n      {\"id\": \"T1050\", \"name\": \"Collection\"},\n      {\"id\": \"T1059\", \"name\": \"Command and Scripting Interpreter\"},\n      {\"id\": \"T1058\", \"name\": \"Executed a Process\"},\n      {\"id\": \"T1057\", \"name\": \"Process Discovery\"},\n      {\"id\": \"T1082\", \"name\": \"System Service Discovery\"},\n      {\"id\": \"T1562\", \"name\": \"Impair Defenses\"},\n      {\"id\": \"T1490\", \"name\": \"Inhibit System Recovery\"},\n      {\"id\": \"T1071\", \"name\": \"Application Layer Protocol\"},\n      {\"id\": \"T1216\", \"name\": \"Spearphishing via Service\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 2880,
+      "response_chars": 6862,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity, including multiple GET requests to various IP addresses and a DNS lookup. Additionally, it opens the RASMAN service, which is not a typical behavior for a benign program. The presence of anti-VM strings and the ability to accept command line arguments also suggest malicious intent.\"\n  },\n  ",
+      "elapsed_seconds": 37.3
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "2 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 2,
+      "ttps_found": [
+        "T1047",
+        "T1050",
+        "T1051",
+        "T1052",
+        "T1053",
+        "T1054",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1058",
+        "T1059",
+        "T1216",
+        "T1218",
+        "T1219",
+        "T1220"
+      ],
+      "hallucinated_ttps": [
+        "T1047",
+        "T1050",
+        "T1051",
+        "T1052",
+        "T1053",
+        "T1054",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1058",
+        "T1216",
+        "T1218",
+        "T1219",
+        "T1220"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 14
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- get common file path\n- reference anti-VM strings\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by t",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1047",
+        "T1050",
+        "T1051",
+        "T1052",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1058",
+        "T1059",
+        "T1071",
+        "T1082",
+        "T1216",
+        "T1218",
+        "T1219",
+        "T1220",
+        "T1490",
+        "T1562"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 1,
+      "best_ttp_fp": 14
+    },
+    {
+      "step": 5,
+      "type": "refinement_stopped",
+      "iteration": 1,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 1,
+      "ttp_fp": 17
+    }
+  ],
+  "total_llm_calls": 2,
+  "total_elapsed": 47.01,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8592
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0952,
+      "ttp_precision": 0.0556,
+      "ttp_recall": 0.3333,
+      "gt_ttps": [
+        "T1059",
+        "T1083",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1047",
+        "T1050",
+        "T1051",
+        "T1052",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1058",
+        "T1059",
+        "T1071",
+        "T1082",
+        "T1216",
+        "T1218",
+        "T1219",
+        "T1220",
+        "T1490",
+        "T1562"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1047",
+        "T1050",
+        "T1051",
+        "T1052",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1058",
+        "T1071",
+        "T1082",
+        "T1216",
+        "T1218",
+        "T1219",
+        "T1220",
+        "T1490",
+        "T1562"
+      ],
+      "q3_missed_ttps": [
+        "T1083",
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0952,
+      "breakdown": {
+        "ttp_f1": 0.0952
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

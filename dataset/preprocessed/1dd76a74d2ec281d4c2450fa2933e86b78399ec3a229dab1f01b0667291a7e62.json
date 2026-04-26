@@ -1,0 +1,45 @@
+{
+  "hash": "1dd76a74d2ec281d4c2450fa2933e86b78399ec3a229dab1f01b0667291a7e62",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - reference anti-VM strings targeting Xen\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (2):\n  EnM8HM3Y\n  sIRC4\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Protector] tElock\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n  Packers: {'PEiD': 'tElock v0.98', 'Cyren': 'TeLock'}\n\nPE SECTIONS (entropy):\n  7519006      entropy=7.99\n  8572755      entropy=7.77\n  7151059      entropy=0.0\n  6580166      entropy=7.83\n  3626684      entropy=0.0\n  7044656      entropy=7.55\n  5294235      entropy=7.95\n  .rsrc        entropy=6.18\n  3707131      entropy=7.39\n  [overlay]    entropy=7.999982833862305  size=10255952\n",
+  "ground_truth": {
+    "hash": "1dd76a74d2ec281d4c2450fa2933e86b78399ec3a229dab1f01b0667291a7e62",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8611,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting Xen"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting Xen",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "EnM8HM3Y",
+        "sIRC4"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "hash": "01515b008edd2055ece4ab6a60b9f3288ccc8856bfa6dd1531a3b4575df2dca2",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a complex execution chain, uses multiple techniques to evade detection, and drops numerous files in the user's temporary directory. It also creates registry keys and processes, indicating a malicious intent. Additionally, it attempts to hide its graphical window and access the PEB ldr_data, which further supports its malicious nature.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior suggests that it is a Trojan, as it drops multiple files in the user's temporary directory, creates registry keys, and executes processes. This is consistent with the behavior of Trojans, which often serve as a backdoor for an attacker to gain unauthorized access to a system. Furthermore, it attempts to delete registry values, query or enumerate registry values, and set file attributes, which are also characteristic of Trojan behavior.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1210\", \"name\": \"Operator Execution\"},\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"},\n      {\"id\": \"T1083\", \"name\": \"File and Directory Discovery\"},\n      {\"id\": \"T1214\", \"name\": \"User Execution\"},\n      {\"id\": \"T1562\", \"name\": \"Impair Defenses\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 7745,
+      "response_chars": 872,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a complex execution chain, uses multiple techniques to evade detection, and drops numerous files in the user's temporary directory. It also creates registry keys and processes, indicating a malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior suggests that it is a Trojan",
+      "elapsed_seconds": 4.01
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "9 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 9,
+      "ttps_found": [
+        "T1027",
+        "T1210",
+        "T1218"
+      ],
+      "hallucinated_ttps": [
+        "T1210",
+        "T1218"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 2
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- find graphical window\n- query or enumerate registry value\n- get disk information\n- get common file path\n- delete registry value\n- access PEB ldr_data\n- set file attributes\n- persist via Run registry key\n- hide graphical window\n\nInstructions:\n- Add a TTP",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1055",
+        "T1082",
+        "T1083",
+        "T1210",
+        "T1214",
+        "T1218",
+        "T1562"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 3,
+      "best_ttp_fp": 5
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "7 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 7,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1082",
+        "T1083",
+        "T1210",
+        "T1214",
+        "T1218",
+        "T1562"
+      ],
+      "hallucinated_ttps": [
+        "T1055",
+        "T1210",
+        "T1214",
+        "T1218",
+        "T1562"
+      ],
+      "ttp_tp": 3,
+      "ttp_fp": 5
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- find graphical window\n- query or enumerate registry value\n- delete registry value\n- access PEB ldr_data\n- set file attributes\n- persist via Run registry key\n- hide graphical window\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evid",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "refinement_rejected",
+      "iteration": 2,
+      "reason": "response not in structured format - keeping previous output",
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a complex execution chain, uses multiple techniques to evade detection, and drops numerous files in the user's temporary"
+    },
+    {
+      "step": 8,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1027",
+        "T1055",
+        "T1082",
+        "T1083",
+        "T1210",
+        "T1214",
+        "T1218",
+        "T1562"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 3,
+      "best_ttp_fp": 5
+    },
+    {
+      "step": 9,
+      "type": "refinement_stopped",
+      "iteration": 2,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 3,
+      "ttp_fp": 5
+    }
+  ],
+  "total_llm_calls": 3,
+  "total_elapsed": 49.33,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9155
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.3333,
+      "ttp_precision": 0.375,
+      "ttp_recall": 0.3,
+      "gt_ttps": [
+        "T1010",
+        "T1012",
+        "T1027",
+        "T1082",
+        "T1083",
+        "T1112",
+        "T1129",
+        "T1222",
+        "T1547",
+        "T1564"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1082",
+        "T1083",
+        "T1210",
+        "T1214",
+        "T1218",
+        "T1562"
+      ],
+      "tp": 3,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1210",
+        "T1214",
+        "T1218",
+        "T1562"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1012",
+        "T1112",
+        "T1129",
+        "T1222",
+        "T1547",
+        "T1564"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.3333,
+      "breakdown": {
+        "ttp_f1": 0.3333
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

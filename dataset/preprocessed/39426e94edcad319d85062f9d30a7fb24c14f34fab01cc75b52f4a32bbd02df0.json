@@ -1,0 +1,101 @@
+{
+  "hash": "39426e94edcad319d85062f9d30a7fb24c14f34fab01cc75b52f4a32bbd02df0",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    cmd.exe\n    cmd.exe cmd /c 123.bat\n      reg.exe reg add \"hklm\\software\\microsoft\\windows nt\\currentversion\\Image File Execution Options\\ZhuDongFangYu.exe\" /v debugger /t reg_sz /d \"ntsd -d\" /f\n      reg.exe reg add \"hklm\\software\\microsoft\\windows nt\\currentversion\\Image File Execution Options\\360tray.exe\" /v debugger /t reg_sz /d \"ntsd -d\" /f\n      reg.exe reg add \"hklm\\software\\microsoft\\windows nt\\currentversion\\Image File Execution Options\\taskmgr.exe\" /v debugger /t reg_sz /d \"ntsd -d\" /f\n    cmd.exe /c assoc .txt = exefile\n    cmd.exe /c ftype comfile=****.exe\n    cmd.exe /c ftype zipfile=****.exe\n    cmd.exe /c ftype jpgfile=****.exe\n    cmd.exe /c ftype txtfile=****.exe\n\nCOMMAND EXECUTIONS (10):\n  cmd.exe\n  cmd /c C:\\123.bat\n  cmd.exe /c assoc .txt = exefile\n  cmd.exe /c ftype comfile=C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe                                                                                                                                                               \n  cmd.exe /c ftype zipfile=C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe                                                                                                                                                               \n  cmd.exe /c ftype jpgfile=C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe                                                                                                                                                               \n  reg add \"hklm\\software\\microsoft\\windows nt\\currentversion\\Image File Execution Options\\ZhuDongFangYu.exe\" /v debugger /t reg_sz /d \"ntsd -d\" /f\n  cmd.exe /c ftype txtfile=C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe                                                                                                                                                               \n  reg add \"hklm\\software\\microsoft\\windows nt\\currentversion\\Image File Execution Options\\360tray.exe\" /v debugger /t reg_sz /d \"ntsd -d\" /f\n  reg add \"hklm\\software\\microsoft\\windows nt\\currentversion\\Image File Execution Options\\taskmgr.exe\" /v debugger /t reg_sz /d \"ntsd -d\" /f\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - access PEB ldr_data\n  - get process heap force flags\n  - get process heap flags\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - reference absolute stream path on Windows\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - access PEB ldr_data\n  - get process heap force flags\n  - get process heap flags\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Execution::Install Additional Program [B0023]\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n  cmd.exe\n  oleaut32.dll.OleLoadPictureEx\n  advapi32.dll.RegOpenKeyExW\n  kernel32.dll.IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (30):\n  C:\\DllLoader.exe\n  C:\\Program Files\\Common Files\\Microsoft Shared\\MSInfo\\msinfo32.exe\n  C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE15\\CMigrate.exe\n  C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE15\\MSOXMLED.EXE\n  C:\\Program Files\\Common Files\\Microsoft Shared\\OfficeSoftwareProtectionPlatform\\OSPPSVC.EXE\n  C:\\Program Files\\Common Files\\Microsoft Shared\\VSTO\\10.0\\VSTOInstaller.exe\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\ConvertInkStore.exe\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\FlickLearningWizard.exe\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\InkWatson.exe\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\InputPersonalization.exe\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\ShapeCollector.exe\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\TabTip.exe\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\mip.exe\n  C:\\Program Files\\DVD Maker\\DVDMaker.exe\n  C:\\Program Files\\Internet Explorer\\iediagcmd.exe\n  C:\\Program Files\\Internet Explorer\\ieinstal.exe\n  C:\\Program Files\\Internet Explorer\\ielowutil.exe\n  C:\\Program Files\\Internet Explorer\\iexplore.exe\n  C:\\Program Files\\Microsoft Office\\Office15\\MSOHTMED.EXE\n  C:\\Program Files\\Microsoft Office\\Office15\\msoia.exe\n\nPERSISTENCE REGISTRY KEYS (3):\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\360tray.exe\\debugger = ntsd -d\u0000\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\ZhuDongFangYu.exe\\debugger = ntsd -d\u0000\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\taskmgr.exe\\debugger = ntsd -d\u0000\n\nOTHER REGISTRY KEYS SET (5):\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\comfile\\shell\\open\\command\\\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\.txt \\\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\zipfile\\Shell\\Open\\Command\\\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\jpgfile\\Shell\\Open\\Command\\\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\txtfile\\shell\\open\\command\\\n\nMUTEXES CREATED (6):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n\nPROCESSES CREATED (34):\n  C:\\Users\\RA491~1.VUL\\AppData\\Local\\Temp\\b20d0e8dfcca5afb40930a3cd0027490.X \n  C:\\Users\\RA491~1.VUL\\AppData\\Local\\Temp\\hjJi64.exe /Terminate /originalpath C:\\qsrmrlb\\bin\\hjJi.exe\n  C:\\WINDOWS\\system32\\cmd.exe\n  C:\\WINDOWS\\system32\\reg.exe\n  C:\\Windows\\System32\\slui.exe -Embedding\n  C:\\Windows\\System32\\svchost.exe -k WerSvcGroup\n  C:\\Windows\\System32\\wevtutil.exe query-events microsoft-windows-powershell/operational /rd:true /e:root /format:xml /uni:true\n  C:\\Windows\\system32\\AUDIODG.EXE 0x598\n  C:\\Windows\\system32\\schtasks.exe /delete /f /TN Microsoft\\Windows\\Customer Experience Improvement Program\\Uploader\n  C:\\Windows\\system32\\wbem\\wmiprvse.exe -Embedding\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.06\n  .data        entropy=0.0\n  .rsrc        entropy=4.42\n  [overlay]    entropy=5.093461513519287  size=438188\n",
+  "ground_truth": {
+    "hash": "39426e94edcad319d85062f9d30a7fb24c14f34fab01cc75b52f4a32bbd02df0",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8857,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1057",
+        "signature_description": "get process heap force flags"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "reference absolute stream path on Windows",
+      "PEB access",
+      "access PEB ldr_data",
+      "get process heap force flags",
+      "get process heap flags",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\360tray.exe\\debugger",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\ZhuDongFangYu.exe\\debugger",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\taskmgr.exe\\debugger"
+      ],
+      "registry_all_count": 8,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500"
+      ],
+      "processes": [
+        "C:\\Users\\RA491~1.VUL\\AppData\\Local\\Temp\\b20d0e8dfcca5afb40930a3cd0027490.X ",
+        "C:\\Users\\RA491~1.VUL\\AppData\\Local\\Temp\\hjJi64.exe /Terminate /originalpath C:\\qsrmrlb\\bin\\hjJi.exe",
+        "C:\\WINDOWS\\system32\\cmd.exe",
+        "C:\\WINDOWS\\system32\\reg.exe",
+        "C:\\Windows\\System32\\slui.exe -Embedding",
+        "C:\\Windows\\System32\\svchost.exe -k WerSvcGroup",
+        "C:\\Windows\\System32\\wevtutil.exe query-events microsoft-windows-powershell/operational /rd:true /e:root /format:xml /uni:true",
+        "C:\\Windows\\system32\\AUDIODG.EXE 0x598",
+        "C:\\Windows\\system32\\schtasks.exe /delete /f /TN Microsoft\\Windows\\Customer Experience Improvement Program\\Uploader",
+        "C:\\Windows\\system32\\wbem\\wmiprvse.exe -Embedding",
+        "C:\\qsrmrlb\\bin\\byvywJCWQ.exe inject 2832 2836 \\VqSmmOJVPuB.dll",
+        "C:\\qsrmrlb\\bin\\byvywJCWQ.exe inject 3024 3028 \\VqSmmOJVPuB.dll",
+        "C:\\qsrmrlb\\bin\\hjJi.exe /Terminate",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -1109957216595671369515694215780586592099794915-194791771-1282867818-757779141",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -113269636492684459-1149883240676715555-1424707793-978935553214774448-1639019988",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -1321923571177959315-13789533574015447731034538017176591551216040483521151650964",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -1430805511241630670985545097-440632207-5416596157898547639093526751810865665",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -1655928930-730758245119993940-1090783176490326461005571778-4881954841443079737",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -171061874920708180639779466481894204647813709509-223846724-1002423813277575894",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -1867075586326793404-1720202317-200257836666532582312129249781653472377-17096083",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -5596152561018568088-1744046605-1187009077-15613334751578263885857222386360897078",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -777011665-7312406731408286560-1894213747-126852679426973421915184407481621543790",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -837874015-1265451318-1748564432855804515487138758-5702654351548263353719884093",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 1545462528-1338806315-1419946241120260017917421520731005153968-2070328085-1160621721",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 1698042655-1526968391201839266-622190283-528627830272263504-554720348560958028",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 175185547782861293-1440725354-506970450-1042608651859033638-1654105746-447727770",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 1775391757-197896239310525756781794437281160718150445999682111924573469146819",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 1791825124858910194-1028839260164347863450763160435533665119145566232047130827",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 1963202367-1738950198-928507212-837925865-744580339-16927219541919758709-1529978923",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 21188235711358203798-988151746-1478252068152907139416103583012731156571202177861",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 2120507098860564634176274491961645597-713950945147745988-1989877737-535965372",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 242764293169170650736846123242397498-1120462593-35848325511144316-1357205455",
+        "cmd.exe",
+        "wmiadap.exe /F /T /R"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox",
+    "Yomi Hunter"
+  ]
+}

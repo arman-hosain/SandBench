@@ -1,0 +1,120 @@
+{
+  "hash": "406cf9c241e3888330650a351e447e8ba3c3952b58133184ab7b89fba4442089",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (8):\n  - reference the VMWare IO port\n  - link function at runtime on Windows\n  - check OS version\n  - interact with driver via control codes\n  - get disk information\n  - persist via Windows service\n  - get common file path\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - File System::Create File [C0016]\n  - Memory::Allocate Memory [C0007]\n  - reference absolute stream path on Windows\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Create Process [C0017]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Communication::Socket Communication::Create TCP Socket [C0001.011]\n  - contain loop\n  - Anti-Behavioral Analysis::Virtual Machine Detection::Unique Hardware/Firmware Check - I/O Communication Port [B0009.025]\n  - link function at runtime on Windows\n  - get OS version\n  - Discovery::System Information Discovery [E1082]\n  - interact with driver via control codes\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - persist via Windows service\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Writes File [C0052]\n  - Communication::DNS Communication::Resolve [C0011.001]\n  - Communication::Socket Communication::Send Data [C0001.007]\n  - Communication::Socket Communication::Initialize Winsock Library [C0001.009]\n  - Communication::HTTP Communication::Send Request [C0002.003]\n  - send HTTP request with Host header\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: CreateProcessA, GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=2.71\n  UPX1         entropy=5.53\n  UPX2         entropy=2.82\n  .imports     entropy=3.56\n  [overlay]    entropy=7.98484468460083  size=340135\n",
+  "ground_truth": {
+    "hash": "406cf9c241e3888330650a351e447e8ba3c3952b58133184ab7b89fba4442089",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8904,
+    "malicious_count": 65,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 28
+      },
+      {
+        "value": "downloader",
+        "count": 19
+      },
+      {
+        "value": "worm",
+        "count": 3
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "aakr",
+        "count": 7
+      },
+      {
+        "value": "socks",
+        "count": 5
+      },
+      {
+        "value": "bcmp",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.aakr/socks",
+    "av_family_vote": "downloader",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with UPX"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "check OS version"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference the VMWare IO port"
+      },
+      {
+        "id": "T1543",
+        "signature_description": "persist via Windows service"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "create or open file",
+      "allocate memory",
+      "allocate RW memory",
+      "reference absolute stream path on Windows",
+      "create or open registry key",
+      "create process on Windows",
+      "delay execution",
+      "create TCP socket",
+      "contain loop",
+      "reference the VMWare IO port",
+      "link function at runtime on Windows",
+      "get OS version",
+      "check OS version",
+      "interact with driver via control codes",
+      "get disk information",
+      "set registry value",
+      "persist via Windows service",
+      "get common file path",
+      "write file on Windows",
+      "resolve DNS",
+      "send data on socket",
+      "initialize Winsock library",
+      "send HTTP request",
+      "send HTTP request with Host header",
+      "send data",
+      "connect TCP socket",
+      "act as TCP client",
+      "contain an embedded PE file",
+      "packed with UPX",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork"
+  ]
+}

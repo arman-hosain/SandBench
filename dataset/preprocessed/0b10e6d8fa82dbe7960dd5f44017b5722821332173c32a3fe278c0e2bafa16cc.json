@@ -1,0 +1,51 @@
+{
+  "hash": "0b10e6d8fa82dbe7960dd5f44017b5722821332173c32a3fe278c0e2bafa16cc",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - link function at runtime on Windows\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - contain loop\n  - Process::Terminate Process [C0018]\n  - link function at runtime on Windows\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - Execution::Install Additional Program [B0023]\n  - contain a resource (.rsrc) section\n  - (internal) packer file limitation\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualProtect\n\nCOMPILER AND PACKER:\n  [sfx] temporary EXE SFX\n  [Packer] UPX\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Overlay] EXE file\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.91\n  .rsrc        entropy=4.23\n  [overlay]    entropy=5.91230583190918  size=97650\n",
+  "ground_truth": {
+    "hash": "0b10e6d8fa82dbe7960dd5f44017b5722821332173c32a3fe278c0e2bafa16cc",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8028,
+    "malicious_count": 57,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with UPX"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RW memory",
+      "contain loop",
+      "terminate process",
+      "link function at runtime on Windows",
+      "packed with UPX",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

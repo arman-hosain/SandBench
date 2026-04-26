@@ -1,0 +1,91 @@
+{
+  "hash": "23a64a3d81c1c15ecfd5e7971b823820676da5b8293368d532dba7a40a2beda3",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (12):\n  - contain obfuscated stackstrings\n  - get process heap force flags\n  - get process heap flags\n  - encode data using XOR\n  - acquire debug privileges\n  - access PEB ldr_data\n  - get ntdll base address\n  - parse PE header\n  - enumerate gui resources\n  - encode data using Base64\n  - encrypt data using RC4 PRGA\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - get process heap force flags\n  - get process heap flags\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Process::Terminate Thread [C0039]\n  - Process::Create Thread [C0038]\n  - acquire debug privileges\n  - access PEB ldr_data\n  - get ntdll base address\n  - File System::Create File [C0016]\n  - contain loop\n  - parse PE header\n  - Data::Non-Cryptographic Hash::FNV [C0030.005]\n  - Data::Check String [C0019]\n  - File System::Writes File [C0052]\n  - File System::Read File [C0051]\n  - enumerate gui resources\n  - Discovery::Application Window Discovery [E1010]\n  - resolve function by parsing PE exports\n  - Data::Encode Data::Base64 [C0026.001]\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (1):\n  qdsqc20190523-1_MUTEX\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryExW\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.3\n  .rdata       entropy=4.96\n  .data        entropy=4.99\n  .rsrc        entropy=3.69\n",
+  "ground_truth": {
+    "hash": "23a64a3d81c1c15ecfd5e7971b823820676da5b8293368d532dba7a40a2beda3",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7887,
+    "malicious_count": 56,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "enumerate gui resources"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "get process heap force flags"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "acquire debug privileges"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "contain obfuscated stackstrings",
+      "PEB access",
+      "get process heap force flags",
+      "get process heap flags",
+      "delay execution",
+      "encode data using XOR",
+      "terminate thread",
+      "create thread",
+      "acquire debug privileges",
+      "access PEB ldr_data",
+      "get ntdll base address",
+      "create or open file",
+      "contain loop",
+      "parse PE header",
+      "hash data using fnv",
+      "parse credit card information",
+      "write file on Windows",
+      "read file on Windows",
+      "enumerate gui resources",
+      "get graphical window text",
+      "resolve function by parsing PE exports",
+      "encode data using Base64",
+      "hash data with MD5",
+      "hash data using SHA1",
+      "set environment variable",
+      "hash data with CRC32",
+      "compute adler32 checksum",
+      "encrypt data using RC4 PRGA",
+      "linked against CPP JSON library",
+      "contain a resource (.rsrc) section",
+      "linked against CPP regex library",
+      "linked against CPP standard library",
+      "reference Base64 string",
+      "linked against ZLIB"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "qdsqc20190523-1_MUTEX"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

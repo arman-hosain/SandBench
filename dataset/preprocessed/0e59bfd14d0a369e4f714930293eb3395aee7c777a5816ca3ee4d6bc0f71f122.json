@@ -1,0 +1,66 @@
+{
+  "hash": "0e59bfd14d0a369e4f714930293eb3395aee7c777a5816ca3ee4d6bc0f71f122",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - enumerate files on Windows\n  - check if file exists\n  - reference anti-VM strings targeting VirtualBox\n\nCAPA RULE MATCHES (MBC):\n  - access .NET resource\n  - Discovery::File and Directory Discovery [E1083]\n  - Operating System::Console [C0033]\n  - contain loop\n  - compiled to the .NET platform\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - contains PDB path\n  - Data::Compression Library [C0060]\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nMUTEXES OPENED (1):\n  Global\\CLR_CASOFF_MUTEX\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Library] .NET\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': '.NET executable'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.08\n  .rsrc        entropy=1.92\n  .reloc       entropy=0.02\n  [overlay]    entropy=6.654770851135254  size=334534\n",
+  "ground_truth": {
+    "hash": "0e59bfd14d0a369e4f714930293eb3395aee7c777a5816ca3ee4d6bc0f71f122",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.4247,
+    "malicious_count": 31,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 6
+      },
+      {
+        "value": "pua",
+        "count": 3
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "msil",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.msil",
+    "av_family_vote": "ghanarava",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1083",
+        "signature_description": "enumerate files on Windows"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "access .NET resource",
+      "enumerate files on Windows",
+      "check if file exists",
+      "manipulate console buffer",
+      "contain loop",
+      "compiled to the .NET platform",
+      "reference anti-VM strings targeting VirtualBox",
+      "contains PDB path",
+      "linked against ZLIB"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

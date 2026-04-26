@@ -1,0 +1,123 @@
+{
+  "hash": "00d42a390df040e728d2ce42c26e69a1c802381cc3743fd438dd16cad6c9ca37",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits several evasion and suspicious behaviors: it drops files to the Temp directory, uses dynamic linking (GetProcAddress), and triggers CAPA rules for 'Delayed Execution' and 'Process detection' (anti-analysis). The high entropy in the overlay section suggests packed or obfuscated code. However, it lacks definitive malicious actions like network exfiltration, registry persistence, or file encryption, making it suspicious rather than confirmed malicious.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample displays classic Trojan behavior: it is a standalone executable that drops copies of itself to the Temp folder, uses dynamic loading to evade static analysis, and performs system discovery. It does not show specific characteristics of ransomware (encryption), adware (ads), or worms (self-propagation). The 'Trojan' family is the best fit for a malicious payload that relies on user execution and employs evasion techniques.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1036\",\n        \"name\": \"Masquerading\"\n      },\n      {\n        \"id\": \"T1082\",\n        \"name\": \"System Information Discovery\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1596,
+      "response_chars": 1397,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits several evasion and suspicious behaviors: it drops files to the Temp directory, uses dynamic linking (GetProcAddress), and triggers CAPA rules for 'Delayed Execution' and 'Process detection' (anti-analysis). The high entropy in the overlay section suggests packed or obfuscated code. However, it lacks definitive malici",
+      "elapsed_seconds": 11.34
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "1 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 1,
+      "ttps_found": [
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1082"
+      ],
+      "hallucinated_ttps": [
+        "T1027",
+        "T1036",
+        "T1055"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 3
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- link function at runtime on Windows\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by the report.\nDI",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1082"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 1,
+      "best_ttp_fp": 3
+    },
+    {
+      "step": 5,
+      "type": "refinement_stopped",
+      "iteration": 1,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 1,
+      "ttp_fp": 3
+    }
+  ],
+  "total_llm_calls": 2,
+  "total_elapsed": 24.83,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 0.5,
+      "predicted": "SUSPICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9429
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.3333,
+      "ttp_precision": 0.25,
+      "ttp_recall": 0.5,
+      "gt_ttps": [
+        "T1082",
+        "T1129"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1082"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1036",
+        "T1055"
+      ],
+      "q3_missed_ttps": [
+        "T1129"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.3333,
+      "breakdown": {
+        "ttp_f1": 0.3333
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "hash": "1e47c891e42300a5f319d5dae8fdfd4af0e00bd122c1c66b5ce0139bcabcdbf0",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  1e47c891e42300a5_msocache .exe\n    C:\\ProgramData\\jvhrl.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\Users\\<USER>\\Downloads\\1e47c891e42300a5_msocache\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - encode data using XOR\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain pusha popa sequence\n  - contain loop\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (5):\n  C:\\ProgramData\\jvhrl.exe  [sha256: 0bcab92a3f29a0dd...]\n  C:\\ProgramData\\Saaaalamm\\Mira.h  [sha256: cf1b4cd3437057e1...]\n  c:\\$Recycle.Bin .exe  [sha256: 9f474096a648011e...]\n  c:\\dev_man.exe .exe  [sha256: a163f86f0eba2c9a...]\n  c:\\Documents and Settings .exe  [sha256: 0c7437f273f6e896...]\n\nFILES WRITTEN (1):\n  c:\\Mirag\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft\u00ae Windows\u00ae Operating System = C:\\ProgramData\\jvhrl.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n\nPE SECTIONS (entropy):\n  .text        entropy=6.09\n  .data        entropy=0.71\n  .rdata       entropy=5.01\n  .bss         entropy=0.0\n  .idata       entropy=4.29\n  .rsrc        entropy=4.73\n  .NewSec      entropy=0.47\n  [overlay]    entropy=6.6317138671875  size=401080\n",
+  "ground_truth": {
+    "hash": "1e47c891e42300a5f319d5dae8fdfd4af0e00bd122c1c66b5ce0139bcabcdbf0",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9014,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain pusha popa sequence",
+      "contain loop",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft\u00ae Windows\u00ae Operating System"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "C:\\ProgramData\\Saaaalamm\\Mira.h",
+        "C:\\ProgramData\\jvhrl.exe",
+        "c:\\$Recycle.Bin .exe",
+        "c:\\Documents and Settings .exe",
+        "c:\\dev_man.exe .exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

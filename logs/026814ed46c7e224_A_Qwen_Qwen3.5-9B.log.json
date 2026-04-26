@@ -1,0 +1,68 @@
+{
+  "hash": "026814ed46c7e2241c678b33519dc104ebf40c29727bfe13b85eca0ecc0e993f",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior by dropping a large number of files with sexually explicit and pornographic filenames (e.g., 'amateur slut fingering herself...', 'fetish bondage preteen porno.mpg.pif') into the system directory. It also drops known malware tools like 'AIM Flooder.exe' and 'aol password cracker.exe'. The use of obfuscation (UPX packing) and persistence mechanisms further confirms its malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Adware\"],\n    \"explanation\": \"The sample acts as a Trojan by disguising itself as a legitimate executable while deploying unwanted software. It functions as Adware by distributing pornographic content and potentially ad-related tools (like the AIM Flooder). The presence of 'key generators' and 'crackers' also suggests it may be a PUA (Potentially Unwanted Application) or Trojan depending on the specific payload intent, but the primary observable behavior is the distribution of adult content and adware tools.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1565.001\",\n        \"name\": \"Create or Modify File in Executable Locations\"\n      },\n      {\n        \"id\": \"T1546.001\",\n        \"name\": \"Registry Run Keys / Startup Folder\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 4625,
+      "response_chars": 1385,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior by dropping a large number of files with sexually explicit and pornographic filenames (e.g., 'amateur slut fingering herself...', 'fetish bondage preteen porno.mpg.pif') into the system directory. It also drops known malware tools like 'AIM Flooder.exe' and 'aol password cracker.exe'. The use o",
+      "elapsed_seconds": 11.94
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 11.94,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9437
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.5,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1546",
+        "T1565"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1546",
+        "T1565"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5,
+      "breakdown": {
+        "ttp_f1": 0.5
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

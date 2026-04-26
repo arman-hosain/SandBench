@@ -1,0 +1,63 @@
+{
+  "hash": "03f9e6cfa4d73c80cb4669ee17b8e59939f6c8cf9fd35b1323f005be57e92711",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior by dropping a large number of cracked software executables (Winamp, Photoshop, WinRar, etc.) to system directories. It is packed with UPX and identified as Crypto-Lock, indicating obfuscation and potential anti-analysis measures. The presence of dangerous imports like GetProcAddress and VirtualProtect further supports a malicious classification.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The primary behavior observed is the deployment of multiple cracked software versions (Winamp, Photoshop, WinRar, etc.) to the system. This distribution of pirated software via a single executable is the defining characteristic of a Dropper.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 2176,
+      "response_chars": 888,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior by dropping a large number of cracked software executables (Winamp, Photoshop, WinRar, etc.) to system directories. It is packed with UPX and identified as Crypto-Lock, indicating obfuscation and potential anti-analysis measures. The presence of dangerous imports like GetProcAddress and Virtual",
+      "elapsed_seconds": 4.47
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 4.47,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8889
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 1.0,
+      "ttp_precision": 1.0,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 1.0,
+      "breakdown": {
+        "ttp_f1": 1.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

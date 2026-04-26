@@ -1,0 +1,176 @@
+{
+  "hash": "0bf9c5c3558affca4cb28b8fa12adb450710225a6ddf4aaee4526716ba6c3a86",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  C:\\Windows\\divx32.dll.exe\n    C:\\Windows\\system32\\SPOOLER.EXE\n    C:\\Windows\\system32\\apisrv32.exe\n      C:\\Windows\\lsass.exe\n        C:\\Windows\\system32\\SPOOLER.EXE\n          C:\\Windows\\system32\\SPOOLER.EXE\n          C:\\Windows\\system32\\apisrv32.exe\n        C:\\Windows\\system32\\SPOOLER.EXE\n          C:\\Windows\\system32\\SPOOLER.EXE\n          C:\\Windows\\system32\\apisrv32.exe\n            C:\\Windows\\lsass.exe\n        C:\\Windows\\system32\\SPOOLER.EXE\n          C:\\Windows\\system32\\SPOOLER.EXE\n          C:\\Windows\\system32\\apisrv32.exe\n            C:\\Windows\\lsass.exe\n\nCOMMAND EXECUTIONS (6):\n  (open) C:\\WINDOWS\\system32\\apisrv32.exe(null) [(null)]\n  (open) C:\\WINDOWS\\system32\\SPOOLER.EXE(null) [(null)]\n  (open) C:\\WINDOWS\\lsass.exe(null) [(null)]\n  C:\\Windows\\system32\\apisrv32.exe\n  C:\\Windows\\system32\\SPOOLER.EXE\n  C:\\Windows\\lsass.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (27):\n  - encode data using XOR\n  - contain obfuscated stackstrings\n  - hide graphical window\n  - get Program Files directory\n  - accept command line arguments\n  - query or enumerate registry value\n  - link function at runtime on Windows\n  - get geographical location\n  - find graphical window\n  - encrypt data using RC4 PRGA\n  - check if file exists\n  - get disk size\n  - get file version info\n  - query or enumerate registry key\n  - delete registry key\n  - delete registry value\n  - read clipboard data\n  - capture screenshot\n  - link many functions at runtime\n  - open clipboard\n  - log keystrokes via polling\n  - log keystrokes\n  - get keyboard layout\n  - get number of processors\n  - enumerate gui resources\n  - get common file path\n  - persist via Run registry key\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Cryptography::Generate Pseudo-random Sequence [C0021]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - File System::Create File [C0016]\n  - File System::Get File Attributes [C0049]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - hide graphical window\n  - set global application hook\n  - Process::Create Thread [C0038]\n  - inspect load icon resource\n  - get Program Files directory\n  - Process::Create Process [C0017]\n  - contain loop\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - File System::Writes File [C0052]\n  - link function at runtime on Windows\n  - get geographical location\n\n--- ARTIFACTS ---\n\nFILES DROPPED (4):\n  apisrv32.exe  [sha256: ebdcac25eac672d4...]\n  divx32.dll  [sha256: d4e1155910a4b9d9...]\n  SPOOLER.EXE  [sha256: 2b4fcaf0ef22164d...]\n  C:\\Windows\\divx32.dll  [sha256: 2ad906c34bfc1d67...]\n\nFILES WRITTEN (4):\n  C:\\WINDOWS\\system32\\SPOOLER.EXE\n  C:\\WINDOWS\\system32\\apisrv32.exe\n  C:\\Windows\\system32\\SPOOLER.EXE\n  C:\\Windows\\system32\\apisrv32.exe\n\nPERSISTENCE REGISTRY KEYS (4):\n  HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\regedit.exe\\Debugger = 0\n  HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\taskmgr.exe\\Debugger = 0\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\Print Spooler = C:\\Windows\\system32\\SPOOLER.EXE\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\policies\\Explorer\\Run\\LocalSecurityAuthoritySubsystem = C:\\Windows\\lsass.exe\n\nOTHER REGISTRY KEYS SET (8):\n  HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Security_HKLM_only\n  HKLM\\SOFTWARE\\Microsoft\\Internet Explorer\\Security\\DisableSecuritySettingsCheck\n  HKLM\\SOFTWARE\\Microsoft\\Internet Explorer\\New Windows\\PopupMgr\n  HKLM\\SOFTWARE\\Microsoft\\Internet Explorer\\Main\\FeatureControl\\FEATURE_LOCALMACHINE_LOCKDOWN\\iexplore.exe\n  HKCR\\.ade\\PopupMgr\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.EXE\\Print Spooler\n  HKCR\\SystemFileAssociations\\.EXE\\Clsid\\PopupMgr\n  HKLM\\Software\\Classes\\.cmd\\Debugger\n\nMUTEXES CREATED (5):\n  LSS35\n  LSSGUARD35\n  LSSUPD\n  LSSUPD35\n  ShimCacheMutex\n\nMUTEXES OPENED (1):\n  05387337392A134675205F696CECC1696B3E2A69B6E885652347206E6174206D6561722073A5866785\n\nPROCESSES CREATED (3):\n  C:\\WINDOWS\\lsass.exe C:\\WINDOWS\\lsass.exe\" \"\n  C:\\WINDOWS\\system32\\SPOOLER.EXE C:\\WINDOWS\\system32\\SPOOLER.EXE\" \"\n  C:\\WINDOWS\\system32\\apisrv32.exe C:\\WINDOWS\\system32\\apisrv32.exe\" \"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n\nPE SECTIONS (entropy):\n  .text        entropy=6.55\n  .itext       entropy=5.51\n  .data        entropy=3.82\n  .bss         entropy=0.0\n  .idata       entropy=5.03\n  .tls         entropy=0.0\n  .rdata       entropy=0.21\n  .rsrc        entropy=6.98\n  [overlay]    entropy=0.0  size=128706\n",
+  "ground_truth": {
+    "hash": "0bf9c5c3558affca4cb28b8fa12adb450710225a6ddf4aaee4526716ba6c3a86",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.875,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "agent",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk size"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get Program Files directory"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry key"
+      },
+      {
+        "id": "T1113",
+        "signature_description": "capture screenshot"
+      },
+      {
+        "id": "T1115",
+        "signature_description": "read clipboard data"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "persist via Run registry key"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "allocate RW memory",
+      "delay execution",
+      "generate random numbers using the Delphi LCG",
+      "create or open registry key",
+      "create or open file",
+      "get file attributes",
+      "PEB access",
+      "allocate RWX memory",
+      "encode data using XOR",
+      "contain obfuscated stackstrings",
+      "hide graphical window",
+      "set global application hook",
+      "create thread",
+      "inspect load icon resource",
+      "get Program Files directory",
+      "create process on Windows",
+      "contain loop",
+      "accept command line arguments",
+      "query or enumerate registry value",
+      "write file on Windows",
+      "link function at runtime on Windows",
+      "get geographical location",
+      "set thread local storage value",
+      "get thread local storage value",
+      "create mutex",
+      "find graphical window",
+      "encrypt data using RC4 PRGA",
+      "check if file exists",
+      "get disk size",
+      "get OS version",
+      "get file version info",
+      "extract resource via kernel32 functions",
+      "query or enumerate registry key",
+      "delete registry key",
+      "delete registry value",
+      "set registry value",
+      "read clipboard data",
+      "capture screenshot",
+      "link many functions at runtime",
+      "open clipboard",
+      "write clipboard data",
+      "replace clipboard data",
+      "log keystrokes via polling",
+      "log keystrokes",
+      "get keyboard layout",
+      "check for time delay via GetTickCount",
+      "get number of processors",
+      "enumerate gui resources",
+      "set application hook",
+      "get graphical window text",
+      "get common file path",
+      "copy file",
+      "delete file",
+      "persist via Run registry key",
+      "create HTTP request",
+      "connect to URL",
+      "read data from Internet",
+      "receive data",
+      "contain a thread local storage (.tls) section",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "compiled with Borland Delphi",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\regedit.exe\\Debugger",
+        "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\taskmgr.exe\\Debugger",
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\Print Spooler",
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\policies\\Explorer\\Run\\LocalSecurityAuthoritySubsystem"
+      ],
+      "registry_all_count": 12,
+      "files_dropped": [
+        "C:\\Windows\\divx32.dll",
+        "SPOOLER.EXE",
+        "apisrv32.exe",
+        "divx32.dll"
+      ],
+      "mutexes": [
+        "LSS35",
+        "LSSGUARD35",
+        "LSSUPD",
+        "LSSUPD35",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\lsass.exe C:\\WINDOWS\\lsass.exe\" \"",
+        "C:\\WINDOWS\\system32\\SPOOLER.EXE C:\\WINDOWS\\system32\\SPOOLER.EXE\" \"",
+        "C:\\WINDOWS\\system32\\apisrv32.exe C:\\WINDOWS\\system32\\apisrv32.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

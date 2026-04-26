@@ -1,0 +1,50 @@
+{
+  "hash": "0d8ee040eaa1f017e59f2aab44bba8f8468c183e43d51d5bfcccbc3763963b19",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\Documents and Settings\\All Users\\Application Data\\dxerc.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\0d8ee040eaa1f017e59f2aab44bba8f8468c183e43d51d5bfcccbc37639(null) [(null)]\n  C:\\Users\\<USER>\\Downloads\\VC_RED.cab\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - packed with generic packer\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - resolve function by parsing PE exports\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - contain a resource (.rsrc) section\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  dxerc.exe  [sha256: 9d7beb8c009640df...]\n  Mira.h  [sha256: 6104943de8188810...]\n\nFILES WRITTEN (2):\n  C:\\Documents and Settings\\All Users\\Application Data\\Saaaalamm\\Mira.h\n  C:\\Documents and Settings\\All Users\\Application Data\\dxerc.exe\n\nPROCESSES CREATED (1):\n  C:\\Documents and Settings\\All Users\\Application Data\\dxerc.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualProtect\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n  Packers: {'F-PROT': 'UPX_LZMA'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.98\n  .rsrc        entropy=4.72\n  [overlay]    entropy=6.924469470977783  size=197632\n",
+  "ground_truth": {
+    "hash": "0d8ee040eaa1f017e59f2aab44bba8f8468c183e43d51d5bfcccbc3763963b19",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.875,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "agent",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "packed with generic packer",
+      "contain a resource (.rsrc) section",
+      "packed with UPX",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "Mira.h",
+        "dxerc.exe"
+      ],
+      "mutexes": [],
+      "processes": [
+        "C:\\Documents and Settings\\All Users\\Application Data\\dxerc.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

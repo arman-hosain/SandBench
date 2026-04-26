@@ -1,0 +1,219 @@
+{
+  "hash": "035860ebf52b4239358a4e3df848d7ca54e5aa1ee5ab256c87a71ff4f7901a27",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is confirmed malicious. It masquerades as a video file with pornographic names (e.g., 'action sperm masturbation lady .avi.exe') to evade user scrutiny. It establishes persistence via the Run registry key, creates mutexes, enumerates system components (services, processes, network shares), and drops numerous executable files with obfuscated names to various system directories. The use of a linker and dynamic analysis evasion techniques further confirms its malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Dropper\"],\n    \"explanation\": \"The sample acts as a Trojan by masquerading as a benign video file to trick the user into execution. It functions as a Dropper by dropping a large number of additional executable files (likely containing the actual payload or further malware) to various system directories and registry locations. While it performs reconnaissance, it lacks the specific encryption behavior of Ransomware or the primary data-exfiltration focus of Spyware.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1005\",\n        \"name\": \"Data from Local System\"\n      },\n      {\n        \"id\": \"T1045\",\n        \"name\": \"Network Service Discovery\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1036\",\n        \"name\": \"Masquerading\"\n      },\n      {\n        \"id\": \"T1083\",\n        \"name\": \"File and Directory Discovery\"\n      },\n      {\n        \"id\": \"T1006\",\n        \"name\": \"Network Service Discovery\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 5795,
+      "response_chars": 1382,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence via the Run registry key, creation of mutexes, extensive file system enumeration, and dropping numerous executable files with pornographic names to various system directories. The use of obfuscated filenames and the 'Polink' linker suggests an attempt to evade detection wh",
+      "elapsed_seconds": 10.82
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "13 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 13,
+      "ttps_found": [
+        "T1005",
+        "T1027",
+        "T1045",
+        "T1055",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1005",
+        "T1027",
+        "T1045",
+        "T1055"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 4
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- enumerate services\n- enumerate gui resources\n- query or enumerate registry value\n- enumerate processes\n- accept command line arguments\n- get disk information\n- get common file path\n- link function at runtime on Windows\n- enumerate network shares\n- stop ",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1005",
+        "T1006",
+        "T1027",
+        "T1036",
+        "T1045",
+        "T1055",
+        "T1083",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 2,
+      "best_ttp_fp": 6
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "12 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 12,
+      "ttps_found": [
+        "T1005",
+        "T1006",
+        "T1027",
+        "T1036",
+        "T1045",
+        "T1055",
+        "T1083",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1005",
+        "T1006",
+        "T1027",
+        "T1036",
+        "T1045",
+        "T1055"
+      ],
+      "ttp_tp": 2,
+      "ttp_fp": 6
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- enumerate services\n- enumerate gui resources\n- query or enumerate registry value\n- enumerate processes\n- accept command line arguments\n- get disk information\n- link function at runtime on Windows\n- enumerate network shares\n- stop service\n- enumerate pro",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "refinement_rejected",
+      "iteration": 2,
+      "reason": "response not in structured format - keeping previous output",
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is confirmed malicious. It masquerades as a video file with pornographic names (e.g., 'action sperm masturbation lady .avi.exe') "
+    },
+    {
+      "step": 8,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1005",
+        "T1006",
+        "T1027",
+        "T1036",
+        "T1045",
+        "T1055",
+        "T1083",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 2,
+      "best_ttp_fp": 6
+    },
+    {
+      "step": 9,
+      "type": "refinement_stopped",
+      "iteration": 2,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 2,
+      "ttp_fp": 6
+    }
+  ],
+  "total_llm_calls": 3,
+  "total_elapsed": 157.47,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9577
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.1818,
+      "ttp_precision": 0.25,
+      "ttp_recall": 0.1429,
+      "gt_ttps": [
+        "T1007",
+        "T1010",
+        "T1012",
+        "T1057",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1135",
+        "T1489",
+        "T1518",
+        "T1543",
+        "T1547",
+        "T1569"
+      ],
+      "pred_ttps": [
+        "T1005",
+        "T1006",
+        "T1027",
+        "T1036",
+        "T1045",
+        "T1055",
+        "T1083",
+        "T1547"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1005",
+        "T1006",
+        "T1027",
+        "T1036",
+        "T1045",
+        "T1055"
+      ],
+      "q3_missed_ttps": [
+        "T1007",
+        "T1010",
+        "T1012",
+        "T1057",
+        "T1059",
+        "T1082",
+        "T1129",
+        "T1135",
+        "T1489",
+        "T1518",
+        "T1543",
+        "T1569"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.1818,
+      "breakdown": {
+        "ttp_f1": 0.1818
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

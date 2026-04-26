@@ -1,0 +1,224 @@
+{
+  "hash": "2fc71e88ff1ace26e09046e58d6811bb196fc20559a05bdcba3c03467a66974c",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (2):\n  usb.p-e.kr\n  usb.p-e.kr \u2192 58.125.29.142\n\nIP TRAFFIC (2):\n  58.125.29.142:5552 ()\n  58.125.29.142:5552 (TCP)\n\nSERVICES OPENED (2):\n  NapAgent\n  policyagent\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  <PATH_SAMPLE.EXE>\n    %TEMP%\\server.exe\n  %TEMP%\\server.exe\n    %WINDIR%\\syswow64\\netsh.exe\n  <SYSTEM32>\\svchost.exe\n  %WINDIR%\\syswow64\\netsh.exe\n  <SYSTEM32>\\conhost.exe\n  <SYSTEM32>\\wbem\\wmiprvse.exe\n\nCOMMAND EXECUTIONS (4):\n  C:\\DOCUME~1\\Miller\\LOCALS~1\\Temp\\0eAjgQE1sVE2.exe\n  \"C:\\Documents and Settings\\Miller\\Local Settings\\Temp\\Server.exe\"\n  netsh firewall add allowedprogram \"C:\\Documents and Settings\\Miller\\Local Settings\\Temp\\Server.exe\" Server.exe ENABLE\n  netsh firewall add allowedprogram \"C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\Server.exe\" \"Server.exe\" ENABLE\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (20):\n  - get OS version in .NET\n  - query or enumerate registry key\n  - delete registry value\n  - query or enumerate registry value\n  - get common file path\n  - get hostname\n  - get session user name\n  - encode data using Base64\n  - decode data using Base64 in .NET\n  - compress data using GZip in .NET\n  - get disk information\n  - load .NET assembly\n  - delete registry key\n  - check if file exists\n  - download and write a file\n  - capture screenshot\n  - find process by PID\n  - log keystrokes via polling\n  - log keystrokes\n  - get keyboard layout\n\nCAPA RULE MATCHES (MBC):\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - get OS version in .NET\n  - Process::Create Process [C0017]\n  - Process::Suspend Thread [C0055]\n  - Communication::Socket Communication::Create TCP Socket [C0001.011]\n  - Process::Create Thread [C0038]\n  - Operating System::Registry::Query Registry Key [C0036.005]\n  - Operating System::Registry::Delete Registry Value [C0036.007]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - Discovery::File and Directory Discovery [E1083]\n  - Discovery::System Information Discovery [E1082]\n  - get session user name\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::Base64 [C0026.001]\n  - Data::Decode Data::Base64 [C0053.001]\n  - Data::Compress Data [C0024]\n  - unmanaged call\n  - Discovery::Application Window Discovery [E1010]\n  - load .NET assembly\n  - File System::Delete File [C0047]\n  - Operating System::Registry::Delete Registry Key [C0036.002]\n  - Operating System::Environment Variable::Set Variable [C0034.001]\n  - File System::Read File [C0051]\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  %TEMP%\\server.exe  [sha256: 2fc71e88ff1ace26...]\n  %APPDATA%\\microsoft\\windows\\start menu\\programs\\startup\\119b8b43344ef4496df8cfb74ed42ccf.exe  [sha256: 2fc71e88ff1ace26...]\n\nFILES WRITTEN (3):\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\Server.exe\n  C:\\Documents and Settings\\Administrator\\\u300c\u5f00\u59cb\u300d\u83dc\u5355\\\u7a0b\u5e8f\\\u542f\u52a8\\119b8b43344ef4496df8cfb74ed42ccf.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\Server.exe\n\nPERSISTENCE REGISTRY KEYS (16):\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\119b8b43344ef4496df8cfb74ed42ccf = \"%TEMP%\\Server.exe\" ..\n  <HKLM>\\Software\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\\119b8b43344ef4496df8cfb74ed42ccf = \"%TEMP%\\Server.exe\" ..\n  HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\119b8b43344ef4496df8cfb74ed42ccf = \"C:\\Users\\<USER>\\AppData\\Local\\Temp\\Server.exe\" ..\n  HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\119b8b43344ef4496df8cfb74ed42ccf = \"C:\\Users\\<USER>\\AppData\\Local\\Temp\\Server.exe\" ..\n  HKLM\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\SHELL FOLDERS = Common Desktop\n  HKLM\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\SHELL FOLDERS = Common Documents\n  HKLM\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\RUN = 119b8b43344ef4496df8cfb74ed42ccf\n  HKU\\S-1-5-21-1229272821-1563985344-1801674531-1003\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\SHELL FOLDERS = AppData\n  HKU\\S-1-5-21-1229272821-1563985344-1801674531-1003\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\SHELL FOLDERS = Cache\n  HKU\\S-1-5-21-1229272821-1563985344-1801674531-1003\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\SHELL FOLDERS = Cookies\n  HKU\\S-1-5-21-1229272821-1563985344-1801674531-1003\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\SHELL FOLDERS = Desktop\n  HKU\\S-1-5-21-1229272821-1563985344-1801674531-1003\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\SHELL FOLDERS = Personal\n  HKU\\S-1-5-21-1229272821-1563985344-1801674531-1003\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\RUN = 119b8b43344ef4496df8cfb74ed42ccf\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\119b8b43344ef4496df8cfb74ed42ccf = \"C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\Server.exe\" ..\u0000\n  \\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\AuthorizedApplications\\List\\C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\Server.exe = C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\Server.exe:*:Enabled:Server.exe\u0000\n\nOTHER REGISTRY KEYS SET (10):\n  HKEY_CURRENT_USER\\di\n  HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\\\UNCAsIntranet\n  HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\\\AutoDetect\n  HKEY_CURRENT_USER\\Environment\\SEE_MASK_NOZONECHECKS\n  HKU\\S-1-5-21-1229272821-1563985344-1801674531-1003\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\MOUNTPOINTS2\\{D69D\n  HKU\\S-1-5-21-1229272821-1563985344-1801674531-1003\\SOFTWARE\\MICROSOFT\\WINDOWS\\SHELLNOROAM\\MUICACHE\n  HKU\\S-1-5-21-1229272821-1563985344-1801674531-1003\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\INTERNET SETTINGS\\ZONEMAP\n  HKU\\S-1-5-21-1229272821-1563985344-1801674531-1003\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\MOUNTPOINTS2\\{A7A5\n  HKU\\S-1-5-21-1229272821-1563985344-1801674531-1003\n  HKU\\S-1-5-21-1229272821-1563985344-1801674531-1003\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\MOUNTPOINTS2\\{A7A5\n\nMUTEXES CREATED (28):\n  119b8b43344ef4496df8cfb74ed42ccf\n  CTF.Asm.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003\n\nMUTEXES OPENED (4):\n  Global\\CLR_CASOFF_MUTEX\n  Local\\!IETld!Mutex\n  \\Sessions\\1\\BaseNamedObjects\\Global\\BFE_Notify_Event_{5a46429e-b48d-4786-8257-c1f17ae5d2ef}\n  \\Sessions\\1\\BaseNamedObjects\\RasPbFile\n\nPROCESSES CREATED (10):\n  %TEMP%\\server.exe\n  %WINDIR%\\syswow64\\netsh.exe\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\conhost.exe\n  C:\\DOCUME~1\\Miller\\LOCALS~1\\Temp\\0eAjgQE1sVE2.exe\n  C:\\Documents and Settings\\Miller\\Local Settings\\Temp\\Server.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\Server.exe\n  C:\\WINDOWS\\system32\\netsh.exe\n  invoice.exe\n  netsh firewall add allowedprogram C:\\Users\\<USER>\\AppData\\Local\\Temp\\Server.exe Server.exe ENABLE\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] VB.NET\n  [Library] .NET\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': '.NET executable'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.57\n  .rsrc        entropy=4.97\n  .reloc       entropy=0.08\n",
+  "ground_truth": {
+    "hash": "2fc71e88ff1ace26e09046e58d6811bb196fc20559a05bdcba3c03467a66974c",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9167,
+    "malicious_count": 66,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 34
+      },
+      {
+        "value": "dropper",
+        "count": 3
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "bladabindi",
+        "count": 24
+      },
+      {
+        "value": "msil",
+        "count": 20
+      },
+      {
+        "value": "njrat",
+        "count": 3
+      }
+    ],
+    "suggested_label": "trojan.bladabindi/msil",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using Base64"
+      },
+      {
+        "id": "T1033",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "find process by PID"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk information"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "check if file exists"
+      },
+      {
+        "id": "T1087",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1105",
+        "signature_description": "download and write a file"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry value"
+      },
+      {
+        "id": "T1113",
+        "signature_description": "capture screenshot"
+      },
+      {
+        "id": "T1140",
+        "signature_description": "decode data using Base64 in .NET"
+      },
+      {
+        "id": "T1560",
+        "signature_description": "compress data using GZip in .NET"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get keyboard layout"
+      },
+      {
+        "id": "T1620",
+        "signature_description": "load .NET assembly"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open registry key",
+      "get OS version in .NET",
+      "create process on Windows",
+      "suspend thread",
+      "create TCP socket",
+      "create thread",
+      "query or enumerate registry key",
+      "delete registry value",
+      "query or enumerate registry value",
+      "set registry value",
+      "get common file path",
+      "get hostname",
+      "get session user name",
+      "encode data using Base64",
+      "decode data using Base64 in .NET",
+      "compress data using GZip in .NET",
+      "unmanaged call",
+      "get graphical window text",
+      "get disk information",
+      "load .NET assembly",
+      "delete file",
+      "delete registry key",
+      "set environment variable",
+      "read file on Windows",
+      "copy file",
+      "check if file exists",
+      "generate random filename in .NET",
+      "read data from Internet",
+      "receive data",
+      "write file on Windows",
+      "download and write a file",
+      "write and execute a file",
+      "capture screenshot",
+      "receive and write data from server to client",
+      "save image in .NET",
+      "hash data with MD5",
+      "send data on socket",
+      "send data",
+      "act as TCP client",
+      "receive data on socket",
+      "create mutex",
+      "find process by PID",
+      "log keystrokes via polling",
+      "log keystrokes",
+      "get keyboard layout",
+      "compiled to the .NET platform"
+    ],
+    "iocs": {
+      "ips": [
+        "58.125.29.142"
+      ],
+      "domains": [
+        "usb.p-e.kr"
+      ],
+      "urls": [],
+      "registry_persistence": [
+        "<HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\119b8b43344ef4496df8cfb74ed42ccf",
+        "<HKLM>\\Software\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\\119b8b43344ef4496df8cfb74ed42ccf",
+        "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\119b8b43344ef4496df8cfb74ed42ccf",
+        "HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\119b8b43344ef4496df8cfb74ed42ccf",
+        "HKLM\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\SHELL FOLDERS",
+        "HKLM\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\RUN",
+        "HKU\\S-1-5-21-1229272821-1563985344-1801674531-1003\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\SHELL FOLDERS",
+        "HKU\\S-1-5-21-1229272821-1563985344-1801674531-1003\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\RUN",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\119b8b43344ef4496df8cfb74ed42ccf",
+        "\\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\AuthorizedApplications\\List\\C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\Server.exe",
+        "\\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\119b8b43344ef4496df8cfb74ed42ccf"
+      ],
+      "registry_all_count": 47,
+      "files_dropped": [
+        "%APPDATA%\\microsoft\\windows\\start menu\\programs\\startup\\119b8b43344ef4496df8cfb74ed42ccf.exe",
+        "%TEMP%\\server.exe"
+      ],
+      "mutexes": [
+        "119b8b43344ef4496df8cfb74ed42ccf",
+        "CTF.Asm.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003",
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1229272821-1563985344-1801674531-1003MUTEX.DefaultS-1-5-21-1229272821-1563985344-1801674531-1003",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "Global\\.net clr networking",
+        "Global\\3a886eb8-fe40-4d0a-b78b-9e0bcb683fb7",
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "RasPbFile",
+        "SHIMLIB_LOG_MUTEX",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex",
+        "\\Sessions\\1\\BaseNamedObjects\\119b8b43344ef4496df8cfb74ed42ccf",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\.net clr networking",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CorDBIPCSetupSyncEvent_2040",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CorDBIPCSetupSyncEvent_2944"
+      ],
+      "processes": [
+        "%TEMP%\\server.exe",
+        "%WINDIR%\\syswow64\\netsh.exe",
+        "<PATH_SAMPLE.EXE>",
+        "<SYSTEM32>\\conhost.exe",
+        "C:\\DOCUME~1\\Miller\\LOCALS~1\\Temp\\0eAjgQE1sVE2.exe",
+        "C:\\Documents and Settings\\Miller\\Local Settings\\Temp\\Server.exe",
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\Server.exe",
+        "C:\\WINDOWS\\system32\\netsh.exe",
+        "invoice.exe",
+        "netsh firewall add allowedprogram C:\\Users\\<USER>\\AppData\\Local\\Temp\\Server.exe Server.exe ENABLE"
+      ]
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "Dr.Web vxCube",
+    "Lastline",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

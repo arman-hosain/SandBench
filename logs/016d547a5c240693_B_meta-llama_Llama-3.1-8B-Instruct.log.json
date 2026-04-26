@@ -1,0 +1,87 @@
+{
+  "hash": "016d547a5c240693650ce74555c9a8b219e522f0c88db1a33d4860e9d5a3958a",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network behavior, including communication with a suspicious domain (a6281279.yolox.net), and is packed with VMProtect, a known obfuscation technique.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's purpose appears to be to establish a connection to a suspicious domain, suggesting a Trojan-like behavior. The presence of VMProtect and the use of suspicious domains further support this classification.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"File and Directory Discovery\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 3750,
+      "response_chars": 741,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network behavior, including communication with a suspicious domain (a6281279.yolox.net), and is packed with VMProtect, a known obfuscation technique.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's purpose appears to be to establish a connection to a suspicious domain, suggesting a",
+      "elapsed_seconds": 3.51
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": false,
+      "gap_summary": "",
+      "missed_behavior_count": 0,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1218"
+      ],
+      "hallucinated_ttps": [
+        "T1055",
+        "T1218"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 2
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 3.51,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8333
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.5,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1218"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1218"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5,
+      "breakdown": {
+        "ttp_f1": 0.5
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

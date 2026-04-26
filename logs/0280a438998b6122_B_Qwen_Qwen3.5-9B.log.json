@@ -1,0 +1,161 @@
+{
+  "hash": "0280a438998b6122b624af743d30a68e16d97be859626574c920f2d16448d70b",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is malicious. It exhibits multiple indicators of compromise including: execution of legitimate system tools (RegAsm, rundll32, cmd) for malicious purposes, dropping files to the Startup folder and AppData for persistence, modifying Internet Settings registry keys (likely for proxy manipulation or C2), utilizing anti-analysis techniques (UPX packing, IsDebuggerPresent checks), and executing self-deletion commands. The behavior aligns with a dropper or Trojan designed to establish persistence and potentially exfiltrate data or establish a backdoor.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\", \"Trojan\"],\n    \"explanation\": \"The sample fits the 'Dropper' category because it unpacks itself (UPX), drops a secondary payload (AppVScripting.exe) to the Startup folder and AppData, and executes it. It also fits 'Trojan' as it masquerades as a legitimate utility (AppVScripting.exe) while performing malicious actions like persistence installation and network configuration changes. It does not exhibit ransomware encryption, worm-like self-propagation without user interaction, or specific spyware data exfiltration behaviors in this report.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1562.001\",\n        \"name\": \"Clear Windows Event Logs\"\n      },\n      {\n        \"id\": \"T1562.004\",\n        \"name\": \"Clear Windows Event Logs\"\n      },\n      {\n        \"id\": \"T1055.001\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1563.001\",\n        \"name\": \"Set Proxy\"\n      },\n      {\n        \"id\": \"T1059.004\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1053.005\",\n        \"name\": \"Scheduled Task/Job\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 4799,
+      "response_chars": 11882,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including the use of legitimate system tools (RegAsm, rundll32, cmd) to execute and delete itself, dropping files to the Startup folder and AppData to ensure persistence, modifying Internet Settings registry keys (likely for proxy manipulation or C2), and utilizing anti-analysis techniques like",
+      "elapsed_seconds": 108.75
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "1 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 1,
+      "ttps_found": [
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1562",
+        "T1563"
+      ],
+      "hallucinated_ttps": [
+        "T1053",
+        "T1055",
+        "T1562",
+        "T1563"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 4
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- packed with generic packer\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by the report.\nDIRECTION: ",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1562",
+        "T1563"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 2,
+      "best_ttp_fp": 4
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": false,
+      "gap_summary": "",
+      "missed_behavior_count": 0,
+      "ttps_found": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1562",
+        "T1563"
+      ],
+      "hallucinated_ttps": [
+        "T1053",
+        "T1055",
+        "T1562",
+        "T1563"
+      ],
+      "ttp_tp": 2,
+      "ttp_fp": 4
+    }
+  ],
+  "total_llm_calls": 2,
+  "total_elapsed": 119.42,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.7887
+    },
+    "family": {
+      "family_f1": 0.8,
+      "family_precision": 1.0,
+      "family_recall": 0.6667,
+      "predicted": [
+        "dropper",
+        "trojan"
+      ],
+      "matched": [
+        "dropper",
+        "trojan"
+      ],
+      "reachable_gt": [
+        "trojan",
+        "spyware",
+        "dropper"
+      ],
+      "gt_pool": [
+        "autoit",
+        "banker1",
+        "downloader",
+        "gen8",
+        "trojan"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 0.5,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027",
+        "T1059"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1562",
+        "T1563"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1053",
+        "T1055",
+        "T1562",
+        "T1563"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5,
+      "breakdown": {
+        "ttp_f1": 0.5
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

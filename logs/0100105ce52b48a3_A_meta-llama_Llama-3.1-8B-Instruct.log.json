@@ -1,0 +1,66 @@
+{
+  "hash": "0100105ce52b48a3a42fa45539cd29164f4d150684f433c7c59aa467677b6432",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as DNS lookups, opening of suspicious services, and execution of potentially malicious files. Additionally, it drops a large number of files with suspicious names and writes to various system locations, indicating a potential malware infection.\"\n  },\n  \"q2\": {\n    \"family\": [\"Ransomware\", \"Trojan\"],\n    \"explanation\": \"The sample's behavior, including the execution of potentially malicious files, DNS lookups, and the dropping of numerous files with suspicious names, suggests that it may be a ransomware or Trojan malware. The files dropped by the sample appear to be executable files with names that suggest they may be used to spread malware or engage in other malicious activities.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 4844,
+      "response_chars": 964,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as DNS lookups, opening of suspicious services, and execution of potentially malicious files. Additionally, it drops a large number of files with suspicious names and writes to various system locations, indicating a potential malware infection.\"\n  },\n  \"q2\": {\n    \"family\": [\"Ransomware\", \"Troj",
+      "elapsed_seconds": 4.29
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 4.29,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8592
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.6667,
+      "ttp_precision": 0.5,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1218"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1218"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.6667,
+      "breakdown": {
+        "ttp_f1": 0.6667
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

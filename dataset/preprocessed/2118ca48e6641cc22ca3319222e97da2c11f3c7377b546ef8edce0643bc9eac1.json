@@ -1,0 +1,50 @@
+{
+  "hash": "2118ca48e6641cc22ca3319222e97da2c11f3c7377b546ef8edce0643bc9eac1",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  7a13a24c4cead15de9e1289167d64ca7.virus.exe\n    regsvr32.exe /s scrrun.dll\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - packed with generic packer\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Execution::Install Additional Program [B0023]\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - linked against CPP standard library\n  - contain a resource (.rsrc) section\n  - contains PDB path\n  - (internal) packer file limitation\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (2):\n  C:\\10a0699fa37928d39c\\spfirewall.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF9753522EE69E655F.TMP\n\nPERSISTENCE REGISTRY KEYS (2):\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\FileProtector = C:\\10a0699fa37928d39c\\spfirewall.exe\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\RegSCRLib = regsvr32.exe /s scrrun.dll\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'UPX 2.90 [LZMA] -> Markus Oberhumer, Laszlo Molnar & John Reiser', 'F-PROT': 'UPX'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.8\n  .rsrc        entropy=3.19\n  [overlay]    entropy=7.070379257202148  size=2493078\n",
+  "ground_truth": {
+    "hash": "2118ca48e6641cc22ca3319222e97da2c11f3c7377b546ef8edce0643bc9eac1",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9143,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "packed with generic packer",
+      "contain an embedded PE file",
+      "packed with UPX",
+      "linked against CPP standard library",
+      "contain a resource (.rsrc) section",
+      "contains PDB path",
+      "(internal) packer file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\FileProtector",
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\RegSCRLib"
+      ],
+      "registry_all_count": 2,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

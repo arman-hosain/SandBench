@@ -1,0 +1,95 @@
+{
+  "hash": "00c5aeeb5be65428ebab9cfb33cbc3ea944c2054bc22aef5b5b4da7acd984d50",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as checking Internet connectivity, creating UDP and TCP sockets, and accessing the PEB ldr_data, which are indicative of malicious activity.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior of creating sockets, accessing the PEB ldr_data, and checking Internet connectivity suggests that it is a Trojan, which is a type of malware that allows unauthorized access to a computer system.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1047\", \"name\": \"Windows Management Instrumentation (WMI)\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"},\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1071\", \"name\": \"Application Layer Protocol: Web Service\"},\n      {\"id\": \"T1052\", \"name\": \"Scheduled Task/Job\"},\n      {\"id\": \"T1210\", \"name\": \"User Execution\"},\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"},\n      {\"id\": \"T1084\", \"name\": \"Network Service Scanning\"},\n      {\"id\": \"T1059\", \"name\": \"Command and Control: Standard Command and Control Protocol\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 2079,
+      "response_chars": 1213,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as checking Internet connectivity, creating UDP and TCP sockets, and accessing the PEB ldr_data, which are indicative of malicious activity.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior of creating sockets, accessing the PEB ldr_data, and checking Internet",
+      "elapsed_seconds": 5.97
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 5.97,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9167
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.2222,
+      "ttp_precision": 0.2,
+      "ttp_recall": 0.25,
+      "gt_ttps": [
+        "T1012",
+        "T1016",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1547",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1047",
+        "T1052",
+        "T1055",
+        "T1059",
+        "T1071",
+        "T1082",
+        "T1084",
+        "T1210",
+        "T1218"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1047",
+        "T1052",
+        "T1055",
+        "T1071",
+        "T1084",
+        "T1210",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1012",
+        "T1016",
+        "T1083",
+        "T1129",
+        "T1547",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2222,
+      "breakdown": {
+        "ttp_f1": 0.2222
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

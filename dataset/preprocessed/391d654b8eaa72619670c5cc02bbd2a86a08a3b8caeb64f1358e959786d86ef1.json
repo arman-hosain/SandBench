@@ -1,0 +1,82 @@
+{
+  "hash": "391d654b8eaa72619670c5cc02bbd2a86a08a3b8caeb64f1358e959786d86ef1",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  643ede00af28b9bcf473f167243c3df0.virus.exe\n    C:\\Windows\\system32\\Dohbcghc.exe\n      C:\\Windows\\system32\\Dohbcghc.exe\n        C:\\Windows\\system32\\Dohbcghc.exe\n          C:\\Windows\\system32\\Dohbcghc.exe\n            C:\\Windows\\system32\\Dohbcghc.exe\n              C:\\Windows\\system32\\Dohbcghc.exe\n                C:\\Windows\\system32\\Dohbcghc.exe\n                  C:\\Windows\\system32\\Dohbcghc.exe\n                    C:\\Windows\\system32\\Dohbcghc.exe\n                      C:\\Windows\\system32\\Dohbcghc.exe\n                        C:\\Windows\\system32\\Dohbcghc.exe\n                          C:\\Windows\\system32\\Dohbcghc.exe\n                            C:\\Windows\\system32\\Dohbcghc.exe\n                              C:\\Windows\\system32\\Dohbcghc.exe\n\nCOMMAND EXECUTIONS (5):\n  C:\\Windows\\system32\\Kiianj32.exe\n  \\??\\C:\\Windows\\system32\\conhost.exe\n   \n  C:\\Windows\\system32\\schtasks.exe /delete /f /TN \"Microsoft\\Windows\\Customer Experience Improvement Program\\Uploader\"\n  C:\\Windows\\System32\\wsqmcons.exe \n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - encode data using XOR\n  - packed with generic packer\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Execution::Install Additional Program [B0023]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (11):\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows\\History\\History.IE5\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows\\Temporary Internet Files\\Content.IE5\n  C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\Windows\\Cookies\n  C:\\Windows\\System32\\Fqmmkn32.dll\n  C:\\Windows\\System32\\Kiianj32.exe\n  C:\\Windows\\System32\\surf.dat\n  C:\\Windows\\system32\\Dohbcghc.exe\n  C:\\Windows\\system32\\Fqmmkn32.dll\n  C:\\Windows\\system32\\Gjhbol32.dll\n  C:\\Windows\\system32\\Kiianj32.exe\n  C:\\Windows\\system32\\surf.dat\n\nOTHER REGISTRY KEYS SET (10):\n  HKCR\\CLSID\\{79FEACFF-FFCE-815E-A900-316290B5B738}\\InProcServer32\\\n  HKCR\\CLSID\\{79FEACFF-FFCE-815E-A900-316290B5B738}\\InProcServer32\\ThreadingModel\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\ShellServiceObjectDelayLoad\\Web Event Logger\n  HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\GlobalUserOffline\n  HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\0\\1601\n  HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\1\\1601\n  HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\2\\1601\n  HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\3\\1601\n  HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\4\\1601\n  HKEY_USERS\\.DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\BrowseNewProcess\\BrowseNewProcess\n\nMUTEXES CREATED (7):\n  Global\\SQMWindowsConsolidator\n  KingKarton_10\n  Local\\MSCTF.Asm.MutexDefault0\n  Local\\_!MSFTHISTORY!_\n  Local\\c:!users!administrator!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!administrator!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!administrator!appdata!roaming!microsoft!windows!cookies!\n\nPROCESSES CREATED (2):\n  C:\\Windows\\System32\\Kiianj32.exe\n  C:\\Windows\\System32\\schtasks.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: CreateProcessA, GetProcAddress, WinExec\n\nCOMPILER AND PACKER:\n  [Linker] LCC Linker\n  Packers: {'Cyren': 'dropped', 'Varist': 'dropped'}\n\nPE SECTIONS (entropy):\n  .text        entropy=7.07\n  .bss         entropy=0.0\n  .data        entropy=6.11\n  .idata       entropy=5.08\n  .aajaic      entropy=2.27\n  [overlay]    entropy=7.498587131500244  size=2327040\n",
+  "ground_truth": {
+    "hash": "391d654b8eaa72619670c5cc02bbd2a86a08a3b8caeb64f1358e959786d86ef1",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9,
+    "malicious_count": 63,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 32
+      },
+      {
+        "value": "worm",
+        "count": 3
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "qukart",
+        "count": 11
+      },
+      {
+        "value": "berbew",
+        "count": 5
+      },
+      {
+        "value": "padodor",
+        "count": 3
+      }
+    ],
+    "suggested_label": "trojan.qukart/berbew",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain loop",
+      "packed with generic packer",
+      "contain an embedded PE file",
+      "(internal) packer file limitation",
+      "encode data using XOR",
+      "contain loop",
+      "packed with generic packer",
+      "contain an embedded PE file",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 15,
+      "files_dropped": [],
+      "mutexes": [
+        "Global\\SQMWindowsConsolidator",
+        "KingKarton_10",
+        "Local\\MSCTF.Asm.MutexDefault0",
+        "Local\\_!MSFTHISTORY!_",
+        "Local\\c:!users!administrator!appdata!local!microsoft!windows!history!history.ie5!",
+        "Local\\c:!users!administrator!appdata!local!microsoft!windows!temporary internet files!content.ie5!",
+        "Local\\c:!users!administrator!appdata!roaming!microsoft!windows!cookies!"
+      ],
+      "processes": [
+        "C:\\Windows\\System32\\Kiianj32.exe",
+        "C:\\Windows\\System32\\schtasks.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Rising MOVES",
+    "VirusTotal Jujubox"
+  ]
+}

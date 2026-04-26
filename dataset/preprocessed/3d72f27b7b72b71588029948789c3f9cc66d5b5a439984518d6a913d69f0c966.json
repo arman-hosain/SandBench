@@ -1,0 +1,55 @@
+{
+  "hash": "3d72f27b7b72b71588029948789c3f9cc66d5b5a439984518d6a913d69f0c966",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  3d72f27b7b72b715_ljqcem32.exe\n    C:\\Windows\\system32\\Bhekfjhk.exe\n      C:\\Windows\\system32\\Bhekfjhk.exe\n        C:\\Windows\\system32\\Bhekfjhk.exe\n          C:\\Windows\\system32\\Bhekfjhk.exe\n            C:\\Windows\\system32\\Bhekfjhk.exe\n              C:\\Windows\\system32\\Bhekfjhk.exe\n                C:\\Windows\\system32\\Bhekfjhk.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\Windows\\system32\\Nelpoi32.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - encode data using XOR\n  - packed with generic packer\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Execution::Install Additional Program [B0023]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  \\Windows\\System32\\Nelpoi32.exe  [sha256: 26ee4e03e24b00a1...]\n  \\Windows\\System32\\Mfbdmfoj.dll  [sha256: 96a51beb8d65ce05...]\n\nFILES WRITTEN (5):\n  C:\\Windows\\system32\\Bhekfjhk.exe\n  C:\\Windows\\system32\\Mfbdmfoj.dll\n  C:\\Windows\\system32\\Ncopog32.dll\n  C:\\Windows\\system32\\Nelpoi32.exe\n  C:\\Windows\\system32\\dmeanacoimhg\n\nOTHER REGISTRY KEYS SET (10):\n  HKCR\\CLSID\\{79ECA078-17FF-726B-E811-213280E5C831}\\InProcServer32\\\n  HKCR\\CLSID\\{79ECA078-17FF-726B-E811-213280E5C831}\\InProcServer32\\ThreadingModel\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\ShellServiceObjectDelayLoad\\Web Event Logger\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C00490045003400\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C00570069006E0064\n  \\REGISTRY\\USER\\HexStream = 2E00440045004600410055004C0054005C0053004F004600540057004100520045005C004D006900630072006F007\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n\nMUTEXES CREATED (5):\n  ENGEL_12\n  Local\\_!MSFTHISTORY!_\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n\nPROCESSES CREATED (1):\n  Nelpoi32.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: CreateProcessA, GetProcAddress, WinExec\n\nCOMPILER AND PACKER:\n  [Linker] LCC Linker\n  Packers: {'Cyren': 'dropped'}\n\nPE SECTIONS (entropy):\n  .text        entropy=7.21\n  .bss         entropy=0.0\n  .data        entropy=6.06\n  .idata       entropy=4.97\n  .ajelhf      entropy=2.28\n  [overlay]    entropy=7.4318952560424805  size=474992\n",
+  "ground_truth": {
+    "hash": "3d72f27b7b72b71588029948789c3f9cc66d5b5a439984518d6a913d69f0c966",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9167,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain loop",
+      "packed with generic packer",
+      "contain an embedded PE file",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 13,
+      "files_dropped": [
+        "\\Windows\\System32\\Mfbdmfoj.dll",
+        "\\Windows\\System32\\Nelpoi32.exe"
+      ],
+      "mutexes": [
+        "ENGEL_12",
+        "Local\\_!MSFTHISTORY!_",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!",
+        "Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!"
+      ],
+      "processes": [
+        "Nelpoi32.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Jujubox"
+  ]
+}

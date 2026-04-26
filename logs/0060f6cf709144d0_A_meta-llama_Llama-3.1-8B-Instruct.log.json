@@ -1,0 +1,114 @@
+{
+  "hash": "0060f6cf709144d00c12c8b33c1d9aea447513aa0e05f0bb096f7a913f357643",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a range of suspicious behaviors, including encoding data using XOR, hiding graphical windows, and interacting with drivers via control codes. It also drops multiple files and creates mutexes, indicating a potential malware presence.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior suggests it is a Trojan, as it drops multiple files, creates mutexes, and interacts with drivers via control codes, which are common characteristics of Trojan malware.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1106\", \"name\": \"Executed a Process\"},\n      {\"id\": \"T1210\", \"name\": \"Input Capture\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 4051,
+      "response_chars": 888,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a range of suspicious behaviors, including encoding data using XOR, hiding graphical windows, and interacting with drivers via control codes. It also drops multiple files and creates mutexes, indicating a potential malware presence.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior sug",
+      "elapsed_seconds": 4.41
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 4.41,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.7606
+    },
+    "family": {
+      "family_f1": 0.6667,
+      "family_precision": 1.0,
+      "family_recall": 0.5,
+      "predicted": [
+        "trojan"
+      ],
+      "matched": [
+        "trojan"
+      ],
+      "reachable_gt": [
+        "pua",
+        "trojan"
+      ],
+      "gt_pool": [
+        "miner",
+        "pua",
+        "trojan",
+        "xmrig"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 0.1,
+      "ttp_precision": 0.2,
+      "ttp_recall": 0.0667,
+      "gt_ttps": [
+        "T1010",
+        "T1012",
+        "T1027",
+        "T1033",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1134",
+        "T1140",
+        "T1222",
+        "T1497",
+        "T1564",
+        "T1569",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1106",
+        "T1210",
+        "T1218"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1106",
+        "T1210",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1012",
+        "T1033",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1134",
+        "T1140",
+        "T1222",
+        "T1497",
+        "T1564",
+        "T1569",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.1,
+      "breakdown": {
+        "ttp_f1": 0.1
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

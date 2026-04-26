@@ -1,0 +1,129 @@
+{
+  "hash": "1f725794528e90fec01535f12dd1c8bdaf4e8cf8e4ff5b61b3861895d3a64bee",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (21):\n  - encode data using XOR\n  - encrypt data using AES via x86 extensions\n  - encrypt data using RC4 KSA\n  - log keystrokes\n  - get common file path\n  - check if file exists\n  - get local IPv4 addresses\n  - interact with driver via control codes\n  - create new key via CryptAcquireContext\n  - get socket status\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - get socket information\n  - parse PE header\n  - encrypt data using AES\n  - reference AES constants\n  - modify access privileges\n  - get system information on Windows\n  - get hostname\n  - packed with UPX\n  - reference cryptocurrency strings\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - File System::Create File [C0016]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Get File Attributes [C0049]\n  - Process::Create Thread [C0038]\n  - Process::Resume Thread [C0054]\n  - reference absolute stream path on Windows\n  - Memory::Allocate Memory [C0007]\n  - contain loop\n  - Defense Evasion::Obfuscated Files or Information::Encryption-Standard Algorithm [E1027.m05]\n  - Cryptography::Encrypt Data::AES [C0027.001]\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Encryption Key::RC4 KSA [C0028.002]\n  - Communication::Socket Communication::Set Socket Config [C0001.001]\n  - Anti-Behavioral Analysis::Debugger Detection::Timing/Delay Check QueryPerformanceCounter [B0001.033]\n  - Operating System::Console [C0033]\n  - log keystrokes\n  - Discovery::File and Directory Discovery [E1083]\n  - get OS version\n  - get local IPv4 addresses\n  - Communication::Socket Communication::Send Data [C0001.007]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - interact with driver via control codes\n  - File System::Create Directory [C0046]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  ADVAPI32.dll: AdjustTokenPrivileges, OpenProcessToken\n  KERNEL32.DLL: GetProcAddress, LoadLibraryExW, VirtualAlloc, VirtualProtect\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  UPX0         entropy=6.53\n  UPX1         entropy=5.3\n  .rsrc        entropy=5.43\n  .imports     entropy=4.53\n  .reloc       entropy=0.33\n",
+  "ground_truth": {
+    "hash": "1f725794528e90fec01535f12dd1c8bdaf4e8cf8e4ff5b61b3861895d3a64bee",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.6389,
+    "malicious_count": 46,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "miner",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1016",
+        "signature_description": "get local IPv4 addresses"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get system information on Windows"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "modify access privileges"
+      },
+      {
+        "id": "T1496",
+        "signature_description": "reference cryptocurrency strings"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "create or open file",
+      "delay execution",
+      "get file attributes",
+      "create thread",
+      "resume thread",
+      "reference absolute stream path on Windows",
+      "allocate memory",
+      "allocate RW memory",
+      "allocate RWX memory",
+      "contain loop",
+      "encrypt data using AES via x86 extensions",
+      "encrypt data using RC4 KSA",
+      "set socket configuration",
+      "check for time delay via QueryPerformanceCounter",
+      "manipulate console buffer",
+      "log keystrokes",
+      "get common file path",
+      "check if file exists",
+      "get OS version",
+      "get local IPv4 addresses",
+      "send data on socket",
+      "send data",
+      "interact with driver via control codes",
+      "create directory",
+      "create new key via CryptAcquireContext",
+      "generate random numbers via WinAPI",
+      "delete directory",
+      "read file on Windows",
+      "copy file",
+      "move file",
+      "write file on Windows",
+      "allocate thread local storage",
+      "set thread local storage value",
+      "resolve DNS",
+      "receive data on socket",
+      "receive data",
+      "create pipe",
+      "connect pipe",
+      "get socket status",
+      "initialize Winsock library",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "send HTTP request",
+      "get socket information",
+      "check HTTP status code",
+      "check for software breakpoints",
+      "parse PE header",
+      "encrypt data using AES",
+      "reference AES constants",
+      "manipulate user privileges",
+      "modify access privileges",
+      "get system information on Windows",
+      "enumerate PE sections",
+      "get hostname",
+      "contain a resource (.rsrc) section",
+      "packed with UPX",
+      "linked against CPP standard library",
+      "reference cryptocurrency strings",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

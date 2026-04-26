@@ -1,0 +1,83 @@
+{
+  "hash": "03d327a16787f0f57ee860bdfdb69de75874d49fa09e5e95ab5d7b29820054c2",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The presence of obfuscated stackstrings, argument obfuscation, and executable code obfuscation, combined with the use of a packer (DxPack) and a decompression technique, suggests a malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The use of a packer (DxPack) and a decompression technique (Data::Decompress Data) suggests a Trojan-like behavior, which is often used for hiding malicious code.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 683,
+      "response_chars": 642,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The presence of obfuscated stackstrings, argument obfuscation, and executable code obfuscation, combined with the use of a packer (DxPack) and a decompression technique, suggests a malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The use of a packer (DxPack) and a decompression technique (Data::Decompress Da",
+      "elapsed_seconds": 3.28
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": false,
+      "gap_summary": "",
+      "missed_behavior_count": 0,
+      "ttps_found": [
+        "T1027",
+        "T1055"
+      ],
+      "hallucinated_ttps": [
+        "T1055"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 1
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 3.28,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8841
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.6667,
+      "ttp_precision": 0.5,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.6667,
+      "breakdown": {
+        "ttp_f1": 0.6667
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

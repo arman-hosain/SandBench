@@ -1,0 +1,73 @@
+{
+  "hash": "1e51103823c82c3a96ee14fd68474362e7e65f4665b43b42dd3f3f4877489ca8",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://globalbmis.com/acp/users/Targ-1405USmp.enc  UA: Updates downloader\n\nDNS LOOKUPS (1):\n  globalbmis.com \u2192 204.11.56.48\n\nIP TRAFFIC (1):\n  204.11.56.48:80 (TCP)\n\nSERVICES OPENED (2):\n  AudioSrv\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  budha.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - access PEB ldr_data\n  - parse PE header\n  - packed with UPX\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - access PEB ldr_data\n  - contain loop\n  - resolve function by parsing PE exports\n  - parse PE header\n  - Anti-Behavioral Analysis::Debugger Detection::Anti-debugging Instructions [B0001.034]\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  budha.exe  [sha256: a714b5456907625c...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe  [sha256: 2ba1e1839dcb1607...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe\n\nMUTEXES CREATED (2):\n  Local\\MidiMapper_modLongMessage_RefCnt\n  RasPbFile\n\nMUTEXES OPENED (2):\n  MidiMapper_Configure\n  MidiMapper_modLongMessage_RefCnt\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe\" \"\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] FASM\n\nPE SECTIONS (entropy):\n  UPX0         entropy=4.9\n  UPX1         entropy=7.52\n  .rsrc        entropy=5.01\n  .imports     entropy=2.77\n  [overlay]    entropy=3.4516756534576416  size=24550\n",
+  "ground_truth": {
+    "hash": "1e51103823c82c3a96ee14fd68474362e7e65f4665b43b42dd3f3f4877489ca8",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8732,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "agent",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with UPX"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "PEB access",
+      "access PEB ldr_data",
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "parse PE header",
+      "execute anti-debugging instructions",
+      "packed with UPX",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [
+        "204.11.56.48"
+      ],
+      "domains": [
+        "globalbmis.com"
+      ],
+      "urls": [
+        "http://globalbmis.com/acp/users/Targ-1405USmp.enc"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe",
+        "budha.exe"
+      ],
+      "mutexes": [
+        "Local\\MidiMapper_modLongMessage_RefCnt",
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "hash": "016a1ddd6b8383ba259f9bd775e85d66a5b2e8ce63a290540976e2684aa04e6f",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits multiple anti-analysis behaviors including PEB access, debugger detection, and heap flag manipulation. It is compiled in Visual Basic and triggers the 'Install Additional Program' rule, suggesting it attempts to drop or execute secondary payloads. However, the report lacks definitive evidence of malicious activity such as network exfiltration, file encryption, registry persistence, or execution of a clear payload, leading to a suspicious verdict.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Dropper\"],\n    \"explanation\": \"The sample is a Visual Basic executable that triggers 'Install Additional Program' and performs anti-debugging techniques, which is characteristic of a Trojan or Dropper designed to deploy further malware. The lack of confirmed payload execution in the report prevents a definitive classification as Ransomware or Backdoor, but the behavior aligns with initial access or delivery mechanisms.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1057\",\n        \"name\": \"Create or Modify System Process\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1273,
+      "response_chars": 1279,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits multiple anti-analysis behaviors including PEB access, debugger detection, and heap flag manipulation. It is compiled in Visual Basic and triggers the 'Install Additional Program' rule, suggesting it attempts to drop or execute secondary payloads. However, the report lacks definitive evidence of malicious activity suc",
+      "elapsed_seconds": 6.0
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 6.0,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 0.5,
+      "predicted": "SUSPICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9143
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.5,
+      "ttp_precision": 0.5,
+      "ttp_recall": 0.5,
+      "gt_ttps": [
+        "T1057",
+        "T1129"
+      ],
+      "pred_ttps": [
+        "T1055",
+        "T1057"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055"
+      ],
+      "q3_missed_ttps": [
+        "T1129"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5,
+      "breakdown": {
+        "ttp_f1": 0.5
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

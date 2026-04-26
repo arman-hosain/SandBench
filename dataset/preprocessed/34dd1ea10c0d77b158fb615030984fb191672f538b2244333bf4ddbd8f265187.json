@@ -1,0 +1,61 @@
+{
+  "hash": "34dd1ea10c0d77b158fb615030984fb191672f538b2244333bf4ddbd8f265187",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (4):\n  GET http://twitter.com/pidoras6  UA: Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14\n  POST http://www.virustotal.com/vtapi/v2/file/scan  UA: Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14\n  POST http://www.virustotal.com/vtapi/v2/file/scan\n  GET http://twitter.com/pidoras6\n\nDNS LOOKUPS (6):\n  ghs-svc-https-c46.ghs-ssl.googlehosted.com \u2192 74.125.34.46\n  twitter.com\n  twitter.com \u2192 104.244.42.193, 104.244.42.65\n  twitter.com \u2192 104.244.42.65\n  www.virustotal.com\n  www.virustotal.com \u2192 74.125.34.46\n\nIP TRAFFIC (6):\n  104.244.42.129:443 (TCP)\n  104.244.42.129:80 (TCP)\n  104.244.42.193:443 (TCP)\n  104.244.42.193:80 (TCP)\n  74.125.34.46:80 (TCP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - packed with VMProtect\n  - reference anti-VM strings targeting Xen\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - resolve function by parsing PE exports\n  - Anti-Static Analysis::Software Packing::VMProtect [F0001.010]\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - (internal) packer file limitation\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Packer] EP:MPRESS\n  [Packer] MPRESS\n  [Protector] VMProtect\n\nPE SECTIONS (entropy):\n  .vmp0        entropy=8.0\n  .vmp0        entropy=5.73\n",
+  "ground_truth": {
+    "hash": "34dd1ea10c0d77b158fb615030984fb191672f538b2244333bf4ddbd8f265187",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9167,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with VMProtect"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting Xen"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "packed with VMProtect",
+      "reference anti-VM strings targeting Xen",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [
+        "104.244.42.129",
+        "104.244.42.193",
+        "74.125.34.46",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "ghs-svc-https-c46.ghs-ssl.googlehosted.com",
+        "twitter.com",
+        "www.virustotal.com"
+      ],
+      "urls": [
+        "http://twitter.com/pidoras6",
+        "http://www.virustotal.com/vtapi/v2/file/scan"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

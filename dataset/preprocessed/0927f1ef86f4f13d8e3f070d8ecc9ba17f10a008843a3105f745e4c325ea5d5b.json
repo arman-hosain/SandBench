@@ -1,0 +1,76 @@
+{
+  "hash": "0927f1ef86f4f13d8e3f070d8ecc9ba17f10a008843a3105f745e4c325ea5d5b",
+  "report_text": "--- EXECUTION CHAIN ---\n\nCOMMAND EXECUTIONS (2):\n  ( 3680 - cmd.exe ) c:\\windows\\system32\\cmd.exe /c \"c:\\users\\user41~1\\appdata\\local\\temp\\qbsidkw.exe\"\n  ( 3636 - qbsidkw.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\qbsidkw.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - encode data using Base64 via WinAPI\n  - link function at runtime on Windows\n\nCAPA RULE MATCHES (MBC):\n  - encode data using Base64 via WinAPI\n  - Memory::Allocate Memory [C0007]\n  - contain loop\n  - link function at runtime on Windows\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  ctvqzym.exe  [sha256: a23d8662d048e98b...]\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: 4759845b7fe61154...]\n  c:\\progra~3\\mozilla\\jctrxem.exe  [sha256: 6bb18072035ecf0d...]\n\nFILES WRITTEN (3):\n  ( 3636 - qbsidkw.exe ) c:\\progra~3\\mozilla\\jctrxem.exe\n  C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\ctvqzym.exe\n  C:\\WINDOWS\\Tasks\\hiqvsnd.job\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n\nPE SECTIONS (entropy):\n  .text        entropy=6.08\n  .data        entropy=6.51\n  .bss         entropy=0.0\n  .edata       entropy=0.55\n  .idata       entropy=4.27\n  .rsrc        entropy=3.48\n  [overlay]    entropy=7.8846211433410645  size=1512\n",
+  "ground_truth": {
+    "hash": "0927f1ef86f4f13d8e3f070d8ecc9ba17f10a008843a3105f745e4c325ea5d5b",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9167,
+    "malicious_count": 66,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 30
+      },
+      {
+        "value": "dropper",
+        "count": 3
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "gepys",
+        "count": 9
+      },
+      {
+        "value": "barys",
+        "count": 7
+      },
+      {
+        "value": "shipup",
+        "count": 4
+      }
+    ],
+    "suggested_label": "trojan.gepys/barys",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using Base64 via WinAPI"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using Base64 via WinAPI",
+      "allocate memory",
+      "allocate RWX memory",
+      "contain loop",
+      "link function at runtime on Windows",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "c:\\progra~3\\mozilla\\jctrxem.exe",
+        "ctvqzym.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "ReaQta-Hive",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

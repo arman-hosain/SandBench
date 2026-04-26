@@ -1,0 +1,131 @@
+{
+  "hash": "3c907c65c454ab6905415efe4559e5e9d591d6e960eb61b3296790e9548aeb95",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  3c907c65c454ab69_tmp_xg9dg .exe\n    C:\\ProgramData\\eymwr.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\3c907c65c454ab6905415efe4559e5e9d591d6e960eb61b3296790e9548(null) [(null)]\n  C:\\Users\\<USER>\\Downloads\\3c907c65c454ab69_tmp_xg9dg\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (5):\n  - contain obfuscated stackstrings\n  - get startup folder\n  - set file attributes\n  - get common file path\n  - accept command line arguments\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - get startup folder\n  - Process::Create Process [C0017]\n  - File System::Set File Attributes [C0050]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Delete File [C0047]\n  - File System::Create Directory [C0046]\n  - Process::Allocate Thread Local Storage [C0040]\n  - get thread local storage value\n  - Process::Set Thread Local Storage Value [C0041]\n  - File System::Read File [C0051]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - resolve function by parsing PE exports\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (30):\n  AUTOEXEC.BAT .exe  [sha256: 434b92441c846b3f...]\n  boot.ini .exe  [sha256: 57968ae34b929eeb...]\n  CONFIG.SYS .exe  [sha256: 4154fa9b56a82ed9...]\n  cuckoo .exe  [sha256: 462575bf4815e1e0...]\n  Documents and Settings .exe  [sha256: ac7cb4ccc6d97e2e...]\n  eula.1028.txt .exe  [sha256: 503045fe46a0720f...]\n  eula.1031.txt .exe  [sha256: 7d6d445cf1a7216a...]\n  eula.1033.txt .exe  [sha256: ddea792d9efc0328...]\n  eula.1036.txt .exe  [sha256: df33250e1b87dc74...]\n  eula.1040.txt .exe  [sha256: de54e73b6ee47d28...]\n  eula.1041.txt .exe  [sha256: 9189d9a0bc367b57...]\n  eula.1042.txt .exe  [sha256: f5a9b06e5b99cd5c...]\n  eula.2052.txt .exe  [sha256: 6790e5dcf5f175f0...]\n  eula.3082.txt .exe  [sha256: 479005f0edaf2727...]\n  globdata.ini .exe  [sha256: 5b8574acd9b1146c...]\n  install.exe .exe  [sha256: 2462f9b34331725d...]\n  install.ini .exe  [sha256: dca7cd6accc1a8c2...]\n  install.res.1028.dll .exe  [sha256: c8342829e7e9d350...]\n  install.res.1031.dll .exe  [sha256: 7db6dc43d2258f32...]\n  install.res.1033.dll .exe  [sha256: d9ac036fcc964238...]\n\nFILES WRITTEN (30):\n  C:\\Documents and Settings\\All Users\\Application Data\\orwcqb.exe\n  C:\\ProgramData\\Saaaalamm\\Mira.h\n  C:\\ProgramData\\eymwr.exe\n  c:\\$Recycle.Bin .exe\n  c:\\AUTOEXEC.BAT .exe\n  c:\\Documents and Settings .exe\n  c:\\Mirah\n  c:\\PerfLogs .exe\n  c:\\Program Files (x86) .exe\n  c:\\Program Files .exe\n  c:\\ProgramData .exe\n  c:\\Recovery .exe\n  c:\\System Volume Information .exe\n  c:\\Users .exe\n  c:\\Windows .exe\n  c:\\dev_man.exe .exe\n  c:\\l.bat .exe\n  c:\\pagefile.sys .exe\n  c:\\r.py .exe\n  c:\\r.pyw .exe\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft\u00ae Windows\u00ae Operating System = C:\\ProgramData\\eymwr.exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  C:\\Documents and Settings\\All Users\\Application Data\\orwcqb.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCOMPILER AND PACKER:\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n  Packers: {'PEiD': 'MingWin32 v?.? (h)'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.08\n  .data        entropy=1.22\n  .rdata       entropy=5.01\n  .bss         entropy=0.0\n  .idata       entropy=4.29\n  .rsrc        entropy=7.04\n  .NewSec      entropy=7.02\n  [overlay]    entropy=6.827246189117432  size=310688\n",
+  "ground_truth": {
+    "hash": "3c907c65c454ab6905415efe4559e5e9d591d6e960eb61b3296790e9548aeb95",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8636,
+    "malicious_count": 57,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "get startup folder"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "get startup folder",
+      "create process on Windows",
+      "set file attributes",
+      "delay execution",
+      "create or open file",
+      "contain loop",
+      "get common file path",
+      "delete file",
+      "create directory",
+      "allocate thread local storage",
+      "get thread local storage value",
+      "set thread local storage value",
+      "read file on Windows",
+      "accept command line arguments",
+      "resolve function by parsing PE exports",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft\u00ae Windows\u00ae Operating System"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "AUTOEXEC.BAT .exe",
+        "C:\\ProgramData\\Saaaalamm\\Mira.h",
+        "C:\\ProgramData\\eymwr.exe",
+        "CONFIG.SYS .exe",
+        "Documents and Settings .exe",
+        "IO.SYS .exe",
+        "MSDOS.SYS .exe",
+        "Mira.h",
+        "NTDETECT.COM .exe",
+        "Program Files .exe",
+        "boot.ini .exe",
+        "c:\\$Recycle.Bin .exe",
+        "c:\\Documents and Settings .exe",
+        "c:\\PerfLogs .exe",
+        "c:\\Program Files (x86) .exe",
+        "c:\\Program Files .exe",
+        "c:\\ProgramData .exe",
+        "c:\\Recovery .exe",
+        "c:\\System Volume Information .exe",
+        "c:\\Users .exe",
+        "c:\\Windows .exe",
+        "c:\\dev_man.exe .exe",
+        "c:\\l.bat .exe",
+        "c:\\pagefile.sys .exe",
+        "c:\\r.py .exe",
+        "c:\\r.pyw .exe",
+        "c:\\sdel.exe .exe",
+        "cuckoo .exe",
+        "eula.1028.txt .exe",
+        "eula.1031.txt .exe",
+        "eula.1033.txt .exe",
+        "eula.1036.txt .exe",
+        "eula.1040.txt .exe",
+        "eula.1041.txt .exe",
+        "eula.1042.txt .exe",
+        "eula.2052.txt .exe",
+        "eula.3082.txt .exe",
+        "globdata.ini .exe",
+        "install.exe .exe",
+        "install.ini .exe",
+        "install.res.1028.dll .exe",
+        "install.res.1031.dll .exe",
+        "install.res.1033.dll .exe",
+        "install.res.1036.dll .exe",
+        "install.res.1040.dll .exe",
+        "install.res.1041.dll .exe",
+        "install.res.1042.dll .exe",
+        "install.res.2052.dll .exe",
+        "install.res.3082.dll .exe",
+        "ntldr .exe",
+        "orwcqb.exe",
+        "pagefile.sys .exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\All Users\\Application Data\\orwcqb.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

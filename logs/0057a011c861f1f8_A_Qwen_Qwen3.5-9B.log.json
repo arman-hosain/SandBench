@@ -1,0 +1,68 @@
+{
+  "hash": "0057a011c861f1f837875122760c72fb7ba2be1d9e32a2d9ea7505f142b0bd36",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of malicious intent: it uses a custom compiler (LCC-Win32) and a packer (Microsoft Visual C++ 3.0), employs Base64 encoding via WinAPI to obfuscate data, allocates memory dynamically, and drops files to suspicious locations (e.g., inside a fake Mozilla directory and a Windows Task Scheduler job). The presence of dangerous imports like GetProcAddress and VirtualProtect further suggests obfuscation or runtime code manipulation.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\", \"Trojan\"],\n    \"explanation\": \"The behavior of dropping additional executables (ctvqzym.exe, zhsrrgd.exe) and creating scheduled tasks (hiqvsnd.job) is characteristic of a Dropper, which installs other malware. Given the obfuscation techniques and the nature of the dropped files, it likely functions as a Trojan to deliver payloads.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1546.000\",\n        \"name\": \"Scheduled Task/Job\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1015,
+      "response_chars": 1210,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of malicious intent: it uses a custom compiler (LCC-Win32) and a packer (Microsoft Visual C++ 3.0), employs Base64 encoding via WinAPI to obfuscate data, allocates memory dynamically, and drops files to suspicious locations (e.g., inside a fake Mozilla directory and a Windows Task Scheduler job). T",
+      "elapsed_seconds": 10.91
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 10.91,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 0.5,
+      "predicted": "SUSPICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8732
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.5,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1059",
+        "T1546"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1059",
+        "T1546"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5,
+      "breakdown": {
+        "ttp_f1": 0.5
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

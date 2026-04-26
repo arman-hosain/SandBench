@@ -1,0 +1,52 @@
+{
+  "hash": "103cb7ad50ffa163e4e3b92ddadb6d9cfdb5d156b467d8e66df1b88844af02c0",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ff3e83e04516bc00ae22e73c4920034f.virus.exe\n    cmd.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - access PEB ldr_data\n  - get process heap force flags\n  - get process heap flags\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - reference absolute stream path on Windows\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - access PEB ldr_data\n  - get process heap force flags\n  - get process heap flags\n  - contain loop\n  - contain a resource (.rsrc) section\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF23FDC82475A55F9E.TMP\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  [Overlay] PDB 2.0 file link\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.06\n  .data        entropy=0.0\n  .rsrc        entropy=4.42\n  [overlay]    entropy=4.385562419891357  size=1735\n",
+  "ground_truth": {
+    "hash": "103cb7ad50ffa163e4e3b92ddadb6d9cfdb5d156b467d8e66df1b88844af02c0",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8873,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1057",
+        "signature_description": "get process heap force flags"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "reference absolute stream path on Windows",
+      "PEB access",
+      "access PEB ldr_data",
+      "get process heap force flags",
+      "get process heap flags",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

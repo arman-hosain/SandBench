@@ -1,0 +1,89 @@
+{
+  "hash": "234bd14305e6926b95d2765f3be444914ad29ab00a8a73116ecf1fb5033a0e58",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  GET http://loader.xcheats.cf/check/hwid.php\n  GET http://loader.xcheats.cf/check/usercheck.php\n\nDNS LOOKUPS (8):\n  cds.j3z9t3p6.hwcdn.net \u2192 209.197.3.15\n  cfxcheats.com \u2192 3.124.11.174\n  discordapp.com \u2192 162.159.134.233, 162.159.129.233\n  forum.cfxcheats.com \u2192 3.124.11.174\n  kit.fontawesome.com \u2192 151.139.128.10\n  loader.xcheats.cf \u2192 3.124.11.174\n  m9r4n8i4.stackpathcdn.com \u2192 151.139.128.10\n  maxcdn.bootstrapcdn.com \u2192 209.197.3.15\n\nIP TRAFFIC (5):\n  151.139.128.10:443 (TCP)\n  162.159.134.233:443 (TCP)\n  209.197.3.15:443 (TCP)\n  3.124.11.174:443 (TCP)\n  3.124.11.174:80 (TCP)\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - write process memory\n  - link function at runtime on Windows\n  - inject thread\n  - decode data using Base64 in .NET\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - Process::Open Process [C0065]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Thread [C0038]\n  - write process memory\n  - link function at runtime on Windows\n  - inject thread\n  - unmanaged call\n  - access .NET resource\n  - Data::Decode Data::Base64 [C0053.001]\n  - generate method via reflection in .NET\n  - compiled to the .NET platform\n  - contains PDB path\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (6):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Linker] Microsoft Linker\n  [Compiler] VB.NET\n  [Compiler] VB.NET\n  [Library] .NET\n  [Library] .NET\n  [Protector] Crypto Obfuscator For .Net\n  Packers: {'PEiD': '.NET executable'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.7\n  .reloc       entropy=0.1\n  .rsrc        entropy=2.85\n",
+  "ground_truth": {
+    "hash": "234bd14305e6926b95d2765f3be444914ad29ab00a8a73116ecf1fb5033a0e58",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.5294,
+    "malicious_count": 36,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "generic",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1055",
+        "signature_description": "write process memory"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1140",
+        "signature_description": "decode data using Base64 in .NET"
+      },
+      {
+        "id": "T1620",
+        "signature_description": "inject thread"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "open process",
+      "delay execution",
+      "create thread",
+      "allocate RW memory",
+      "write process memory",
+      "link function at runtime on Windows",
+      "inject thread",
+      "unmanaged call",
+      "access .NET resource",
+      "decode data using Base64 in .NET",
+      "generate method via reflection in .NET",
+      "compiled to the .NET platform",
+      "contains PDB path"
+    ],
+    "iocs": {
+      "ips": [
+        "151.139.128.10",
+        "162.159.134.233",
+        "209.197.3.15",
+        "3.124.11.174"
+      ],
+      "domains": [
+        "cds.j3z9t3p6.hwcdn.net",
+        "cfxcheats.com",
+        "discordapp.com",
+        "forum.cfxcheats.com",
+        "kit.fontawesome.com",
+        "loader.xcheats.cf",
+        "m9r4n8i4.stackpathcdn.com",
+        "maxcdn.bootstrapcdn.com"
+      ],
+      "urls": [
+        "http://loader.xcheats.cf/check/hwid.php",
+        "http://loader.xcheats.cf/check/usercheck.php"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

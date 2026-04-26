@@ -1,0 +1,138 @@
+{
+  "hash": "4052024395f5286cecd8d6b20dce1edbf701249fbef6b830d1fa85e3bcee765c",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (62):\n  GET http://icanhazip.com/  UA: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/538.36 (KHTML, like Gecko) Chrome/43.0.2457.82 Safari/538.36\n  GET http://icanhazip.com/\n  GET http:///212/analyst0-2d1671/41/4/0/\n  GET https://75.137.112.81/img2212.png\n  GET http:///212/analyst0-2d1671/41/4/9/\n  GET https://69.163.81.211/img2212.png\n  GET http:///212/analyst0-2d1671/41/4/1/\n  GET https://216.254.231.11/img2212.png\n  GET https://24.33.131.116/img2212.png\n  GET https://68.119.5.32/img2212.png\n  GET https://72.230.82.80/img2212.png\n  GET https://208.123.130.173/img2212.png\n  GET https://178.214.221.89/img2212.png\n  GET https://173.248.22.227/img2212.png\n  GET https://173.248.31.1/img2212.png\n\nDNS LOOKUPS (3):\n  icanhazip.com\n  icanhazip.com \u2192 104.20.16.242\n  icanhazip.com \u2192 104.20.16.242, 104.20.17.242\n\nIP TRAFFIC (2):\n  104.20.16.242:80 (TCP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (2):\n  RASMAN\n  Sens\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  vusjeson.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\vusjeson.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - hide graphical window\n  - accept command line arguments\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - hide graphical window\n  - contain loop\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Process::Terminate Process [C0018]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  vusjeson.exe  [sha256: 7dd912c3bc79854a...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\vusjeson.exe  [sha256: 5ee45eefefbf2b34...]\n\nFILES WRITTEN (4):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\vusjeson.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\vusjeson.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows\\Temporary Internet Files\\Content.IE5\\XBL73YY1\\icanhazip_com[1].txt\n  C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\Windows\\Cookies\\admin@icanhazip[1].txt\n\nOTHER REGISTRY KEYS SET (4):\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n\nMUTEXES CREATED (11):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  IESQMMUTEX_0_208\n  RasPbFile\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n\nMUTEXES OPENED (7):\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n  _!MSFTHISTORY!_\n  c:!documents and settings!administrator!cookies!\n  c:!documents and settings!administrator!local settings!history!history.ie5!\n  c:!documents and settings!administrator!local settings!temporary internet files!content.ie5!\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\vusjeson.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: WriteProcessMemory\n\nCOMPILER AND PACKER:\n  [Compiler] Embarcadero Delphi\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++ v6.0 SPx'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.21\n  .rdata       entropy=4.53\n  .data        entropy=7.57\n  .rsrc        entropy=5.43\n  [overlay]    entropy=3.5598037242889404  size=2172\n",
+  "ground_truth": {
+    "hash": "4052024395f5286cecd8d6b20dce1edbf701249fbef6b830d1fa85e3bcee765c",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9155,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "upatre",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      }
+    ],
+    "capa_sig_names": [
+      "hide graphical window",
+      "contain loop",
+      "accept command line arguments",
+      "terminate process",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "104.20.16.242",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "icanhazip.com"
+      ],
+      "urls": [
+        "http:///212/analyst0-2d1671/41/4/0/",
+        "http:///212/analyst0-2d1671/41/4/1/",
+        "http:///212/analyst0-2d1671/41/4/2/",
+        "http:///212/analyst0-2d1671/41/4/3/",
+        "http:///212/analyst0-2d1671/41/4/4/",
+        "http:///212/analyst0-2d1671/41/4/5/",
+        "http:///212/analyst0-2d1671/41/4/6/",
+        "http:///212/analyst0-2d1671/41/4/7/",
+        "http:///212/analyst0-2d1671/41/4/8/",
+        "http:///212/analyst0-2d1671/41/4/9/",
+        "http://icanhazip.com/",
+        "https://109.86.226.85/img2212.png",
+        "https://173.216.240.56/img2212.png",
+        "https://173.216.247.74/img2212.png",
+        "https://173.243.255.79/img2212.png",
+        "https://173.248.22.227/img2212.png",
+        "https://173.248.27.163/img2212.png",
+        "https://173.248.29.43/img2212.png",
+        "https://173.248.31.1/img2212.png",
+        "https://173.248.31.6/img2212.png",
+        "https://176.36.251.208/img2212.png",
+        "https://178.214.221.89/img2212.png",
+        "https://188.255.165.154/img2212.png",
+        "https://188.255.169.176/img2212.png",
+        "https://188.255.239.34/img2212.png",
+        "https://188.255.243.105/img2212.png",
+        "https://194.228.203.19/img2212.png",
+        "https://208.123.130.173/img2212.png",
+        "https://216.16.93.250/img2212.png",
+        "https://216.254.231.11/img2212.png",
+        "https://24.148.217.188/img2212.png",
+        "https://24.19.25.40/img2212.png",
+        "https://24.220.92.193/img2212.png",
+        "https://24.33.131.116/img2212.png",
+        "https://37.57.144.177/img2212.png",
+        "https://64.111.36.35/img2212.png",
+        "https://65.33.236.173/img2212.png",
+        "https://66.196.61.218/img2212.png",
+        "https://66.196.63.33/img2212.png",
+        "https://68.119.5.32/img2212.png",
+        "https://68.190.246.142/img2212.png",
+        "https://68.55.59.145/img2212.png",
+        "https://69.144.171.44/img2212.png",
+        "https://69.163.81.211/img2212.png",
+        "https://69.9.204.114/img2212.png",
+        "https://71.194.36.73/img2212.png",
+        "https://71.99.130.24/img2212.png",
+        "https://72.230.82.80/img2212.png",
+        "https://73.175.203.173/img2212.png",
+        "https://75.132.173.27/img2212.png",
+        "https://75.137.112.81/img2212.png",
+        "https://76.105.248.137/img2212.png",
+        "https://76.28.92.4/img2212.png",
+        "https://77.48.30.156/img2212.png",
+        "https://77.95.195.68/img2212.png",
+        "https://95.143.132.118/img2212.png",
+        "https://95.143.141.50/img2212.png",
+        "https://98.209.75.164/img2212.png",
+        "https://98.214.11.253/img2212.png",
+        "https://98.222.64.184/img2212.png",
+        "https://98.246.210.27/img2212.png"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 4,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\vusjeson.exe",
+        "vusjeson.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "IESQMMUTEX_0_208",
+        "RasPbFile",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\vusjeson.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

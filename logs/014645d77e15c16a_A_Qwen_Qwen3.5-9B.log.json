@@ -1,0 +1,101 @@
+{
+  "hash": "014645d77e15c16a481fbc3a2668a06c665c713ba8b6abc8230a66ccd50dd5d3",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic malware behavior including dropping multiple executable files to the Temp directory, creating a batch file to launch them, injecting code into system processes (sicum.exe), and establishing persistence by adding a Run key to the registry. The use of XOR encoding, dynamic linking, and anti-analysis techniques (delayed execution) further confirms malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample acts as a Trojan by disguising itself as a legitimate file, dropping secondary payloads, and establishing persistence without the user's explicit consent. It does not exhibit ransomware encryption behavior, worm-like self-propagation across a network, or specific spyware data exfiltration in this report, fitting the general Trojan category.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1547\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1053\",\n        \"name\": \"Scheduled Task/Job\"\n      },\n      {\n        \"id\": \"T1036\",\n        \"name\": \"Masquerading\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 3473,
+      "response_chars": 1407,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic malware behavior including dropping multiple executable files to the Temp directory, creating a batch file to launch them, injecting code into system processes (sicum.exe), and establishing persistence by adding a Run key to the registry. The use of XOR encoding, dynamic linking, and anti-analysis techniques (d",
+      "elapsed_seconds": 12.51
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 12.51,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8493
+    },
+    "family": {
+      "family_f1": 1.0,
+      "family_precision": 1.0,
+      "family_recall": 1.0,
+      "predicted": [
+        "trojan"
+      ],
+      "matched": [
+        "trojan"
+      ],
+      "reachable_gt": [
+        "trojan"
+      ],
+      "gt_pool": [
+        "avkill",
+        "mint",
+        "trojan",
+        "urelas"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 0.1429,
+      "ttp_precision": 0.1667,
+      "ttp_recall": 0.125,
+      "gt_ttps": [
+        "T1012",
+        "T1027",
+        "T1082",
+        "T1083",
+        "T1105",
+        "T1129",
+        "T1222",
+        "T1569"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1547"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1547"
+      ],
+      "q3_missed_ttps": [
+        "T1012",
+        "T1082",
+        "T1083",
+        "T1105",
+        "T1129",
+        "T1222",
+        "T1569"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.1429,
+      "breakdown": {
+        "ttp_f1": 0.1429
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

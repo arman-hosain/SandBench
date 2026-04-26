@@ -1,0 +1,75 @@
+{
+  "hash": "16af3b09b5e8cd44f7794cf3efb57a5f65ad70d98a3c5e4f05233b65fefe1da4",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (5):\n  - encode data using Base64 via WinAPI\n  - get common file path\n  - accept command line arguments\n  - query environment variable\n  - link function at runtime on Windows\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - encode data using Base64 via WinAPI\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - File System::Create File [C0016]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - Communication::Socket Communication::Initialize Winsock Library [C0001.009]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - get OS version\n  - Discovery::System Information Discovery [E1082]\n  - link function at runtime on Windows\n  - File System::Writes File [C0052]\n  - Process::Terminate Process [C0018]\n  - Operating System::Environment Variable::Set Variable [C0034.001]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  ctvqzym.exe  [sha256: be5a75ec22890f2a...]\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: 3c5695591ec0ec08...]\n\nFILES WRITTEN (2):\n  C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\ctvqzym.exe\n  C:\\WINDOWS\\Tasks\\hiqvsnd.job\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, LoadLibraryW, VirtualAlloc, VirtualProtect\n  ADVAPI32.dll: OpenProcessToken\n\nCOMPILER AND PACKER:\n  [Compiler] Watcom\n  [Linker] Watcom Linker\n\nPE SECTIONS (entropy):\n  AUTO         entropy=6.54\n  .idata       entropy=4.53\n  DGROUP       entropy=6.59\n  .reloc       entropy=6.15\n  .rsrc        entropy=1.52\n  [overlay]    entropy=7.999256610870361  size=288440\n",
+  "ground_truth": {
+    "hash": "16af3b09b5e8cd44f7794cf3efb57a5f65ad70d98a3c5e4f05233b65fefe1da4",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8889,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using Base64 via WinAPI"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "allocate RWX memory",
+      "allocate RW memory",
+      "encode data using Base64 via WinAPI",
+      "PEB access",
+      "create or open file",
+      "contain loop",
+      "get common file path",
+      "initialize Winsock library",
+      "accept command line arguments",
+      "get OS version",
+      "query environment variable",
+      "link function at runtime on Windows",
+      "write file on Windows",
+      "terminate process",
+      "set environment variable"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "ctvqzym.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

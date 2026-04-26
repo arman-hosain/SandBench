@@ -1,0 +1,53 @@
+{
+  "hash": "3b196179227b73614181d765b512f3c6c13c54790977cc7bc2ae0343b3dbef8e",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - decode data using Base64 in .NET\n  - check if file exists\n  - reference anti-VM strings targeting VirtualBox\n\nCAPA RULE MATCHES (MBC):\n  - Process::Create Process [C0017]\n  - access .NET resource\n  - Data::Decode Data::Base64 [C0053.001]\n  - File System::Delete File [C0047]\n  - Discovery::File and Directory Discovery [E1083]\n  - unmanaged call\n  - compiled to the .NET platform\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Library] .NET\n  [Compiler] VB.NET\n  [Compiler] VB.NET\n  [Library] .NET\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': '.NET executable'}\n",
+  "ground_truth": {
+    "hash": "3b196179227b73614181d765b512f3c6c13c54790977cc7bc2ae0343b3dbef8e",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7222,
+    "malicious_count": 52,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "depress",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1083",
+        "signature_description": "check if file exists"
+      },
+      {
+        "id": "T1140",
+        "signature_description": "decode data using Base64 in .NET"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "create process on Windows",
+      "access .NET resource",
+      "decode data using Base64 in .NET",
+      "delete file",
+      "check if file exists",
+      "unmanaged call",
+      "compiled to the .NET platform",
+      "reference anti-VM strings targeting VirtualBox"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "hash": "2f1fa6442564ce4c665a72a11db5c9e48cab225dd2a3daad894fb17b65faf8d6",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  grupodolcearte.com\n\nIP TRAFFIC (1):\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\2f1fa6442564ce4c665a72a11db5c9e48cab225dd2a3daad894fb17b65faf8d6.exe\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\vitra.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\vitra.exe\" \"\n  C:\\Users\\admin\\AppData\\Local\\Temp\\vitra.exe \n\nCOMMAND EXECUTIONS (1):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\vitra.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - get file size\n  - get common file path\n  - download and write a file\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - Process::Create Process [C0017]\n  - Communication::HTTP Communication [C0002]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - Communication::HTTP Communication::Send Request [C0002.003]\n  - Communication::HTTP Communication::Create Request [C0002.012]\n  - File System::Delete File [C0047]\n  - Process::Terminate Process [C0018]\n  - File System::Read File [C0051]\n  - Communication::HTTP Communication::Connect to Server [C0002.009]\n  - Communication::HTTP Communication::Get Response [C0002.017]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - File System::Writes File [C0052]\n  - Command and Control::C2 Communication::Server to Client File Transfer [B0030.003]\n  - Execution::Install Additional Program [B0023]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - read and send data from client to server\n  - receive and write data from server to client\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  vitra.exe  [sha256: 17baf263fbb05f69...]\n  c:\\users\\admin\\appdata\\local\\temp\\vitra.exe  [sha256: 5b5e9e5ecb2e8a85...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\vitra.exe\n\nOTHER REGISTRY KEYS SET (2):\n  HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap//A\n  HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap//U\n\nMUTEXES CREATED (5):\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n  RasPbFile\n\nPROCESSES CREATED (3):\n  C:\\2f1fa6442564ce4c665a72a11db5c9e48cab225dd2a3daad894fb17b65faf8d6.exe\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\vitra.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\vitra.exe\" \"\n  C:\\Users\\admin\\AppData\\Local\\Temp\\vitra.exe \n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=5.25\n  .rdata       entropy=3.6\n  .data        entropy=0.0\n  .reloc       entropy=1.39\n  [overlay]    entropy=3.4607975482940674  size=3140\n",
+  "ground_truth": {
+    "hash": "2f1fa6442564ce4c665a72a11db5c9e48cab225dd2a3daad894fb17b65faf8d6",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9028,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1105",
+        "signature_description": "download and write a file"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "create process on Windows",
+      "get HTTP content length",
+      "contain loop",
+      "get file size",
+      "get common file path",
+      "send HTTP request",
+      "create HTTP request",
+      "delete file",
+      "terminate process",
+      "read file on Windows",
+      "connect to HTTP server",
+      "read data from Internet",
+      "receive data",
+      "write file on Windows",
+      "download and write a file",
+      "write and execute a file",
+      "send data",
+      "read and send data from client to server",
+      "receive and write data from server to client"
+    ],
+    "iocs": {
+      "ips": [
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "grupodolcearte.com"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 2,
+      "files_dropped": [
+        "c:\\users\\admin\\appdata\\local\\temp\\vitra.exe",
+        "vitra.exe"
+      ],
+      "mutexes": [
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\2f1fa6442564ce4c665a72a11db5c9e48cab225dd2a3daad894fb17b65faf8d6.exe",
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\vitra.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\vitra.exe\" \"",
+        "C:\\Users\\admin\\AppData\\Local\\Temp\\vitra.exe "
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Sangfor ZSand",
+    "VirusTotal Cuckoofork"
+  ]
+}

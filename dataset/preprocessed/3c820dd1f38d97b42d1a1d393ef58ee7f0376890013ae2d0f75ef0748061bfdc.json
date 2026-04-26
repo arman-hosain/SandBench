@@ -1,0 +1,114 @@
+{
+  "hash": "3c820dd1f38d97b42d1a1d393ef58ee7f0376890013ae2d0f75ef0748061bfdc",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (13):\n  - encode data using XOR\n  - acquire debug privileges\n  - encrypt data using XTEA\n  - get session user name\n  - get file size\n  - check OS version\n  - enumerate processes\n  - modify access privileges\n  - link function at runtime on Windows\n  - accept command line arguments\n  - query or enumerate registry value\n  - persist via Run registry key\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - File System::Create File [C0016]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - acquire debug privileges\n  - Process::Open Process [C0065]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Defense Evasion::Disable or Evade Security Tools::Heavens Gate [F0004.008]\n  - contain loop\n  - Defense Evasion::Obfuscated Files or Information::Encryption-Standard Algorithm [E1027.m05]\n  - get session user name\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Read File [C0051]\n  - get OS version\n  - File System::Delete File [C0047]\n  - File System::Move File [C0063]\n  - File System::Writes File [C0052]\n  - Discovery::System Information Discovery [E1082]\n  - enumerate processes\n  - modify access privileges\n  - link function at runtime on Windows\n  - Execution::Command and Scripting Interpreter [E1059]\n  - File System::Create Directory [C0046]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  ctvqzym.exe  [sha256: 8fc82905e2251e7c...]\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: 910732bdfb92afdf...]\n\nFILES WRITTEN (2):\n  C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\ctvqzym.exe\n  C:\\WINDOWS\\Tasks\\hiqvsnd.job\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  ADVAPI32.dll: AdjustTokenPrivileges, OpenProcessToken\n  KERNEL32.dll: GetProcAddress, LoadLibraryW, VirtualAllocEx, WriteProcessMemory\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.52\n  .rdata       entropy=7.14\n  .data        entropy=4.8\n  .rsrc        entropy=5.81\n  .reloc       entropy=6.43\n  [overlay]    entropy=5.334961891174316  size=48\n",
+  "ground_truth": {
+    "hash": "3c820dd1f38d97b42d1a1d393ef58ee7f0376890013ae2d0f75ef0748061bfdc",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8889,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1033",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "check OS version"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1087",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "acquire debug privileges"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "persist via Run registry key"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "create or open file",
+      "delay execution",
+      "acquire debug privileges",
+      "open process",
+      "create or open registry key",
+      "64-bit execution via heavens gate",
+      "contain loop",
+      "encrypt data using XTEA",
+      "get session user name",
+      "get file size",
+      "read file on Windows",
+      "get OS version",
+      "delete file",
+      "move file",
+      "write file on Windows",
+      "check OS version",
+      "enumerate processes",
+      "modify access privileges",
+      "link function at runtime on Windows",
+      "accept command line arguments",
+      "create directory",
+      "query or enumerate registry value",
+      "persist via Run registry key",
+      "terminate process",
+      "allocate thread local storage",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "ctvqzym.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

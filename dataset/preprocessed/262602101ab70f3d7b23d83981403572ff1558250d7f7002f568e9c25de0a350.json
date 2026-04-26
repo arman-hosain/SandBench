@@ -1,0 +1,64 @@
+{
+  "hash": "262602101ab70f3d7b23d83981403572ff1558250d7f7002f568e9c25de0a350",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://www.trudeausociety.com/images/backgrounds/pdf.exe\n\nDNS LOOKUPS (3):\n  hortonnovak.com \u2192 129.121.16.215\n  trudeausociety.com \u2192 148.251.123.41\n  www.trudeausociety.com \u2192 148.251.123.41\n\nIP TRAFFIC (4):\n  129.121.16.215:443 (TCP)\n  148.251.123.41:443 (TCP)\n  148.251.123.41:80 (TCP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  262602101ab70f3d_freeupdater.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\freeupdater.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\freeupdater.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\freeupdater.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - reference startup folder\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - contain a resource (.rsrc) section\n  - reference startup folder\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  freeupdater.exe  [sha256: ada866a2b1c5aa37...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\freeupdater.exe  [sha256: 920febddbc60a7c2...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\freeupdater.exe\n\nMUTEXES CREATED (1):\n  RasPbFile\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\freeupdater.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\freeupdater.exe\" \"\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] MASM\n  [Linker] Microsoft Linker\n\nPE SECTIONS (entropy):\n  .text        entropy=6.61\n  .data        entropy=4.38\n  .rsrc        entropy=5.53\n  .reloc       entropy=1.44\n  [overlay]    entropy=3.4673879146575928  size=5898\n",
+  "ground_truth": {
+    "hash": "262602101ab70f3d7b23d83981403572ff1558250d7f7002f568e9c25de0a350",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9577,
+    "malicious_count": 68,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "reference startup folder"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "reference startup folder",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "129.121.16.215",
+        "148.251.123.41",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "hortonnovak.com",
+        "trudeausociety.com",
+        "www.trudeausociety.com"
+      ],
+      "urls": [
+        "http://www.trudeausociety.com/images/backgrounds/pdf.exe"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\freeupdater.exe",
+        "freeupdater.exe"
+      ],
+      "mutexes": [
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\freeupdater.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\freeupdater.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

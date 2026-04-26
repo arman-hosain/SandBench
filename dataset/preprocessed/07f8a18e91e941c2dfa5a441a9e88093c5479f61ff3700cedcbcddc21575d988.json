@@ -1,0 +1,122 @@
+{
+  "hash": "07f8a18e91e941c2dfa5a441a9e88093c5479f61ff3700cedcbcddc21575d988",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (14):\n  - encode data using XOR\n  - hide graphical window\n  - query or enumerate registry value\n  - link function at runtime on Windows\n  - get geographical location\n  - find graphical window\n  - encrypt data using RC4 PRGA\n  - get disk size\n  - get file version info\n  - capture screenshot\n  - log keystrokes via polling\n  - log keystrokes\n  - get keyboard layout\n  - enumerate gui resources\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Create Thread [C0038]\n  - File System::Create File [C0016]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Process::Resume Thread [C0054]\n  - hide graphical window\n  - set global application hook\n  - inspect load icon resource\n  - contain loop\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - File System::Writes File [C0052]\n  - link function at runtime on Windows\n  - get geographical location\n  - Process::Set Thread Local Storage Value [C0041]\n  - get thread local storage value\n  - find graphical window\n  - extract resource via kernel32 functions\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Generate Pseudo-random Sequence::RC4 PRGA [C0021.004]\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (7):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  MSCTF.Shared.MUTEX.EBH\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] Embarcadero Delphi\n  [Linker] Turbo Linker\n  Packers: {'PEiD': 'BobSoft Mini Delphi -> BoB / BobSoft'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.8\n  .itext       entropy=5.36\n  .data        entropy=3.87\n  .bss         entropy=0.0\n  .idata       entropy=5.11\n  .tls         entropy=0.0\n  .rdata       entropy=0.2\n  .reloc       entropy=0.0\n  .rsrc        entropy=4.37\n",
+  "ground_truth": {
+    "hash": "07f8a18e91e941c2dfa5a441a9e88093c5479f61ff3700cedcbcddc21575d988",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7639,
+    "malicious_count": 55,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "dealply",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk size"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file version info"
+      },
+      {
+        "id": "T1113",
+        "signature_description": "capture screenshot"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "allocate RW memory",
+      "delay execution",
+      "create or open registry key",
+      "create thread",
+      "create or open file",
+      "encode data using XOR",
+      "PEB access",
+      "resume thread",
+      "allocate RWX memory",
+      "hide graphical window",
+      "set global application hook",
+      "inspect load icon resource",
+      "contain loop",
+      "query or enumerate registry value",
+      "write file on Windows",
+      "link function at runtime on Windows",
+      "get geographical location",
+      "set thread local storage value",
+      "get thread local storage value",
+      "find graphical window",
+      "extract resource via kernel32 functions",
+      "encrypt data using RC4 PRGA",
+      "get disk size",
+      "get OS version",
+      "get file version info",
+      "capture screenshot",
+      "log keystrokes via polling",
+      "log keystrokes",
+      "resolve function by parsing PE exports",
+      "get keyboard layout",
+      "check for time delay via GetTickCount",
+      "enumerate gui resources",
+      "set application hook",
+      "get graphical window text",
+      "contain a resource (.rsrc) section",
+      "contain a thread local storage (.tls) section",
+      "compiled with Borland Delphi"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "MSCTF.Shared.MUTEX.EBH"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

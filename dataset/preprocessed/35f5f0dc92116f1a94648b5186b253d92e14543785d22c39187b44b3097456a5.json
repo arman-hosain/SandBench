@@ -1,0 +1,50 @@
+{
+  "hash": "35f5f0dc92116f1a94648b5186b253d92e14543785d22c39187b44b3097456a5",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    fs3t075.exe\n      09xlmm.exe\n        76uel4.exe\n          x7f3h8.exe\n            7fjfv.exe\n              5gp98m.exe\n                5c2ttnk.exe\n                  078eih.exe\n                    5je8l.exe\n                      o48s25a.exe\n                        5f0i906.exe\n                          h7d807m.exe\n                            60k3t.exe\n                              vhxmrk8.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - packed with generic packer\n  - packed with UPX\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - resolve function by parsing PE exports\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - contain a resource (.rsrc) section\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - Execution::Install Additional Program [B0023]\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (30):\n  C:\\078eih.exe\n  C:\\09xlmm.exe\n  C:\\0tut2ft.exe\n  C:\\17i1506.exe\n  C:\\1onbw.exe\n  C:\\38927u.exe\n  C:\\406nq.exe\n  C:\\45955.exe\n  C:\\53um603.exe\n  C:\\5c2ttnk.exe\n  C:\\5f0i906.exe\n  C:\\5gp98m.exe\n  C:\\5je8l.exe\n  C:\\60k3t.exe\n  C:\\64u220p.exe\n  C:\\66hc9au.exe\n  C:\\76uel4.exe\n  C:\\7fjfv.exe\n  C:\\918tr6v.exe\n  C:\\d6w20m.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'F-PROT': 'UPX_LZMA'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.66\n  .rsrc        entropy=7.83\n  [overlay]    entropy=4.9331746101379395  size=380393\n",
+  "ground_truth": {
+    "hash": "35f5f0dc92116f1a94648b5186b253d92e14543785d22c39187b44b3097456a5",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9306,
+    "malicious_count": 67,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "packed with generic packer",
+      "contain a resource (.rsrc) section",
+      "packed with UPX",
+      "contain an embedded PE file",
+      "reference anti-VM strings",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO"
+  ]
+}

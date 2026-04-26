@@ -1,0 +1,98 @@
+{
+  "hash": "3e470519e5038b2f81bab9d57bd0e3a60cad6ba36e90d9aeba2d12603c2f965f",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  sys.zief.pl \u2192 148.81.111.121\n\nIP TRAFFIC (1):\n  148.81.111.121:65520 (TCP)\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (9):\n  - set file attributes\n  - link function at runtime on Windows\n  - query or enumerate registry value\n  - check OS version\n  - check if file exists\n  - get geographical location\n  - check for unmoving mouse cursor\n  - find graphical window\n  - get common file path\n\nCAPA RULE MATCHES (MBC):\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Get File Attributes [C0049]\n  - File System::Create File [C0016]\n  - File System::Set File Attributes [C0050]\n  - Process::Create Process [C0017]\n  - contain loop\n  - link function at runtime on Windows\n  - extract resource via kernel32 functions\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - get OS version\n  - Discovery::System Information Discovery [E1082]\n  - File System::Read File [C0051]\n  - Discovery::File and Directory Discovery [E1083]\n  - Process::Create Mutex [C0042]\n  - File System::Delete File [C0047]\n  - get geographical location\n  - Process::Check Mutex [C0043]\n  - Process::Terminate Process [C0018]\n  - File System::Writes File [C0052]\n  - Discovery::Application Window Discovery [E1010]\n  - Anti-Behavioral Analysis::Virtual Machine Detection::Human User Check [B0009.012]\n  - find graphical window\n  - File System::Copy File [C0045]\n\n--- ARTIFACTS ---\n\nMUTEXES OPENED (3):\n  l0r2\n  {BB7E11D6-5E67-4005-A530-ED1831D6A427}\n  {ECCC50B5-064A-4693-B104-925714A4C74B}\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: CreateProcessA, CreateProcessW, GetProcAddress, LoadLibraryW\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.31\n  .data        entropy=0.36\n  .rsrc        entropy=6.15\n",
+  "ground_truth": {
+    "hash": "3e470519e5038b2f81bab9d57bd0e3a60cad6ba36e90d9aeba2d12603c2f965f",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9028,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "check OS version"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "check if file exists"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "check for unmoving mouse cursor"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open registry key",
+      "delay execution",
+      "get file attributes",
+      "create or open file",
+      "set file attributes",
+      "create process on Windows",
+      "contain loop",
+      "link function at runtime on Windows",
+      "extract resource via kernel32 functions",
+      "query or enumerate registry value",
+      "get OS version",
+      "check OS version",
+      "read .ini file",
+      "check if file exists",
+      "create mutex",
+      "delete file",
+      "get geographical location",
+      "read file via mapping",
+      "check mutex and exit",
+      "write file on Windows",
+      "get graphical window text",
+      "check for unmoving mouse cursor",
+      "find graphical window",
+      "get common file path",
+      "copy file",
+      "delete directory",
+      "resolve function by parsing PE exports",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "148.81.111.121"
+      ],
+      "domains": [
+        "sys.zief.pl"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

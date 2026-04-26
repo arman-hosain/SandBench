@@ -1,0 +1,51 @@
+{
+  "hash": "3d7d25b306bdcb60cf0dd20249062bc5d39979158e56ee6e69683ff894e09955",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    wgsloa.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - encode data using XOR\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain pusha popa sequence\n  - contain loop\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (30):\n  C:\\0 .exe\n  C:\\AUTOEXEC.BAT .exe\n  C:\\CONFIG.SYS .exe\n  C:\\DiskD .exe\n  C:\\DiskX .exe\n  C:\\DllLoader.exe .exe\n  C:\\Documents and Settings .exe\n  C:\\Documents and Settings\\All Users\\Application Data\\Saaaalamm\\Mira.h\n  C:\\Documents and Settings\\All Users\\Application Data\\wgsloa.exe\n  C:\\IO.SYS .exe\n  C:\\MSDOS.SYS .exe\n  C:\\Mirah-newfile .exe\n  C:\\Mirah-samplefile .exe\n  C:\\NTDETECT.COM .exe\n  C:\\Program Files .exe\n  C:\\Python27 .exe\n  C:\\RECYCLER .exe\n  C:\\SAVEAS .exe\n  C:\\boot.ini .exe\n  C:\\bootfont.bin .exe\n\nPERSISTENCE REGISTRY KEYS (1):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft?Windows?Operating System = C:\\Documents and Settings\\All Users\\Application Data\\wgsloa.exe\u0000\n\nMUTEXES CREATED (6):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n\nPE SECTIONS (entropy):\n  .text        entropy=6.09\n  .data        entropy=0.71\n  .rdata       entropy=5.01\n  .bss         entropy=0.0\n  .idata       entropy=4.29\n  .rsrc        entropy=4.73\n  .NewSec      entropy=0.47\n  [overlay]    entropy=6.552506923675537  size=401080\n",
+  "ground_truth": {
+    "hash": "3d7d25b306bdcb60cf0dd20249062bc5d39979158e56ee6e69683ff894e09955",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9028,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain pusha popa sequence",
+      "contain loop",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "\\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft?Windows?Operating System"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "hash": "03e06538674c87a763ef6d69f548b8b58a11d5a84c4d3372ba4f71aa795e2e03",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is packed with a generic packer, contains a resource (.rsrc) section, and drops multiple files with full versions of popular software, indicating a potential payload delivery mechanism.\"\n  },\n  \"q2\": {\n    \"family\": [\"PUA\"],\n    \"explanation\": \"The sample's behavior of dropping multiple files with full versions of popular software, likely cracked or pirated, suggests a potential PUA (Potentially Unwanted Application) or a software bundler.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 2437,
+      "response_chars": 621,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is packed with a generic packer, contains a resource (.rsrc) section, and drops multiple files with full versions of popular software, indicating a potential payload delivery mechanism.\"\n  },\n  \"q2\": {\n    \"family\": [\"PUA\"],\n    \"explanation\": \"The sample's behavior of dropping multiple files with full versions of popular softw",
+      "elapsed_seconds": 2.9
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": false,
+      "gap_summary": "",
+      "missed_behavior_count": 0,
+      "ttps_found": [
+        "T1027"
+      ],
+      "hallucinated_ttps": [],
+      "ttp_tp": 1,
+      "ttp_fp": 0
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 2.9,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9296
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 1.0,
+      "ttp_precision": 1.0,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 1.0,
+      "breakdown": {
+        "ttp_f1": 1.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

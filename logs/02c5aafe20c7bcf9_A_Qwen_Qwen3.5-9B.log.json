@@ -1,0 +1,68 @@
+{
+  "hash": "02c5aafe20c7bcf9bce51633c949024b5b5e844bed94beb95db7bcc6e8d3abbf",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it is packed with a generic SFX (Self-Extracting) packer, uses XOR encoding to obfuscate data, and spawns multiple instances of Internet Explorer to load random HTML files from the Temp directory. It also modifies the registry to persist or facilitate execution (ShellServiceObjectDelayLoad) and creates mutexes. The combination of packing, obfuscation, and spawning legitimate-looking processes to deliver content is indicative of malicious activity.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The primary behavior observed is the unpacking of the payload (indicated by the SFX packer and XOR triggers) and the subsequent spawning of child processes (Internet Explorer) to load additional files. This 'dropping' of secondary payloads or content via legitimate-looking processes is the defining characteristic of a Dropper. It does not show ransomware encryption, spyware data exfiltration, or worm-like self-propagation across a network in this report.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1562\",\n        \"name\": \"Impair Defenses\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 6300,
+      "response_chars": 1360,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it is packed with a generic SFX (Self-Extracting) packer, uses XOR encoding to obfuscate data, and spawns multiple instances of Internet Explorer to load random HTML files from the Temp directory. It also modifies the registry to persist or facilitate execution (ShellServiceObjectDelayLoad) an",
+      "elapsed_seconds": 7.03
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 7.03,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9577
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.5,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1562"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1562"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5,
+      "breakdown": {
+        "ttp_f1": 0.5
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

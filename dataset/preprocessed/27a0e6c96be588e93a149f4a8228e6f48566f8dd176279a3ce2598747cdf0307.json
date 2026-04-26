@@ -1,0 +1,96 @@
+{
+  "hash": "27a0e6c96be588e93a149f4a8228e6f48566f8dd176279a3ce2598747cdf0307",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  dev-man-exe.pe32\n    fqqqps.exe\n\nCOMMAND EXECUTIONS (2):\n  c:\\dev_man.exe\n  \"C:\\ProgramData\\fqqqps.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (5):\n  - contain obfuscated stackstrings\n  - get startup folder\n  - set file attributes\n  - get common file path\n  - accept command line arguments\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - get startup folder\n  - Process::Create Process [C0017]\n  - File System::Set File Attributes [C0050]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Delete File [C0047]\n  - File System::Create Directory [C0046]\n  - Process::Allocate Thread Local Storage [C0040]\n  - get thread local storage value\n  - Process::Set Thread Local Storage Value [C0041]\n  - File System::Read File [C0051]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - resolve function by parsing PE exports\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (19):\n  \\tmpmqgko7 .exe  [sha256: 620e785d7b87939f...]\n  \\System Volume Information .exe  [sha256: 2a88e488dc05d005...]\n  \\config.sys .exe  [sha256: 08e933ecdc731910...]\n  \\Program Files .exe  [sha256: a05733dac6eac716...]\n  \\MSOCache .exe  [sha256: 8a33eed75dd20eec...]\n  \\Python27 .exe  [sha256: 3ab9207f9e60c25c...]\n  \\tmprzcakn .exe  [sha256: 15d8653e37cc3b79...]\n  \\Documents and Settings .exe  [sha256: 30da67d8fe0fbfb5...]\n  \\Windows .exe  [sha256: 6ac39766a56dd1c9...]\n  \\tmp_xg9dg .exe  [sha256: 8c5861c49ea4181c...]\n  \\pagefile.sys .exe  [sha256: 19eea9f466e7701a...]\n  \\PerfLogs .exe  [sha256: 2e52843d48f07a67...]\n  \\$Recycle.Bin .exe  [sha256: c0f5ae07d8ba9864...]\n  \\Users .exe  [sha256: f9811cbe9bff7c56...]\n  \\autoexec.bat .exe  [sha256: 6910228fa23caae9...]\n  \\ProgramData .exe  [sha256: 11fcbbfb44d69344...]\n  \\Recovery .exe  [sha256: f17c5663d5b5bc93...]\n  \\ProgramData\\Saaaalamm\\Mira.h  [sha256: dce2f42abc5d8d06...]\n  \\ProgramData\\fqqqps.exe  [sha256: e5590a6ed75849df...]\n\nFILES WRITTEN (3):\n  C:\\ProgramData\\Saaaalamm\\Mira.h\n  C:\\ProgramData\\fqqqps.exe\n  c:\\$Recycle.Bin .exe\n\nOTHER REGISTRY KEYS SET (1):\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n\nMUTEXES CREATED (1):\n  _SHuassist.mtx\n\nPROCESSES CREATED (1):\n  fqqqps.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCOMPILER AND PACKER:\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n  Packers: {'PEiD': 'MingWin32 v?.? (h)'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.78\n  .rsrc        entropy=6.96\n  [overlay]    entropy=6.9363908767700195  size=388278\n",
+  "ground_truth": {
+    "hash": "27a0e6c96be588e93a149f4a8228e6f48566f8dd176279a3ce2598747cdf0307",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8714,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "get startup folder"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "get startup folder",
+      "create process on Windows",
+      "set file attributes",
+      "delay execution",
+      "create or open file",
+      "contain loop",
+      "get common file path",
+      "delete file",
+      "create directory",
+      "allocate thread local storage",
+      "get thread local storage value",
+      "set thread local storage value",
+      "read file on Windows",
+      "accept command line arguments",
+      "resolve function by parsing PE exports",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "\\$Recycle.Bin .exe",
+        "\\Documents and Settings .exe",
+        "\\MSOCache .exe",
+        "\\PerfLogs .exe",
+        "\\Program Files .exe",
+        "\\ProgramData .exe",
+        "\\ProgramData\\Saaaalamm\\Mira.h",
+        "\\ProgramData\\fqqqps.exe",
+        "\\Python27 .exe",
+        "\\Recovery .exe",
+        "\\System Volume Information .exe",
+        "\\Users .exe",
+        "\\Windows .exe",
+        "\\autoexec.bat .exe",
+        "\\config.sys .exe",
+        "\\pagefile.sys .exe",
+        "\\tmp_xg9dg .exe",
+        "\\tmpmqgko7 .exe",
+        "\\tmprzcakn .exe"
+      ],
+      "mutexes": [
+        "_SHuassist.mtx"
+      ],
+      "processes": [
+        "fqqqps.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Jujubox"
+  ]
+}

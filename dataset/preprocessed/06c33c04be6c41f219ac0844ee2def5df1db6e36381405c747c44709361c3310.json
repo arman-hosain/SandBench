@@ -1,0 +1,70 @@
+{
+  "hash": "06c33c04be6c41f219ac0844ee2def5df1db6e36381405c747c44709361c3310",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  06c33c04be6c41f2_5046ut4.exe\n    c:\\am7p1.exe\n      c:\\iu48ifc.exe\n        c:\\o1u3ui2.exe\n          c:\\40662.exe\n            c:\\47qe5h.exe\n              c:\\2044882.exe\n                c:\\20006.exe\n                  c:\\260480.exe\n                    c:\\47269lu.exe\n                      c:\\7j08s.exe\n                        c:\\0rlux5r.exe\n                          c:\\a9jsj.exe\n                            c:\\372k90.exe\n                              c:\\7lr2or2.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - contain obfuscated stackstrings\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - contain loop\n  - resolve function by parsing PE exports\n  - Data::Decompress Data [C0025]\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (26):\n  c:\\am7p1.exe  [sha256: baa9094bf56bb9f6...]\n  c:\\iu48ifc.exe  [sha256: 15e83ee86dc6bff1...]\n  c:\\o1u3ui2.exe  [sha256: bbd20f74cf0c44b2...]\n  c:\\40662.exe  [sha256: 1b41c5a176190702...]\n  c:\\47qe5h.exe  [sha256: c4e2c5aaccd448e5...]\n  c:\\2044882.exe  [sha256: a6d59175f7a2b9c6...]\n  c:\\20006.exe  [sha256: fea687eac0075a39...]\n  c:\\260480.exe  [sha256: 330d223e1a4c7422...]\n  c:\\47269lu.exe  [sha256: 179f4b0f76ec6420...]\n  c:\\7j08s.exe  [sha256: e7c8af334622e585...]\n  c:\\0rlux5r.exe  [sha256: 5decbaea0ecbb5c6...]\n  c:\\a9jsj.exe  [sha256: cef3828b2b54b350...]\n  c:\\372k90.exe  [sha256: 050f1e0f8e18107e...]\n  c:\\7lr2or2.exe  [sha256: 54c5cbdc65ce23a1...]\n  c:\\qe2qkq.exe  [sha256: abc8969e0db2bfeb...]\n  c:\\8800480.exe  [sha256: e68fb31e6dd9422b...]\n  c:\\agm6s.exe  [sha256: a94a9e5c8ce0f698...]\n  c:\\3mgmm.exe  [sha256: 9f34afd31b3aa7f2...]\n  c:\\88eqe4.exe  [sha256: f33e4eb97badb119...]\n  c:\\8ic54rr.exe  [sha256: a46d8f862f0e62e3...]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Packer] DxPack\n  [Protector] Obsidium\n  Packers: {'F-PROT': 'UPX_LZMA'}\n\nPE SECTIONS (entropy):\n  .rsrc        entropy=7.98\n  coderpub     entropy=5.8\n  [overlay]    entropy=4.830965518951416  size=57004\n",
+  "ground_truth": {
+    "hash": "06c33c04be6c41f219ac0844ee2def5df1db6e36381405c747c44709361c3310",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "decompress data using LZO",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "c:\\0rlux5r.exe",
+        "c:\\20006.exe",
+        "c:\\2044882.exe",
+        "c:\\2353b7.exe",
+        "c:\\260480.exe",
+        "c:\\29p45.exe",
+        "c:\\2uifrro.exe",
+        "c:\\372k90.exe",
+        "c:\\3mgmm.exe",
+        "c:\\40662.exe",
+        "c:\\47269lu.exe",
+        "c:\\47qe5h.exe",
+        "c:\\7j08s.exe",
+        "c:\\7lr2or2.exe",
+        "c:\\8800480.exe",
+        "c:\\88eqe4.exe",
+        "c:\\8ic54rr.exe",
+        "c:\\a9jsj.exe",
+        "c:\\agm6s.exe",
+        "c:\\am7p1.exe",
+        "c:\\ewb6eb.exe",
+        "c:\\iu48ifc.exe",
+        "c:\\mdag8.exe",
+        "c:\\o1u3ui2.exe",
+        "c:\\qe2qkq.exe",
+        "c:\\ww8335.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

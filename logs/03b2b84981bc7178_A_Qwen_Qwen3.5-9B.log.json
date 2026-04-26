@@ -1,0 +1,77 @@
+{
+  "hash": "03b2b84981bc71783644549b65290e26ab88a5a745e5cae207740141080a136d",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including: execution of a 'reg copy' command to modify Winlogon/Terminal registry keys (a common technique for persistence or hijacking), dropping multiple executable files (spools.exe, cftmon.exe) to system directories and user profiles, establishing persistence via Registry Run keys and Service ImagePath, modifying userinit.exe (a critical system file), and utilizing anti-analysis techniques like UPX packing, XOR encoding, and VM detection. The network activity to suspicious domains further supports a malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Backdoor\"],\n    \"explanation\": \"The sample behaves like a Trojan by masquerading as legitimate system files (spools.exe, userinit.exe) and dropping additional payloads (cftmon.exe). It establishes persistence and modifies critical system components (Winlogon, userinit), which is characteristic of a Trojan. The modification of Winlogon and the creation of a 'Terminal' registry key under Winlogon suggest it may be attempting to create a backdoor or hijack the login process, justifying the Backdoor classification as well.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1547\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1037\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1036\",\n        \"name\": \"Masquerading\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 3305,
+      "response_chars": 1837,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including: execution of a 'reg copy' command to modify Winlogon/Terminal registry keys (a common technique for persistence or hijacking), dropping multiple executable files (spools.exe, cftmon.exe) to system directories and user profiles, establishing persistence via Registry Run keys ",
+      "elapsed_seconds": 9.51
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 9.51,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9143
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.25,
+      "ttp_precision": 0.1667,
+      "ttp_recall": 0.5,
+      "gt_ttps": [
+        "T1027",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1036",
+        "T1037",
+        "T1055",
+        "T1059",
+        "T1547"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1036",
+        "T1037",
+        "T1055",
+        "T1059",
+        "T1547"
+      ],
+      "q3_missed_ttps": [
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.25,
+      "breakdown": {
+        "ttp_f1": 0.25
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "hash": "01e4e94c2d08e77faec8383b7da8bb34a0efe6234b8725301970ce913fdb5e8c",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior by modifying the Windows Registry under Image File Execution Options (IFEO) to hijack legitimate system processes (taskmgr.exe, 360tray.exe, ZhuDongFangYu.exe) and force them to run a debugger (ntsd -d). This is a classic technique used to bypass security software, disable task managers, and evade detection. Additionally, it performs file association hijacking (associating .txt, .jpg, .zip, .com files with its own executable) and drops multiple files, including a 'DllLoader.exe', indicating a dropper or loader payload designed to execute further malicious code.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Dropper\"],\n    \"explanation\": \"The sample functions as a Trojan because it disguises itself as a legitimate application (compiled in Visual Basic) and performs malicious registry modifications to hijack system processes. It also acts as a Dropper because it drops additional files (C:\\\\DllLoader.exe, C:\\\\install.exe) and modifies file associations to ensure its payload is executed when specific file types are opened, facilitating the delivery of secondary payloads.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1546.001\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1546.001\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1546.001\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1037.004\",\n        \"name\": \"Command and Scripting Interpreter: Windows Command Shell\"\n      },\n      {\n        \"id\": \"T1562.001\",\n        \"name\": \"Indicator Removal: Disable or Modify Tools\"\n      },\n      {\n        \"id\": \"T1055.012\",\n        \"name\": \"Process Injection: Dynamic Resolution\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 4794,
+      "response_chars": 1836,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior by modifying the Windows Registry under Image File Execution Options (IFEO) to hijack legitimate system processes (taskmgr.exe, 360tray.exe, ZhuDongFangYu.exe) and force them to run a debugger (ntsd -d). This is a classic technique used to bypass security software, disable task managers, and ev",
+      "elapsed_seconds": 9.87
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 9.87,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9118
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1057",
+        "T1129"
+      ],
+      "pred_ttps": [
+        "T1037",
+        "T1055",
+        "T1546",
+        "T1562"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1037",
+        "T1055",
+        "T1546",
+        "T1562"
+      ],
+      "q3_missed_ttps": [
+        "T1057",
+        "T1129"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

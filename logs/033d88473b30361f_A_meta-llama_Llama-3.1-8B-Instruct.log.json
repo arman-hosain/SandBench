@@ -1,0 +1,95 @@
+{
+  "hash": "033d88473b30361f785818546a8db5e15a65e2b3411672e1b6f1ca4c50dfa15b",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity, including DNS lookups and IP traffic to potentially malicious domains, and attempts to evade behavioral analysis by referencing anti-VM strings and containing a resource section.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior suggests it is a Trojan, as it drops a malicious executable and communicates with potentially malicious domains, likely for the purpose of exfiltrating data or installing additional malware.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1036\", \"name\": \"Masquerading: Rename or Use of Legitimate Tools\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution: Windows\"},\n      {\"id\": \"T1219\", \"name\": \"System Service Misuse\"},\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"},\n      {\"id\": \"T1210\", \"name\": \"Exploitation of Remote Services\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1084\", \"name\": \"Code Injection\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 1469,
+      "response_chars": 1110,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity, including DNS lookups and IP traffic to potentially malicious domains, and attempts to evade behavioral analysis by referencing anti-VM strings and containing a resource section.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior suggests it is a Trojan, as ",
+      "elapsed_seconds": 5.3
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 5.3,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.875
+    },
+    "family": {
+      "family_f1": 0.6667,
+      "family_precision": 1.0,
+      "family_recall": 0.5,
+      "predicted": [
+        "trojan"
+      ],
+      "matched": [
+        "trojan"
+      ],
+      "reachable_gt": [
+        "dropper",
+        "trojan"
+      ],
+      "gt_pool": [
+        "downloader",
+        "ppatre",
+        "r002c0dbl24",
+        "trojan",
+        "upatre"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1082",
+        "T1084",
+        "T1210",
+        "T1218",
+        "T1219"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1082",
+        "T1084",
+        "T1210",
+        "T1218",
+        "T1219"
+      ],
+      "q3_missed_ttps": [
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

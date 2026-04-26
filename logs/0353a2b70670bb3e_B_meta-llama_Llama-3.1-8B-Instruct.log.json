@@ -1,0 +1,91 @@
+{
+  "hash": "0353a2b70670bb3eadd02183687085c25c9a6bd3a4f3c048c90ae2cefce48828",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as encoding data using Base64 and XOR, and dropping executable files in the user's application directory. Additionally, it attempts to delete files and contains a loop, which suggests a malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior of dropping executable files and attempting to delete files suggests a Trojan-like behavior, where the primary goal is to execute malicious code on the victim's system.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1204\", \"name\": \"User Execution of Malicious Code\"},\n      {\"id\": \"T1218\", \"name\": \"File and Directory Permissions Modification\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 1058,
+      "response_chars": 865,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as encoding data using Base64 and XOR, and dropping executable files in the user's application directory. Additionally, it attempts to delete files and contains a loop, which suggests a malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior of drop",
+      "elapsed_seconds": 3.9
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": false,
+      "gap_summary": "",
+      "missed_behavior_count": 0,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1204",
+        "T1218"
+      ],
+      "hallucinated_ttps": [
+        "T1055",
+        "T1204",
+        "T1218"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 3
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 3.9,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9155
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.4,
+      "ttp_precision": 0.25,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1204",
+        "T1218"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1204",
+        "T1218"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4,
+      "breakdown": {
+        "ttp_f1": 0.4
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

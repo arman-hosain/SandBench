@@ -1,0 +1,150 @@
+{
+  "hash": "12bb2f4b0599468ce0915c058a56e89c8697eced00820251ab6d50eabc2cea4e",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  vboxcontrol.pe32\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (9):\n  - set file attributes\n  - timestomp file\n  - enumerate files on Windows\n  - enumerate files recursively\n  - get disk information\n  - get file size\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - reference anti-VM strings targeting VirtualBox\n\nCAPA RULE MATCHES (MBC):\n  - Process::Create Process [C0017]\n  - File System::Set File Attributes [C0050]\n  - File System::Get File Attributes [C0049]\n  - File System::Create File [C0016]\n  - contain loop\n  - extract resource via kernel32 functions\n  - timestomp file\n  - File System::Delete File [C0047]\n  - File System::Copy File [C0045]\n  - File System::Read File [C0051]\n  - Discovery::File and Directory Discovery [E1083]\n  - Discovery::System Information Discovery [E1082]\n  - File System::Writes File [C0052]\n  - Process::Terminate Process [C0018]\n  - Process::Allocate Thread Local Storage [C0040]\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - contains PDB path\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (30):\n  DW20.EXE  [sha256: af2126757529e64d...]\n  DWTRIG20.EXE  [sha256: d38f675e49ffecba...]\n  icwconn1.exe  [sha256: 81fe796bd8a1c52e...]\n  icwconn2.exe  [sha256: 385e88a4c8cd962a...]\n  iedw.exe  [sha256: de4744251b4fd609...]\n  IEXPLORE.EXE  [sha256: 37c6f47f5f2b2a67...]\n  msmsgs.exe  [sha256: a5c34b5f2a4d12c5...]\n  uninst.exe  [sha256: d13aadb01b37e684...]\n  VBoxControl.exe  [sha256: 9f3a481bef50f185...]\n  \\Program Files\\Windows Defender\\MpCmdRun.cab  [sha256: 1550fa7b31a98d65...]\n  \\Program Files\\Windows Media Player\\wmplayer.cab  [sha256: ec4c6f2ef42c0687...]\n  \\Program Files\\Adobe\\Acrobat Reader DC\\Reader\\AcroCEF\\RdrServicesUpdater.exe  [sha256: 1409ea17872fc55c...]\n  \\Program Files\\Common Files\\Java\\Java Update\\jucheck.cab  [sha256: ff71b31188575639...]\n  \\Program Files\\Common Files\\Java\\Java Update\\jaureg.exe  [sha256: e7d6a5aecf022ff9...]\n  \\Program Files\\Common Files\\microsoft shared\\DW\\DWTRIG20.cab  [sha256: a1dfa6639bef3cb4...]\n  \\Program Files\\Windows Sidebar\\sidebar.cab  [sha256: 8858cfd159bb32ae...]\n  \\Program Files\\WinRAR\\Uninstall.exe  [sha256: 0a3e8d4bc9327309...]\n  \\Program Files\\WinRAR\\Uninstall.cab  [sha256: 9f3a37d77d38ee1f...]\n  \\Program Files\\Google\\Chrome\\Application\\76.0.3809.100\\nacl64.exe  [sha256: d172210eb0406db8...]\n  \\Program Files\\Common Files\\Adobe\\ARM\\1.0\\AdobeARM.exe  [sha256: 6761cd35b16b355f...]\n\nFILES WRITTEN (30):\n  C:\\12bb2f4b0599468ce0915c058a56e89c8697eced00820251ab6d50eabc2cea4e\n  C:\\Program Files\\Common Files\\Microsoft Shared\\DW\\DW20.EXE\n  C:\\Program Files\\Common Files\\Microsoft Shared\\DW\\DWTRIG20.EXE\n  C:\\Program Files\\Common Files\\Microsoft Shared\\DW\\RCX3.tmp\n  C:\\Program Files\\Common Files\\Microsoft Shared\\DW\\RCX4.tmp\n  C:\\Program Files\\Common Files\\Microsoft Shared\\DW\\RCX5.tmp\n  C:\\Program Files\\Common Files\\Microsoft Shared\\DW\\RCX6.tmp\n  C:\\Program Files\\Common Files\\Microsoft Shared\\DW\\RCX7.tmp\n  C:\\Program Files\\Internet Explorer\\RCX13.tmp\n  C:\\Program Files\\Internet Explorer\\RCX15.tmp\n  C:\\Program Files\\Internet Explorer\\RCX16.tmp\n  C:\\Program Files\\Internet Explorer\\RCX17.tmp\n  C:\\Program Files\\Internet Explorer\\RCX18.tmp\n  C:\\Program Files\\Internet Explorer\\RCX19.tmp\n  C:\\Program Files\\Internet Explorer\\RCX1A.tmp\n  C:\\Program Files\\Internet Explorer\\RCX1B.tmp\n  C:\\Program Files\\ga\\RCX8.tmp\n  C:\\Program Files\\ga\\RCX9.tmp\n  C:\\Program Files\\ga\\RCXA.tmp\n  C:\\Program Files\\ga\\RCXB.tmp\n\nPROCESSES CREATED (1):\n  C:\\12bb2f4b0599468ce0915c058a56e89c8697eced00820251ab6d50eabc2cea4e.cab\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualAlloc, WinExec\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.51\n  .rdata       entropy=5.19\n  .data        entropy=7.88\n  .rsrc        entropy=3.65\n  [overlay]    entropy=0.004372996743768454  size=39273\n",
+  "ground_truth": {
+    "hash": "12bb2f4b0599468ce0915c058a56e89c8697eced00820251ab6d50eabc2cea4e",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9437,
+    "malicious_count": 67,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1070",
+        "signature_description": "timestomp file"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk information"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "enumerate files on Windows"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "create process on Windows",
+      "set file attributes",
+      "get file attributes",
+      "create or open file",
+      "contain loop",
+      "extract resource via kernel32 functions",
+      "timestomp file",
+      "delete file",
+      "copy file",
+      "read file on Windows",
+      "enumerate files on Windows",
+      "enumerate files recursively",
+      "get disk information",
+      "write file on Windows",
+      "get file size",
+      "terminate process",
+      "allocate thread local storage",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting VirtualBox",
+      "contains PDB path"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "DW20.EXE",
+        "DWTRIG20.EXE",
+        "IEXPLORE.EXE",
+        "VBoxControl.exe",
+        "\\Program Files\\Adobe\\Acrobat Reader DC\\Reader\\AcroBroker.cab",
+        "\\Program Files\\Adobe\\Acrobat Reader DC\\Reader\\AcroBroker.exe",
+        "\\Program Files\\Adobe\\Acrobat Reader DC\\Reader\\AcroCEF\\RdrCEF.cab",
+        "\\Program Files\\Adobe\\Acrobat Reader DC\\Reader\\AcroCEF\\RdrServicesUpdater.cab",
+        "\\Program Files\\Adobe\\Acrobat Reader DC\\Reader\\AcroCEF\\RdrServicesUpdater.exe",
+        "\\Program Files\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.cab",
+        "\\Program Files\\Common Files\\Adobe\\ARM\\1.0\\AdobeARM.cab",
+        "\\Program Files\\Common Files\\Adobe\\ARM\\1.0\\AdobeARM.exe",
+        "\\Program Files\\Common Files\\Adobe\\ARM\\1.0\\AdobeARMHelper.cab",
+        "\\Program Files\\Common Files\\Java\\Java Update\\jaureg.cab",
+        "\\Program Files\\Common Files\\Java\\Java Update\\jaureg.exe",
+        "\\Program Files\\Common Files\\Java\\Java Update\\jucheck.cab",
+        "\\Program Files\\Common Files\\Oracle\\Java\\javapath_target_680125\\java.exe",
+        "\\Program Files\\Common Files\\Oracle\\Java\\javapath_target_680125\\javaw.cab",
+        "\\Program Files\\Common Files\\Oracle\\Java\\javapath_target_680125\\javaw.exe",
+        "\\Program Files\\Common Files\\microsoft shared\\DW\\DW20.cab",
+        "\\Program Files\\Common Files\\microsoft shared\\DW\\DWTRIG20.cab",
+        "\\Program Files\\Google\\Chrome\\Application\\76.0.3809.100\\Installer\\chrmstp.exe",
+        "\\Program Files\\Google\\Chrome\\Application\\76.0.3809.100\\Installer\\setup.exe",
+        "\\Program Files\\Google\\Chrome\\Application\\76.0.3809.100\\elevation_service.exe",
+        "\\Program Files\\Google\\Chrome\\Application\\76.0.3809.100\\nacl64.cab",
+        "\\Program Files\\Google\\Chrome\\Application\\76.0.3809.100\\nacl64.exe",
+        "\\Program Files\\Google\\Chrome\\Application\\chrome.cab",
+        "\\Program Files\\Google\\Chrome\\Application\\chrome_proxy.cab",
+        "\\Program Files\\Google\\Chrome\\Application\\chrome_proxy.exe",
+        "\\Program Files\\Google\\Update\\1.3.34.11\\GoogleCrashHandler.cab",
+        "\\Program Files\\Google\\Update\\1.3.34.11\\GoogleCrashHandler64.cab",
+        "\\Program Files\\Google\\Update\\1.3.34.11\\GoogleCrashHandler64.exe",
+        "\\Program Files\\Google\\Update\\GoogleUpdate.cab",
+        "\\Program Files\\Internet Explorer\\ExtExport.cab",
+        "\\Program Files\\Internet Explorer\\iexplore.cab",
+        "\\Program Files\\Java\\jre1.8.0_221\\bin\\jabswitch.cab",
+        "\\Program Files\\Java\\jre1.8.0_221\\bin\\jabswitch.exe",
+        "\\Program Files\\Java\\jre1.8.0_221\\bin\\java-rmi.cab",
+        "\\Program Files\\Microsoft Office\\Office14\\1033\\ONELEV.EXE",
+        "\\Program Files\\Microsoft Office\\Office14\\1033\\ONELEV.cab",
+        "\\Program Files\\Microsoft Office\\Office14\\CLVIEW.cab",
+        "\\Program Files\\Microsoft Office\\Office14\\CNFNOT32.EXE",
+        "\\Program Files\\WinRAR\\Rar.cab",
+        "\\Program Files\\WinRAR\\Rar.exe",
+        "\\Program Files\\WinRAR\\Uninstall.cab",
+        "\\Program Files\\WinRAR\\Uninstall.exe",
+        "\\Program Files\\Windows Defender\\MpCmdRun.cab",
+        "\\Program Files\\Windows Journal\\PDIALOG.cab",
+        "\\Program Files\\Windows Mail\\wab.cab",
+        "\\Program Files\\Windows Media Player\\WMPDMC.cab",
+        "\\Program Files\\Windows Media Player\\setup_wm.cab",
+        "\\Program Files\\Windows Media Player\\wmpconfig.cab",
+        "\\Program Files\\Windows Media Player\\wmpenc.cab",
+        "\\Program Files\\Windows Media Player\\wmplayer.cab",
+        "\\Program Files\\Windows Media Player\\wmpnetwk.cab",
+        "\\Program Files\\Windows Media Player\\wmpnscfg.cab",
+        "\\Program Files\\Windows Media Player\\wmprph.cab",
+        "\\Program Files\\Windows NT\\Accessories\\wordpad.cab",
+        "\\Program Files\\Windows Photo Viewer\\ImagingDevices.cab",
+        "\\Program Files\\Windows Sidebar\\sidebar.cab",
+        "icwconn1.exe",
+        "icwconn2.exe",
+        "iedw.exe",
+        "msmsgs.exe",
+        "uninst.exe"
+      ],
+      "mutexes": [],
+      "processes": [
+        "C:\\12bb2f4b0599468ce0915c058a56e89c8697eced00820251ab6d50eabc2cea4e.cab"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

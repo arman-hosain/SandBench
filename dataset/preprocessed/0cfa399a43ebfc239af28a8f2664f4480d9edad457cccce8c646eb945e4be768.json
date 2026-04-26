@@ -1,0 +1,39 @@
+{
+  "hash": "0cfa399a43ebfc239af28a8f2664f4480d9edad457cccce8c646eb945e4be768",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nIP TRAFFIC (3):\n  121.88.5.183:11120 (TCP)\n  121.88.5.184:11170 (TCP)\n  218.54.28.139:11120 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  shoste.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\sanfdr.bat\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\shoste.exe\n\nCOMMAND EXECUTIONS (2):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\shoste.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\sanfdr.bat\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\shoste.exe  [sha256: 148de90e2f8b7054...]\n\nFILES WRITTEN (2):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\golfinfo.ini\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\sanfdr.bat\n\nOTHER REGISTRY KEYS SET (1):\n  HKCU\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\Run\n\nMUTEXES CREATED (1):\n  DBWinMutex\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Packer] PECompact\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'F-PROT': 'PECompact, PecBundle', 'Cyren': 'PecBundle, PECompact, PecBundle'}\n\nPE SECTIONS (entropy):\n  .text        entropy=7.92\n  .rsrc        entropy=6.29\n  .reloc       entropy=0.21\n  [overlay]    entropy=4.555230617523193  size=4981\n",
+  "ground_truth": {
+    "hash": "0cfa399a43ebfc239af28a8f2664f4480d9edad457cccce8c646eb945e4be768",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8472,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [],
+    "capa_sig_names": [],
+    "iocs": {
+      "ips": [
+        "121.88.5.183",
+        "121.88.5.184",
+        "218.54.28.139"
+      ],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\shoste.exe"
+      ],
+      "mutexes": [
+        "DBWinMutex"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "VirusTotal Jujubox"
+  ]
+}

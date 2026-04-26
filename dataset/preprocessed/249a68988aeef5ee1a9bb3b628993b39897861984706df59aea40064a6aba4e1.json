@@ -1,0 +1,92 @@
+{
+  "hash": "249a68988aeef5ee1a9bb3b628993b39897861984706df59aea40064a6aba4e1",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  boot.ini .exe\n    C:\\ProgramData\\voiwno.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\Users\\<USER>\\Downloads\\boot.ini\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (6):\n  - contain obfuscated stackstrings\n  - get startup folder\n  - set file attributes\n  - get common file path\n  - accept command line arguments\n  - get number of processors\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - get startup folder\n  - Process::Create Process [C0017]\n  - File System::Set File Attributes [C0050]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Delete File [C0047]\n  - File System::Create Directory [C0046]\n  - Process::Allocate Thread Local Storage [C0040]\n  - get thread local storage value\n  - Process::Set Thread Local Storage Value [C0041]\n  - File System::Read File [C0051]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - get number of processors\n  - resolve function by parsing PE exports\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (12):\n  C:\\ProgramData\\voiwno.exe  [sha256: 8c79e3c98aaf8927...]\n  C:\\ProgramData\\Saaaalamm\\Mira.h  [sha256: 4487beb4c40a38ae...]\n  c:\\$Recycle.Bin .exe  [sha256: 042456a23f01246f...]\n  c:\\dev_man.exe .exe  [sha256: a59710b44c62cc70...]\n  c:\\Documents and Settings .exe  [sha256: 67d48207abdf6b32...]\n  c:\\l.bat .exe  [sha256: 629bae0fa8b335dc...]\n  c:\\pagefile.sys .exe  [sha256: 45524dd3262da986...]\n  c:\\PerfLogs .exe  [sha256: 4fe5d1595fad2b1a...]\n  c:\\Program Files .exe  [sha256: 9c4dd07432a3f5d8...]\n  c:\\Program Files (x86) .exe  [sha256: c01cc59c0b3f4675...]\n  c:\\ProgramData .exe  [sha256: 5fcc24e8c67d7fcf...]\n  c:\\r.py .exe  [sha256: 3e866ae01519c81e...]\n\nFILES WRITTEN (1):\n  c:\\Mirae\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft\u00ae Windows\u00ae Operating System = C:\\ProgramData\\voiwno.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n  Packers: {'PEiD': 'MingWin32 v?.? (h)'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.1\n  .data        entropy=0.71\n  .rdata       entropy=5.01\n  .bss         entropy=0.0\n  .idata       entropy=4.29\n  .rsrc        entropy=7.11\n  [overlay]    entropy=6.948904514312744  size=178\n",
+  "ground_truth": {
+    "hash": "249a68988aeef5ee1a9bb3b628993b39897861984706df59aea40064a6aba4e1",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9444,
+    "malicious_count": 68,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get number of processors"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "get startup folder"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "get startup folder",
+      "create process on Windows",
+      "set file attributes",
+      "delay execution",
+      "create or open file",
+      "PEB access",
+      "contain loop",
+      "get common file path",
+      "delete file",
+      "create directory",
+      "allocate thread local storage",
+      "get thread local storage value",
+      "set thread local storage value",
+      "read file on Windows",
+      "accept command line arguments",
+      "get number of processors",
+      "resolve function by parsing PE exports",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft\u00ae Windows\u00ae Operating System"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "C:\\ProgramData\\Saaaalamm\\Mira.h",
+        "C:\\ProgramData\\voiwno.exe",
+        "c:\\$Recycle.Bin .exe",
+        "c:\\Documents and Settings .exe",
+        "c:\\PerfLogs .exe",
+        "c:\\Program Files (x86) .exe",
+        "c:\\Program Files .exe",
+        "c:\\ProgramData .exe",
+        "c:\\dev_man.exe .exe",
+        "c:\\l.bat .exe",
+        "c:\\pagefile.sys .exe",
+        "c:\\r.py .exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "hash": "39674b797cd8a403c490a9dbb1223a05d44c9ce829376b2e2202508697997ab7",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (5):\n  GET http://ddos.dnsnb8.net:799/cj//k1.rar\n  GET http://ddos.dnsnb8.net:799/cj//k2.rar\n  GET http://ddos.dnsnb8.net:799/cj//k3.rar\n  GET http://ddos.dnsnb8.net:799/cj//k4.rar\n  GET http://ddos.dnsnb8.net:799/cj//k5.rar\n\nDNS LOOKUPS (2):\n  ddos.dnsnb8.net\n  ddos.dnsnb8.net \u2192 185.87.187.198\n\nIP TRAFFIC (1):\n  185.87.187.198:799 (TCP)\n\nSERVICES OPENED (2):\n  RASMAN\n  Sens\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    qmdsu.exe\n      199c6431.exe\n      528e6242.exe\n      0f0f25df.exe\n      09771958.exe\n      04cb54fb.exe\n      cmd.exe cmd /c \"641d7670.bat\" \"\n\nCOMMAND EXECUTIONS (1):\n  cmd /c \"\"C:\\DOCUME~1\\ADMINI~1\\LOCALS~1\\Temp\\641d7670.bat\" \"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (13):\n  - encode data using XOR\n  - access PEB ldr_data\n  - contain obfuscated stackstrings\n  - check if file exists\n  - query or enumerate registry value\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - get file size\n  - get common file path\n  - query or enumerate registry key\n  - delete registry key\n  - delete registry value\n  - packed with ASPack\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - File System::Get File Attributes [C0049]\n  - File System::Create File [C0016]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Create Process [C0017]\n  - Process::Resume Thread [C0054]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - access PEB ldr_data\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - contain loop\n  - File System::Create Directory [C0046]\n  - Discovery::File and Directory Discovery [E1083]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - File System::Read File [C0051]\n  - File System::Delete File [C0047]\n  - Operating System::Registry::Query Registry Key [C0036.005]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - File System::Writes File [C0052]\n  - Operating System::Registry::Delete Registry Key [C0036.002]\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  QMDSu.exe  [sha256: 4354970ccc7cd6bb...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\QMDSu.exe  [sha256: 4354970ccc7cd6bb...]\n\nFILES WRITTEN (30):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\QMDSu.exe\n  C:\\DllLoader.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\04CB54FB.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\09771958.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\0F0F25DF.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\199C6431.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\528E6242.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\QMDSu.exe\n  C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\LogTransport2.exe\n  C:\\Program Files\\e\\e.exe\n  C:\\Program Files\\e\\sdk\\cpp\\tools\\guidgen.exe\n  C:\\Program Files\\e\\sdk\\tools\\resym.exe\n  C:\\Program Files\\e\\setup\\mksetup.exe\n  C:\\Program Files\\e\\setup\\setup.exe\n  C:\\Program Files\\e\\setup\\setup_jt.exe\n  C:\\Program Files\\e\\tools\\DBManager.exe\n  C:\\Program Files\\e\\tools\\EvaDesigner.exe\n  C:\\Program Files\\e\\tools\\about.exe\n  C:\\Program Files\\e\\tools\\dbcnv.exe\n  C:\\Program Files\\e\\tools\\dblang.exe\n\nOTHER REGISTRY KEYS SET (6):\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n  \\REGISTRY\\MACHINE\\SOFTWARE\\GTplus\\Time\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n\nMUTEXES CREATED (12):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  IESQMMUTEX_0_208\n  MSCTF.Shared.MUTEX.EBH\n  RasPbFile\n  ZonesCacheCounterMutex\n\nMUTEXES OPENED (7):\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n  _!MSFTHISTORY!_\n  c:!documents and settings!administrator!cookies!\n  c:!documents and settings!administrator!local settings!history!history.ie5!\n  c:!documents and settings!administrator!local settings!temporary internet files!content.ie5!\n\nPROCESSES CREATED (2):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\QMDSu.exe\n  C:\\WINDOWS\\system32\\cmd.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA, GetProcAddress\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.43\n  .rdata       entropy=6.85\n  .data        entropy=0.68\n  .rsrc        entropy=4.74\n  ,Kuu         entropy=6.04\n",
+  "ground_truth": {
+    "hash": "39674b797cd8a403c490a9dbb1223a05d44c9ce829376b2e2202508697997ab7",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "downloader-64720",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "check if file exists"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry key"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "get file attributes",
+      "create or open file",
+      "create or open registry key",
+      "create process on Windows",
+      "resume thread",
+      "encode data using XOR",
+      "PEB access",
+      "access PEB ldr_data",
+      "contain obfuscated stackstrings",
+      "contain loop",
+      "create directory",
+      "check if file exists",
+      "query or enumerate registry value",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "read file on Windows",
+      "delete file",
+      "get file size",
+      "read file via mapping",
+      "get common file path",
+      "query or enumerate registry key",
+      "set registry value",
+      "write file on Windows",
+      "delete registry key",
+      "delete registry value",
+      "delete directory",
+      "read .ini file",
+      "compress data via ZLIB inflate or deflate",
+      "hash data with CRC32",
+      "terminate process",
+      "resolve function by parsing PE exports",
+      "packed with ASPack",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "linked against ZLIB",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [
+        "185.87.187.198"
+      ],
+      "domains": [
+        "ddos.dnsnb8.net"
+      ],
+      "urls": [
+        "http://ddos.dnsnb8.net:799/cj//k1.rar",
+        "http://ddos.dnsnb8.net:799/cj//k2.rar",
+        "http://ddos.dnsnb8.net:799/cj//k3.rar",
+        "http://ddos.dnsnb8.net:799/cj//k4.rar",
+        "http://ddos.dnsnb8.net:799/cj//k5.rar"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 6,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\QMDSu.exe",
+        "QMDSu.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "IESQMMUTEX_0_208",
+        "MSCTF.Shared.MUTEX.EBH",
+        "RasPbFile",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\QMDSu.exe",
+        "C:\\WINDOWS\\system32\\cmd.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

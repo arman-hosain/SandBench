@@ -1,0 +1,72 @@
+{
+  "hash": "1ddca52d021eea3e25db8448bff2ad5ab9961c2b4e5f7f3f0056c5c35c69860c",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - encode data using Base64 via WinAPI\n  - reference anti-VM strings targeting Xen\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - encode data using Base64 via WinAPI\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: 49e58cd607ec8ec2...]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] LCC-Win32\n  [Linker] LCC Linker\n  Packers: {'PEiD': 'Microsoft Visual C++ (3.0 old crap)'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.6\n  .bss         entropy=0.0\n  .data        entropy=6.67\n  .idata       entropy=3.96\n  .rsrc        entropy=4.11\n  .reloc2      entropy=7.29\n  [overlay]    entropy=7.999660968780518  size=856041\n",
+  "ground_truth": {
+    "hash": "1ddca52d021eea3e25db8448bff2ad5ab9961c2b4e5f7f3f0056c5c35c69860c",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8767,
+    "malicious_count": 64,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 28
+      },
+      {
+        "value": "dropper",
+        "count": 5
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "gepys",
+        "count": 8
+      },
+      {
+        "value": "zbot",
+        "count": 6
+      },
+      {
+        "value": "redirect",
+        "count": 3
+      }
+    ],
+    "suggested_label": "trojan.gepys/zbot",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using Base64 via WinAPI"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting Xen"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RWX memory",
+      "encode data using Base64 via WinAPI",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting Xen"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

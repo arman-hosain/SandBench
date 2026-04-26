@@ -1,0 +1,49 @@
+{
+  "hash": "1fe81180fdebe9d9cfc4dff8795d4fa961d0d426ac49ec75d7ee71555ff386c2",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (2):\n  benjamin.xww.de\n  yahoo.com \u2192 98.137.246.7, 98.137.246.8\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - packed with ASPack\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - contain loop\n  - contain a resource (.rsrc) section\n  - contain a thread local storage (.tls) section\n  - Anti-Static Analysis::Software Packing [F0001]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\System-Service = C:\\Windows\\SYSTEM\\EXPLORER.SCR\n\nOTHER REGISTRY KEYS SET (1):\n  HKLM\\SOFTWARE\\Microsoft\\syscod\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Packer] ASPack\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n  Packers: {'PEiD': 'ASPack v2.11'}\n\nPE SECTIONS (entropy):\n  CODE         entropy=8.0\n  DATA         entropy=6.6\n  BSS          entropy=0.0\n  .idata       entropy=7.39\n  .tls         entropy=0.0\n  .rdata       entropy=0.2\n  .reloc       entropy=0.0\n  .rsrc        entropy=7.88\n  .aspack      entropy=6.29\n  .data        entropy=0.0\n  [overlay]    entropy=4.357340335845947  size=491193\n",
+  "ground_truth": {
+    "hash": "1fe81180fdebe9d9cfc4dff8795d4fa961d0d426ac49ec75d7ee71555ff386c2",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.942,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "benjamin",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with ASPack"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "contain a thread local storage (.tls) section",
+      "packed with ASPack",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [
+        "benjamin.xww.de",
+        "yahoo.com"
+      ],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\System-Service"
+      ],
+      "registry_all_count": 2,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

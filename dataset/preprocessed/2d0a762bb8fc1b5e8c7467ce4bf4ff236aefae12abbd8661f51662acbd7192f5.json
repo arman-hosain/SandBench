@@ -1,0 +1,74 @@
+{
+  "hash": "2d0a762bb8fc1b5e8c7467ce4bf4ff236aefae12abbd8661f51662acbd7192f5",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  GET http://checkip.dyndns.org/  UA: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.36 (KHTML, like Gecko) Chrome/44.0.2455.81 Safari/535.36\n  GET http://checkip.dyndns.org/\n\nDNS LOOKUPS (3):\n  checkip.dyndns.com \u2192 131.186.161.70, 162.88.193.70\n  checkip.dyndns.org \u2192 131.186.161.70\n  checkip.dyndns.org \u2192 131.186.161.70, 162.88.193.70\n\nIP TRAFFIC (3):\n  131.186.161.70:80 (TCP)\n  216.146.43.70:80 (TCP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (2):\n  RASMAN\n  Sens\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  olacweegim.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\olacweegim.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - hide graphical window\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - inspect load icon resource\n  - hide graphical window\n  - contain loop\n  - Process::Allocate Thread Local Storage [C0040]\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - Process::Terminate Process [C0018]\n  - contain a resource (.rsrc) section\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - (internal) packer file limitation\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  olacweegim.exe  [sha256: 913460800d12ebc5...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\olacweegim.exe  [sha256: 137e431eed026b50...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\olacweegim.exe\n\nOTHER REGISTRY KEYS SET (3):\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n\nMUTEXES CREATED (2):\n  IESQMMUTEX_0_208\n  RasPbFile\n\nMUTEXES OPENED (3):\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\olacweegim.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, LoadLibraryW\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n\nPE SECTIONS (entropy):\n  UPX0         entropy=5.74\n  UPX1         entropy=2.14\n  .rsrc        entropy=5.47\n  .imports     entropy=3.95\n  [overlay]    entropy=3.515507459640503  size=13940\n",
+  "ground_truth": {
+    "hash": "2d0a762bb8fc1b5e8c7467ce4bf4ff236aefae12abbd8661f51662acbd7192f5",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9014,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with UPX"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      }
+    ],
+    "capa_sig_names": [
+      "inspect load icon resource",
+      "hide graphical window",
+      "contain loop",
+      "allocate thread local storage",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "terminate process",
+      "contain a resource (.rsrc) section",
+      "packed with UPX",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [
+        "131.186.161.70",
+        "216.146.43.70",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "checkip.dyndns.com",
+        "checkip.dyndns.org"
+      ],
+      "urls": [
+        "http://checkip.dyndns.org/"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 3,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\olacweegim.exe",
+        "olacweegim.exe"
+      ],
+      "mutexes": [
+        "IESQMMUTEX_0_208",
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\olacweegim.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

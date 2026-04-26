@@ -1,0 +1,87 @@
+{
+  "hash": "39b375f6045d77045527f03a6041d5841c748909b29c5e65b5c576cd263d8fde",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  fdeab239d153d718ebd7b31e0dce8691.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - encode data using XOR\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - contain a resource (.rsrc) section\n\nHIGHLIGHTED CALLS:\n  kernel32.dll.ExitProcess\n  advapi32.dll.RegOpenKeyExW\n  kernel32.dll.GetCurrentThreadId\n  kernel32.dll.LoadLibraryExW\n  kernel32.dll.FreeLibrary\n  kernel32.dll.WriteFile\n  user32.dll.SendMessageA\n  user32.dll.SendMessageW\n  user32.dll.CallNextHookEx\n  kernel32.dll.WinExec\n  kernel32.dll.ReadFile\n  kernel32.dll.IsDebuggerPresent\n  advapi32.dll.RegConnectRegistryW\n  user32.dll.DdeConnect\n  kernel32.dll.Toolhelp32ReadProcessMemory\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (2):\n  CicLoadWinStaWinSta0\n  Local\\MSCTF.CtfMonitorInstMutexDefault1\n\nPROCESSES CREATED (19):\n  C:\\Users\\RA491~1.VUL\\AppData\\Local\\Temp\\0f9608ded450b2b63b95ce8ad0a38f74.exe \n  C:\\Users\\RA491~1.VUL\\AppData\\Local\\Temp\\xdyZ64.exe /Terminate /originalpath C:\\jlgtmz\\bin\\xdyZ.exe\n  C:\\Windows\\System32\\wevtutil.exe query-events microsoft-windows-powershell/operational /rd:true /e:root /format:xml /uni:true\n  C:\\Windows\\system32\\schtasks.exe /delete /f /TN Microsoft\\Windows\\Customer Experience Improvement Program\\Uploader\n  C:\\Windows\\system32\\wbem\\wmiprvse.exe -Embedding\n  C:\\jlgtmz\\bin\\CZZylznsL.exe inject 2768 2772 \\sEistaUW.dll\n  C:\\jlgtmz\\bin\\xdyZ.exe /Terminate\n  \\??\\C:\\Windows\\system32\\conhost.exe -1251672399-123253890-168496054468825801866852478-1623295289-1537412731-1888902909\n  \\??\\C:\\Windows\\system32\\conhost.exe -1358853837-2051435795-2015049050-819120355314514361120917940-19017145261002002892\n  \\??\\C:\\Windows\\system32\\conhost.exe -1433870683-1889034363-2076175822904998136-4533864101323562081-735949453431450410\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, VirtualAlloc\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] PECompact\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n  Packers: {'PEiD': 'PeCompact 2.xx --> BitSum Technologies', 'F-PROT': 'PECompact, PecBundle', 'Cyren': 'PecBundle, PECompact'}\n\nPE SECTIONS (entropy):\n  .text        entropy=8.0\n  .rsrc        entropy=5.95\n  [overlay]    entropy=4.876295566558838  size=16384\n",
+  "ground_truth": {
+    "hash": "39b375f6045d77045527f03a6041d5841c748909b29c5e65b5c576cd263d8fde",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9155,
+    "malicious_count": 65,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 28
+      },
+      {
+        "value": "worm",
+        "count": 2
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "urelas",
+        "count": 25
+      },
+      {
+        "value": "ek06005b",
+        "count": 2
+      },
+      {
+        "value": "uvpm",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.urelas/ek06005b",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain loop",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "CicLoadWinStaWinSta0",
+        "Local\\MSCTF.CtfMonitorInstMutexDefault1"
+      ],
+      "processes": [
+        "C:\\Users\\RA491~1.VUL\\AppData\\Local\\Temp\\0f9608ded450b2b63b95ce8ad0a38f74.exe ",
+        "C:\\Users\\RA491~1.VUL\\AppData\\Local\\Temp\\xdyZ64.exe /Terminate /originalpath C:\\jlgtmz\\bin\\xdyZ.exe",
+        "C:\\Windows\\System32\\wevtutil.exe query-events microsoft-windows-powershell/operational /rd:true /e:root /format:xml /uni:true",
+        "C:\\Windows\\system32\\schtasks.exe /delete /f /TN Microsoft\\Windows\\Customer Experience Improvement Program\\Uploader",
+        "C:\\Windows\\system32\\wbem\\wmiprvse.exe -Embedding",
+        "C:\\jlgtmz\\bin\\CZZylznsL.exe inject 2768 2772 \\sEistaUW.dll",
+        "C:\\jlgtmz\\bin\\xdyZ.exe /Terminate",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -1251672399-123253890-168496054468825801866852478-1623295289-1537412731-1888902909",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -1358853837-2051435795-2015049050-819120355314514361120917940-19017145261002002892",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -1433870683-1889034363-2076175822904998136-4533864101323562081-735949453431450410",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -1815426694-1740884851-988231505-13851655892082946638-1084734247-2006618512-1296842640",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -20240970221611815971-150810941-23738200645754246299781402411578728271259518084",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -2026731615-728331343760382997919633677-26534873-2078221807-4747022051864678535",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 1366378718-10589785521198078521806612454199827658-2097287487-21358241391869212972",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 1654699649-22617961941905084-1656337390-250905849-1853393478-1637400979336654268",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 2056021230-1414733430-2112004025-59117314-956126910159745893112904536481398957360",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 28372709141829795-1764106949-1725673823-154706965910221870451652244586352678201",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 71091157217397302212145562894-17466629222083243712-17230520826534273091411278747",
+        "wmiadap.exe /F /T /R"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "Yomi Hunter"
+  ]
+}

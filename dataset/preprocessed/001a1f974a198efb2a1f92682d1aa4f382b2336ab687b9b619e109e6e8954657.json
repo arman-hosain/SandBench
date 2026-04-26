@@ -1,0 +1,74 @@
+{
+  "hash": "001a1f974a198efb2a1f92682d1aa4f382b2336ab687b9b619e109e6e8954657",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  2c6c0873bfccca340fee628871014ea4.virus.exe\n    c:\\windows\\W_X_C.bat\n      C:\\Windows\\System32\\WScript.exe C:\\Windows\\W_X_C.vbs\n      C:\\windows\\hosts.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe\n      c:\\windows\\W_X_C.bat\n        C:\\Windows\\System32\\WScript.exe C:\\Windows\\W_X_C.vbs\n        C:\\windows\\hosts.exe\n          c:\\windows\\W_X_C.bat\n            C:\\windows\\hosts.exe\n          C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe\n      C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe\n    REG DELETE HKLM\\SYSTEM\\CurrentControlSet\\Control\\SafeBoot /f\n\nCOMMAND EXECUTIONS (5):\n  C:\\Windows\\W_X_C.vbs\n  \"C:\\Windows\\system32\\ntvdm.exe\" -i1\n  REG DELETE HKLM\\SYSTEM\\CurrentControlSet\\Control\\SafeBoot /f\n  \"C:\\Windows\\system32\\ntvdm.exe\" -i2\n  cmd /c c:\\windows\\W_X_C.bat\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - parse PE header\n  - reference anti-VM strings targeting VirtualBox\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - parse PE header\n  - Execution::Install Additional Program [B0023]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe  [sha256: d185875710216318...]\n  C:\\Windows\\hosts.exe  [sha256: b0b8c9756224000c...]\n\nFILES WRITTEN (10):\n  %WINDIR%\\W_X_C.bat\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\avscan.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\scs90B2.tmp\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\scs9382.tmp\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\scsAFB4.tmp\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\scsB2E1.tmp\n  C:\\WINDOWS\\TEMP\\scs4.tmp\n  C:\\WINDOWS\\TEMP\\scs5.tmp\n  C:\\windows\\W_X_C.vbs\n  c:\\windows\\W_X_C.bat\n\nPERSISTENCE REGISTRY KEYS (2):\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\avscan = C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\policies\\Explorer\\Run\\USER-PC = W_X_C.bat\n\nOTHER REGISTRY KEYS SET (9):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\HideFileExt\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\SuperHidden\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowSuperHidden\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Folder\\HideFileExt\\DefaultValue\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Folder\\HideFileExt\\UncheckedValue\n  \\REGISTRY\\MACHINE\\HexStream = 53004F004600540057004100520045005C004D006900630072006F0073006F00660074005C00570069006E0064\n  \\REGISTRY\\MACHINE\\HexStream = 53004F004600540057004100520045005C004D006900630072006F0073006F00660074005C00570069006E0064\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n\nMUTEXES CREATED (5):\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n  ShimCacheMutex\n\nPROCESSES CREATED (9):\n  2c6c0873bfccca340fee.pe32\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\avscan.exe\n  C:\\WINDOWS\\System32\\WScript.exe C:\\WINDOWS\\System32\\WScript.exe\" \"C:\\WINDOWS\\W_X_C.vbs\" \"\n  REG DELETE HKLM\\SYSTEM\\CurrentControlSet\\Control\\SafeBoot /f\n  c:\\windows\\W_X_C.bat\n  cmd.exe\n  ntvdm.exe\n  reg.exe\n  services.exe\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.08\n  .rsrc        entropy=7.64\n  [overlay]    entropy=7.91308069229126  size=1050925\n",
+  "ground_truth": {
+    "hash": "001a1f974a198efb2a1f92682d1aa4f382b2336ab687b9b619e109e6e8954657",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.875,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "parse PE header",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting VirtualBox",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\avscan",
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\policies\\Explorer\\Run\\USER-PC"
+      ],
+      "registry_all_count": 11,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe",
+        "C:\\Windows\\hosts.exe"
+      ],
+      "mutexes": [
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "2c6c0873bfccca340fee.pe32",
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\avscan.exe",
+        "C:\\WINDOWS\\System32\\WScript.exe C:\\WINDOWS\\System32\\WScript.exe\" \"C:\\WINDOWS\\W_X_C.vbs\" \"",
+        "REG DELETE HKLM\\SYSTEM\\CurrentControlSet\\Control\\SafeBoot /f",
+        "c:\\windows\\W_X_C.bat",
+        "cmd.exe",
+        "ntvdm.exe",
+        "reg.exe",
+        "services.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

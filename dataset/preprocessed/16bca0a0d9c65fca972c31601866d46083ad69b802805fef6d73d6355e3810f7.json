@@ -1,0 +1,159 @@
+{
+  "hash": "16bca0a0d9c65fca972c31601866d46083ad69b802805fef6d73d6355e3810f7",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    ****.exe ****.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (20):\n  - encode data using XOR\n  - acquire debug privileges\n  - set file attributes\n  - link function at runtime on Windows\n  - query environment variable\n  - check OS version\n  - get common file path\n  - get hostname\n  - get session user name\n  - enumerate process modules\n  - get file version info\n  - enumerate processes\n  - create new key via CryptAcquireContext\n  - get file size\n  - encrypt data using RC4 PRGA\n  - check if file exists\n  - modify access privileges\n  - enumerate threads\n  - timestomp file\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - File System::Create File [C0016]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Process [C0017]\n  - Process::Open Process [C0065]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - acquire debug privileges\n  - Process::Create Thread [C0038]\n  - Process::Terminate Thread [C0039]\n  - Process::Open Thread [C0066]\n  - File System::Get File Attributes [C0049]\n  - File System::Set File Attributes [C0050]\n  - contain loop\n  - resolve function by parsing PE exports\n  - link function at runtime on Windows\n  - File System::Writes File [C0052]\n  - Discovery::System Information Discovery [E1082]\n  - get OS version\n  - Discovery::File and Directory Discovery [E1083]\n  - get session user name\n  - File System::Copy File [C0045]\n  - enumerate process modules\n  - enumerate processes\n  - Data::Checksum::CRC32 [C0032.001]\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (2):\n  C:\\Documents and Settings\\Administrator\\Application Data\\996E.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA, GetProcAddress, VirtualAlloc\n  ADVAPI32.dll: AdjustTokenPrivileges, OpenProcessToken\n\nCERTIFICATE INFO:\n  Signer: Microsoft Windows Hardware Compatibility Publisher; Microsoft Windows Third Party Component CA 2012; Microsoft Root Certificate Authority 2010\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Sign tool] Windows Authenticode\n\nPE SECTIONS (entropy):\n  .text        entropy=6.61\n  .rdata       entropy=6.61\n  .data        entropy=7.99\n  .rsrc        entropy=3.6\n  .EBSS        entropy=8.0\n  [overlay]    entropy=7.329614639282227  size=8664\n",
+  "ground_truth": {
+    "hash": "16bca0a0d9c65fca972c31601866d46083ad69b802805fef6d73d6355e3810f7",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8889,
+    "malicious_count": 64,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 28
+      },
+      {
+        "value": "virus",
+        "count": 2
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "agentb",
+        "count": 10
+      },
+      {
+        "value": "barys",
+        "count": 7
+      },
+      {
+        "value": "asruex",
+        "count": 6
+      }
+    ],
+    "suggested_label": "trojan.agentb/barys",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1033",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate process modules"
+      },
+      {
+        "id": "T1070",
+        "signature_description": "timestomp file"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1087",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "acquire debug privileges"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "create or open file",
+      "delay execution",
+      "create process on Windows",
+      "open process",
+      "encode data using XOR",
+      "acquire debug privileges",
+      "create thread",
+      "terminate thread",
+      "open thread",
+      "get file attributes",
+      "set file attributes",
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "link function at runtime on Windows",
+      "write file on Windows",
+      "query environment variable",
+      "get OS version",
+      "check OS version",
+      "get common file path",
+      "get hostname",
+      "get session user name",
+      "copy file",
+      "enumerate process modules",
+      "get file version info",
+      "enumerate processes",
+      "hash data with CRC32",
+      "create new key via CryptAcquireContext",
+      "initialize hashing via WinCrypt",
+      "hash data via WinCrypt",
+      "get file size",
+      "read file on Windows",
+      "encrypt data using RC4 PRGA",
+      "check if file exists",
+      "modify access privileges",
+      "create mutex",
+      "check mutex and exit",
+      "enumerate threads",
+      "terminate process",
+      "timestomp file",
+      "compress data via ZLIB inflate or deflate",
+      "compute adler32 checksum",
+      "allocate thread local storage",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section",
+      "linked against ZLIB",
+      "reference analysis tools strings",
+      "create or open file",
+      "enumerate PE sections",
+      "write file on Windows",
+      "get OS version",
+      "get common file path",
+      "copy file",
+      "read file on Windows",
+      "compress data via ZLIB inflate or deflate"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

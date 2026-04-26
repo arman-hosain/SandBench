@@ -1,0 +1,69 @@
+{
+  "hash": "185ff4179558f03c94afd8e85c5ca0b08b6b8e4d2085849e7975f1c14f32fa03",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nSERVICES OPENED (3):\n  80513965a94b\n  Themes\n  UxSms\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ywj-1575003914.pe32\n    reg.exe\n    reg.exe\n    reg.exe\n    reg.exe\n  svchost.exe\n    dwm.exe\n\nCOMMAND EXECUTIONS (3):\n  reg add \"HKCU\\Software\\Microsoft\\Windows\\DWM\" /v Composition /t reg_dword /d 00000001 /f\n  reg add \"HKCU\\Software\\Microsoft\\Windows\\DWM\" /v CompositionPolicy /t reg_dword /d 00000002 /f\n  \"C:\\Windows\\system32\\Dwm.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (5):\n  - encode data using XOR\n  - access PEB ldr_data\n  - encrypt data using AES\n  - reference AES constants\n  - reference anti-VM strings targeting Xen\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - access PEB ldr_data\n  - contain loop\n  - Defense Evasion::Obfuscated Files or Information::Encryption-Standard Algorithm [E1027.m05]\n  - Cryptography::Encrypt Data::AES [C0027.001]\n  - reference AES constants\n  - Data::Decompress Data::aPLib [C0025.003]\n  - Anti-Behavioral Analysis::Debugger Detection::Anti-debugging Instructions [B0001.034]\n  - contain pusha popa sequence\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - Anti-Static Analysis::Disassembler Evasion [B0012]\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (3):\n  C:\\Documents and Settings\\All Users\\Application Data\\Microsoft\\Dr Watson\\drwtsn32.log\n  C:\\Windows\\Prefetch\\DWM.EXE-6FFD3DA8.pf\n  C:\\Windows\\Prefetch\\REG.EXE-E7E8BD26.pf\n\nOTHER REGISTRY KEYS SET (2):\n  HKCU\\Software\\Microsoft\\Windows\\DWM\\Composition\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (5):\n  C:\\WINDOWS\\system32\\drwtsn32 -p 1824 -e 248 -g\n  dwm.exe\n  reg.exe\n  svchost.exe\n  ywj-1575003914.pe32\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Protector] Safengine Shielden\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=8.0\n  .sedata      entropy=7.08\n  .idata       entropy=1.56\n  .rsrc        entropy=4.78\n  .sedata      entropy=7.98\n  [overlay]    entropy=5.962345123291016  size=8192\n",
+  "ground_truth": {
+    "hash": "185ff4179558f03c94afd8e85c5ca0b08b6b8e4d2085849e7975f1c14f32fa03",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7606,
+    "malicious_count": 54,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting Xen"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "PEB access",
+      "access PEB ldr_data",
+      "contain loop",
+      "encrypt data using AES",
+      "reference AES constants",
+      "decompress data using aPLib",
+      "execute anti-debugging instructions",
+      "contain pusha popa sequence",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting Xen",
+      "contain anti-disasm techniques",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 2,
+      "files_dropped": [],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\system32\\drwtsn32 -p 1824 -e 248 -g",
+        "dwm.exe",
+        "reg.exe",
+        "svchost.exe",
+        "ywj-1575003914.pe32"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "hash": "012c1310cd34a0088be366f1f6f89d6d8e62309cd9261f963b40e93591b3b620",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as encoding data using XOR, encrypting data using RC4 PRGA, and persisting via the Run registry key, which are indicative of malicious activity.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's purpose appears to be to establish a persistent presence on the system, likely for malicious purposes, which is consistent with the behavior of a Trojan.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"},\n      {\"id\": \"T1210\", \"name\": \"Operator Execution\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 3214,
+      "response_chars": 702,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as encoding data using XOR, encrypting data using RC4 PRGA, and persisting via the Run registry key, which are indicative of malicious activity.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's purpose appears to be to establish a persistent presence on the system, lik",
+      "elapsed_seconds": 3.38
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "4 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 4,
+      "ttps_found": [
+        "T1027",
+        "T1210",
+        "T1218"
+      ],
+      "hallucinated_ttps": [
+        "T1210",
+        "T1218"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 2
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- query environment variable\n- get file size\n- access PEB ldr_data\n- persist via Run registry key\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- R",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1056",
+        "T1210",
+        "T1216",
+        "T1218",
+        "T1552",
+        "T1562"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 1,
+      "best_ttp_fp": 2
+    },
+    {
+      "step": 5,
+      "type": "refinement_stopped",
+      "iteration": 1,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 1,
+      "ttp_fp": 6
+    }
+  ],
+  "total_llm_calls": 2,
+  "total_elapsed": 8.53,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9143
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.25,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 0.2,
+      "gt_ttps": [
+        "T1027",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1547"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1210",
+        "T1218"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1210",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1547"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.25,
+      "breakdown": {
+        "ttp_f1": 0.25
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

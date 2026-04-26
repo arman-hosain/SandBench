@@ -1,0 +1,138 @@
+{
+  "hash": "012c1310cd34a0088be366f1f6f89d6d8e62309cd9261f963b40e93591b3b620",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including dropping multiple executable files, establishing persistence via the Windows Run registry key, creating mutexes, and executing child processes. The use of UPX packing, XOR/RC4 encryption, and anti-analysis techniques (PEB access, debugger detection) further confirms its malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Dropper\"],\n    \"explanation\": \"The sample acts as a Dropper by unpacking and executing additional payloads (CTS.exe, kFFE7jp15g74Egr.exe) from temporary locations. It functions as a Trojan by establishing persistence and executing arbitrary code without user consent. The behavior aligns with typical dropper/trojan patterns found in malware families.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1547\", \"name\": \"Boot or Logon Autostart Execution\"},\n      {\"id\": \"T1059\", \"name\": \"Command and Scripting Interpreter\"},\n      {\"id\": \"T1070\", \"name\": \"Indicator Removal on Host\"},\n      {\"id\": \"T1036\", \"name\": \"Masquerading\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 3214,
+      "response_chars": 1199,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including dropping multiple executable files, establishing persistence via the Windows Run registry key, creating mutexes, and executing child processes. The use of UPX packing, XOR/RC4 encryption, and anti-analysis techniques (PEB access, debugger detection) further confirms its malicious inte",
+      "elapsed_seconds": 11.05
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "3 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 3,
+      "ttps_found": [
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1036",
+        "T1055",
+        "T1059",
+        "T1070"
+      ],
+      "ttp_tp": 2,
+      "ttp_fp": 4
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- query environment variable\n- get file size\n- access PEB ldr_data\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directl",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1005",
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1057",
+        "T1059",
+        "T1070",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 2,
+      "best_ttp_fp": 4
+    },
+    {
+      "step": 5,
+      "type": "refinement_stopped",
+      "iteration": 1,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 2,
+      "ttp_fp": 6
+    }
+  ],
+  "total_llm_calls": 2,
+  "total_elapsed": 23.54,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9143
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.3636,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 0.4,
+      "gt_ttps": [
+        "T1027",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1547"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1547"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1036",
+        "T1055",
+        "T1059",
+        "T1070"
+      ],
+      "q3_missed_ttps": [
+        "T1082",
+        "T1083",
+        "T1129"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.3636,
+      "breakdown": {
+        "ttp_f1": 0.3636
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

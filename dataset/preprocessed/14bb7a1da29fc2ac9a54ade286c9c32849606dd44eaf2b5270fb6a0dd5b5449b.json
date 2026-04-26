@@ -1,0 +1,72 @@
+{
+  "hash": "14bb7a1da29fc2ac9a54ade286c9c32849606dd44eaf2b5270fb6a0dd5b5449b",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  GET https://backpackinglight.com.au/wp-content/uploads/2010/11/pdf.exe\n  GET https://littlepaperlane.com.au/wp-content/uploads/2011/08/pdf.exe\n\nDNS LOOKUPS (3):\n  backpackinglight.com.au\n  backpackinglight.com.au \u2192 184.168.131.241\n  littlepaperlane.com.au\n\nIP TRAFFIC (1):\n  184.168.131.241:443 (TCP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  papers.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\papers.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\papers.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - packed with Mpress\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Static Analysis::Software Packing [F0001]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\papers.exe  [sha256: f21ca9a32570ae58...]\n\nFILES WRITTEN (1):\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\papers.exe\n\nOTHER REGISTRY KEYS SET (4):\n  HKLM\\Software\\Microsoft\\Direct3D\\MostRecentApplication\\Name\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Direct3D\\MostRecentApplication\\Name\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n\nMUTEXES CREATED (13):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  DDrawWindowListMutex\n  RasPbFile\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n\nMUTEXES OPENED (4):\n  _!MSFTHISTORY!_\n  c:!documents and settings!administrator!cookies!\n  c:!documents and settings!administrator!local settings!history!history.ie5!\n  c:!documents and settings!administrator!local settings!temporary internet files!content.ie5!\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Packer] EP:MPRESS\n  [Packer] MPRESS\n\nPE SECTIONS (entropy):\n  .MPRESS1     entropy=7.23\n  .MPRESS2     entropy=5.88\n  .rsrc        entropy=4.58\n  [overlay]    entropy=3.45269775390625  size=35968\n",
+  "ground_truth": {
+    "hash": "14bb7a1da29fc2ac9a54ade286c9c32849606dd44eaf2b5270fb6a0dd5b5449b",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.875,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "ppatre",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with Mpress"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "packed with Mpress",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [
+        "184.168.131.241"
+      ],
+      "domains": [
+        "backpackinglight.com.au",
+        "littlepaperlane.com.au"
+      ],
+      "urls": [
+        "https://backpackinglight.com.au/wp-content/uploads/2010/11/pdf.exe",
+        "https://littlepaperlane.com.au/wp-content/uploads/2011/08/pdf.exe"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 4,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\papers.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "DDrawWindowListMutex",
+        "RasPbFile",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex",
+        "__DDrawCheckExclMode__",
+        "__DDrawExclMode__"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

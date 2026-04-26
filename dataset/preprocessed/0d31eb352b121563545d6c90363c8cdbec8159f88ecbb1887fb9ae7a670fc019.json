@@ -1,0 +1,91 @@
+{
+  "hash": "0d31eb352b121563545d6c90363c8cdbec8159f88ecbb1887fb9ae7a670fc019",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (6):\n  - encode data using XOR\n  - enumerate processes\n  - check if file exists\n  - get file size\n  - link function at runtime on Windows\n  - encrypt data using RC4 PRGA\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Process::Create Thread [C0038]\n  - Process::Open Process [C0065]\n  - Memory::Allocate Memory [C0007]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - Process::Create Process [C0017]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - contain loop\n  - reference HTTP User-Agent string\n  - enumerate processes\n  - Process::Create Mutex [C0042]\n  - Process::Check Mutex [C0043]\n  - Process::Terminate Process [C0018]\n  - File System::Read File [C0051]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Create Directory [C0046]\n  - File System::Writes File [C0052]\n  - File System::Delete File [C0047]\n  - link function at runtime on Windows\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Generate Pseudo-random Sequence::RC4 PRGA [C0021.004]\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (8):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  Fist Games Modular\n  MSCTF.Shared.MUTEX.EBH\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA, GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.95\n  .rdata       entropy=4.07\n  .data        entropy=3.97\n  .rsrc        entropy=3.73\n  [overlay]    entropy=2.8150722980499268  size=13\n",
+  "ground_truth": {
+    "hash": "0d31eb352b121563545d6c90363c8cdbec8159f88ecbb1887fb9ae7a670fc019",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.6338,
+    "malicious_count": 45,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "check if file exists"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "create thread",
+      "open process",
+      "allocate memory",
+      "allocate RWX memory",
+      "delay execution",
+      "create or open file",
+      "create process on Windows",
+      "encode data using XOR",
+      "PEB access",
+      "contain loop",
+      "reference HTTP User-Agent string",
+      "enumerate processes",
+      "create mutex",
+      "check mutex and exit",
+      "terminate process",
+      "read .ini file",
+      "check if file exists",
+      "create directory",
+      "write file on Windows",
+      "delete file",
+      "get file size",
+      "read file on Windows",
+      "link function at runtime on Windows",
+      "encrypt data using RC4 PRGA",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "Fist Games Modular",
+        "MSCTF.Shared.MUTEX.EBH"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

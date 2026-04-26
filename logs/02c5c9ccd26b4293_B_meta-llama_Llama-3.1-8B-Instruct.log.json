@@ -1,0 +1,158 @@
+{
+  "hash": "02c5c9ccd26b42935548c1a7917265c2bf6980d7198c9d64ba564da3c5f397ca",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as enumerating GUI resources, getting disk information, and checking if a file exists. It also contains anti-VM strings targeting VirtualBox and has a resource (.rsrc) section. Additionally, it writes multiple files to the system and creates mutexes.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior suggests it is a Trojan, as it is attempting to hide its presence by checking for anti-VM strings and enumerating system information. It also writes multiple files to the system, which is a common trait of Trojans.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"},\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 3938,
+      "response_chars": 949,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as enumerating GUI resources, getting disk information, and checking if a file exists. It also contains anti-VM strings targeting VirtualBox and has a resource (.rsrc) section. Additionally, it writes multiple files to the system and creates mutexes.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n  ",
+      "elapsed_seconds": 4.43
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "3 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 3,
+      "ttps_found": [
+        "T1027",
+        "T1082",
+        "T1210",
+        "T1218"
+      ],
+      "hallucinated_ttps": [
+        "T1027",
+        "T1210",
+        "T1218"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 3
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- enumerate gui resources\n- check if file exists\n- reference anti-VM strings targeting VirtualBox\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- R",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1082"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 1,
+      "best_ttp_fp": 1
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "3 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 3,
+      "ttps_found": [
+        "T1027",
+        "T1082"
+      ],
+      "hallucinated_ttps": [
+        "T1027"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 1
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- enumerate gui resources\n- check if file exists\n- reference anti-VM strings targeting VirtualBox\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- R",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1027",
+        "T1082",
+        "T1490"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 1,
+      "best_ttp_fp": 1
+    },
+    {
+      "step": 8,
+      "type": "refinement_stopped",
+      "iteration": 2,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 1,
+      "ttp_fp": 2
+    }
+  ],
+  "total_llm_calls": 3,
+  "total_elapsed": 12.76,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.3333,
+      "ttp_precision": 0.5,
+      "ttp_recall": 0.25,
+      "gt_ttps": [
+        "T1010",
+        "T1082",
+        "T1083",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1082"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1027"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1083",
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.3333,
+      "breakdown": {
+        "ttp_f1": 0.3333
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

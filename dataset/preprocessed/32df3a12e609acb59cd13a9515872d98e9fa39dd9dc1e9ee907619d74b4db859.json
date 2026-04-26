@@ -1,0 +1,116 @@
+{
+  "hash": "32df3a12e609acb59cd13a9515872d98e9fa39dd9dc1e9ee907619d74b4db859",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  sys.zief.pl \u2192 148.81.111.121\n\nIP TRAFFIC (1):\n  148.81.111.121:65520 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  C:\\DOCUME~1\\Miller\\LOCALS~1\\Temp\\fCsf7y1yyK6yZTt6ZIC.exe\n  C:\\WINDOWS\\system32\\winlogon.exe\n  C:\\WINDOWS\\system32\\services.exe\n  C:\\WINDOWS\\system32\\lsass.exe\n  C:\\WINDOWS\\System32\\svchost.exe\n  C:\\WINDOWS\\System32\\svchost.exe\n  C:\\WINDOWS\\System32\\svchost.exe\n  C:\\WINDOWS\\System32\\svchost.exe\n  C:\\WINDOWS\\System32\\svchost.exe\n  C:\\WINDOWS\\system32\\spoolsv.exe\n  C:\\Program Files\\Java\\jre6\\bin\\jqs.exe\n  C:\\WINDOWS\\Explorer.EXE\n  C:\\WINDOWS\\System32\\alg.exe\n  C:\\WINDOWS\\system32\\ctfmon.exe\n  c:\\Program Files\\Microsoft Office\\Office12\\outlook.exe\n\nCOMMAND EXECUTIONS (19):\n  C:\\DOCUME~1\\Miller\\LOCALS~1\\Temp\\fCsf7y1yyK6yZTt6ZIC.exe\n  winlogon.exe\n  C:\\WINDOWS\\system32\\services.exe\n  C:\\WINDOWS\\system32\\lsass.exe\n  C:\\WINDOWS\\system32\\svchost -k DcomLaunch\n  C:\\WINDOWS\\system32\\svchost -k rpcss\n  C:\\WINDOWS\\System32\\svchost.exe -k netsvcs\n  C:\\WINDOWS\\system32\\svchost.exe -k NetworkService\n  C:\\WINDOWS\\system32\\svchost.exe -k LocalService\n  C:\\WINDOWS\\system32\\spoolsv.exe\n  \"C:\\Program Files\\Java\\jre6\\bin\\jqs.exe\" -service -config \"C:\\Program Files\\Java\\jre6\\lib\\deploy\\jqs\\jqs.conf\"\n  C:\\WINDOWS\\Explorer.EXE\n  C:\\WINDOWS\\System32\\alg.exe\n  C:\\WINDOWS\\system32\\ctfmon.exe\n  \"c:\\Program Files\\Microsoft Office\\Office12\\outlook.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (8):\n  - query or enumerate registry value\n  - check if file exists\n  - query environment variable\n  - link function at runtime on Windows\n  - accept command line arguments\n  - find graphical window\n  - link many functions at runtime\n  - get file size\n\nCAPA RULE MATCHES (MBC):\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - File System::Get File Attributes [C0049]\n  - File System::Create File [C0016]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - contain loop\n  - get OS version\n  - Discovery::File and Directory Discovery [E1083]\n  - Discovery::System Information Discovery [E1082]\n  - link function at runtime on Windows\n  - Execution::Command and Scripting Interpreter [E1059]\n  - find graphical window\n  - Process::Terminate Process [C0018]\n  - link many functions at runtime\n  - File System::Read File [C0051]\n  - resolve function by parsing PE exports\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nPERSISTENCE REGISTRY KEYS (9):\n  HKLM\\S-1-5-18\\SOFTWARE\\MICROSOFT\\WINDOWS NT\\CURRENTVERSION\\WINLOGON = ParseAutoexec\n  HKLM\\S-1-5-18\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\SHELL FOLDERS = AppData\n  HKLM\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\SHELL FOLDERS = Cache\n  HKLM\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\SHELL FOLDERS = Common AppData\n  HKLM\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\SHELL FOLDERS = Cookies\n  HKLM\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\SHELL FOLDERS = History\n  HKLM\\SYSTEM\\CURRENTCONTROLSET\\SERVICES\\EVENTLOG\\APPLICATION\\MICROSOFT H.323 TELEPHONY SERVICE PROVIDER = EventMessageFile\n  HKLM\\SYSTEM\\CURRENTCONTROLSET\\SERVICES\\EVENTLOG\\APPLICATION\\MICROSOFT H.323 TELEPHONY SERVICE PROVIDER = TypesSupported\n  HKLM\\SYSTEM\\CURRENTCONTROLSET\\SERVICES\\SHAREDACCESS\\PARAMETERS\\FIREWALLPOLICY\\STANDARDPROFILE\\AUTHORIZEDAPPLICATIONS\\LIST = \\??\\C:\\WINDOWS\\system32\\winlogon.exe\n\nOTHER REGISTRY KEYS SET (10):\n  HKU\\S-1-5-21-1229272821-1563985344-1801674531-1003\\IDENTITIES\n  REG\\VCARD_WAB_AUTO_FILE\\DEFAULTICON\n  REG\\VCARD_WAB_AUTO_FILE\n  REG\\.VCF\n  HKU\\S-1-5-21-1229272821-1563985344-1801674531-1003\\SOFTWARE\\MICROSOFT\\WAB\\WAB4\n  REG\\MIME\\DATABASE\\CONTENT TYPE\\TEXT/X-VCARD\n  HKU\\S-1-5-21-1229272821-1563985344-1801674531-1003\n  REG\\VCARD_WAB_AUTO_FILE\\SHELL\\OPEN\\COMMAND\n  HKLM\\S-1-5-18\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\INTERNET SETTINGS\\CONNECTIONS\n  HKLM\\S-1-5-18\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\INTERNET SETTINGS\n\nMUTEXES CREATED (13):\n  CTF.Asm.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003\n  CTF.Compart.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003\n  CTF.LBES.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003\n  CTF.Layouts.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003\n  CTF.TMD.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003\n  CTF.TimListCache.FMPDefaultS-1-5-21-1229272821-1563985344-1801674531-1003MUTEX.DefaultS-1-5-21-1229272821-1563985344-1801674531-1003\n  MPSWABOlkStoreNotifyMutex\n  MPSWabDataAccessMutex\n  MSCTF.Shared.MUTEX.AIE\n  MSIdent Logon\n\nMUTEXES OPENED (6):\n  Local\\WininetProxyRegistryMutex\n  Local\\WininetStartupMutex\n  Local\\_!MSFTHISTORY!_\n  Local\\c:!documents and settings!miller!cookies!\n  Local\\c:!documents and settings!miller!local settings!history!history.ie5!\n  Local\\c:!documents and settings!miller!local settings!temporary internet files!content.ie5!\n\nPROCESSES CREATED (15):\n  C:\\DOCUME~1\\Miller\\LOCALS~1\\Temp\\chrome.exe\n  C:\\DOCUME~1\\Miller\\LOCALS~1\\Temp\\fCsf7y1yyK6yZTt6ZIC.exe\n  C:\\DOCUME~1\\Miller\\LOCALS~1\\Temp\\firefox.exe\n  C:\\DOCUME~1\\Miller\\LOCALS~1\\Temp\\opera.exe\n  C:\\DOCUME~1\\Miller\\LOCALS~1\\Temp\\safari.exe\n  C:\\Program Files\\Java\\jre6\\bin\\jqs.exe\n  C:\\WINDOWS\\Explorer.EXE\n  C:\\WINDOWS\\System32\\alg.exe\n  C:\\WINDOWS\\System32\\svchost.exe\n  C:\\WINDOWS\\system32\\ctfmon.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n\nPE SECTIONS (entropy):\n  .text        entropy=6.24\n  .data        entropy=2.42\n  .rsrc        entropy=6.58\n",
+  "ground_truth": {
+    "hash": "32df3a12e609acb59cd13a9515872d98e9fa39dd9dc1e9ee907619d74b4db859",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.875,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": null,
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "check if file exists"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open registry key",
+      "get file attributes",
+      "create or open file",
+      "query or enumerate registry value",
+      "set registry value",
+      "contain loop",
+      "get OS version",
+      "check if file exists",
+      "query environment variable",
+      "link function at runtime on Windows",
+      "accept command line arguments",
+      "find graphical window",
+      "terminate process",
+      "link many functions at runtime",
+      "get file size",
+      "read file on Windows",
+      "resolve function by parsing PE exports",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "148.81.111.121"
+      ],
+      "domains": [
+        "sys.zief.pl"
+      ],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\S-1-5-18\\SOFTWARE\\MICROSOFT\\WINDOWS NT\\CURRENTVERSION\\WINLOGON",
+        "HKLM\\S-1-5-18\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\SHELL FOLDERS",
+        "HKLM\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\SHELL FOLDERS",
+        "HKLM\\SYSTEM\\CURRENTCONTROLSET\\SERVICES\\EVENTLOG\\APPLICATION\\MICROSOFT H.323 TELEPHONY SERVICE PROVIDER",
+        "HKLM\\SYSTEM\\CURRENTCONTROLSET\\SERVICES\\SHAREDACCESS\\PARAMETERS\\FIREWALLPOLICY\\STANDARDPROFILE\\AUTHORIZEDAPPLICATIONS\\LIST"
+      ],
+      "registry_all_count": 20,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003",
+        "CTF.Compart.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003",
+        "CTF.LBES.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003",
+        "CTF.TMD.MutexDefaultS-1-5-21-1229272821-1563985344-1801674531-1003",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1229272821-1563985344-1801674531-1003MUTEX.DefaultS-1-5-21-1229272821-1563985344-1801674531-1003",
+        "MPSWABOlkStoreNotifyMutex",
+        "MPSWabDataAccessMutex",
+        "MSCTF.Shared.MUTEX.AIE",
+        "MSIdent Logon",
+        "MSPMutex",
+        "RasPbFile",
+        "l0r2"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\Miller\\LOCALS~1\\Temp\\chrome.exe",
+        "C:\\DOCUME~1\\Miller\\LOCALS~1\\Temp\\fCsf7y1yyK6yZTt6ZIC.exe",
+        "C:\\DOCUME~1\\Miller\\LOCALS~1\\Temp\\firefox.exe",
+        "C:\\DOCUME~1\\Miller\\LOCALS~1\\Temp\\opera.exe",
+        "C:\\DOCUME~1\\Miller\\LOCALS~1\\Temp\\safari.exe",
+        "C:\\Program Files\\Java\\jre6\\bin\\jqs.exe",
+        "C:\\WINDOWS\\Explorer.EXE",
+        "C:\\WINDOWS\\System32\\alg.exe",
+        "C:\\WINDOWS\\System32\\svchost.exe",
+        "C:\\WINDOWS\\system32\\ctfmon.exe",
+        "C:\\WINDOWS\\system32\\lsass.exe",
+        "C:\\WINDOWS\\system32\\services.exe",
+        "C:\\WINDOWS\\system32\\spoolsv.exe",
+        "C:\\WINDOWS\\system32\\winlogon.exe",
+        "c:\\Program Files\\Microsoft Office\\Office12\\outlook.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "Lastline"
+  ]
+}

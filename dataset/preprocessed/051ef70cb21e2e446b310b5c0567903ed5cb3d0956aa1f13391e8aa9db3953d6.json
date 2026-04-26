@@ -1,0 +1,51 @@
+{
+  "hash": "051ef70cb21e2e446b310b5c0567903ed5cb3d0956aa1f13391e8aa9db3953d6",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\Windows\\System32\\Faliob32.exe\n\nCOMMAND EXECUTIONS (2):\n  C:\\Windows\\system32\\Faliob32.exe\n   \n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - encode data using XOR\n  - packed with generic packer\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Execution::Install Additional Program [B0023]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (9):\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows\\History\\History.IE5\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows\\Temporary Internet Files\\Content.IE5\n  C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\Windows\\Cookies\n  C:\\Windows\\System32\\Dgfpcl32.dll\n  C:\\Windows\\System32\\Faliob32.exe\n  C:\\Windows\\System32\\surf.dat\n  C:\\Windows\\system32\\Dgfpcl32.dll\n  C:\\Windows\\system32\\Faliob32.exe\n  C:\\Windows\\system32\\surf.dat\n\nOTHER REGISTRY KEYS SET (9):\n  HKEY_CLASSES_ROOT\\CLSID\\{79FEACFF-FFCE-815E-A900-316290B5B738}\\InProcServer32\\ThreadingModel\n  HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\GlobalUserOffline\n  HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\0\\1601\n  HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\1\\1601\n  HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\2\\1601\n  HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\3\\1601\n  HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\4\\1601\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ShellServiceObjectDelayLoad\\Web Event Logger\n  HKEY_USERS\\.DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\BrowseNewProcess\\BrowseNewProcess\n\nMUTEXES CREATED (5):\n  KingKarton_10\n  Local\\_!MSFTHISTORY!_\n  Local\\c:!users!administrator!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!administrator!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!administrator!appdata!roaming!microsoft!windows!cookies!\n\nPROCESSES CREATED (1):\n  C:\\Windows\\System32\\Faliob32.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: CreateProcessA, GetProcAddress, WinExec\n\nCOMPILER AND PACKER:\n  [sfx] temporary EXE SFX\n  [Linker] LCC Linker\n  [Overlay] EXE file\n  Packers: {'Cyren': 'dropped'}\n\nPE SECTIONS (entropy):\n  .text        entropy=7.13\n  .bss         entropy=0.0\n  .data        entropy=6.06\n  .idata       entropy=5.08\n  .aajaic      entropy=2.38\n  [overlay]    entropy=7.498319625854492  size=3102720\n",
+  "ground_truth": {
+    "hash": "051ef70cb21e2e446b310b5c0567903ed5cb3d0956aa1f13391e8aa9db3953d6",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9296,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain loop",
+      "packed with generic packer",
+      "contain an embedded PE file",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 9,
+      "files_dropped": [],
+      "mutexes": [
+        "KingKarton_10",
+        "Local\\_!MSFTHISTORY!_",
+        "Local\\c:!users!administrator!appdata!local!microsoft!windows!history!history.ie5!",
+        "Local\\c:!users!administrator!appdata!local!microsoft!windows!temporary internet files!content.ie5!",
+        "Local\\c:!users!administrator!appdata!roaming!microsoft!windows!cookies!"
+      ],
+      "processes": [
+        "C:\\Windows\\System32\\Faliob32.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "Rising MOVES"
+  ]
+}

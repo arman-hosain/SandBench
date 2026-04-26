@@ -1,0 +1,77 @@
+{
+  "hash": "03df43b8a13a371c64e876e2b35ca9bf8f2f0ab065608aa4868be83ecf014e37",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample is packed with UPX, a common technique used by both legitimate software and malware to evade analysis. The CAPA rules indicate the use of cryptography for pseudo-random sequence generation and modulo operations, which are often associated with obfuscation or encryption routines. While the compiler (Borland Delphi) is not inherently malicious, the combination of packing, anti-analysis indicators, and cryptographic primitives warrants a suspicious verdict until further behavioral evidence (like network activity or file drops) confirms benign intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"PUA\"],\n    \"explanation\": \"The sample exhibits characteristics of Potentially Unwanted Applications (PUA) or a dropper. It uses UPX packing and cryptographic routines, which are typical for software that attempts to hide its true nature or payload. Without evidence of specific malicious actions like data exfiltration, ransomware encryption, or unauthorized persistence, but with clear obfuscation and anti-analysis features, it fits the PUA profile better than confirmed malware families.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 700,
+      "response_chars": 1279,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample is packed with UPX, a common technique used by both legitimate software and malware to evade analysis. The CAPA rules indicate the use of cryptography for pseudo-random sequence generation and modulo operations, which are often associated with obfuscation or encryption routines. While the compiler (Borland Delphi) is not inher",
+      "elapsed_seconds": 9.33
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": false,
+      "gap_summary": "",
+      "missed_behavior_count": 0,
+      "ttps_found": [
+        "T1027"
+      ],
+      "hallucinated_ttps": [],
+      "ttp_tp": 1,
+      "ttp_fp": 0
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 9.33,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 0.5,
+      "predicted": "SUSPICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8056
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 1.0,
+      "ttp_precision": 1.0,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 1.0,
+      "breakdown": {
+        "ttp_f1": 1.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "hash": "290e09831f8babd4ddc125376e3d11c17f7189dc157f67cd300b12acc239c5a8",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\WINDOWS\\microsofthelp.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (6):\n  - get common file path\n  - link function at runtime on Windows\n  - query or enumerate registry value\n  - persist via Run registry key\n  - get MAC address on Windows\n  - get file size\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Thread [C0038]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - reference absolute stream path on Windows\n  - Process::Create Process [C0017]\n  - File System::Create File [C0016]\n  - Discovery::File and Directory Discovery [E1083]\n  - contain loop\n  - File System::Delete File [C0047]\n  - Process::Terminate Process [C0018]\n  - Process::Create Mutex [C0042]\n  - Process::Check Mutex [C0043]\n  - link function at runtime on Windows\n  - Communication::HTTP Communication::Create Request [C0002.012]\n  - Communication::HTTP Communication::Open URL [C0002.004]\n  - Communication::HTTP Communication::Get Response [C0002.017]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Persistence::Registry Run Keys / Startup Folder [F0012]\n  - get MAC address on Windows\n  - File System::Read File [C0051]\n  - File System::Writes File [C0052]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  microsofthelp.exe  [sha256: 243fb74aece5c367...]\n  C:\\Windows\\microsofthelp.exe  [sha256: 060256314e1b7001...]\n\nFILES WRITTEN (2):\n  C:\\WINDOWS\\HidePlugin.dll\n  C:\\WINDOWS\\microsofthelp.exe\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\microsofthelp = C:\\Windows\\microsofthelp.exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  C:\\WINDOWS\\microsofthelp.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA, GetProcAddress\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'Cyren': 'dropped, dropped, dropped'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.4\n  .rdata       entropy=4.73\n  .data        entropy=0.96\n  .shoooo      entropy=7.84\n  .imports     entropy=3.61\n  [overlay]    entropy=3.305521011352539  size=37352\n",
+  "ground_truth": {
+    "hash": "290e09831f8babd4ddc125376e3d11c17f7189dc157f67cd300b12acc239c5a8",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8857,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get MAC address on Windows"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "persist via Run registry key"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "delay execution",
+      "create thread",
+      "create or open registry key",
+      "reference absolute stream path on Windows",
+      "create process on Windows",
+      "create or open file",
+      "get common file path",
+      "contain loop",
+      "delete file",
+      "terminate process",
+      "create mutex",
+      "check mutex and exit",
+      "link function at runtime on Windows",
+      "create HTTP request",
+      "connect to URL",
+      "read data from Internet",
+      "receive data",
+      "set registry value",
+      "query or enumerate registry value",
+      "persist via Run registry key",
+      "get MAC address on Windows",
+      "read file on Windows",
+      "write file on Windows",
+      "get file size"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\microsofthelp"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "C:\\Windows\\microsofthelp.exe",
+        "microsofthelp.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\microsofthelp.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

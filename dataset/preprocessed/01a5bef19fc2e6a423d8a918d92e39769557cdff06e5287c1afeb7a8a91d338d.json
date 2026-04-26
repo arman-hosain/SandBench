@@ -1,0 +1,45 @@
+{
+  "hash": "01a5bef19fc2e6a423d8a918d92e39769557cdff06e5287c1afeb7a8a91d338d",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - encode data using XOR\n\nCAPA RULE MATCHES (MBC):\n  - reference absolute stream path on Windows\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - File System::Create File [C0016]\n  - contain loop\n  - File System::Read File [C0051]\n  - get OS version\n  - print debug messages\n  - contains PDB path\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.46\n  .rdata       entropy=5.85\n  .data        entropy=0.78\n  .gfids       entropy=0.17\n  .reloc       entropy=6.66\n",
+  "ground_truth": {
+    "hash": "01a5bef19fc2e6a423d8a918d92e39769557cdff06e5287c1afeb7a8a91d338d",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.3857,
+    "malicious_count": 27,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "reference absolute stream path on Windows",
+      "encode data using XOR",
+      "create or open file",
+      "contain loop",
+      "read file on Windows",
+      "get OS version",
+      "print debug messages",
+      "contains PDB path"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

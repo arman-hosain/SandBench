@@ -1,0 +1,94 @@
+{
+  "hash": "0011d0a5216886d96a23ad206d4e4badf1dbcad6c8050ff778d4e24537089422",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including anti-analysis techniques (UPX packing, VM detection), persistence mechanisms (Registry Run keys, Service modification), and suspicious network activity (C2 callbacks to fewfwe.net/blinko-usa.com). The modification of Winlogon/Terminal registry keys suggests an attempt to hijack the login process or create a backdoor.\"\n  },\n  \"q2\": {\n    \"family\": [\"Backdoor\", \"Trojan\"],\n    \"explanation\": \"The sample modifies critical system registry keys (Winlogon, Terminal) to potentially hijack user sessions or establish persistence, which is characteristic of a Backdoor. It also uses standard Trojan techniques like packing, dropping files, and establishing C2 channels.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1547\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1070\",\n        \"name\": \"Indicator Removal\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1079\",\n        \"name\": \"Network Service Discovery\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 4741,
+      "response_chars": 1330,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including anti-analysis techniques (UPX packing, VM detection), persistence mechanisms (Registry Run keys, Service modification), and suspicious network activity (C2 callbacks to fewfwe.net/blinko-usa.com). The modification of Winlogon/Terminal registry keys suggests an attempt to hijack the lo",
+      "elapsed_seconds": 7.98
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 7.98,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9315
+    },
+    "family": {
+      "family_f1": 0.4,
+      "family_precision": 0.5,
+      "family_recall": 0.3333,
+      "predicted": [
+        "backdoor",
+        "trojan"
+      ],
+      "matched": [
+        "trojan"
+      ],
+      "reachable_gt": [
+        "trojan",
+        "ransomware",
+        "worm"
+      ],
+      "gt_pool": [
+        "bkdr",
+        "blocker",
+        "ransomware",
+        "socks",
+        "trojan",
+        "worm"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 0.25,
+      "ttp_precision": 0.1667,
+      "ttp_recall": 0.5,
+      "gt_ttps": [
+        "T1027",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1079",
+        "T1547"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1079",
+        "T1547"
+      ],
+      "q3_missed_ttps": [
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.25,
+      "breakdown": {
+        "ttp_f1": 0.25
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

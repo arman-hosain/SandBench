@@ -1,0 +1,127 @@
+{
+  "hash": "354126ede0e97976e80d4b6681833e2ea41472bf112b0cb029ed215a853037f8",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\WINDOWS\\system32\\drwtsn32 -p 1000 -e 192 -g\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (17):\n  - access PEB ldr_data\n  - encode data using XOR\n  - get process heap flags\n  - contain obfuscated stackstrings\n  - get kernel32 base address\n  - enumerate files on Windows\n  - query or enumerate registry value\n  - link function at runtime on Windows\n  - packed with generic packer\n  - log keystrokes via polling\n  - encrypt data using RC4 KSA\n  - open clipboard\n  - read clipboard data\n  - capture screenshot\n  - get number of processors\n  - reference anti-VM strings targeting VirtualBox\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - reference absolute stream path on Windows\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Create Process [C0017]\n  - access PEB ldr_data\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - get process heap flags\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - get kernel32 base address\n  - Process::Create Thread [C0038]\n  - Process::Resume Thread [C0054]\n  - contain loop\n  - resolve function by parsing PE exports\n  - Discovery::File and Directory Discovery [E1083]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - link function at runtime on Windows\n  - Process::Terminate Process [C0018]\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Collection::Keylogging::Polling [F0002.002]\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (30):\n  C:\\Program Files\\Common Files\\Microsoft Shared\\MSInfo\\msinfo32.exe\n  C:\\Program Files\\Common Files\\Microsoft Shared\\Stationery\\Bears.htm\n  C:\\Program Files\\Common Files\\Microsoft Shared\\Stationery\\Cave_Drawings.gif\n  C:\\Program Files\\Common Files\\Microsoft Shared\\Stationery\\Connectivity.gif\n  C:\\Program Files\\Common Files\\Microsoft Shared\\Stationery\\Garden.htm\n  C:\\Program Files\\Common Files\\Microsoft Shared\\Stationery\\Green Bubbles.htm\n  C:\\Program Files\\Common Files\\Microsoft Shared\\Stationery\\Hand Prints.htm\n  C:\\Program Files\\Common Files\\Microsoft Shared\\Stationery\\Orange Circles.htm\n  C:\\Program Files\\Common Files\\Microsoft Shared\\Stationery\\Peacock.htm\n  C:\\Program Files\\Common Files\\Microsoft Shared\\Stationery\\Roses.htm\n  C:\\Program Files\\Common Files\\Microsoft Shared\\Stationery\\Shades of Blue.htm\n  C:\\Program Files\\Common Files\\Microsoft Shared\\Stationery\\Soft Blue.htm\n  C:\\Program Files\\Common Files\\Microsoft Shared\\Stationery\\Stars.htm\n  C:\\Program Files\\Common Files\\Microsoft Shared\\Stationery\\Stucco.gif\n  C:\\Program Files\\Common Files\\Microsoft Shared\\Stationery\\Tiki.gif\n  C:\\Program Files\\Common Files\\Microsoft Shared\\Stationery\\Wrinkled_Paper.gif\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\ConvertInkStore.exe\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\FlickLearningWizard.exe\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\InkWatson.exe\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\InputPersonalization.exe\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKLM\\software\\microsoft\\windows\\CurrentVersion\\Run\\spron = C:\\Users\\<USER>\\Downloads/3cf3ea6fce8a026f2e51a842d411069c.exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  C:\\WINDOWS\\system32\\drwtsn32 -p 1000 -e 192 -g\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualAlloc, WinExec\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [sfx] temporary EXE SFX\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Overlay] EXE file\n  Packers: {'PEiD': 'Microsoft Visual C++'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.57\n  .rdata       entropy=4.35\n  .data        entropy=5.01\n  .rsrc        entropy=4.82\n  [overlay]    entropy=6.023803234100342  size=3095924\n",
+  "ground_truth": {
+    "hash": "354126ede0e97976e80d4b6681833e2ea41472bf112b0cb029ed215a853037f8",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7887,
+    "malicious_count": 56,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "get process heap flags"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get number of processors"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "enumerate files on Windows"
+      },
+      {
+        "id": "T1113",
+        "signature_description": "capture screenshot"
+      },
+      {
+        "id": "T1115",
+        "signature_description": "open clipboard"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "reference absolute stream path on Windows",
+      "PEB access",
+      "create or open registry key",
+      "create process on Windows",
+      "access PEB ldr_data",
+      "delay execution",
+      "encode data using XOR",
+      "get process heap flags",
+      "contain obfuscated stackstrings",
+      "get kernel32 base address",
+      "create thread",
+      "resume thread",
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "enumerate files on Windows",
+      "query or enumerate registry value",
+      "link function at runtime on Windows",
+      "terminate process",
+      "packed with generic packer",
+      "log keystrokes via polling",
+      "encrypt data using RC4 KSA",
+      "receive data on socket",
+      "set socket configuration",
+      "receive data",
+      "open clipboard",
+      "write clipboard data",
+      "replace clipboard data",
+      "read clipboard data",
+      "check for time delay via GetTickCount",
+      "capture screenshot",
+      "set current directory",
+      "hash data with MD5",
+      "get number of processors",
+      "check for software breakpoints",
+      "get graphical window text",
+      "extract resource via kernel32 functions",
+      "get thread local storage value",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting VirtualBox",
+      "reference Base64 string",
+      "contains PDB path",
+      "linked against ZLIB",
+      "(internal) packer file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\software\\microsoft\\windows\\CurrentVersion\\Run\\spron"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\system32\\drwtsn32 -p 1000 -e 192 -g"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

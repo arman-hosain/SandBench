@@ -1,0 +1,77 @@
+{
+  "hash": "159431ddc4a19440700ff53ca6c80ffe267d6ebce3ede8121f1c51b90581211a",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://carder.bit/\n\nDNS LOOKUPS (3):\n  ipv4bot.whatismyipaddress.com \u2192 66.171.248.178\n  ns1.wowservers.ru \u2192 185.103.243.59\n  ns2.wowservers.ru \u2192 185.103.243.59\n\nIP TRAFFIC (2):\n  185.103.243.59:53 (UDP)\n  66.171.248.178:80 (TCP)\n\nSERVICES OPENED (1):\n  Sens\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  0ec614557c40379b055cb9dab68fc347.exe\n    nslookup ransomware.bit ns2.wowservers.ru\n    nslookup carder.bit ns1.wowservers.ru\n    nslookup ransomware.bit ns1.wowservers.ru\n    nslookup carder.bit ns2.wowservers.ru\n    nslookup ransomware.bit ns2.wowservers.ru\n    nslookup carder.bit ns1.wowservers.ru\n    nslookup ransomware.bit ns1.wowservers.ru\n    nslookup carder.bit ns2.wowservers.ru\n    nslookup ransomware.bit ns2.wowservers.ru\n    nslookup carder.bit ns1.wowservers.ru\n    nslookup ransomware.bit ns1.wowservers.ru\n    nslookup carder.bit ns2.wowservers.ru\n    nslookup ransomware.bit ns2.wowservers.ru\n    nslookup carder.bit ns1.wowservers.ru\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - encrypt data using RC4 KSA\n  - get common file path\n  - interact with driver via control codes\n  - link function at runtime on Windows\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - File System::Create File [C0016]\n  - contain loop\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Encryption Key::RC4 KSA [C0028.002]\n  - Discovery::File and Directory Discovery [E1083]\n  - interact with driver via control codes\n  - link function at runtime on Windows\n  - Communication::Interprocess Communication [C0003]\n  - contain a resource (.rsrc) section\n  - linked against CPP standard library\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\zuuaom.exe  [sha256: 6acb906ded9abca2...]\n\nFILES WRITTEN (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows\\Temporary Internet Files\\Content.IE5\\XBL73YY1\\ipv4bot_whatismyipaddress_com[1].htm\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\mjbosdpqxcl = \"\n\nOTHER REGISTRY KEYS SET (3):\n  HKU\\S-1-5-18\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-18\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\SavedLegacySettings\n  HKU\\S-1-5-18\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\DefaultConnectionSettings\n\nMUTEXES CREATED (2):\n  Global\\pc_group=WORKGROUP&ransom_id=4029414471d2c847\n  IESQMMUTEX_0_208\n\nMUTEXES OPENED (3):\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.66\n  .rdata       entropy=5.54\n  .data        entropy=3.07\n  .gfids       entropy=1.6\n  .rsrc        entropy=7.91\n  .reloc       entropy=6.48\n  [overlay]    entropy=2.503258466720581  size=9\n",
+  "ground_truth": {
+    "hash": "159431ddc4a19440700ff53ca6c80ffe267d6ebce3ede8121f1c51b90581211a",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9167,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "ransom",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encrypt data using RC4 KSA"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RWX memory",
+      "create or open file",
+      "contain loop",
+      "encrypt data using RC4 KSA",
+      "get common file path",
+      "interact with driver via control codes",
+      "link function at runtime on Windows",
+      "create mailslot",
+      "contain a resource (.rsrc) section",
+      "linked against CPP standard library"
+    ],
+    "iocs": {
+      "ips": [
+        "185.103.243.59",
+        "66.171.248.178"
+      ],
+      "domains": [
+        "ipv4bot.whatismyipaddress.com",
+        "ns1.wowservers.ru",
+        "ns2.wowservers.ru"
+      ],
+      "urls": [
+        "http://carder.bit/"
+      ],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\mjbosdpqxcl"
+      ],
+      "registry_all_count": 4,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\zuuaom.exe"
+      ],
+      "mutexes": [
+        "Global\\pc_group=WORKGROUP&ransom_id=4029414471d2c847",
+        "IESQMMUTEX_0_208"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

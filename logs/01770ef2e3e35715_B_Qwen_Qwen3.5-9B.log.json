@@ -1,0 +1,224 @@
+{
+  "hash": "01770ef2e3e35715d16821b29714a6a91b2c461c5a3282d18e5f9cde735885bb",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is confirmed malicious. It exhibits classic dropper behavior by unpacking itself (UPX), dropping numerous secondary payloads (keygens, stealers, adult content) to the Temp directory, and establishing persistence via the Run registry key. It employs anti-analysis techniques including delayed execution and debugger detection. The dropped filenames explicitly indicate credential theft (e.g., 'AIM Account Stealer') and unauthorized software distribution. Additionally, the sample queries registry values and links functions at runtime, further confirming its malicious nature.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\", \"Trojan\"],\n    \"explanation\": \"The sample functions as a Dropper because it unpacks a packed executable and drops multiple secondary payloads to the file system. These payloads include credential stealers (Trojan behavior) and keygens. The primary function is to distribute these malicious tools to the user.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1055.005\",\n        \"name\": \"Dynamic Resolution of Imports\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1059.005\",\n        \"name\": \"Command and Scripting Interpreter: Windows Command Shell\"\n      },\n      {\n        \"id\": \"T1083\",\n        \"name\": \"Internal System Discovery\"\n      },\n      {\n        \"id\": \"T1082\",\n        \"name\": \"System Information Discovery\"\n      },\n      {\n        \"id\": \"T1012\",\n        \"name\": \"Data Discovery from Cloud\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 4423,
+      "response_chars": 1648,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence via the Run registry key, dropping multiple executable files to the Temp directory, and utilizing anti-analysis techniques such as delayed execution and debugger detection. The dropped files have names indicative of credential theft (e.g., 'AIM Account Stealer', 'MSN Passw",
+      "elapsed_seconds": 8.69
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "6 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 6,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1070",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1055",
+        "T1070"
+      ],
+      "ttp_tp": 2,
+      "ttp_fp": 2
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- query or enumerate registry value\n- accept command line arguments\n- get disk size\n- get file size\n- link function at runtime on Windows\n- get geographical location\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 5,
+      "best_ttp_fp": 1
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "3 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 3,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1055"
+      ],
+      "ttp_tp": 5,
+      "ttp_fp": 1
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- query or enumerate registry value\n- link function at runtime on Windows\n- get geographical location\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1012",
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 6,
+      "best_ttp_fp": 1
+    },
+    {
+      "step": 8,
+      "type": "judge_check",
+      "iteration": 3,
+      "needs_more": true,
+      "gap_summary": "2 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 2,
+      "ttps_found": [
+        "T1012",
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1055"
+      ],
+      "ttp_tp": 6,
+      "ttp_fp": 1
+    },
+    {
+      "step": 9,
+      "type": "judge_feedback",
+      "iteration": 3,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- link function at runtime on Windows\n- get geographical location\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 10,
+      "type": "analyst_refinement",
+      "iteration": 3,
+      "ttps_now": [
+        "T1012",
+        "T1015",
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 6,
+      "best_ttp_fp": 1
+    },
+    {
+      "step": 11,
+      "type": "refinement_stopped",
+      "iteration": 3,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 6,
+      "ttp_fp": 2
+    }
+  ],
+  "total_llm_calls": 4,
+  "total_elapsed": 36.02,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9286
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.8,
+      "ttp_precision": 0.8571,
+      "ttp_recall": 0.75,
+      "gt_ttps": [
+        "T1012",
+        "T1027",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1547",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1012",
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "tp": 6,
+      "q3_hallucinated_ttps": [
+        "T1055"
+      ],
+      "q3_missed_ttps": [
+        "T1129",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.8,
+      "breakdown": {
+        "ttp_f1": 0.8
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

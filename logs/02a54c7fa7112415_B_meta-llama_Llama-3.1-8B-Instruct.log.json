@@ -1,0 +1,146 @@
+{
+  "hash": "02a54c7fa71124153228984035e09a4e27722d91c5c3550bbaedc875d5d0545e",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as frequent DNS lookups, network activity, and file drops. It also creates registry keys and mutexes, indicating potential persistence and evasion techniques. The presence of PE imports like GetProcAddress and LoadLibraryExW, and the compiler and packer information, further support the malicious nature of the sample.\"\n  },\n  \"q2\": {\n    \"family\": [\"Ransomware\"],\n    \"explanation\": \"The sample's behavior, including frequent DNS lookups, network activity, and file drops, is consistent with ransomware. The creation of registry keys and mutexes, as well as the presence of PE imports like GetProcAddress and LoadLibraryExW, also support this classification.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1071\", \"name\": \"Application Layer Protocol: Web Protocols\"},\n      {\"id\": \"T1204\", \"name\": \"User Execution: Malicious File\"},\n      {\"id\": \"T1218\", \"name\": \"File and Directory Discovery\"},\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1210\", \"name\": \"Input Capture\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1053\", \"name\": \"Scheduled Task/Job\"},\n      {\"id\": \"T1056\", \"name\": \"API Call: Windows API\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 6168,
+      "response_chars": 1284,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as frequent DNS lookups, network activity, and file drops. It also creates registry keys and mutexes, indicating potential persistence and evasion techniques. The presence of PE imports like GetProcAddress and LoadLibraryExW, and the compiler and packer information, further support the maliciou",
+      "elapsed_seconds": 6.12
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "1 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 1,
+      "ttps_found": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1071",
+        "T1204",
+        "T1210",
+        "T1218"
+      ],
+      "hallucinated_ttps": [
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1071",
+        "T1204",
+        "T1210",
+        "T1218"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 7
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- link function at runtime on Windows\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by the report.\nDI",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1071",
+        "T1106",
+        "T1114",
+        "T1204",
+        "T1210",
+        "T1211",
+        "T1218"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 1,
+      "best_ttp_fp": 7
+    },
+    {
+      "step": 5,
+      "type": "refinement_stopped",
+      "iteration": 1,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 1,
+      "ttp_fp": 10
+    }
+  ],
+  "total_llm_calls": 2,
+  "total_elapsed": 14.62,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9444
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.2,
+      "ttp_precision": 0.125,
+      "ttp_recall": 0.5,
+      "gt_ttps": [
+        "T1027",
+        "T1129"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1071",
+        "T1204",
+        "T1210",
+        "T1218"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1071",
+        "T1204",
+        "T1210",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1129"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2,
+      "breakdown": {
+        "ttp_f1": 0.2
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

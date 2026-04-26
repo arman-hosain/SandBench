@@ -1,0 +1,278 @@
+{
+  "hash": "0aaffa229d2e005a01ab1dbe0732be42064039d3c0a30f7c520bb65ce9efc38c",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\WINDOWS\\svhost.exe\n  explorer.exe C:\\0aaffa229d2e005a01ab1dbe0732be42064039d3c0a30f7c520bb65ce9efc38c\"\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (46):\n  - hide graphical window\n  - set file attributes\n  - encode data using XOR\n  - acquire debug privileges\n  - get Program Files directory\n  - get startup folder\n  - parse PE header\n  - get common file path\n  - query or enumerate registry value\n  - get system information on Windows\n  - link function at runtime on Windows\n  - log keystrokes\n  - link many functions at runtime\n  - encode data using Base64\n  - get file size\n  - capture screenshot\n  - enumerate files on Windows\n  - interact with driver via control codes\n  - shutdown system\n  - modify access privileges\n  - get hostname\n  - check if file exists\n  - get file version info\n  - enumerate process modules\n  - enumerate processes\n  - write process memory\n  - find graphical window\n  - log keystrokes via polling\n  - impersonate user\n  - query or enumerate registry key\n  - download and write a file\n  - enumerate files recursively\n  - check for unmoving mouse cursor\n  - query environment variable\n  - open clipboard\n  - get disk information\n  - get disk size\n  - delete registry value\n  - list drag and drop files\n  - read clipboard data\n  - enumerate gui resources\n  - get COMSPEC environment variable\n  - get session user name\n  - get keyboard layout\n  - get memory capacity\n  - compiled with AutoIt\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Process [C0017]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - File System::Create File [C0016]\n  - hide graphical window\n  - File System::Set File Attributes [C0050]\n  - File System::Get File Attributes [C0049]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Process::Open Process [C0065]\n  - Memory::Allocate Memory [C0007]\n  - Process::Create Thread [C0038]\n  - query remote server for available data\n  - Process::Terminate Thread [C0039]\n  - acquire debug privileges\n  - Communication::Socket Communication::Create TCP Socket [C0001.011]\n  - parse URL\n  - reference absolute stream path on Windows\n  - get Program Files directory\n  - get startup folder\n  - Communication::Socket Communication::Create UDP Socket [C0001.010]\n  - contain loop\n  - parse PE header\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  cuckoo.exe  [sha256: f874fb7db07a0cd1...]\n\nFILES WRITTEN (9):\n  C:\\WINDOWS\\Driver.db\n  C:\\WINDOWS\\svhost.exe\n  c:\\Documents and Settings.exe\n  c:\\Program Files.exe\n  c:\\Python27.exe\n  c:\\RECYCLER.exe\n  c:\\System Volume Information.exe\n  c:\\WINDOWS.exe\n  c:\\cuckoo.exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (2):\n  C:\\WINDOWS\\svhost.exe\n  explorer.exe C:\\0aaffa229d2e005a01ab1dbe0732be42064039d3c0a30f7c520bb65ce9efc38c\"\"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: CreateProcessW, GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAlloc, VirtualAllocEx, WriteProcessMemory\n  ADVAPI32.dll: AdjustTokenPrivileges, OpenProcessToken\n\nCOMPILER AND PACKER:\n  [Library] AutoIt\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'F-PROT': 'AutoIt, UTF-8', 'Cyren': 'AUTOIT, UTF-8', 'Varist': 'AUTOIT, UTF-8'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.68\n  .rdata       entropy=4.48\n  .data        entropy=2.15\n  .rsrc        entropy=1.08\n  [overlay]    entropy=6.329870223999023  size=1973163\n",
+  "ground_truth": {
+    "hash": "0aaffa229d2e005a01ab1dbe0732be42064039d3c0a30f7c520bb65ce9efc38c",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8169,
+    "malicious_count": 58,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 25
+      },
+      {
+        "value": "dropper",
+        "count": 4
+      },
+      {
+        "value": "worm",
+        "count": 4
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "autoit",
+        "count": 16
+      },
+      {
+        "value": "pistolar",
+        "count": 3
+      },
+      {
+        "value": "fynloski",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.autoit/pistolar",
+    "av_family_vote": "generic",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1033",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1055",
+        "signature_description": "write process memory"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate process modules"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "compiled with AutoIt"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get system information on Windows"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get Program Files directory"
+      },
+      {
+        "id": "T1087",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1105",
+        "signature_description": "download and write a file"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry value"
+      },
+      {
+        "id": "T1113",
+        "signature_description": "capture screenshot"
+      },
+      {
+        "id": "T1115",
+        "signature_description": "open clipboard"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "acquire debug privileges"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "check for unmoving mouse cursor"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1529",
+        "signature_description": "shutdown system"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "get startup folder"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get keyboard layout"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "delay execution",
+      "create process on Windows",
+      "create or open registry key",
+      "create or open file",
+      "hide graphical window",
+      "set file attributes",
+      "get file attributes",
+      "encode data using XOR",
+      "open process",
+      "allocate memory",
+      "allocate RW memory",
+      "create thread",
+      "query remote server for available data",
+      "terminate thread",
+      "acquire debug privileges",
+      "create TCP socket",
+      "parse URL",
+      "reference absolute stream path on Windows",
+      "allocate RWX memory",
+      "get Program Files directory",
+      "get startup folder",
+      "create UDP socket",
+      "contain loop",
+      "parse PE header",
+      "parse credit card information",
+      "get common file path",
+      "set current directory",
+      "read file on Windows",
+      "resolve function by parsing PE exports",
+      "query or enumerate registry value",
+      "get OS version",
+      "get system information on Windows",
+      "link function at runtime on Windows",
+      "hash data with MD5",
+      "log keystrokes",
+      "terminate process",
+      "link many functions at runtime",
+      "encode data using Base64",
+      "get file size",
+      "get graphical window text",
+      "capture screenshot",
+      "hash data with CRC32",
+      "enumerate files on Windows",
+      "interact with driver via control codes",
+      "create directory",
+      "delete directory",
+      "write file on Windows",
+      "generate random numbers using a Mersenne Twister",
+      "extract resource via kernel32 functions",
+      "check for time delay via QueryPerformanceCounter",
+      "shutdown system",
+      "modify access privileges",
+      "get hostname",
+      "resolve DNS",
+      "check if file exists",
+      "get file version info",
+      "enumerate process modules",
+      "enumerate processes",
+      "write process memory",
+      "find graphical window",
+      "find taskbar",
+      "log keystrokes via polling",
+      "get token privileges",
+      "impersonate user",
+      "query or enumerate registry key",
+      "read data from Internet",
+      "receive data",
+      "download and write a file",
+      "receive and write data from server to client",
+      "create HTTP request",
+      "enumerate files recursively",
+      "create pipe",
+      "check for unmoving mouse cursor",
+      "connect to URL",
+      "connect to HTTP server",
+      "send HTTP request",
+      "send data",
+      "move file",
+      "delete file",
+      "copy file",
+      "authenticate HMAC",
+      "query environment variable",
+      "connect network resource",
+      "open clipboard",
+      "write clipboard data",
+      "replace clipboard data",
+      "set environment variable",
+      "read .ini file",
+      "empty the recycle bin",
+      "get disk information",
+      "get disk size",
+      "connect TCP socket",
+      "act as TCP client",
+      "print debug messages",
+      "delete registry value",
+      "set registry value",
+      "send data on socket",
+      "receive data on socket",
+      "list drag and drop files",
+      "read clipboard data",
+      "create shortcut via IShellLink",
+      "enumerate gui resources",
+      "get COMSPEC environment variable",
+      "get session user name",
+      "get keyboard layout",
+      "get memory capacity",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "compiled with AutoIt",
+      "(internal) autoit file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "cuckoo.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\svhost.exe",
+        "explorer.exe C:\\0aaffa229d2e005a01ab1dbe0732be42064039d3c0a30f7c520bb65ce9efc38c\"\""
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

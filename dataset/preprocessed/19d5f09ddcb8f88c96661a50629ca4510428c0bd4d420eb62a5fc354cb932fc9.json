@@ -1,0 +1,55 @@
+{
+  "hash": "19d5f09ddcb8f88c96661a50629ca4510428c0bd4d420eb62a5fc354cb932fc9",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - encode data using XOR\n  - packed with generic packer\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - contain a resource (.rsrc) section\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (10):\n  C:\\WINDOWS\\win32dc\\BattleField 1942_cdfix.exe\n  C:\\WINDOWS\\win32dc\\Counter-Strike + patch.exe\n  C:\\WINDOWS\\win32dc\\Counter-Strike_crack.exe\n  C:\\WINDOWS\\win32dc\\FlatOut + serial.exe\n  C:\\WINDOWS\\win32dc\\Half-Life 2 serial.exe\n  C:\\WINDOWS\\win32dc\\Half-Life 2(fix).exe\n  C:\\WINDOWS\\win32dc\\Quake3_cheat.exe\n  C:\\WINDOWS\\win32dc\\Silent Hill 4 patch.exe\n  C:\\WINDOWS\\win32dc\\Silent Hill 4_cdfix.exe\n  C:\\WINDOWS\\win32dc\\UT2004 + patch.exe\n\nMUTEXES CREATED (10):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  MSCTF.Shared.MUTEX.EBH\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.96\n  .rsrc        entropy=3.81\n  [overlay]    entropy=7.9929728507995605  size=136299\n",
+  "ground_truth": {
+    "hash": "19d5f09ddcb8f88c96661a50629ca4510428c0bd4d420eb62a5fc354cb932fc9",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8592,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain loop",
+      "packed with generic packer",
+      "contain a resource (.rsrc) section",
+      "packed with UPX",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "MSCTF.Shared.MUTEX.EBH",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "hash": "399404c3f04b02b0c4a10ac192830778a57bf5a099d80c808bd126ea44f78ad9",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  cftmon.exe  [sha256: d4335b55a7509611...]\n  ftp33.dll  [sha256: 4c2185520a7439b3...]\n  spools.exe  [sha256: a5c1799f2589c1b9...]\n\nFILES WRITTEN (4):\n  C:\\Documents and Settings\\<USER>\\cftmon.exe\n  C:\\Documents and Settings\\<USER>\\ftp33.dll\n  C:\\WINDOWS\\system32\\drivers\\spools.exe\n  C:\\WINDOWS\\system32\\ftp33.dll\n\nMUTEXES CREATED (1):\n  RasPbFile\n\nMUTEXES OPENED (1):\n  fa34\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  ADVAPI32.dll: OpenProcessToken\n  KERNEL32.DLL: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'UPX 2.90 [LZMA] -> Markus Oberhumer, Laszlo Molnar & John Reiser', 'F-PROT': 'UPX', 'Cyren': 'UPX'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.82\n  UPX2         entropy=3.08\n  [overlay]    entropy=7.985113620758057  size=757423\n",
+  "ground_truth": {
+    "hash": "399404c3f04b02b0c4a10ac192830778a57bf5a099d80c808bd126ea44f78ad9",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.875,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "crypt",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with UPX"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "packed with UPX",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "cftmon.exe",
+        "ftp33.dll",
+        "spools.exe"
+      ],
+      "mutexes": [
+        "RasPbFile"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

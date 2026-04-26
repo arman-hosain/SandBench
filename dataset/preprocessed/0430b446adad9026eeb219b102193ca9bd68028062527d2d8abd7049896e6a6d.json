@@ -1,0 +1,73 @@
+{
+  "hash": "0430b446adad9026eeb219b102193ca9bd68028062527d2d8abd7049896e6a6d",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  GET http://loader.xcheats.cf/check/usercheck.php\n  GET http://loader.xcheats.cf/check/hwid.php\n\nDNS LOOKUPS (3):\n  cfxcheats.com \u2192 3.124.11.174\n  forum.cfxcheats.com \u2192 3.124.11.174\n  loader.xcheats.cf \u2192 3.124.11.174\n\nIP TRAFFIC (2):\n  3.124.11.174:443 (TCP)\n  3.124.11.174:80 (TCP)\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - write process memory\n  - link function at runtime on Windows\n  - inject thread\n  - decode data using Base64 in .NET\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - Process::Open Process [C0065]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Thread [C0038]\n  - write process memory\n  - link function at runtime on Windows\n  - inject thread\n  - unmanaged call\n  - Data::Decode Data::Base64 [C0053.001]\n  - access .NET resource\n  - generate method via reflection in .NET\n  - compiled to the .NET platform\n  - contains PDB path\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Linker] Microsoft Linker\n  [Compiler] VB.NET\n  [Compiler] VB.NET\n  [Library] .NET\n  [Library] .NET\n  [Protector] Crypto Obfuscator For .Net\n  Packers: {'PEiD': '.NET executable'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.64\n  .reloc       entropy=0.1\n  .rsrc        entropy=2.85\n",
+  "ground_truth": {
+    "hash": "0430b446adad9026eeb219b102193ca9bd68028062527d2d8abd7049896e6a6d",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.5294,
+    "malicious_count": 36,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "generic",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1055",
+        "signature_description": "write process memory"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1140",
+        "signature_description": "decode data using Base64 in .NET"
+      },
+      {
+        "id": "T1620",
+        "signature_description": "inject thread"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "open process",
+      "delay execution",
+      "create thread",
+      "allocate RW memory",
+      "write process memory",
+      "link function at runtime on Windows",
+      "inject thread",
+      "unmanaged call",
+      "decode data using Base64 in .NET",
+      "access .NET resource",
+      "generate method via reflection in .NET",
+      "compiled to the .NET platform",
+      "contains PDB path"
+    ],
+    "iocs": {
+      "ips": [
+        "3.124.11.174"
+      ],
+      "domains": [
+        "cfxcheats.com",
+        "forum.cfxcheats.com",
+        "loader.xcheats.cf"
+      ],
+      "urls": [
+        "http://loader.xcheats.cf/check/hwid.php",
+        "http://loader.xcheats.cf/check/usercheck.php"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

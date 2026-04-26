@@ -1,0 +1,48 @@
+{
+  "hash": "3796f5dd5b307d0c9aafd6e642ac9701ce245d6846f715e6f7b540cb6c37c6bb",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  41bf800102d5301caf03.pe32\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - encode data using XOR\n  - get system information on Windows\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Memory::Allocate Memory [C0007]\n  - contain loop\n  - Cryptography::Cryptographic Hash::SHA1 [C0029.002]\n  - get system information on Windows\n  - contains PDB path\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.61\n  .rdata       entropy=5.64\n  .data        entropy=1.95\n  .gfids       entropy=0.39\n  .reloc       entropy=5.88\n",
+  "ground_truth": {
+    "hash": "3796f5dd5b307d0c9aafd6e642ac9701ce245d6846f715e6f7b540cb6c37c6bb",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.3194,
+    "malicious_count": 23,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get system information on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "allocate memory",
+      "contain loop",
+      "hash data using SHA1",
+      "get system information on Windows",
+      "contains PDB path"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX"
+  ]
+}

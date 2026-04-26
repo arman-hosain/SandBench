@@ -1,0 +1,87 @@
+{
+  "hash": "0325ec1a6a9b7ad671316ee5a49ef99e4fef9ba87e5b28b102d8a16fd2730a5c",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior, including network activity, process creation, and registry key modifications, which are indicative of a malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior, including its ability to communicate with a command and control server, drop files, and modify registry keys, is consistent with the characteristics of a Trojan.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"},\n      {\"id\": \"T1210\", \"name\": \"Operator Execution\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 5110,
+      "response_chars": 808,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior, including network activity, process creation, and registry key modifications, which are indicative of a malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior, including its ability to communicate with a command and control server, drop files, and modi",
+      "elapsed_seconds": 4.14
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 4.14,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.6571
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.2857,
+      "ttp_precision": 0.4,
+      "ttp_recall": 0.2222,
+      "gt_ttps": [
+        "T1012",
+        "T1027",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1134",
+        "T1529",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1082",
+        "T1210",
+        "T1218"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1210",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1012",
+        "T1059",
+        "T1083",
+        "T1129",
+        "T1134",
+        "T1529",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2857,
+      "breakdown": {
+        "ttp_f1": 0.2857
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

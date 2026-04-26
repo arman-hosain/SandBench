@@ -1,0 +1,108 @@
+{
+  "hash": "2a39082a82aee2d72d1a6953d6c5b503a29654cebf617f96de62cfd4e47bb429",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  AUTOEXEC.BAT .exe\n    C:\\ProgramData\\bvjgxb.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\2a39082a82aee2d72d1a6953d6c5b503a29654cebf617f96de62cfd4e47(null) [(null)]\n  C:\\Users\\<USER>\\Downloads\\AUTOEXEC.BAT\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - packed with generic packer\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - resolve function by parsing PE exports\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - contain a resource (.rsrc) section\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (30):\n  AUTOEXEC.BAT .exe  [sha256: bb4daba4feb63594...]\n  boot.ini .exe  [sha256: 423fcf3f543e3bbb...]\n  CONFIG.SYS .exe  [sha256: cd81dcfb0e397c17...]\n  cuckoo .exe  [sha256: 115090783f65b701...]\n  Documents and Settings .exe  [sha256: 7fb5efb285db494b...]\n  eula.1028.txt .exe  [sha256: 06ae7ca3f918b554...]\n  eula.1031.txt .exe  [sha256: df27ff5a6be43c80...]\n  eula.1033.txt .exe  [sha256: 774debbfeed1c137...]\n  eula.1036.txt .exe  [sha256: 7b91b951e2cf762f...]\n  eula.1040.txt .exe  [sha256: 346cec6536e096ba...]\n  eula.1041.txt .exe  [sha256: 1f98c8ddb56a9216...]\n  eula.1042.txt .exe  [sha256: 7e0755ede8d6dd87...]\n  eula.2052.txt .exe  [sha256: da581177a60dfa14...]\n  eula.3082.txt .exe  [sha256: ec029711714291c6...]\n  globdata.ini .exe  [sha256: 5a4ec757433c87b5...]\n  install.exe .exe  [sha256: 4746f4cb1d8632b7...]\n  install.ini .exe  [sha256: b624269f8a337150...]\n  install.res.1028.dll .exe  [sha256: a0067991a51a6791...]\n  install.res.1031.dll .exe  [sha256: fffd101f45e52578...]\n  install.res.1033.dll .exe  [sha256: 74aa9980c731ddd4...]\n\nFILES WRITTEN (19):\n  C:\\Documents and Settings\\All Users\\Application Data\\vssiao.exe\n  C:\\ProgramData\\Saaaalamm\\Mira.h\n  C:\\ProgramData\\bvjgxb.exe\n  c:\\$Recycle.Bin .exe\n  c:\\AUTOEXEC.BAT .exe\n  c:\\Documents and Settings .exe\n  c:\\Miram\n  c:\\PerfLogs .exe\n  c:\\Program Files (x86) .exe\n  c:\\Program Files .exe\n  c:\\ProgramData .exe\n  c:\\Recovery .exe\n  c:\\boot.ini .exe\n  c:\\dev_man.exe .exe\n  c:\\l.bat .exe\n  c:\\pagefile.sys .exe\n  c:\\r.py .exe\n  c:\\r.pyw .exe\n  c:\\sdel.exe .exe\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft\u00ae Windows\u00ae Operating System = C:\\ProgramData\\bvjgxb.exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  C:\\Documents and Settings\\All Users\\Application Data\\vssiao.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualProtect\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n  Packers: {'F-PROT': 'UPX_LZMA'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.98\n  .rsrc        entropy=4.72\n  [overlay]    entropy=7.061952590942383  size=296703\n",
+  "ground_truth": {
+    "hash": "2a39082a82aee2d72d1a6953d6c5b503a29654cebf617f96de62cfd4e47bb429",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8732,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "agent",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "packed with generic packer",
+      "packed with UPX",
+      "contain a resource (.rsrc) section",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft\u00ae Windows\u00ae Operating System"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "AUTOEXEC.BAT .exe",
+        "C:\\ProgramData\\Saaaalamm\\Mira.h",
+        "C:\\ProgramData\\bvjgxb.exe",
+        "CONFIG.SYS .exe",
+        "Documents and Settings .exe",
+        "IO.SYS .exe",
+        "MSDOS.SYS .exe",
+        "Mira.h",
+        "NTDETECT.COM .exe",
+        "Program Files .exe",
+        "Python27 .exe",
+        "RECYCLER .exe",
+        "System Volume Information .exe",
+        "VC_RED.MSI .exe",
+        "VC_RED.cab .exe",
+        "WINDOWS .exe",
+        "boot.ini .exe",
+        "c:\\$Recycle.Bin .exe",
+        "c:\\Documents and Settings .exe",
+        "c:\\PerfLogs .exe",
+        "c:\\Program Files (x86) .exe",
+        "c:\\Program Files .exe",
+        "c:\\ProgramData .exe",
+        "c:\\Recovery .exe",
+        "c:\\dev_man.exe .exe",
+        "c:\\l.bat .exe",
+        "c:\\pagefile.sys .exe",
+        "c:\\r.py .exe",
+        "c:\\r.pyw .exe",
+        "c:\\sdel.exe .exe",
+        "cuckoo .exe",
+        "eula.1028.txt .exe",
+        "eula.1031.txt .exe",
+        "eula.1033.txt .exe",
+        "eula.1036.txt .exe",
+        "eula.1040.txt .exe",
+        "eula.1041.txt .exe",
+        "eula.1042.txt .exe",
+        "eula.2052.txt .exe",
+        "eula.3082.txt .exe",
+        "globdata.ini .exe",
+        "install.exe .exe",
+        "install.ini .exe",
+        "install.res.1028.dll .exe",
+        "install.res.1031.dll .exe",
+        "install.res.1033.dll .exe",
+        "install.res.1036.dll .exe",
+        "install.res.1040.dll .exe",
+        "install.res.1041.dll .exe",
+        "install.res.1042.dll .exe",
+        "install.res.2052.dll .exe",
+        "install.res.3082.dll .exe",
+        "ntldr .exe",
+        "pagefile.sys .exe",
+        "vcredist.bmp .exe",
+        "vssiao.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\All Users\\Application Data\\vssiao.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

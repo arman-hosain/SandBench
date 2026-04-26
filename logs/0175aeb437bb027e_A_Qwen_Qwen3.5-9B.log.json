@@ -1,0 +1,85 @@
+{
+  "hash": "0175aeb437bb027e7edebf8f54e72b0d4b9715d79b9c918d9f6b0b05af751d99",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including dropping a large number of files with sexually explicit and pornographic names into a hidden system directory (C:\\\\WINDOWS\\\\system32\\\\macromd). It employs anti-analysis techniques such as UPX packing and XOR encoding. The sample also establishes persistence by adding a registry run key and modifies system registry values to hide its presence.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Dropper\"],\n    \"explanation\": \"The sample acts as a Dropper by unpacking itself (UPX) and dropping numerous secondary files (executables and PIFs) to the filesystem. It functions as a Trojan because it disguises its malicious payload as pornographic media files and uses deceptive filenames to trick users into execution. The behavior of dropping files and establishing persistence is characteristic of these families.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1562\",\n        \"name\": \"Impair Defenses\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1547\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1005\",\n        \"name\": \"Data from Local System\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 5526,
+      "response_chars": 1466,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including dropping a large number of files with sexually explicit and pornographic names into a hidden system directory (C:\\\\WINDOWS\\\\system32\\\\macromd). It employs anti-analysis techniques such as UPX packing and XOR encoding. The sample also establishes persistence by adding a registry run ke",
+      "elapsed_seconds": 13.48
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 13.48,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9014
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.3077,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 0.2857,
+      "gt_ttps": [
+        "T1012",
+        "T1027",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1005",
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1547",
+        "T1562"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1005",
+        "T1055",
+        "T1547",
+        "T1562"
+      ],
+      "q3_missed_ttps": [
+        "T1012",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.3077,
+      "breakdown": {
+        "ttp_f1": 0.3077
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

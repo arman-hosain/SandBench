@@ -1,0 +1,50 @@
+{
+  "hash": "02a48a122e3818f87e3c0ea72e699329e30ef9bd0b98df1eb54b8ed2f2b80d2c",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    65m572k.exe\n      l8aad.exe\n        uo93ke.exe\n          6xr09l.exe\n            s02g7.exe\n              goh20.exe\n                6h16b.exe\n                  7efr43s.exe\n                    n3sec2j.exe\n                      acc6c.exe\n                        jcfkn.exe\n                          ge2j1t.exe\n                            bw0xx.exe\n                              qrd824f.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - contain obfuscated stackstrings\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - contain loop\n  - resolve function by parsing PE exports\n  - Data::Decompress Data [C0025]\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  0jtvrgq.exe  [sha256: ce17ebdf8f59f09f...]\n\nFILES WRITTEN (30):\n  C:\\09978.exe\n  C:\\0x1fk1.exe\n  C:\\188cc.exe\n  C:\\1jd712.exe\n  C:\\29bf30v.exe\n  C:\\36942m.exe\n  C:\\3lqt2.exe\n  C:\\3v2u9l7.exe\n  C:\\65m572k.exe\n  C:\\6h16b.exe\n  C:\\6xr09l.exe\n  C:\\7efr43s.exe\n  C:\\8p11242.exe\n  C:\\acc6c.exe\n  C:\\b0vwttw.exe\n  C:\\bw0xx.exe\n  C:\\e2nv7c.exe\n  C:\\ge2j1t.exe\n  C:\\goh20.exe\n  C:\\jcfkn.exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  c:\\0jtvrgq.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Packer] DxPack\n  [Protector] Obsidium\n  Packers: {'F-PROT': 'UPX_LZMA'}\n\nPE SECTIONS (entropy):\n  .rsrc        entropy=7.98\n  coderpub     entropy=5.8\n  [overlay]    entropy=4.828481674194336  size=56777\n",
+  "ground_truth": {
+    "hash": "02a48a122e3818f87e3c0ea72e699329e30ef9bd0b98df1eb54b8ed2f2b80d2c",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8611,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "decompress data using LZO",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "0jtvrgq.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "c:\\0jtvrgq.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork"
+  ]
+}

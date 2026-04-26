@@ -1,0 +1,129 @@
+{
+  "hash": "055690c95349d31399f9cedbe49d05e147770523ccec1aac443f34aa7e59051f",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (2):\n  us.undernet.org \u2192 91.236.182.1\n  us.undernet.org \u2192 91.236.182.1, 104.149.232.242\n\nIP TRAFFIC (1):\n  154.35.136.18:6667 (TCP)\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (12):\n  - access PEB ldr_data\n  - check Internet connectivity via WinINet\n  - accept command line arguments\n  - get file size\n  - query or enumerate registry value\n  - get geographical location\n  - check OS version\n  - get common file path\n  - check if file exists\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - reference startup folder\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - File System::Create File [C0016]\n  - Cryptography::Generate Pseudo-random Sequence [C0021]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Create Thread [C0038]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - access PEB ldr_data\n  - Communication::Socket Communication::Create UDP Socket [C0001.010]\n  - check Internet connectivity via WinINet\n  - Process::Create Process [C0017]\n  - Communication::Socket Communication::Create TCP Socket [C0001.011]\n  - File System::Get File Attributes [C0049]\n  - contain loop\n  - Execution::Command and Scripting Interpreter [E1059]\n  - File System::Read File [C0051]\n  - File System::Writes File [C0052]\n  - Discovery::File and Directory Discovery [E1083]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - get geographical location\n  - get OS version\n  - Process::Set Thread Local Storage Value [C0041]\n  - get thread local storage value\n\n--- ARTIFACTS ---\n\nFILES DROPPED (9):\n  DAoC hack.exe  [sha256: 4d934e58341e23fa...]\n  Half-Life 2 + cdfix.exe  [sha256: c85a79f16d7a3623...]\n  Half-Life 2 cdfix.exe  [sha256: d459b70470872b71...]\n  Half-Life 2(cdfix).exe  [sha256: 380da4d11fb37898...]\n  Quake3 fix.exe  [sha256: ae2e725411c0ffb9...]\n  Silent Hill 4 patch.exe  [sha256: fc37d3acc025452c...]\n  Silent Hill 4(serial).exe  [sha256: 14c19aab57c1e432...]\n  Silent Hill 4_trainer.exe  [sha256: 891b2e333e4f2d3b...]\n  Sims 2 + crack.exe  [sha256: 02576dbc7a5d2a64...]\n\nFILES WRITTEN (4):\n  C:\\055690c95349d31399f9cedbe49d05e147770523ccec1aac443f34aa7e59051f\n  C:\\WINDOWS\\win32dc\\DAoC hack.exe\n  C:\\WINDOWS\\win32dc\\Silent Hill 4 patch.exe\n  C:\\WINDOWS\\win32dc\\Sims 2 + crack.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n\nPE SECTIONS (entropy):\n  CODE         entropy=6.32\n  DATA         entropy=3.73\n  BSS          entropy=0.0\n  .idata       entropy=4.27\n  .tls         entropy=0.0\n  .rdata       entropy=0.19\n  .reloc       entropy=6.53\n  .rsrc        entropy=3.77\n  [overlay]    entropy=7.992856979370117  size=123957\n",
+  "ground_truth": {
+    "hash": "055690c95349d31399f9cedbe49d05e147770523ccec1aac443f34aa7e59051f",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9571,
+    "malicious_count": 67,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1016",
+        "signature_description": "check Internet connectivity via WinINet"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "check OS version"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "reference startup folder"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "allocate RW memory",
+      "create or open file",
+      "generate random numbers using the Delphi LCG",
+      "create or open registry key",
+      "create thread",
+      "PEB access",
+      "delay execution",
+      "access PEB ldr_data",
+      "create UDP socket",
+      "check Internet connectivity via WinINet",
+      "create process on Windows",
+      "create TCP socket",
+      "get file attributes",
+      "contain loop",
+      "accept command line arguments",
+      "read file on Windows",
+      "write file on Windows",
+      "get file size",
+      "query or enumerate registry value",
+      "get geographical location",
+      "get OS version",
+      "set thread local storage value",
+      "get thread local storage value",
+      "create mutex",
+      "send data on socket",
+      "send data",
+      "receive data on socket",
+      "download URL",
+      "copy file",
+      "receive data",
+      "delete file",
+      "create directory",
+      "check OS version",
+      "resolve DNS",
+      "get common file path",
+      "connect TCP socket",
+      "act as TCP client",
+      "check if file exists",
+      "connect network resource",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section",
+      "contain a thread local storage (.tls) section",
+      "reference startup folder",
+      "compiled with Borland Delphi",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [
+        "154.35.136.18"
+      ],
+      "domains": [
+        "us.undernet.org"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "DAoC hack.exe",
+        "Half-Life 2 + cdfix.exe",
+        "Half-Life 2 cdfix.exe",
+        "Half-Life 2(cdfix).exe",
+        "Quake3 fix.exe",
+        "Silent Hill 4 patch.exe",
+        "Silent Hill 4(serial).exe",
+        "Silent Hill 4_trainer.exe",
+        "Sims 2 + crack.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

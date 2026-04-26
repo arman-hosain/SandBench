@@ -1,0 +1,82 @@
+{
+  "hash": "2c072ea52eed0c02940a6cce3f460c0340d5840496c36e6264f700ac3d6d3523",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (7):\n  - accept command line arguments\n  - get file size\n  - query or enumerate registry value\n  - get common file path\n  - packed with UPX\n  - reference anti-VM strings targeting VirtualBox\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - File System::Create File [C0016]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - reference absolute stream path on Windows\n  - contain loop\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Discovery::File and Directory Discovery [E1083]\n  - Process::Set Thread Local Storage Value [C0041]\n  - get thread local storage value\n  - Process::Create Mutex [C0042]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - File System::Delete File [C0047]\n  - File System::Read File [C0051]\n  - File System::Copy File [C0045]\n  - File System::Writes File [C0052]\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - Execution::Install Additional Program [B0023]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - Data::Encode Data::Base64 [C0026.001]\n  - Data::Check String [C0019]\n  - contains PDB path\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (30):\n  C:\\AUTOEXEC.BAT-\n  C:\\DllLoader.exe\n  C:\\DllLoader.exe-\n  C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\A3DUtility.exe\n  C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\A3DUtility.exe-\n  C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\AcroBroker.exe\n  C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\AcroBroker.exe-\n  C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\AcroRd32.exe\n  C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\AcroRd32.exe-\n  C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\AcroRd32Info.exe\n  C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\AcroRd32Info.exe-\n  C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\AcroTextExtractor.exe-\n  C:\\Program Files\\Common Files\\Microsoft Shared\\MSInfo\\msinfo32.exe-\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\ConvertInkStore.exe-\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\FlickLearningWizard.exe-\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\InkWatson.exe-\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\InputPersonalization.exe-\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\ShapeCollector.exe-\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\TabTip.exe-\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\mip.exe-\n\nMUTEXES CREATED (1):\n  BagarBubba\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n  Packers: {'PEiD': 'BobSoft Mini Delphi -> BoB / BobSoft'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=3.52\n  UPX1         entropy=4.36\n  .rsrc        entropy=2.76\n  .imports     entropy=4.07\n  [overlay]    entropy=6.473423480987549  size=1141695\n",
+  "ground_truth": {
+    "hash": "2c072ea52eed0c02940a6cce3f460c0340d5840496c36e6264f700ac3d6d3523",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9296,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "packed with UPX"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "create or open file",
+      "create or open registry key",
+      "reference absolute stream path on Windows",
+      "contain loop",
+      "accept command line arguments",
+      "get file size",
+      "set thread local storage value",
+      "get thread local storage value",
+      "create mutex",
+      "query or enumerate registry value",
+      "set registry value",
+      "delete file",
+      "read file on Windows",
+      "copy file",
+      "write file on Windows",
+      "get common file path",
+      "packed with UPX",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting VirtualBox",
+      "reference Base64 string",
+      "contains PDB path",
+      "(internal) packer file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "BagarBubba"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

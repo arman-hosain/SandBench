@@ -1,0 +1,69 @@
+{
+  "hash": "05d89a21d4a669ff64959b371e1e0fd388c9457276008dbffced35ae04995422",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (2):\n  ax100.net \u2192 114.143.205.12\n  infoplusplus.com \u2192 114.143.205.12\n\nIP TRAFFIC (1):\n  114.143.205.12:443 (TCP)\n\nSERVICES OPENED (2):\n  AudioSrv\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  05d89a21d4a669ff_budha.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (6):\n  - contain obfuscated stackstrings\n  - encode data using XOR\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - parse PE header\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - contain loop\n  - Discovery::Code Discovery::Inspect Section Memory Permissions [B0046.002]\n  - parse PE header\n  - Process::Terminate Process [C0018]\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  budha.exe  [sha256: fc0b4c92fa27715a...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe  [sha256: a8f55584e2958135...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe\n\nMUTEXES CREATED (2):\n  Local\\MidiMapper_modLongMessage_RefCnt\n  RasPbFile\n\nMUTEXES OPENED (2):\n  MidiMapper_Configure\n  MidiMapper_modLongMessage_RefCnt\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe\" \"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Compiler] FASM\n\nPE SECTIONS (entropy):\n  .bss         entropy=0.0\n  .data        entropy=7.96\n  .text        entropy=5.17\n  .idata       entropy=1.29\n  .NewSec      entropy=0.0\n  [overlay]    entropy=3.4458506107330322  size=24506\n",
+  "ground_truth": {
+    "hash": "05d89a21d4a669ff64959b371e1e0fd388c9457276008dbffced35ae04995422",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8592,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "encode data using XOR",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "contain loop",
+      "inspect section memory permissions",
+      "parse PE header",
+      "terminate process",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "114.143.205.12"
+      ],
+      "domains": [
+        "ax100.net",
+        "infoplusplus.com"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe",
+        "budha.exe"
+      ],
+      "mutexes": [
+        "Local\\MidiMapper_modLongMessage_RefCnt",
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

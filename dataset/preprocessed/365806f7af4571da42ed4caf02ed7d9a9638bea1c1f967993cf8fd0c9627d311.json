@@ -1,0 +1,65 @@
+{
+  "hash": "365806f7af4571da42ed4caf02ed7d9a9638bea1c1f967993cf8fd0c9627d311",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (5):\n  - get process heap flags\n  - access PEB ldr_data\n  - get ntdll base address\n  - encrypt data using RC4 PRGA\n  - accept command line arguments\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - reference absolute stream path on Windows\n  - get process heap flags\n  - File System::Create File [C0016]\n  - File System::Writes File [C0052]\n  - access PEB ldr_data\n  - get ntdll base address\n  - contain loop\n  - Data::Check String [C0019]\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Generate Pseudo-random Sequence::RC4 PRGA [C0021.004]\n  - File System::Read File [C0051]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - contain a resource (.rsrc) section\n  - contains PDB path\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C++\n  [Library] Qt\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=5.29\n  .rdata       entropy=6.71\n  .data        entropy=4.11\n  .idata       entropy=5.33\n  .rsrc        entropy=4.42\n  .reloc       entropy=7.37\n",
+  "ground_truth": {
+    "hash": "365806f7af4571da42ed4caf02ed7d9a9638bea1c1f967993cf8fd0c9627d311",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.4507,
+    "malicious_count": 32,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encrypt data using RC4 PRGA"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "get process heap flags"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      }
+    ],
+    "capa_sig_names": [
+      "PEB access",
+      "reference absolute stream path on Windows",
+      "get process heap flags",
+      "create or open file",
+      "create process memory minidump",
+      "access PEB ldr_data",
+      "get ntdll base address",
+      "contain loop",
+      "parse credit card information",
+      "encrypt data using RC4 PRGA",
+      "read file on Windows",
+      "write file on Windows",
+      "accept command line arguments",
+      "contain a resource (.rsrc) section",
+      "contains PDB path"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO"
+  ]
+}

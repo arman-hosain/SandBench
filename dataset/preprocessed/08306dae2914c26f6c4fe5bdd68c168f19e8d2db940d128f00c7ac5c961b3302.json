@@ -1,0 +1,53 @@
+{
+  "hash": "08306dae2914c26f6c4fe5bdd68c168f19e8d2db940d128f00c7ac5c961b3302",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - packed with generic packer\n  - packed with UPX\n  - reference Base64 string\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - resolve function by parsing PE exports\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - Execution::Install Additional Program [B0023]\n  - packaged as an InstallShield installer\n  - Data::Encode Data::Base64 [C0026.001]\n  - Data::Check String [C0019]\n  - compiled with Borland Delphi\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - (internal) installer file limitation\n  - (internal) packer file limitation\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'F-PROT': 'UPX_LZMA'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.97\n  UPX2         entropy=2.93\n  [overlay]    entropy=6.637289047241211  size=1983938\n",
+  "ground_truth": {
+    "hash": "08306dae2914c26f6c4fe5bdd68c168f19e8d2db940d128f00c7ac5c961b3302",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9577,
+    "malicious_count": 68,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "packed with generic packer",
+      "packed with UPX",
+      "contain an embedded PE file",
+      "packaged as an InstallShield installer",
+      "reference Base64 string",
+      "compiled with Borland Delphi",
+      "reference anti-VM strings",
+      "(internal) installer file limitation",
+      "(internal) packer file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

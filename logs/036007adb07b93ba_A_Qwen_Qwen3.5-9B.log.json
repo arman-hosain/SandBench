@@ -1,0 +1,70 @@
+{
+  "hash": "036007adb07b93ba7ebcd09aca991b42a8ff32b4357a3300573879c9c65206f8",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic malware behavior including deep recursion (process tree with 9 identical instances), use of a generic SFX packer, XOR encoding, and dangerous API imports (WinExec, CreateProcessA). It also performs registry modifications to persist or hide functionality (ShellServiceObjectDelayLoad) and drops additional files in System32.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The behavior of dropping files, executing additional programs via WinExec/CreateProcess, and modifying registry keys for persistence is characteristic of a Trojan. It does not show specific ransomware encryption patterns, worm propagation to other hosts, or spyware data exfiltration in this report.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1546.009\",\n        \"name\": \"Event Triggered Execution\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1823,
+      "response_chars": 1160,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic malware behavior including deep recursion (process tree with 9 identical instances), use of a generic SFX packer, XOR encoding, and dangerous API imports (WinExec, CreateProcessA). It also performs registry modifications to persist or hide functionality (ShellServiceObjectDelayLoad) and drops additional files i",
+      "elapsed_seconds": 10.2
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 10.2,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9286
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.4,
+      "ttp_precision": 0.25,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1546"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1059",
+        "T1546"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4,
+      "breakdown": {
+        "ttp_f1": 0.4
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

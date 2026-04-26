@@ -1,0 +1,88 @@
+{
+  "hash": "3f19689ccb398bc2c04a455d56dad3098fee88cbbd5f305d4fa4519be32a9cdf",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ab15cd455c3e396fbf3fafd6c56147f0.virus.exe\n    cmd.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - access PEB ldr_data\n  - get process heap force flags\n  - get process heap flags\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - reference absolute stream path on Windows\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - access PEB ldr_data\n  - get process heap force flags\n  - get process heap flags\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Execution::Install Additional Program [B0023]\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF5831958ABB63580B.TMP\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.06\n  .data        entropy=0.0\n  .rsrc        entropy=4.42\n  [overlay]    entropy=6.038699150085449  size=877140\n",
+  "ground_truth": {
+    "hash": "3f19689ccb398bc2c04a455d56dad3098fee88cbbd5f305d4fa4519be32a9cdf",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.875,
+    "malicious_count": 63,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 37
+      },
+      {
+        "value": "dropper",
+        "count": 2
+      },
+      {
+        "value": "worm",
+        "count": 2
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "fsysna",
+        "count": 13
+      },
+      {
+        "value": "dvqw",
+        "count": 6
+      },
+      {
+        "value": "killfiles",
+        "count": 5
+      }
+    ],
+    "suggested_label": "trojan.fsysna/dvqw",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1057",
+        "signature_description": "get process heap force flags"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "reference absolute stream path on Windows",
+      "PEB access",
+      "access PEB ldr_data",
+      "get process heap force flags",
+      "get process heap flags",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation",
+      "calculate modulo 256 via x86 assembly",
+      "PEB access",
+      "access PEB ldr_data",
+      "get process heap flags",
+      "get process heap force flags",
+      "contain loop",
+      "contain an embedded PE file",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

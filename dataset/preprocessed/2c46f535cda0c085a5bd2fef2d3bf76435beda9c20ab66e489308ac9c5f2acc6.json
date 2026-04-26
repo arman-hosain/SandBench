@@ -1,0 +1,55 @@
+{
+  "hash": "2c46f535cda0c085a5bd2fef2d3bf76435beda9c20ab66e489308ac9c5f2acc6",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - packed with ASPack\n  - reference anti-VM strings targeting VirtualBox\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - reference absolute stream path on Windows\n  - contain loop\n  - contain a resource (.rsrc) section\n  - linked against CPP standard library\n  - Execution::Install Additional Program [B0023]\n  - Anti-Static Analysis::Software Packing [F0001]\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - Data::Encode Data::Base64 [C0026.001]\n  - Data::Check String [C0019]\n  - contains PDB path\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n  - (internal) packer file limitation\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (2):\n  C:\\905c0769f9a06c95a24ddf945\\patcher.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF248945A98AC49AA2.TMP\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] ASPack\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.29\n  .data        entropy=0.0\n  .rsrc        entropy=0.13\n  .aspack      entropy=5.0\n  .adata       entropy=0.0\n  [overlay]    entropy=6.205037593841553  size=156593\n",
+  "ground_truth": {
+    "hash": "2c46f535cda0c085a5bd2fef2d3bf76435beda9c20ab66e489308ac9c5f2acc6",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9155,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with ASPack"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "reference absolute stream path on Windows",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "linked against CPP standard library",
+      "contain an embedded PE file",
+      "packed with ASPack",
+      "reference anti-VM strings targeting VirtualBox",
+      "reference Base64 string",
+      "contains PDB path",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation",
+      "(internal) packer file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

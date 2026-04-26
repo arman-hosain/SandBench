@@ -1,0 +1,115 @@
+{
+  "hash": "017d71903e4626773bd9fb9c945c1c9474b85e185688ce79216ab674a3fae07f",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  cf34a67513d9343f400fb4e1da6c6d41.virus.exe\n    C:\\Windows\\splwow64.exe 12288\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (13):\n  - get file system object information\n  - delete registry key\n  - get common file path\n  - accept command line arguments\n  - get geographical location\n  - check if file exists\n  - query or enumerate registry value\n  - log keystrokes via polling\n  - link function at runtime on Windows\n  - parse PE header\n  - query environment variable\n  - check OS version\n  - get hostname\n\nCAPA RULE MATCHES (MBC):\n  - File System::Get File Attributes [C0049]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - get file system object information\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - reference absolute stream path on Windows\n  - contain loop\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - Operating System::Registry::Delete Registry Key [C0036.002]\n  - set current directory\n  - Discovery::File and Directory Discovery [E1083]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - get geographical location\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Discovery::Code Discovery::Inspect Section Memory Permissions [B0046.002]\n  - Collection::Keylogging::Polling [F0002.002]\n  - link function at runtime on Windows\n  - parse PE header\n  - Discovery::System Information Discovery [E1082]\n  - get OS version\n  - print debug messages\n  - File System::Create Directory [C0046]\n  - contain a resource (.rsrc) section\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExW\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (1):\n  C:\\Windows\\system32\\spool\\DRIVERS\\x64\\3\\mxdwdui.BUD\n\nOTHER REGISTRY KEYS SET (1):\n  HKCU\\Software\\Microsoft\\At Work Fax\\Transport Service Provider\\Cover Page Editor\n\nMUTEXES CREATED (1):\n  Local\\WinSpl64To32Mutex_ef44_0_3000\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryW\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Library] MFC\n\nPE SECTIONS (entropy):\n  .text        entropy=6.24\n  .data        entropy=2.66\n  .rsrc        entropy=5.22\n  .reloc       entropy=4.81\n  kdpnfrs      entropy=0.0\n",
+  "ground_truth": {
+    "hash": "017d71903e4626773bd9fb9c945c1c9474b85e185688ce79216ab674a3fae07f",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.6849,
+    "malicious_count": 50,
+    "popular_threat_category": [
+      {
+        "value": "virus",
+        "count": 8
+      },
+      {
+        "value": "trojan",
+        "count": 6
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "virut",
+        "count": 15
+      },
+      {
+        "value": "virtob",
+        "count": 7
+      },
+      {
+        "value": "vitro",
+        "count": 2
+      }
+    ],
+    "suggested_label": "virus.virut/virtob",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file system object information"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry key"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "get file attributes",
+      "create or open registry key",
+      "get file system object information",
+      "delay execution",
+      "reference absolute stream path on Windows",
+      "contain loop",
+      "set registry value",
+      "delete registry key",
+      "set current directory",
+      "get common file path",
+      "accept command line arguments",
+      "get geographical location",
+      "check if file exists",
+      "query or enumerate registry value",
+      "inspect section memory permissions",
+      "log keystrokes via polling",
+      "link function at runtime on Windows",
+      "parse PE header",
+      "query environment variable",
+      "get OS version",
+      "check OS version",
+      "print debug messages",
+      "get hostname",
+      "create directory",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 1,
+      "files_dropped": [],
+      "mutexes": [
+        "Local\\WinSpl64To32Mutex_ef44_0_3000"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "hash": "39ec3ce96dcf5d4585b645a7978cc280a3365c7a2bc0826c4453965f9e4d2224",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  autoexec.pe32\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - packed with generic packer\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - contain a resource (.rsrc) section\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - debug build\n  - Execution::Install Additional Program [B0023]\n  - packaged as a NSIS installer\n  - contains PDB path\n  - (internal) installer file limitation\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (20):\n  \\Program Files\\Adobe\\Acrobat Reader DC\\Reader\\Browser\\WCChromeExtn\\WCChromeNativeMessagingHost.exe  [sha256: c1c1819d8404b446...]\n  \\Program Files\\Common Files\\microsoft shared\\OFFICE14\\LICLUA.EXE  [sha256: d510b57da3f9fcc7...]\n  \\Program Files\\Java\\jre1.8.0_221\\bin\\klist.exe  [sha256: 72ea614df3887444...]\n  \\Program Files\\Google\\Chrome\\Application\\76.0.3809.100\\Installer\\setup.exe  [sha256: 2086f84679bc28c9...]\n  \\Program Files\\Google\\Update\\1.3.34.11\\GoogleUpdate.exe  [sha256: ded7dc31d489bc30...]\n  \\Program Files\\Common Files\\Oracle\\Java\\javapath_target_680125\\java.exe  [sha256: d108434cccdd1934...]\n  \\Program Files\\Common Files\\microsoft shared\\OfficeSoftwareProtectionPlatform\\OSPPREARM.EXE  [sha256: 1c5a9bb2706e53ac...]\n  \\Program Files\\Adobe\\Acrobat Reader DC\\Reader\\AcroBroker.exe  [sha256: 7410e84bcaad9d74...]\n  \\Program Files\\Common Files\\Java\\Java Update\\jucheck.exe  [sha256: 3d853b97917647e5...]\n  \\Program Files\\Java\\jre1.8.0_221\\bin\\javaw.exe  [sha256: ad23aafc059bf1d2...]\n  \\Program Files\\Java\\jre1.8.0_221\\bin\\javacpl.exe  [sha256: 5317f462f1c4e4b8...]\n  \\Program Files\\Adobe\\Acrobat Reader DC\\Reader\\AcroCEF\\RdrServicesUpdater.exe  [sha256: 99a897d50529df11...]\n  \\Program Files\\Common Files\\Oracle\\Java\\javapath_target_680125\\javaw.exe  [sha256: 3f1b5307c321c1b7...]\n  \\Program Files\\Google\\Chrome\\Application\\76.0.3809.100\\elevation_service.exe  [sha256: c44e2664f046bfb3...]\n  \\Program Files\\Common Files\\microsoft shared\\EQUATION\\EQNEDT32.EXE  [sha256: eefad6f19aa3c063...]\n  \\Program Files\\Java\\jre1.8.0_221\\bin\\jjs.exe  [sha256: 2d9609fee2a4cc10...]\n  \\Program Files\\Common Files\\Java\\Java Update\\jaureg.exe  [sha256: e505d1bd1f6a7358...]\n  \\Program Files\\Google\\Chrome\\Application\\76.0.3809.100\\Installer\\chrmstp.exe  [sha256: d2cb79d2633dbf09...]\n  \\Program Files\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32Info.exe  [sha256: ef0c80d9e74eb5bb...]\n  \\Program Files\\Common Files\\Java\\Java Update\\jusched.exe  [sha256: d2aaf5b2902d1857...]\n\nFILES WRITTEN (5):\n  C:\\Program Files\\Adobe\\Acrobat Reader DC\\Reader\\AcroBroker.exe\n  C:\\Program Files\\Adobe\\Acrobat Reader DC\\Reader\\AcroBroker.exe-\n  C:\\Program Files\\Adobe\\Acrobat Reader DC\\Reader\\AcroCEF\\RdrCEF.exe-\n  C:\\autoexec.bat\n  C:\\autoexec.bat-\n\nMUTEXES CREATED (1):\n  BagarBubba\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n  Packers: {'PEiD': 'UPX 2.90 [LZMA] -> Markus Oberhumer, Laszlo Molnar & John Reiser'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.68\n  .rsrc        entropy=2.76\n  [overlay]    entropy=6.125174522399902  size=1391882\n",
+  "ground_truth": {
+    "hash": "39ec3ce96dcf5d4585b645a7978cc280a3365c7a2bc0826c4453965f9e4d2224",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.875,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "generickd",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "packed with generic packer",
+      "contain a resource (.rsrc) section",
+      "packed with UPX",
+      "debug build",
+      "contain an embedded PE file",
+      "packaged as a NSIS installer",
+      "contains PDB path",
+      "(internal) installer file limitation",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "\\Program Files\\Adobe\\Acrobat Reader DC\\Reader\\AcroBroker.exe",
+        "\\Program Files\\Adobe\\Acrobat Reader DC\\Reader\\AcroCEF\\RdrServicesUpdater.exe",
+        "\\Program Files\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32Info.exe",
+        "\\Program Files\\Adobe\\Acrobat Reader DC\\Reader\\Browser\\WCChromeExtn\\WCChromeNativeMessagingHost.exe",
+        "\\Program Files\\Common Files\\Java\\Java Update\\jaureg.exe",
+        "\\Program Files\\Common Files\\Java\\Java Update\\jucheck.exe",
+        "\\Program Files\\Common Files\\Java\\Java Update\\jusched.exe",
+        "\\Program Files\\Common Files\\Oracle\\Java\\javapath_target_680125\\java.exe",
+        "\\Program Files\\Common Files\\Oracle\\Java\\javapath_target_680125\\javaw.exe",
+        "\\Program Files\\Common Files\\microsoft shared\\EQUATION\\EQNEDT32.EXE",
+        "\\Program Files\\Common Files\\microsoft shared\\OFFICE14\\LICLUA.EXE",
+        "\\Program Files\\Common Files\\microsoft shared\\OfficeSoftwareProtectionPlatform\\OSPPREARM.EXE",
+        "\\Program Files\\Google\\Chrome\\Application\\76.0.3809.100\\Installer\\chrmstp.exe",
+        "\\Program Files\\Google\\Chrome\\Application\\76.0.3809.100\\Installer\\setup.exe",
+        "\\Program Files\\Google\\Chrome\\Application\\76.0.3809.100\\elevation_service.exe",
+        "\\Program Files\\Google\\Update\\1.3.34.11\\GoogleUpdate.exe",
+        "\\Program Files\\Java\\jre1.8.0_221\\bin\\javacpl.exe",
+        "\\Program Files\\Java\\jre1.8.0_221\\bin\\javaw.exe",
+        "\\Program Files\\Java\\jre1.8.0_221\\bin\\jjs.exe",
+        "\\Program Files\\Java\\jre1.8.0_221\\bin\\klist.exe"
+      ],
+      "mutexes": [
+        "BagarBubba"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX"
+  ]
+}

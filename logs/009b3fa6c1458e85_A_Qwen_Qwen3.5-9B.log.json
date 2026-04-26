@@ -1,0 +1,73 @@
+{
+  "hash": "009b3fa6c1458e852b896e07b99a21fbd231247051bb53e6c9359b443bb486b1",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits several suspicious behaviors including DNS lookups to a domain with a suspicious TLD (.bit) and a name resembling a law enforcement entity ('politiaromana'), which is a common tactic for evading detection or social engineering. It drops a new executable file, creates mutexes, and utilizes dynamic linking capabilities (GetProcAddress, VirtualAlloc) often associated with obfuscation or evasion. However, the network activity is limited to a single HTTP request to a legitimate-looking site (bitdefender.com) and the process tree is minimal, lacking clear evidence of payload execution, data exfiltration, or system modification typical of confirmed malware in this specific report.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample behaves like a Trojan by dropping a secondary executable (rkakxa.exe) and performing network reconnaissance (DNS lookups to a potentially malicious domain). The use of dynamic linking and mutex creation suggests it is attempting to establish persistence or hide its activity, which aligns with Trojan behavior rather than simple adware or a dropper without further payload evidence.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1070.001\",\n        \"name\": \"Indicator Removal by Deleting File\"\n      },\n      {\n        \"id\": \"T1055.004\",\n        \"name\": \"Process Injection via DLL\"\n      },\n      {\n        \"id\": \"T1059.001\",\n        \"name\": \"Command and Scripting Interpreter: Command Prompt\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1993,
+      "response_chars": 1557,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits several suspicious behaviors including DNS lookups to a domain with a suspicious TLD (.bit) and a name resembling a law enforcement entity ('politiaromana'), which is a common tactic for evading detection or social engineering. It drops a new executable file, creates mutexes, and utilizes dynamic linking capabilities ",
+      "elapsed_seconds": 7.32
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 7.32,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 0.5,
+      "predicted": "SUSPICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9296
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1082",
+        "T1129"
+      ],
+      "pred_ttps": [
+        "T1055",
+        "T1059",
+        "T1070"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1059",
+        "T1070"
+      ],
+      "q3_missed_ttps": [
+        "T1082",
+        "T1129"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

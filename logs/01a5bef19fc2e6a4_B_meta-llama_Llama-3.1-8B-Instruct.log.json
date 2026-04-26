@@ -1,0 +1,87 @@
+{
+  "hash": "01a5bef19fc2e6a423d8a918d92e39769557cdff06e5287c1afeb7a8a91d338d",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The presence of XOR encoding, obfuscated files, and debug messages suggests malicious intent. Additionally, the use of a loop and reading of files indicates potential malicious activity.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The encoding of data using XOR and the use of a loop to read files are indicative of a Trojan, which often uses these techniques to evade detection and execute malicious payloads.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1204\", \"name\": \"User Execution of Malicious Code\"},\n      {\"id\": \"T1056\", \"name\": \"Process Injection\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 856,
+      "response_chars": 714,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The presence of XOR encoding, obfuscated files, and debug messages suggests malicious intent. Additionally, the use of a loop and reading of files indicates potential malicious activity.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The encoding of data using XOR and the use of a loop to read files are indicative of a Troj",
+      "elapsed_seconds": 3.36
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": false,
+      "gap_summary": "",
+      "missed_behavior_count": 0,
+      "ttps_found": [
+        "T1027",
+        "T1056",
+        "T1204"
+      ],
+      "hallucinated_ttps": [
+        "T1056",
+        "T1204"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 2
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 3.36,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.3857
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.5,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1056",
+        "T1204"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1056",
+        "T1204"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5,
+      "breakdown": {
+        "ttp_f1": 0.5
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

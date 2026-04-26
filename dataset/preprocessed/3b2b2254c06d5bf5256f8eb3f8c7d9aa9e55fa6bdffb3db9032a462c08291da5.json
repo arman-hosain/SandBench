@@ -1,0 +1,132 @@
+{
+  "hash": "3b2b2254c06d5bf5256f8eb3f8c7d9aa9e55fa6bdffb3db9032a462c08291da5",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  081fe5eaac4205b6921b03a812153377.virus\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (17):\n  - encode data using XOR\n  - encrypt data using AES via x86 extensions\n  - log keystrokes\n  - get system information on Windows\n  - get socket status\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - parse PE header\n  - modify access privileges\n  - encrypt data using AES\n  - reference AES constants\n  - reference cryptocurrency strings\n  - packed with UPX\n  - reference anti-VM strings targeting VirtualBox\n  - reference Base64 string\n  - reference anti-VM strings targeting Qemu\n  - reference anti-VM strings targeting VMWare\n\nCAPA RULE MATCHES (MBC):\n  - Process::Create Thread [C0038]\n  - Memory::Allocate Memory [C0007]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - Process::Resume Thread [C0054]\n  - reference absolute stream path on Windows\n  - Process::Create Process [C0017]\n  - contain loop\n  - Data::Checksum::Luhn [C0032.002]\n  - File System::Writes File [C0052]\n  - File System::Read File [C0051]\n  - Defense Evasion::Obfuscated Files or Information::Encryption-Standard Algorithm [E1027.m05]\n  - Cryptography::Encrypt Data::AES [C0027.001]\n  - Operating System::Console [C0033]\n  - log keystrokes\n  - Communication::Socket Communication::Send Data [C0001.007]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - Communication::DNS Communication::Resolve [C0011.001]\n  - Communication::Socket Communication::Set Socket Config [C0001.001]\n  - Communication::Socket Communication::Receive Data [C0001.006]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - get system information on Windows\n  - Anti-Behavioral Analysis::Debugger Detection::Timing/Delay Check QueryPerformanceCounter [B0001.033]\n\n--- ARTIFACTS ---\n\nPROCESSES CREATED (12):\n  C:\\Users\\RA491~1.VUL\\AppData\\Local\\Temp\\a83932ede955823aab7de2b608f41f1a.virus \n  C:\\Windows\\System32\\svchost.exe -k WerSvcGroup\n  C:\\Windows\\System32\\wevtutil.exe query-events microsoft-windows-powershell/operational /rd:true /e:root /format:xml /uni:true\n  C:\\Windows\\system32\\WerFault.exe -u -p 2916 -s 176\n  C:\\Windows\\system32\\schtasks.exe /delete /f /TN Microsoft\\Windows\\Customer Experience Improvement Program\\Uploader\n  C:\\Windows\\system32\\wbem\\wmiprvse.exe -Embedding\n  C:\\dgoas\\bin\\AbOe.exe /Terminate\n  C:\\dgoas\\bin\\xAmh.exe inject 2916 2920 \\pEfPVpAOjUy.dll\n  \\??\\C:\\Windows\\system32\\conhost.exe 1445976291202026216629753661792995651954421333644656254-1567923839-1416450181\n  \\??\\C:\\Windows\\system32\\conhost.exe 1918214729176079746-647900661-159820346-17805750791004332006-1442651752-450417952\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  ADVAPI32.dll: AdjustTokenPrivileges, OpenProcessToken\n  KERNEL32.DLL: CreateProcessW, GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAlloc, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  UPX0         entropy=6.47\n  UPX1         entropy=1.21\n  .rsrc        entropy=4.22\n  .imports     entropy=4.66\n  .reloc       entropy=0.36\n  [overlay]    entropy=5.700413227081299  size=976842\n",
+  "ground_truth": {
+    "hash": "3b2b2254c06d5bf5256f8eb3f8c7d9aa9e55fa6bdffb3db9032a462c08291da5",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8333,
+    "malicious_count": 60,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "agent",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1016",
+        "signature_description": "get socket status"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get system information on Windows"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "modify access privileges"
+      },
+      {
+        "id": "T1496",
+        "signature_description": "reference cryptocurrency strings"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "create thread",
+      "allocate memory",
+      "allocate RWX memory",
+      "encode data using XOR",
+      "delay execution",
+      "create or open file",
+      "resume thread",
+      "reference absolute stream path on Windows",
+      "create process on Windows",
+      "allocate RW memory",
+      "contain loop",
+      "validate payment card number using luhn algorithm with no lookup table",
+      "validate payment card number using luhn algorithm",
+      "write file on Windows",
+      "read file on Windows",
+      "encrypt data using AES via x86 extensions",
+      "manipulate console buffer",
+      "log keystrokes",
+      "send data on socket",
+      "send data",
+      "resolve DNS",
+      "set socket configuration",
+      "receive data on socket",
+      "receive data",
+      "get system information on Windows",
+      "check for time delay via QueryPerformanceCounter",
+      "allocate thread local storage",
+      "set thread local storage value",
+      "connect pipe",
+      "create pipe",
+      "get socket status",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "initialize Winsock library",
+      "resolve function by parsing PE exports",
+      "get thread local storage value",
+      "parse PE header",
+      "create mutex",
+      "manipulate user privileges",
+      "check mutex and exit",
+      "modify access privileges",
+      "enumerate PE sections",
+      "encrypt data using AES",
+      "reference AES constants",
+      "reference cryptocurrency strings",
+      "contain a resource (.rsrc) section",
+      "packed with UPX",
+      "linked against CPP standard library",
+      "reference anti-VM strings targeting VirtualBox",
+      "reference Base64 string",
+      "reference anti-VM strings targeting Qemu",
+      "reference anti-VM strings targeting VMWare",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": [
+        "C:\\Users\\RA491~1.VUL\\AppData\\Local\\Temp\\a83932ede955823aab7de2b608f41f1a.virus ",
+        "C:\\Windows\\System32\\svchost.exe -k WerSvcGroup",
+        "C:\\Windows\\System32\\wevtutil.exe query-events microsoft-windows-powershell/operational /rd:true /e:root /format:xml /uni:true",
+        "C:\\Windows\\system32\\WerFault.exe -u -p 2916 -s 176",
+        "C:\\Windows\\system32\\schtasks.exe /delete /f /TN Microsoft\\Windows\\Customer Experience Improvement Program\\Uploader",
+        "C:\\Windows\\system32\\wbem\\wmiprvse.exe -Embedding",
+        "C:\\dgoas\\bin\\AbOe.exe /Terminate",
+        "C:\\dgoas\\bin\\xAmh.exe inject 2916 2920 \\pEfPVpAOjUy.dll",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 1445976291202026216629753661792995651954421333644656254-1567923839-1416450181",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 1918214729176079746-647900661-159820346-17805750791004332006-1442651752-450417952",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 1975945231-225638150-1212220220-20882535771762554655941493436-648416360714129483",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 654406042-1130709890-1123285111-34922477-13226731178586780461169711793-484482664"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "Yomi Hunter"
+  ]
+}

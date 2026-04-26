@@ -1,0 +1,114 @@
+{
+  "hash": "00f7ebc620483987c35912d824ddb898b104162f76058ac7bfe588adb1115fab",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  33a3fe03f15e49310598.pe32\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (16):\n  - encode data using XOR\n  - hide graphical window\n  - query or enumerate registry value\n  - link function at runtime on Windows\n  - get geographical location\n  - find graphical window\n  - encrypt data using RC4 PRGA\n  - get disk size\n  - get file version info\n  - capture screenshot\n  - link many functions at runtime\n  - log keystrokes via polling\n  - log keystrokes\n  - get keyboard layout\n  - get number of processors\n  - enumerate gui resources\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - File System::Create File [C0016]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - hide graphical window\n  - set global application hook\n  - Process::Create Thread [C0038]\n  - inspect load icon resource\n  - contain loop\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - File System::Writes File [C0052]\n  - link function at runtime on Windows\n  - get geographical location\n  - Process::Set Thread Local Storage Value [C0041]\n  - get thread local storage value\n  - find graphical window\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Generate Pseudo-random Sequence::RC4 PRGA [C0021.004]\n  - Discovery::System Information Discovery [E1082]\n  - get OS version\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n  Packers: {'PEiD': 'BobSoft Mini Delphi -> BoB / BobSoft'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.91\n  .itext       entropy=5.99\n  .data        entropy=3.8\n  .bss         entropy=0.0\n  .idata       entropy=5.17\n  .tls         entropy=0.0\n  .rdata       entropy=0.21\n  .reloc       entropy=0.0\n  .rsrc        entropy=5.08\n",
+  "ground_truth": {
+    "hash": "00f7ebc620483987c35912d824ddb898b104162f76058ac7bfe588adb1115fab",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7571,
+    "malicious_count": 53,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "dealply",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk size"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file version info"
+      },
+      {
+        "id": "T1113",
+        "signature_description": "capture screenshot"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "allocate RW memory",
+      "delay execution",
+      "create or open registry key",
+      "create or open file",
+      "PEB access",
+      "allocate RWX memory",
+      "encode data using XOR",
+      "hide graphical window",
+      "set global application hook",
+      "create thread",
+      "inspect load icon resource",
+      "contain loop",
+      "query or enumerate registry value",
+      "write file on Windows",
+      "link function at runtime on Windows",
+      "get geographical location",
+      "set thread local storage value",
+      "get thread local storage value",
+      "find graphical window",
+      "encrypt data using RC4 PRGA",
+      "get disk size",
+      "get OS version",
+      "get file version info",
+      "extract resource via kernel32 functions",
+      "capture screenshot",
+      "link many functions at runtime",
+      "log keystrokes via polling",
+      "log keystrokes",
+      "get keyboard layout",
+      "check for time delay via GetTickCount",
+      "get number of processors",
+      "enumerate gui resources",
+      "set application hook",
+      "get graphical window text",
+      "contain a thread local storage (.tls) section",
+      "contain a resource (.rsrc) section",
+      "compiled with Borland Delphi"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "hash": "0fe520e12df63154b73f64b0c5661191e970e0a4750be7a6ca8115ecebbfb42f",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://carder.bit/  UA: Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko\n\nDNS LOOKUPS (2):\n  ipv4bot.whatismyipaddress.com \u2192 66.171.248.178\n  ns1.wowservers.ru \u2192 185.103.243.59\n\nIP TRAFFIC (2):\n  185.103.243.59:53 (UDP)\n  66.171.248.178:80 (TCP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  nslookup carder.bit ns1.wowservers.ru\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (6):\n  - encode data using XOR\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - modify access privileges\n  - modify service\n  - get system information on Windows\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Memory::Allocate Memory [C0007]\n  - contain loop\n  - Process::Terminate Process [C0018]\n  - Process::Allocate Thread Local Storage [C0040]\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - modify access privileges\n  - modify service\n  - get system information on Windows\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  luulmn.exe  [sha256: 7a53cd94f6c93e8a...]\n\nFILES WRITTEN (1):\n  C:\\Documents and Settings\\<USER>\\Application Data\\Microsoft\\luulmn.exe\n\nMUTEXES CREATED (2):\n  RasPbFile\n  ShimCacheMutex\n\nMUTEXES OPENED (1):\n  Global\\pc_group=WORKGROUP&ransom_id=e8b0adc86c78a9c3\n\nPROCESSES CREATED (1):\n  nslookup carder.bit ns1.wowservers.ru\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  ADVAPI32.dll: AdjustTokenPrivileges\n  KERNEL32.dll: GetProcAddress, LoadLibraryW, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.7\n  .rdata       entropy=6.08\n  .data        entropy=3.46\n  .rsrc        entropy=7.74\n  .reloc       entropy=0.98\n  [overlay]    entropy=2.503258466720581  size=9\n",
+  "ground_truth": {
+    "hash": "0fe520e12df63154b73f64b0c5661191e970e0a4750be7a6ca8115ecebbfb42f",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9155,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "ransom",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get system information on Windows"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "modify access privileges"
+      },
+      {
+        "id": "T1543",
+        "signature_description": "modify service"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "modify service"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "allocate memory",
+      "contain loop",
+      "terminate process",
+      "allocate thread local storage",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "modify access privileges",
+      "modify service",
+      "get system information on Windows",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "185.103.243.59",
+        "66.171.248.178"
+      ],
+      "domains": [
+        "ipv4bot.whatismyipaddress.com",
+        "ns1.wowservers.ru"
+      ],
+      "urls": [
+        "http://carder.bit/"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "luulmn.exe"
+      ],
+      "mutexes": [
+        "RasPbFile",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "nslookup carder.bit ns1.wowservers.ru"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

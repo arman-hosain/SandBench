@@ -1,0 +1,50 @@
+{
+  "hash": "398729a62852af62e724762524382bee5f0c2b1fbabdf6bff53b6c03a052283d",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\Documents and Settings\\All Users\\Application Data\\tmtcfw.exe\n\nCOMMAND EXECUTIONS (1):\n  (open) C:\\398729a62852af62e724762524382bee5f0c2b1fbabdf6bff53b6c03a05(null) [(null)]\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - encode data using XOR\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - contain pusha popa sequence\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  AUTOEXEC.BAT .exe  [sha256: 0cc178a96056b309...]\n  boot.ini .exe  [sha256: af9760950d302f0c...]\n  CONFIG.SYS .exe  [sha256: c8c7403b8d412489...]\n\nFILES WRITTEN (3):\n  C:\\Documents and Settings\\All Users\\Application Data\\Saaaalamm\\Mira.h\n  C:\\Documents and Settings\\All Users\\Application Data\\tmtcfw.exe\n  c:\\AUTOEXEC.BAT .exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  C:\\Documents and Settings\\All Users\\Application Data\\tmtcfw.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n\nPE SECTIONS (entropy):\n  .text        entropy=6.09\n  .data        entropy=0.71\n  .rdata       entropy=5.01\n  .bss         entropy=0.0\n  .idata       entropy=4.29\n  .rsrc        entropy=4.73\n  .NewSec      entropy=0.47\n  [overlay]    entropy=6.634917259216309  size=479244\n",
+  "ground_truth": {
+    "hash": "398729a62852af62e724762524382bee5f0c2b1fbabdf6bff53b6c03a052283d",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9014,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain loop",
+      "contain pusha popa sequence",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "AUTOEXEC.BAT .exe",
+        "CONFIG.SYS .exe",
+        "boot.ini .exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\All Users\\Application Data\\tmtcfw.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

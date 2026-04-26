@@ -1,0 +1,120 @@
+{
+  "hash": "3204fdf0d1a2125d968448c365d786e20f2216ed703d1243e08df45387f10275",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nIP TRAFFIC (1):\n  111.68.7.74:443 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  microsoft-update.pe32\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (16):\n  - encode data using XOR\n  - set file attributes\n  - access PEB ldr_data\n  - query or enumerate registry value\n  - link function at runtime on Windows\n  - get geographical location\n  - get disk size\n  - get common file path\n  - check OS version\n  - get file size\n  - parse PE header\n  - write process memory\n  - get disk information\n  - packed with enigma\n  - reference anti-VM strings targeting VirtualBox\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Memory::Allocate Memory [C0007]\n  - Cryptography::Generate Pseudo-random Sequence [C0021]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - File System::Create File [C0016]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - File System::Get File Attributes [C0049]\n  - File System::Set File Attributes [C0050]\n  - access PEB ldr_data\n  - contain loop\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - File System::Writes File [C0052]\n  - link function at runtime on Windows\n  - get geographical location\n  - Process::Set Thread Local Storage Value [C0041]\n  - get thread local storage value\n  - Discovery::System Information Discovery [E1082]\n  - get OS version\n  - File System::Delete Directory [C0048]\n  - File System::Create Directory [C0046]\n  - File System::Delete File [C0047]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  DelayUpdate.exe  [sha256: d29a4db4920ed762...]\n  \\Users\\Petra\\AppData\\Local\\Microsoft\\Windows Update\\DelayUpdate.exe  [sha256: 7cd17c03beb1b823...]\n\nFILES WRITTEN (2):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Microsoft\\Windows Update\\DelayUpdate.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows Update\\DelayUpdate.exe\n\nOTHER REGISTRY KEYS SET (1):\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, LoadLibraryW, VirtualAlloc, VirtualAllocEx, VirtualProtect, WriteProcessMemory\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Protector] Enigma Virtual Box\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'F-PROT': 'embedded', 'Cyren': 'exefile'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.45\n  .rdata       entropy=5.02\n  .data        entropy=0.32\n  .CRT         entropy=0.06\n  .rsrc        entropy=5.6\n  .enigma1     entropy=7.69\n  .enigma2     entropy=5.9\n  [overlay]    entropy=5.481512546539307  size=228\n",
+  "ground_truth": {
+    "hash": "3204fdf0d1a2125d968448c365d786e20f2216ed703d1243e08df45387f10275",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.913,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1055",
+        "signature_description": "write process memory"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk size"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "encode data using XOR",
+      "allocate memory",
+      "allocate RW memory",
+      "generate random numbers using the Delphi LCG",
+      "create or open registry key",
+      "create or open file",
+      "delay execution",
+      "PEB access",
+      "get file attributes",
+      "set file attributes",
+      "allocate RWX memory",
+      "access PEB ldr_data",
+      "contain loop",
+      "query or enumerate registry value",
+      "write file on Windows",
+      "link function at runtime on Windows",
+      "get geographical location",
+      "set thread local storage value",
+      "get thread local storage value",
+      "get disk size",
+      "get OS version",
+      "delete directory",
+      "create directory",
+      "delete file",
+      "get common file path",
+      "set current directory",
+      "check OS version",
+      "get file size",
+      "decompress data using aPLib",
+      "parse PE header",
+      "resolve function by parsing PE exports",
+      "write process memory",
+      "read file on Windows",
+      "get disk information",
+      "extract resource via kernel32 functions",
+      "contain a resource (.rsrc) section",
+      "packed with enigma",
+      "contain an embedded PE file",
+      "reference anti-VM strings targeting VirtualBox",
+      "reference Base64 string",
+      "compiled with Borland Delphi",
+      "(internal) packer file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [
+        "111.68.7.74"
+      ],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "DelayUpdate.exe",
+        "\\Users\\Petra\\AppData\\Local\\Microsoft\\Windows Update\\DelayUpdate.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Cuckoofork"
+  ]
+}

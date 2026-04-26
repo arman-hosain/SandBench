@@ -1,0 +1,79 @@
+{
+  "hash": "1f4b8dea5c94b30b0ad919b2426f1a43cbaf74eeaee8472a4f09284df4e35704",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET https://emrlogistics.com/fr/to2.exe\n\nDNS LOOKUPS (2):\n  emrlogistics.com\n  emrlogistics.com \u2192 103.14.120.121\n\nIP TRAFFIC (1):\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    asih.exe\n\nCOMMAND EXECUTIONS (1):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\asih.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - hide graphical window\n  - encrypt data using RC4 PRGA\n  - accept command line arguments\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - hide graphical window\n  - contain loop\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Generate Pseudo-random Sequence::RC4 PRGA [C0021.004]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  asih.exe  [sha256: 7697c31ca5f6ec61...]\n\nFILES WRITTEN (2):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\asih.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\asih.exe\n\nOTHER REGISTRY KEYS SET (3):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n\nMUTEXES CREATED (10):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  RasPbFile\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n\nMUTEXES OPENED (4):\n  _!MSFTHISTORY!_\n  c:!documents and settings!administrator!cookies!\n  c:!documents and settings!administrator!local settings!history!history.ie5!\n  c:!documents and settings!administrator!local settings!temporary internet files!content.ie5!\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\asih.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\asih.exe\" \"\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.03\n  .rdata       entropy=4.21\n  .data        entropy=3.79\n  .rsrc        entropy=4.98\n  .reloc       entropy=3.42\n  [overlay]    entropy=3.449432611465454  size=12548\n",
+  "ground_truth": {
+    "hash": "1f4b8dea5c94b30b0ad919b2426f1a43cbaf74eeaee8472a4f09284df4e35704",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9714,
+    "malicious_count": 68,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "agent",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encrypt data using RC4 PRGA"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "hide graphical window",
+      "contain loop",
+      "encrypt data using RC4 PRGA",
+      "accept command line arguments",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "emrlogistics.com"
+      ],
+      "urls": [
+        "https://emrlogistics.com/fr/to2.exe"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 3,
+      "files_dropped": [
+        "asih.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "RasPbFile",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\asih.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\asih.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork"
+  ]
+}

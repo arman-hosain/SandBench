@@ -1,0 +1,62 @@
+{
+  "hash": "098e0d29d72aa43de67a14ba3c8c85e83ca98492b9f764593ddfb69923fc34f0",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - encode data using XOR\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - contain a resource (.rsrc) section\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, VirtualAlloc\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] PECompact\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n  Packers: {'PEiD': 'PeCompact 2.xx --> BitSum Technologies', 'F-PROT': 'PECompact, PecBundle', 'Cyren': 'PecBundle, PECompact'}\n\nPE SECTIONS (entropy):\n  .text        entropy=8.0\n  .rsrc        entropy=5.95\n  [overlay]    entropy=4.6945953369140625  size=1024\n",
+  "ground_truth": {
+    "hash": "098e0d29d72aa43de67a14ba3c8c85e83ca98492b9f764593ddfb69923fc34f0",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9178,
+    "malicious_count": 67,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 25
+      },
+      {
+        "value": "worm",
+        "count": 2
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "urelas",
+        "count": 23
+      },
+      {
+        "value": "ek06005b",
+        "count": 2
+      },
+      {
+        "value": "uvpm",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.urelas/ek06005b",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain loop",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

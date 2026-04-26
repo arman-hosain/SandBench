@@ -1,0 +1,83 @@
+{
+  "hash": "0397e562b5c86f5479231d2bcf3e19517eeb8be4e353a2ed42bfceb90a40f9e1",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (2):\n  3horses.com.hk\n  ruedigerbaltissen.com\n\nIP TRAFFIC (1):\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  0397e562b5c86f54_budha.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe\n\nCOMMAND EXECUTIONS (5):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe\n  ( 604 - cmd.exe ) c:\\windows\\system32\\cmd.exe /c \"c:\\users\\user41~1\\appdata\\local\\temp\\jkgsg.exe\"\n  ( 696 - jkgsg.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\jkgsg.exe\n  ( 1688 - budha.exe ) \"c:\\users\\user41~1\\appdata\\local\\temp\\budha.exe\" \n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - get file size\n  - get common file path\n  - download and write a file\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - Process::Create Process [C0017]\n  - Communication::HTTP Communication [C0002]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - Communication::HTTP Communication::Send Request [C0002.003]\n  - Communication::HTTP Communication::Create Request [C0002.012]\n  - File System::Delete File [C0047]\n  - Process::Terminate Process [C0018]\n  - File System::Read File [C0051]\n  - Communication::HTTP Communication::Connect to Server [C0002.009]\n  - Communication::HTTP Communication::Get Response [C0002.017]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - File System::Writes File [C0052]\n  - Command and Control::C2 Communication::Server to Client File Transfer [B0030.003]\n  - Execution::Install Additional Program [B0023]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - read and send data from client to server\n  - receive and write data from server to client\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  budha.exe  [sha256: a5ec7f2483a3a43e...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe  [sha256: 7a050303ab8e16c3...]\n  c:\\users\\user41~1\\appdata\\local\\temp\\budha.exe  [sha256: 3cec40e5b6a15ac9...]\n\nFILES WRITTEN (2):\n  ( 696 - jkgsg.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\budha.exe\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe\n\nOTHER REGISTRY KEYS SET (5):\n  \\registry\\user\\s-1-5-21-2589874625-3071026754-1203412979-1000\\software\\microsoft\\windows\\currentversion\\internet setting\n  \\registry\\user\\s-1-5-21-2589874625-3071026754-1203412979-1000\\software\\microsoft\\windows\\currentversion\\internet setting\n  \\registry\\user\\s-1-5-21-2589874625-3071026754-1203412979-1000\\software\\microsoft\\windows\\currentversion\\internet setting\n  \\registry\\user\\s-1-5-21-2589874625-3071026754-1203412979-1000\\software\\microsoft\\windows\\currentversion\\internet setting\n  \\registry\\user\\s-1-5-21-2589874625-3071026754-1203412979-1000\\software\\microsoft\\windows\\currentversion\\internet setting\n\nMUTEXES CREATED (1):\n  RasPbFile\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe\" \"\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=5.66\n  .rdata       entropy=3.5\n  .data        entropy=0.22\n  .rsrc        entropy=5.07\n  .reloc       entropy=1.65\n  [overlay]    entropy=3.4983763694763184  size=3650\n",
+  "ground_truth": {
+    "hash": "0397e562b5c86f5479231d2bcf3e19517eeb8be4e353a2ed42bfceb90a40f9e1",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9306,
+    "malicious_count": 67,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1105",
+        "signature_description": "download and write a file"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "create process on Windows",
+      "get HTTP content length",
+      "contain loop",
+      "get file size",
+      "get common file path",
+      "send HTTP request",
+      "create HTTP request",
+      "delete file",
+      "terminate process",
+      "read file on Windows",
+      "connect to HTTP server",
+      "read data from Internet",
+      "receive data",
+      "write file on Windows",
+      "download and write a file",
+      "write and execute a file",
+      "send data",
+      "read and send data from client to server",
+      "receive and write data from server to client",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "3horses.com.hk",
+        "ruedigerbaltissen.com"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 5,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe",
+        "budha.exe",
+        "c:\\users\\user41~1\\appdata\\local\\temp\\budha.exe"
+      ],
+      "mutexes": [
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "ReaQta-Hive",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

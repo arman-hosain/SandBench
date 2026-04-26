@@ -1,0 +1,116 @@
+{
+  "hash": "031eabaa5592cac7d34848f284fa9dfd945216b6ec070ba7e2231439cc767d41",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  b878bfb065b66cfd300f9ee2493cdc23118be1b3f05ddc1a43aced9398a65364 .exe\n    C:\\ProgramData\\chvkv.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\031eabaa5592cac7d34848f284fa9dfd945216b6ec070ba7e2231439cc7(null) [(null)]\n  C:\\Users\\<USER>\\Downloads\\b878bfb065b66cfd300f9ee2493cdc23118be1b3f05ddc1a43aced9398a65364\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (6):\n  - contain obfuscated stackstrings\n  - get startup folder\n  - set file attributes\n  - get common file path\n  - accept command line arguments\n  - packed with generic packer\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - get startup folder\n  - Process::Create Process [C0017]\n  - File System::Set File Attributes [C0050]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Delete File [C0047]\n  - File System::Create Directory [C0046]\n  - Process::Allocate Thread Local Storage [C0040]\n  - get thread local storage value\n  - Process::Set Thread Local Storage Value [C0041]\n  - File System::Read File [C0051]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - contain pusha popa sequence\n  - resolve function by parsing PE exports\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - contain a resource (.rsrc) section\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (30):\n  031eabaa5592cac7d34848f284fa9dfd945216b6ec070ba7e2231439cc767d41 .exe  [sha256: bf339a6d83e4d9ac...]\n  AUTOEXEC.BAT .exe  [sha256: ccb26fdffa87522e...]\n  boot.ini .exe  [sha256: 35e69a4b99ce9d27...]\n  CONFIG.SYS .exe  [sha256: 3120da113cc16bcb...]\n  cuckoo .exe  [sha256: a2f53cc60e0ef9f4...]\n  Documents and Settings .exe  [sha256: 91423c0be027f6dd...]\n  eula.1028.txt .exe  [sha256: 42de9c3a8d45e76b...]\n  eula.1031.txt .exe  [sha256: 222b522805d8d97b...]\n  eula.1033.txt .exe  [sha256: 2a8b5c8d8ce339c2...]\n  eula.1036.txt .exe  [sha256: 687cec22d4ab6f16...]\n  eula.1040.txt .exe  [sha256: 298f60a9c9b97982...]\n  eula.1041.txt .exe  [sha256: b385d56026ab37c5...]\n  eula.1042.txt .exe  [sha256: 31e9bc8f4d029acc...]\n  eula.2052.txt .exe  [sha256: 5011c2975cb8ab7f...]\n  eula.3082.txt .exe  [sha256: 090c2f0b82f1d5c2...]\n  globdata.ini .exe  [sha256: b98508ed5d664bce...]\n  hlxkw.exe  [sha256: 7e6527ac057b5d7f...]\n  install.exe .exe  [sha256: 2e0e9c72380e8c55...]\n  C:\\ProgramData\\chvkv.exe  [sha256: 7e6527ac057b5d7f...]\n  C:\\ProgramData\\Saaaalamm\\Mira.h  [sha256: 43fb1f583a836fa3...]\n\nFILES WRITTEN (7):\n  C:\\Documents and Settings\\All Users\\Application Data\\hlxkw.exe\n  c:\\031eabaa5592cac7d34848f284fa9dfd945216b6ec070ba7e2231439cc767d41 .exe\n  c:\\AUTOEXEC.BAT .exe\n  c:\\Miray\n  c:\\Recovery .exe\n  c:\\r.pyw .exe\n  c:\\sdel.exe .exe\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft\u00ae Windows\u00ae Operating System = C:\\ProgramData\\chvkv.exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  C:\\Documents and Settings\\All Users\\Application Data\\hlxkw.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCOMPILER AND PACKER:\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n\nPE SECTIONS (entropy):\n  .text        entropy=6.11\n  .data        entropy=0.71\n  .rdata       entropy=5.01\n  .bss         entropy=0.0\n  .idata       entropy=4.29\n  .rsrc        entropy=6.21\n  [overlay]    entropy=6.976443767547607  size=264657\n",
+  "ground_truth": {
+    "hash": "031eabaa5592cac7d34848f284fa9dfd945216b6ec070ba7e2231439cc767d41",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8472,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "get startup folder"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "get startup folder",
+      "create process on Windows",
+      "set file attributes",
+      "delay execution",
+      "create or open file",
+      "contain loop",
+      "get common file path",
+      "delete file",
+      "create directory",
+      "allocate thread local storage",
+      "get thread local storage value",
+      "set thread local storage value",
+      "read file on Windows",
+      "accept command line arguments",
+      "contain pusha popa sequence",
+      "resolve function by parsing PE exports",
+      "packed with generic packer",
+      "contain a resource (.rsrc) section",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft\u00ae Windows\u00ae Operating System"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "031eabaa5592cac7d34848f284fa9dfd945216b6ec070ba7e2231439cc767d41 .exe",
+        "AUTOEXEC.BAT .exe",
+        "C:\\ProgramData\\Saaaalamm\\Mira.h",
+        "C:\\ProgramData\\chvkv.exe",
+        "CONFIG.SYS .exe",
+        "Documents and Settings .exe",
+        "boot.ini .exe",
+        "c:\\$Recycle.Bin .exe",
+        "c:\\Documents and Settings .exe",
+        "c:\\PerfLogs .exe",
+        "c:\\Program Files (x86) .exe",
+        "c:\\Program Files .exe",
+        "c:\\ProgramData .exe",
+        "c:\\Recovery .exe",
+        "c:\\System Volume Information .exe",
+        "c:\\dev_man.exe .exe",
+        "c:\\l.bat .exe",
+        "c:\\pagefile.sys .exe",
+        "c:\\r.py .exe",
+        "c:\\r.pyw .exe",
+        "c:\\sdel.exe .exe",
+        "cuckoo .exe",
+        "eula.1028.txt .exe",
+        "eula.1031.txt .exe",
+        "eula.1033.txt .exe",
+        "eula.1036.txt .exe",
+        "eula.1040.txt .exe",
+        "eula.1041.txt .exe",
+        "eula.1042.txt .exe",
+        "eula.2052.txt .exe",
+        "eula.3082.txt .exe",
+        "globdata.ini .exe",
+        "hlxkw.exe",
+        "install.exe .exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\All Users\\Application Data\\hlxkw.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

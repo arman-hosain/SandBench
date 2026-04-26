@@ -1,0 +1,56 @@
+{
+  "hash": "0f1c29aecee6d2be890aca783eeb6a4b53afe8e693da22dd688f874c1c3631d0",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  rysmoon.pe32\n    Rysmoon.exe\n\nCOMMAND EXECUTIONS (1):\n  \"C:\\Users\\Petra\\AppData\\Local\\Temp\\Rysmoon.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - get common file path\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - contain pusha popa sequence\n  - File System::Read File [C0051]\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  \\Users\\Petra\\AppData\\Local\\Temp\\Rysmoon.exe  [sha256: 14508f19772d67a3...]\n\nFILES WRITTEN (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\Rysmoon.exe\n\nOTHER REGISTRY KEYS SET (1):\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n\nMUTEXES CREATED (4):\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n\nPROCESSES CREATED (1):\n  Rysmoon.exe\n\n--- FILE IDENTITY ---\n\nPE SECTIONS (entropy):\n  .text2       entropy=5.67\n  .DATA        entropy=3.71\n  rSRc         entropy=5.61\n  [overlay]    entropy=3.580864906311035  size=3568\n",
+  "ground_truth": {
+    "hash": "0f1c29aecee6d2be890aca783eeb6a4b53afe8e693da22dd688f874c1c3631d0",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9155,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "get common file path",
+      "contain pusha popa sequence",
+      "read file on Windows",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "\\Users\\Petra\\AppData\\Local\\Temp\\Rysmoon.exe"
+      ],
+      "mutexes": [
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "Rysmoon.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX"
+  ]
+}

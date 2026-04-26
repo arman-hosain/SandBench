@@ -1,0 +1,155 @@
+{
+  "hash": "0175aeb437bb027e7edebf8f54e72b0d4b9715d79b9c918d9f6b0b05af751d99",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a range of malicious behaviors, including file drops, registry key modifications, and persistence mechanisms. It also employs obfuscation techniques and has a high level of entropy, indicating a packed and potentially malicious executable.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior is consistent with a Trojan, as it drops multiple executable files, modifies registry keys, and employs persistence mechanisms. The presence of adult-themed file names and registry keys also suggests a Trojan's intent to distribute malware or engage in other malicious activities.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1112\", \"name\": \"Modify Registry\"},\n      {\"id\": \"T1060\", \"name\": \"Execution through API\"},\n      {\"id\": \"T1192\", \"name\": \"Drone Attack\"},\n      {\"id\": \"T1210\", \"name\": \"User Execution of Signed Binary\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 5526,
+      "response_chars": 1126,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a range of malicious behaviors, including file drops, registry key modifications, and persistence mechanisms. It also employs obfuscation techniques and has a high level of entropy, indicating a packed and potentially malicious executable.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behav",
+      "elapsed_seconds": 5.17
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "6 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 6,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1060",
+        "T1112",
+        "T1192",
+        "T1210",
+        "T1218"
+      ],
+      "hallucinated_ttps": [
+        "T1055",
+        "T1060",
+        "T1112",
+        "T1192",
+        "T1210",
+        "T1218"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 6
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- query or enumerate registry value\n- accept command line arguments\n- get disk size\n- get file size\n- link function at runtime on Windows\n- get geographical location\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "refinement_rejected",
+      "iteration": 1,
+      "reason": "response not in structured format - keeping previous output",
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a range of malicious behaviors, including file drops, registry key modifications, and persistence mechanisms. It also em"
+    },
+    {
+      "step": 5,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1055",
+        "T1060",
+        "T1112",
+        "T1192",
+        "T1210",
+        "T1218"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 1,
+      "best_ttp_fp": 6
+    },
+    {
+      "step": 6,
+      "type": "refinement_stopped",
+      "iteration": 1,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 1,
+      "ttp_fp": 6
+    }
+  ],
+  "total_llm_calls": 2,
+  "total_elapsed": 43.25,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9014
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.1429,
+      "ttp_precision": 0.1429,
+      "ttp_recall": 0.1429,
+      "gt_ttps": [
+        "T1012",
+        "T1027",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1060",
+        "T1112",
+        "T1192",
+        "T1210",
+        "T1218"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1060",
+        "T1112",
+        "T1192",
+        "T1210",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1012",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.1429,
+      "breakdown": {
+        "ttp_f1": 0.1429
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

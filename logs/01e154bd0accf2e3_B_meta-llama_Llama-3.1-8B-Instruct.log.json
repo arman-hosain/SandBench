@@ -1,0 +1,103 @@
+{
+  "hash": "01e154bd0accf2e378cb31e0a7f99f3f5120b2e61f8b197431c24914c14dfa46",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity, execution chain, and capabilities, and drops multiple files with malicious content, indicating a malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Ransomware\"],\n    \"explanation\": \"The sample's behavior of dropping multiple files with malicious content, attempting to establish persistence through the registry, and exhibiting suspicious network activity is consistent with ransomware behavior.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"File and Directory Discovery\"},\n      {\"id\": \"T1219\", \"name\": \"System Service Discovery\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1106\", \"name\": \"Execution through API\"},\n      {\"id\": \"T1071\", \"name\": \"Application Layer Protocol: Web Service\"},\n      {\"id\": \"T1053\", \"name\": \"Scheduled Task/Job\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 4050,
+      "response_chars": 967,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity, execution chain, and capabilities, and drops multiple files with malicious content, indicating a malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Ransomware\"],\n    \"explanation\": \"The sample's behavior of dropping multiple files with malicious content, attempting to establish persistence t",
+      "elapsed_seconds": 4.51
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": false,
+      "gap_summary": "",
+      "missed_behavior_count": 0,
+      "ttps_found": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1071",
+        "T1106",
+        "T1218",
+        "T1219"
+      ],
+      "hallucinated_ttps": [
+        "T1053",
+        "T1055",
+        "T1071",
+        "T1106",
+        "T1218",
+        "T1219"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 6
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 4.51,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8551
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.25,
+      "ttp_precision": 0.1429,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1071",
+        "T1106",
+        "T1218",
+        "T1219"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1053",
+        "T1055",
+        "T1071",
+        "T1106",
+        "T1218",
+        "T1219"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.25,
+      "breakdown": {
+        "ttp_f1": 0.25
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

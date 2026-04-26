@@ -1,0 +1,46 @@
+{
+  "hash": "38ada9294b3137e0818e66c6b101272e78104e28653e3c747a6b4356cb44229c",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - encode data using Base64 via WinAPI\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - encode data using Base64 via WinAPI\n  - contain loop\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  ctvqzym.exe  [sha256: 12c86d235930d825...]\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: 9659359bc153ede6...]\n\nFILES WRITTEN (2):\n  C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\ctvqzym.exe\n  C:\\WINDOWS\\Tasks\\hiqvsnd.job\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryW, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] LCC-Win32\n  [Linker] LCC Linker\n  Packers: {'PEiD': 'Microsoft Visual C++ (3.0 old crap)'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.62\n  .bss         entropy=0.0\n  .data        entropy=6.71\n  .idata       entropy=4.48\n  .xdata       entropy=7.54\n  [overlay]    entropy=5.945887088775635  size=1501\n",
+  "ground_truth": {
+    "hash": "38ada9294b3137e0818e66c6b101272e78104e28653e3c747a6b4356cb44229c",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8472,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using Base64 via WinAPI"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RWX memory",
+      "encode data using Base64 via WinAPI",
+      "contain loop"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "ctvqzym.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

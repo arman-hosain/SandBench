@@ -1,0 +1,79 @@
+{
+  "hash": "035efbffb7bc3f9aa0bdc738f8917dd93ae3e3bf96c9617e9f1fc04b6eced4f6",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as hiding the graphical window, accepting command line arguments, encrypting data using RC4 PRGA, and packed with Mpress. It also performs DNS lookups and establishes TCP connections to unknown IP addresses.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior suggests it is a Trojan, as it attempts to establish a connection to unknown IP addresses and performs DNS lookups, likely to communicate with a command and control server.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"File and Directory Discovery\"},\n      {\"id\": \"T1071\", \"name\": \"Application Layer Protocol: HTTPS\"},\n      {\"id\": \"T1210\", \"name\": \"Exploitation of Remote Services\"},\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 1845,
+      "response_chars": 936,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as hiding the graphical window, accepting command line arguments, encrypting data using RC4 PRGA, and packed with Mpress. It also performs DNS lookups and establishes TCP connections to unknown IP addresses.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior sug",
+      "elapsed_seconds": 4.46
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 4.46,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8714
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.2222,
+      "ttp_precision": 0.2,
+      "ttp_recall": 0.25,
+      "gt_ttps": [
+        "T1027",
+        "T1059",
+        "T1497",
+        "T1564"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1071",
+        "T1082",
+        "T1210",
+        "T1218"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1071",
+        "T1082",
+        "T1210",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1059",
+        "T1497",
+        "T1564"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2222,
+      "breakdown": {
+        "ttp_f1": 0.2222
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

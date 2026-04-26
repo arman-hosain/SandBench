@@ -1,0 +1,160 @@
+{
+  "hash": "34927f6ef086980965174e249ce0241af6d2d132c7b0cdc93f9b1c3d649da014",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (26):\n  - set file attributes\n  - encode data using XOR\n  - access PEB ldr_data\n  - hide graphical window\n  - get common file path\n  - accept command line arguments\n  - query or enumerate registry value\n  - get geographical location\n  - get file size\n  - get system information on Windows\n  - read clipboard data\n  - capture screenshot\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - log keystrokes via polling\n  - log keystrokes\n  - get keyboard layout\n  - enumerate gui resources\n  - get local IPv4 addresses\n  - get hostname\n  - query or enumerate registry key\n  - get disk information\n  - check if file exists\n  - parse PE header\n  - shutdown system\n  - persist via Run registry key\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - Cryptography::Generate Pseudo-random Sequence [C0021]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - File System::Create File [C0016]\n  - File System::Set File Attributes [C0050]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - access PEB ldr_data\n  - hide graphical window\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - set global application hook\n  - Process::Create Thread [C0038]\n  - inspect load icon resource\n  - File System::Get File Attributes [C0049]\n  - reference absolute stream path on Windows\n  - Process::Create Process [C0017]\n  - contain loop\n  - set current directory\n  - Discovery::File and Directory Discovery [E1083]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - get geographical location\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n\nPE SECTIONS (entropy):\n  CODE         entropy=5.98\n  .rsrc        entropy=6.15\n  [overlay]    entropy=0.0  size=488584\n",
+  "ground_truth": {
+    "hash": "34927f6ef086980965174e249ce0241af6d2d132c7b0cdc93f9b1c3d649da014",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8592,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "enumerate gui resources"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1016",
+        "signature_description": "get local IPv4 addresses"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get system information on Windows"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1113",
+        "signature_description": "capture screenshot"
+      },
+      {
+        "id": "T1115",
+        "signature_description": "read clipboard data"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1529",
+        "signature_description": "shutdown system"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "persist via Run registry key"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "allocate RW memory",
+      "generate random numbers using the Delphi LCG",
+      "create or open registry key",
+      "create or open file",
+      "set file attributes",
+      "PEB access",
+      "encode data using XOR",
+      "access PEB ldr_data",
+      "allocate RWX memory",
+      "hide graphical window",
+      "delay execution",
+      "set global application hook",
+      "create thread",
+      "inspect load icon resource",
+      "get file attributes",
+      "reference absolute stream path on Windows",
+      "create process on Windows",
+      "contain loop",
+      "set current directory",
+      "get common file path",
+      "accept command line arguments",
+      "query or enumerate registry value",
+      "get geographical location",
+      "read file on Windows",
+      "write file on Windows",
+      "get file size",
+      "set thread local storage value",
+      "get thread local storage value",
+      "delete file",
+      "move file",
+      "create directory",
+      "get OS version",
+      "extract resource via kernel32 functions",
+      "get system information on Windows",
+      "read clipboard data",
+      "capture screenshot",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "log keystrokes via polling",
+      "log keystrokes",
+      "get keyboard layout",
+      "set application hook",
+      "enumerate gui resources",
+      "get graphical window text",
+      "receive data on socket",
+      "receive data",
+      "send data on socket",
+      "send data",
+      "get local IPv4 addresses",
+      "resolve DNS",
+      "get hostname",
+      "query or enumerate registry key",
+      "set registry value",
+      "get disk information",
+      "check if file exists",
+      "read file via mapping",
+      "parse PE header",
+      "shutdown system",
+      "persist via Run registry key",
+      "contain a resource (.rsrc) section",
+      "compiled with Borland Delphi"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

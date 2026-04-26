@@ -1,0 +1,72 @@
+{
+  "hash": "0abeef9e3a5521e5dd7f645525744f1835f375dd4e37f1d8418cd6e528104519",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - encode data using XOR\n  - encrypt data using RC4 PRGA\n  - get number of processors\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Generate Pseudo-random Sequence::RC4 PRGA [C0021.004]\n  - get number of processors\n  - contain a thread local storage (.tls) section\n  - contain a resource (.rsrc) section\n  - compiled with Borland Delphi\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n\nPE SECTIONS (entropy):\n  .text        entropy=6.56\n  .itext       entropy=0.0\n  .data        entropy=0.0\n  .bss         entropy=0.0\n  .idata       entropy=0.0\n  .tls         entropy=0.0\n  .rdata       entropy=0.0\n  .reloc       entropy=0.0\n  .rsrc        entropy=0.0\n  [overlay]    entropy=6.55911922454834  size=363016\n",
+  "ground_truth": {
+    "hash": "0abeef9e3a5521e5dd7f645525744f1835f375dd4e37f1d8418cd6e528104519",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.3056,
+    "malicious_count": 22,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 8
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "renamer",
+        "count": 3
+      },
+      {
+        "value": "grandoreiro",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.renamer/grandoreiro",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get number of processors"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "PEB access",
+      "encode data using XOR",
+      "contain loop",
+      "encrypt data using RC4 PRGA",
+      "get number of processors",
+      "contain a thread local storage (.tls) section",
+      "contain a resource (.rsrc) section",
+      "compiled with Borland Delphi",
+      "calculate modulo 256 via x86 assembly",
+      "PEB access",
+      "encode data using XOR",
+      "contain loop",
+      "encrypt data using RC4 PRGA",
+      "get number of processors",
+      "contain a thread local storage (.tls) section",
+      "compiled with Borland Delphi"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

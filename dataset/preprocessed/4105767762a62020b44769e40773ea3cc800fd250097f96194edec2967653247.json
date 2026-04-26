@@ -1,0 +1,67 @@
+{
+  "hash": "4105767762a62020b44769e40773ea3cc800fd250097f96194edec2967653247",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nSERVICES OPENED (2):\n  csrsedit\n  cttuhost\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    lodckrnl.exe fingtver\"\n      ~2.tmp 1792 250376 1528 1\n      ~3.tmp 1392 250376 1528 2\n  services.exe\n    csrsedit.exe -s\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - encode data using XOR\n  - get file size\n  - link function at runtime on Windows\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - Memory::Allocate Memory [C0007]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Data::Decompress Data::aPLib [C0025.003]\n  - Process::Terminate Process [C0018]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Read File [C0051]\n  - link function at runtime on Windows\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Users\\<USER>\\AppData\\Roaming\\Regivate\\ie4upsr.exe  [sha256: 7337f98a7a560930...]\n\nFILES WRITTEN (6):\n  C:\\DiskX\\Temp.exe\n  C:\\Documents and Settings\\Administrator\\Application Data\\fingtver\\lodckrnl.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\~2.tmp\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\~3.tmp\n  C:\\WINDOWS\\system32\\csrsedit.exe\n  C:\\Windows\\system32\\cttuhost.exe\n\nPERSISTENCE REGISTRY KEYS (2):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\dxdipsr = C\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\autoadmn = C:\\Documents and Settings\\Administrator\\Application Data\\fingtver\\lodckrnl.exe\u0000\n\nOTHER REGISTRY KEYS SET (1):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\SessionInformation\\ProgramCount\n\nMUTEXES CREATED (3):\n  cea0d88feca283992433f6dd98178a61\n  d5ee4e9ee565d780dfb269b48306ad28\n  e0a47326f04dd54807bad1fc2b8e95f0\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=5.8\n  .rdata       entropy=4.34\n  .data        entropy=0.0\n  .rsrc        entropy=7.99\n  .reloc       entropy=0.56\n",
+  "ground_truth": {
+    "hash": "4105767762a62020b44769e40773ea3cc800fd250097f96194edec2967653247",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9155,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "allocate memory",
+      "allocate RWX memory",
+      "encode data using XOR",
+      "contain loop",
+      "decompress data using aPLib",
+      "terminate process",
+      "get file size",
+      "read file on Windows",
+      "link function at runtime on Windows",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\dxdipsr",
+        "\\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\autoadmn"
+      ],
+      "registry_all_count": 3,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Roaming\\Regivate\\ie4upsr.exe"
+      ],
+      "mutexes": [
+        "cea0d88feca283992433f6dd98178a61",
+        "d5ee4e9ee565d780dfb269b48306ad28",
+        "e0a47326f04dd54807bad1fc2b8e95f0"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

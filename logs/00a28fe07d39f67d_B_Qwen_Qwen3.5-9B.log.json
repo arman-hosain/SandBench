@@ -1,0 +1,124 @@
+{
+  "hash": "00a28fe07d39f67d5f17a4a322499c478f8d65736e389cc1e16db6f9cfea0e0a",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence mechanisms (registry keys for AppInit_DLLs and scheduled tasks), file drops in system directories, and the use of obfuscation techniques (high entropy sections, multiple sections with low entropy, and a Linker packer). The process tree shows a legitimate host (svchost.exe) spawning a suspicious executable, and the artifacts indicate an attempt to load malicious DLLs globally.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample behaves like a Trojan by dropping additional executables and DLLs, establishing persistence via registry modifications and scheduled tasks, and hiding its presence through obfuscation. It does not exhibit ransomware encryption, worm-like self-propagation without user interaction, or specific backdoor communication patterns in this report, but rather the classic behavior of a Trojan downloader/installer.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1546.001\",\n        \"name\": \"Boot or Logon Autostart Execution: AppInit_DLLs\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1562.001\",\n        \"name\": \"Impair Defenses: Disable or Modify Tools\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 2151,
+      "response_chars": 1461,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence mechanisms (registry keys for AppInit_DLLs and scheduled tasks), file drops in system directories, and the use of obfuscation techniques (high entropy sections, multiple sections with low entropy, and a Linker packer). The process tree shows a legitimate host (svchost.exe)",
+      "elapsed_seconds": 12.33
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "1 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 1,
+      "ttps_found": [
+        "T1027",
+        "T1546",
+        "T1547",
+        "T1562"
+      ],
+      "hallucinated_ttps": [
+        "T1027",
+        "T1546",
+        "T1547",
+        "T1562"
+      ],
+      "ttp_tp": 0,
+      "ttp_fp": 4
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- query or enumerate registry value\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by the report.\nDIRE",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1053",
+        "T1056",
+        "T1546"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 0,
+      "best_ttp_fp": 4
+    },
+    {
+      "step": 5,
+      "type": "refinement_stopped",
+      "iteration": 1,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 0,
+      "ttp_fp": 4
+    }
+  ],
+  "total_llm_calls": 2,
+  "total_elapsed": 25.67,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8857
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1012"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1546",
+        "T1547",
+        "T1562"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1546",
+        "T1547",
+        "T1562"
+      ],
+      "q3_missed_ttps": [
+        "T1012"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

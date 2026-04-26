@@ -1,0 +1,86 @@
+{
+  "hash": "3586b5843dfb2a71e17611591bfee19f6d7e3050797e385704b5a77d1efdd223",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://armmf.adobe.com/arm-manifests/win/ArmManifest3.msi  UA: ARM WinINet Downloader\n\nDNS LOOKUPS (3):\n  2ndry.com\n  2ndry.com \u2192 156.241.22.91\n  armmf.adobe.com \u2192 23.45.56.171\n\nIP TRAFFIC (4):\n  114.114.114.114:53 (UDP)\n  152.195.38.76:80 (TCP)\n  23.45.56.171:443 (TCP)\n  23.45.56.171:80 (TCP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  lossy.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\lossy.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\lossy.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\lossy.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - hide graphical window\n  - encrypt data using RC4 PRGA\n  - accept command line arguments\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - hide graphical window\n  - contain loop\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Generate Pseudo-random Sequence::RC4 PRGA [C0021.004]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (5):\n  lossy.exe  [sha256: b6c2560c8beefafb...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\lossy.exe  [sha256: 13de327969ad0d72...]\n  c:\\users\\admin\\appdata\\local\\temp\\lossy.exe  [sha256: f69ad585a8c57c90...]\n  c:\\users\\rdhj0cnfevzx\\appdata\\local\\temp\\lossy.exe  [sha256: f863ede007f04268...]\n  c:\\users\\rdhj0cnfevzx\\appdata\\local\\microsoft\\windows\\inetcache\\counters.dat  [sha256: c2d814a34b184b7c...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\lossy.exe\n\nOTHER REGISTRY KEYS SET (2):\n  HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap//A\n  HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap//U\n\nMUTEXES CREATED (5):\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n  RasPbFile\n\nPROCESSES CREATED (4):\n  \"C:\\Users\\RDHJ0C~1\\AppData\\Local\\Temp\\lossy.exe\" \n  C:\\3586b5843dfb2a71e17611591bfee19f6d7e3050797e385704b5a77d1efdd223.exe\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\lossy.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\lossy.exe\" \"\n  C:\\Users\\admin\\AppData\\Local\\Temp\\lossy.exe \n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.23\n  .data        entropy=3.55\n  .rsrc        entropy=5.16\n  .reloc       entropy=5.49\n  [overlay]    entropy=3.3586840629577637  size=5318\n",
+  "ground_truth": {
+    "hash": "3586b5843dfb2a71e17611591bfee19f6d7e3050797e385704b5a77d1efdd223",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9444,
+    "malicious_count": 68,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encrypt data using RC4 PRGA"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "hide graphical window",
+      "contain loop",
+      "encrypt data using RC4 PRGA",
+      "accept command line arguments",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "114.114.114.114",
+        "152.195.38.76",
+        "23.45.56.171"
+      ],
+      "domains": [
+        "2ndry.com",
+        "armmf.adobe.com"
+      ],
+      "urls": [
+        "http://armmf.adobe.com/arm-manifests/win/ArmManifest3.msi"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 2,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\lossy.exe",
+        "c:\\users\\admin\\appdata\\local\\temp\\lossy.exe",
+        "c:\\users\\rdhj0cnfevzx\\appdata\\local\\microsoft\\windows\\inetcache\\counters.dat",
+        "c:\\users\\rdhj0cnfevzx\\appdata\\local\\temp\\lossy.exe",
+        "lossy.exe"
+      ],
+      "mutexes": [
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "RasPbFile"
+      ],
+      "processes": [
+        "\"C:\\Users\\RDHJ0C~1\\AppData\\Local\\Temp\\lossy.exe\" ",
+        "C:\\3586b5843dfb2a71e17611591bfee19f6d7e3050797e385704b5a77d1efdd223.exe",
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\lossy.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\lossy.exe\" \"",
+        "C:\\Users\\admin\\AppData\\Local\\Temp\\lossy.exe "
+      ]
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "Sangfor ZSand",
+    "VMRay",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "hash": "016ab9f44b27877f62c35901cdd48dd6fbe1df64d02e048539f167f71192596d",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including keylogging via application hooks, runtime function linking (often used for obfuscation or dynamic code execution), process termination capabilities, and active anti-VM detection. These behaviors are indicative of a spyware or backdoor designed to steal data and evade analysis.\"\n  },\n  \"q2\": {\n    \"family\": [\"Spyware\", \"Backdoor\"],\n    \"explanation\": \"The primary behavior is keylogging (stealing credentials/data), which classifies it as Spyware. The presence of anti-VM detection, process termination, and runtime linking suggests evasion and persistence mechanisms typical of a Backdoor.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1056\",\n        \"name\": \"Input Capture\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1057\",\n        \"name\": \"Process Discovery\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1070\",\n        \"name\": \"Indicator Removal\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1257,
+      "response_chars": 1229,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including keylogging via application hooks, runtime function linking (often used for obfuscation or dynamic code execution), process termination capabilities, and active anti-VM detection. These behaviors are indicative of a spyware or backdoor designed to steal data and evade analysis.\"\n  },\n ",
+      "elapsed_seconds": 6.73
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 6.73,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.2877
+    },
+    "family": {
+      "family_f1": 0.0,
+      "family_precision": 0.0,
+      "family_recall": 0.0,
+      "predicted": [
+        "spyware",
+        "backdoor"
+      ],
+      "matched": [],
+      "reachable_gt": [],
+      "gt_pool": [
+        "ipamor",
+        "shodi",
+        "shohdi",
+        "virus"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 0.2,
+      "ttp_precision": 0.1667,
+      "ttp_recall": 0.25,
+      "gt_ttps": [
+        "T1010",
+        "T1056",
+        "T1129",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1059",
+        "T1070"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1055",
+        "T1057",
+        "T1059",
+        "T1070"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1129",
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2,
+      "breakdown": {
+        "ttp_f1": 0.2
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "hash": "02a54c7fa71124153228984035e09a4e27722d91c5c3550bbaedc875d5d0545e",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity, including DNS lookups for suspicious domains and communication with known malicious IP addresses. Additionally, it creates and writes files to the system, and modifies registry keys, indicating a potential malware infection.\"\n  },\n  \"q2\": {\n    \"family\": [\"Ransomware\"],\n    \"explanation\": \"The sample's behavior, including its use of DNS lookups for suspicious domains and its creation of files with high entropy, is consistent with ransomware behavior. The sample also attempts to communicate with known malicious IP addresses, further supporting this classification.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1071\", \"name\": \"Application Layer Protocol: DNS\"},\n      {\"id\": \"T1218\", \"name\": \"File and Directory Discovery\"},\n      {\"id\": \"T1219\", \"name\": \"System Service Discovery\"},\n      {\"id\": \"T1204\", \"name\": \"User Execution: Malicious File\"},\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1210\", \"name\": \"Input Capture\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 6168,
+      "response_chars": 1086,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity, including DNS lookups for suspicious domains and communication with known malicious IP addresses. Additionally, it creates and writes files to the system, and modifies registry keys, indicating a potential malware infection.\"\n  },\n  \"q2\": {\n    \"family\": [\"Ransomware\"],\n    \"explanation\": \"",
+      "elapsed_seconds": 5.23
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 5.23,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9444
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.25,
+      "ttp_precision": 0.1667,
+      "ttp_recall": 0.5,
+      "gt_ttps": [
+        "T1027",
+        "T1129"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1071",
+        "T1204",
+        "T1210",
+        "T1218",
+        "T1219"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1071",
+        "T1204",
+        "T1210",
+        "T1218",
+        "T1219"
+      ],
+      "q3_missed_ttps": [
+        "T1129"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.25,
+      "breakdown": {
+        "ttp_f1": 0.25
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "hash": "24f3987c591dd250dffee2b7820b458794f867b67c807844242c7ec7c40fb163",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  budha.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - encode data using XOR\n  - encrypt data using RC4 PRGA\n  - link function at runtime on Windows\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Generate Pseudo-random Sequence::RC4 PRGA [C0021.004]\n  - link function at runtime on Windows\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe  [sha256: 751ba74624c31d32...]\n\nOTHER REGISTRY KEYS SET (10):\n  HKLM\\Software\\Microsoft\\AudioCompressionManager\\DriverCache\\msacm.imaadpcm\\fdwSupport\n  HKLM\\Software\\Microsoft\\AudioCompressionManager\\DriverCache\\msacm.imaadpcm\\cFormatTags\n  HKLM\\Software\\Microsoft\\AudioCompressionManager\\DriverCache\\msacm.imaadpcm\\aFormatTagCache\n  HKLM\\Software\\Microsoft\\AudioCompressionManager\\DriverCache\\msacm.imaadpcm\\cFilterTags\n  HKLM\\Software\\Microsoft\\AudioCompressionManager\\DriverCache\\msacm.msg711\\fdwSupport\n  HKLM\\Software\\Microsoft\\AudioCompressionManager\\DriverCache\\msacm.msg711\\cFormatTags\n  HKLM\\Software\\Microsoft\\AudioCompressionManager\\DriverCache\\msacm.msg711\\aFormatTagCache\n  HKLM\\Software\\Microsoft\\AudioCompressionManager\\DriverCache\\msacm.msg711\\cFilterTags\n  HKLM\\Software\\Microsoft\\AudioCompressionManager\\DriverCache\\msacm.msgsm610\\fdwSupport\n  HKLM\\Software\\Microsoft\\AudioCompressionManager\\DriverCache\\msacm.msgsm610\\cFormatTags\n\nMUTEXES CREATED (1):\n  Local\\MidiMapper_modLongMessage_RefCnt\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Compiler] FASM\n\nPE SECTIONS (entropy):\n  .text        entropy=6.19\n  .code        entropy=6.78\n  .data        entropy=2.08\n  .data4       entropy=3.44\n  .idata       entropy=3.91\n  .rsrc        entropy=5.69\n  [overlay]    entropy=3.457109212875366  size=17518\n",
+  "ground_truth": {
+    "hash": "24f3987c591dd250dffee2b7820b458794f867b67c807844242c7ec7c40fb163",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8889,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "encode data using XOR",
+      "contain loop",
+      "encrypt data using RC4 PRGA",
+      "link function at runtime on Windows",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 20,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe"
+      ],
+      "mutexes": [
+        "Local\\MidiMapper_modLongMessage_RefCnt"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

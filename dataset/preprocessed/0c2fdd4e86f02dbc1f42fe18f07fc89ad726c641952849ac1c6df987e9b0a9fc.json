@@ -1,0 +1,80 @@
+{
+  "hash": "0c2fdd4e86f02dbc1f42fe18f07fc89ad726c641952849ac1c6df987e9b0a9fc",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://globalbmis.com/acp/users/Targ-1405USmp.enc\n\nDNS LOOKUPS (1):\n  globalbmis.com \u2192 204.11.56.48\n\nIP TRAFFIC (3):\n  204.11.56.48:80 (TCP)\n  8.8.4.4:53 (UDP)\n  8.8.8.8:53 (UDP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  budha.pe32\n    budha.exe\n\nCOMMAND EXECUTIONS (1):\n  \"C:\\Users\\Petra\\AppData\\Local\\Temp\\budha.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - access PEB ldr_data\n  - parse PE header\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - access PEB ldr_data\n  - contain loop\n  - resolve function by parsing PE exports\n  - parse PE header\n  - Anti-Behavioral Analysis::Debugger Detection::Anti-debugging Instructions [B0001.034]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  \\Users\\Petra\\AppData\\Local\\Temp\\budha.exe  [sha256: 0f12ed393d2bc45a...]\n\nFILES WRITTEN (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe\n\nOTHER REGISTRY KEYS SET (8):\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C0054007200610063\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C0054007200610063\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n\nMUTEXES CREATED (15):\n  IESQMMUTEX_0_208\n  Local\\!IETld!Mutex\n  Local\\MidiMapper_modLongMessage_RefCnt\n  Local\\WininetConnectionMutex\n  Local\\WininetProxyRegistryMutex\n  Local\\WininetStartupMutex\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n\nPROCESSES CREATED (1):\n  budha.exe\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] FASM\n\nPE SECTIONS (entropy):\n  .text        entropy=6.3\n  .data        entropy=4.14\n  .idata       entropy=3.27\n  .rsrc        entropy=5.14\n  [overlay]    entropy=3.4625203609466553  size=23950\n",
+  "ground_truth": {
+    "hash": "0c2fdd4e86f02dbc1f42fe18f07fc89ad726c641952849ac1c6df987e9b0a9fc",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9306,
+    "malicious_count": 67,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "PEB access",
+      "access PEB ldr_data",
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "parse PE header",
+      "execute anti-debugging instructions",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "204.11.56.48",
+        "8.8.4.4",
+        "8.8.8.8"
+      ],
+      "domains": [
+        "globalbmis.com"
+      ],
+      "urls": [
+        "http://globalbmis.com/acp/users/Targ-1405USmp.enc"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 8,
+      "files_dropped": [
+        "\\Users\\Petra\\AppData\\Local\\Temp\\budha.exe"
+      ],
+      "mutexes": [
+        "IESQMMUTEX_0_208",
+        "Local\\!IETld!Mutex",
+        "Local\\MidiMapper_modLongMessage_RefCnt",
+        "Local\\WininetConnectionMutex",
+        "Local\\WininetProxyRegistryMutex",
+        "Local\\WininetStartupMutex",
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "Local\\_!MSFTHISTORY!_",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!",
+        "Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!",
+        "RasPbFile"
+      ],
+      "processes": [
+        "budha.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "Tencent HABO"
+  ]
+}

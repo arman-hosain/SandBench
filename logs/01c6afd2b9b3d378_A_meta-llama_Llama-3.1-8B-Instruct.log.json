@@ -1,0 +1,104 @@
+{
+  "hash": "01c6afd2b9b3d37881b9676f8143017b90fb797672b9211aee6d8f3834ce7710",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as enumerating processes, threads, and hijacking thread execution, which are common techniques used by malware. Additionally, it creates mutexes, files, and processes, and has a high entropy in its PE sections, indicating potential obfuscation.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior suggests that it is a Trojan, as it appears to be designed to hide its presence and execute malicious actions, such as enumerating processes and threads, and hijacking thread execution.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1053\", \"name\": \"Scheduled Task/Job\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"},\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"},\n      {\"id\": \"T1084\", \"name\": \"Network Service Scanning\"},\n      {\"id\": \"T1059\", \"name\": \"Command and Control classic Command and Control\"},\n      {\"id\": \"T1056\", \"name\": \"Exfiltration Over Alternative Protocol\"},\n      {\"id\": \"T1057\", \"name\": \"Disk Cleanup\"},\n      {\"id\": \"T1058\", \"name\": \"File and Directory Discovery\"},\n      {\"id\": \"T1059\", \"name\": \"Command and Control classic Command and Control\"},\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"},\n      {\"id\": \"T1084\", \"name\": \"Network Service Scanning\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 2676,
+      "response_chars": 1550,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as enumerating processes, threads, and hijacking thread execution, which are common techniques used by malware. Additionally, it creates mutexes, files, and processes, and has a high entropy in its PE sections, indicating potential obfuscation.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"exp",
+      "elapsed_seconds": 7.63
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 7.63,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.7534
+    },
+    "family": {
+      "family_f1": 1.0,
+      "family_precision": 1.0,
+      "family_recall": 1.0,
+      "predicted": [
+        "trojan"
+      ],
+      "matched": [
+        "trojan"
+      ],
+      "reachable_gt": [
+        "trojan"
+      ],
+      "gt_pool": [
+        "blackmoon",
+        "tiggre",
+        "trojan",
+        "virus",
+        "zusy"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 0.3529,
+      "ttp_precision": 0.3,
+      "ttp_recall": 0.4286,
+      "gt_ttps": [
+        "T1055",
+        "T1057",
+        "T1059",
+        "T1083",
+        "T1129",
+        "T1518",
+        "T1620"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1058",
+        "T1059",
+        "T1082",
+        "T1084",
+        "T1218"
+      ],
+      "tp": 3,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1053",
+        "T1056",
+        "T1058",
+        "T1082",
+        "T1084",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1083",
+        "T1129",
+        "T1518",
+        "T1620"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.3529,
+      "breakdown": {
+        "ttp_f1": 0.3529
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

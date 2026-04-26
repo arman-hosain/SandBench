@@ -1,0 +1,81 @@
+{
+  "hash": "3d17aa58d2f0425cb5d06d991b7aba54d05b39a8f80c6871781aba861f65ea5f",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET https://demandtosupply.com/plesk/mp30.exe\n\nDNS LOOKUPS (2):\n  demandtosupply.com\n  demandtosupply.com \u2192 156.249.134.138\n\nIP TRAFFIC (1):\n  156.249.134.138:443 (TCP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  weyjba.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\weyjba.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\weyjba.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\weyjba.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - encrypt data using RC4 PRGA\n  - accept command line arguments\n  - get hostname\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - contain loop\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Generate Pseudo-random Sequence::RC4 PRGA [C0021.004]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Discovery::System Information Discovery [E1082]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  weyjba.exe  [sha256: 46326833396112e0...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\weyjba.exe  [sha256: 40fcfeb892043fba...]\n\nFILES WRITTEN (2):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\weyjba.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\weyjba.exe\n\nOTHER REGISTRY KEYS SET (3):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n\nMUTEXES CREATED (10):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  RasPbFile\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n\nMUTEXES OPENED (4):\n  _!MSFTHISTORY!_\n  c:!documents and settings!administrator!cookies!\n  c:!documents and settings!administrator!local settings!history!history.ie5!\n  c:!documents and settings!administrator!local settings!temporary internet files!content.ie5!\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\weyjba.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\weyjba.exe\" \"\n\n--- FILE IDENTITY ---\n\nPE SECTIONS (entropy):\n  .text        entropy=6.27\n  .rdata       entropy=3.36\n  .data        entropy=2.39\n  .bss         entropy=4.84\n  .rsrc        entropy=5.32\n  [overlay]    entropy=3.484956741333008  size=10348\n",
+  "ground_truth": {
+    "hash": "3d17aa58d2f0425cb5d06d991b7aba54d05b39a8f80c6871781aba861f65ea5f",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8732,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "ppatre",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encrypt data using RC4 PRGA"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get hostname"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "contain loop",
+      "encrypt data using RC4 PRGA",
+      "accept command line arguments",
+      "get hostname",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "156.249.134.138"
+      ],
+      "domains": [
+        "demandtosupply.com"
+      ],
+      "urls": [
+        "https://demandtosupply.com/plesk/mp30.exe"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 3,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\weyjba.exe",
+        "weyjba.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "RasPbFile",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\weyjba.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\weyjba.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

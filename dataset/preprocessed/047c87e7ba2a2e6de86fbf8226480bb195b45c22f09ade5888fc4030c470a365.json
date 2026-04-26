@@ -1,0 +1,85 @@
+{
+  "hash": "047c87e7ba2a2e6de86fbf8226480bb195b45c22f09ade5888fc4030c470a365",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\PROGRA~2\\Mozilla\\suwzfrh.exe\n  C:\\Windows\\System32\\schtasks.exe\n\nCOMMAND EXECUTIONS (6):\n  \\??\\C:\\Windows\\system32\\conhost.exe\n  C:\\Windows\\system32\\schtasks.exe /delete /f /TN \"Microsoft\\Windows\\Customer Experience Improvement Program\\Uploader\"\n  C:\\PROGRA~2\\Mozilla\\suwzfrh.exe -qchpuvi\n  taskeng.exe {65FB2CEB-D7AF-4E25-9CD6-86AB3AE8E868} S-1-5-18:NT AUTHORITY\\System:Service:\n  C:\\Windows\\System32\\wsqmcons.exe \n   \n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - encode data using Base64 via WinAPI\n  - encode data using XOR\n  - check if file exists\n\nCAPA RULE MATCHES (MBC):\n  - encode data using Base64 via WinAPI\n  - Memory::Allocate Memory [C0007]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Process::Create Mutex [C0042]\n  - Discovery::File and Directory Discovery [E1083]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  ctvqzym.exe  [sha256: 9746ef0b03efbe91...]\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: 951af61731bdc0b0...]\n\nFILES WRITTEN (5):\n  C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\ctvqzym.exe\n  C:\\PROGRA~2\\Mozilla\\suwjaej.dll\n  C:\\PROGRA~2\\Mozilla\\suwzfrh.exe\n  C:\\ProgramData\\Mozilla\\\n  C:\\WINDOWS\\Tasks\\hiqvsnd.job\n\nPERSISTENCE REGISTRY KEYS (2):\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs = C:\\PROGRA~2\\Mozilla\\suwjaej.dll\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs = 1\n\nOTHER REGISTRY KEYS SET (4):\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Handshake\\{65FB2CEB-D7AF-4E25-9CD6-86AB3AE8E868\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SQMClient\\Windows\\AdaptiveSqm\\ManifestInfo\\Version\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SQMClient\\Windows\\WSqmConsLastEventTimeStamp\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SQMClient\\Windows\\WSqmConsLastRunTime\n\nMUTEXES CREATED (2):\n  Global\\SQMWindowsConsolidator\n  Local\\MSCTF.Asm.MutexDefault0\n\nPROCESSES CREATED (2):\n  C:\\PROGRA~2\\Mozilla\\suwzfrh.exe\n  C:\\Windows\\System32\\schtasks.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] Watcom\n  [Linker] Watcom Linker\n\nPE SECTIONS (entropy):\n  AUTO         entropy=6.42\n  DGROUP       entropy=5.34\n  .idata       entropy=4.11\n  .reloc       entropy=5.22\n  .rsrc        entropy=3.87\n  [overlay]    entropy=7.868335247039795  size=1320\n",
+  "ground_truth": {
+    "hash": "047c87e7ba2a2e6de86fbf8226480bb195b45c22f09ade5888fc4030c470a365",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.863,
+    "malicious_count": 63,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 25
+      },
+      {
+        "value": "dropper",
+        "count": 9
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "gepys",
+        "count": 7
+      },
+      {
+        "value": "uztub",
+        "count": 7
+      },
+      {
+        "value": "shipup",
+        "count": 4
+      }
+    ],
+    "suggested_label": "trojan.gepys/uztub",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using Base64 via WinAPI"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "check if file exists"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using Base64 via WinAPI",
+      "allocate memory",
+      "allocate RWX memory",
+      "encode data using XOR",
+      "contain loop",
+      "create mutex",
+      "check if file exists"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs",
+        "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs"
+      ],
+      "registry_all_count": 6,
+      "files_dropped": [
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "ctvqzym.exe"
+      ],
+      "mutexes": [
+        "Global\\SQMWindowsConsolidator",
+        "Local\\MSCTF.Asm.MutexDefault0"
+      ],
+      "processes": [
+        "C:\\PROGRA~2\\Mozilla\\suwzfrh.exe",
+        "C:\\Windows\\System32\\schtasks.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Rising MOVES",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "hash": "2d34c2498be9a3be469651a454ce67a8aae6f81a62d41c7e5c77530aff52be4a",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  c:\\windows\\system\\spoolsv.exe\n    c:\\windows\\system\\explorer.exe\n      c:\\windows\\system\\spoolsv.exe SE\n        c:\\windows\\system\\svchost.exe\n          at 06:05 /interactive /every:M,T,W,Th,F,S,Su c:\\windows\\system\\svchost.exe\n          c:\\windows\\system\\spoolsv.exe PR\n      c:\\windows\\system\\spoolsv.exe SE\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - acquire debug privileges\n  - parse PE header\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - acquire debug privileges\n  - contain loop\n  - Communication::HTTP Communication::Read Header [C0002.014]\n  - parse PE header\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - contain a resource (.rsrc) section\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n  - (internal) packer file limitation\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  c:\\windows\\system\\explorer.exe  [sha256: 4048cc238e8a360c...]\n  C:\\Users\\<USER>\\AppData\\Roaming\\mrsys.exe  [sha256: a04ddfa3bede2d8f...]\n  c:\\windows\\system\\svchost.exe  [sha256: cb510f886d121ce4...]\n\nFILES WRITTEN (6):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF2CA1F891D2DFBFA0.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF31035399A4797B57.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF9E7B6987C8E91F45.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DFBBE381E407CB198B.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DFBD6218AE6BFC21B4.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DFC693040BDA7D4173.TMP\n\nPERSISTENCE REGISTRY KEYS (2):\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\Explorer = c:\\windows\\system\\explorer.exe RO\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\Svchost = c:\\windows\\system\\svchost.exe RO\n\nOTHER REGISTRY KEYS SET (6):\n  HKCU\\Software\\VB and VBA Program Settings\\Explorer\\Process\\LO\n  HKLM\\Software\\Microsoft\\Active Setup\\Installed Components\\{Y479C6D0-OTRW-U5GH-S1EE-E0AC10B4E666}\\StubPath\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowSuperHidden\n  HKLM\\Software\\Microsoft\\Active Setup\\Installed Components\\{F146C9B1-VMVQ-A9RC-NUFL-D0BA00B4E999}\\StubPath\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C0056004200200\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\Software\\VB and VBA Program Settings\\Explorer\\HexStream = 5\n\nPROCESSES CREATED (1):\n  c:\\windows\\system\\explorer.exe\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n\nPE SECTIONS (entropy):\n  UPX0         entropy=5.96\n  UPX1         entropy=0.95\n  .rsrc        entropy=5.28\n  .imports     entropy=4.55\n  [overlay]    entropy=7.135410308837891  size=77468\n",
+  "ground_truth": {
+    "hash": "2d34c2498be9a3be469651a454ce67a8aae6f81a62d41c7e5c77530aff52be4a",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9444,
+    "malicious_count": 68,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with UPX"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "acquire debug privileges"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "acquire debug privileges",
+      "contain loop",
+      "check HTTP status code",
+      "parse PE header",
+      "packed with UPX",
+      "contain a resource (.rsrc) section",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\Explorer",
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\Svchost"
+      ],
+      "registry_all_count": 8,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Roaming\\mrsys.exe",
+        "c:\\windows\\system\\explorer.exe",
+        "c:\\windows\\system\\svchost.exe"
+      ],
+      "mutexes": [],
+      "processes": [
+        "c:\\windows\\system\\explorer.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

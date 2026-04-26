@@ -1,0 +1,63 @@
+{
+  "hash": "247b078b49a69ada812a9a4ca54434a11d5cff5269e7f0fc152c729986a11f64",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - persist via Run registry key\n  - get common file path\n  - enumerate files on Windows\n  - enumerate files recursively\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - reference absolute stream path on Windows\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - contain loop\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - Persistence::Registry Run Keys / Startup Folder [F0012]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Writes File [C0052]\n  - File System::Create Directory [C0046]\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (7):\n  C:/Windows/Intelx386/Winamp 5.0 (full version).exe  [sha256: b2cf587f26a376a2...]\n  C:/Windows/Intelx386/Winamp 3 (full version).exe  [sha256: 24c015876cfcbf13...]\n  C:/Windows/Intelx386/Winamp 3.5 (full version).exe  [sha256: d94dc0e0cb599f07...]\n  C:/Windows/Intelx386/Update Photoshop 7.0 to Photoshop 9.16 (It\u00b4s Work!).exe  [sha256: cd12bf425e9fd860...]\n  C:/Windows/Intelx386/Update Photoshop 8.0 to Photoshop 9.5 (It\u00b4s Work!).exe  [sha256: 3821fc475a37e0b9...]\n  C:/Windows/Intelx386/WinAce 3.85 (with Serial).exe  [sha256: 53fd584b8dd69b2b...]\n  C:/Windows/Intelx386/Download Accelerator Plus (DAP) (full version with serial).exe  [sha256: 6d47a8b5e3b072a3...]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualAlloc\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.36\n  .rdata       entropy=4.01\n  .data        entropy=3.54\n  .rsrc        entropy=2.79\n  [overlay]    entropy=0.0  size=8572928\n",
+  "ground_truth": {
+    "hash": "247b078b49a69ada812a9a4ca54434a11d5cff5269e7f0fc152c729986a11f64",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8732,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "persist via Run registry key"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "reference absolute stream path on Windows",
+      "delay execution",
+      "create or open registry key",
+      "contain loop",
+      "set registry value",
+      "persist via Run registry key",
+      "get common file path",
+      "enumerate files on Windows",
+      "enumerate files recursively",
+      "write file on Windows",
+      "create directory",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:/Windows/Intelx386/Download Accelerator Plus (DAP) (full version with serial).exe",
+        "C:/Windows/Intelx386/Update Photoshop 7.0 to Photoshop 9.16 (It\u00b4s Work!).exe",
+        "C:/Windows/Intelx386/Update Photoshop 8.0 to Photoshop 9.5 (It\u00b4s Work!).exe",
+        "C:/Windows/Intelx386/WinAce 3.85 (with Serial).exe",
+        "C:/Windows/Intelx386/Winamp 3 (full version).exe",
+        "C:/Windows/Intelx386/Winamp 3.5 (full version).exe",
+        "C:/Windows/Intelx386/Winamp 5.0 (full version).exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

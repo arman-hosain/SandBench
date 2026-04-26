@@ -1,0 +1,186 @@
+{
+  "hash": "2b6ddf70de2df67421e6a34f6501b45db299e35dc5e6f5e347508cbacebcd149",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\System Volume Information\\explorer.exe\n  Regsvr32.exe C:\\WINDOWS\\system32\\Ms7002.dll /s\n\nCOMMAND EXECUTIONS (3):\n  ( 696 - cmd.exe ) c:\\windows\\system32\\cmd.exe /c \"c:\\users\\user41~1\\appdata\\local\\temp\\oreeoja.exe\"\n  ( 1016 - oreeoja.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\oreeoja.exe\n  ( 2208 - regsvr32.exe ) regsvr32.exe c:\\windows\\system32\\ms7002.dll /s\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (28):\n  - encode data using XOR\n  - access PEB ldr_data\n  - hide graphical window\n  - accept command line arguments\n  - query or enumerate registry value\n  - link function at runtime on Windows\n  - get geographical location\n  - get file size\n  - find graphical window\n  - get disk size\n  - get system information on Windows\n  - read clipboard data\n  - capture screenshot\n  - log keystrokes via polling\n  - link many functions at runtime\n  - log keystrokes\n  - get keyboard layout\n  - enumerate gui resources\n  - encode data using Base64\n  - create service\n  - delete service\n  - get common file path\n  - persist via Windows service\n  - get hostname\n  - enumerate files on Windows\n  - get disk information\n  - packed with ASPack\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - Cryptography::Generate Pseudo-random Sequence [C0021]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Create Thread [C0038]\n  - File System::Create File [C0016]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Process::Resume Thread [C0054]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - access PEB ldr_data\n  - hide graphical window\n  - set global application hook\n  - inspect load icon resource\n  - Communication::Socket Communication::Create TCP Socket [C0001.011]\n  - Process::Check Mutex [C0043]\n  - Process::Open Process [C0065]\n  - Process::Create Process [C0017]\n  - contain loop\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - link function at runtime on Windows\n  - get geographical location\n\n--- ARTIFACTS ---\n\nFILES DROPPED (16):\n  CHOBHP.EXE  [sha256: 687013341b5396ce...]\n  MLE.EXE  [sha256: d5802d82ec372515...]\n  MPE.EXE  [sha256: f09716e7d33242a8...]\n  Ms7002.dll  [sha256: f0a7ec2edff7699e...]\n  VSV.EXE  [sha256: 7186d759cfbf64b6...]\n  winlogon.exe  [sha256: 442aeaac223b48cb...]\n  WUUZD.EXE  [sha256: 37692bedf3f32afa...]\n  ZNRAS.EXE  [sha256: 184147bc532e3b3b...]\n  c:\\python27\\fdtqaa.exe  [sha256: ab088dd5b7b885cc...]\n  c:\\users\\sfjfwpn.exe  [sha256: ad5c7fae6e143825...]\n  c:\\boot\\rhu.exe  [sha256: 2db480f50628c0a2...]\n  c:\\perflogs\\qifa.exe  [sha256: 69368c8a4c7c7fff...]\n  c:\\program files (x86)\\lssud.exe  [sha256: ad856d1ed4c6a9d5...]\n  c:\\windows\\syswow64\\gcfprn.exe  [sha256: bd4b08f0ad66c8d7...]\n  c:\\$recycle.bin\\csrss.exe  [sha256: 72a14d0c6ce974d4...]\n  c:\\windows\\syswow64\\ms7002.dll  [sha256: f0a7ec2edff7699e...]\n\nFILES WRITTEN (19):\n  ( 1016 - oreeoja.exe ) c:\\$recycle.bin\\csrss.exe\n  ( 1016 - oreeoja.exe ) c:\\boot\\rhu.exe\n  ( 1016 - oreeoja.exe ) c:\\filedebug\n  ( 1016 - oreeoja.exe ) c:\\perflogs\\qifa.exe\n  ( 1016 - oreeoja.exe ) c:\\program files (x86)\\lssud.exe\n  ( 1016 - oreeoja.exe ) c:\\python27\\fdtqaa.exe\n  ( 1016 - oreeoja.exe ) c:\\users\\sfjfwpn.exe\n  ( 1016 - oreeoja.exe ) c:\\windows\\syswow64\\gcfprn.exe\n  ( 1016 - oreeoja.exe ) c:\\windows\\syswow64\\ms7002.dll\n  ( 2208 - regsvr32.exe ) c:\\windows\\syswow64\\ms7002.dll\n  C:\\Documents and Settings\\VSV.EXE\n  C:\\Python27\\CHOBHP.EXE\n  C:\\Python27\\WUUZD.EXE\n  C:\\Python27\\ZNRAS.EXE\n  C:\\WINDOWS\\system32\\MPE.EXE\n  C:\\WINDOWS\\system32\\Ms7002.dll\n  C:\\cuckoo\\MLE.EXE\n  C:\\cuckoo\\winlogon.exe\n  c:\\filedebug\n\nPERSISTENCE REGISTRY KEYS (2):\n  \\registry\\machine\\software\\wow6432node\\microsoft\\windows\\currentversion\\explorer\\shellexecutehooks\\{7cd4138d-4147-420b-9749-00a13b526785} = maihook7002\n  \\registry\\machine\\software\\wow6432node\\microsoft\\windows\\currentversion\\run\\apne.exe = c:\\$recycle.bin\\csrss.exe\n\nOTHER REGISTRY KEYS SET (10):\n  \\registry\\machine\\software\\wow6432node\\microsoft\\windows\\currentversion\\win7002\\workfile\n  \\registry\\machine\\software\\classes\\txtfile\\shell\\open\\command\\c:\\python27\\fdtqaa.exe %1\n  \\registry\\machine\\software\\classes\\scrfile\\shell\\open\\command\\c:\\boot\\rhu.exe \"%1\"\n  \\registry\\machine\\software\\classes\\regfile\\shell\\open\\command\\c:\\perflogs\\qifa.exe \"%1\"\n  \\registry\\machine\\software\\classes\\inifile\\shell\\open\\command\\c:\\program files (x86)\\lssud.exe %1\n  \\registry\\machine\\software\\classes\\qpworkfile\\qp7002\n  \\registry\\machine\\software\\classes\\wow6432node\\clsid\\{7cd4138d-4147-420b-9749-00a13b526785}\\maihook7002\n  \\registry\\machine\\software\\classes\\wow6432node\\clsid\\{7cd4138d-4147-420b-9749-00a13b526785}\\inprocserver32\\c:\\windows\\sy\n  \\registry\\machine\\software\\classes\\wow6432node\\clsid\\{7cd4138d-4147-420b-9749-00a13b526785}\\inprocserver32\\threadingmode\n  \\registry\\machine\\software\\classes\\ms7002.shellexecutehook\\maihook7002\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nMUTEXES OPENED (1):\n  qqpass7002\n\nPROCESSES CREATED (2):\n  C:\\System Volume Information\\explorer.exe\n  Regsvr32.exe C:\\WINDOWS\\system32\\Ms7002.dll /s\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, VirtualAlloc, WinExec\n\nCOMPILER AND PACKER:\n  [Packer] ASPack\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n\nPE SECTIONS (entropy):\n  CODE         entropy=6.51\n  DATA         entropy=4.16\n  BSS          entropy=0.0\n  .idata       entropy=5.03\n  .tls         entropy=0.0\n  .rdata       entropy=0.2\n  .reloc       entropy=0.0\n  .rsrc        entropy=7.05\n  .aspack      entropy=5.57\n  .adata       entropy=0.0\n  [overlay]    entropy=0.029624564573168755  size=16492\n",
+  "ground_truth": {
+    "hash": "2b6ddf70de2df67421e6a34f6501b45db299e35dc5e6f5e347508cbacebcd149",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9155,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk size"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1113",
+        "signature_description": "capture screenshot"
+      },
+      {
+        "id": "T1115",
+        "signature_description": "read clipboard data"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1543",
+        "signature_description": "create service"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "create service"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "allocate RW memory",
+      "generate random numbers using the Delphi LCG",
+      "create or open registry key",
+      "create thread",
+      "create or open file",
+      "delay execution",
+      "PEB access",
+      "resume thread",
+      "encode data using XOR",
+      "access PEB ldr_data",
+      "allocate RWX memory",
+      "hide graphical window",
+      "set global application hook",
+      "inspect load icon resource",
+      "create TCP socket",
+      "check mutex",
+      "open process",
+      "create process on Windows",
+      "contain loop",
+      "accept command line arguments",
+      "query or enumerate registry value",
+      "link function at runtime on Windows",
+      "get geographical location",
+      "read file on Windows",
+      "write file on Windows",
+      "get file size",
+      "set thread local storage value",
+      "get thread local storage value",
+      "find graphical window",
+      "get disk size",
+      "get OS version",
+      "extract resource via kernel32 functions",
+      "get system information on Windows",
+      "read clipboard data",
+      "capture screenshot",
+      "log keystrokes via polling",
+      "link many functions at runtime",
+      "log keystrokes",
+      "get keyboard layout",
+      "set application hook",
+      "enumerate gui resources",
+      "get graphical window text",
+      "encode data using Base64",
+      "set registry value",
+      "access the Windows event log",
+      "get service handle",
+      "create service",
+      "delete service",
+      "send data on socket",
+      "send data",
+      "receive data on socket",
+      "receive data",
+      "get common file path",
+      "persist via Windows service",
+      "resolve DNS",
+      "get hostname",
+      "terminate process",
+      "create mutex",
+      "enumerate files on Windows",
+      "get disk information",
+      "contain an embedded PE file",
+      "contain a thread local storage (.tls) section",
+      "contain a resource (.rsrc) section",
+      "packed with ASPack",
+      "run as service",
+      "reference Base64 string",
+      "compiled with Borland Delphi",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "\\registry\\machine\\software\\wow6432node\\microsoft\\windows\\currentversion\\explorer\\shellexecutehooks\\{7cd4138d-4147-420b-9749-00a13b526785}",
+        "\\registry\\machine\\software\\wow6432node\\microsoft\\windows\\currentversion\\run\\apne.exe"
+      ],
+      "registry_all_count": 14,
+      "files_dropped": [
+        "CHOBHP.EXE",
+        "MLE.EXE",
+        "MPE.EXE",
+        "Ms7002.dll",
+        "VSV.EXE",
+        "WUUZD.EXE",
+        "ZNRAS.EXE",
+        "c:\\$recycle.bin\\csrss.exe",
+        "c:\\boot\\rhu.exe",
+        "c:\\perflogs\\qifa.exe",
+        "c:\\program files (x86)\\lssud.exe",
+        "c:\\python27\\fdtqaa.exe",
+        "c:\\users\\sfjfwpn.exe",
+        "c:\\windows\\syswow64\\gcfprn.exe",
+        "c:\\windows\\syswow64\\ms7002.dll",
+        "winlogon.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\System Volume Information\\explorer.exe",
+        "Regsvr32.exe C:\\WINDOWS\\system32\\Ms7002.dll /s"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "ReaQta-Hive",
+    "VirusTotal Cuckoofork"
+  ]
+}

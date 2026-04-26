@@ -1,0 +1,49 @@
+{
+  "hash": "2705916667cb77df8d8768a011e1f575c8877c11cd67f06bfc6c54bd62cb5098",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  c:\\2705916667cb77df8d8768a011e1f575c8877c11cd67f06bfc6c54bd62cb5098 c:\\2705916667cb77df8d8768a011e1f575c8877c11cd67f06bfc6c54bd62cb5098 _3202.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - packed with generic packer\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - contain a resource (.rsrc) section\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  2705916667cb77df8d8768a011e1f575c8877c11cd67f06bfc6c54bd62cb5098_3202.exe  [sha256: e2b3f542f6fc4eb5...]\n\nFILES WRITTEN (1):\n  c:\\2705916667cb77df8d8768a011e1f575c8877c11cd67f06bfc6c54bd62cb5098\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  c:\\2705916667cb77df8d8768a011e1f575c8877c11cd67f06bfc6c54bd62cb5098 c:\\2705916667cb77df8d8768a011e1f575c8877c11cd67f06bfc6c54bd62cb5098 _3202.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'UPX 2.90 [LZMA] -> Markus Oberhumer, Laszlo Molnar & John Reiser', 'F-PROT': 'UPX'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.91\n  .rsrc        entropy=3.36\n  [overlay]    entropy=2.232677459716797  size=296802\n",
+  "ground_truth": {
+    "hash": "2705916667cb77df8d8768a011e1f575c8877c11cd67f06bfc6c54bd62cb5098",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8873,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "gator",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "packed with generic packer",
+      "packed with UPX",
+      "contain a resource (.rsrc) section",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "2705916667cb77df8d8768a011e1f575c8877c11cd67f06bfc6c54bd62cb5098_3202.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "c:\\2705916667cb77df8d8768a011e1f575c8877c11cd67f06bfc6c54bd62cb5098 c:\\2705916667cb77df8d8768a011e1f575c8877c11cd67f06bfc6c54bd62cb5098 _3202.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "hash": "03cb16b5aa21f4b0a10a8e3ecc257358a979183387fd8cf4017825edecd1fed2",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  03cb16b5aa21f4b0_78ox6wq.exe\n    c:\\422en9.exe\n      c:\\a9asp.exe\n        c:\\a1s52.exe\n          c:\\wqtkt1.exe\n            c:\\441m5f.exe\n              c:\\527i399.exe\n                c:\\ofc8x7f.exe\n                  c:\\mp6pv.exe\n                    c:\\n5k9nw.exe\n                      c:\\76oc4li.exe\n                        c:\\lf6oc3f.exe\n                          c:\\sd06s.exe\n                            c:\\pp26m.exe\n                              c:\\5pa8j.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - contain obfuscated stackstrings\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - contain loop\n  - resolve function by parsing PE exports\n  - Data::Decompress Data [C0025]\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (23):\n  kj8vh.exe  [sha256: 956a97a2ad43a21b...]\n  c:\\422en9.exe  [sha256: eae35ea55239ba97...]\n  c:\\a9asp.exe  [sha256: 2ef5c2884fd334b5...]\n  c:\\a1s52.exe  [sha256: 8d8eb6210b5cbc77...]\n  c:\\wqtkt1.exe  [sha256: 280f76a0c1870ea5...]\n  c:\\441m5f.exe  [sha256: 25a6c756ff533018...]\n  c:\\527i399.exe  [sha256: 7d1e9797c7daf75e...]\n  c:\\ofc8x7f.exe  [sha256: 7dbab6dd8d47b691...]\n  c:\\mp6pv.exe  [sha256: f7f3f7b167b119dd...]\n  c:\\n5k9nw.exe  [sha256: 78f1035d4d345a25...]\n  c:\\76oc4li.exe  [sha256: d5263410a610584d...]\n  c:\\lf6oc3f.exe  [sha256: 3b34d33f1800c814...]\n  c:\\sd06s.exe  [sha256: 2a3aa75c38ee0596...]\n  c:\\pp26m.exe  [sha256: 59adc05cde678a7a...]\n  c:\\5pa8j.exe  [sha256: 4b0b9f8d6abaa282...]\n  c:\\9474iff.exe  [sha256: 2d19fd0b4888ca5a...]\n  c:\\5h86q8.exe  [sha256: e9b67a6dea0b63b7...]\n  c:\\98920.exe  [sha256: 4bb5eb565d029a3c...]\n  c:\\7298h6.exe  [sha256: 1291dd4f1117a6c5...]\n  c:\\ss545.exe  [sha256: c888ad87fc3ab747...]\n\nFILES WRITTEN (1):\n  c:\\kj8vh.exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  c:\\kj8vh.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Packer] DxPack\n  [Protector] Obsidium\n  Packers: {'F-PROT': 'UPX_LZMA'}\n\nPE SECTIONS (entropy):\n  .rsrc        entropy=7.98\n  coderpub     entropy=5.8\n  [overlay]    entropy=4.911550998687744  size=47571\n",
+  "ground_truth": {
+    "hash": "03cb16b5aa21f4b0a10a8e3ecc257358a979183387fd8cf4017825edecd1fed2",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8889,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "decompress data using LZO",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "c:\\19xxcli.exe",
+        "c:\\422en9.exe",
+        "c:\\441m5f.exe",
+        "c:\\527i399.exe",
+        "c:\\5h86q8.exe",
+        "c:\\5pa8j.exe",
+        "c:\\7298h6.exe",
+        "c:\\76oc4li.exe",
+        "c:\\7t79ht.exe",
+        "c:\\9474iff.exe",
+        "c:\\98920.exe",
+        "c:\\a1s52.exe",
+        "c:\\a9asp.exe",
+        "c:\\lf6oc3f.exe",
+        "c:\\m29s8.exe",
+        "c:\\mp6pv.exe",
+        "c:\\n5k9nw.exe",
+        "c:\\ofc8x7f.exe",
+        "c:\\pp26m.exe",
+        "c:\\sd06s.exe",
+        "c:\\ss545.exe",
+        "c:\\wqtkt1.exe",
+        "kj8vh.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "c:\\kj8vh.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

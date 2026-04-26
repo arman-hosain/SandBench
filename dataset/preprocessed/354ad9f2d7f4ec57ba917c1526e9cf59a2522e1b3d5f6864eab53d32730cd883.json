@@ -1,0 +1,49 @@
+{
+  "hash": "354ad9f2d7f4ec57ba917c1526e9cf59a2522e1b3d5f6864eab53d32730cd883",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - persist via Run registry key\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - reference absolute stream path on Windows\n  - contain loop\n  - Persistence::Registry Run Keys / Startup Folder [F0012]\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - (internal) packer file limitation\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Linker] Polink\n\nPE SECTIONS (entropy):\n  UPX0         entropy=6.29\n  UPX1         entropy=6.94\n  UPX2         entropy=7.53\n  .imports     entropy=7.82\n  [overlay]    entropy=7.880616664886475  size=720121\n",
+  "ground_truth": {
+    "hash": "354ad9f2d7f4ec57ba917c1526e9cf59a2522e1b3d5f6864eab53d32730cd883",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8472,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with UPX"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "persist via Run registry key"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "reference absolute stream path on Windows",
+      "contain loop",
+      "persist via Run registry key",
+      "packed with UPX",
+      "(internal) packer file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO"
+  ]
+}

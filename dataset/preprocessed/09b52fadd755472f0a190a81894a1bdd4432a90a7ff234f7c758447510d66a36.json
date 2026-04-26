@@ -1,0 +1,87 @@
+{
+  "hash": "09b52fadd755472f0a190a81894a1bdd4432a90a7ff234f7c758447510d66a36",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://www.download.windowsupdate.com/msdownload/update/v3/static/trustedr/en/authrootstl.cab\n\nDNS LOOKUPS (4):\n  2-01-3cf7-0009.cdx.cedexis.net \u2192 8.248.239.254, 8.241.21.254\n  fg.download.windowsupdate.com.c.footprint.net \u2192 8.248.239.254, 8.241.21.254\n  huyontop.com \u2192 173.231.184.55\n  www.download.windowsupdate.com \u2192 8.248.239.254, 8.241.21.254\n\nIP TRAFFIC (2):\n  173.231.184.55:443 (TCP)\n  8.248.239.254:80 (TCP)\n\nSERVICES OPENED (2):\n  RASMAN\n  Sens\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  fcbnaf.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\fcbnaf.exe\n\nCOMMAND EXECUTIONS (3):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\fcbnaf.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\fcbnaf.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\nddkje.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - get common file path\n  - get file size\n  - download and write a file\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - Process::Create Process [C0017]\n  - Communication::HTTP Communication [C0002]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - Communication::HTTP Communication::Send Request [C0002.003]\n  - Communication::HTTP Communication::Create Request [C0002.012]\n  - File System::Delete File [C0047]\n  - Process::Terminate Process [C0018]\n  - File System::Read File [C0051]\n  - Communication::HTTP Communication::Connect to Server [C0002.009]\n  - Communication::HTTP Communication::Get Response [C0002.017]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - File System::Writes File [C0052]\n  - Command and Control::C2 Communication::Server to Client File Transfer [B0030.003]\n  - Execution::Install Additional Program [B0023]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - read and send data from client to server\n  - receive and write data from server to client\n  - contains PDB path\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  fcbnaf.exe  [sha256: b24c9b27e079253c...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\fcbnaf.exe  [sha256: 4204c5ef6188e4dd...]\n\nFILES WRITTEN (11):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\fcbnaf.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows\\Temporary Internet Files\\Content.IE5\\XBL73YY1\\agorp[1].htm\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\Cab6180.tmp\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\Cab628C.tmp\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\Cab7B17.tmp\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\Tar6181.tmp\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\Tar628D.tmp\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\Tar7B18.tmp\n  C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\Windows\\Cookies\\admin@huyontop[1].txt\n  C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\Windows\\Cookies\\admin@huyontop[2].txt\n  nddkje.exe\n\nOTHER REGISTRY KEYS SET (3):\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n\nMUTEXES CREATED (2):\n  IESQMMUTEX_0_208\n  RasPbFile\n\nMUTEXES OPENED (3):\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\fcbnaf.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\fcbnaf.exe\" \"\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=5.23\n  .rdata       entropy=3.62\n  .reloc       entropy=1.48\n  [overlay]    entropy=1.6282479763031006  size=46312\n",
+  "ground_truth": {
+    "hash": "09b52fadd755472f0a190a81894a1bdd4432a90a7ff234f7c758447510d66a36",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9306,
+    "malicious_count": 67,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "agent",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1105",
+        "signature_description": "download and write a file"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "create process on Windows",
+      "get HTTP content length",
+      "contain loop",
+      "get common file path",
+      "get file size",
+      "send HTTP request",
+      "create HTTP request",
+      "delete file",
+      "terminate process",
+      "read file on Windows",
+      "connect to HTTP server",
+      "read data from Internet",
+      "receive data",
+      "write file on Windows",
+      "download and write a file",
+      "write and execute a file",
+      "send data",
+      "read and send data from client to server",
+      "receive and write data from server to client",
+      "contains PDB path",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "173.231.184.55",
+        "8.248.239.254"
+      ],
+      "domains": [
+        "2-01-3cf7-0009.cdx.cedexis.net",
+        "fg.download.windowsupdate.com.c.footprint.net",
+        "huyontop.com",
+        "www.download.windowsupdate.com"
+      ],
+      "urls": [
+        "http://www.download.windowsupdate.com/msdownload/update/v3/static/trustedr/en/authrootstl.cab"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 3,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\fcbnaf.exe",
+        "fcbnaf.exe"
+      ],
+      "mutexes": [
+        "IESQMMUTEX_0_208",
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\fcbnaf.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\fcbnaf.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "hash": "1f6648926306dffd99e8b19d77acccbec03674c548f62d0814c8728741b5cff7",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  cnwog.pe32\n    cnwog.exe\n\nCOMMAND EXECUTIONS (8):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\cnwog.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  \"C:\\Users\\Petra\\AppData\\Local\\Temp\\cnwog.exe\"\n  C:\\Windows\\system32\\schtasks.exe /delete /f /TN \"Microsoft\\Windows\\Customer Experience Improvement Program\\Uploader\"\n  C:\\Windows\\System32\\wsqmcons.exe \n  C:\\Windows\\system32\\cmd.exe /c del C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cnwog.exe >> NUL\n  \"C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cnwog.exe\" \n  \\??\\C:\\Windows\\system32\\conhost.exe\n   \n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (12):\n  - encode data using XOR\n  - link function at runtime on Windows\n  - parse PE header\n  - enumerate threads\n  - accept command line arguments\n  - check OS version\n  - query environment variable\n  - get file size\n  - enumerate processes\n  - get token membership\n  - get common file path\n  - lock the desktop\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - Process::Open Thread [C0066]\n  - Process::Suspend Thread [C0055]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Process::Create Process [C0017]\n  - File System::Create File [C0016]\n  - extract resource via kernel32 functions\n  - contain loop\n  - Data::Decompress Data::aPLib [C0025.003]\n  - link function at runtime on Windows\n  - parse PE header\n  - Process::Enumerate Threads [C0064]\n  - get OS version\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Discovery::System Information Discovery [E1082]\n  - Process::Terminate Process [C0018]\n  - Cryptography::Generate Pseudo-random Sequence [C0021]\n  - Process::Create Mutex [C0042]\n  - File System::Writes File [C0052]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Read File [C0051]\n  - enumerate processes\n  - get token membership\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  \\Users\\Petra\\AppData\\Local\\Temp\\cnwog.exe  [sha256: 89307f0c626b8fc9...]\n\nFILES WRITTEN (2):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\cnwog.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\cnwog.exe\n\nOTHER REGISTRY KEYS SET (6):\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SQMClient\\Windows\\AdaptiveSqm\\ManifestInfo\\Version\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SQMClient\\Windows\\WSqmConsLastEventTimeStamp\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SQMClient\\Windows\\WSqmConsLastRunTime\n  HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\AutoDetect\n  HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\UNCAsIntranet\n\nMUTEXES CREATED (7):\n  Global\\SQMWindowsConsolidator\n  Global\\{3D5A1694-CC2C-4ee7-A3D5-A879A9E3A62A}\n  Local\\MSCTF.Asm.MutexDefault0\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n\nPROCESSES CREATED (5):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\cnwog.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\cnwog.exe\" \"\n  C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cnwog.exe\n  C:\\Windows\\System32\\cmd.exe\n  C:\\Windows\\System32\\schtasks.exe\n  cnwog.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA, GetProcAddress, VirtualAlloc, VirtualProtect, WinExec\n  ADVAPI32.dll: OpenProcessToken\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.46\n  .data        entropy=7.38\n  .CRT         entropy=0.0\n  .rsrc        entropy=6.86\n  .reloc       entropy=0.0\n  [overlay]    entropy=3.5036215782165527  size=22782\n",
+  "ground_truth": {
+    "hash": "1f6648926306dffd99e8b19d77acccbec03674c548f62d0814c8728741b5cff7",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9167,
+    "malicious_count": 66,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 30
+      },
+      {
+        "value": "dropper",
+        "count": 7
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "dapato",
+        "count": 11
+      },
+      {
+        "value": "phdet",
+        "count": 8
+      },
+      {
+        "value": "ppatre",
+        "count": 6
+      }
+    ],
+    "suggested_label": "trojan.dapato/phdet",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1033",
+        "signature_description": "get token membership"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate threads"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "check OS version"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1499",
+        "signature_description": "lock the desktop"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RW memory",
+      "open thread",
+      "suspend thread",
+      "delay execution",
+      "encode data using XOR",
+      "create process on Windows",
+      "create or open file",
+      "extract resource via kernel32 functions",
+      "contain loop",
+      "decompress data using aPLib",
+      "link function at runtime on Windows",
+      "parse PE header",
+      "enumerate threads",
+      "get OS version",
+      "accept command line arguments",
+      "check OS version",
+      "terminate process",
+      "generate random numbers using a Mersenne Twister",
+      "query environment variable",
+      "create mutex",
+      "write file on Windows",
+      "get file size",
+      "read file on Windows",
+      "enumerate processes",
+      "get token membership",
+      "get common file path",
+      "delete file",
+      "lock the desktop",
+      "copy file",
+      "move file",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 6,
+      "files_dropped": [
+        "\\Users\\Petra\\AppData\\Local\\Temp\\cnwog.exe"
+      ],
+      "mutexes": [
+        "Global\\SQMWindowsConsolidator",
+        "Global\\{3D5A1694-CC2C-4ee7-A3D5-A879A9E3A62A}",
+        "Local\\MSCTF.Asm.MutexDefault0",
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\cnwog.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\cnwog.exe\" \"",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cnwog.exe",
+        "C:\\Windows\\System32\\cmd.exe",
+        "C:\\Windows\\System32\\schtasks.exe",
+        "cnwog.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Rising MOVES",
+    "SNDBOX",
+    "VirusTotal Cuckoofork"
+  ]
+}

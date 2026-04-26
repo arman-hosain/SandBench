@@ -1,0 +1,72 @@
+{
+  "hash": "0971dfbd3e839d41d37f82cf99b9e824b4ed099f03c6a72750b3ea83c4e36894",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (2):\n  asteptiunbebe.ro\n  robutech.com \u2192 103.112.162.27\n\nIP TRAFFIC (2):\n  103.112.162.27:443 (TCP)\n  8.8.8.8:53 (UDP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  codecupdate.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\codecupdate.exe\n\nCOMMAND EXECUTIONS (3):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\codecupdate.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\codecupdate.exe\n  \"C:\\Users\\Petra\\AppData\\Local\\Temp\\codecupdate.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  codecupdate.exe  [sha256: fe12e8a0557315f8...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\codecupdate.exe  [sha256: f5252c51abaae7d7...]\n  \\Users\\Petra\\AppData\\Local\\Temp\\codecupdate.exe  [sha256: ebc2744b5f842649...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\codecupdate.exe\n\nOTHER REGISTRY KEYS SET (8):\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C0054007200610063\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C0054007200610063\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n\nMUTEXES CREATED (15):\n  IESQMMUTEX_0_208\n  Local\\!IETld!Mutex\n  Local\\WininetConnectionMutex\n  Local\\WininetProxyRegistryMutex\n  Local\\WininetStartupMutex\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n  Local\\_!MSFTHISTORY!_\n\nPROCESSES CREATED (2):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\codecupdate.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\codecupdate.exe\" \"\n  codecupdate.exe\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.73\n  .rdata       entropy=5.22\n  .data        entropy=3.77\n  .rsrc        entropy=3.47\n  [overlay]    entropy=3.4831714630126953  size=11272\n",
+  "ground_truth": {
+    "hash": "0971dfbd3e839d41d37f82cf99b9e824b4ed099f03c6a72750b3ea83c4e36894",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8889,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "103.112.162.27",
+        "8.8.8.8"
+      ],
+      "domains": [
+        "asteptiunbebe.ro",
+        "robutech.com"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 8,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\codecupdate.exe",
+        "\\Users\\Petra\\AppData\\Local\\Temp\\codecupdate.exe",
+        "codecupdate.exe"
+      ],
+      "mutexes": [
+        "IESQMMUTEX_0_208",
+        "Local\\!IETld!Mutex",
+        "Local\\WininetConnectionMutex",
+        "Local\\WininetProxyRegistryMutex",
+        "Local\\WininetStartupMutex",
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "Local\\_!MSFTHISTORY!_",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!",
+        "Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!",
+        "Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!ietldcache!",
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\codecupdate.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\codecupdate.exe\" \"",
+        "codecupdate.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

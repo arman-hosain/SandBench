@@ -1,0 +1,66 @@
+{
+  "hash": "3bb8ad91928ec4de15b95f5d2dbca5caabe635d0452d6ba5611c50854ccb4ada",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  GET http://d1hq9wbcfo7dcl.cloudfront.net/http://d1hq9wbcfo7dcl.cloudfront.net/offer.php?affId=1006&trackingId=430417754&instId=11&ho_trackingid=HO430417754&cc=GB&sb=x86&wv=xpsp3&db=InternetExplorer&uac=1&cid=6965702ab625dd49ea1db1c0cda15a00&v=3&net=3.5.21022.08&ie=6%2e0%2e2900%2e5512&res=2560x1600&osd=2774&kid=hqmrb21blcpp64s5ojn\n  GET http://d1hq9wbcfo7dcl.cloudfront.net/offer.php?affId=1006&trackingId=430417754&instId=11&ho_trackingid=HO430417754&cc=GB&sb=x64&wv=7sp1&db=InternetExplorer&uac=1&cid=bcbaa53dffa0965e557319f4f2155088&v=3&net=4.8.03761&ie=8%2e0%2e7601%2e17514&res=800x600&osd=133&kid=hqmrb21blcpp64s5ojn\n\nDNS LOOKUPS (3):\n  d1hq9wbcfo7dcl.cloudfront.net\n  d1hq9wbcfo7dcl.cloudfront.net \u2192 13.224.197.11\n  d1hq9wbcfo7dcl.cloudfront.net \u2192 143.204.98.24, 143.204.98.46\n\nIP TRAFFIC (2):\n  13.225.84.72:80 (TCP)\n  143.204.98.24:80 (TCP)\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - contain obfuscated stackstrings\n  - encode data using XOR\n  - parse PE header\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - resolve function by parsing PE exports\n  - parse PE header\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (7):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  MSCTF.Shared.MUTEX.EBH\n\n--- FILE IDENTITY ---\n\nPE SECTIONS (entropy):\n  .text        entropy=5.54\n  .rsrc        entropy=6.49\n  .rdata       entropy=7.99\n  _RDATA       entropy=5.22\n  .idata       entropy=3.19\n  _DATA        entropy=0.0\n  .reloc       entropy=2.47\n",
+  "ground_truth": {
+    "hash": "3bb8ad91928ec4de15b95f5d2dbca5caabe635d0452d6ba5611c50854ccb4ada",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7705,
+    "malicious_count": 47,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "encode data using XOR",
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "parse PE header",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "13.225.84.72",
+        "143.204.98.24"
+      ],
+      "domains": [
+        "d1hq9wbcfo7dcl.cloudfront.net"
+      ],
+      "urls": [
+        "http://d1hq9wbcfo7dcl.cloudfront.net/http://d1hq9wbcfo7dcl.cloudfront.net/offer.php?affId=1006&trackingId=430417754&instId=11&ho_trackingid=HO430417754&cc=GB&sb=x86&wv=xpsp3&db=InternetExplorer&uac=1&cid=6965702ab625dd49ea1db1c0cda15a00&v=3&net=3.5.21022.08&ie=6%2e0%2e2900%2e5512&res=2560x1600&osd=2774&kid=hqmrb21blcpp64s5ojn",
+        "http://d1hq9wbcfo7dcl.cloudfront.net/offer.php?affId=1006&trackingId=430417754&instId=11&ho_trackingid=HO430417754&cc=GB&sb=x64&wv=7sp1&db=InternetExplorer&uac=1&cid=bcbaa53dffa0965e557319f4f2155088&v=3&net=4.8.03761&ie=8%2e0%2e7601%2e17514&res=800x600&osd=133&kid=hqmrb21blcpp64s5ojn"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "MSCTF.Shared.MUTEX.EBH"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

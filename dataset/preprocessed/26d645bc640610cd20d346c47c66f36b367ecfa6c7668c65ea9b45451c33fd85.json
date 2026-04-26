@@ -1,0 +1,64 @@
+{
+  "hash": "26d645bc640610cd20d346c47c66f36b367ecfa6c7668c65ea9b45451c33fd85",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\svchost.exe\n    <SYSTEM32>\\taskeng.exe\n  <SYSTEM32>\\taskeng.exe\n    %ProgramFiles%\\mozilla\\nengnjg.exe\n  %ProgramFiles%\\mozilla\\nengnjg.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - query or enumerate registry value\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  ctvqzym.exe  [sha256: ee9c166a5c57110d...]\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: 20f794603138012d...]\n  <SYSTEM32>\\tasks\\efabovn  [sha256: d3a65dcdc8163411...]\n\nFILES WRITTEN (7):\n  %ProgramFiles%\\mozilla\\nengnjg.exe\n  %ProgramFiles%\\mozilla\\ryogiqg.dll\n  C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\ctvqzym.exe\n  C:\\Documents and Settings\\All Users\\Application Data\\Mozilla\\aopsara.dll\n  C:\\Documents and Settings\\All Users\\Application Data\\Mozilla\\byiamvi.exe\n  C:\\WINDOWS\\Tasks\\hiqvsnd.job\n  C:\\WINDOWS\\Tasks\\rwdqoxi.job\n\nPERSISTENCE REGISTRY KEYS (4):\n  <HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs = %ProgramFiles%\\Mozilla\\ryogiqg.dll\n  <HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs = 0x00000001\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs = C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\aopsara.dll\u0000\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs = 01000000\n\nOTHER REGISTRY KEYS SET (10):\n  \\REGISTRY\\A\\{3d245c7e-fa95-11e9-b1cd-685dc4b15113}\\DefaultObjectStore\\ObjectTable\\E9\\_ObjectId_\n  \\REGISTRY\\A\\{3d245c7e-fa95-11e9-b1cd-685dc4b15113}\\DefaultObjectStore\\LruList\\CurrentLru\n  \\REGISTRY\\A\\{3d245c7e-fa95-11e9-b1cd-685dc4b15113}\\DefaultObjectStore\\LruList\\00000000000002FF\\ObjectId\n  \\REGISTRY\\A\\{3d245c7e-fa95-11e9-b1cd-685dc4b15113}\\DefaultObjectStore\\LruList\\00000000000002FF\\ObjectLru\n  \\REGISTRY\\A\\{3d245c7e-fa95-11e9-b1cd-685dc4b15113}\\DefaultObjectStore\\ObjectTable\\E9\\_ObjectLru_\n  \\REGISTRY\\A\\{3d245c7e-fa95-11e9-b1cd-685dc4b15113}\\DefaultObjectStore\\ObjectTable\\E9\\_FileId_\n  \\REGISTRY\\A\\{3d245c7e-fa95-11e9-b1cd-685dc4b15113}\\DefaultObjectStore\\ObjectTable\\E9\\_Usn_\n  \\REGISTRY\\A\\{3d245c7e-fa95-11e9-b1cd-685dc4b15113}\\DefaultObjectStore\\ObjectTable\\E9\\_UsnJournalId_\n  \\REGISTRY\\A\\{3d245c7e-fa95-11e9-b1cd-685dc4b15113}\\DefaultObjectStore\\ObjectTable\\E9\\Indexes\\FileIdIndex-{c84d25cd-f368-\n  \\REGISTRY\\A\\{3d245c7e-fa95-11e9-b1cd-685dc4b15113}\\DefaultObjectStore\\IndexTable\\FileIdIndex-{c84d25cd-f368-11e4-889d-80\n\nMUTEXES CREATED (6):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n\nPROCESSES CREATED (3):\n  %ProgramFiles%\\mozilla\\nengnjg.exe\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\taskeng.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: VirtualAlloc\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Linker] Polink\n\nPE SECTIONS (entropy):\n  .data        entropy=4.88\n  .rdata5      entropy=6.92\n  .text        entropy=5.87\n  ggg8         entropy=0.16\n  ggg7         entropy=0.16\n  ggg6         entropy=1.24\n  .rsrc        entropy=6.18\n  .reloc       entropy=5.66\n  [overlay]    entropy=7.696342945098877  size=680\n",
+  "ground_truth": {
+    "hash": "26d645bc640610cd20d346c47c66f36b367ecfa6c7668c65ea9b45451c33fd85",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8955,
+    "malicious_count": 60,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "query or enumerate registry value",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "<HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs",
+        "<HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs"
+      ],
+      "registry_all_count": 23,
+      "files_dropped": [
+        "<SYSTEM32>\\tasks\\efabovn",
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "ctvqzym.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500"
+      ],
+      "processes": [
+        "%ProgramFiles%\\mozilla\\nengnjg.exe",
+        "<PATH_SAMPLE.EXE>",
+        "<SYSTEM32>\\taskeng.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "Dr.Web vxCube",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

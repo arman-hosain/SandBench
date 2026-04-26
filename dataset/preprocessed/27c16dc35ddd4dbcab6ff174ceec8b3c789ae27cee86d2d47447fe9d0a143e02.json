@@ -1,0 +1,106 @@
+{
+  "hash": "27c16dc35ddd4dbcab6ff174ceec8b3c789ae27cee86d2d47447fe9d0a143e02",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (5):\n  MARUTISTORE.COM\n  NKATOZ.COM\n  edupoint.co.in \u2192 104.243.44.52\n  marutistore.com\n  nkatoz.com\n\nIP TRAFFIC (2):\n  104.243.44.52:443 (TCP)\n  8.8.8.8:53 (UDP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  huro.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\huro.exe\n\nCOMMAND EXECUTIONS (3):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\huro.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\huro.exe\n  \"C:\\Users\\Petra\\AppData\\Local\\Temp\\huro.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - hide graphical window\n  - reference startup folder\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - hide graphical window\n  - contain loop\n  - contain a resource (.rsrc) section\n  - reference startup folder\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  huro.exe  [sha256: dcab488b08f50c58...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\huro.exe  [sha256: 1a1ec6b869b43dc2...]\n  \\Users\\Petra\\AppData\\Local\\Temp\\huro.exe  [sha256: aaf6d6278e232fdd...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\huro.exe\n\nOTHER REGISTRY KEYS SET (8):\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C0054007200610063\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C0054007200610063\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n\nMUTEXES CREATED (15):\n  IESQMMUTEX_0_208\n  Local\\!IETld!Mutex\n  Local\\WininetConnectionMutex\n  Local\\WininetProxyRegistryMutex\n  Local\\WininetStartupMutex\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n  Local\\_!MSFTHISTORY!_\n\nPROCESSES CREATED (2):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\huro.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\huro.exe\" \"\n  huro.exe\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.63\n  .rdata       entropy=4.66\n  .data        entropy=3.02\n  .rsrc        entropy=5.21\n  [overlay]    entropy=3.5636518001556396  size=12472\n",
+  "ground_truth": {
+    "hash": "27c16dc35ddd4dbcab6ff174ceec8b3c789ae27cee86d2d47447fe9d0a143e02",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9577,
+    "malicious_count": 68,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 36
+      },
+      {
+        "value": "downloader",
+        "count": 12
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "bublik",
+        "count": 11
+      },
+      {
+        "value": "upatre",
+        "count": 9
+      },
+      {
+        "value": "zbot",
+        "count": 8
+      }
+    ],
+    "suggested_label": "trojan.bublik/upatre",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "reference startup folder"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "hide graphical window",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "reference startup folder",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "104.243.44.52",
+        "8.8.8.8"
+      ],
+      "domains": [
+        "edupoint.co.in",
+        "marutistore.com",
+        "nkatoz.com"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 8,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\huro.exe",
+        "\\Users\\Petra\\AppData\\Local\\Temp\\huro.exe",
+        "huro.exe"
+      ],
+      "mutexes": [
+        "IESQMMUTEX_0_208",
+        "Local\\!IETld!Mutex",
+        "Local\\WininetConnectionMutex",
+        "Local\\WininetProxyRegistryMutex",
+        "Local\\WininetStartupMutex",
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "Local\\_!MSFTHISTORY!_",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!",
+        "Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!",
+        "Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!ietldcache!",
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\huro.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\huro.exe\" \"",
+        "huro.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

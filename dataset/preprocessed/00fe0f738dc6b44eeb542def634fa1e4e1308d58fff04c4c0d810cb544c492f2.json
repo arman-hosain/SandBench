@@ -1,0 +1,93 @@
+{
+  "hash": "00fe0f738dc6b44eeb542def634fa1e4e1308d58fff04c4c0d810cb544c492f2",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\Documents and Settings\\All Users\\Application Data\\gungs.exe\n\nCOMMAND EXECUTIONS (1):\n  (open) C:\\00fe0f738dc6b44eeb542def634fa1e4e1308d58fff04c4c0d810cb544c(null) [(null)]\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (5):\n  - contain obfuscated stackstrings\n  - get startup folder\n  - set file attributes\n  - get common file path\n  - accept command line arguments\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - get startup folder\n  - Process::Create Process [C0017]\n  - File System::Set File Attributes [C0050]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Delete File [C0047]\n  - File System::Create Directory [C0046]\n  - Process::Allocate Thread Local Storage [C0040]\n  - get thread local storage value\n  - Process::Set Thread Local Storage Value [C0041]\n  - File System::Read File [C0051]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - resolve function by parsing PE exports\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (17):\n  00fe0f738dc6b44eeb542def634fa1e4e1308d58fff04c4c0d810cb544c492f2 .exe  [sha256: 275be35962e91b0b...]\n  AUTOEXEC.BAT .exe  [sha256: e5e2d42782b37e1d...]\n  boot.ini .exe  [sha256: 85868fed0c2f6b3b...]\n  CONFIG.SYS .exe  [sha256: 3bf6c270c8964a22...]\n  cuckoo .exe  [sha256: 03028d5f8a336849...]\n  Documents and Settings .exe  [sha256: e0233b0eb1e860ac...]\n  eula.1028.txt .exe  [sha256: 3ad6b4d847f78dab...]\n  eula.1031.txt .exe  [sha256: bde365b0e26e9d8f...]\n  eula.1033.txt .exe  [sha256: cfb6d733d80bae5c...]\n  eula.1036.txt .exe  [sha256: 46359e7f53873b3f...]\n  eula.1040.txt .exe  [sha256: 27f8781c27563451...]\n  eula.1041.txt .exe  [sha256: 8d4e99c3833a83c3...]\n  eula.1042.txt .exe  [sha256: 9970aca14c3bd2f7...]\n  eula.2052.txt .exe  [sha256: 451a62064503ace5...]\n  eula.3082.txt .exe  [sha256: 3f85949cb9f0e1d7...]\n  globdata.ini .exe  [sha256: f46c66c44c544664...]\n  gungs.exe  [sha256: 2556b3ee057f984d...]\n\nFILES WRITTEN (3):\n  C:\\Documents and Settings\\All Users\\Application Data\\gungs.exe\n  c:\\00fe0f738dc6b44eeb542def634fa1e4e1308d58fff04c4c0d810cb544c492f2 .exe\n  c:\\AUTOEXEC.BAT .exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  C:\\Documents and Settings\\All Users\\Application Data\\gungs.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCOMPILER AND PACKER:\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n  Packers: {'PEiD': 'MingWin32 v?.? (h)'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.08\n  .data        entropy=0.71\n  .rdata       entropy=5.01\n  .bss         entropy=0.0\n  .idata       entropy=4.29\n  .rsrc        entropy=6.23\n  [overlay]    entropy=7.08019495010376  size=438399\n",
+  "ground_truth": {
+    "hash": "00fe0f738dc6b44eeb542def634fa1e4e1308d58fff04c4c0d810cb544c492f2",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9167,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "get startup folder"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "get startup folder",
+      "create process on Windows",
+      "set file attributes",
+      "delay execution",
+      "create or open file",
+      "contain loop",
+      "get common file path",
+      "delete file",
+      "create directory",
+      "allocate thread local storage",
+      "get thread local storage value",
+      "set thread local storage value",
+      "read file on Windows",
+      "accept command line arguments",
+      "resolve function by parsing PE exports",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "00fe0f738dc6b44eeb542def634fa1e4e1308d58fff04c4c0d810cb544c492f2 .exe",
+        "AUTOEXEC.BAT .exe",
+        "CONFIG.SYS .exe",
+        "Documents and Settings .exe",
+        "boot.ini .exe",
+        "cuckoo .exe",
+        "eula.1028.txt .exe",
+        "eula.1031.txt .exe",
+        "eula.1033.txt .exe",
+        "eula.1036.txt .exe",
+        "eula.1040.txt .exe",
+        "eula.1041.txt .exe",
+        "eula.1042.txt .exe",
+        "eula.2052.txt .exe",
+        "eula.3082.txt .exe",
+        "globdata.ini .exe",
+        "gungs.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\All Users\\Application Data\\gungs.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

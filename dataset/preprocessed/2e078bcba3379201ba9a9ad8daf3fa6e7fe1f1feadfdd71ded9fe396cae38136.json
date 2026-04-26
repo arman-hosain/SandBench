@@ -1,0 +1,87 @@
+{
+  "hash": "2e078bcba3379201ba9a9ad8daf3fa6e7fe1f1feadfdd71ded9fe396cae38136",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  GET http://bitdefender.com/  UA: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36\n  GET http://bitdefender.com/\n\nDNS LOOKUPS (6):\n  gdcb.bit\n  ipv4bot.whatismyipaddress.com \u2192 66.171.248.178\n  malwarehunterteam.bit\n  ns1.virmach.ru\n  ns2.virmach.ru\n  politiaromana.bit\n\nIP TRAFFIC (2):\n  66.171.248.178:80 (TCP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (2):\n  RASMAN\n  Sens\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  crsblk.exe\n    nslookup malwarehunterteam.bit ns1.virmach.ru\n    nslookup politiaromana.bit ns1.virmach.ru\n    nslookup gdcb.bit ns1.virmach.ru\n    nslookup malwarehunterteam.bit ns2.virmach.ru\n    nslookup politiaromana.bit ns2.virmach.ru\n    nslookup gdcb.bit ns2.virmach.ru\n    nslookup malwarehunterteam.bit ns1.virmach.ru\n    nslookup politiaromana.bit ns1.virmach.ru\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (6):\n  - decrypt data using TEA\n  - get memory capacity\n  - get geographical location\n  - link function at runtime on Windows\n  - get keyboard layout\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Defense Evasion::Obfuscated Files or Information::Encryption-Standard Algorithm [E1027.m05]\n  - get memory capacity\n  - get geographical location\n  - link function at runtime on Windows\n  - File System::Move File [C0063]\n  - Impact::Clipboard Modification [E1510]\n  - get keyboard layout\n  - Process::Terminate Process [C0018]\n  - Process::Allocate Thread Local Storage [C0040]\n  - link many functions at runtime\n  - contain a resource (.rsrc) section\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  tyordk.exe  [sha256: 16b1366343dde66a...]\n  C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\gqoctd.exe  [sha256: cf210d7fe13cf10c...]\n\nFILES WRITTEN (2):\n  C:\\Documents and Settings\\<USER>\\Application Data\\Microsoft\\tyordk.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows\\Temporary Internet Files\\Content.IE5\\XBL73YY1\\ipv4bot_whatismyipaddress_com[1].htm\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\imybobfecgt = \"\n\nOTHER REGISTRY KEYS SET (3):\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n\nMUTEXES CREATED (4):\n  Global\\pc_group=WORKGROUP&ransom_id=4029414471d2c847\n  IESQMMUTEX_0_208\n  RasPbFile\n  ShimCacheMutex\n\nMUTEXES OPENED (4):\n  Global\\pc_group=WORKGROUP&ransom_id=cd19fdb96c78a9c3\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n\nPROCESSES CREATED (1):\n  nslookup politiaromana.bit ns1.virmach.ru\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryW\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=5.54\n  .rdata       entropy=3.53\n  .data        entropy=2.45\n  .idata       entropy=3.88\n  .rsrc        entropy=7.94\n  .reloc       entropy=1.64\n  [overlay]    entropy=2.25  size=8\n",
+  "ground_truth": {
+    "hash": "2e078bcba3379201ba9a9ad8daf3fa6e7fe1f1feadfdd71ded9fe396cae38136",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9155,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "decrypt data using TEA"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get memory capacity"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "decrypt data using TEA",
+      "get memory capacity",
+      "get geographical location",
+      "link function at runtime on Windows",
+      "move file",
+      "write clipboard data",
+      "get keyboard layout",
+      "terminate process",
+      "allocate thread local storage",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "66.171.248.178",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "gdcb.bit",
+        "ipv4bot.whatismyipaddress.com",
+        "malwarehunterteam.bit",
+        "ns1.virmach.ru",
+        "ns2.virmach.ru",
+        "politiaromana.bit"
+      ],
+      "urls": [
+        "http://bitdefender.com/"
+      ],
+      "registry_persistence": [
+        "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\imybobfecgt"
+      ],
+      "registry_all_count": 4,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\gqoctd.exe",
+        "tyordk.exe"
+      ],
+      "mutexes": [
+        "Global\\pc_group=WORKGROUP&ransom_id=4029414471d2c847",
+        "IESQMMUTEX_0_208",
+        "RasPbFile",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "nslookup politiaromana.bit ns1.virmach.ru"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

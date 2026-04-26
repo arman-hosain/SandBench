@@ -1,0 +1,218 @@
+{
+  "hash": "00b10d6a4e2c8608103511d140e93c8e9feb7c254e05f2a42b5cd34081c5f249",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is confirmed malicious due to aggressive persistence mechanisms (Winlogon Shell hijacking, Startup folder shortcuts), file system abuse (dropping files with double extensions like .jpg.exe), and active data exfiltration capabilities including keylogging, screenshot capture, and clipboard reading. It employs anti-analysis techniques such as debugger detection, delayed execution, and code obfuscation (ASPack, XOR encoding, stack strings). The combination of reconnaissance, persistence, and data theft defines a sophisticated Trojan.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Spyware\"],\n    \"explanation\": \"The sample is classified as a Trojan because it disguises itself as legitimate files (images, HTML, batch files) to trick users into execution and establishes persistence. It is also classified as Spyware because it actively collects sensitive user data through keylogging, screenshot capture, clipboard reading, and system information gathering. The behavior exceeds simple adware or dropper functionality.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1059.001\",\n        \"name\": \"Command and Scripting Interpreter: Command Prompt and Windows PowerShell\"\n      },\n      {\n        \"id\": \"T1056.001\",\n        \"name\": \"Input Capture: Keyboard Layout\"\n      },\n      {\n        \"id\": \"T1056.002\",\n        \"name\": \"Input Capture: Keylogging\"\n      },\n      {\n        \"id\": \"T1056.003\",\n        \"name\": \"Input Capture: Screenshot\"\n      },\n      {\n        \"id\": \"T1056.004\",\n        \"name\": \"Input Capture: Clipboard Data\"\n      },\n      {\n        \"id\": \"T1083\",\n        \"name\": \"File and Directory Discovery\"\n      },\n      {\n        \"id\": \"T1082\",\n        \"name\": \"System Information Discovery\"\n      },\n      {\n        \"id\": \"T1005\",\n        \"name\": \"Data from Local System\"\n      },\n      {\n        \"id\": \"T1036\",\n        \"name\": \"Masquerading\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1070.004\",\n        \"name\": \"Indicator Removal on Host: Clear Windows Event Logs\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 5533,
+      "response_chars": 1587,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including persistence mechanisms (Winlogon Shell hijacking, Startup folder shortcuts), file system manipulation (dropping .exe files with misleading extensions like .jpg.exe, .html.exe, and .bat.exe), anti-analysis techniques (debugger detection, delayed execution, obfuscation), and ca",
+      "elapsed_seconds": 14.29
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "11 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 11,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1059",
+        "T1547",
+        "T1562"
+      ],
+      "hallucinated_ttps": [
+        "T1055",
+        "T1057",
+        "T1562"
+      ],
+      "ttp_tp": 4,
+      "ttp_fp": 3
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- find graphical window\n- query or enumerate registry value\n- get disk size\n- get file version info\n- capture screenshot\n- read clipboard data\n- link function at runtime on Windows\n- set file attributes\n- shutdown system\n- hide graphical window\n\nInstructi",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1005",
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1056",
+        "T1059",
+        "T1070",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 6,
+      "best_ttp_fp": 4
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "9 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 9,
+      "ttps_found": [
+        "T1005",
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1056",
+        "T1059",
+        "T1070",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1005",
+        "T1036",
+        "T1055",
+        "T1070"
+      ],
+      "ttp_tp": 6,
+      "ttp_fp": 4
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- find graphical window\n- query or enumerate registry value\n- capture screenshot\n- read clipboard data\n- link function at runtime on Windows\n- set file attributes\n- shutdown system\n- hide graphical window\n- get geographical location\n\nInstructions:\n- Add a",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1003",
+        "T1005",
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1059",
+        "T1070",
+        "T1078",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 6,
+      "best_ttp_fp": 4
+    },
+    {
+      "step": 8,
+      "type": "refinement_stopped",
+      "iteration": 2,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 6,
+      "ttp_fp": 7
+    }
+  ],
+  "total_llm_calls": 3,
+  "total_elapsed": 61.96,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9167
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.48,
+      "ttp_precision": 0.6,
+      "ttp_recall": 0.4,
+      "gt_ttps": [
+        "T1010",
+        "T1012",
+        "T1027",
+        "T1056",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1113",
+        "T1115",
+        "T1129",
+        "T1222",
+        "T1529",
+        "T1547",
+        "T1564",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1005",
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1056",
+        "T1059",
+        "T1070",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "tp": 6,
+      "q3_hallucinated_ttps": [
+        "T1005",
+        "T1036",
+        "T1055",
+        "T1070"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1012",
+        "T1113",
+        "T1115",
+        "T1129",
+        "T1222",
+        "T1529",
+        "T1564",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.48,
+      "breakdown": {
+        "ttp_f1": 0.48
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "hash": "3f7560562553ce49da33881bf796692e1fe3f1b0c3360dbe7ac699555b4d0df7",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (5):\n  GET http://ipv4bot.whatismyipaddress.com/\n  GET http://110.110.110.0/wpad.dat\n  POST http://110.110.110.3/eege?eylo=scowlo\n  POST http://110.110.110.3/lfeelf\n  POST http://110.110.110.3/phaupleigh?ere=st&lo=oascore\n\nDNS LOOKUPS (2):\n  ipv4bot.whatismyipaddress.com\n  ns1.wowservers.ru\n\nSERVICES OPENED (2):\n  RASMAN\n  Sens\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    nslookup.exe nslookup carder.bit ns1.wowservers.ru\n    nslookup.exe nslookup carder.bit ns1.wowservers.ru\n    nslookup.exe nslookup carder.bit ns1.wowservers.ru\n\nCOMMAND EXECUTIONS (1):\n  nslookup carder.bit ns1.wowservers.ru\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - encrypt data using RC4 KSA\n  - link function at runtime on Windows\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - File System::Create File [C0016]\n  - Memory::Allocate Memory [C0007]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - contain loop\n  - Anti-Behavioral Analysis::Debugger Detection::Timing/Delay Check GetTickCount [B0001.032]\n  - Communication::Interprocess Communication [C0003]\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Encryption Key::RC4 KSA [C0028.002]\n  - get thread local storage value\n  - print debug messages\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - contain a resource (.rsrc) section\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\kknkui.exe  [sha256: 267674a87c31aa6d...]\n\nFILES WRITTEN (2):\n  C:\\Documents and Settings\\Administrator\\Application Data\\Microsoft\\pjuqkm.exe\n  C:\\WINDOWS\\win.ini\n\nPERSISTENCE REGISTRY KEYS (2):\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\xpveqorjezo = \"\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\oymcirbqowr = \"C:\\Documents and Settings\\Administrator\\Application Data\\Microsoft\\pjuqkm.exe\"\u0000\n\nOTHER REGISTRY KEYS SET (5):\n  HKU\\S-1-5-18\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-18\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\SavedLegacySettings\n  \\REGISTRY\\USER\\.DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  \\REGISTRY\\USER\\.DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Connections\\SavedLegacySettings\n  \\REGISTRY\\USER\\.DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Connections\\DefaultConnectionSetting\n\nMUTEXES CREATED (12):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  Global\\pc_group=WORKGROUP&ransom_id=2d84a7bff44048e7\n  Global\\pc_group=WORKGROUP&ransom_id=4029414471d2c847\n  RasPbFile\n  ZonesCacheCounterMutex\n\nMUTEXES OPENED (7):\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n  _!MSFTHISTORY!_\n  c:!documents and settings!administrator!cookies!\n  c:!documents and settings!administrator!local settings!history!history.ie5!\n  c:!documents and settings!administrator!local settings!temporary internet files!content.ie5!\n\nPROCESSES CREATED (1):\n  C:\\WINDOWS\\system32\\nslookup.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryExW, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.69\n  .rdata       entropy=4.69\n  .data        entropy=2.9\n  .rsrc        entropy=7.88\n  .reloc       entropy=6.44\n  [overlay]    entropy=3.238901376724243  size=13\n",
+  "ground_truth": {
+    "hash": "3f7560562553ce49da33881bf796692e1fe3f1b0c3360dbe7ac699555b4d0df7",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encrypt data using RC4 KSA"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "create or open file",
+      "allocate memory",
+      "delay execution",
+      "contain loop",
+      "check for time delay via GetTickCount",
+      "create mailslot",
+      "encrypt data using RC4 KSA",
+      "get thread local storage value",
+      "print debug messages",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [
+        "ipv4bot.whatismyipaddress.com",
+        "ns1.wowservers.ru"
+      ],
+      "urls": [
+        "http://110.110.110.0/wpad.dat",
+        "http://110.110.110.3/eege?eylo=scowlo",
+        "http://110.110.110.3/lfeelf",
+        "http://110.110.110.3/phaupleigh?ere=st&lo=oascore",
+        "http://ipv4bot.whatismyipaddress.com/"
+      ],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\xpveqorjezo",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\oymcirbqowr"
+      ],
+      "registry_all_count": 7,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\kknkui.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "Global\\pc_group=WORKGROUP&ransom_id=2d84a7bff44048e7",
+        "Global\\pc_group=WORKGROUP&ransom_id=4029414471d2c847",
+        "RasPbFile",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\system32\\nslookup.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

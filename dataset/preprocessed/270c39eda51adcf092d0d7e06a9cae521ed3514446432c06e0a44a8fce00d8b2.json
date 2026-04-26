@@ -1,0 +1,199 @@
+{
+  "hash": "270c39eda51adcf092d0d7e06a9cae521ed3514446432c06e0a44a8fce00d8b2",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (3):\n  abnormal.openface.ca \u2192 216.46.1.19\n  irc.openface.ca \u2192 216.46.1.19\n  sil.polytechnique.fr\n\nIP TRAFFIC (1):\n  216.46.1.19:6667 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    tcv.exe\n      tcv.exe\n\nCOMMAND EXECUTIONS (3):\n  (open) C:\\WINDOWS\\TEMP\\Tcv.exe(null) [(null)]\n  C:\\Windows\\TEMP\\Tcv.exe\n  \"C:\\Windows\\TEMP\\Tcv.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (26):\n  - set file attributes\n  - encode data using XOR\n  - access PEB ldr_data\n  - hide graphical window\n  - get common file path\n  - accept command line arguments\n  - query or enumerate registry value\n  - get geographical location\n  - get file size\n  - get system information on Windows\n  - read clipboard data\n  - capture screenshot\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - log keystrokes\n  - log keystrokes via polling\n  - get keyboard layout\n  - enumerate gui resources\n  - get local IPv4 addresses\n  - get hostname\n  - query or enumerate registry key\n  - get disk information\n  - check if file exists\n  - parse PE header\n  - shutdown system\n  - persist via Run registry key\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - Cryptography::Generate Pseudo-random Sequence [C0021]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - File System::Create File [C0016]\n  - File System::Set File Attributes [C0050]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - access PEB ldr_data\n  - hide graphical window\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - set global application hook\n  - Process::Create Thread [C0038]\n  - inspect load icon resource\n  - File System::Get File Attributes [C0049]\n  - reference absolute stream path on Windows\n  - Process::Create Process [C0017]\n  - contain loop\n  - set current directory\n  - Discovery::File and Directory Discovery [E1083]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - get geographical location\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (7):\n  Discv.dll  [sha256: 593ba4fcfaf6a639...]\n  Lcv_sys.exe  [sha256: 0ec353dac90acd2a...]\n  Tcv.exe  [sha256: 1b3aacc8c891d1ab...]\n  C:\\Windows\\TEMP\\Tcv.exe  [sha256: 1b3aacc8c891d1ab...]\n  \\Windows\\Temp\\Tcv.exe  [sha256: 1b3aacc8c891d1ab...]\n  \\Windows\\System32\\Discv.dll  [sha256: 593ba4fcfaf6a639...]\n  \\Windows\\System32\\Lcv_sys.exe  [sha256: 0ec353dac90acd2a...]\n\nFILES WRITTEN (9):\n  C:\\WINDOWS\\TEMP\\Tcv.exe\n  C:\\WINDOWS\\Temp\\Tcv.exe\n  C:\\WINDOWS\\system32\\Discv.dll\n  C:\\WINDOWS\\system32\\Lcv_sys.exe\n  C:\\WINDOWS\\winstart.bat\n  C:\\Windows\\system32\\Discv.dll\n  C:\\Windows\\system32\\Lcv_sys.exe\n  C:\\Windows\\winstart.bat\n  PIPE\\srvsvc\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\RunServices\\Win ocx = C:\\Windows\\system32\\Lcv_sys.exe\n\nOTHER REGISTRY KEYS SET (3):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\WINDOWS\\\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C0043006C00610\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n\nMUTEXES CREATED (15):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n\nPROCESSES CREATED (2):\n  C:\\WINDOWS\\TEMP\\Tcv.exe C:\\WINDOWS\\TEMP\\Tcv.exe\" \"\n  Tcv.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n\nPE SECTIONS (entropy):\n  CODE         entropy=5.98\n  .rsrc        entropy=6.15\n  [overlay]    entropy=0.0  size=512437\n",
+  "ground_truth": {
+    "hash": "270c39eda51adcf092d0d7e06a9cae521ed3514446432c06e0a44a8fce00d8b2",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.831,
+    "malicious_count": 59,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "enumerate gui resources"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1016",
+        "signature_description": "get local IPv4 addresses"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get system information on Windows"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1113",
+        "signature_description": "capture screenshot"
+      },
+      {
+        "id": "T1115",
+        "signature_description": "read clipboard data"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1529",
+        "signature_description": "shutdown system"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "persist via Run registry key"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "allocate RW memory",
+      "generate random numbers using the Delphi LCG",
+      "create or open registry key",
+      "create or open file",
+      "set file attributes",
+      "PEB access",
+      "encode data using XOR",
+      "access PEB ldr_data",
+      "allocate RWX memory",
+      "hide graphical window",
+      "delay execution",
+      "set global application hook",
+      "create thread",
+      "inspect load icon resource",
+      "get file attributes",
+      "reference absolute stream path on Windows",
+      "create process on Windows",
+      "contain loop",
+      "set current directory",
+      "get common file path",
+      "accept command line arguments",
+      "query or enumerate registry value",
+      "get geographical location",
+      "read file on Windows",
+      "write file on Windows",
+      "get file size",
+      "set thread local storage value",
+      "get thread local storage value",
+      "delete file",
+      "move file",
+      "create directory",
+      "get OS version",
+      "extract resource via kernel32 functions",
+      "get system information on Windows",
+      "read clipboard data",
+      "capture screenshot",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "log keystrokes",
+      "log keystrokes via polling",
+      "get keyboard layout",
+      "set application hook",
+      "enumerate gui resources",
+      "get graphical window text",
+      "receive data on socket",
+      "receive data",
+      "send data on socket",
+      "send data",
+      "get local IPv4 addresses",
+      "resolve DNS",
+      "get hostname",
+      "query or enumerate registry key",
+      "set registry value",
+      "get disk information",
+      "check if file exists",
+      "read file via mapping",
+      "parse PE header",
+      "shutdown system",
+      "persist via Run registry key",
+      "contain a resource (.rsrc) section",
+      "compiled with Borland Delphi"
+    ],
+    "iocs": {
+      "ips": [
+        "216.46.1.19"
+      ],
+      "domains": [
+        "abnormal.openface.ca",
+        "irc.openface.ca",
+        "sil.polytechnique.fr"
+      ],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\RunServices\\Win ocx"
+      ],
+      "registry_all_count": 4,
+      "files_dropped": [
+        "C:\\Windows\\TEMP\\Tcv.exe",
+        "Discv.dll",
+        "Lcv_sys.exe",
+        "Tcv.exe",
+        "\\Windows\\System32\\Discv.dll",
+        "\\Windows\\System32\\Lcv_sys.exe",
+        "\\Windows\\Temp\\Tcv.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "ShimCacheMutex",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex",
+        "_SHuassist.mtx"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\TEMP\\Tcv.exe C:\\WINDOWS\\TEMP\\Tcv.exe\" \"",
+        "Tcv.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

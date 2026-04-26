@@ -1,0 +1,66 @@
+{
+  "hash": "0ae4d52d7cc57f048b19f84fb3c4de9e30822665746b34d45d7480fea95711c0",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://carder.bit/  UA: Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko\n\nDNS LOOKUPS (2):\n  ipv4bot.whatismyipaddress.com \u2192 66.171.248.178\n  ns1.wowservers.ru \u2192 185.103.243.59\n\nIP TRAFFIC (2):\n  185.103.243.59:53 (UDP)\n  66.171.248.178:80 (TCP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  nslookup carder.bit ns1.wowservers.ru\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - encode data using XOR\n  - link function at runtime on Windows\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - File System::Create File [C0016]\n  - contain loop\n  - Process::Terminate Process [C0018]\n  - link function at runtime on Windows\n  - resolve function by parsing PE exports\n  - contain a resource (.rsrc) section\n  - linked against CPP standard library\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  rztjqd.exe  [sha256: b6ac2e1e31f9dbaa...]\n\nFILES WRITTEN (1):\n  C:\\Documents and Settings\\<USER>\\Application Data\\Microsoft\\rztjqd.exe\n\nMUTEXES CREATED (2):\n  RasPbFile\n  ShimCacheMutex\n\nMUTEXES OPENED (1):\n  Global\\pc_group=WORKGROUP&ransom_id=e8b0adc86c78a9c3\n\nPROCESSES CREATED (1):\n  nslookup carder.bit ns1.wowservers.ru\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryExW\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.7\n  .rdata       entropy=5.6\n  .data        entropy=2.6\n  .gfids       entropy=1.28\n  .rsrc        entropy=7.92\n  .reloc       entropy=6.48\n  [overlay]    entropy=2.947702646255493  size=9\n",
+  "ground_truth": {
+    "hash": "0ae4d52d7cc57f048b19f84fb3c4de9e30822665746b34d45d7480fea95711c0",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9286,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "create or open file",
+      "contain loop",
+      "terminate process",
+      "link function at runtime on Windows",
+      "resolve function by parsing PE exports",
+      "contain a resource (.rsrc) section",
+      "linked against CPP standard library",
+      "create or open file"
+    ],
+    "iocs": {
+      "ips": [
+        "185.103.243.59",
+        "66.171.248.178"
+      ],
+      "domains": [
+        "ipv4bot.whatismyipaddress.com",
+        "ns1.wowservers.ru"
+      ],
+      "urls": [
+        "http://carder.bit/"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "rztjqd.exe"
+      ],
+      "mutexes": [
+        "RasPbFile",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "nslookup carder.bit ns1.wowservers.ru"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

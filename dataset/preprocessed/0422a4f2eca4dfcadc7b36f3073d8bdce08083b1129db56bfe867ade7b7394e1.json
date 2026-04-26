@@ -1,0 +1,87 @@
+{
+  "hash": "0422a4f2eca4dfcadc7b36f3073d8bdce08083b1129db56bfe867ade7b7394e1",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\svchost.exe\n    <SYSTEM32>\\taskeng.exe\n  <SYSTEM32>\\taskeng.exe\n    %ProgramFiles%\\mozilla\\nengnjg.exe\n  %ProgramFiles%\\mozilla\\nengnjg.exe\n  %WINDIR%\\servicing\\trustedinstaller.exe\n\nCOMMAND EXECUTIONS (7):\n  C:\\Windows\\System32\\svchost.exe -k WerSvcGroup\n   \n  C:\\Windows\\system32\\schtasks.exe /delete /f /TN \"Microsoft\\Windows\\Customer Experience Improvement Program\\Uploader\"\n  C:\\Windows\\System32\\wsqmcons.exe \n  C:\\PROGRA~2\\Mozilla\\suwzfrh.exe -qchpuvi\n  taskeng.exe {C62B8696-DE39-4D0C-A4B7-E9E46E2BFB68} S-1-5-18:NT AUTHORITY\\System:Service:\n  \\??\\C:\\Windows\\system32\\conhost.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - encode data using Base64 via WinAPI\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - encode data using Base64 via WinAPI\n  - contain loop\n  - Communication::Socket Communication::Initialize Winsock Library [C0001.009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  ctvqzym.exe  [sha256: 5f56aeeb1bf1a92c...]\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: 9ab199722413a44f...]\n  <SYSTEM32>\\tasks\\efabovn  [sha256: d3a65dcdc8163411...]\n\nFILES WRITTEN (7):\n  %ProgramFiles%\\mozilla\\nengnjg.exe\n  %ProgramFiles%\\mozilla\\ryogiqg.dll\n  C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\ctvqzym.exe\n  C:\\PROGRA~2\\Mozilla\\suwjaej.dll\n  C:\\PROGRA~2\\Mozilla\\suwzfrh.exe\n  C:\\ProgramData\\Mozilla\\\n  C:\\WINDOWS\\Tasks\\hiqvsnd.job\n\nPERSISTENCE REGISTRY KEYS (4):\n  <HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs = %ProgramFiles%\\Mozilla\\ryogiqg.dll\n  <HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs = 0x00000001\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs = C:\\PROGRA~2\\Mozilla\\suwjaej.dll\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs = 1\n\nOTHER REGISTRY KEYS SET (10):\n  \\REGISTRY\\A\\{75291280-fa78-11e9-a7e0-8063a5abb402}\\DefaultObjectStore\\ObjectTable\\E9\\_ObjectId_\n  \\REGISTRY\\A\\{75291280-fa78-11e9-a7e0-8063a5abb402}\\DefaultObjectStore\\LruList\\CurrentLru\n  \\REGISTRY\\A\\{75291280-fa78-11e9-a7e0-8063a5abb402}\\DefaultObjectStore\\LruList\\00000000000002FD\\ObjectId\n  \\REGISTRY\\A\\{75291280-fa78-11e9-a7e0-8063a5abb402}\\DefaultObjectStore\\LruList\\00000000000002FD\\ObjectLru\n  \\REGISTRY\\A\\{75291280-fa78-11e9-a7e0-8063a5abb402}\\DefaultObjectStore\\ObjectTable\\E9\\_ObjectLru_\n  \\REGISTRY\\A\\{75291280-fa78-11e9-a7e0-8063a5abb402}\\DefaultObjectStore\\ObjectTable\\E9\\_FileId_\n  \\REGISTRY\\A\\{75291280-fa78-11e9-a7e0-8063a5abb402}\\DefaultObjectStore\\ObjectTable\\E9\\_Usn_\n  \\REGISTRY\\A\\{75291280-fa78-11e9-a7e0-8063a5abb402}\\DefaultObjectStore\\ObjectTable\\E9\\_UsnJournalId_\n  \\REGISTRY\\A\\{75291280-fa78-11e9-a7e0-8063a5abb402}\\DefaultObjectStore\\ObjectTable\\E9\\Indexes\\FileIdIndex-{c84d25cd-f368-\n  \\REGISTRY\\A\\{75291280-fa78-11e9-a7e0-8063a5abb402}\\DefaultObjectStore\\IndexTable\\FileIdIndex-{c84d25cd-f368-11e4-889d-80\n\nMUTEXES CREATED (2):\n  Global\\SQMWindowsConsolidator\n  Local\\MSCTF.Asm.MutexDefault0\n\nPROCESSES CREATED (5):\n  %ProgramFiles%\\mozilla\\nengnjg.exe\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\taskeng.exe\n  C:\\PROGRA~2\\Mozilla\\suwzfrh.exe\n  C:\\Windows\\System32\\schtasks.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] Watcom\n  [Linker] Watcom Linker\n\nPE SECTIONS (entropy):\n  AUTO         entropy=6.41\n  DGROUP       entropy=6.58\n  .idata       entropy=4.41\n  .reloc       entropy=3.46\n  .rsrc        entropy=3.24\n  [overlay]    entropy=7.852963924407959  size=1440\n",
+  "ground_truth": {
+    "hash": "0422a4f2eca4dfcadc7b36f3073d8bdce08083b1129db56bfe867ade7b7394e1",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.863,
+    "malicious_count": 63,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 23
+      },
+      {
+        "value": "dropper",
+        "count": 5
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "gepys",
+        "count": 8
+      },
+      {
+        "value": "uztub",
+        "count": 7
+      },
+      {
+        "value": "mods",
+        "count": 3
+      }
+    ],
+    "suggested_label": "trojan.gepys/uztub",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using Base64 via WinAPI"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RWX memory",
+      "allocate RW memory",
+      "encode data using Base64 via WinAPI",
+      "contain loop",
+      "initialize Winsock library"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "<HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs",
+        "<HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs",
+        "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs",
+        "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs"
+      ],
+      "registry_all_count": 24,
+      "files_dropped": [
+        "<SYSTEM32>\\tasks\\efabovn",
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "ctvqzym.exe"
+      ],
+      "mutexes": [
+        "Global\\SQMWindowsConsolidator",
+        "Local\\MSCTF.Asm.MutexDefault0"
+      ],
+      "processes": [
+        "%ProgramFiles%\\mozilla\\nengnjg.exe",
+        "<PATH_SAMPLE.EXE>",
+        "<SYSTEM32>\\taskeng.exe",
+        "C:\\PROGRA~2\\Mozilla\\suwzfrh.exe",
+        "C:\\Windows\\System32\\schtasks.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "Dr.Web vxCube",
+    "Rising MOVES",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

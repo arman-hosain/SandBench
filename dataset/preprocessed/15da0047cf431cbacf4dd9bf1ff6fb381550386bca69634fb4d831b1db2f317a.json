@@ -1,0 +1,48 @@
+{
+  "hash": "15da0047cf431cbacf4dd9bf1ff6fb381550386bca69634fb4d831b1db2f317a",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  8569286e6e3610ebe4dc074d00feaa24.exe\n    c:\\windows\\W_X_C.bat\n      C:\\windows\\hosts.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe\n      c:\\windows\\W_X_C.bat\n        C:\\windows\\hosts.exe\n          c:\\windows\\W_X_C.bat\n            C:\\windows\\hosts.exe\n          C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe\n      C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe\n    REG DELETE HKLM\\SYSTEM\\CurrentControlSet\\Control\\SafeBoot /f\n\nCOMMAND EXECUTIONS (1):\n  C:\\Windows\\W_X_C.vbs\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - parse PE header\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - parse PE header\n  - contain a resource (.rsrc) section\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe  [sha256: 8d38b4585842b5de...]\n  C:\\Windows\\hosts.exe  [sha256: 97a4a6e8c754c625...]\n\nFILES WRITTEN (2):\n  %WINDIR%\\W_X_C.bat\n  C:\\windows\\W_X_C.vbs\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\avscan = C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe\n\nOTHER REGISTRY KEYS SET (5):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\HideFileExt\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\SuperHidden\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowSuperHidden\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Folder\\HideFileExt\\DefaultValue\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Folder\\HideFileExt\\UncheckedValue\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.08\n  .rsrc        entropy=7.64\n  [overlay]    entropy=6.830284118652344  size=111632\n",
+  "ground_truth": {
+    "hash": "15da0047cf431cbacf4dd9bf1ff6fb381550386bca69634fb4d831b1db2f317a",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9028,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "parse PE header",
+      "contain a resource (.rsrc) section",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\avscan"
+      ],
+      "registry_all_count": 6,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe",
+        "C:\\Windows\\hosts.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

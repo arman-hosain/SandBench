@@ -1,0 +1,60 @@
+{
+  "hash": "355db4a5239de06f36e353bf78eeff7b8a69e7f97d5e1c244b5ceded095957fd",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    ****.exe\n      0zwezax8l6jbvux.exe\n      cts.exe\n        cts.exe\n\nCOMMAND EXECUTIONS (1):\n  \"C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - load .NET assembly\n\nCAPA RULE MATCHES (MBC):\n  - access .NET resource\n  - Cryptography::Generate Pseudo-random Sequence::Use API [C0021.003]\n  - Process::Terminate Process [C0018]\n  - load .NET assembly\n  - compiled to the .NET platform\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (13):\n  C:\\Documents and Settings\\Administrator\\Application Data\\Macromedia\\Flash Player\\www.macromedia.com\\bin\\fpupdateax\\fpupdateax.exe\n  C:\\Documents and Settings\\Administrator\\Application Data\\SogouExplorer\\Temp\\sogouexplorerup.exe\n  C:\\Documents and Settings\\Administrator\\Application Data\\SogouPY\\SogouExplorer.exe\n  C:\\Documents and Settings\\Administrator\\Application Data\\Tencent\\QQ\\STemp\\BackupDLTmp\\Download\\P2PSetup.exe.tdl\n  C:\\Documents and Settings\\Administrator\\Application Data\\Tencent\\QQ\\STemp\\BackupDLTmp\\Download\\QQPhotoDrawExSetupForQQ.exe.tdl\n  C:\\Documents and Settings\\Administrator\\Application Data\\Tencent\\QQ\\STemp\\BackupDLTmp\\Download\\QzoneMusicInstall.exe.tdl\n  C:\\Documents and Settings\\Administrator\\Application Data\\Tencent\\QQ\\STemp\\SetupEx~0\\QQSetupEx.exe\n  C:\\Documents and Settings\\Administrator\\Application Data\\Tencent\\QQ\\SafeBase\\QQSafeUD.exe\n  C:\\Documents and Settings\\Administrator\\Application Data\\Tencent\\QQ\\commonf_inst\\TXSSOSetup.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\0zwEZAx8L6jBvUX.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\nsy7.tmp\\System.dll\n  C:\\WINDOWS\\CTS.exe\n  C:\\WINDOWS\\wininit.ini\n\nPERSISTENCE REGISTRY KEYS (1):\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\CTS = C:\\WINDOWS\\CTS.exe\u0000\n\nOTHER REGISTRY KEYS SET (1):\n  \\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Control\\Session Manager\\PendingFileRenameOperations\n\nMUTEXES CREATED (8):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  Global\\3pc6RWOgectGTFqCowxjeGy3XIGPtLwNrsr2zDctYD4hAU5pj4GW7rm8gHrHyTB6\n  oleacc-msaa-loaded\n\nMUTEXES OPENED (1):\n  Global\\CLR_CASOFF_MUTEX\n\nPROCESSES CREATED (3):\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe\n  C:\\Users\\<USER>\\Downloads\\factura.exe\n  factura.exe\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Library] .NET\n  [Compiler] VB.NET\n  [Compiler] VB.NET\n  [Library] .NET\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': '.NET executable'}\n\nPE SECTIONS (entropy):\n  .text        entropy=7.95\n  .rsrc        entropy=4.26\n  .reloc       entropy=0.1\n  [overlay]    entropy=7.9997711181640625  size=932352\n",
+  "ground_truth": {
+    "hash": "355db4a5239de06f36e353bf78eeff7b8a69e7f97d5e1c244b5ceded095957fd",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8,
+    "malicious_count": 56,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "msil",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1620",
+        "signature_description": "load .NET assembly"
+      }
+    ],
+    "capa_sig_names": [
+      "access .NET resource",
+      "generate random numbers in .NET",
+      "terminate process",
+      "load .NET assembly",
+      "compiled to the .NET platform",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\CTS"
+      ],
+      "registry_all_count": 2,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "Global\\3pc6RWOgectGTFqCowxjeGy3XIGPtLwNrsr2zDctYD4hAU5pj4GW7rm8gHrHyTB6",
+        "oleacc-msaa-loaded"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe",
+        "C:\\Users\\<USER>\\Downloads\\factura.exe",
+        "factura.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

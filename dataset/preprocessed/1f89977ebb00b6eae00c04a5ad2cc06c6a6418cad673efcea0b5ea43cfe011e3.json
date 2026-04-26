@@ -1,0 +1,78 @@
+{
+  "hash": "1f89977ebb00b6eae00c04a5ad2cc06c6a6418cad673efcea0b5ea43cfe011e3",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  GET http://d1ql3z8u1oo390.cloudfront.net/offer.php?affId=9969&trackingId=431885994&instId=8642&ho_trackingid=HO431885994&cc=US&sb=x64&wv=7sp1&db=InternetExplorer&uac=1&cid=bcbaa53dffa0965e557319f4f2155088&v=3&net=4.8.03761&ie=8%2e0%2e7601%2e17514&res=800x600&osd=133&kid=hqmrb21bmqkdf7vqjet\n  GET http://d1ql3z8u1oo390.cloudfront.nethttp://d1ql3z8u1oo390.cloudfront.net/offer.php?affId=9969&trackingId=431885994&instId=8642&ho_trackingid=HO431885994&cc=US&sb=x86&wv=7sp1&db=Chrome&uac=1&cid=96f60d6d2f199a7f2a1f759a70d13d28&v=3&net=4.5.50709&ie=8.0.7601.17514&res=1024x768&osd=101&kid=hqmrb21bmqkdf7vqjet\n\nDNS LOOKUPS (2):\n  d1ql3z8u1oo390.cloudfront.net \u2192 13.35.254.41, 13.35.254.30\n  d1ql3z8u1oo390.cloudfront.net \u2192 99.84.170.118, 99.84.170.126\n\nIP TRAFFIC (3):\n  13.35.254.41:80 (TCP)\n  8.8.8.8:53 (UDP)\n  99.84.170.118:80 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  download-setup.pe32\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - contain obfuscated stackstrings\n  - encode data using XOR\n  - parse PE header\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Data::Check String [C0019]\n  - Cryptography::Hashed Message Authentication Code [C0061]\n  - resolve function by parsing PE exports\n  - parse PE header\n  - contain a resource (.rsrc) section\n\n--- FILE IDENTITY ---\n\nPE SECTIONS (entropy):\n  _bss32       entropy=0.0\n  .text        entropy=5.15\n  .rsrc        entropy=4.51\n  .rdata       entropy=4.23\n  .hoeh        entropy=6.67\n  _DATA        entropy=0.0\n  .reloc       entropy=2.65\n",
+  "ground_truth": {
+    "hash": "1f89977ebb00b6eae00c04a5ad2cc06c6a6418cad673efcea0b5ea43cfe011e3",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7639,
+    "malicious_count": 55,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 18
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "razy",
+        "count": 7
+      },
+      {
+        "value": "istartsurf",
+        "count": 5
+      },
+      {
+        "value": "biodata",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.razy/istartsurf",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "encode data using XOR",
+      "contain loop",
+      "parse credit card information",
+      "authenticate HMAC",
+      "resolve function by parsing PE exports",
+      "parse PE header",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "13.35.254.41",
+        "8.8.8.8",
+        "99.84.170.118"
+      ],
+      "domains": [
+        "d1ql3z8u1oo390.cloudfront.net"
+      ],
+      "urls": [
+        "http://d1ql3z8u1oo390.cloudfront.net/offer.php?affId=9969&trackingId=431885994&instId=8642&ho_trackingid=HO431885994&cc=US&sb=x64&wv=7sp1&db=InternetExplorer&uac=1&cid=bcbaa53dffa0965e557319f4f2155088&v=3&net=4.8.03761&ie=8%2e0%2e7601%2e17514&res=800x600&osd=133&kid=hqmrb21bmqkdf7vqjet",
+        "http://d1ql3z8u1oo390.cloudfront.nethttp://d1ql3z8u1oo390.cloudfront.net/offer.php?affId=9969&trackingId=431885994&instId=8642&ho_trackingid=HO431885994&cc=US&sb=x86&wv=7sp1&db=Chrome&uac=1&cid=96f60d6d2f199a7f2a1f759a70d13d28&v=3&net=4.5.50709&ie=8.0.7601.17514&res=1024x768&osd=101&kid=hqmrb21bmqkdf7vqjet"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "hash": "3c65d9df125fe72bd68bb546860f2b2c07345201124267695a016b474ba38e13",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  GET http://www.supernetforme.com/dupe.php?q=2075.2075.300.0.0.4c44292a5cc12eb1ea81da23a913e2e5d9393a0879cf46be3191e681506050be.1.337815  UA: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)\n  GET http://www.supernetforme.com/search.php?q=2075.2075.300.0.0.4c44292a5cc12eb1ea81da23a913e2e5d9393a0879cf46be3191e681506050be.1.340028  UA: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)\n\nDNS LOOKUPS (3):\n  d1hi41nc56pmug.cloudfront.net \u2192 13.225.84.7\n  www.google.com \u2192 172.217.19.228\n  www.supernetforme.com \u2192 35.186.238.101\n\nIP TRAFFIC (3):\n  13.225.84.96:443 (TCP)\n  172.217.19.228:443 (TCP)\n  35.186.238.101:80 (TCP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\Program Files\\Adobe\\AcrobatInfo.exe C:\\Program Files\\Adobe\\AcrobatInfo.exe\n  C:\\Program Files\\Adobe\\acrord32.exe C:\\Program Files\\Adobe\\acrord32.exe\n  C:\\Program Files\\Internet Explorer\\wmpscfgs.exe C:\\Program Files\\Internet Explorer\\wmpscfgs.exe\n  c:\\docume~1\\<USER>~1\\locals~1\\temp\\\\wmpscfgs.exe c:\\docume~1\\<USER>~1\\locals~1\\temp\\\\wmpscfgs.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - packed with generic packer\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  acrotray .exe  [sha256: 88f478d926ac3099...]\n  acrotray.exe  [sha256: 6407e7c2b11e0062...]\n  wmpscfgs.exe  [sha256: ba170f93a8a68710...]\n\nFILES WRITTEN (5):\n  C:\\Program Files\\336684.dat\n  C:\\Program Files\\336734.dat\n  c:\\docume~1\\<USER>~1\\locals~1\\temp\\\\wmpscfgs.exe\n  c:\\program files\\adobe\\acrotray.exe\n  c:\\windows\\system32\\vboxtray.exe\n\nMUTEXES CREATED (2):\n  RasPbFile\n  ShimCacheMutex\n\nMUTEXES OPENED (8):\n  CTF.Asm.MutexDefaultS-1-5-21-1275210071-920026266-1060284298-1003\n  CTF.Compart.MutexDefaultS-1-5-21-1275210071-920026266-1060284298-1003\n  CTF.LBES.MutexDefaultS-1-5-21-1275210071-920026266-1060284298-1003\n  CTF.Layouts.MutexDefaultS-1-5-21-1275210071-920026266-1060284298-1003\n  CTF.TMD.MutexDefaultS-1-5-21-1275210071-920026266-1060284298-1003\n  Global\\acrobat198\n  Global\\wmpinst1998\n  Global\\wmpproc1998\n\nPROCESSES CREATED (4):\n  C:\\Program Files\\Adobe\\AcrobatInfo.exe C:\\Program Files\\Adobe\\AcrobatInfo.exe\n  C:\\Program Files\\Adobe\\acrord32.exe C:\\Program Files\\Adobe\\acrord32.exe\n  C:\\Program Files\\Internet Explorer\\wmpscfgs.exe C:\\Program Files\\Internet Explorer\\wmpscfgs.exe\n  c:\\docume~1\\<USER>~1\\locals~1\\temp\\\\wmpscfgs.exe c:\\docume~1\\<USER>~1\\locals~1\\temp\\\\wmpscfgs.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'UPX 2.90 [LZMA] -> Markus Oberhumer, Laszlo Molnar & John Reiser'}\n\nPE SECTIONS (entropy):\n  yzPzORmq     entropy=0.0\n  TGOqOPny     entropy=7.91\n  \\x85\\xad{\\xa entropy=1.38\n  [overlay]    entropy=4.876987457275391  size=579428\n",
+  "ground_truth": {
+    "hash": "3c65d9df125fe72bd68bb546860f2b2c07345201124267695a016b474ba38e13",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8873,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "heur",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "packed with generic packer",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [
+        "13.225.84.96",
+        "172.217.19.228",
+        "35.186.238.101"
+      ],
+      "domains": [
+        "d1hi41nc56pmug.cloudfront.net",
+        "www.google.com",
+        "www.supernetforme.com"
+      ],
+      "urls": [
+        "http://www.supernetforme.com/dupe.php?q=2075.2075.300.0.0.4c44292a5cc12eb1ea81da23a913e2e5d9393a0879cf46be3191e681506050be.1.337815",
+        "http://www.supernetforme.com/search.php?q=2075.2075.300.0.0.4c44292a5cc12eb1ea81da23a913e2e5d9393a0879cf46be3191e681506050be.1.340028"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "acrotray .exe",
+        "acrotray.exe",
+        "wmpscfgs.exe"
+      ],
+      "mutexes": [
+        "RasPbFile",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\Program Files\\Adobe\\AcrobatInfo.exe C:\\Program Files\\Adobe\\AcrobatInfo.exe",
+        "C:\\Program Files\\Adobe\\acrord32.exe C:\\Program Files\\Adobe\\acrord32.exe",
+        "C:\\Program Files\\Internet Explorer\\wmpscfgs.exe C:\\Program Files\\Internet Explorer\\wmpscfgs.exe",
+        "c:\\docume~1\\<USER>~1\\locals~1\\temp\\\\wmpscfgs.exe c:\\docume~1\\<USER>~1\\locals~1\\temp\\\\wmpscfgs.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

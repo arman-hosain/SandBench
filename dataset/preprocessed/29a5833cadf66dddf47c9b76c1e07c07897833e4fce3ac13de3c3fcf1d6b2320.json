@@ -1,0 +1,88 @@
+{
+  "hash": "29a5833cadf66dddf47c9b76c1e07c07897833e4fce3ac13de3c3fcf1d6b2320",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  sys.zief.pl \u2192 148.81.111.121\n\nIP TRAFFIC (1):\n  148.81.111.121:65520 (TCP)\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (11):\n  - hide graphical window\n  - query or enumerate registry value\n  - query environment variable\n  - check if file exists\n  - link function at runtime on Windows\n  - query or enumerate registry key\n  - accept command line arguments\n  - parse PE header\n  - link many functions at runtime\n  - get geographical location\n  - get system information on Windows\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - File System::Get File Attributes [C0049]\n  - hide graphical window\n  - Memory::Allocate Memory [C0007]\n  - contain loop\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Discovery::System Information Discovery [E1082]\n  - Discovery::File and Directory Discovery [E1083]\n  - link function at runtime on Windows\n  - Operating System::Registry::Query Registry Key [C0036.005]\n  - Process::Terminate Process [C0018]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - get OS version\n  - parse PE header\n  - File System::Writes File [C0052]\n  - link many functions at runtime\n  - get geographical location\n  - get system information on Windows\n  - resolve function by parsing PE exports\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nMUTEXES OPENED (1):\n  l0r2\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.44\n  .data        entropy=2.1\n  .rsrc        entropy=7.73\n",
+  "ground_truth": {
+    "hash": "29a5833cadf66dddf47c9b76c1e07c07897833e4fce3ac13de3c3fcf1d6b2320",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9014,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": null,
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "check if file exists"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "create or open registry key",
+      "get file attributes",
+      "hide graphical window",
+      "allocate memory",
+      "allocate RW memory",
+      "contain loop",
+      "query or enumerate registry value",
+      "query environment variable",
+      "check if file exists",
+      "link function at runtime on Windows",
+      "query or enumerate registry key",
+      "terminate process",
+      "accept command line arguments",
+      "get OS version",
+      "parse PE header",
+      "write file on Windows",
+      "link many functions at runtime",
+      "get geographical location",
+      "get system information on Windows",
+      "resolve function by parsing PE exports",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "148.81.111.121"
+      ],
+      "domains": [
+        "sys.zief.pl"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "hash": "2c1397ffe61065c129d3cd669334ac34f6bc7bf87bebdf96ee3ff4f2349b1592",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  GET http://www.cygdy.com/xiazai/2/help.txt  UA: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Trident/4.0; CIBA; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)\n  GET http://www.cygdy.com/xiazai/2/help.txt\n\nDNS LOOKUPS (2):\n  cygdy.com\n  www.cygdy.com \u2192 45.152.6.51\n\nIP TRAFFIC (2):\n  45.152.6.51:80 (TCP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (2):\n  RASMAN\n  Sens\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  <PATH_SAMPLE.EXE>\n    %WINDIR%\\microsofthelp.exe\n  %WINDIR%\\microsofthelp.exe\n  <SYSTEM32>\\svchost.exe\n\n--- CAPABILITIES (CAPA) ---\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (6):\n  HidePlugin.dll  [sha256: 4e96660cc8be7171...]\n  microsofthelp.exe  [sha256: 0acc22043809dc51...]\n  C:\\Windows\\microsofthelp.exe  [sha256: f04b5cef6a669e0d...]\n  C:\\Windows\\HidePlugin.dll  [sha256: 4e96660cc8be7171...]\n  %WINDIR%\\hideplugin.dll  [sha256: 4e96660cc8be7171...]\n  %WINDIR%\\microsofthelp.exe  [sha256: 3dde473124663fcd...]\n\nFILES WRITTEN (2):\n  C:\\WINDOWS\\HidePlugin.dll\n  C:\\WINDOWS\\microsofthelp.exe\n\nPERSISTENCE REGISTRY KEYS (2):\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\microsofthelp = %WINDIR%\\microsofthelp.exe\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\microsofthelp = C:\\Windows\\microsofthelp.exe\n\nOTHER REGISTRY KEYS SET (6):\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\\\UNCAsIntranet\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\\\AutoDetect\n  <HKLM>\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\NetworkList\\Nla\\Cache\\Intranet\\\\{6A52BE73-EC8E-4F63-A268-7517A50DCB3\n\nMUTEXES CREATED (6):\n  IESQMMUTEX_0_208\n  RasPbFile\n  ShimCacheMutex\n  \\Sessions\\1\\BaseNamedObjects\\IESQMMUTEX_0_208\n  \\Sessions\\1\\BaseNamedObjects\\pomdfghrt\n  pomdfghrt\n\nMUTEXES OPENED (13):\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n  \\Sessions\\1\\BaseNamedObjects\\Global\\BFE_Notify_Event_{ed21a7ff-30cb-426e-a8d5-8d37ce878391}\n  \\Sessions\\1\\BaseNamedObjects\\Local\\!IETld!Mutex\n  \\Sessions\\1\\BaseNamedObjects\\Local\\WininetConnectionMutex\n  \\Sessions\\1\\BaseNamedObjects\\Local\\WininetProxyRegistryMutex\n  \\Sessions\\1\\BaseNamedObjects\\Local\\WininetStartupMutex\n  \\Sessions\\1\\BaseNamedObjects\\Local\\_!MSFTHISTORY!_\n  \\Sessions\\1\\BaseNamedObjects\\Local\\c:!users!user!appdata!local!microsoft!windows!history!history.ie5!\n\nPROCESSES CREATED (3):\n  %WINDIR%\\microsofthelp.exe\n  <PATH_SAMPLE.EXE>\n  C:\\WINDOWS\\microsofthelp.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Packer] KByS Packer\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'F-PROT': 'Dot_Shoo', 'Cyren': 'dropped, dropped, Dot_Shoo, dropped, Dot_Shoo, Dot_Shoo'}\n\nPE SECTIONS (entropy):\n  .text        entropy=7.56\n  .rdata       entropy=0.0\n  .data        entropy=0.0\n  .shoooo      entropy=7.84\n  [overlay]    entropy=3.8305423259735107  size=26692\n",
+  "ground_truth": {
+    "hash": "2c1397ffe61065c129d3cd669334ac34f6bc7bf87bebdf96ee3ff4f2349b1592",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9167,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "hupigon",
+    "has_family_label": false,
+    "ttps": [],
+    "capa_sig_names": [],
+    "iocs": {
+      "ips": [
+        "45.152.6.51",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "cygdy.com",
+        "www.cygdy.com"
+      ],
+      "urls": [
+        "http://www.cygdy.com/xiazai/2/help.txt"
+      ],
+      "registry_persistence": [
+        "<HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\microsofthelp",
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\microsofthelp"
+      ],
+      "registry_all_count": 8,
+      "files_dropped": [
+        "%WINDIR%\\hideplugin.dll",
+        "%WINDIR%\\microsofthelp.exe",
+        "C:\\Windows\\HidePlugin.dll",
+        "C:\\Windows\\microsofthelp.exe",
+        "HidePlugin.dll",
+        "microsofthelp.exe"
+      ],
+      "mutexes": [
+        "IESQMMUTEX_0_208",
+        "RasPbFile",
+        "ShimCacheMutex",
+        "\\Sessions\\1\\BaseNamedObjects\\IESQMMUTEX_0_208",
+        "\\Sessions\\1\\BaseNamedObjects\\pomdfghrt",
+        "pomdfghrt"
+      ],
+      "processes": [
+        "%WINDIR%\\microsofthelp.exe",
+        "<PATH_SAMPLE.EXE>",
+        "C:\\WINDOWS\\microsofthelp.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "Dr.Web vxCube",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

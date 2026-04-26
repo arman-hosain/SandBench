@@ -1,0 +1,73 @@
+{
+  "hash": "108edea003dcfcd50d2de66dc0d3b61aa9501d81b5dac8f985aa809d917c3544",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nSERVICES OPENED (1):\n  gpsvc\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ff9b40d792711f06e56cd64b652fee62.virus.exe\n    dw20.exe -x -s 1032\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - query or enumerate registry key\n  - delete registry key\n\nCAPA RULE MATCHES (MBC):\n  - Process::Create Process [C0017]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Terminate Process [C0018]\n  - unmanaged call\n  - Operating System::Registry::Query Registry Key [C0036.005]\n  - Operating System::Registry::Delete Registry Key [C0036.002]\n  - compiled to the .NET platform\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (1):\n  Global\\\u51b0\u02b6\n\nMUTEXES OPENED (1):\n  Global\\CLR_CASOFF_MUTEX\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Library] .NET\n  [Linker] Microsoft Linker\n  [Sign tool] Windows Authenticode\n  Packers: {'PEiD': '.NET executable'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.42\n  .rsrc        entropy=3.02\n  .reloc       entropy=0.08\n  [overlay]    entropy=7.262903690338135  size=773004\n",
+  "ground_truth": {
+    "hash": "108edea003dcfcd50d2de66dc0d3b61aa9501d81b5dac8f985aa809d917c3544",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.5616,
+    "malicious_count": 41,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 13
+      },
+      {
+        "value": "dropper",
+        "count": 4
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "msil",
+        "count": 3
+      },
+      {
+        "value": "bbul",
+        "count": 2
+      },
+      {
+        "value": "filerepmalware",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.msil/bbul",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry key"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry key"
+      }
+    ],
+    "capa_sig_names": [
+      "create process on Windows",
+      "create or open registry key",
+      "terminate process",
+      "unmanaged call",
+      "query or enumerate registry key",
+      "delete registry key",
+      "compiled to the .NET platform"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "Global\\\u51b0\u02b6"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

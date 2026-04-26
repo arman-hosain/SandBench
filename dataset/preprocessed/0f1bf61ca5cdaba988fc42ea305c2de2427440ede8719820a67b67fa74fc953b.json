@@ -1,0 +1,62 @@
+{
+  "hash": "0f1bf61ca5cdaba988fc42ea305c2de2427440ede8719820a67b67fa74fc953b",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  6e610f97e38e846896bab2d639452230.virus.exe\n    cmd.exe\n\nCOMMAND EXECUTIONS (12):\n  reg  add \"hklm\\software\\microsoft\\windows nt\\currentversion\\Image File Execution Options\\360tray.exe\" /v debugger /t reg_sz /d \"ntsd -d\" /f\n  cmd /c C:\\123.bat\n  cmd.exe\n  cmd.exe /c assoc .txt = exefile\n  cmd.exe /c ftype comfile=c:\\analyse\\1575208465.exe                                                                                                                                                                                                                                       \n  cmd.exe /c ftype jpgfile=c:\\analyse\\1575208465.exe                                                                                                                                                                                                                                       \n  cmd.exe /c ftype txtfile=c:\\analyse\\1575208465.exe                                                                                                                                                                                                                                       \n  cmd.exe /c ftype zipfile=c:\\analyse\\1575208465.exe                                                                                                                                                                                                                                       \n  reg  add \"hklm\\software\\microsoft\\windows nt\\currentversion\\Image File Execution Options\\ZhuDongFangYu.exe\" /v debugger /t reg_sz /d \"ntsd -d\" /f\n  reg  add \"hklm\\software\\microsoft\\windows nt\\currentversion\\Image File Execution Options\\taskmgr.exe\" /v debugger /t reg_sz /d \"ntsd -d\" /f\n   \n  \\??\\C:\\Windows\\system32\\conhost.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - access PEB ldr_data\n  - get process heap force flags\n  - get process heap flags\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - reference absolute stream path on Windows\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - access PEB ldr_data\n  - get process heap force flags\n  - get process heap flags\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Execution::Install Additional Program [B0023]\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (30):\n  C:\\Program Files\\7-Zip\\7z.exe\n  C:\\Program Files\\7-Zip\\7zFM.exe\n  C:\\Program Files\\7-Zip\\7zG.exe\n  C:\\Program Files\\7-Zip\\Uninstall.exe\n  C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\A3DUtility.exe\n  C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\AcroBroker.exe\n  C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\AcroRd32.exe\n  C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\AcroRd32Info.exe\n  C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\AcroTextExtractor.exe\n  C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\AdobeCollabSync.exe\n  C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\Eula.exe\n  C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\reader_sl.exe\n  C:\\Program Files\\Adobe\\Reader 9.0\\Setup Files\\{AC76BA86-7AD7-2052-7B44-A94000000001}\\Setup.exe\n  C:\\Program Files\\Common Files\\Adobe\\Updater6\\AdobeUpdaterInstallMgr.exe\n  C:\\Program Files\\Common Files\\Adobe\\Updater6\\Adobe_Updater.exe\n  C:\\Program Files\\Common Files\\Java\\Java Update\\jaureg.exe\n  C:\\Program Files\\Common Files\\Java\\Java Update\\jucheck.exe\n  C:\\Program Files\\Common Files\\Java\\Java Update\\jusched.exe\n  C:\\Program Files\\Common Files\\microsoft shared\\DW\\DW20.EXE\n  C:\\Program Files\\Common Files\\microsoft shared\\DW\\DWTRIG20.EXE\n\nPERSISTENCE REGISTRY KEYS (3):\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\360tray.exe\\debugger = ntsd -d\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\ZhuDongFangYu.exe\\debugger = ntsd -d\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\taskmgr.exe\\debugger = ntsd -d\n\nOTHER REGISTRY KEYS SET (2):\n  HKEY_CLASSES_ROOT\\comfile\\shell\\open\\command\\\n  HKEY_CLASSES_ROOT\\txtfile\\shell\\open\\command\\\n\nPROCESSES CREATED (2):\n  C:\\Windows\\System32\\cmd.exe\n  C:\\Windows\\System32\\reg.exe\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  [Overlay] PDB 2.0 file link\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.06\n  .data        entropy=0.0\n  .rsrc        entropy=4.42\n  [overlay]    entropy=4.94206428527832  size=2553236\n",
+  "ground_truth": {
+    "hash": "0f1bf61ca5cdaba988fc42ea305c2de2427440ede8719820a67b67fa74fc953b",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8732,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1057",
+        "signature_description": "get process heap force flags"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "reference absolute stream path on Windows",
+      "PEB access",
+      "access PEB ldr_data",
+      "get process heap force flags",
+      "get process heap flags",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\360tray.exe\\debugger",
+        "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\ZhuDongFangYu.exe\\debugger",
+        "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\taskmgr.exe\\debugger"
+      ],
+      "registry_all_count": 5,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": [
+        "C:\\Windows\\System32\\cmd.exe",
+        "C:\\Windows\\System32\\reg.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Rising MOVES",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "hash": "0c4055e17de5fa9528a9f5d051eed0bfb1fa01de27ad36dc083c0596a61dc4f3",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (2):\n  egodesign-home.com\n  peterjwarren.com\n\nIP TRAFFIC (5):\n  8.8.4.4:3 ()\n  8.8.4.4:53 (UDP)\n  8.8.8.8:3 ()\n  8.8.8.8:53 (UDP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  tezin.pe32\n    tezin.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\tezin.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  \"C:\\Users\\Petra\\AppData\\Local\\Temp\\tezin.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - hide graphical window\n  - packed with UPX\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - hide graphical window\n  - Process::Terminate Process [C0018]\n  - get OS version\n  - contain loop\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  tezin.exe  [sha256: 2412e6351c6de85a...]\n  \\Users\\Petra\\AppData\\Local\\Temp\\tezin.exe  [sha256: 1f527b7353046787...]\n\nFILES WRITTEN (2):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\tezin.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\tezin.exe\n\nOTHER REGISTRY KEYS SET (8):\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C0054007200610063\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C0054007200610063\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n\nMUTEXES CREATED (14):\n  IESQMMUTEX_0_208\n  Local\\!IETld!Mutex\n  Local\\WininetConnectionMutex\n  Local\\WininetProxyRegistryMutex\n  Local\\WininetStartupMutex\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n  Local\\_!MSFTHISTORY!_\n\nPROCESSES CREATED (2):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\tezin.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\tezin.exe\" \"\n  tezin.exe\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  UPX0         entropy=4.71\n  UPX1         entropy=7.38\n  .rsrc        entropy=4.57\n  .imports     entropy=4.23\n  [overlay]    entropy=3.54891300201416  size=13042\n",
+  "ground_truth": {
+    "hash": "0c4055e17de5fa9528a9f5d051eed0bfb1fa01de27ad36dc083c0596a61dc4f3",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8732,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "ppatre",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with UPX"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "hide graphical window",
+      "terminate process",
+      "get OS version",
+      "contain loop",
+      "packed with UPX",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [
+        "8.8.4.4",
+        "8.8.8.8",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "egodesign-home.com",
+        "peterjwarren.com"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 8,
+      "files_dropped": [
+        "\\Users\\Petra\\AppData\\Local\\Temp\\tezin.exe",
+        "tezin.exe"
+      ],
+      "mutexes": [
+        "IESQMMUTEX_0_208",
+        "Local\\!IETld!Mutex",
+        "Local\\WininetConnectionMutex",
+        "Local\\WininetProxyRegistryMutex",
+        "Local\\WininetStartupMutex",
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "Local\\_!MSFTHISTORY!_",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!",
+        "Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!",
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\tezin.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\tezin.exe\" \"",
+        "tezin.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Cuckoofork"
+  ]
+}

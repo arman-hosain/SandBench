@@ -1,0 +1,91 @@
+{
+  "hash": "02c5aafe20c7bcf9bce51633c949024b5b5e844bed94beb95db7bcc6e8d3abbf",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior, including encoding data using XOR, packed with generic packer, and creating multiple temporary files in the user's temp directory. Additionally, it creates a new process and modifies registry keys, which are indicative of malicious activity.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior is consistent with a Trojan, as it attempts to evade detection by encoding data and packing itself with a generic packer. It also creates multiple temporary files and modifies registry keys, which is typical of Trojan behavior.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"Code Injection\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1053\", \"name\": \"Scheduled Task/Job\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 6300,
+      "response_chars": 915,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior, including encoding data using XOR, packed with generic packer, and creating multiple temporary files in the user's temp directory. Additionally, it creates a new process and modifies registry keys, which are indicative of malicious activity.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanatio",
+      "elapsed_seconds": 4.19
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": false,
+      "gap_summary": "",
+      "missed_behavior_count": 0,
+      "ttps_found": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1218"
+      ],
+      "hallucinated_ttps": [
+        "T1053",
+        "T1055",
+        "T1218"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 3
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 4.19,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9577
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.4,
+      "ttp_precision": 0.25,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1218"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1053",
+        "T1055",
+        "T1218"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4,
+      "breakdown": {
+        "ttp_f1": 0.4
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

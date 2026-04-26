@@ -1,0 +1,124 @@
+{
+  "hash": "033eeacdb5c9b19e51aa58fd2e37eaa52e28ce9ba416f43e5910493d3d10d5c0",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as enumerating GUI resources, getting disk information, and checking if a file exists. It also contains anti-VM strings targeting VirtualBox and has a high entropy in its PE sections, indicating potential obfuscation.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior suggests it is a Trojan, as it is attempting to hide its presence by checking for VirtualBox and creating mutexes. It also has a high entropy in its PE sections, indicating potential obfuscation.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"},\n      {\"id\": \"T1083\", \"name\": \"File and Directory Discovery\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 3775,
+      "response_chars": 899,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as enumerating GUI resources, getting disk information, and checking if a file exists. It also contains anti-VM strings targeting VirtualBox and has a high entropy in its PE sections, indicating potential obfuscation.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's be",
+      "elapsed_seconds": 4.19
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "2 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 2,
+      "ttps_found": [
+        "T1027",
+        "T1082",
+        "T1083",
+        "T1218"
+      ],
+      "hallucinated_ttps": [
+        "T1027",
+        "T1218"
+      ],
+      "ttp_tp": 2,
+      "ttp_fp": 2
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- enumerate gui resources\n- reference anti-VM strings targeting VirtualBox\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1082",
+        "T1083",
+        "T1218",
+        "T1490"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 2,
+      "best_ttp_fp": 2
+    },
+    {
+      "step": 5,
+      "type": "refinement_stopped",
+      "iteration": 1,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 2,
+      "ttp_fp": 2
+    }
+  ],
+  "total_llm_calls": 2,
+  "total_elapsed": 8.6,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9143
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.5,
+      "ttp_precision": 0.5,
+      "ttp_recall": 0.5,
+      "gt_ttps": [
+        "T1010",
+        "T1082",
+        "T1083",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1082",
+        "T1083",
+        "T1218"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5,
+      "breakdown": {
+        "ttp_f1": 0.5
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "hash": "00fdb1dca56d4f06ec36452b86d23936331a79a6b527ef0fec0f0573249b8662",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including dropping multiple executable files to user and system directories, establishing persistence via Registry Run keys and Userinit, and utilizing anti-analysis techniques (VM detection, obfuscation). The presence of dangerous imports like VirtualAlloc and high entropy in sections suggests packing/obfuscation typical of malware.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample behaves like a Trojan by dropping payloads, establishing persistence, and attempting to evade analysis. It does not show specific ransomware encryption behavior, worm propagation to other systems, or backdoor remote access capabilities in this report. The use of anti-VM strings and obfuscation is common in Trojans.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1562.001\",\n        \"name\": \"Disable Anti-Malware/Host-based Intrusion Detection Systems\"\n      },\n      {\n        \"id\": \"T1059.001\",\n        \"name\": \"Command and Scripting Interpreter: Windows Command Shell\"\n      },\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1547.003\",\n        \"name\": \"Boot or Logon Autostart Execution: Registry: Userinit\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1543,
+      "response_chars": 1450,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including dropping multiple executable files to user and system directories, establishing persistence via Registry Run keys and Userinit, and utilizing anti-analysis techniques (VM detection, obfuscation). The presence of dangerous imports like VirtualAlloc and high entropy in sections suggests",
+      "elapsed_seconds": 7.49
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 7.49,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8889
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1059",
+        "T1547",
+        "T1562"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1059",
+        "T1547",
+        "T1562"
+      ],
+      "q3_missed_ttps": [
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

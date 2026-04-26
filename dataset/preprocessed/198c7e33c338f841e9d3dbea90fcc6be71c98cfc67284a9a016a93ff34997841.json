@@ -1,0 +1,162 @@
+{
+  "hash": "198c7e33c338f841e9d3dbea90fcc6be71c98cfc67284a9a016a93ff34997841",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (20):\n  - get Program Files directory\n  - check Internet connectivity via WinINet\n  - access PEB ldr_data\n  - get ntdll base address\n  - encode data using XOR\n  - get process heap force flags\n  - get process heap flags\n  - contain obfuscated stackstrings\n  - get startup folder\n  - get file size\n  - get common file path\n  - check if file exists\n  - link function at runtime on Windows\n  - check for unmoving mouse cursor\n  - log keystrokes via polling\n  - get geographical location\n  - query or enumerate registry value\n  - link many functions at runtime\n  - check OS version\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Process::Resume Thread [C0054]\n  - Process::Create Thread [C0038]\n  - File System::Create File [C0016]\n  - get Program Files directory\n  - check Internet connectivity via WinINet\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - access PEB ldr_data\n  - get ntdll base address\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - get process heap force flags\n  - get process heap flags\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - get startup folder\n  - Process::Create Process [C0017]\n  - Process::Terminate Thread [C0039]\n  - File System::Get File Attributes [C0049]\n  - contain loop\n  - resolve function by parsing PE exports\n  - File System::Writes File [C0052]\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (7):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  MSCTF.Shared.MUTEX.EBH\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: CreateProcessA, GetProcAddress, VirtualAlloc, VirtualProtect\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [sfx] WinZip\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Sign tool] Windows Authenticode\n  Packers: {'F-PROT': 'UPX_LZMA'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=7.0\n  UPX1         entropy=7.12\n  .rsrc        entropy=5.36\n  .imports     entropy=4.62\n  [overlay]    entropy=7.449883460998535  size=7584\n",
+  "ground_truth": {
+    "hash": "198c7e33c338f841e9d3dbea90fcc6be71c98cfc67284a9a016a93ff34997841",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.4583,
+    "malicious_count": 33,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 7
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "doyoads",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.doyoads",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1016",
+        "signature_description": "check Internet connectivity via WinINet"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "get process heap force flags"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "check OS version"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get Program Files directory"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "check for unmoving mouse cursor"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "get startup folder"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "PEB access",
+      "resume thread",
+      "create thread",
+      "create or open file",
+      "get Program Files directory",
+      "check Internet connectivity via WinINet",
+      "create or open registry key",
+      "access PEB ldr_data",
+      "get ntdll base address",
+      "encode data using XOR",
+      "delay execution",
+      "get process heap force flags",
+      "get process heap flags",
+      "contain obfuscated stackstrings",
+      "get startup folder",
+      "create process on Windows",
+      "terminate thread",
+      "get file attributes",
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "write file on Windows",
+      "extract resource via kernel32 functions",
+      "get file size",
+      "get common file path",
+      "create directory",
+      "create HTTP request",
+      "connect to URL",
+      "delete file",
+      "read data from Internet",
+      "receive data",
+      "check if file exists",
+      "set registry value",
+      "link function at runtime on Windows",
+      "check for unmoving mouse cursor",
+      "check for time delay via GetTickCount",
+      "read .ini file",
+      "log keystrokes via polling",
+      "initialize hashing via WinCrypt",
+      "hash data with MD5",
+      "hash data via WinCrypt",
+      "read file on Windows",
+      "copy file",
+      "create shortcut via IShellLink",
+      "hash data with CRC32",
+      "enumerate PE sections",
+      "get graphical window text",
+      "get geographical location",
+      "get OS version",
+      "query or enumerate registry value",
+      "connect to HTTP server",
+      "get thread local storage value",
+      "terminate process",
+      "allocate thread local storage",
+      "set thread local storage value",
+      "link many functions at runtime",
+      "check OS version",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "packed with UPX",
+      "linked against CPP standard library",
+      "linked against CPP JSON library",
+      "linked against ZLIB",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "MSCTF.Shared.MUTEX.EBH"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

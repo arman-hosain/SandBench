@@ -1,0 +1,68 @@
+{
+  "hash": "36309b9ec2ad3770a554fe95d068d8d4cb656c7171ecab02c65e3b23b31eae48",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  allwaysync-9-1-7-set.pe32\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (11):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  MSCTF.Shared.MUTEX.EBH\n  MSCTF.Shared.MUTEX.EJB\n  SINGLE_MUTEX_996E.exe\n  SINGLE_MUTEX_allwaysync-9-1-7-set.pe32\n\nMUTEXES OPENED (1):\n  SINGLE_MUTEX_36309b9ec2ad3770a554fe95d068d8d4cb656c7171ecab02c65e3b23b31eae48\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: CreateProcessA, GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n\nPE SECTIONS (entropy):\n  .text        entropy=6.54\n  .itext       entropy=6.31\n  .data        entropy=4.26\n  .bss         entropy=0.0\n  .idata       entropy=5.04\n  .tls         entropy=0.0\n  .rdata       entropy=0.21\n  .reloc       entropy=6.65\n  .rsrc        entropy=2.1\n  [overlay]    entropy=7.999057292938232  size=1260842\n",
+  "ground_truth": {
+    "hash": "36309b9ec2ad3770a554fe95d068d8d4cb656c7171ecab02c65e3b23b31eae48",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7945,
+    "malicious_count": 58,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 19
+      },
+      {
+        "value": "dropper",
+        "count": 11
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "keydro",
+        "count": 13
+      },
+      {
+        "value": "barys",
+        "count": 7
+      },
+      {
+        "value": "genericr",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.keydro/barys",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [],
+    "capa_sig_names": [],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "MSCTF.Shared.MUTEX.EBH",
+        "MSCTF.Shared.MUTEX.EJB",
+        "SINGLE_MUTEX_996E.exe",
+        "SINGLE_MUTEX_allwaysync-9-1-7-set.pe32",
+        "SINGLE_MUTEX_allwaysync-9-1-7_setup.sfx.exe"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "SNDBOX",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "hash": "1c8a927368de19f20207c182ca9513f809ab9d17596681c894164e0a9c297e08",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  5e7152f511d607f12d1dde7e919e3a4d.virus.exe\n    regedit.exe /s C:\\Users\\<USER>\\AppData\\Local\\Temp\\~dfds3.reg\n\nCOMMAND EXECUTIONS (1):\n  cmd /c a.bat\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (5):\n  - get file size\n  - link function at runtime on Windows\n  - create new key via CryptAcquireContext\n  - enumerate services\n  - query environment variable\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - Process::Create Process [C0017]\n  - Memory::Allocate Memory [C0007]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Writes File [C0052]\n  - Execution::Install Additional Program [B0023]\n  - Discovery::File and Directory Discovery [E1083]\n  - contain loop\n  - Process::Terminate Process [C0018]\n  - File System::Read File [C0051]\n  - File System::Copy File [C0045]\n  - link function at runtime on Windows\n  - extract resource via kernel32 functions\n  - Cryptography::Encryption Key [C0028]\n  - Cryptography::Generate Pseudo-random Sequence::Use API [C0021.003]\n  - enumerate services\n  - Discovery::System Information Discovery [E1082]\n  - File System::Delete File [C0047]\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (8):\n  C:\\1c8a927368de19f20207c182ca9513f809ab9d17596681c894164e0a9c297e08.tmp1\n  C:\\Documents and Settings\\<USER>\\Application Data\\Microsoft\\Crypto\\RSA\\S-1-5-21-1275210071-920026266-1060284298-1003\\8c8436195f6e0875edb85e34665c32ec_fabbc6a1-c573-4ea0-9ca1-50004b35a440\n  C:\\Documents and Settings\\Administrator\\Application Data\\Microsoft\\Crypto\\RSA\\S-1-5-21-1482476501-1645522239-1417001333-500\\a18ca4003deb042bbee7a40f15e1970b_dcff734b-bc3f-43cb-8911-9b5d467629cf\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe.tmp1\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\RCX2.tmp\n  C:\\RCX3.tmp\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~dfds3.reg\n  a.bat\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\KtmRm = C\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (2):\n  C:\\WINDOWS\\system32\\cmd.exe\n  a.bat\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualAlloc, VirtualAllocEx, VirtualProtect, WinExec\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=5.86\n  .rdata       entropy=2.23\n  .data        entropy=1.14\n  .rsrc        entropy=7.74\n",
+  "ground_truth": {
+    "hash": "1c8a927368de19f20207c182ca9513f809ab9d17596681c894164e0a9c297e08",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.913,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1007",
+        "signature_description": "enumerate services"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "create new key via CryptAcquireContext"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "create process on Windows",
+      "allocate memory",
+      "allocate RWX memory",
+      "allocate RW memory",
+      "delay execution",
+      "write file on Windows",
+      "write and execute a file",
+      "get file size",
+      "contain loop",
+      "terminate process",
+      "read file on Windows",
+      "copy file",
+      "link function at runtime on Windows",
+      "extract resource via kernel32 functions",
+      "create new key via CryptAcquireContext",
+      "generate random numbers via WinAPI",
+      "enumerate services",
+      "query environment variable",
+      "delete file",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\KtmRm"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\system32\\cmd.exe",
+        "a.bat"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

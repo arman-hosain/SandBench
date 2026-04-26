@@ -1,0 +1,72 @@
+{
+  "hash": "028393363dc3d326f761306c22522ded936e563395a65f0ac070da9e1ecbe9b3",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic malicious behavior including deep recursion (process spawning itself 8 times), execution of obfuscated HTML files via Internet Explorer, dropping multiple executable and DLL files to System32, modifying registry keys related to shell extensions and IE form suggestions, and utilizing anti-analysis techniques like packing and XOR encoding. The combination of these behaviors indicates a malicious payload designed to evade detection and execute further actions.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Dropper\"],\n    \"explanation\": \"The sample acts as a Dropper by unpacking and executing additional files (DLLs and EXEs) to System32. It behaves like a Trojan by using legitimate-looking processes (IEXPLORE.EXE) to run malicious scripts and modifying system registry settings to persist or alter behavior. It does not exhibit ransomware encryption, worm propagation, or backdoor remote access characteristics in this report.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1562\",\n        \"name\": \"Impair Defenses\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1546\",\n        \"name\": \"Event Triggered Execution\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 3879,
+      "response_chars": 1472,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic malicious behavior including deep recursion (process spawning itself 8 times), execution of obfuscated HTML files via Internet Explorer, dropping multiple executable and DLL files to System32, modifying registry keys related to shell extensions and IE form suggestions, and utilizing anti-analysis techniques lik",
+      "elapsed_seconds": 7.54
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 7.54,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9155
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.3333,
+      "ttp_precision": 0.2,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1546",
+        "T1562"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1059",
+        "T1546",
+        "T1562"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.3333,
+      "breakdown": {
+        "ttp_f1": 0.3333
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

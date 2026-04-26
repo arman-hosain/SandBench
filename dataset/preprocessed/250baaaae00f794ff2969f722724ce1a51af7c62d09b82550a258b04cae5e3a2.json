@@ -1,0 +1,69 @@
+{
+  "hash": "250baaaae00f794ff2969f722724ce1a51af7c62d09b82550a258b04cae5e3a2",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (7):\n  GET http://94.23.247.202/1108uk2/analyst0-2d1671/0/51-sp3/0/\n  GET http://94.23.247.202/1108uk2/analyst0-2d1671/1/0/0/\n  GET http://94.23.247.202/1108h/analyst0-2d1671/1/0/0/\n  GET http://hngdecor.com/wp-content/themes/twentyfourteen/images/11k2.zip\n  GET http://94.23.247.202/1108uk2/analyst0-2d1671/41/5/4/\n  GET http://okeanbg.com/images/1108h.zip\n  GET http://94.23.247.202/1108h/analyst0-2d1671/41/5/4/\n\nDNS LOOKUPS (2):\n  hngdecor.com\n  okeanbg.com\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    szgfw.exe\n      entsj.exe\n      dtmri.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\szgfw.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\szgfw.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - encode data using XOR\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  szgfw.exe  [sha256: d413fe458a72131b...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\szgfw.exe  [sha256: 3b1044426a7ddbfa...]\n\nFILES WRITTEN (4):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\szgfw.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\dtmri.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\entsj.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\szgfw.exe\n\nOTHER REGISTRY KEYS SET (4):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n\nMUTEXES CREATED (10):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  RasPbFile\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n\nMUTEXES OPENED (4):\n  _!MSFTHISTORY!_\n  c:!documents and settings!administrator!cookies!\n  c:!documents and settings!administrator!local settings!history!history.ie5!\n  c:!documents and settings!administrator!local settings!temporary internet files!content.ie5!\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\szgfw.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\szgfw.exe\" \"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: VirtualAlloc\n\nPE SECTIONS (entropy):\n  .text        entropy=5.31\n  .rdata       entropy=4.1\n  [overlay]    entropy=3.4806652069091797  size=2816\n",
+  "ground_truth": {
+    "hash": "250baaaae00f794ff2969f722724ce1a51af7c62d09b82550a258b04cae5e3a2",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9143,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain loop"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [
+        "hngdecor.com",
+        "okeanbg.com"
+      ],
+      "urls": [
+        "http://94.23.247.202/1108h/analyst0-2d1671/1/0/0/",
+        "http://94.23.247.202/1108h/analyst0-2d1671/41/5/4/",
+        "http://94.23.247.202/1108uk2/analyst0-2d1671/0/51-sp3/0/",
+        "http://94.23.247.202/1108uk2/analyst0-2d1671/1/0/0/",
+        "http://94.23.247.202/1108uk2/analyst0-2d1671/41/5/4/",
+        "http://hngdecor.com/wp-content/themes/twentyfourteen/images/11k2.zip",
+        "http://okeanbg.com/images/1108h.zip"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 4,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\szgfw.exe",
+        "szgfw.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "RasPbFile",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\szgfw.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\szgfw.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

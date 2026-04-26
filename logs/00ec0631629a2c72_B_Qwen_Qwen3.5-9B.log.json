@@ -1,0 +1,168 @@
+{
+  "hash": "00ec0631629a2c72c7b9e938b99bb517fdb729b9e2ba2aa0033c48e40c452781",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is malicious. It downloads and executes additional executables (.exe) from suspicious domains disguised as PDFs, utilizes the Mpress packer to evade static analysis, employs XOR obfuscation, and drops files to temporary directories. The combination of network callbacks, packing, and obfuscation indicates a malicious payload designed to evade detection and execute further actions.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The primary behavior observed is the download of additional files (pdf.exe) from external domains and the execution of a packed, obfuscated binary. This pattern of delivering and executing a secondary payload is characteristic of a Dropper. It does not exhibit ransomware encryption, spyware data exfiltration, or worm-like self-propagation features in this report.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1082\",\n        \"name\": \"System Information Discovery\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 3248,
+      "response_chars": 1225,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including downloading additional executables from suspicious domains (backpackinglight.com.au, littlepaperlane.com.au), utilizing a packer (Mpress) to evade analysis, employing XOR obfuscation, and dropping files to temporary directories. The combination of network callbacks, packing, and obfus",
+      "elapsed_seconds": 10.38
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "1 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 1,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1569"
+      ],
+      "hallucinated_ttps": [
+        "T1055",
+        "T1569"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 2
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- get system information on Windows\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by the report.\nDIRE",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1083"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 1,
+      "best_ttp_fp": 1
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "1 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 1,
+      "ttps_found": [
+        "T1027",
+        "T1083"
+      ],
+      "hallucinated_ttps": [
+        "T1083"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 1
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- get system information on Windows\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by the report.\nDIRE",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1027",
+        "T1082"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 2,
+      "best_ttp_fp": 0
+    },
+    {
+      "step": 8,
+      "type": "judge_check",
+      "iteration": 3,
+      "needs_more": false,
+      "gap_summary": "",
+      "missed_behavior_count": 0,
+      "ttps_found": [
+        "T1027",
+        "T1082"
+      ],
+      "hallucinated_ttps": [],
+      "ttp_tp": 2,
+      "ttp_fp": 0
+    }
+  ],
+  "total_llm_calls": 3,
+  "total_elapsed": 23.78,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8732
+    },
+    "family": {
+      "family_f1": 0.6667,
+      "family_precision": 1.0,
+      "family_recall": 0.5,
+      "predicted": [
+        "dropper"
+      ],
+      "matched": [
+        "dropper"
+      ],
+      "reachable_gt": [
+        "trojan",
+        "dropper"
+      ],
+      "gt_pool": [
+        "babar",
+        "downloader",
+        "trojan",
+        "upatre",
+        "waski"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 1.0,
+      "ttp_precision": 1.0,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027",
+        "T1082"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1082"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 1.0,
+      "breakdown": {
+        "ttp_f1": 1.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

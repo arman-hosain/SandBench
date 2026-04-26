@@ -1,0 +1,65 @@
+{
+  "hash": "1df7e4218c562944f758e5704203fcea7522a0f0aefd60d23c38aba207c3b4ce",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    17rf87.exe\n      qk5ciq4.exe\n        jg985xd.exe\n          l53075.exe\n            nkw6e.exe\n              dfmmcn.exe\n                80u6l.exe\n                  x29x5.exe\n                    25hht.exe\n                      nfethd9.exe\n                        n47ije7.exe\n                          1b71na.exe\n                            c6p1f04.exe\n                              55962r5.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - contain obfuscated stackstrings\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - contain loop\n  - resolve function by parsing PE exports\n  - Data::Decompress Data [C0025]\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (30):\n  C:\\005ve.exe\n  C:\\0aj27e5.exe\n  C:\\17rf87.exe\n  C:\\1b71na.exe\n  C:\\1i4890.exe\n  C:\\25hht.exe\n  C:\\42iv0.exe\n  C:\\46cxh9.exe\n  C:\\55962r5.exe\n  C:\\5n51w2.exe\n  C:\\6x44lq.exe\n  C:\\77x0u.exe\n  C:\\80u6l.exe\n  C:\\8951l.exe\n  C:\\91ft8be.exe\n  C:\\944k98.exe\n  C:\\99vbq.exe\n  C:\\c6p1f04.exe\n  C:\\ddb54e.exe\n  C:\\dfmmcn.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Packer] DxPack\n  [Protector] Obsidium\n  Packers: {'F-PROT': 'UPX_LZMA'}\n\nPE SECTIONS (entropy):\n  .rsrc        entropy=7.98\n  coderpub     entropy=5.8\n  [overlay]    entropy=3.368884563446045  size=219165\n",
+  "ground_truth": {
+    "hash": "1df7e4218c562944f758e5704203fcea7522a0f0aefd60d23c38aba207c3b4ce",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8904,
+    "malicious_count": 65,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 25
+      },
+      {
+        "value": "dropper",
+        "count": 6
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "dacic",
+        "count": 7
+      },
+      {
+        "value": "dinwod",
+        "count": 6
+      },
+      {
+        "value": "inject1",
+        "count": 3
+      }
+    ],
+    "suggested_label": "trojan.dacic/dinwod",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "decompress data using LZO",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO"
+  ]
+}

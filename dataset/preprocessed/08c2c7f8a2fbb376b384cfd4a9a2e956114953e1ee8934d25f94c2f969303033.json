@@ -1,0 +1,102 @@
+{
+  "hash": "08c2c7f8a2fbb376b384cfd4a9a2e956114953e1ee8934d25f94c2f969303033",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (6):\n  GET http://supportservice.netai.net/c/c13.php?m=a&h=6c78a9c3  UA: Mozilla/5.0 (Windows; U; Windows NT 5.1; ar; rv:1.9.0.5) Gecko/2008120122 Firefox/3.0.5\n  GET http://backupsupport.comxa.com/z/c13.php?m=a&h=6c78a9c3  UA: Mozilla/5.0 (Windows; U; Windows NT 5.1; ar; rv:1.9.0.5) Gecko/2008120122 Firefox/3.0.5\n  GET http://quick.comuf.com/c13/dwn13.dmp  UA: Mozilla/5.0 (Windows; U; Windows NT 5.1; ar; rv:1.9.0.5) Gecko/2008120122 Firefox/3.0.5\n  GET http://backupsupport.comxa.com/z/dwn13.dmp  UA: Mozilla/5.0 (Windows; U; Windows NT 5.1; ar; rv:1.9.0.5) Gecko/2008120122 Firefox/3.0.5\n  GET http://supportservice.netai.net/c/c13.php?m=a&h=b3aeb9eb\n  GET http://backupsupport.comxa.com/z/c13.php?m=a&h=b3aeb9eb\n\nDNS LOOKUPS (6):\n  backupsupport.comxa.com \u2192 153.92.0.100\n  backupsupport.esy.es\n  quick.comuf.com \u2192 153.92.0.100\n  quicks.hol.es\n  supportbackup.esy.es\n  supportservice.netai.net \u2192 153.92.0.100\n\nIP TRAFFIC (2):\n  153.92.0.100:80 ()\n  153.92.0.100:80 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  <PATH_SAMPLE.EXE>\n    %APPDATA%\\microsoft\\search\\searchhelper.exe\n    %TEMP%\\wer9mso.dir00\\com3.exe\n    <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\svchost.exe\n  %APPDATA%\\microsoft\\search\\searchhelper.exe\n  %TEMP%\\wer9mso.dir00\\com3.exe\n    %WINDIR%\\syswow64\\reg.exe\n  <PATH_SAMPLE.EXE>\n    %APPDATA%\\microsoft\\search\\searchhelper.exe\n    %TEMP%\\wer9mso.dir00\\com3.exe\n  %APPDATA%\\microsoft\\search\\searchhelper.exe\n  %TEMP%\\wer9mso.dir00\\com3.exe\n  %WINDIR%\\syswow64\\reg.exe\n  <SYSTEM32>\\conhost.exe\n\nCOMMAND EXECUTIONS (10):\n  (Open) C:\\08c2c7f8a2fbb376b384cfd4a9a2e956114953e1ee8934d25f94c2f969303033silent pause [c:\\]\n  (Open) REGADD HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /f /t REG_SZ /v Intel GPU\" /d \"C:\\Program Files\\Intel GPU\\GfxUI.exe\"\" [c:\\]\n  ( 3680 - cmd.exe ) c:\\windows\\system32\\cmd.exe /c \"c:\\users\\user41~1\\appdata\\local\\temp\\tuwfl.exe\"\n  ( 4504 - tuwfl.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\tuwfl.exe\n  ( 272 - searchhelper.exe ) \"c:\\users\\USER\\appdata\\roaming\\microsoft\\search\\searchhelper.exe\"\n  ( 3156 - com3.exe ) \"\\\\.\\c:\\users\\user41~1\\appdata\\local\\temp\\wer9mso.dir00\\com3.exe\"\n  ( 2188 - tuwfl.exe ) \"c:\\users\\user41~1\\appdata\\local\\temp\\tuwfl.exe\" silent pause\n  ( 5076 - searchhelper.exe ) \"c:\\users\\USER\\appdata\\roaming\\microsoft\\search\\searchhelper.exe\"\n  ( 2668 - com3.exe ) \"\\\\.\\c:\\users\\user41~1\\appdata\\local\\temp\\wer9mso.dir00\\com3.exe\"\n  ( 3192 - reg.exe ) \"c:\\windows\\system32\\reg.exe\" add hklm\\software\\microsoft\\windows\\currentversion\\run /f /t reg_sz /v \"intel gpu\" /d \"c:\\program files\\intel gpu\\gfxui.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - link function at runtime on Windows\n  - parse PE header\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - link function at runtime on Windows\n  - contain loop\n  - parse PE header\n  - File System::Writes File [C0052]\n  - get thread local storage value\n  - contain a thread local storage (.tls) section\n  - compiled with MinGW for Windows\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (12):\n  GfxUI.exe  [sha256: f82d5575f52cd882...]\n  SearchHelper.exe  [sha256: 1617e302da567bda...]\n  ShareIt Service.exe  [sha256: 78ad5abaeeb0ac3d...]\n  %TEMP%\\wer9mso.dir00\\com3.exe  [sha256: c9d343fae9865b39...]\n  %APPDATA%\\microsoft\\persist.dat  [sha256: 78b9067ddf140326...]\n  %APPDATA%\\microsoft\\search\\searchhelper.exe  [sha256: 5c4f5dd9e02b3ea4...]\n  %APPDATA%\\microsoft\\windows\\start menu\\programs\\startup\\shareit service.exe  [sha256: aaf1a22cc61c02f8...]\n  c:\\users\\USER\\appdata\\roaming\\microsoft\\search\\searchhelper.exe  [sha256: a48a915aaf16d151...]\n  c:\\users\\user41~1\\appdata\\local\\temp\\wer9mso.dir00\\com3.exe  [sha256: 3b88b751405b19a8...]\n  c:\\users\\USER\\appdata\\local\\temp\\wer9mso.dir00\\com3.exe  [sha256: 3b88b751405b19a8...]\n  c:\\program files\\intel gpu\\gfxui.exe  [sha256: 1531fd6704b1a88c...]\n  c:\\users\\USER\\appdata\\roaming\\microsoft\\windows\\start menu\\programs\\startup\\shareit service.exe  [sha256: 7990c9b614ff0fdb...]\n\nFILES WRITTEN (11):\n  ( 272 - searchhelper.exe ) c:\\users\\USER\\appdata\\roaming\\microsoft\\windows\\start menu\\programs\\startup\\shareit service.exe\n  ( 3156 - com3.exe ) c:\\program files\\intel gpu\\gfxui.exe\n  ( 4504 - tuwfl.exe ) c:\\users\\USER\\appdata\\local\\temp\\wer9mso.dir00\\com3.exe\n  ( 4504 - tuwfl.exe ) c:\\users\\USER\\appdata\\roaming\\microsoft\\persist.dat\n  ( 4504 - tuwfl.exe ) c:\\users\\USER\\appdata\\roaming\\microsoft\\search\\searchhelper.exe\n  ( 4504 - tuwfl.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\wer9mso.dir00\\com3.exe\n  C:\\Documents and Settings\\<USER>\\Application Data\\Microsoft\\Search\\SearchHelper.exe\n  C:\\Documents and Settings\\<USER>\\Application Data\\Microsoft\\persist.dat\n  C:\\Documents and Settings\\<USER>\\Start Menu\\Programs\\Startup\\ShareIt Service.exe\n  C:\\Program Files\\Intel GPU\\GfxUI.exe\n  \\\\.\\C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\WER9mso.dir00\\com3.exe\n\nPERSISTENCE REGISTRY KEYS (2):\n  \\registry\\machine\\software\\wow6432node\\microsoft\\windows\\currentversion\\run\\intel gpu = c:\\program files\\intel gpu\\gfxui.exe\n  \\registry\\user\\s-1-5-21-2589874625-3071026754-1203412979-1000\\software\\microsoft\\windows\\currentversion\\run\\search helper = c:\\users\\USER\\appdata\\roaming\\microsoft\\search\\searchhelper.exe\n\nOTHER REGISTRY KEYS SET (3):\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\\\UNCAsIntranet\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\\\AutoDetect\n  <HKLM>\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\NetworkList\\Nla\\Cache\\Intranet\\\\{6A52BE73-EC8E-4F63-A268-7517A50DCB3\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nMUTEXES OPENED (4):\n  \\Sessions\\1\\BaseNamedObjects\\Global\\BFE_Notify_Event_{3ba5660f-5fec-4d1b-b736-d051ee18948e}\n  \\Sessions\\1\\BaseNamedObjects\\Global\\BFE_Notify_Event_{78f71454-1611-47cd-b5a6-a5bbbcbaab18}\n  \\Sessions\\1\\BaseNamedObjects\\Global\\BFE_Notify_Event_{8caf4ef8-563f-43db-81db-20f3f0fed7bb}\n  \\Sessions\\1\\BaseNamedObjects\\Local\\MSCTF.CtfActivated.Default1\n\nPROCESSES CREATED (16):\n  %APPDATA%\\microsoft\\search\\searchhelper.exe\n  %TEMP%\\wer9mso.dir00\\com3.exe\n  %WINDIR%\\syswow64\\reg.exe\n  ( 2188 - tuwfl.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\tuwfl.exe\n  ( 2668 - com3.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\wer9mso.dir00\\com3.exe\n  ( 3192 - reg.exe ) c:\\windows\\syswow64\\reg.exe\n  ( 5076 - searchhelper.exe ) c:\\users\\USER\\appdata\\roaming\\microsoft\\search\\searchhelper.exe\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\conhost.exe\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\WER9mso.dir00\\GeSddneb.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualAlloc, VirtualProtect\n\nPE SECTIONS (entropy):\n  .text        entropy=5.74\n  .data        entropy=6.74\n  .rdata       entropy=4.16\n  .eh_fram     entropy=0.0\n  .bss         entropy=0.0\n  .idata       entropy=4.48\n  .CRT         entropy=0.12\n  .tls         entropy=0.2\n  .rsrc        entropy=4.89\n  [overlay]    entropy=5.021778583526611  size=76025\n",
+  "ground_truth": {
+    "hash": "08c2c7f8a2fbb376b384cfd4a9a2e956114953e1ee8934d25f94c2f969303033",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8732,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RW memory",
+      "allocate RWX memory",
+      "link function at runtime on Windows",
+      "contain loop",
+      "parse PE header",
+      "write file on Windows",
+      "get thread local storage value",
+      "contain a thread local storage (.tls) section",
+      "compiled with MinGW for Windows",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "153.92.0.100"
+      ],
+      "domains": [
+        "backupsupport.comxa.com",
+        "backupsupport.esy.es",
+        "quick.comuf.com",
+        "quicks.hol.es",
+        "supportbackup.esy.es",
+        "supportservice.netai.net"
+      ],
+      "urls": [
+        "http://backupsupport.comxa.com/z/c13.php?m=a&h=6c78a9c3",
+        "http://backupsupport.comxa.com/z/c13.php?m=a&h=b3aeb9eb",
+        "http://backupsupport.comxa.com/z/dwn13.dmp",
+        "http://quick.comuf.com/c13/dwn13.dmp",
+        "http://supportservice.netai.net/c/c13.php?m=a&h=6c78a9c3",
+        "http://supportservice.netai.net/c/c13.php?m=a&h=b3aeb9eb"
+      ],
+      "registry_persistence": [
+        "\\registry\\machine\\software\\wow6432node\\microsoft\\windows\\currentversion\\run\\intel gpu",
+        "\\registry\\user\\s-1-5-21-2589874625-3071026754-1203412979-1000\\software\\microsoft\\windows\\currentversion\\run\\search helper"
+      ],
+      "registry_all_count": 5,
+      "files_dropped": [
+        "%APPDATA%\\microsoft\\persist.dat",
+        "%APPDATA%\\microsoft\\search\\searchhelper.exe",
+        "%APPDATA%\\microsoft\\windows\\start menu\\programs\\startup\\shareit service.exe",
+        "%TEMP%\\wer9mso.dir00\\com3.exe",
+        "GfxUI.exe",
+        "SearchHelper.exe",
+        "ShareIt Service.exe",
+        "c:\\program files\\intel gpu\\gfxui.exe",
+        "c:\\users\\USER\\appdata\\local\\temp\\wer9mso.dir00\\com3.exe",
+        "c:\\users\\USER\\appdata\\roaming\\microsoft\\search\\searchhelper.exe",
+        "c:\\users\\USER\\appdata\\roaming\\microsoft\\windows\\start menu\\programs\\startup\\shareit service.exe",
+        "c:\\users\\user41~1\\appdata\\local\\temp\\wer9mso.dir00\\com3.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "%APPDATA%\\microsoft\\search\\searchhelper.exe",
+        "%TEMP%\\wer9mso.dir00\\com3.exe",
+        "%WINDIR%\\syswow64\\reg.exe",
+        "( 2188 - tuwfl.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\tuwfl.exe",
+        "( 2668 - com3.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\wer9mso.dir00\\com3.exe",
+        "( 3192 - reg.exe ) c:\\windows\\syswow64\\reg.exe",
+        "( 5076 - searchhelper.exe ) c:\\users\\USER\\appdata\\roaming\\microsoft\\search\\searchhelper.exe",
+        "<PATH_SAMPLE.EXE>",
+        "<SYSTEM32>\\conhost.exe",
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\WER9mso.dir00\\GeSddneb.exe",
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\WER9mso.dir00\\Ohjgehbx.exe",
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\WER9mso.dir00\\bmiSppSA.exe",
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\WER9mso.dir00\\lrsaqCje.exe",
+        "C:\\Documents and Settings\\<USER>\\Application Data\\Microsoft\\Search\\SearchHelper.exe",
+        "C:\\WINDOWS\\system32\\REG.exe C:\\WINDOWS\\system32\\REG.exe\" ADD HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /f /t REG_SZ /v \"Intel GPU\" /d \"C:\\Program Files\\Intel GPU\\GfxUI.exe\"\"",
+        "\\\\.\\C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\WER9mso.dir00\\com3.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Dr.Web vxCube",
+    "ReaQta-Hive",
+    "VirusTotal Cuckoofork"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "hash": "02db7f4d37506e53418100eeca6cd8a533fd5d68cf95c2d4b93fa590849beca6",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits strong indicators of anti-analysis techniques, including obfuscated stackstrings, argument obfuscation, and the presence of a resource section often used for hiding payloads. While the compiler is MinGW (common for legitimate software), the specific anti-static analysis triggers suggest the code is designed to evade detection, warranting a suspicious verdict pending further behavioral confirmation.\"\n  },\n  \"q2\": {\n    \"family\": [\"Unknown\"],\n    \"explanation\": \"The provided report only contains static analysis capabilities (CAPA) and file identity information. There is no evidence of network communication, process injection, file encryption, or other behavioral patterns required to classify the sample into specific families like Ransomware, Trojan, or Dropper. Therefore, the family remains Unknown based on the available data.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 808,
+      "response_chars": 1048,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits strong indicators of anti-analysis techniques, including obfuscated stackstrings, argument obfuscation, and the presence of a resource section often used for hiding payloads. While the compiler is MinGW (common for legitimate software), the specific anti-static analysis triggers suggest the code is designed to evade d",
+      "elapsed_seconds": 7.71
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 7.71,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 0.5,
+      "predicted": "SUSPICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8143
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 1.0,
+      "ttp_precision": 1.0,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 1.0,
+      "breakdown": {
+        "ttp_f1": 1.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "hash": "3f5ce415ef3dfffc34f86d3b7c4b6fab0b71f879b8f261afe800b4e54c2e32cc",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - link function at runtime on Windows\n  - get system information on Windows\n  - query or enumerate registry value\n  - get socket status\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Create Thread [C0038]\n  - contain loop\n  - link function at runtime on Windows\n  - Communication::Socket Communication::Set Socket Config [C0001.001]\n  - get system information on Windows\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Communication::Socket Communication::Initialize Winsock Library [C0001.009]\n  - Communication::DNS Communication::Resolve [C0011.001]\n  - Communication::Socket Communication::Receive Data [C0001.006]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - Communication::Socket Communication::Send Data [C0001.007]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - Process::Terminate Process [C0018]\n  - Communication::Socket Communication::Get Socket Status [C0001.012]\n  - contain a resource (.rsrc) section\n  - Execution::Install Additional Program [B0023]\n  - Anti-Behavioral Analysis::Conditional Execution::Runs as Service [B0025.007]\n  - contains PDB path\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Sign tool] Windows Authenticode\n\nPE SECTIONS (entropy):\n  .text        entropy=6.35\n  .data        entropy=1.6\n  .rsrc        entropy=4.76\n  [overlay]    entropy=5.987678050994873  size=2218020\n",
+  "ground_truth": {
+    "hash": "3f5ce415ef3dfffc34f86d3b7c4b6fab0b71f879b8f261afe800b4e54c2e32cc",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.4789,
+    "malicious_count": 34,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1016",
+        "signature_description": "get socket status"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get system information on Windows"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "delay execution",
+      "create or open registry key",
+      "create thread",
+      "contain loop",
+      "link function at runtime on Windows",
+      "set socket configuration",
+      "get system information on Windows",
+      "query or enumerate registry value",
+      "initialize Winsock library",
+      "resolve DNS",
+      "receive data on socket",
+      "receive data",
+      "send data on socket",
+      "send data",
+      "terminate process",
+      "get socket status",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "run as service",
+      "contains PDB path",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO"
+  ]
+}

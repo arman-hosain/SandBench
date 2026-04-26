@@ -1,0 +1,83 @@
+{
+  "hash": "02a86bf91b8a69d671cbe853fc2ec2e8de02e0ae4e7438ecc3189541f4f8032a",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits several suspicious behaviors including anti-VM detection (targeting VirtualBox), delayed execution techniques to evade dynamic analysis, and the creation of a new executable (nfwimdx.exe) in a temporary directory. It also installs additional programs and performs extensive file system operations. However, the specific artifacts written (Microsoft Ink files, .mui files, and .avi files) appear to be legitimate system components, suggesting this might be a dropper or a legitimate application with obfuscation/evasion techniques rather than a confirmed malware payload.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The sample uses anti-analysis techniques (VM detection, delayed execution) and creates a new executable file (nfwimdx.exe) in a temporary directory, which is characteristic of a dropper designed to deploy a payload. The presence of legitimate-looking artifacts (Microsoft Ink files) suggests it may be disguising its purpose or is a legitimate tool with aggressive anti-debugging/anti-VM features, but the behavior of spawning a new process and evading analysis aligns best with the Dropper family.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1562\",\n        \"name\": \"Impair Defenses\"\n      },\n      {\n        \"id\": \"T1070\",\n        \"name\": \"Indicator Removal\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 2960,
+      "response_chars": 1662,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits several suspicious behaviors including anti-VM detection (targeting VirtualBox), delayed execution techniques to evade dynamic analysis, and the creation of a new executable (nfwimdx.exe) in a temporary directory. It also installs additional programs and performs extensive file system operations. However, the specific",
+      "elapsed_seconds": 13.76
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 13.76,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 0.5,
+      "predicted": "SUSPICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.875
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1010",
+        "T1082",
+        "T1083",
+        "T1222",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1562"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1562"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1082",
+        "T1083",
+        "T1222",
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "hash": "29e1718f7f3cf0117c9e89018a111fc1c051ba3115f5fa0eb5875453826e4fb1",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  <PATH_SAMPLE.EXE>\n    %WINDIR%\\syswow64\\reg.exe\n    %TEMP%\\avscan.exe\n    %WINDIR%\\syswow64\\cmd.exe\n  %TEMP%\\avscan.exe\n    %TEMP%\\avscan.exe\n    %WINDIR%\\syswow64\\cmd.exe\n    %WINDIR%\\syswow64\\reg.exe\n  %TEMP%\\avscan.exe\n  %WINDIR%\\syswow64\\cmd.exe\n    %WINDIR%\\hosts.exe\n    %WINDIR%\\syswow64\\wscript.exe\n  %WINDIR%\\syswow64\\cmd.exe\n    %WINDIR%\\hosts.exe\n    %WINDIR%\\syswow64\\wscript.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\Windows\\W_X_C.vbs\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - parse PE header\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - parse PE header\n  - Execution::Install Additional Program [B0023]\n  - contain a resource (.rsrc) section\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES DROPPED (9):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe  [sha256: fa0848b907c9456f...]\n  C:\\Windows\\hosts.exe  [sha256: 21275578bbc0f7df...]\n  %TEMP%\\avscan.exe  [sha256: 5dd878e068705ecb...]\n  %WINDIR%\\hosts.exe  [sha256: c5ff50043d2053bf...]\n  %WINDIR%\\w_x_c.bat  [sha256: d2150b9e5a4ce55e...]\n  %WINDIR%\\w_x_c.vbs  [sha256: efe24a682081fa1b...]\n  <REM_DRIVE>:\\autorun.inf  [sha256: bb4383865f6250e6...]\n  <REM_DRIVE>:\\rahasia_ku.exe  [sha256: 64731676696291b4...]\n  <REM_DRIVE>:\\usb.exe  [sha256: 31c32f180ffca641...]\n\nFILES WRITTEN (2):\n  %WINDIR%\\W_X_C.bat\n  C:\\windows\\W_X_C.vbs\n\nPERSISTENCE REGISTRY KEYS (4):\n  <HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\\avscan = %TEMP%\\avscan.exe\n  <HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\policies\\Explorer\\Run\\slsvovm = W_X_C.bat\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\avscan = C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\policies\\Explorer\\Run\\USER-PC = W_X_C.bat\n\nOTHER REGISTRY KEYS SET (10):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\HideFileExt\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\SuperHidden\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowSuperHidden\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Folder\\HideFileExt\\DefaultValue\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Folder\\HideFileExt\\UncheckedValue\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\HideFileExt\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\SuperHidden\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowSuperHidden\n  <HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Folder\\HideFileExt\\DefaultValue\n  <HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Folder\\HideFileExt\\UncheckedValue\n\nMUTEXES CREATED (3):\n  \\Sessions\\1\\BaseNamedObjects\\C:?UAHCDJP?OXFIMUQ.EXE\n  \\Sessions\\1\\BaseNamedObjects\\C:?USERS?USER?APPDATA?LOCAL?TEMP?AVSCAN.EXE\n  \\Sessions\\1\\BaseNamedObjects\\C:?WINDOWS?HOSTS.EXE\n\nPROCESSES CREATED (7):\n  %TEMP%\\avscan.exe\n  %WINDIR%\\hosts.exe\n  %WINDIR%\\syswow64\\cmd.exe\n  %WINDIR%\\syswow64\\reg.exe\n  %WINDIR%\\syswow64\\wscript.exe\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\conhost.exe\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.08\n  .rsrc        entropy=7.64\n  [overlay]    entropy=7.786825656890869  size=6179494\n",
+  "ground_truth": {
+    "hash": "29e1718f7f3cf0117c9e89018a111fc1c051ba3115f5fa0eb5875453826e4fb1",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9167,
+    "malicious_count": 66,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 36
+      },
+      {
+        "value": "worm",
+        "count": 2
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "lunam",
+        "count": 17
+      },
+      {
+        "value": "sillyfdc",
+        "count": 3
+      },
+      {
+        "value": "otfrem",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.lunam/sillyfdc",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "parse PE header",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "<HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\\avscan",
+        "<HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\policies\\Explorer\\Run\\slsvovm",
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\avscan",
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\policies\\Explorer\\Run\\USER-PC"
+      ],
+      "registry_all_count": 16,
+      "files_dropped": [
+        "%TEMP%\\avscan.exe",
+        "%WINDIR%\\hosts.exe",
+        "%WINDIR%\\w_x_c.bat",
+        "%WINDIR%\\w_x_c.vbs",
+        "<REM_DRIVE>:\\autorun.inf",
+        "<REM_DRIVE>:\\rahasia_ku.exe",
+        "<REM_DRIVE>:\\usb.exe",
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe",
+        "C:\\Windows\\hosts.exe"
+      ],
+      "mutexes": [
+        "\\Sessions\\1\\BaseNamedObjects\\C:?UAHCDJP?OXFIMUQ.EXE",
+        "\\Sessions\\1\\BaseNamedObjects\\C:?USERS?USER?APPDATA?LOCAL?TEMP?AVSCAN.EXE",
+        "\\Sessions\\1\\BaseNamedObjects\\C:?WINDOWS?HOSTS.EXE"
+      ],
+      "processes": [
+        "%TEMP%\\avscan.exe",
+        "%WINDIR%\\hosts.exe",
+        "%WINDIR%\\syswow64\\cmd.exe",
+        "%WINDIR%\\syswow64\\reg.exe",
+        "%WINDIR%\\syswow64\\wscript.exe",
+        "<PATH_SAMPLE.EXE>",
+        "<SYSTEM32>\\conhost.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Dr.Web vxCube",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "hash": "0d9e0d71ce63c6ad4e3750c986cf38f4507870e68327a625f77003f4d654e401",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  0d9e0d71ce63c6ad_hhcbrnaff.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\hhcbrnaff.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\hhcbrnaff.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\hhcbrnaff.exe  [sha256: 2a0d9b232e3c20cd...]\n\nMUTEXES CREATED (1):\n  Local\\MidiMapper_modLongMessage_RefCnt\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Packer] EP:MPRESS\n  [Packer] MPRESS\n\nPE SECTIONS (entropy):\n  .            entropy=7.01\n  .            entropy=5.93\n  .            entropy=4.58\n  [overlay]    entropy=3.3982458114624023  size=17038\n",
+  "ground_truth": {
+    "hash": "0d9e0d71ce63c6ad4e3750c986cf38f4507870e68327a625f77003f4d654e401",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.831,
+    "malicious_count": 59,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "ppatre",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\hhcbrnaff.exe"
+      ],
+      "mutexes": [
+        "Local\\MidiMapper_modLongMessage_RefCnt"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

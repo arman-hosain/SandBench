@@ -1,0 +1,6997 @@
+{
+  "benchmark": "SandBench",
+  "edition": "VT",
+  "timestamp": "2026-04-22 15:05:44",
+  "config": {
+    "models": [
+      "meta-llama/Llama-3.1-8B-Instruct"
+    ],
+    "modes": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "num_samples": 20,
+    "vllm_url": "http://localhost:8002/v1"
+  },
+  "results": [
+    {
+      "hash": "000050fba6b44257f9ae068ebf53935ee21fce9b8fcccc1fcc77f24d1c6801a5",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1027",
+          "signature_description": "packed with UPX"
+        },
+        {
+          "id": "T1059",
+          "signature_description": "accept command line arguments"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "get disk size"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get file size"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "link function at runtime on Windows"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "persist via Run registry key"
+        },
+        {
+          "id": "T1614",
+          "signature_description": "get geographical location"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 37.5,
+      "evaluation": {
+        "parse_ok": false,
+        "verdict": {
+          "verdict_score": 0.0,
+          "predicted": null,
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9296,
+          "note": "parse failed"
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "parse failed"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1012",
+            "T1027",
+            "T1059",
+            "T1082",
+            "T1083",
+            "T1129",
+            "T1547",
+            "T1614"
+          ],
+          "pred_ttps": [],
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": [
+            "T1012",
+            "T1027",
+            "T1059",
+            "T1082",
+            "T1083",
+            "T1129",
+            "T1547",
+            "T1614"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "000050fba6b44257_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "000050fba6b44257f9ae068ebf53935ee21fce9b8fcccc1fcc77f24d1c6801a5",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1027",
+          "signature_description": "packed with UPX"
+        },
+        {
+          "id": "T1059",
+          "signature_description": "accept command line arguments"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "get disk size"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get file size"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "link function at runtime on Windows"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "persist via Run registry key"
+        },
+        {
+          "id": "T1614",
+          "signature_description": "get geographical location"
+        }
+      ],
+      "total_llm_calls": 2,
+      "total_elapsed_seconds": 73.24,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9296
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0926,
+          "ttp_precision": 0.05,
+          "ttp_recall": 0.625,
+          "gt_ttps": [
+            "T1012",
+            "T1027",
+            "T1059",
+            "T1082",
+            "T1083",
+            "T1129",
+            "T1547",
+            "T1614"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1036",
+            "T1059",
+            "T1071",
+            "T1072",
+            "T1073",
+            "T1074",
+            "T1075",
+            "T1076",
+            "T1077",
+            "T1078",
+            "T1079",
+            "T1080",
+            "T1081",
+            "T1082",
+            "T1083",
+            "T1084",
+            "T1085",
+            "T1086",
+            "T1087",
+            "T1088",
+            "T1089",
+            "T1090",
+            "T1091",
+            "T1092",
+            "T1093",
+            "T1094",
+            "T1095",
+            "T1096",
+            "T1097",
+            "T1098",
+            "T1099",
+            "T1100",
+            "T1101",
+            "T1102",
+            "T1103",
+            "T1104",
+            "T1105",
+            "T1106",
+            "T1107",
+            "T1108",
+            "T1109",
+            "T1110",
+            "T1111",
+            "T1112",
+            "T1113",
+            "T1114",
+            "T1115",
+            "T1116",
+            "T1117",
+            "T1118",
+            "T1119",
+            "T1120",
+            "T1121",
+            "T1122",
+            "T1123",
+            "T1124",
+            "T1125",
+            "T1126",
+            "T1127",
+            "T1128",
+            "T1129",
+            "T1130",
+            "T1131",
+            "T1132",
+            "T1133",
+            "T1134",
+            "T1135",
+            "T1136",
+            "T1137",
+            "T1138",
+            "T1139",
+            "T1140",
+            "T1141",
+            "T1142",
+            "T1143",
+            "T1144",
+            "T1145",
+            "T1146",
+            "T1147",
+            "T1148",
+            "T1149",
+            "T1150",
+            "T1151",
+            "T1152",
+            "T1153",
+            "T1154",
+            "T1155",
+            "T1156",
+            "T1157",
+            "T1158",
+            "T1159",
+            "T1160",
+            "T1161",
+            "T1162",
+            "T1163",
+            "T1164",
+            "T1165",
+            "T1166",
+            "T1167"
+          ],
+          "tp": 5,
+          "q3_hallucinated_ttps": [
+            "T1036",
+            "T1071",
+            "T1072",
+            "T1073",
+            "T1074",
+            "T1075",
+            "T1076",
+            "T1077",
+            "T1078",
+            "T1079",
+            "T1080",
+            "T1081",
+            "T1084",
+            "T1085",
+            "T1086",
+            "T1087",
+            "T1088",
+            "T1089",
+            "T1090",
+            "T1091",
+            "T1092",
+            "T1093",
+            "T1094",
+            "T1095",
+            "T1096",
+            "T1097",
+            "T1098",
+            "T1099",
+            "T1100",
+            "T1101",
+            "T1102",
+            "T1103",
+            "T1104",
+            "T1105",
+            "T1106",
+            "T1107",
+            "T1108",
+            "T1109",
+            "T1110",
+            "T1111",
+            "T1112",
+            "T1113",
+            "T1114",
+            "T1115",
+            "T1116",
+            "T1117",
+            "T1118",
+            "T1119",
+            "T1120",
+            "T1121",
+            "T1122",
+            "T1123",
+            "T1124",
+            "T1125",
+            "T1126",
+            "T1127",
+            "T1128",
+            "T1130",
+            "T1131",
+            "T1132",
+            "T1133",
+            "T1134",
+            "T1135",
+            "T1136",
+            "T1137",
+            "T1138",
+            "T1139",
+            "T1140",
+            "T1141",
+            "T1142",
+            "T1143",
+            "T1144",
+            "T1145",
+            "T1146",
+            "T1147",
+            "T1148",
+            "T1149",
+            "T1150",
+            "T1151",
+            "T1152",
+            "T1153",
+            "T1154",
+            "T1155",
+            "T1156",
+            "T1157",
+            "T1158",
+            "T1159",
+            "T1160",
+            "T1161",
+            "T1162",
+            "T1163",
+            "T1164",
+            "T1165",
+            "T1166",
+            "T1167"
+          ],
+          "q3_missed_ttps": [
+            "T1012",
+            "T1547",
+            "T1614"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0926,
+          "breakdown": {
+            "ttp_f1": 0.0926
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "000050fba6b44257_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "000050fba6b44257f9ae068ebf53935ee21fce9b8fcccc1fcc77f24d1c6801a5",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1027",
+          "signature_description": "packed with UPX"
+        },
+        {
+          "id": "T1059",
+          "signature_description": "accept command line arguments"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "get disk size"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get file size"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "link function at runtime on Windows"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "persist via Run registry key"
+        },
+        {
+          "id": "T1614",
+          "signature_description": "get geographical location"
+        }
+      ],
+      "total_llm_calls": 8,
+      "total_elapsed_seconds": 19.26,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9296
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.1538,
+          "ttp_precision": 0.2,
+          "ttp_recall": 0.125,
+          "gt_ttps": [
+            "T1012",
+            "T1027",
+            "T1059",
+            "T1082",
+            "T1083",
+            "T1129",
+            "T1547",
+            "T1614"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1055",
+            "T1192",
+            "T1210",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1055",
+            "T1192",
+            "T1210",
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1012",
+            "T1059",
+            "T1082",
+            "T1083",
+            "T1129",
+            "T1547",
+            "T1614"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.1538,
+          "breakdown": {
+            "ttp_f1": 0.1538
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "000050fba6b44257_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "000050fba6b44257f9ae068ebf53935ee21fce9b8fcccc1fcc77f24d1c6801a5",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1027",
+          "signature_description": "packed with UPX"
+        },
+        {
+          "id": "T1059",
+          "signature_description": "accept command line arguments"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "get disk size"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get file size"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "link function at runtime on Windows"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "persist via Run registry key"
+        },
+        {
+          "id": "T1614",
+          "signature_description": "get geographical location"
+        }
+      ],
+      "total_llm_calls": 12,
+      "total_elapsed_seconds": 179.81,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9296
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.1739,
+          "ttp_precision": 0.1333,
+          "ttp_recall": 0.25,
+          "gt_ttps": [
+            "T1012",
+            "T1027",
+            "T1059",
+            "T1082",
+            "T1083",
+            "T1129",
+            "T1547",
+            "T1614"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1036",
+            "T1055",
+            "T1056",
+            "T1057",
+            "T1058",
+            "T1059",
+            "T1106",
+            "T1202",
+            "T1203",
+            "T1204",
+            "T1210",
+            "T1211",
+            "T1212",
+            "T1218"
+          ],
+          "tp": 2,
+          "q3_hallucinated_ttps": [
+            "T1036",
+            "T1055",
+            "T1056",
+            "T1057",
+            "T1058",
+            "T1106",
+            "T1202",
+            "T1203",
+            "T1204",
+            "T1210",
+            "T1211",
+            "T1212",
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1012",
+            "T1082",
+            "T1083",
+            "T1129",
+            "T1547",
+            "T1614"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.1739,
+          "breakdown": {
+            "ttp_f1": 0.1739
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "000050fba6b44257_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0000e4bdbd56e43e1f291be8db3a2a3a2f287132d40a4d49a2b1306b230d8fbd",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1007",
+          "signature_description": "enumerate services"
+        },
+        {
+          "id": "T1010",
+          "signature_description": "enumerate gui resources"
+        },
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1057",
+          "signature_description": "enumerate processes"
+        },
+        {
+          "id": "T1059",
+          "signature_description": "accept command line arguments"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "get disk information"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "link function at runtime on Windows"
+        },
+        {
+          "id": "T1135",
+          "signature_description": "enumerate network shares"
+        },
+        {
+          "id": "T1489",
+          "signature_description": "stop service"
+        },
+        {
+          "id": "T1518",
+          "signature_description": "enumerate processes"
+        },
+        {
+          "id": "T1543",
+          "signature_description": "start service"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "persist via Run registry key"
+        },
+        {
+          "id": "T1569",
+          "signature_description": "modify service"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 37.19,
+      "evaluation": {
+        "parse_ok": false,
+        "verdict": {
+          "verdict_score": 0.0,
+          "predicted": null,
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9155,
+          "note": "parse failed"
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "parse failed"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1007",
+            "T1010",
+            "T1012",
+            "T1057",
+            "T1059",
+            "T1082",
+            "T1083",
+            "T1129",
+            "T1135",
+            "T1489",
+            "T1518",
+            "T1543",
+            "T1547",
+            "T1569"
+          ],
+          "pred_ttps": [],
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": [
+            "T1007",
+            "T1010",
+            "T1012",
+            "T1057",
+            "T1059",
+            "T1082",
+            "T1083",
+            "T1129",
+            "T1135",
+            "T1489",
+            "T1518",
+            "T1543",
+            "T1547",
+            "T1569"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0000e4bdbd56e43e_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0000e4bdbd56e43e1f291be8db3a2a3a2f287132d40a4d49a2b1306b230d8fbd",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1007",
+          "signature_description": "enumerate services"
+        },
+        {
+          "id": "T1010",
+          "signature_description": "enumerate gui resources"
+        },
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1057",
+          "signature_description": "enumerate processes"
+        },
+        {
+          "id": "T1059",
+          "signature_description": "accept command line arguments"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "get disk information"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "link function at runtime on Windows"
+        },
+        {
+          "id": "T1135",
+          "signature_description": "enumerate network shares"
+        },
+        {
+          "id": "T1489",
+          "signature_description": "stop service"
+        },
+        {
+          "id": "T1518",
+          "signature_description": "enumerate processes"
+        },
+        {
+          "id": "T1543",
+          "signature_description": "start service"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "persist via Run registry key"
+        },
+        {
+          "id": "T1569",
+          "signature_description": "modify service"
+        }
+      ],
+      "total_llm_calls": 2,
+      "total_elapsed_seconds": 75.4,
+      "evaluation": {
+        "parse_ok": false,
+        "verdict": {
+          "verdict_score": 0.0,
+          "predicted": null,
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9155,
+          "note": "parse failed"
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "parse failed"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1007",
+            "T1010",
+            "T1012",
+            "T1057",
+            "T1059",
+            "T1082",
+            "T1083",
+            "T1129",
+            "T1135",
+            "T1489",
+            "T1518",
+            "T1543",
+            "T1547",
+            "T1569"
+          ],
+          "pred_ttps": [],
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": [
+            "T1007",
+            "T1010",
+            "T1012",
+            "T1057",
+            "T1059",
+            "T1082",
+            "T1083",
+            "T1129",
+            "T1135",
+            "T1489",
+            "T1518",
+            "T1543",
+            "T1547",
+            "T1569"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0000e4bdbd56e43e_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0000e4bdbd56e43e1f291be8db3a2a3a2f287132d40a4d49a2b1306b230d8fbd",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1007",
+          "signature_description": "enumerate services"
+        },
+        {
+          "id": "T1010",
+          "signature_description": "enumerate gui resources"
+        },
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1057",
+          "signature_description": "enumerate processes"
+        },
+        {
+          "id": "T1059",
+          "signature_description": "accept command line arguments"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "get disk information"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "link function at runtime on Windows"
+        },
+        {
+          "id": "T1135",
+          "signature_description": "enumerate network shares"
+        },
+        {
+          "id": "T1489",
+          "signature_description": "stop service"
+        },
+        {
+          "id": "T1518",
+          "signature_description": "enumerate processes"
+        },
+        {
+          "id": "T1543",
+          "signature_description": "start service"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "persist via Run registry key"
+        },
+        {
+          "id": "T1569",
+          "signature_description": "modify service"
+        }
+      ],
+      "total_llm_calls": 9,
+      "total_elapsed_seconds": 53.91,
+      "evaluation": {
+        "parse_ok": false,
+        "verdict": {
+          "verdict_score": 0.0,
+          "predicted": null,
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9155,
+          "note": "parse failed"
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "parse failed"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1007",
+            "T1010",
+            "T1012",
+            "T1057",
+            "T1059",
+            "T1082",
+            "T1083",
+            "T1129",
+            "T1135",
+            "T1489",
+            "T1518",
+            "T1543",
+            "T1547",
+            "T1569"
+          ],
+          "pred_ttps": [],
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": [
+            "T1007",
+            "T1010",
+            "T1012",
+            "T1057",
+            "T1059",
+            "T1082",
+            "T1083",
+            "T1129",
+            "T1135",
+            "T1489",
+            "T1518",
+            "T1543",
+            "T1547",
+            "T1569"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0000e4bdbd56e43e_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0000e4bdbd56e43e1f291be8db3a2a3a2f287132d40a4d49a2b1306b230d8fbd",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1007",
+          "signature_description": "enumerate services"
+        },
+        {
+          "id": "T1010",
+          "signature_description": "enumerate gui resources"
+        },
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1057",
+          "signature_description": "enumerate processes"
+        },
+        {
+          "id": "T1059",
+          "signature_description": "accept command line arguments"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "get disk information"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "link function at runtime on Windows"
+        },
+        {
+          "id": "T1135",
+          "signature_description": "enumerate network shares"
+        },
+        {
+          "id": "T1489",
+          "signature_description": "stop service"
+        },
+        {
+          "id": "T1518",
+          "signature_description": "enumerate processes"
+        },
+        {
+          "id": "T1543",
+          "signature_description": "start service"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "persist via Run registry key"
+        },
+        {
+          "id": "T1569",
+          "signature_description": "modify service"
+        }
+      ],
+      "total_llm_calls": 12,
+      "total_elapsed_seconds": 137.09,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9155
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.1739,
+          "ttp_precision": 0.2222,
+          "ttp_recall": 0.1429,
+          "gt_ttps": [
+            "T1007",
+            "T1010",
+            "T1012",
+            "T1057",
+            "T1059",
+            "T1082",
+            "T1083",
+            "T1129",
+            "T1135",
+            "T1489",
+            "T1518",
+            "T1543",
+            "T1547",
+            "T1569"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1047",
+            "T1053",
+            "T1055",
+            "T1059",
+            "T1082",
+            "T1084",
+            "T1210",
+            "T1218"
+          ],
+          "tp": 2,
+          "q3_hallucinated_ttps": [
+            "T1027",
+            "T1047",
+            "T1053",
+            "T1055",
+            "T1084",
+            "T1210",
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1007",
+            "T1010",
+            "T1012",
+            "T1057",
+            "T1083",
+            "T1129",
+            "T1135",
+            "T1489",
+            "T1518",
+            "T1543",
+            "T1547",
+            "T1569"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.1739,
+          "breakdown": {
+            "ttp_f1": 0.1739
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0000e4bdbd56e43e_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0001cf18da2add06444d711a835c14ba599b559c86591665a1c52e7a1a036dd7",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with generic packer"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 37.09,
+      "evaluation": {
+        "parse_ok": false,
+        "verdict": {
+          "verdict_score": 0.0,
+          "predicted": null,
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9296,
+          "note": "parse failed"
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "parse failed"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1027",
+            "T1083"
+          ],
+          "pred_ttps": [],
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": [
+            "T1027",
+            "T1083"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0001cf18da2add06_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0001cf18da2add06444d711a835c14ba599b559c86591665a1c52e7a1a036dd7",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with generic packer"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        }
+      ],
+      "total_llm_calls": 2,
+      "total_elapsed_seconds": 6.04,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9296
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.5,
+          "ttp_precision": 0.5,
+          "ttp_recall": 0.5,
+          "gt_ttps": [
+            "T1027",
+            "T1083"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1083"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.5,
+          "breakdown": {
+            "ttp_f1": 0.5
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0001cf18da2add06_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0001cf18da2add06444d711a835c14ba599b559c86591665a1c52e7a1a036dd7",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with generic packer"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        }
+      ],
+      "total_llm_calls": 9,
+      "total_elapsed_seconds": 14.88,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9296
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1027",
+            "T1083"
+          ],
+          "pred_ttps": [
+            "T1218"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1027",
+            "T1083"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0001cf18da2add06_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0001cf18da2add06444d711a835c14ba599b559c86591665a1c52e7a1a036dd7",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with generic packer"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        }
+      ],
+      "total_llm_calls": 13,
+      "total_elapsed_seconds": 25.91,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9296
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1027",
+            "T1083"
+          ],
+          "pred_ttps": [
+            "T1053"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1053"
+          ],
+          "q3_missed_ttps": [
+            "T1027",
+            "T1083"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0001cf18da2add06_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00056803fc2aceaa39a67eb71dd0afdc495318a99ea7558429e639b0fd8e22a2",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings targeting Xen"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 3.21,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.8592
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1497"
+          ],
+          "pred_ttps": [
+            "T1218"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1497"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "00056803fc2aceaa_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00056803fc2aceaa39a67eb71dd0afdc495318a99ea7558429e639b0fd8e22a2",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings targeting Xen"
+        }
+      ],
+      "total_llm_calls": 2,
+      "total_elapsed_seconds": 5.56,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.8592
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1497"
+          ],
+          "pred_ttps": [
+            "T1505"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1505"
+          ],
+          "q3_missed_ttps": [
+            "T1497"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "00056803fc2aceaa_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00056803fc2aceaa39a67eb71dd0afdc495318a99ea7558429e639b0fd8e22a2",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings targeting Xen"
+        }
+      ],
+      "total_llm_calls": 8,
+      "total_elapsed_seconds": 11.93,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 0.5,
+          "predicted": "SUSPICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.8592
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 1.0,
+          "ttp_precision": 1.0,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1497"
+          ],
+          "pred_ttps": [
+            "T1497"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 1.0,
+          "breakdown": {
+            "ttp_f1": 1.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "00056803fc2aceaa_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00056803fc2aceaa39a67eb71dd0afdc495318a99ea7558429e639b0fd8e22a2",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings targeting Xen"
+        }
+      ],
+      "total_llm_calls": 11,
+      "total_elapsed_seconds": 20.79,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 0.5,
+          "predicted": "SUSPICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.8592
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1497"
+          ],
+          "pred_ttps": [
+            "T1564"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1564"
+          ],
+          "q3_missed_ttps": [
+            "T1497"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "00056803fc2aceaa_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0006f552d13646d55afb158344932c1c8f4776d5077b7ff57e1e4e3459125f62",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 4.16,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.8889
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1497"
+          ],
+          "pred_ttps": [
+            "T1052",
+            "T1053",
+            "T1055",
+            "T1056",
+            "T1204"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1052",
+            "T1053",
+            "T1055",
+            "T1056",
+            "T1204"
+          ],
+          "q3_missed_ttps": [
+            "T1497"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0006f552d13646d5_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0006f552d13646d55afb158344932c1c8f4776d5077b7ff57e1e4e3459125f62",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings"
+        }
+      ],
+      "total_llm_calls": 3,
+      "total_elapsed_seconds": 24.07,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.8889
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1497"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1204"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1027",
+            "T1204"
+          ],
+          "q3_missed_ttps": [
+            "T1497"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0006f552d13646d5_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0006f552d13646d55afb158344932c1c8f4776d5077b7ff57e1e4e3459125f62",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings"
+        }
+      ],
+      "total_llm_calls": 8,
+      "total_elapsed_seconds": 15.06,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.8889
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1497"
+          ],
+          "pred_ttps": [
+            "T1036",
+            "T1071",
+            "T1082",
+            "T1218",
+            "T1562"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1036",
+            "T1071",
+            "T1082",
+            "T1218",
+            "T1562"
+          ],
+          "q3_missed_ttps": [
+            "T1497"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0006f552d13646d5_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0006f552d13646d55afb158344932c1c8f4776d5077b7ff57e1e4e3459125f62",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings"
+        }
+      ],
+      "total_llm_calls": 11,
+      "total_elapsed_seconds": 20.16,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.8889
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.6667,
+          "ttp_precision": 0.5,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1497"
+          ],
+          "pred_ttps": [
+            "T1497",
+            "T1568"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1568"
+          ],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.6667,
+          "breakdown": {
+            "ttp_f1": 0.6667
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0006f552d13646d5_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00093972889ca75c5958fafc8dea39d9d5502a22af8ac030da5d72b22fbadef2",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 3.58,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9296
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.6667,
+          "ttp_precision": 0.5,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1218"
+          ],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.6667,
+          "breakdown": {
+            "ttp_f1": 0.6667
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "00093972889ca75c_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00093972889ca75c5958fafc8dea39d9d5502a22af8ac030da5d72b22fbadef2",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 3.9,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9296
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.6667,
+          "ttp_precision": 0.5,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1218"
+          ],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.6667,
+          "breakdown": {
+            "ttp_f1": 0.6667
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "00093972889ca75c_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00093972889ca75c5958fafc8dea39d9d5502a22af8ac030da5d72b22fbadef2",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        }
+      ],
+      "total_llm_calls": 15,
+      "total_elapsed_seconds": 29.63,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9296
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 1.0,
+          "ttp_precision": 1.0,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [
+            "T1027"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 1.0,
+          "breakdown": {
+            "ttp_f1": 1.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "00093972889ca75c_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00093972889ca75c5958fafc8dea39d9d5502a22af8ac030da5d72b22fbadef2",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        }
+      ],
+      "total_llm_calls": 9,
+      "total_elapsed_seconds": 53.65,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9296
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 1.0,
+          "ttp_precision": 1.0,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [
+            "T1027"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 1.0,
+          "breakdown": {
+            "ttp_f1": 1.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "00093972889ca75c_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "000a7aa43f8607cfdc017e2e79a0caba91a7390ffd222fb19a863702ae8d35a5",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with generic packer"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 4.41,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.8028
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.5,
+          "ttp_precision": 0.3333,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1210",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1210",
+            "T1218"
+          ],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.5,
+          "breakdown": {
+            "ttp_f1": 0.5
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "000a7aa43f8607cf_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "000a7aa43f8607cfdc017e2e79a0caba91a7390ffd222fb19a863702ae8d35a5",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with generic packer"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 4.06,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.8028
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.6667,
+          "ttp_precision": 0.5,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1218"
+          ],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.6667,
+          "breakdown": {
+            "ttp_f1": 0.6667
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "000a7aa43f8607cf_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "000a7aa43f8607cfdc017e2e79a0caba91a7390ffd222fb19a863702ae8d35a5",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with generic packer"
+        }
+      ],
+      "total_llm_calls": 8,
+      "total_elapsed_seconds": 15.13,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.8028
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 1.0,
+          "ttp_precision": 1.0,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [
+            "T1027"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 1.0,
+          "breakdown": {
+            "ttp_f1": 1.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "000a7aa43f8607cf_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "000a7aa43f8607cfdc017e2e79a0caba91a7390ffd222fb19a863702ae8d35a5",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with generic packer"
+        }
+      ],
+      "total_llm_calls": 15,
+      "total_elapsed_seconds": 32.23,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.8028
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.5,
+          "ttp_precision": 0.3333,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1055",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1055",
+            "T1218"
+          ],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.5,
+          "breakdown": {
+            "ttp_f1": 0.5
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "000a7aa43f8607cf_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0011d0a5216886d96a23ad206d4e4badf1dbcad6c8050ff778d4e24537089422",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with generic packer"
+        },
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings targeting Xen"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 4.32,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9315
+        },
+        "family": {
+          "family_f1": 0.5,
+          "family_precision": 1.0,
+          "family_recall": 0.3333,
+          "predicted": [
+            "trojan"
+          ],
+          "matched": [
+            "trojan"
+          ],
+          "reachable_gt": [
+            "trojan",
+            "ransomware",
+            "worm"
+          ],
+          "gt_pool": [
+            "bkdr",
+            "blocker",
+            "ransomware",
+            "socks",
+            "trojan",
+            "worm"
+          ]
+        },
+        "ttp": {
+          "ttp_f1": 0.4,
+          "ttp_precision": 0.3333,
+          "ttp_recall": 0.5,
+          "gt_ttps": [
+            "T1027",
+            "T1497"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1210",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1210",
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1497"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.4,
+          "breakdown": {
+            "ttp_f1": 0.4
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0011d0a5216886d9_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0011d0a5216886d96a23ad206d4e4badf1dbcad6c8050ff778d4e24537089422",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with generic packer"
+        },
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings targeting Xen"
+        }
+      ],
+      "total_llm_calls": 2,
+      "total_elapsed_seconds": 6.95,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9315
+        },
+        "family": {
+          "family_f1": 0.5,
+          "family_precision": 1.0,
+          "family_recall": 0.3333,
+          "predicted": [
+            "trojan"
+          ],
+          "matched": [
+            "trojan"
+          ],
+          "reachable_gt": [
+            "trojan",
+            "ransomware",
+            "worm"
+          ],
+          "gt_pool": [
+            "bkdr",
+            "blocker",
+            "ransomware",
+            "socks",
+            "trojan",
+            "worm"
+          ]
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1027",
+            "T1497"
+          ],
+          "pred_ttps": [
+            "T1218"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1027",
+            "T1497"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0011d0a5216886d9_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0011d0a5216886d96a23ad206d4e4badf1dbcad6c8050ff778d4e24537089422",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with generic packer"
+        },
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings targeting Xen"
+        }
+      ],
+      "total_llm_calls": 10,
+      "total_elapsed_seconds": 21.12,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9315
+        },
+        "family": {
+          "family_f1": 0.5,
+          "family_precision": 1.0,
+          "family_recall": 0.3333,
+          "predicted": [
+            "trojan"
+          ],
+          "matched": [
+            "trojan"
+          ],
+          "reachable_gt": [
+            "trojan",
+            "ransomware",
+            "worm"
+          ],
+          "gt_pool": [
+            "bkdr",
+            "blocker",
+            "ransomware",
+            "socks",
+            "trojan",
+            "worm"
+          ]
+        },
+        "ttp": {
+          "ttp_f1": 0.4,
+          "ttp_precision": 0.3333,
+          "ttp_recall": 0.5,
+          "gt_ttps": [
+            "T1027",
+            "T1497"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1036",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1036",
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1497"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.4,
+          "breakdown": {
+            "ttp_f1": 0.4
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0011d0a5216886d9_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0011d0a5216886d96a23ad206d4e4badf1dbcad6c8050ff778d4e24537089422",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with generic packer"
+        },
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings targeting Xen"
+        }
+      ],
+      "total_llm_calls": 11,
+      "total_elapsed_seconds": 24.53,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9315
+        },
+        "family": {
+          "family_f1": 0.5,
+          "family_precision": 1.0,
+          "family_recall": 0.3333,
+          "predicted": [
+            "trojan"
+          ],
+          "matched": [
+            "trojan"
+          ],
+          "reachable_gt": [
+            "trojan",
+            "ransomware",
+            "worm"
+          ],
+          "gt_pool": [
+            "bkdr",
+            "blocker",
+            "ransomware",
+            "socks",
+            "trojan",
+            "worm"
+          ]
+        },
+        "ttp": {
+          "ttp_f1": 0.4,
+          "ttp_precision": 0.3333,
+          "ttp_recall": 0.5,
+          "gt_ttps": [
+            "T1027",
+            "T1497"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1210",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1210",
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1497"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.4,
+          "breakdown": {
+            "ttp_f1": 0.4
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0011d0a5216886d9_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0014494fea073199e595aa1011fb5c8237895d22303f9db665604b70fc9e7d34",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "persist via Run registry key"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 3.14,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9014
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1083",
+            "T1547"
+          ],
+          "pred_ttps": [
+            "T1218"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1083",
+            "T1547"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0014494fea073199_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0014494fea073199e595aa1011fb5c8237895d22303f9db665604b70fc9e7d34",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "persist via Run registry key"
+        }
+      ],
+      "total_llm_calls": 3,
+      "total_elapsed_seconds": 44.41,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9014
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1083",
+            "T1547"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1218"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1027",
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1083",
+            "T1547"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0014494fea073199_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0014494fea073199e595aa1011fb5c8237895d22303f9db665604b70fc9e7d34",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "persist via Run registry key"
+        }
+      ],
+      "total_llm_calls": 9,
+      "total_elapsed_seconds": 16.06,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9014
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1083",
+            "T1547"
+          ],
+          "pred_ttps": [
+            "T1027"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1027"
+          ],
+          "q3_missed_ttps": [
+            "T1083",
+            "T1547"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0014494fea073199_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0014494fea073199e595aa1011fb5c8237895d22303f9db665604b70fc9e7d34",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "persist via Run registry key"
+        }
+      ],
+      "total_llm_calls": 9,
+      "total_elapsed_seconds": 56.1,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9014
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1083",
+            "T1547"
+          ],
+          "pred_ttps": [
+            "T1036",
+            "T1204",
+            "T1210",
+            "T1211",
+            "T1212",
+            "T1216",
+            "T1217",
+            "T1218",
+            "T1219"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1036",
+            "T1204",
+            "T1210",
+            "T1211",
+            "T1212",
+            "T1216",
+            "T1217",
+            "T1218",
+            "T1219"
+          ],
+          "q3_missed_ttps": [
+            "T1083",
+            "T1547"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0014494fea073199_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0014cf4a051ab0b17bad33c8db0d6fd3e6534853037390f93e81ac48745f9187",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "contain obfuscated stackstrings"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 3.39,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9028
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.5,
+          "ttp_precision": 0.3333,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1055",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1055",
+            "T1218"
+          ],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.5,
+          "breakdown": {
+            "ttp_f1": 0.5
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0014cf4a051ab0b1_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0014cf4a051ab0b17bad33c8db0d6fd3e6534853037390f93e81ac48745f9187",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "contain obfuscated stackstrings"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 3.52,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9028
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.4,
+          "ttp_precision": 0.25,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1106",
+            "T1218",
+            "T1219"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1106",
+            "T1218",
+            "T1219"
+          ],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.4,
+          "breakdown": {
+            "ttp_f1": 0.4
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0014cf4a051ab0b1_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0014cf4a051ab0b17bad33c8db0d6fd3e6534853037390f93e81ac48745f9187",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "contain obfuscated stackstrings"
+        }
+      ],
+      "total_llm_calls": 9,
+      "total_elapsed_seconds": 14.5,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9028
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 1.0,
+          "ttp_precision": 1.0,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [
+            "T1027"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 1.0,
+          "breakdown": {
+            "ttp_f1": 1.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0014cf4a051ab0b1_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0014cf4a051ab0b17bad33c8db0d6fd3e6534853037390f93e81ac48745f9187",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "contain obfuscated stackstrings"
+        }
+      ],
+      "total_llm_calls": 8,
+      "total_elapsed_seconds": 13.67,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9028
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 1.0,
+          "ttp_precision": 1.0,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [
+            "T1027"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 1.0,
+          "breakdown": {
+            "ttp_f1": 1.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0014cf4a051ab0b1_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0015c0835c13ae601f9249262403452bff9a49045108c5b6c4fd72accb375369",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with generic packer"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 3.17,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9286
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.6667,
+          "ttp_precision": 0.5,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1218"
+          ],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.6667,
+          "breakdown": {
+            "ttp_f1": 0.6667
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0015c0835c13ae60_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0015c0835c13ae601f9249262403452bff9a49045108c5b6c4fd72accb375369",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with generic packer"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 3.42,
+      "evaluation": {
+        "parse_ok": false,
+        "verdict": {
+          "verdict_score": 0.0,
+          "predicted": null,
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9286,
+          "note": "parse failed"
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "parse failed"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [],
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": [
+            "T1027"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0015c0835c13ae60_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0015c0835c13ae601f9249262403452bff9a49045108c5b6c4fd72accb375369",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with generic packer"
+        }
+      ],
+      "total_llm_calls": 10,
+      "total_elapsed_seconds": 16.85,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 0.5,
+          "predicted": "SUSPICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9286
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 1.0,
+          "ttp_precision": 1.0,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [
+            "T1027"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 1.0,
+          "breakdown": {
+            "ttp_f1": 1.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0015c0835c13ae60_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0015c0835c13ae601f9249262403452bff9a49045108c5b6c4fd72accb375369",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with generic packer"
+        }
+      ],
+      "total_llm_calls": 10,
+      "total_elapsed_seconds": 23.03,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9286
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.6667,
+          "ttp_precision": 0.5,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1055"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1055"
+          ],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.6667,
+          "breakdown": {
+            "ttp_f1": 0.6667
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0015c0835c13ae60_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00168c74087b6ba3f6efaf02f249142b67d6407d9d7562e237ab19dd0aa8ef0b",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1129",
+          "signature_description": "parse PE header"
+        },
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings targeting VMWare"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 37.7,
+      "evaluation": {
+        "parse_ok": false,
+        "verdict": {
+          "verdict_score": 0.0,
+          "predicted": null,
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9296,
+          "note": "parse failed"
+        },
+        "family": {
+          "family_f1": 0.0,
+          "family_precision": 0.0,
+          "family_recall": 0.0,
+          "predicted": [],
+          "matched": [],
+          "note": "parse failed"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1129",
+            "T1497"
+          ],
+          "pred_ttps": [],
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": [
+            "T1129",
+            "T1497"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "00168c74087b6ba3_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00168c74087b6ba3f6efaf02f249142b67d6407d9d7562e237ab19dd0aa8ef0b",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1129",
+          "signature_description": "parse PE header"
+        },
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings targeting VMWare"
+        }
+      ],
+      "total_llm_calls": 3,
+      "total_elapsed_seconds": 56.34,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9296
+        },
+        "family": {
+          "family_f1": 0.6667,
+          "family_precision": 1.0,
+          "family_recall": 0.5,
+          "predicted": [
+            "trojan"
+          ],
+          "matched": [
+            "trojan"
+          ],
+          "reachable_gt": [
+            "trojan",
+            "worm"
+          ],
+          "gt_pool": [
+            "lunam",
+            "otfrem",
+            "sillyfdc",
+            "trojan",
+            "worm"
+          ]
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1129",
+            "T1497"
+          ],
+          "pred_ttps": [
+            "T1018",
+            "T1026",
+            "T1027",
+            "T1033",
+            "T1036",
+            "T1040",
+            "T1047",
+            "T1051",
+            "T1052",
+            "T1053",
+            "T1055",
+            "T1059",
+            "T1084",
+            "T1218"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1018",
+            "T1026",
+            "T1027",
+            "T1033",
+            "T1036",
+            "T1040",
+            "T1047",
+            "T1051",
+            "T1052",
+            "T1053",
+            "T1055",
+            "T1059",
+            "T1084",
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1129",
+            "T1497"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "00168c74087b6ba3_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00168c74087b6ba3f6efaf02f249142b67d6407d9d7562e237ab19dd0aa8ef0b",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1129",
+          "signature_description": "parse PE header"
+        },
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings targeting VMWare"
+        }
+      ],
+      "total_llm_calls": 9,
+      "total_elapsed_seconds": 52.77,
+      "evaluation": {
+        "parse_ok": false,
+        "verdict": {
+          "verdict_score": 0.0,
+          "predicted": null,
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9296,
+          "note": "parse failed"
+        },
+        "family": {
+          "family_f1": 0.0,
+          "family_precision": 0.0,
+          "family_recall": 0.0,
+          "predicted": [],
+          "matched": [],
+          "note": "parse failed"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1129",
+            "T1497"
+          ],
+          "pred_ttps": [],
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": [
+            "T1129",
+            "T1497"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "00168c74087b6ba3_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00168c74087b6ba3f6efaf02f249142b67d6407d9d7562e237ab19dd0aa8ef0b",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1129",
+          "signature_description": "parse PE header"
+        },
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings targeting VMWare"
+        }
+      ],
+      "total_llm_calls": 10,
+      "total_elapsed_seconds": 18.88,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9296
+        },
+        "family": {
+          "family_f1": 0.6667,
+          "family_precision": 1.0,
+          "family_recall": 0.5,
+          "predicted": [
+            "trojan"
+          ],
+          "matched": [
+            "trojan"
+          ],
+          "reachable_gt": [
+            "trojan",
+            "worm"
+          ],
+          "gt_pool": [
+            "lunam",
+            "otfrem",
+            "sillyfdc",
+            "trojan",
+            "worm"
+          ]
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1129",
+            "T1497"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1218"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1027",
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1129",
+            "T1497"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "00168c74087b6ba3_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "001810244a8174f91ca2d26848f9dc1203eb0424e07c15c89cfca456436ddbeb",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1057",
+          "signature_description": "get process heap force flags"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "access PEB ldr_data"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 3.28,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9028
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1057",
+            "T1129"
+          ],
+          "pred_ttps": [
+            "T1218"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1057",
+            "T1129"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "001810244a8174f9_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "001810244a8174f91ca2d26848f9dc1203eb0424e07c15c89cfca456436ddbeb",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1057",
+          "signature_description": "get process heap force flags"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "access PEB ldr_data"
+        }
+      ],
+      "total_llm_calls": 2,
+      "total_elapsed_seconds": 8.53,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9028
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1057",
+            "T1129"
+          ],
+          "pred_ttps": [
+            "T1053",
+            "T1055",
+            "T1218"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1053",
+            "T1055",
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1057",
+            "T1129"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "001810244a8174f9_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "001810244a8174f91ca2d26848f9dc1203eb0424e07c15c89cfca456436ddbeb",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1057",
+          "signature_description": "get process heap force flags"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "access PEB ldr_data"
+        }
+      ],
+      "total_llm_calls": 9,
+      "total_elapsed_seconds": 19.08,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 0.5,
+          "predicted": "SUSPICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9028
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1057",
+            "T1129"
+          ],
+          "pred_ttps": [
+            "T1218"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1057",
+            "T1129"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "001810244a8174f9_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "001810244a8174f91ca2d26848f9dc1203eb0424e07c15c89cfca456436ddbeb",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1057",
+          "signature_description": "get process heap force flags"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "access PEB ldr_data"
+        }
+      ],
+      "total_llm_calls": 10,
+      "total_elapsed_seconds": 24.38,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 0.5,
+          "predicted": "SUSPICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9028
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1057",
+            "T1129"
+          ],
+          "pred_ttps": [
+            "T1218"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1057",
+            "T1129"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "001810244a8174f9_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "001a1f974a198efb2a1f92682d1aa4f382b2336ab687b9b619e109e6e8954657",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1129",
+          "signature_description": "parse PE header"
+        },
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings targeting VirtualBox"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 37.62,
+      "evaluation": {
+        "parse_ok": false,
+        "verdict": {
+          "verdict_score": 0.0,
+          "predicted": null,
+          "gt": "MALICIOUS",
+          "detection_rate": 0.875,
+          "note": "parse failed"
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "parse failed"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1129",
+            "T1497"
+          ],
+          "pred_ttps": [],
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": [
+            "T1129",
+            "T1497"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "001a1f974a198efb_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "001a1f974a198efb2a1f92682d1aa4f382b2336ab687b9b619e109e6e8954657",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1129",
+          "signature_description": "parse PE header"
+        },
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings targeting VirtualBox"
+        }
+      ],
+      "total_llm_calls": 2,
+      "total_elapsed_seconds": 76.06,
+      "evaluation": {
+        "parse_ok": false,
+        "verdict": {
+          "verdict_score": 0.0,
+          "predicted": null,
+          "gt": "MALICIOUS",
+          "detection_rate": 0.875,
+          "note": "parse failed"
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "parse failed"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1129",
+            "T1497"
+          ],
+          "pred_ttps": [],
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": [
+            "T1129",
+            "T1497"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "001a1f974a198efb_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "001a1f974a198efb2a1f92682d1aa4f382b2336ab687b9b619e109e6e8954657",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1129",
+          "signature_description": "parse PE header"
+        },
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings targeting VirtualBox"
+        }
+      ],
+      "total_llm_calls": 9,
+      "total_elapsed_seconds": 17.09,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.875
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1129",
+            "T1497"
+          ],
+          "pred_ttps": [
+            "T1053",
+            "T1055",
+            "T1082",
+            "T1112",
+            "T1218"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1053",
+            "T1055",
+            "T1082",
+            "T1112",
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1129",
+            "T1497"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "001a1f974a198efb_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "001a1f974a198efb2a1f92682d1aa4f382b2336ab687b9b619e109e6e8954657",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1129",
+          "signature_description": "parse PE header"
+        },
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings targeting VirtualBox"
+        }
+      ],
+      "total_llm_calls": 12,
+      "total_elapsed_seconds": 138.39,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.875
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1129",
+            "T1497"
+          ],
+          "pred_ttps": [
+            "T1018",
+            "T1036",
+            "T1055",
+            "T1059",
+            "T1070",
+            "T1082",
+            "T1106",
+            "T1218"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1018",
+            "T1036",
+            "T1055",
+            "T1059",
+            "T1070",
+            "T1082",
+            "T1106",
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1129",
+            "T1497"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "001a1f974a198efb_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "001ec69971edbb63e4ab851fee4933516c941cbe7cf17425761da1914eafd307",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "link function at runtime on Windows"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 37.17,
+      "evaluation": {
+        "parse_ok": false,
+        "verdict": {
+          "verdict_score": 0.0,
+          "predicted": null,
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9155,
+          "note": "parse failed"
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "parse failed"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1027",
+            "T1129"
+          ],
+          "pred_ttps": [],
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": [
+            "T1027",
+            "T1129"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "001ec69971edbb63_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "001ec69971edbb63e4ab851fee4933516c941cbe7cf17425761da1914eafd307",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "link function at runtime on Windows"
+        }
+      ],
+      "total_llm_calls": 3,
+      "total_elapsed_seconds": 10.24,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9155
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.5,
+          "ttp_precision": 0.5,
+          "ttp_recall": 0.5,
+          "gt_ttps": [
+            "T1027",
+            "T1129"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1129"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.5,
+          "breakdown": {
+            "ttp_f1": 0.5
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "001ec69971edbb63_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "001ec69971edbb63e4ab851fee4933516c941cbe7cf17425761da1914eafd307",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "link function at runtime on Windows"
+        }
+      ],
+      "total_llm_calls": 9,
+      "total_elapsed_seconds": 19.07,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9155
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.4,
+          "ttp_precision": 0.3333,
+          "ttp_recall": 0.5,
+          "gt_ttps": [
+            "T1027",
+            "T1129"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1218",
+            "T1219"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1218",
+            "T1219"
+          ],
+          "q3_missed_ttps": [
+            "T1129"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.4,
+          "breakdown": {
+            "ttp_f1": 0.4
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "001ec69971edbb63_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "001ec69971edbb63e4ab851fee4933516c941cbe7cf17425761da1914eafd307",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "link function at runtime on Windows"
+        }
+      ],
+      "total_llm_calls": 11,
+      "total_elapsed_seconds": 130.08,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9155
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.5,
+          "ttp_precision": 0.5,
+          "ttp_recall": 0.5,
+          "gt_ttps": [
+            "T1027",
+            "T1129"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1129"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.5,
+          "breakdown": {
+            "ttp_f1": 0.5
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "001ec69971edbb63_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "001ef4cc95a83b911b3e98dde1d1a77fa020cf7f643bb8a7d9d702c6989b732a",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with ASPack"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "reference startup folder"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 3.46,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9155
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.5,
+          "ttp_precision": 0.5,
+          "ttp_recall": 0.5,
+          "gt_ttps": [
+            "T1027",
+            "T1547"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1547"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.5,
+          "breakdown": {
+            "ttp_f1": 0.5
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "001ef4cc95a83b91_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "001ef4cc95a83b911b3e98dde1d1a77fa020cf7f643bb8a7d9d702c6989b732a",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with ASPack"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "reference startup folder"
+        }
+      ],
+      "total_llm_calls": 2,
+      "total_elapsed_seconds": 7.35,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9155
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.5,
+          "ttp_precision": 0.5,
+          "ttp_recall": 0.5,
+          "gt_ttps": [
+            "T1027",
+            "T1547"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1547"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.5,
+          "breakdown": {
+            "ttp_f1": 0.5
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "001ef4cc95a83b91_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "001ef4cc95a83b911b3e98dde1d1a77fa020cf7f643bb8a7d9d702c6989b732a",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with ASPack"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "reference startup folder"
+        }
+      ],
+      "total_llm_calls": 10,
+      "total_elapsed_seconds": 16.26,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9155
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1027",
+            "T1547"
+          ],
+          "pred_ttps": [
+            "T1218"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1027",
+            "T1547"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "001ef4cc95a83b91_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "001ef4cc95a83b911b3e98dde1d1a77fa020cf7f643bb8a7d9d702c6989b732a",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "packed with ASPack"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "reference startup folder"
+        }
+      ],
+      "total_llm_calls": 10,
+      "total_elapsed_seconds": 22.41,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9155
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1027",
+            "T1547"
+          ],
+          "pred_ttps": [
+            "T1218"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1027",
+            "T1547"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "001ef4cc95a83b91_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "002674ad1dd8958e066334be8540b7eb7d76a95682fb4c647a10cf403be86d32",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1010",
+          "signature_description": "find graphical window"
+        },
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "get disk information"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        },
+        {
+          "id": "T1112",
+          "signature_description": "delete registry value"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "access PEB ldr_data"
+        },
+        {
+          "id": "T1222",
+          "signature_description": "set file attributes"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "persist via Run registry key"
+        },
+        {
+          "id": "T1564",
+          "signature_description": "hide graphical window"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 37.4,
+      "evaluation": {
+        "parse_ok": false,
+        "verdict": {
+          "verdict_score": 0.0,
+          "predicted": null,
+          "gt": "MALICIOUS",
+          "detection_rate": 0.8889,
+          "note": "parse failed"
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "parse failed"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1010",
+            "T1012",
+            "T1027",
+            "T1082",
+            "T1083",
+            "T1112",
+            "T1129",
+            "T1222",
+            "T1547",
+            "T1564"
+          ],
+          "pred_ttps": [],
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": [
+            "T1010",
+            "T1012",
+            "T1027",
+            "T1082",
+            "T1083",
+            "T1112",
+            "T1129",
+            "T1222",
+            "T1547",
+            "T1564"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "002674ad1dd8958e_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "002674ad1dd8958e066334be8540b7eb7d76a95682fb4c647a10cf403be86d32",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1010",
+          "signature_description": "find graphical window"
+        },
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "get disk information"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        },
+        {
+          "id": "T1112",
+          "signature_description": "delete registry value"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "access PEB ldr_data"
+        },
+        {
+          "id": "T1222",
+          "signature_description": "set file attributes"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "persist via Run registry key"
+        },
+        {
+          "id": "T1564",
+          "signature_description": "hide graphical window"
+        }
+      ],
+      "total_llm_calls": 2,
+      "total_elapsed_seconds": 13.7,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.8889
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.4,
+          "ttp_precision": 0.4,
+          "ttp_recall": 0.4,
+          "gt_ttps": [
+            "T1010",
+            "T1012",
+            "T1027",
+            "T1082",
+            "T1083",
+            "T1112",
+            "T1129",
+            "T1222",
+            "T1547",
+            "T1564"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1036",
+            "T1055",
+            "T1082",
+            "T1083",
+            "T1210",
+            "T1216",
+            "T1218",
+            "T1546",
+            "T1547"
+          ],
+          "tp": 4,
+          "q3_hallucinated_ttps": [
+            "T1036",
+            "T1055",
+            "T1210",
+            "T1216",
+            "T1218",
+            "T1546"
+          ],
+          "q3_missed_ttps": [
+            "T1010",
+            "T1012",
+            "T1112",
+            "T1129",
+            "T1222",
+            "T1564"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.4,
+          "breakdown": {
+            "ttp_f1": 0.4
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "002674ad1dd8958e_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "002674ad1dd8958e066334be8540b7eb7d76a95682fb4c647a10cf403be86d32",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1010",
+          "signature_description": "find graphical window"
+        },
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "get disk information"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        },
+        {
+          "id": "T1112",
+          "signature_description": "delete registry value"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "access PEB ldr_data"
+        },
+        {
+          "id": "T1222",
+          "signature_description": "set file attributes"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "persist via Run registry key"
+        },
+        {
+          "id": "T1564",
+          "signature_description": "hide graphical window"
+        }
+      ],
+      "total_llm_calls": 14,
+      "total_elapsed_seconds": 56.03,
+      "evaluation": {
+        "parse_ok": false,
+        "verdict": {
+          "verdict_score": 0.0,
+          "predicted": null,
+          "gt": "MALICIOUS",
+          "detection_rate": 0.8889,
+          "note": "parse failed"
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "parse failed"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1010",
+            "T1012",
+            "T1027",
+            "T1082",
+            "T1083",
+            "T1112",
+            "T1129",
+            "T1222",
+            "T1547",
+            "T1564"
+          ],
+          "pred_ttps": [],
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": [
+            "T1010",
+            "T1012",
+            "T1027",
+            "T1082",
+            "T1083",
+            "T1112",
+            "T1129",
+            "T1222",
+            "T1547",
+            "T1564"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "002674ad1dd8958e_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "002674ad1dd8958e066334be8540b7eb7d76a95682fb4c647a10cf403be86d32",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1010",
+          "signature_description": "find graphical window"
+        },
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "get disk information"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        },
+        {
+          "id": "T1112",
+          "signature_description": "delete registry value"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "access PEB ldr_data"
+        },
+        {
+          "id": "T1222",
+          "signature_description": "set file attributes"
+        },
+        {
+          "id": "T1547",
+          "signature_description": "persist via Run registry key"
+        },
+        {
+          "id": "T1564",
+          "signature_description": "hide graphical window"
+        }
+      ],
+      "total_llm_calls": 12,
+      "total_elapsed_seconds": 128.68,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.8889
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.2222,
+          "ttp_precision": 0.25,
+          "ttp_recall": 0.2,
+          "gt_ttps": [
+            "T1010",
+            "T1012",
+            "T1027",
+            "T1082",
+            "T1083",
+            "T1112",
+            "T1129",
+            "T1222",
+            "T1547",
+            "T1564"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1036",
+            "T1055",
+            "T1071",
+            "T1082",
+            "T1210",
+            "T1218",
+            "T1219"
+          ],
+          "tp": 2,
+          "q3_hallucinated_ttps": [
+            "T1036",
+            "T1055",
+            "T1071",
+            "T1210",
+            "T1218",
+            "T1219"
+          ],
+          "q3_missed_ttps": [
+            "T1010",
+            "T1012",
+            "T1083",
+            "T1112",
+            "T1129",
+            "T1222",
+            "T1547",
+            "T1564"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.2222,
+          "breakdown": {
+            "ttp_f1": 0.2222
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "002674ad1dd8958e_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00290d64924a4449dfdaff9e939e3c36c34dc0ae84efe00b3bf38cf9d4584540",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1010",
+          "signature_description": "find graphical window"
+        },
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        },
+        {
+          "id": "T1056",
+          "signature_description": "log keystrokes via polling"
+        },
+        {
+          "id": "T1059",
+          "signature_description": "accept command line arguments"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "get disk size"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get file size"
+        },
+        {
+          "id": "T1113",
+          "signature_description": "capture screenshot"
+        },
+        {
+          "id": "T1115",
+          "signature_description": "read clipboard data"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "access PEB ldr_data"
+        },
+        {
+          "id": "T1222",
+          "signature_description": "set file attributes"
+        },
+        {
+          "id": "T1543",
+          "signature_description": "create service"
+        },
+        {
+          "id": "T1564",
+          "signature_description": "hide graphical window"
+        },
+        {
+          "id": "T1569",
+          "signature_description": "create service"
+        },
+        {
+          "id": "T1614",
+          "signature_description": "get geographical location"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 5.84,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9429
+        },
+        "family": {
+          "family_f1": 0.5,
+          "family_precision": 1.0,
+          "family_recall": 0.3333,
+          "predicted": [
+            "trojan"
+          ],
+          "matched": [
+            "trojan"
+          ],
+          "reachable_gt": [
+            "trojan",
+            "adware",
+            "worm"
+          ],
+          "gt_pool": [
+            "adware",
+            "aw4suonb",
+            "fasong",
+            "shellreg",
+            "trojan",
+            "worm"
+          ]
+        },
+        "ttp": {
+          "ttp_f1": 0.1739,
+          "ttp_precision": 0.25,
+          "ttp_recall": 0.1333,
+          "gt_ttps": [
+            "T1010",
+            "T1012",
+            "T1027",
+            "T1056",
+            "T1059",
+            "T1082",
+            "T1083",
+            "T1113",
+            "T1115",
+            "T1129",
+            "T1222",
+            "T1543",
+            "T1564",
+            "T1569",
+            "T1614"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1053",
+            "T1055",
+            "T1059",
+            "T1105",
+            "T1190",
+            "T1210",
+            "T1218"
+          ],
+          "tp": 2,
+          "q3_hallucinated_ttps": [
+            "T1053",
+            "T1055",
+            "T1105",
+            "T1190",
+            "T1210",
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1010",
+            "T1012",
+            "T1056",
+            "T1082",
+            "T1083",
+            "T1113",
+            "T1115",
+            "T1129",
+            "T1222",
+            "T1543",
+            "T1564",
+            "T1569",
+            "T1614"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.1739,
+          "breakdown": {
+            "ttp_f1": 0.1739
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "00290d64924a4449_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00290d64924a4449dfdaff9e939e3c36c34dc0ae84efe00b3bf38cf9d4584540",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1010",
+          "signature_description": "find graphical window"
+        },
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        },
+        {
+          "id": "T1056",
+          "signature_description": "log keystrokes via polling"
+        },
+        {
+          "id": "T1059",
+          "signature_description": "accept command line arguments"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "get disk size"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get file size"
+        },
+        {
+          "id": "T1113",
+          "signature_description": "capture screenshot"
+        },
+        {
+          "id": "T1115",
+          "signature_description": "read clipboard data"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "access PEB ldr_data"
+        },
+        {
+          "id": "T1222",
+          "signature_description": "set file attributes"
+        },
+        {
+          "id": "T1543",
+          "signature_description": "create service"
+        },
+        {
+          "id": "T1564",
+          "signature_description": "hide graphical window"
+        },
+        {
+          "id": "T1569",
+          "signature_description": "create service"
+        },
+        {
+          "id": "T1614",
+          "signature_description": "get geographical location"
+        }
+      ],
+      "total_llm_calls": 3,
+      "total_elapsed_seconds": 103.37,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9429
+        },
+        "family": {
+          "family_f1": 0.5,
+          "family_precision": 1.0,
+          "family_recall": 0.3333,
+          "predicted": [
+            "trojan"
+          ],
+          "matched": [
+            "trojan"
+          ],
+          "reachable_gt": [
+            "trojan",
+            "adware",
+            "worm"
+          ],
+          "gt_pool": [
+            "adware",
+            "aw4suonb",
+            "fasong",
+            "shellreg",
+            "trojan",
+            "worm"
+          ]
+        },
+        "ttp": {
+          "ttp_f1": 0.1739,
+          "ttp_precision": 0.1039,
+          "ttp_recall": 0.5333,
+          "gt_ttps": [
+            "T1010",
+            "T1012",
+            "T1027",
+            "T1056",
+            "T1059",
+            "T1082",
+            "T1083",
+            "T1113",
+            "T1115",
+            "T1129",
+            "T1222",
+            "T1543",
+            "T1564",
+            "T1569",
+            "T1614"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1036",
+            "T1052",
+            "T1053",
+            "T1055",
+            "T1056",
+            "T1059",
+            "T1060",
+            "T1061",
+            "T1062",
+            "T1064",
+            "T1065",
+            "T1066",
+            "T1067",
+            "T1068",
+            "T1069",
+            "T1070",
+            "T1071",
+            "T1082",
+            "T1083",
+            "T1100",
+            "T1101",
+            "T1102",
+            "T1103",
+            "T1104",
+            "T1105",
+            "T1106",
+            "T1107",
+            "T1108",
+            "T1109",
+            "T1110",
+            "T1111",
+            "T1112",
+            "T1113",
+            "T1114",
+            "T1115",
+            "T1116",
+            "T1117",
+            "T1118",
+            "T1119",
+            "T1120",
+            "T1121",
+            "T1122",
+            "T1123",
+            "T1124",
+            "T1125",
+            "T1126",
+            "T1127",
+            "T1128",
+            "T1129",
+            "T1130",
+            "T1131",
+            "T1132",
+            "T1133",
+            "T1134",
+            "T1135",
+            "T1136",
+            "T1137",
+            "T1138",
+            "T1139",
+            "T1140",
+            "T1141",
+            "T1142",
+            "T1143",
+            "T1144",
+            "T1145",
+            "T1146",
+            "T1147",
+            "T1148",
+            "T1149",
+            "T1150",
+            "T1151",
+            "T1152",
+            "T1153",
+            "T1154",
+            "T1210",
+            "T1218"
+          ],
+          "tp": 8,
+          "q3_hallucinated_ttps": [
+            "T1036",
+            "T1052",
+            "T1053",
+            "T1055",
+            "T1060",
+            "T1061",
+            "T1062",
+            "T1064",
+            "T1065",
+            "T1066",
+            "T1067",
+            "T1068",
+            "T1069",
+            "T1070",
+            "T1071",
+            "T1100",
+            "T1101",
+            "T1102",
+            "T1103",
+            "T1104",
+            "T1105",
+            "T1106",
+            "T1107",
+            "T1108",
+            "T1109",
+            "T1110",
+            "T1111",
+            "T1112",
+            "T1114",
+            "T1116",
+            "T1117",
+            "T1118",
+            "T1119",
+            "T1120",
+            "T1121",
+            "T1122",
+            "T1123",
+            "T1124",
+            "T1125",
+            "T1126",
+            "T1127",
+            "T1128",
+            "T1130",
+            "T1131",
+            "T1132",
+            "T1133",
+            "T1134",
+            "T1135",
+            "T1136",
+            "T1137",
+            "T1138",
+            "T1139",
+            "T1140",
+            "T1141",
+            "T1142",
+            "T1143",
+            "T1144",
+            "T1145",
+            "T1146",
+            "T1147",
+            "T1148",
+            "T1149",
+            "T1150",
+            "T1151",
+            "T1152",
+            "T1153",
+            "T1154",
+            "T1210",
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1010",
+            "T1012",
+            "T1222",
+            "T1543",
+            "T1564",
+            "T1569",
+            "T1614"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.1739,
+          "breakdown": {
+            "ttp_f1": 0.1739
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "00290d64924a4449_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00290d64924a4449dfdaff9e939e3c36c34dc0ae84efe00b3bf38cf9d4584540",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1010",
+          "signature_description": "find graphical window"
+        },
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        },
+        {
+          "id": "T1056",
+          "signature_description": "log keystrokes via polling"
+        },
+        {
+          "id": "T1059",
+          "signature_description": "accept command line arguments"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "get disk size"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get file size"
+        },
+        {
+          "id": "T1113",
+          "signature_description": "capture screenshot"
+        },
+        {
+          "id": "T1115",
+          "signature_description": "read clipboard data"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "access PEB ldr_data"
+        },
+        {
+          "id": "T1222",
+          "signature_description": "set file attributes"
+        },
+        {
+          "id": "T1543",
+          "signature_description": "create service"
+        },
+        {
+          "id": "T1564",
+          "signature_description": "hide graphical window"
+        },
+        {
+          "id": "T1569",
+          "signature_description": "create service"
+        },
+        {
+          "id": "T1614",
+          "signature_description": "get geographical location"
+        }
+      ],
+      "total_llm_calls": 10,
+      "total_elapsed_seconds": 165.59,
+      "evaluation": {
+        "parse_ok": false,
+        "verdict": {
+          "verdict_score": 0.0,
+          "predicted": null,
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9429,
+          "note": "parse failed"
+        },
+        "family": {
+          "family_f1": 0.0,
+          "family_precision": 0.0,
+          "family_recall": 0.0,
+          "predicted": [],
+          "matched": [],
+          "note": "parse failed"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1010",
+            "T1012",
+            "T1027",
+            "T1056",
+            "T1059",
+            "T1082",
+            "T1083",
+            "T1113",
+            "T1115",
+            "T1129",
+            "T1222",
+            "T1543",
+            "T1564",
+            "T1569",
+            "T1614"
+          ],
+          "pred_ttps": [],
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": [
+            "T1010",
+            "T1012",
+            "T1027",
+            "T1056",
+            "T1059",
+            "T1082",
+            "T1083",
+            "T1113",
+            "T1115",
+            "T1129",
+            "T1222",
+            "T1543",
+            "T1564",
+            "T1569",
+            "T1614"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "00290d64924a4449_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00290d64924a4449dfdaff9e939e3c36c34dc0ae84efe00b3bf38cf9d4584540",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1010",
+          "signature_description": "find graphical window"
+        },
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        },
+        {
+          "id": "T1056",
+          "signature_description": "log keystrokes via polling"
+        },
+        {
+          "id": "T1059",
+          "signature_description": "accept command line arguments"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "get disk size"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get file size"
+        },
+        {
+          "id": "T1113",
+          "signature_description": "capture screenshot"
+        },
+        {
+          "id": "T1115",
+          "signature_description": "read clipboard data"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "access PEB ldr_data"
+        },
+        {
+          "id": "T1222",
+          "signature_description": "set file attributes"
+        },
+        {
+          "id": "T1543",
+          "signature_description": "create service"
+        },
+        {
+          "id": "T1564",
+          "signature_description": "hide graphical window"
+        },
+        {
+          "id": "T1569",
+          "signature_description": "create service"
+        },
+        {
+          "id": "T1614",
+          "signature_description": "get geographical location"
+        }
+      ],
+      "total_llm_calls": 9,
+      "total_elapsed_seconds": 63.92,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9429
+        },
+        "family": {
+          "family_f1": 0.6667,
+          "family_precision": 0.6667,
+          "family_recall": 0.6667,
+          "predicted": [
+            "ransomware",
+            "trojan",
+            "adware"
+          ],
+          "matched": [
+            "trojan",
+            "adware"
+          ],
+          "reachable_gt": [
+            "trojan",
+            "adware",
+            "worm"
+          ],
+          "gt_pool": [
+            "adware",
+            "aw4suonb",
+            "fasong",
+            "shellreg",
+            "trojan",
+            "worm"
+          ]
+        },
+        "ttp": {
+          "ttp_f1": 0.2,
+          "ttp_precision": 0.2,
+          "ttp_recall": 0.2,
+          "gt_ttps": [
+            "T1010",
+            "T1012",
+            "T1027",
+            "T1056",
+            "T1059",
+            "T1082",
+            "T1083",
+            "T1113",
+            "T1115",
+            "T1129",
+            "T1222",
+            "T1543",
+            "T1564",
+            "T1569",
+            "T1614"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1035",
+            "T1036",
+            "T1041",
+            "T1050",
+            "T1051",
+            "T1052",
+            "T1053",
+            "T1054",
+            "T1055",
+            "T1056",
+            "T1059",
+            "T1112",
+            "T1204",
+            "T1218"
+          ],
+          "tp": 3,
+          "q3_hallucinated_ttps": [
+            "T1035",
+            "T1036",
+            "T1041",
+            "T1050",
+            "T1051",
+            "T1052",
+            "T1053",
+            "T1054",
+            "T1055",
+            "T1112",
+            "T1204",
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1010",
+            "T1012",
+            "T1082",
+            "T1083",
+            "T1113",
+            "T1115",
+            "T1129",
+            "T1222",
+            "T1543",
+            "T1564",
+            "T1569",
+            "T1614"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.2,
+          "breakdown": {
+            "ttp_f1": 0.2
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "00290d64924a4449_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00294691443900007b72c3597ee4d9cf7720174a52e20f5e83af3e61af78b19c",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1055",
+          "signature_description": "write process memory"
+        },
+        {
+          "id": "T1070",
+          "signature_description": "self delete"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "query environment variable"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        },
+        {
+          "id": "T1112",
+          "signature_description": "delete registry value"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "link function at runtime on Windows"
+        },
+        {
+          "id": "T1222",
+          "signature_description": "set file attributes"
+        },
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings"
+        },
+        {
+          "id": "T1543",
+          "signature_description": "persist via Windows service"
+        },
+        {
+          "id": "T1569",
+          "signature_description": "persist via Windows service"
+        },
+        {
+          "id": "T1620",
+          "signature_description": "inject thread"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 4.55,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9155
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.1333,
+          "ttp_precision": 0.3333,
+          "ttp_recall": 0.0833,
+          "gt_ttps": [
+            "T1012",
+            "T1055",
+            "T1070",
+            "T1082",
+            "T1083",
+            "T1112",
+            "T1129",
+            "T1222",
+            "T1497",
+            "T1543",
+            "T1569",
+            "T1620"
+          ],
+          "pred_ttps": [
+            "T1055",
+            "T1106",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1106",
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1012",
+            "T1070",
+            "T1082",
+            "T1083",
+            "T1112",
+            "T1129",
+            "T1222",
+            "T1497",
+            "T1543",
+            "T1569",
+            "T1620"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.1333,
+          "breakdown": {
+            "ttp_f1": 0.1333
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0029469144390000_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00294691443900007b72c3597ee4d9cf7720174a52e20f5e83af3e61af78b19c",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1055",
+          "signature_description": "write process memory"
+        },
+        {
+          "id": "T1070",
+          "signature_description": "self delete"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "query environment variable"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        },
+        {
+          "id": "T1112",
+          "signature_description": "delete registry value"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "link function at runtime on Windows"
+        },
+        {
+          "id": "T1222",
+          "signature_description": "set file attributes"
+        },
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings"
+        },
+        {
+          "id": "T1543",
+          "signature_description": "persist via Windows service"
+        },
+        {
+          "id": "T1569",
+          "signature_description": "persist via Windows service"
+        },
+        {
+          "id": "T1620",
+          "signature_description": "inject thread"
+        }
+      ],
+      "total_llm_calls": 3,
+      "total_elapsed_seconds": 50.32,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9155
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.2308,
+          "ttp_precision": 0.2143,
+          "ttp_recall": 0.25,
+          "gt_ttps": [
+            "T1012",
+            "T1055",
+            "T1070",
+            "T1082",
+            "T1083",
+            "T1112",
+            "T1129",
+            "T1222",
+            "T1497",
+            "T1543",
+            "T1569",
+            "T1620"
+          ],
+          "pred_ttps": [
+            "T1018",
+            "T1033",
+            "T1036",
+            "T1047",
+            "T1053",
+            "T1055",
+            "T1059",
+            "T1082",
+            "T1106",
+            "T1210",
+            "T1218",
+            "T1219",
+            "T1221",
+            "T1222"
+          ],
+          "tp": 3,
+          "q3_hallucinated_ttps": [
+            "T1018",
+            "T1033",
+            "T1036",
+            "T1047",
+            "T1053",
+            "T1059",
+            "T1106",
+            "T1210",
+            "T1218",
+            "T1219",
+            "T1221"
+          ],
+          "q3_missed_ttps": [
+            "T1012",
+            "T1070",
+            "T1083",
+            "T1112",
+            "T1129",
+            "T1497",
+            "T1543",
+            "T1569",
+            "T1620"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.2308,
+          "breakdown": {
+            "ttp_f1": 0.2308
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0029469144390000_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00294691443900007b72c3597ee4d9cf7720174a52e20f5e83af3e61af78b19c",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1055",
+          "signature_description": "write process memory"
+        },
+        {
+          "id": "T1070",
+          "signature_description": "self delete"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "query environment variable"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        },
+        {
+          "id": "T1112",
+          "signature_description": "delete registry value"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "link function at runtime on Windows"
+        },
+        {
+          "id": "T1222",
+          "signature_description": "set file attributes"
+        },
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings"
+        },
+        {
+          "id": "T1543",
+          "signature_description": "persist via Windows service"
+        },
+        {
+          "id": "T1569",
+          "signature_description": "persist via Windows service"
+        },
+        {
+          "id": "T1620",
+          "signature_description": "inject thread"
+        }
+      ],
+      "total_llm_calls": 11,
+      "total_elapsed_seconds": 96.61,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9155
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.1176,
+          "ttp_precision": 0.2,
+          "ttp_recall": 0.0833,
+          "gt_ttps": [
+            "T1012",
+            "T1055",
+            "T1070",
+            "T1082",
+            "T1083",
+            "T1112",
+            "T1129",
+            "T1222",
+            "T1497",
+            "T1543",
+            "T1569",
+            "T1620"
+          ],
+          "pred_ttps": [
+            "T1036",
+            "T1053",
+            "T1055",
+            "T1210",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1036",
+            "T1053",
+            "T1210",
+            "T1218"
+          ],
+          "q3_missed_ttps": [
+            "T1012",
+            "T1070",
+            "T1082",
+            "T1083",
+            "T1112",
+            "T1129",
+            "T1222",
+            "T1497",
+            "T1543",
+            "T1569",
+            "T1620"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.1176,
+          "breakdown": {
+            "ttp_f1": 0.1176
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0029469144390000_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "00294691443900007b72c3597ee4d9cf7720174a52e20f5e83af3e61af78b19c",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1012",
+          "signature_description": "query or enumerate registry value"
+        },
+        {
+          "id": "T1055",
+          "signature_description": "write process memory"
+        },
+        {
+          "id": "T1070",
+          "signature_description": "self delete"
+        },
+        {
+          "id": "T1082",
+          "signature_description": "query environment variable"
+        },
+        {
+          "id": "T1083",
+          "signature_description": "get common file path"
+        },
+        {
+          "id": "T1112",
+          "signature_description": "delete registry value"
+        },
+        {
+          "id": "T1129",
+          "signature_description": "link function at runtime on Windows"
+        },
+        {
+          "id": "T1222",
+          "signature_description": "set file attributes"
+        },
+        {
+          "id": "T1497",
+          "signature_description": "reference anti-VM strings"
+        },
+        {
+          "id": "T1543",
+          "signature_description": "persist via Windows service"
+        },
+        {
+          "id": "T1569",
+          "signature_description": "persist via Windows service"
+        },
+        {
+          "id": "T1620",
+          "signature_description": "inject thread"
+        }
+      ],
+      "total_llm_calls": 9,
+      "total_elapsed_seconds": 52.67,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9155
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.1538,
+          "ttp_precision": 1.0,
+          "ttp_recall": 0.0833,
+          "gt_ttps": [
+            "T1012",
+            "T1055",
+            "T1070",
+            "T1082",
+            "T1083",
+            "T1112",
+            "T1129",
+            "T1222",
+            "T1497",
+            "T1543",
+            "T1569",
+            "T1620"
+          ],
+          "pred_ttps": [
+            "T1055"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [],
+          "q3_missed_ttps": [
+            "T1012",
+            "T1070",
+            "T1082",
+            "T1083",
+            "T1112",
+            "T1129",
+            "T1222",
+            "T1497",
+            "T1543",
+            "T1569",
+            "T1620"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.1538,
+          "breakdown": {
+            "ttp_f1": 0.1538
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0029469144390000_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0029a61d22eb2fcb24e74d6333823bf73a363c7904b4a722cd588ff600c9b3cb",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "A",
+      "mode_name": "Single-Shot",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 4.13,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9306
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.4,
+          "ttp_precision": 0.25,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1055",
+            "T1204",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1055",
+            "T1204",
+            "T1218"
+          ],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.4,
+          "breakdown": {
+            "ttp_f1": 0.4
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0029a61d22eb2fcb_A_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0029a61d22eb2fcb24e74d6333823bf73a363c7904b4a722cd588ff600c9b3cb",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "B",
+      "mode_name": "Judge-Refined",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        }
+      ],
+      "total_llm_calls": 1,
+      "total_elapsed_seconds": 4.2,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9306
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.4,
+          "ttp_precision": 0.25,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1053",
+            "T1055",
+            "T1204"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1053",
+            "T1055",
+            "T1204"
+          ],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.4,
+          "breakdown": {
+            "ttp_f1": 0.4
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0029a61d22eb2fcb_B_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0029a61d22eb2fcb24e74d6333823bf73a363c7904b4a722cd588ff600c9b3cb",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "C",
+      "mode_name": "Agentic",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        }
+      ],
+      "total_llm_calls": 8,
+      "total_elapsed_seconds": 14.75,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9306
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.0,
+          "ttp_precision": 0.0,
+          "ttp_recall": 0.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [
+            "T1055"
+          ],
+          "tp": 0,
+          "q3_hallucinated_ttps": [
+            "T1055"
+          ],
+          "q3_missed_ttps": [
+            "T1027"
+          ]
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.0,
+          "breakdown": {
+            "ttp_f1": 0.0
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0029a61d22eb2fcb_C_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    },
+    {
+      "hash": "0029a61d22eb2fcb24e74d6333823bf73a363c7904b4a722cd588ff600c9b3cb",
+      "model_key": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_api_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "mode": "D",
+      "mode_name": "Agentic+Judge",
+      "gt_ttps": [
+        {
+          "id": "T1027",
+          "signature_description": "encode data using XOR"
+        }
+      ],
+      "total_llm_calls": 10,
+      "total_elapsed_seconds": 19.1,
+      "evaluation": {
+        "parse_ok": true,
+        "verdict": {
+          "verdict_score": 1.0,
+          "predicted": "MALICIOUS",
+          "gt": "MALICIOUS",
+          "detection_rate": 0.9306
+        },
+        "family": {
+          "family_f1": null,
+          "family_precision": null,
+          "family_recall": null,
+          "predicted": [],
+          "matched": [],
+          "note": "no GT family data"
+        },
+        "ttp": {
+          "ttp_f1": 0.4,
+          "ttp_precision": 0.25,
+          "ttp_recall": 1.0,
+          "gt_ttps": [
+            "T1027"
+          ],
+          "pred_ttps": [
+            "T1027",
+            "T1055",
+            "T1190",
+            "T1218"
+          ],
+          "tp": 1,
+          "q3_hallucinated_ttps": [
+            "T1055",
+            "T1190",
+            "T1218"
+          ],
+          "q3_missed_ttps": []
+        },
+        "evidence_grounding": null,
+        "composite": {
+          "composite_score": 0.4,
+          "breakdown": {
+            "ttp_f1": 0.4
+          },
+          "composite_weights_used": {
+            "ttp_f1": 1.0
+          }
+        }
+      },
+      "log_file": "0029a61d22eb2fcb_D_meta-llama_Llama-3.1-8B-Instruct.log.json"
+    }
+  ]
+}

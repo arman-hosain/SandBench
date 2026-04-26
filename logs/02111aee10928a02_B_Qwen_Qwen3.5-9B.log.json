@@ -1,0 +1,197 @@
+{
+  "hash": "02111aee10928a02fefc3757817e468037703e58a556cac12967605a8f695dc6",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is a packed Delphi SFX executable exhibiting clear malicious indicators. It imports dangerous functions (WinExec, VirtualAlloc), employs anti-analysis techniques (anti-VM strings, delayed execution), and attempts to establish C2 via IRC. The specific behaviors of checking internet connectivity, querying registry values, and retrieving geographical location confirm active reconnaissance and command-and-control capabilities, moving the verdict from Suspicious to Malicious.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Dropper\"],\n    \"explanation\": \"The sample is a Delphi-based SFX executable that likely drops a payload or executes code remotely. The presence of WinExec, VirtualAlloc, anti-analysis techniques, and C2 communication (IRC) indicates it acts as a Trojan or a Dropper to deliver further malware.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1070\",\n        \"name\": \"Indicator Removal\"\n      },\n      {\n        \"id\": \"T1095\",\n        \"name\": \"Non-Application Layer Protocol\"\n      },\n      {\n        \"id\": \"T1083\",\n        \"name\": \"Network Service Discovery\"\n      },\n      {\n        \"id\": \"T1082\",\n        \"name\": \"System Information Discovery\"\n      },\n      {\n        \"id\": \"T1057\",\n        \"name\": \"Process and Service Discovery\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 2906,
+      "response_chars": 1489,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of malicious intent: it is packed with a Delphi-based SFX (Self-Extracting) archive, imports dangerous functions like WinExec and VirtualAlloc, attempts to evade analysis by referencing anti-VM strings and using delayed execution, and connects to IRC servers (common for botnet command-and-control).",
+      "elapsed_seconds": 13.24
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "6 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 6,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1095",
+        "T1562"
+      ],
+      "hallucinated_ttps": [
+        "T1027",
+        "T1055",
+        "T1070",
+        "T1095",
+        "T1562"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 5
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- query or enumerate registry value\n- check Internet connectivity via WinINet\n- get file size\n- link function at runtime on Windows\n- reference anti-VM strings targeting VirtualBox\n- get geographical location\n\nInstructions:\n- Add a TTP only when the behav",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1057",
+        "T1059",
+        "T1070",
+        "T1082",
+        "T1083",
+        "T1095"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 2,
+      "best_ttp_fp": 5
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "5 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 5,
+      "ttps_found": [
+        "T1027",
+        "T1057",
+        "T1059",
+        "T1070",
+        "T1082",
+        "T1083",
+        "T1095"
+      ],
+      "hallucinated_ttps": [
+        "T1027",
+        "T1057",
+        "T1070",
+        "T1082",
+        "T1095"
+      ],
+      "ttp_tp": 2,
+      "ttp_fp": 5
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- query or enumerate registry value\n- check Internet connectivity via WinINet\n- link function at runtime on Windows\n- reference anti-VM strings targeting VirtualBox\n- get geographical location\n\nInstructions:\n- Add a TTP only when the behavior phrase and r",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1005",
+        "T1018",
+        "T1027",
+        "T1055",
+        "T1057",
+        "T1059",
+        "T1070",
+        "T1082",
+        "T1083",
+        "T1095"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 2,
+      "best_ttp_fp": 5
+    },
+    {
+      "step": 8,
+      "type": "refinement_stopped",
+      "iteration": 2,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 2,
+      "ttp_fp": 8
+    }
+  ],
+  "total_llm_calls": 3,
+  "total_elapsed": 43.13,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.2857,
+      "ttp_precision": 0.2857,
+      "ttp_recall": 0.2857,
+      "gt_ttps": [
+        "T1012",
+        "T1016",
+        "T1059",
+        "T1083",
+        "T1129",
+        "T1497",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1057",
+        "T1059",
+        "T1070",
+        "T1082",
+        "T1083",
+        "T1095"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1057",
+        "T1070",
+        "T1082",
+        "T1095"
+      ],
+      "q3_missed_ttps": [
+        "T1012",
+        "T1016",
+        "T1129",
+        "T1497",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2857,
+      "breakdown": {
+        "ttp_f1": 0.2857
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

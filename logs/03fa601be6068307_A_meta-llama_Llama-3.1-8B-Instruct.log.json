@@ -1,0 +1,79 @@
+{
+  "hash": "03fa601be60683073a3b3746d2874c10a49b9509a7feb95c375834b88f061205",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a complex execution chain, drops multiple files, creates registry persistence, and demonstrates anti-debugging techniques, indicating malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Ransomware\"],\n    \"explanation\": \"The sample's behavior, including file drops, registry persistence, and anti-debugging techniques, is consistent with ransomware tactics.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"File and Directory Discovery\"},\n      {\"id\": \"T1546\", \"name\": \"Create or Modify System Process\"},\n      {\"id\": \"T1547\", \"name\": \"Hardcode Credentials\"},\n      {\"id\": \"T1552\", \"name\": \"MS Office Macro Malware\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 3690,
+      "response_chars": 783,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a complex execution chain, drops multiple files, creates registry persistence, and demonstrates anti-debugging techniques, indicating malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Ransomware\"],\n    \"explanation\": \"The sample's behavior, including file drops, registry persistence, and anti-debugging techniques, is c",
+      "elapsed_seconds": 4.04
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 4.04,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9412
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.4,
+      "ttp_precision": 0.4,
+      "ttp_recall": 0.4,
+      "gt_ttps": [
+        "T1027",
+        "T1059",
+        "T1083",
+        "T1222",
+        "T1547"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1218",
+        "T1546",
+        "T1547",
+        "T1552"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1218",
+        "T1546",
+        "T1552"
+      ],
+      "q3_missed_ttps": [
+        "T1059",
+        "T1083",
+        "T1222"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4,
+      "breakdown": {
+        "ttp_f1": 0.4
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

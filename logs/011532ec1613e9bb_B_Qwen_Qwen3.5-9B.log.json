@@ -1,0 +1,214 @@
+{
+  "hash": "011532ec1613e9bbba72b0b17206ddcd1b4a0c85fce6f47b647489a5649f1654",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is confirmed malicious due to its ability to persist via the RunServices registry key, drop files to critical system directories (System32), and execute commands. It possesses significant capabilities for data exfiltration and surveillance, including keylogging, screenshot capture, and clipboard reading. The use of XOR encoding, PEPACK packing, and anti-analysis techniques (PEB access, debugger detection) further confirms its malicious nature.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Spyware\"],\n    \"explanation\": \"The sample functions as a Trojan by masquerading as a legitimate executable (dropping files with generic names like Tmp_.exe and Mkopg.exe) and executing arbitrary commands. It is classified as Spyware due to explicit capabilities for logging keystrokes, capturing screenshots, reading clipboard data, and gathering system information.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1547.001\", \"name\": \"Registry Run Keys / Startup Folder\"},\n      {\"id\": \"T1057\", \"name\": \"Process Discovery\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1056.001\", \"name\": \"Input Capture: Keyboard Logging\"},\n      {\"id\": \"T1056.002\", \"name\": \"Input Capture: Screenshot\"},\n      {\"id\": \"T1005\", \"name\": \"Data from Local System\"},\n      {\"id\": \"T1083\", \"name\": \"File and Directory Discovery\"},\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"},\n      {\"id\": \"T1083\", \"name\": \"File and Directory Discovery\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 4144,
+      "response_chars": 1099,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including persistence via the RunServices registry key, dropping files to System32 and TEMP directories, executing commands, and possessing capabilities for keylogging, screenshot capture, and clipboard reading. The use of XOR encoding and obfuscation further confirms malicious intent.",
+      "elapsed_seconds": 6.0
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "13 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 13,
+      "ttps_found": [
+        "T1005",
+        "T1027",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1005",
+        "T1055",
+        "T1057"
+      ],
+      "ttp_tp": 3,
+      "ttp_fp": 3
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- enumerate gui resources\n- query or enumerate registry value\n- get local IPv4 addresses\n- accept command line arguments\n- get system information on Windows\n- get common file path\n- capture screenshot\n- read clipboard data\n- access PEB ldr_data\n- set file",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1005",
+        "T1027",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 5,
+      "best_ttp_fp": 3
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "11 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 11,
+      "ttps_found": [
+        "T1005",
+        "T1027",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1005",
+        "T1055",
+        "T1057"
+      ],
+      "ttp_tp": 5,
+      "ttp_fp": 3
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- enumerate gui resources\n- query or enumerate registry value\n- get local IPv4 addresses\n- accept command line arguments\n- capture screenshot\n- read clipboard data\n- access PEB ldr_data\n- set file attributes\n- shutdown system\n- hide graphical window\n\nInst",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "refinement_rejected",
+      "iteration": 2,
+      "reason": "response not in structured format - keeping previous output",
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is confirmed malicious due to its ability to persist via the RunServices registry key, drop files to critical system directories "
+    },
+    {
+      "step": 8,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1005",
+        "T1027",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 5,
+      "best_ttp_fp": 3
+    },
+    {
+      "step": 9,
+      "type": "refinement_stopped",
+      "iteration": 2,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 5,
+      "ttp_fp": 3
+    }
+  ],
+  "total_llm_calls": 3,
+  "total_elapsed": 105.46,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8592
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.4167,
+      "ttp_precision": 0.625,
+      "ttp_recall": 0.3125,
+      "gt_ttps": [
+        "T1010",
+        "T1012",
+        "T1016",
+        "T1027",
+        "T1056",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1113",
+        "T1115",
+        "T1129",
+        "T1222",
+        "T1529",
+        "T1547",
+        "T1564",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1005",
+        "T1027",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "tp": 5,
+      "q3_hallucinated_ttps": [
+        "T1005",
+        "T1055",
+        "T1057"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1012",
+        "T1016",
+        "T1059",
+        "T1113",
+        "T1115",
+        "T1129",
+        "T1222",
+        "T1529",
+        "T1564",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4167,
+      "breakdown": {
+        "ttp_f1": 0.4167
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

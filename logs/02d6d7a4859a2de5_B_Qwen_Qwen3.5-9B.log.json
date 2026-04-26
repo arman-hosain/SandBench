@@ -1,0 +1,185 @@
+{
+  "hash": "02d6d7a4859a2de5221b965fd6f93a17606cf88c83d17a7ee037e83cd82c0b9e",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including anti-analysis techniques (obfuscated stackstrings, argument obfuscation, delayed execution), persistence mechanisms (registry Run key), file system manipulation (creating files in ProgramData, modifying attributes), and process creation. The presence of a mutex named 'ShimCacheMutex' and the creation of a new executable 'rfkhho.exe' further confirms malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Dropper\"],\n    \"explanation\": \"The sample uses obfuscation and anti-analysis techniques typical of Trojans. It drops multiple files and creates a new executable ('rfkhho.exe'), indicating Dropper behavior where it likely installs a secondary payload.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1547.001\", \"name\": \"Registry Run Keys / Startup Folder\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1059\", \"name\": \"Command and Scripting Interpreter\"},\n      {\"id\": \"T1070\", \"name\": \"Indicator Removal\"},\n      {\"id\": \"T1036\", \"name\": \"Masquerading\"},\n      {\"id\": \"T1083\", \"name\": \"File and Directory Discovery\"},\n      {\"id\": \"T1186\", \"name\": \"File and Directory Permissions\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 3600,
+      "response_chars": 1185,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including anti-analysis techniques (obfuscated stackstrings, argument obfuscation, delayed execution), persistence mechanisms (registry Run key), file system manipulation (creating files in ProgramData, modifying attributes), and process creation. The presence of a mutex named 'ShimCac",
+      "elapsed_seconds": 6.56
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "2 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 2,
+      "ttps_found": [
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1036",
+        "T1055",
+        "T1070"
+      ],
+      "ttp_tp": 3,
+      "ttp_fp": 3
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- get common file path\n- set file attributes\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by the rep",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1083",
+        "T1186",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 4,
+      "best_ttp_fp": 4
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "1 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 1,
+      "ttps_found": [
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1083",
+        "T1186",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1036",
+        "T1055",
+        "T1070",
+        "T1186"
+      ],
+      "ttp_tp": 4,
+      "ttp_fp": 4
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- set file attributes\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by the report.\nDIRECTION: ADD_TTP",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1027",
+        "T1036",
+        "T1083",
+        "T1186",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 4,
+      "best_ttp_fp": 4
+    },
+    {
+      "step": 8,
+      "type": "refinement_stopped",
+      "iteration": 2,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 3,
+      "ttp_fp": 2
+    }
+  ],
+  "total_llm_calls": 3,
+  "total_elapsed": 20.67,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9028
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.6154,
+      "ttp_precision": 0.5,
+      "ttp_recall": 0.8,
+      "gt_ttps": [
+        "T1027",
+        "T1059",
+        "T1083",
+        "T1222",
+        "T1547"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1083",
+        "T1186",
+        "T1547"
+      ],
+      "tp": 4,
+      "q3_hallucinated_ttps": [
+        "T1036",
+        "T1055",
+        "T1070",
+        "T1186"
+      ],
+      "q3_missed_ttps": [
+        "T1222"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.6154,
+      "breakdown": {
+        "ttp_f1": 0.6154
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

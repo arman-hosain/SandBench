@@ -1,0 +1,75 @@
+{
+  "hash": "002c25c2faae53d4eba08d1d23918090dcfb100733cdf9614dd38c43e3d3ca5c",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a range of malicious behaviors, including the execution of a series of rundll32.exe processes, the creation of mutexes, and the modification of registry keys for persistence. Additionally, the sample contains PE imports that are considered dangerous, such as GetProcAddress and VirtualProtect.\"\n  },\n  \"q2\": {\n    \"family\": [\"Ransomware\", \"Trojan\"],\n    \"explanation\": \"The sample's behavior is consistent with a ransomware or Trojan, as it appears to be designed to execute a series of malicious processes and modify system files. The sample's use of UPX packing and its creation of mutexes and registry keys also suggest a Trojan-like behavior.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"},\n      {\"id\": \"T1210\", \"name\": \"Exploitation of Remote Services\"},\n      {\"id\": \"T1212\", \"name\": \"Exploitation of Phased Vulnerabilities\"},\n      {\"id\": \"T1216\", \"name\": \"Drive-by Compromise\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 5135,
+      "response_chars": 1090,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a range of malicious behaviors, including the execution of a series of rundll32.exe processes, the creation of mutexes, and the modification of registry keys for persistence. Additionally, the sample contains PE imports that are considered dangerous, such as GetProcAddress and VirtualProtect.\"\n  },\n  \"q2\": {\n    \"famil",
+      "elapsed_seconds": 5.43
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 5.43,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9167
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.2857,
+      "ttp_precision": 0.2,
+      "ttp_recall": 0.5,
+      "gt_ttps": [
+        "T1027",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1210",
+        "T1212",
+        "T1216",
+        "T1218"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1210",
+        "T1212",
+        "T1216",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2857,
+      "breakdown": {
+        "ttp_f1": 0.2857
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

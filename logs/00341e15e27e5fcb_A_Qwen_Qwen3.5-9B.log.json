@@ -1,0 +1,68 @@
+{
+  "hash": "00341e15e27e5fcb17734d0403002a7c467aaef9192ddb591aba599665fc14d7",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it is packed with a generic SFX (Self-Extracting) archive, uses XOR obfuscation, and spawns multiple instances of Internet Explorer to open random HTML files from the Temp directory. It also modifies registry keys related to CLSIDs and ShellServiceObjectDelayLoad, which is indicative of persistence or hijacking mechanisms. The combination of packing, obfuscation, and spawning browser processes to deliver content strongly suggests malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The primary behavior observed is the extraction and execution of additional payloads (HTML files) via a packed executable. The sample uses an SFX packer to hide its contents and then drops files to the Temp folder before launching them in Internet Explorer. This 'drop and run' pattern is the definition of a Dropper.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1562\",\n        \"name\": \"Impair Defenses\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 6442,
+      "response_chars": 1219,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it is packed with a generic SFX (Self-Extracting) archive, uses XOR obfuscation, and spawns multiple instances of Internet Explorer to open random HTML files from the Temp directory. It also modifies registry keys related to CLSIDs and ShellServiceObjectDelayLoad, which is indicative of persis",
+      "elapsed_seconds": 10.96
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 10.96,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9437
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.5,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1562"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1562"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5,
+      "breakdown": {
+        "ttp_f1": 0.5
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

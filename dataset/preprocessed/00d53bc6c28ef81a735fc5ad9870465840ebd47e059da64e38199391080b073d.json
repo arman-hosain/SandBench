@@ -1,0 +1,58 @@
+{
+  "hash": "00d53bc6c28ef81a735fc5ad9870465840ebd47e059da64e38199391080b073d",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nSERVICES OPENED (5):\n  AudioSrv\n  RASMAN\n  RasMan\n  RemoteAccess\n  Router\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  moviemk2.pe32\n    winlogon.exe\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (1):\n  C:\\Windows\\system32\\DRIVERS\\ETC\\HOSTS\n\nPERSISTENCE REGISTRY KEYS (3):\n  \\REGISTRY\\MACHINE\\SYSTEM\\ControlSet001\\services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\AuthorizedApplications\\HexStream = 4C00690073007400 = C:\\Windows\\system32\\winlogon.exe\n  \\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\AuthorizedApplications\\List\\\\??\\C:\\WINDOWS\\system32\\winlogon.exe = \\??\\C:\\WINDOWS\\system32\\winlogon.exe:*:enabled:@shell32.dll,-1\u0000\n  \\REGISTRY\\USER\\.DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders\\Cache = C:\\Documents and Settings\\Administrator\\Local Settings\\Temporary Internet Files\u0000\n\nOTHER REGISTRY KEYS SET (4):\n  \\REGISTRY\\MACHINE\\SAM\\SAM\\Domains\\Account\\Users\\000001F4\\F\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\ProfileList\\S-1-5-21-1482476501-1645522239-1417001333-500\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Prefetcher\\TracesProcessed\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\SessionInformation\\ProgramCount\n\nMUTEXES CREATED (19):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  Global\\MovieMaker2\n  Local\\WininetProxyRegistryMutex\n  Local\\WininetStartupMutex\n  Local\\_!MSFTHISTORY!_\n\nMUTEXES OPENED (4):\n  _!MSFTHISTORY!_\n  c:!documents and settings!administrator!cookies!\n  c:!documents and settings!administrator!local settings!history!history.ie5!\n  c:!documents and settings!administrator!local settings!temporary internet files!content.ie5!\n\nPROCESSES CREATED (1):\n  winlogon.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAlloc, VirtualProtect, WinExec\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.45\n  .data        entropy=3.33\n  MovieMak     entropy=0.07\n  .rsrc        entropy=6.6\n",
+  "ground_truth": {
+    "hash": "00d53bc6c28ef81a735fc5ad9870465840ebd47e059da64e38199391080b073d",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8529,
+    "malicious_count": 58,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [],
+    "capa_sig_names": [],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "\\REGISTRY\\MACHINE\\SYSTEM\\ControlSet001\\services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\AuthorizedApplications\\HexStream = 4C00690073007400",
+        "\\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\AuthorizedApplications\\List\\\\??\\C:\\WINDOWS\\system32\\winlogon.exe",
+        "\\REGISTRY\\USER\\.DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders\\Cache"
+      ],
+      "registry_all_count": 7,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "Global\\MovieMaker2",
+        "Local\\WininetProxyRegistryMutex",
+        "Local\\WininetStartupMutex",
+        "Local\\_!MSFTHISTORY!_",
+        "Local\\c:!windows!system32!config!systemprofile!appdata!local!microsoft!windows!history!history.ie5!",
+        "Local\\c:!windows!system32!config!systemprofile!appdata!local!microsoft!windows!temporary internet files!content.ie5!",
+        "Local\\c:!windows!system32!config!systemprofile!appdata!roaming!microsoft!windows!cookies!",
+        "MSCTF.Shared.MUTEX.IN",
+        "RasPbFile",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex",
+        "l0r2"
+      ],
+      "processes": [
+        "winlogon.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "SNDBOX",
+    "Tencent HABO"
+  ]
+}

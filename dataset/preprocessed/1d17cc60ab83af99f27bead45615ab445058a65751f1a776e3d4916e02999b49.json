@@ -1,0 +1,74 @@
+{
+  "hash": "1d17cc60ab83af99f27bead45615ab445058a65751f1a776e3d4916e02999b49",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  doddyfire.linkpc.net\n\nSERVICES OPENED (1):\n  NapAgent\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    chargeable.exe\n      chargeable.exe\n        netsh.exe netsh firewall add allowedprogram chargeable.exe\" \"chargeable.exe\" ENABLE\n\nCOMMAND EXECUTIONS (2):\n  C:\\Users\\<USER>\\AppData\\Roaming\\confuse\\chargeable.exe\n  netsh firewall add allowedprogram \"C:\\Documents and Settings\\Administrator\\Application Data\\confuse\\chargeable.exe\" \"chargeable.exe\" ENABLE\n\n--- CAPABILITIES (CAPA) ---\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Users\\<USER>\\AppData\\Roaming\\confuse\\chargeable.exe  [sha256: 8fb194162ca2d06b...]\n\nFILES WRITTEN (1):\n  C:\\Documents and Settings\\Administrator\\Application Data\\confuse\\chargeable.exe\n\nPERSISTENCE REGISTRY KEYS (5):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\SysMain = C\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\confuse = C\n  \\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\AuthorizedApplications\\List\\C:\\Documents and Settings\\Administrator\\Application Data\\confuse\\chargeable.exe = C:\\Documents and Settings\\Administrator\\Application Data\\confuse\\chargeable.exe:*:Enabled:chargeable\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\SysMain = C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe\u0000\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\confuse = C:\\Documents and Settings\\Administrator\\Application Data\\confuse\\chargeable.exe\u0000\n\nOTHER REGISTRY KEYS SET (10):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\Document\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\di\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Environment\\SEE_MASK_NOZONECHECKS\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Tracing\\FWCFG\\EnableFileTracing\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Tracing\\FWCFG\\EnableConsoleTracing\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Tracing\\FWCFG\\FileTracingMask\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Tracing\\FWCFG\\ConsoleTracingMask\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Tracing\\FWCFG\\MaxFileSize\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Tracing\\FWCFG\\FileDirectory\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Tracing\\Microsoft\\NAP\\Netsh\\LogSessionName\n\nMUTEXES CREATED (11):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  Global\\.net clr networking\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n\nMUTEXES OPENED (1):\n  Global\\CLR_CASOFF_MUTEX\n\nPROCESSES CREATED (1):\n  C:\\WINDOWS\\system32\\netsh.exe\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Library] .NET\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': '.NET executable'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.65\n  .rsrc        entropy=2.75\n  .reloc       entropy=0.1\n  [overlay]    entropy=7.972747802734375  size=6144\n",
+  "ground_truth": {
+    "hash": "1d17cc60ab83af99f27bead45615ab445058a65751f1a776e3d4916e02999b49",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9452,
+    "malicious_count": 69,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 40
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "bladabindi",
+        "count": 13
+      },
+      {
+        "value": "msil",
+        "count": 13
+      },
+      {
+        "value": "orcus",
+        "count": 3
+      }
+    ],
+    "suggested_label": "trojan.bladabindi/msil",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [],
+    "capa_sig_names": [],
+    "iocs": {
+      "ips": [],
+      "domains": [
+        "doddyfire.linkpc.net"
+      ],
+      "urls": [],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\SysMain",
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\confuse",
+        "\\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\AuthorizedApplications\\List\\C:\\Documents and Settings\\Administrator\\Application Data\\confuse\\chargeable.exe",
+        "\\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\SysMain",
+        "\\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\confuse"
+      ],
+      "registry_all_count": 25,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Roaming\\confuse\\chargeable.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "Global\\.net clr networking",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex",
+        "e1a87040f2026369a233f9ae76301b7b"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\system32\\netsh.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

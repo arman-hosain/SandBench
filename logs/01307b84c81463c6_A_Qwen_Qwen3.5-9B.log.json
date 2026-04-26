@@ -1,0 +1,68 @@
+{
+  "hash": "01307b84c81463c62e42a1d5bc12396eb96fc5048b4a592035b2c48d5377f2a3",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior by modifying the Winlogon registry key to add a shell command, which is a standard persistence mechanism for malware. Additionally, it creates a file named 'marijuana.txt' (likely a ransom note or payload indicator) and uses UPX packing to evade analysis, indicated by high entropy sections and CAPA triggers for software packing.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample modifies the Winlogon shell key to achieve persistence, a behavior typical of Trojans. It does not exhibit the specific encryption patterns of Ransomware (though it creates a .txt file, the primary observed mechanism is shell hijacking), nor does it show network scanning or self-replication typical of Worms. The use of a generic packer and Delphi compiler is common for Trojans.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1167,
+      "response_chars": 1228,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior by modifying the Winlogon registry key to add a shell command, which is a standard persistence mechanism for malware. Additionally, it creates a file named 'marijuana.txt' (likely a ransom note or payload indicator) and uses UPX packing to evade analysis, indicated by high entropy sections and ",
+      "elapsed_seconds": 6.29
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 6.29,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8889
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.5,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1547"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1547"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5,
+      "breakdown": {
+        "ttp_f1": 0.5
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

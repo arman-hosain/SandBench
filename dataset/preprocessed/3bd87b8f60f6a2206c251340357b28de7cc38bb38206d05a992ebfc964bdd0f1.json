@@ -1,0 +1,89 @@
+{
+  "hash": "3bd87b8f60f6a2206c251340357b28de7cc38bb38206d05a992ebfc964bdd0f1",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  GET http://carder.bit/  UA: Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko\n  GET http://carder.bit/\n\nDNS LOOKUPS (3):\n  ipv4bot.whatismyipaddress.com \u2192 66.171.248.178\n  ns1.wowservers.ru \u2192 185.103.243.59\n  ns2.wowservers.ru \u2192 185.103.243.59\n\nIP TRAFFIC (3):\n  185.103.243.59:53 (UDP)\n  66.171.248.178:80 (TCP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (1):\n  Sens\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  tdeieu.exe\n    nslookup carder.bit ns2.wowservers.ru\n    nslookup ransomware.bit ns2.wowservers.ru\n    nslookup carder.bit ns1.wowservers.ru\n    nslookup ransomware.bit ns1.wowservers.ru\n    nslookup carder.bit ns2.wowservers.ru\n    nslookup ransomware.bit ns2.wowservers.ru\n    nslookup carder.bit ns1.wowservers.ru\n    nslookup ransomware.bit ns1.wowservers.ru\n    nslookup carder.bit ns2.wowservers.ru\n    nslookup ransomware.bit ns2.wowservers.ru\n    nslookup carder.bit ns1.wowservers.ru\n    nslookup ransomware.bit ns1.wowservers.ru\n    nslookup carder.bit ns2.wowservers.ru\n    nslookup ransomware.bit ns2.wowservers.ru\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (6):\n  - contain obfuscated stackstrings\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - modify service\n  - open clipboard\n  - get common file path\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - contain loop\n  - Process::Terminate Process [C0018]\n  - Process::Allocate Thread Local Storage [C0040]\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - modify service\n  - open clipboard\n  - Discovery::File and Directory Discovery [E1083]\n  - linked against CPP standard library\n  - contain a resource (.rsrc) section\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\gstdgp.exe  [sha256: 0c8770d287abf23b...]\n\nFILES WRITTEN (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows\\Temporary Internet Files\\Content.IE5\\XBL73YY1\\ipv4bot_whatismyipaddress_com[1].htm\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\lbpjfkogtgp = \"\n\nOTHER REGISTRY KEYS SET (3):\n  HKU\\S-1-5-18\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-18\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\SavedLegacySettings\n  HKU\\S-1-5-18\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\DefaultConnectionSettings\n\nMUTEXES CREATED (2):\n  Global\\pc_group=WORKGROUP&ransom_id=4029414471d2c847\n  IESQMMUTEX_0_208\n\nMUTEXES OPENED (3):\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryW, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.61\n  .rdata       entropy=5.83\n  .data        entropy=4.12\n  .rsrc        entropy=7.8\n  .reloc       entropy=1.3\n  [overlay]    entropy=2.503258466720581  size=9\n",
+  "ground_truth": {
+    "hash": "3bd87b8f60f6a2206c251340357b28de7cc38bb38206d05a992ebfc964bdd0f1",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9583,
+    "malicious_count": 69,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1115",
+        "signature_description": "open clipboard"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1543",
+        "signature_description": "modify service"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "modify service"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "contain obfuscated stackstrings",
+      "contain loop",
+      "terminate process",
+      "allocate thread local storage",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "modify service",
+      "open clipboard",
+      "get common file path",
+      "linked against CPP standard library",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "185.103.243.59",
+        "66.171.248.178",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "ipv4bot.whatismyipaddress.com",
+        "ns1.wowservers.ru",
+        "ns2.wowservers.ru"
+      ],
+      "urls": [
+        "http://carder.bit/"
+      ],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\lbpjfkogtgp"
+      ],
+      "registry_all_count": 4,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\gstdgp.exe"
+      ],
+      "mutexes": [
+        "Global\\pc_group=WORKGROUP&ransom_id=4029414471d2c847",
+        "IESQMMUTEX_0_208"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

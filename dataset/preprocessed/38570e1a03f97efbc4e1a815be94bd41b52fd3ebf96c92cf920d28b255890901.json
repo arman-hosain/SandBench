@@ -1,0 +1,57 @@
+{
+  "hash": "38570e1a03f97efbc4e1a815be94bd41b52fd3ebf96c92cf920d28b255890901",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (2):\n  oaklandfraud.com\n  tecktalk.com \u2192 69.164.223.52\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  38570e1a03f97efb_codecupdate.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\codecupdate.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\codecupdate.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\codecupdate.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - hide graphical window\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - hide graphical window\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  codecupdate.exe  [sha256: 35e0e2dd36dec6ed...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\codecupdate.exe  [sha256: 8f3d957c2b061c9b...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\codecupdate.exe\n\nMUTEXES CREATED (1):\n  RasPbFile\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\codecupdate.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\codecupdate.exe\" \"\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.6\n  .rdata       entropy=5.24\n  .data        entropy=4.37\n  .rsrc        entropy=3.59\n  [overlay]    entropy=3.4517388343811035  size=16442\n",
+  "ground_truth": {
+    "hash": "38570e1a03f97efbc4e1a815be94bd41b52fd3ebf96c92cf920d28b255890901",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8857,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "ppatre",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      }
+    ],
+    "capa_sig_names": [
+      "hide graphical window",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [
+        "oaklandfraud.com",
+        "tecktalk.com"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\codecupdate.exe",
+        "codecupdate.exe"
+      ],
+      "mutexes": [
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\codecupdate.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\codecupdate.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

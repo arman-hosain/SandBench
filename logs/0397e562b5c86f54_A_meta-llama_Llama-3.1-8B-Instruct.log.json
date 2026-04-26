@@ -1,0 +1,79 @@
+{
+  "hash": "0397e562b5c86f5479231d2bcf3e19517eeb8be4e353a2ed42bfceb90a40f9e1",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious DNS lookups, opens a RASMAN service, and executes a series of commands to download and write files, indicating malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior, including its ability to download and write files, and its use of anti-VM strings, is consistent with a Trojan horse.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1204\", \"name\": \"User Execution\"},\n      {\"id\": \"T1059\", \"name\": \"Command and Control\"},\n      {\"id\": \"T1210\", \"name\": \"Server Software Component\"},\n      {\"id\": \"T1052\", \"name\": \"Exfiltration Over Command and Control Channel\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 3548,
+      "response_chars": 772,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious DNS lookups, opens a RASMAN service, and executes a series of commands to download and write files, indicating malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior, including its ability to download and write files, and its use of anti-VM strings, is consisten",
+      "elapsed_seconds": 4.13
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 4.13,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9306
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1083",
+        "T1105",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1052",
+        "T1059",
+        "T1204",
+        "T1210"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1052",
+        "T1059",
+        "T1204",
+        "T1210"
+      ],
+      "q3_missed_ttps": [
+        "T1083",
+        "T1105",
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "hash": "009b3fa6c1458e852b896e07b99a21fbd231247051bb53e6c9359b443bb486b1",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity (e.g., DNS lookups for a suspicious domain), executes a potentially malicious process (nslookup), and drops a file with a suspicious name (rkakxa.exe). Additionally, it contains a resource (.rsrc) section and uses dangerous PE imports (GetProcAddress, VirtualAlloc, VirtualProtect).\"\n  },\n  \"q2\": {\n    \"family\": [\"Ransomware\"],\n    \"explanation\": \"The sample's behavior, including DNS lookups for a suspicious domain and the execution of a potentially malicious process (nslookup), suggests a ransomware attack. The file dropped (rkakxa.exe) and the use of a mutex (Global\\\\pc_group=WORKGROUP&ransom_id=e8b0adc86c78a9c3) also support this classification.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1047\", \"name\": \"Network Service Scanning\"},\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"},\n      {\"id\": \"T1218\", \"name\": \"File and Directory Discovery\"},\n      {\"id\": \"T1219\", \"name\": \"System Service Discovery\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 1993,
+      "response_chars": 1048,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity (e.g., DNS lookups for a suspicious domain), executes a potentially malicious process (nslookup), and drops a file with a suspicious name (rkakxa.exe). Additionally, it contains a resource (.rsrc) section and uses dangerous PE imports (GetProcAddress, VirtualAlloc, VirtualProtect).\"\n  },\n  \"",
+      "elapsed_seconds": 5.11
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 5.11,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9296
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.3333,
+      "ttp_precision": 0.25,
+      "ttp_recall": 0.5,
+      "gt_ttps": [
+        "T1082",
+        "T1129"
+      ],
+      "pred_ttps": [
+        "T1047",
+        "T1082",
+        "T1218",
+        "T1219"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1047",
+        "T1218",
+        "T1219"
+      ],
+      "q3_missed_ttps": [
+        "T1129"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.3333,
+      "breakdown": {
+        "ttp_f1": 0.3333
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

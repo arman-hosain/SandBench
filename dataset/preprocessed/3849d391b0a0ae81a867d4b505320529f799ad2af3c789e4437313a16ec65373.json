@@ -1,0 +1,152 @@
+{
+  "hash": "3849d391b0a0ae81a867d4b505320529f799ad2af3c789e4437313a16ec65373",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nIP TRAFFIC (1):\n  111.68.7.74:443 (TCP)\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (13):\n  - encode data using XOR\n  - access PEB ldr_data\n  - get common file path\n  - download and write a file\n  - get hostname\n  - query or enumerate registry value\n  - get file size\n  - get session user name\n  - accept command line arguments\n  - parse PE header\n  - packed with enigma\n  - reference anti-VM strings targeting VirtualBox\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Process::Create Process [C0017]\n  - File System::Create File [C0016]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Cryptography::Generate Pseudo-random Sequence [C0021]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - access PEB ldr_data\n  - Discovery::File and Directory Discovery [E1083]\n  - contain loop\n  - Communication::HTTP Communication::Download URL [C0002.006]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - File System::Writes File [C0052]\n  - Command and Control::C2 Communication::Server to Client File Transfer [B0030.003]\n  - receive and write data from server to client\n  - set current directory\n  - Communication::Socket Communication::Receive Data [C0001.006]\n  - Communication::DNS Communication::Resolve [C0011.001]\n  - Communication::Socket Communication::Initialize Winsock Library [C0001.009]\n  - Discovery::System Information Discovery [E1082]\n  - Communication::Socket Communication::Set Socket Config [C0001.001]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows Update\\DelayUpdate.exe  [sha256: 72a1e0dc745936dd...]\n\nFILES WRITTEN (1):\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Microsoft\\Windows Update\\DelayUpdate.exe\n\nPERSISTENCE REGISTRY KEYS (2):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Update Policy = \"C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows Update\\DelayUpdate.exe\" /delay\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Update Policy = \"C:\\DOCUME~1\\ADMINI~1\\LOCALS~1\\Microsoft\\Windows Update\\DelayUpdate.exe\" /delay\u0000\n\nOTHER REGISTRY KEYS SET (1):\n  \\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Control\\Session Manager\\PendingFileRenameOperations\n\nMUTEXES CREATED (3):\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Protector] Enigma Virtual Box\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'F-PROT': 'embedded', 'Cyren': 'dropped, dropped, exefile, dropped, exefile, exefile', 'Varist': 'dropped, dropped, exefile, dropped, exefile, exefile'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.45\n  .rdata       entropy=5.02\n  .data        entropy=0.32\n  .CRT         entropy=0.06\n  .rsrc        entropy=5.6\n  .enigma1     entropy=7.69\n  .enigma2     entropy=5.9\n  [overlay]    entropy=5.595749855041504  size=428\n",
+  "ground_truth": {
+    "hash": "3849d391b0a0ae81a867d4b505320529f799ad2af3c789e4437313a16ec65373",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8767,
+    "malicious_count": 64,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 29
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "zusy",
+        "count": 7
+      },
+      {
+        "value": "andariel",
+        "count": 5
+      },
+      {
+        "value": "ymacco",
+        "count": 3
+      }
+    ],
+    "suggested_label": "trojan.zusy/andariel",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1033",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get hostname"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1087",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1105",
+        "signature_description": "download and write a file"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "create process on Windows",
+      "create or open file",
+      "delay execution",
+      "encode data using XOR",
+      "create or open registry key",
+      "generate random numbers using the Delphi LCG",
+      "PEB access",
+      "access PEB ldr_data",
+      "get common file path",
+      "contain loop",
+      "create a process with modified I/O handles and window",
+      "download URL",
+      "receive data",
+      "write file on Windows",
+      "download and write a file",
+      "receive and write data from server to client",
+      "set current directory",
+      "receive data on socket",
+      "resolve DNS",
+      "initialize Winsock library",
+      "get hostname",
+      "set socket configuration",
+      "set registry value",
+      "query or enumerate registry value",
+      "create directory",
+      "get file size",
+      "delete file",
+      "read file on Windows",
+      "move file",
+      "send data on socket",
+      "send data",
+      "create pipe",
+      "terminate process",
+      "get OS version",
+      "get session user name",
+      "accept command line arguments",
+      "decompress data using aPLib",
+      "parse PE header",
+      "resolve function by parsing PE exports",
+      "contain a resource (.rsrc) section",
+      "packed with enigma",
+      "contain an embedded PE file",
+      "reference anti-VM strings targeting VirtualBox",
+      "reference Base64 string",
+      "compiled with Borland Delphi",
+      "(internal) packer file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [
+        "111.68.7.74"
+      ],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Update Policy",
+        "\\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Update Policy"
+      ],
+      "registry_all_count": 3,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows Update\\DelayUpdate.exe"
+      ],
+      "mutexes": [
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

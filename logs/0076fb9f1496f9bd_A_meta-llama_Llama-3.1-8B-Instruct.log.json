@@ -1,0 +1,101 @@
+{
+  "hash": "0076fb9f1496f9bd319da97ea26aafcc26c3b8adde18dbb8639000fe5d5eec1c",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits capabilities such as persistence via Run registry key, obfuscated stackstrings, and delayed execution, which are indicative of malicious behavior.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's persistence via Run registry key and obfuscated stackstrings suggest a Trojan-like behavior, which is designed to remain hidden and execute malicious code.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"},\n      {\"id\": \"T1210\", \"name\": \"Operator Execution\"},\n      {\"id\": \"T1547\", \"name\": \"Server Software Component\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1060\", \"name\": \"Process Creation\"},\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"},\n      {\"id\": \"T1216\", \"name\": \"Code Signing\"},\n      {\"id\": \"T1192\", \"name\": \"Driver Execution\"},\n      {\"id\": \"T1219\", \"name\": \"System Service Discovery\"},\n      {\"id\": \"T1053\", \"name\": \"Scheduled Task/Job\"},\n      {\"id\": \"T1069\", \"name\": \"System Time Discovery\"},\n      {\"id\": \"T1084\", \"name\": \"Network Service Discovery\"},\n      {\"id\": \"T1071\", \"name\": \"Application Window Discovery\"},\n      {\"id\": \"T1087\", \"name\": \"Registry Run Keys / Startup Folder\"},\n      {\"id\": \"T1036\", \"name\": \"Masquerading\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"},\n      {\"id\": \"T1210\", \"name\": \"Operator Execution\"},\n      {\"id\": \"T1547\", \"name\": \"Server Software Component\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 1966,
+      "response_chars": 1704,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits capabilities such as persistence via Run registry key, obfuscated stackstrings, and delayed execution, which are indicative of malicious behavior.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's persistence via Run registry key and obfuscated stackstrings suggest a Trojan-like behavior, which",
+      "elapsed_seconds": 8.75
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 8.75,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9571
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.1905,
+      "ttp_precision": 0.125,
+      "ttp_recall": 0.4,
+      "gt_ttps": [
+        "T1027",
+        "T1059",
+        "T1083",
+        "T1222",
+        "T1547"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1060",
+        "T1069",
+        "T1071",
+        "T1082",
+        "T1084",
+        "T1087",
+        "T1192",
+        "T1210",
+        "T1216",
+        "T1218",
+        "T1219",
+        "T1547"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1060",
+        "T1069",
+        "T1071",
+        "T1082",
+        "T1084",
+        "T1087",
+        "T1192",
+        "T1210",
+        "T1216",
+        "T1218",
+        "T1219"
+      ],
+      "q3_missed_ttps": [
+        "T1059",
+        "T1083",
+        "T1222"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.1905,
+      "breakdown": {
+        "ttp_f1": 0.1905
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

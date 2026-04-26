@@ -1,0 +1,179 @@
+{
+  "hash": "2894575bbb6d4398fb00d8ddb2b97ff07f7e3283ec0b1e7d86c4898651c76cda",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\RECYCLER\\GTKVTU.EXE\n  C:\\RECYCLER\\GTKVTU.EXE muma_yunxing\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (28):\n  - set file attributes\n  - encode data using XOR\n  - access PEB ldr_data\n  - hide graphical window\n  - accept command line arguments\n  - query or enumerate registry value\n  - link function at runtime on Windows\n  - get geographical location\n  - get file size\n  - find graphical window\n  - get disk size\n  - get system information on Windows\n  - read clipboard data\n  - capture screenshot\n  - log keystrokes via polling\n  - link many functions at runtime\n  - log keystrokes\n  - get keyboard layout\n  - enumerate gui resources\n  - encode data using Base64\n  - create service\n  - delete service\n  - persist via Windows service\n  - get hostname\n  - get disk information\n  - enumerate files on Windows\n  - packed with Mpress\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - Cryptography::Generate Pseudo-random Sequence [C0021]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Create Thread [C0038]\n  - File System::Create File [C0016]\n  - File System::Set File Attributes [C0050]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Process::Resume Thread [C0054]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - access PEB ldr_data\n  - hide graphical window\n  - set global application hook\n  - inspect load icon resource\n  - Communication::Socket Communication::Create TCP Socket [C0001.011]\n  - Process::Create Process [C0017]\n  - Process::Check Mutex [C0043]\n  - Process::Open Process [C0065]\n  - contain loop\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - link function at runtime on Windows\n\n--- ARTIFACTS ---\n\nFILES DROPPED (9):\n  AKN.EXE  [sha256: 910aa52fb3fda6ae...]\n  DEK.EXE  [sha256: d3bd390d01c72722...]\n  GTKVTU.EXE  [sha256: 0ab5d2257cddf81a...]\n  GXI.EXE  [sha256: 5b975a09fd2b1e4d...]\n  NMBYD.EXE  [sha256: 53e7d707a6d86856...]\n  QGYZTD.EXE  [sha256: af75e64918accea1...]\n  RCXCA.EXE  [sha256: e42e94849ae8074a...]\n  TVXU.EXE  [sha256: 71ad8711d8137b58...]\n  TZVAIV.EXE  [sha256: 404667a5d97d72d8...]\n\nFILES WRITTEN (10):\n  C:\\Documents and Settings\\TVXU.EXE\n  C:\\Python27\\NMBYD.EXE\n  C:\\Python27\\QGYZTD.EXE\n  C:\\Python27\\RCXCA.EXE\n  C:\\RECYCLER\\GTKVTU.EXE\n  C:\\RECYCLER\\TZVAIV.EXE\n  C:\\cuckoo\\AKN.EXE\n  C:\\cuckoo\\DEK.EXE\n  C:\\cuckoo\\GXI.EXE\n  c:\\filedebug\n\nMUTEXES CREATED (2):\n  ShimCacheMutex\n  webpass01\n\nPROCESSES CREATED (2):\n  C:\\RECYCLER\\GTKVTU.EXE\n  C:\\RECYCLER\\GTKVTU.EXE muma_yunxing\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualAlloc, WinExec\n\nCOMPILER AND PACKER:\n  [Packer] MPRESS\n  [Compiler] Borland Delphi\n\nPE SECTIONS (entropy):\n  .MPRESS1     entropy=6.02\n  .MPRESS2     entropy=4.87\n  .rsrc        entropy=3.76\n  .imports     entropy=4.58\n  [overlay]    entropy=0.02692798338830471  size=29373\n",
+  "ground_truth": {
+    "hash": "2894575bbb6d4398fb00d8ddb2b97ff07f7e3283ec0b1e7d86c4898651c76cda",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8971,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk size"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1113",
+        "signature_description": "capture screenshot"
+      },
+      {
+        "id": "T1115",
+        "signature_description": "read clipboard data"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1543",
+        "signature_description": "create service"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "create service"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "allocate RW memory",
+      "generate random numbers using the Delphi LCG",
+      "create or open registry key",
+      "create thread",
+      "create or open file",
+      "set file attributes",
+      "delay execution",
+      "PEB access",
+      "resume thread",
+      "encode data using XOR",
+      "access PEB ldr_data",
+      "allocate RWX memory",
+      "hide graphical window",
+      "set global application hook",
+      "inspect load icon resource",
+      "create TCP socket",
+      "create process on Windows",
+      "check mutex",
+      "open process",
+      "contain loop",
+      "accept command line arguments",
+      "query or enumerate registry value",
+      "link function at runtime on Windows",
+      "get geographical location",
+      "read file on Windows",
+      "write file on Windows",
+      "get file size",
+      "set thread local storage value",
+      "get thread local storage value",
+      "find graphical window",
+      "delete file",
+      "get disk size",
+      "get OS version",
+      "extract resource via kernel32 functions",
+      "get system information on Windows",
+      "read clipboard data",
+      "capture screenshot",
+      "log keystrokes via polling",
+      "link many functions at runtime",
+      "log keystrokes",
+      "get keyboard layout",
+      "set application hook",
+      "enumerate gui resources",
+      "get graphical window text",
+      "encode data using Base64",
+      "set registry value",
+      "access the Windows event log",
+      "get service handle",
+      "create service",
+      "delete service",
+      "send data on socket",
+      "send data",
+      "receive data on socket",
+      "receive data",
+      "persist via Windows service",
+      "get hostname",
+      "resolve DNS",
+      "terminate process",
+      "get disk information",
+      "create mutex",
+      "enumerate files on Windows",
+      "packed with Mpress",
+      "contain a resource (.rsrc) section",
+      "run as service",
+      "reference Base64 string",
+      "compiled with Borland Delphi",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "AKN.EXE",
+        "DEK.EXE",
+        "GTKVTU.EXE",
+        "GXI.EXE",
+        "NMBYD.EXE",
+        "QGYZTD.EXE",
+        "RCXCA.EXE",
+        "TVXU.EXE",
+        "TZVAIV.EXE"
+      ],
+      "mutexes": [
+        "ShimCacheMutex",
+        "webpass01"
+      ],
+      "processes": [
+        "C:\\RECYCLER\\GTKVTU.EXE",
+        "C:\\RECYCLER\\GTKVTU.EXE muma_yunxing"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

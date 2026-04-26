@@ -1,0 +1,92 @@
+{
+  "hash": "140bdab5472438ad10eda7d04cb7396c5a8af3f18b2001d09e24903d2c6dd1e0",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  C:\\Users\\Lucas\\AppData\\Local\\Temp\\PLT1AKaVlE8tzaSGkEwyC60p.exe\n  C:\\Windows\\SysWOW64\\REG.exe\n  C:\\Users\\Lucas\\AppData\\Local\\Temp\\avscan.exe\n  C:\\Users\\Lucas\\AppData\\Local\\Temp\\avscan.exe\n  C:\\Windows\\SysWOW64\\cmd.exe\n  C:\\Windows\\SysWOW64\\cmd.exe\n  C:\\Windows\\hosts.exe\n  C:\\Windows\\hosts.exe\n  C:\\Users\\Lucas\\AppData\\Local\\Temp\\avscan.exe\n  C:\\Windows\\SysWOW64\\REG.exe\n  C:\\Windows\\SysWOW64\\cmd.exe\n  C:\\Windows\\SysWOW64\\WScript.exe\n  C:\\Windows\\SysWOW64\\WScript.exe\n  C:\\Windows\\hosts.exe\n  C:\\Windows\\SysWOW64\\REG.exe\n\nCOMMAND EXECUTIONS (7):\n  C:\\Windows\\W_X_C.vbs\n  C:\\Users\\Lucas\\AppData\\Local\\Temp\\PLT1AKaVlE8tzaSGkEwyC60p.exe\n  REG DELETE HKLM\\SYSTEM\\CurrentControlSet\\Control\\SafeBoot /f\n  C:\\Users\\Lucas\\AppData\\Local\\Temp\\avscan.exe\n  cmd /c c:\\windows\\W_X_C.bat\n  C:\\windows\\hosts.exe\n  C:\\Windows\\System32\\WScript.exe C:\\Windows\\W_X_C.vbs\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - parse PE header\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - parse PE header\n  - contain a resource (.rsrc) section\n  - Execution::Install Additional Program [B0023]\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe  [sha256: 215189d1ca95208a...]\n  C:\\Windows\\hosts.exe  [sha256: 6a152518efbfe75f...]\n\nFILES WRITTEN (6):\n  %WINDIR%\\W_X_C.bat\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\avscan.exe\n  C:\\WINDOWS\\TEMP\\scs4.tmp\n  C:\\WINDOWS\\TEMP\\scs6.tmp\n  C:\\windows\\W_X_C.vbs\n  c:\\windows\\W_X_C.bat\n\nPERSISTENCE REGISTRY KEYS (4):\n  HKLM\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\RUN = avscan\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\avscan = C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe\n  HKLM\\SOFTWARE\\WOW6432NODE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\POLICIES\\EXPLORER\\RUN = BTJX\n  HKLM\\SOFTWARE\\WOW6432NODE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\RUN = avscan\n\nOTHER REGISTRY KEYS SET (9):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\HideFileExt\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\SuperHidden\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowSuperHidden\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Folder\\HideFileExt\\DefaultValue\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Folder\\HideFileExt\\UncheckedValue\n  HKLM\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\ADVANCED\\FOLDER\\HIDEFILEEXT\n  HKU\\S-1-5-21-3712457824-2419000099-45725732-1005\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\ADVANCED\n  HKLM\\SOFTWARE\\WOW6432NODE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\EXPLORER\\ADVANCED\\FOLDER\\HIDEFILEEXT\n  HKU\\S-1-5-21-3712457824-2419000099-45725732-1005\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\INTERNET SETTINGS\\ZONEMAP\n\nMUTEXES CREATED (3):\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n  ShimCacheMutex\n\nPROCESSES CREATED (10):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\avscan.exe\n  C:\\Users\\Lucas\\AppData\\Local\\Temp\\PLT1AKaVlE8tzaSGkEwyC60p.exe\n  C:\\Users\\Lucas\\AppData\\Local\\Temp\\avscan.exe\n  C:\\WINDOWS\\System32\\WScript.exe C:\\WINDOWS\\System32\\WScript.exe\" \"C:\\WINDOWS\\W_X_C.vbs\" \"\n  C:\\Windows\\SysWOW64\\REG.exe\n  C:\\Windows\\SysWOW64\\WScript.exe\n  C:\\Windows\\SysWOW64\\cmd.exe\n  C:\\Windows\\hosts.exe\n  REG DELETE HKLM\\SYSTEM\\CurrentControlSet\\Control\\SafeBoot /f\n  c:\\windows\\W_X_C.bat\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0', 'F-PROT': 'ZIP'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.08\n  .rsrc        entropy=7.64\n  [overlay]    entropy=7.5487565994262695  size=259368\n",
+  "ground_truth": {
+    "hash": "140bdab5472438ad10eda7d04cb7396c5a8af3f18b2001d09e24903d2c6dd1e0",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9437,
+    "malicious_count": 67,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 36
+      },
+      {
+        "value": "worm",
+        "count": 2
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "lunam",
+        "count": 17
+      },
+      {
+        "value": "otfrem",
+        "count": 3
+      },
+      {
+        "value": "sillyfdc",
+        "count": 3
+      }
+    ],
+    "suggested_label": "trojan.lunam/otfrem",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "parse PE header",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\RUN",
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\avscan",
+        "HKLM\\SOFTWARE\\WOW6432NODE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\POLICIES\\EXPLORER\\RUN",
+        "HKLM\\SOFTWARE\\WOW6432NODE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\RUN"
+      ],
+      "registry_all_count": 13,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe",
+        "C:\\Windows\\hosts.exe"
+      ],
+      "mutexes": [
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\avscan.exe",
+        "C:\\Users\\Lucas\\AppData\\Local\\Temp\\PLT1AKaVlE8tzaSGkEwyC60p.exe",
+        "C:\\Users\\Lucas\\AppData\\Local\\Temp\\avscan.exe",
+        "C:\\WINDOWS\\System32\\WScript.exe C:\\WINDOWS\\System32\\WScript.exe\" \"C:\\WINDOWS\\W_X_C.vbs\" \"",
+        "C:\\Windows\\SysWOW64\\REG.exe",
+        "C:\\Windows\\SysWOW64\\WScript.exe",
+        "C:\\Windows\\SysWOW64\\cmd.exe",
+        "C:\\Windows\\hosts.exe",
+        "REG DELETE HKLM\\SYSTEM\\CurrentControlSet\\Control\\SafeBoot /f",
+        "c:\\windows\\W_X_C.bat"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Lastline",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

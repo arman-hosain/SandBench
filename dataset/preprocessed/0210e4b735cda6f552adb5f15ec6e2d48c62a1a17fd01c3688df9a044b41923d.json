@@ -1,0 +1,68 @@
+{
+  "hash": "0210e4b735cda6f552adb5f15ec6e2d48c62a1a17fd01c3688df9a044b41923d",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  glyphs-design.com \u2192 173.231.184.55\n\nIP TRAFFIC (2):\n  173.231.184.55:443 (TCP)\n  8.8.8.8:53 (UDP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  hhcbrnaff.pe32\n    hhcbrnaff.exe\n\nCOMMAND EXECUTIONS (1):\n  \"C:\\Users\\Petra\\AppData\\Local\\Temp\\hhcbrnaff.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - parse PE header\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - resolve function by parsing PE exports\n  - parse PE header\n  - Process::Terminate Process [C0018]\n  - Anti-Behavioral Analysis::Debugger Detection::Anti-debugging Instructions [B0001.034]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  \\Users\\Petra\\AppData\\Local\\Temp\\hhcbrnaff.exe  [sha256: 28617f42d282e412...]\n\nFILES WRITTEN (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\hhcbrnaff.exe\n\nOTHER REGISTRY KEYS SET (9):\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C0054007200610063\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C0054007200610063\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C0043006C00610\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n\nMUTEXES CREATED (15):\n  IESQMMUTEX_0_208\n  Local\\!IETld!Mutex\n  Local\\MidiMapper_modLongMessage_RefCnt\n  Local\\WininetConnectionMutex\n  Local\\WininetProxyRegistryMutex\n  Local\\WininetStartupMutex\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n\nPROCESSES CREATED (1):\n  hhcbrnaff.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress\n\nPE SECTIONS (entropy):\n  K\\\\\\\\xd      entropy=6.44\n  .rodata      entropy=4.15\n  .rdata       entropy=2.71\n  .jfbbql      entropy=5.06\n  CPADinf      entropy=3.87\n  RT_CODE      entropy=3.87\n  INIT         entropy=3.87\n  .extrel      entropy=3.87\n  .8NzKTb      entropy=3.87\n  \\\\\\\\xb8      entropy=4.72\n  .po5         entropy=5.59\n  .bin         entropy=2.39\n  gfelmge      entropy=3.87\n  .UPX         entropy=3.87\n  \\\\\\\\xb8      entropy=3.87\n  _RDATA       entropy=3.87\n  joojk        entropy=2.45\n  DATA         entropy=2.53\n  new_imp      entropy=2.61\n  O_8!Iz       entropy=3.87\n  _PAGELK      entropy=3.87\n  .CRT         entropy=4.44\n  [overlay]    entropy=3.631011724472046  size=13646\n",
+  "ground_truth": {
+    "hash": "0210e4b735cda6f552adb5f15ec6e2d48c62a1a17fd01c3688df9a044b41923d",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8873,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "agent",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "parse PE header",
+      "terminate process",
+      "execute anti-debugging instructions"
+    ],
+    "iocs": {
+      "ips": [
+        "173.231.184.55",
+        "8.8.8.8"
+      ],
+      "domains": [
+        "glyphs-design.com"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 9,
+      "files_dropped": [
+        "\\Users\\Petra\\AppData\\Local\\Temp\\hhcbrnaff.exe"
+      ],
+      "mutexes": [
+        "IESQMMUTEX_0_208",
+        "Local\\!IETld!Mutex",
+        "Local\\MidiMapper_modLongMessage_RefCnt",
+        "Local\\WininetConnectionMutex",
+        "Local\\WininetProxyRegistryMutex",
+        "Local\\WininetStartupMutex",
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "Local\\_!MSFTHISTORY!_",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!",
+        "Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!",
+        "RasPbFile"
+      ],
+      "processes": [
+        "hhcbrnaff.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX"
+  ]
+}

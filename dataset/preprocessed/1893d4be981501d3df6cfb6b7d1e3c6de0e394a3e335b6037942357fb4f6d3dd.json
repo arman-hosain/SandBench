@@ -1,0 +1,96 @@
+{
+  "hash": "1893d4be981501d3df6cfb6b7d1e3c6de0e394a3e335b6037942357fb4f6d3dd",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  GET http://ransomware.bit/  UA: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36\n  GET http://ransomware.bit/\n\nDNS LOOKUPS (3):\n  ipv4bot.whatismyipaddress.com \u2192 66.171.248.178\n  ns1.corp-servers.ru\n  zonealarm.bit\n\nIP TRAFFIC (3):\n  66.171.248.178:80 (TCP)\n  8.8.8.8:53 (UDP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (2):\n  RASMAN\n  Sens\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  toofartyless.pe32\n  services.exe\n    svchost.exe\n      WerFault.exe\n\nCOMMAND EXECUTIONS (3):\n  C:\\Users\\Lucas\\AppData\\Local\\Temp\\Qg5rnNVREakCf78xuKDEjDQk.exe\n  C:\\Windows\\System32\\svchost.exe -k WerSvcGroup\n  C:\\Windows\\system32\\WerFault.exe -u -p 3848 -s 74644\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - get disk information\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - reference anti-VM strings targeting Xen\n\nCAPA RULE MATCHES (MBC):\n  - Process::Create Process [C0017]\n  - File System::Create File [C0016]\n  - contain loop\n  - Discovery::File and Directory Discovery::Log File [E1083.m01]\n  - Discovery::System Information Discovery [E1082]\n  - link function at runtime on Windows\n  - Discovery::Application Window Discovery [E1010]\n  - Process::Terminate Process [C0018]\n  - Process::Allocate Thread Local Storage [C0040]\n  - link many functions at runtime\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  hvptuj.exe  [sha256: 807dfda10cbc9d76...]\n  C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\wbkdye.exe  [sha256: 7849c3c5810eafa4...]\n\nFILES WRITTEN (3):\n  C:\\Documents and Settings\\<USER>\\Application Data\\Microsoft\\hvptuj.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows\\Temporary Internet Files\\Content.IE5\\GJVGKYVO\\ipv4bot_whatismyipaddress_com1\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows\\Temporary Internet Files\\Content.IE5\\XBL73YY1\\ipv4bot_whatismyipaddress_com[1].htm\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\mkgtwocxjep = \"\n\nOTHER REGISTRY KEYS SET (10):\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  HKU\\S-1-5-21-3712457824-2419000099-45725732-1005\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\INTERNET SETTINGS\\ZONEMAP\n  HKU\\S-1-5-21-3712457824-2419000099-45725732-1005\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\INTERNET SETTINGS\n  HKU\\S-1-5-21-3712457824-2419000099-45725732-1005\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\INTERNET SETTINGS\\5.0\\CACHE\\C\n  HKLM\\SOFTWARE\\WOW6432NODE\\MICROSOFT\\TRACING\\QG5RNNVREAKCF78XUKDEJDQK_RASAPI32\n  HKU\\S-1-5-21-3712457824-2419000099-45725732-1005\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\INTERNET SETTINGS\\5.0\\CACHE\\H\n  HKU\\S-1-5-21-3712457824-2419000099-45725732-1005\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\INTERNET SETTINGS\\5.0\\CACHE\\C\n  HKU\\S-1-5-21-3712457824-2419000099-45725732-1005\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\INTERNET SETTINGS\\CONNECTIONS\n\nMUTEXES CREATED (12):\n  Global\\pc_group=WORKGROUP&ransom_id=623e60a7ec07c162\n  Global\\pc_group=WORKGROUP&ransom_id=cfcfcebad41b871c\n  Global\\pc_group=WORKGROUP&ransom_id=ea2177a071d2c847\n  IESQMMUTEX_0_208\n  Local\\!IETld!Mutex\n  Local\\WERReportingForProcess3848\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n\nMUTEXES OPENED (4):\n  Global\\pc_group=WORKGROUP&ransom_id=cd19fdb96c78a9c3\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n\nPROCESSES CREATED (6):\n  C:\\Users\\Lucas\\AppData\\Local\\Temp\\Qg5rnNVREakCf78xuKDEjDQk.exe\n  WerFault.exe\n  nslookup zonealarm.bit ns1.corp-servers.ru\n  services.exe\n  svchost.exe\n  toofartyless.pe32\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryW, WinExec\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.52\n  .rdata       entropy=4.76\n  .data        entropy=1.89\n  .rsrc        entropy=7.9\n  .reloc       entropy=2.54\n  [overlay]    entropy=2.873140811920166  size=13\n",
+  "ground_truth": {
+    "hash": "1893d4be981501d3df6cfb6b7d1e3c6de0e394a3e335b6037942357fb4f6d3dd",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9014,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1082",
+        "signature_description": "get disk information"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting Xen"
+      }
+    ],
+    "capa_sig_names": [
+      "create process on Windows",
+      "create or open file",
+      "contain loop",
+      "access the Windows event log",
+      "get disk information",
+      "link function at runtime on Windows",
+      "get graphical window text",
+      "terminate process",
+      "allocate thread local storage",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting Xen"
+    ],
+    "iocs": {
+      "ips": [
+        "66.171.248.178",
+        "8.8.8.8",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "ipv4bot.whatismyipaddress.com",
+        "ns1.corp-servers.ru",
+        "zonealarm.bit"
+      ],
+      "urls": [
+        "http://ransomware.bit/"
+      ],
+      "registry_persistence": [
+        "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\mkgtwocxjep"
+      ],
+      "registry_all_count": 19,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\wbkdye.exe",
+        "hvptuj.exe"
+      ],
+      "mutexes": [
+        "Global\\pc_group=WORKGROUP&ransom_id=623e60a7ec07c162",
+        "Global\\pc_group=WORKGROUP&ransom_id=cfcfcebad41b871c",
+        "Global\\pc_group=WORKGROUP&ransom_id=ea2177a071d2c847",
+        "IESQMMUTEX_0_208",
+        "Local\\!IETld!Mutex",
+        "Local\\WERReportingForProcess3848",
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "RasPbFile",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\Users\\Lucas\\AppData\\Local\\Temp\\Qg5rnNVREakCf78xuKDEjDQk.exe",
+        "WerFault.exe",
+        "nslookup zonealarm.bit ns1.corp-servers.ru",
+        "services.exe",
+        "svchost.exe",
+        "toofartyless.pe32"
+      ]
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "Lastline",
+    "SNDBOX",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

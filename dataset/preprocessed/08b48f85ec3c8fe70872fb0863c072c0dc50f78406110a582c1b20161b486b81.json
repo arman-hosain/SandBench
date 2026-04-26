@@ -1,0 +1,96 @@
+{
+  "hash": "08b48f85ec3c8fe70872fb0863c072c0dc50f78406110a582c1b20161b486b81",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  mywin7man.p-e.kr \u2192 14.50.232.185\n\nIP TRAFFIC (1):\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (5):\n  - query environment variable\n  - get common file path\n  - link function at runtime on Windows\n  - interact with driver via control codes\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Thread [C0038]\n  - Process::Create Process [C0017]\n  - Process::Resume Thread [C0054]\n  - File System::Create File [C0016]\n  - Process::Create Process::Create Suspended Process [C0017.003]\n  - Process::Terminate Thread [C0039]\n  - create raw socket\n  - Communication::Socket Communication::Create UDP Socket [C0001.010]\n  - Communication::Socket Communication::Create TCP Socket [C0001.011]\n  - reference absolute stream path on Windows\n  - contain loop\n  - Discovery::System Information Discovery [E1082]\n  - File System::Writes File [C0052]\n  - extract resource via kernel32 functions\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Copy File [C0045]\n  - link function at runtime on Windows\n  - Communication::DNS Communication::Resolve [C0011.001]\n  - Communication::Socket Communication::Send Data [C0001.007]\n  - Communication::Socket Communication::Initialize Winsock Library [C0001.009]\n  - Communication::Socket Communication::Set Socket Config [C0001.001]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - Communication::Socket Communication::Connect Socket [C0001.004]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA, GetProcAddress, VirtualAlloc, WinExec\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.52\n  .rdata       entropy=5.25\n  .data        entropy=2.13\n  .rsrc        entropy=6.29\n",
+  "ground_truth": {
+    "hash": "08b48f85ec3c8fe70872fb0863c072c0dc50f78406110a582c1b20161b486b81",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9296,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "delay execution",
+      "create thread",
+      "create process on Windows",
+      "resume thread",
+      "create or open file",
+      "create process suspended",
+      "terminate thread",
+      "create raw socket",
+      "create UDP socket",
+      "create TCP socket",
+      "reference absolute stream path on Windows",
+      "contain loop",
+      "query environment variable",
+      "write file on Windows",
+      "extract resource via kernel32 functions",
+      "get common file path",
+      "copy file",
+      "link function at runtime on Windows",
+      "resolve DNS",
+      "send data on socket",
+      "initialize Winsock library",
+      "set socket configuration",
+      "send data",
+      "connect TCP socket",
+      "act as TCP client",
+      "receive data on socket",
+      "send HTTP request",
+      "terminate process",
+      "send HTTP request with Host header",
+      "resolve function by parsing PE exports",
+      "receive data",
+      "reference HTTP User-Agent string",
+      "interact with driver via control codes",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "contains PDB path",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "mywin7man.p-e.kr"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "hash": "17f25eb4b68a3e8c6c8cad6a3c2d7edd4a90190a17ca8c26dcc7a03d5dd091db",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  svchost.exe\n    byiamvi.exe -iipcnmc\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - packed with Mpress\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Anti-Static Analysis::Software Packing [F0001]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  ctvqzym.exe  [sha256: a408b26ab57a688d...]\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: 69907fabcc306337...]\n\nFILES WRITTEN (5):\n  C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\ctvqzym.exe\n  C:\\Documents and Settings\\All Users\\Application Data\\Mozilla\\aopsara.dll\n  C:\\Documents and Settings\\All Users\\Application Data\\Mozilla\\byiamvi.exe\n  C:\\WINDOWS\\Tasks\\hiqvsnd.job\n  C:\\WINDOWS\\Tasks\\rwdqoxi.job\n\nPERSISTENCE REGISTRY KEYS (2):\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs = C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\aopsara.dll\u0000\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs = 01000000\n\nMUTEXES CREATED (6):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Packer] MPRESS\n  [Compiler] LCC-Win32\n  Packers: {'PEiD': 'Microsoft Visual C++ (3.0 old crap)'}\n\nPE SECTIONS (entropy):\n  .MPRESS1     entropy=6.46\n  .MPRESS2     entropy=5.76\n  .rsrc        entropy=0.78\n  .imports     entropy=4.06\n  [overlay]    entropy=7.8226141929626465  size=1104\n",
+  "ground_truth": {
+    "hash": "17f25eb4b68a3e8c6c8cad6a3c2d7edd4a90190a17ca8c26dcc7a03d5dd091db",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8889,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with Mpress"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "packed with Mpress",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs"
+      ],
+      "registry_all_count": 2,
+      "files_dropped": [
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "ctvqzym.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

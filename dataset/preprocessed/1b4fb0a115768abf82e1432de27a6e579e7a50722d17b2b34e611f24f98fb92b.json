@@ -1,0 +1,114 @@
+{
+  "hash": "1b4fb0a115768abf82e1432de27a6e579e7a50722d17b2b34e611f24f98fb92b",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (4):\n  POST http://spaines.pw/EiDQjNbWEQ/\n  POST http://uyhgqunqkxnx.pw/EiDQjNbWEQ/\n  POST http://vcklmnnejwxx.pw/EiDQjNbWEQ/\n  POST http://cmnsgscccrej.pw/EiDQjNbWEQ/\n\nDNS LOOKUPS (4):\n  cmnsgscccrej.pw \u2192 216.218.185.162\n  spaines.pw \u2192 216.218.185.162\n  uyhgqunqkxnx.pw \u2192 192.42.119.41\n  vcklmnnejwxx.pw \u2192 216.218.185.162\n\nIP TRAFFIC (2):\n  192.42.119.41:80 (TCP)\n  216.218.185.162:80 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  bin.exe\n    winver\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (7):\n  - contain obfuscated stackstrings\n  - parse PE header\n  - query environment variable\n  - get system information on Windows\n  - get hostname\n  - get geographical location\n  - packed with ASPack\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - contain loop\n  - parse PE header\n  - Discovery::Code Discovery::Enumerate PE Sections [B0046.001]\n  - Process::Allocate Thread Local Storage [C0040]\n  - Discovery::System Information Discovery [E1082]\n  - File System::Create Directory [C0046]\n  - set current directory\n  - Communication::Interprocess Communication::Create Pipe [C0003.001]\n  - get system information on Windows\n  - get geographical location\n  - File System::Copy File [C0045]\n  - Communication::Interprocess Communication [C0003]\n  - Anti-Static Analysis::Software Packing [F0001]\n  - contain a resource (.rsrc) section\n  - (internal) packer file limitation\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Users\\<USER>\\AppData\\Roaming\\10839800\\bin.exe  [sha256: 7dcc730fb94da91d...]\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\10839800 = C:\\Users\\<USER>\\AppData\\Roaming\\10839800\\bin.exe\n\nMUTEXES CREATED (3):\n  0D29F984\n  10839800\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  winver\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.27\n  .rdata       entropy=7.04\n  .data        entropy=3.58\n  .edata       entropy=6.05\n  .ndata       entropy=7.54\n  .adata       entropy=6.56\n  .rsrc        entropy=3.38\n  [overlay]    entropy=2.0  size=4\n",
+  "ground_truth": {
+    "hash": "1b4fb0a115768abf82e1432de27a6e579e7a50722d17b2b34e611f24f98fb92b",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8767,
+    "malicious_count": 64,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 27
+      },
+      {
+        "value": "downloader",
+        "count": 2
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "razy",
+        "count": 9
+      },
+      {
+        "value": "tinba",
+        "count": 9
+      },
+      {
+        "value": "dofoil",
+        "count": 3
+      }
+    ],
+    "suggested_label": "trojan.razy/tinba",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "contain loop",
+      "parse PE header",
+      "enumerate PE sections",
+      "allocate thread local storage",
+      "query environment variable",
+      "create directory",
+      "set current directory",
+      "create pipe",
+      "get system information on Windows",
+      "get hostname",
+      "get geographical location",
+      "copy file",
+      "create mailslot",
+      "packed with ASPack",
+      "contain a resource (.rsrc) section",
+      "(internal) packer file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [
+        "192.42.119.41",
+        "216.218.185.162"
+      ],
+      "domains": [
+        "cmnsgscccrej.pw",
+        "spaines.pw",
+        "uyhgqunqkxnx.pw",
+        "vcklmnnejwxx.pw"
+      ],
+      "urls": [
+        "http://cmnsgscccrej.pw/EiDQjNbWEQ/",
+        "http://spaines.pw/EiDQjNbWEQ/",
+        "http://uyhgqunqkxnx.pw/EiDQjNbWEQ/",
+        "http://vcklmnnejwxx.pw/EiDQjNbWEQ/"
+      ],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\10839800"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Roaming\\10839800\\bin.exe"
+      ],
+      "mutexes": [
+        "0D29F984",
+        "10839800",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "winver"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

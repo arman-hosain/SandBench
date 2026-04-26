@@ -1,0 +1,50 @@
+Flawfinder version 2.0.19, (C) 2001-2019 David A. Wheeler.
+Number of rules (primarily dangerous function names) in C/C++ ruleset: 222
+Examining /Users/USER/Desktop/CWE_Extracted/CWE190/CWE190_Integer_Overflow__int_connect_socket_add_82a.cpp
+
+FINAL RESULTS:
+
+/Users/USER/Desktop/CWE_Extracted/CWE190/CWE190_Integer_Overflow__int_connect_socket_add_82a.cpp:220:  [3] (random) srand:
+  This function is not sufficiently random for security-related functions
+  such as key and nonce creation (CWE-327). Use a more secure technique for
+  acquiring random values.
+/Users/USER/Desktop/CWE_Extracted/CWE190/CWE190_Integer_Overflow__int_connect_socket_add_82a.cpp:61:  [2] (buffer) char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119!/CWE-120). Perform bounds checking, use
+  functions that limit length, or ensure that the size is larger than the
+  maximum possible length.
+/Users/USER/Desktop/CWE_Extracted/CWE190/CWE190_Integer_Overflow__int_connect_socket_add_82a.cpp:95:  [2] (integer) atoi:
+  Unless checked, the resulting number can exceed the expected range
+  (CWE-190). If source untrusted, check both minimum and maximum, even if the
+  input had no minus sign (large numbers can roll over into negative number;
+  consider saving to an unsigned value if that is intended).
+/Users/USER/Desktop/CWE_Extracted/CWE190/CWE190_Integer_Overflow__int_connect_socket_add_82a.cpp:145:  [2] (buffer) char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119!/CWE-120). Perform bounds checking, use
+  functions that limit length, or ensure that the size is larger than the
+  maximum possible length.
+/Users/USER/Desktop/CWE_Extracted/CWE190/CWE190_Integer_Overflow__int_connect_socket_add_82a.cpp:179:  [2] (integer) atoi:
+  Unless checked, the resulting number can exceed the expected range
+  (CWE-190). If source untrusted, check both minimum and maximum, even if the
+  input had no minus sign (large numbers can roll over into negative number;
+  consider saving to an unsigned value if that is intended).
+
+ANALYSIS SUMMARY:
+
+Hits = 5
+Lines analyzed = 234 in approximately 0.00 seconds (88716 lines/second)
+Physical Source Lines of Code (SLOC) = 179
+Hits@level = [0]   2 [1]   0 [2]   4 [3]   1 [4]   0 [5]   0
+Hits@level+ = [0+]   7 [1+]   5 [2+]   5 [3+]   1 [4+]   0 [5+]   0
+Hits/KSLOC@level+ = [0+] 39.1061 [1+] 27.933 [2+] 27.933 [3+] 5.58659 [4+]   0 [5+]   0
+Minimum risk level = 1
+
+Not every hit is necessarily a security vulnerability.
+You can inhibit a report by adding a comment in this form:
+// flawfinder: ignore
+Make *sure* it's a false positive!
+You can use the option --neverignore to show these.
+
+There may be other security vulnerabilities; review your code!
+See 'Secure Programming HOWTO'
+(https://dwheeler.com/secure-programs) for more information.

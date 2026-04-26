@@ -1,0 +1,103 @@
+{
+  "hash": "037283bb531e5d31ac5542417888a0ff07ff99f71f92b923c4fa2492ef23a99e",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence via the Winlogon Shell registry key, dropping multiple executable files to system directories (System32, Program Files), creating a startup shortcut, and utilizing anti-analysis techniques like XOR encoding, stack strings, and debugger detection. The capability to log keystrokes and capture screenshots further confirms its malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample behaves as a Trojan by masquerading as legitimate software (Internet Explorer, Notepad) to execute malicious payloads. It establishes persistence, drops files to system folders, and performs data exfiltration capabilities (keylogging, screenshots) without the user's explicit knowledge or consent, fitting the definition of a Trojan rather than a self-replicating Worm or a specific Ransomware (no encryption observed).\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1057\",\n        \"name\": \"Process Discovery\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1003\",\n        \"name\": \"OS Credential Dumping\"\n      },\n      {\n        \"id\": \"T1056\",\n        \"name\": \"Input Capture\"\n      },\n      {\n        \"id\": \"T1005\",\n        \"name\": \"Data from Local System\"\n      },\n      {\n        \"id\": \"T1562.001\",\n        \"name\": \"Impair Defenses: Disable or Modify Tools\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 4027,
+      "response_chars": 1805,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence via the Winlogon Shell registry key, dropping multiple executable files to system directories (System32, Program Files), creating a startup shortcut, and utilizing anti-analysis techniques like XOR encoding, stack strings, and debugger detection. The capability to log keys",
+      "elapsed_seconds": 9.71
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 9.71,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8873
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.3333,
+      "ttp_precision": 0.4444,
+      "ttp_recall": 0.2667,
+      "gt_ttps": [
+        "T1010",
+        "T1012",
+        "T1027",
+        "T1056",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1113",
+        "T1115",
+        "T1129",
+        "T1222",
+        "T1529",
+        "T1547",
+        "T1564",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1003",
+        "T1005",
+        "T1027",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1059",
+        "T1547",
+        "T1562"
+      ],
+      "tp": 4,
+      "q3_hallucinated_ttps": [
+        "T1003",
+        "T1005",
+        "T1055",
+        "T1057",
+        "T1562"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1012",
+        "T1082",
+        "T1083",
+        "T1113",
+        "T1115",
+        "T1129",
+        "T1222",
+        "T1529",
+        "T1564",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.3333,
+      "breakdown": {
+        "ttp_f1": 0.3333
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

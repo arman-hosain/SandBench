@@ -1,0 +1,68 @@
+{
+  "hash": "001810244a8174f91ca2d26848f9dc1203eb0424e07c15c89cfca456436ddbeb",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as deleting scheduled tasks, writing to multiple files, and setting registry keys. Additionally, it contains a resource (.rsrc) section and is compiled from Visual Basic, which are indicators of potential malicious activity.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior of writing to multiple files, setting registry keys, and creating mutexes suggests a Trojan-like behavior, where the sample is attempting to establish a foothold on the system and potentially deliver additional payloads.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 3071,
+      "response_chars": 739,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as deleting scheduled tasks, writing to multiple files, and setting registry keys. Additionally, it contains a resource (.rsrc) section and is compiled from Visual Basic, which are indicators of potential malicious activity.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The samp",
+      "elapsed_seconds": 3.28
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 3.28,
+  "evaluation": {
+    "parse_ok": true,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9028
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1057",
+        "T1129"
+      ],
+      "pred_ttps": [
+        "T1218"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1057",
+        "T1129"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

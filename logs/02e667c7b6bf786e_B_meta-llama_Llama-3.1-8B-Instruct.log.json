@@ -1,0 +1,134 @@
+{
+  "hash": "02e667c7b6bf786e3b60fc53073aedc59d07029135f94c4244a1410355380a10",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior, including encoding data using Base64, linking functions at runtime, and dropping multiple files. Additionally, it creates registry keys for persistence and uses mutexes, which are indicative of malicious activity.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior suggests that it is a Trojan, as it appears to be a malicious program that is designed to perform unauthorized actions on the compromised system. The fact that it drops multiple files, creates registry keys, and uses mutexes supports this classification.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"},\n      {\"id\": \"T1547\", \"name\": \"Multi-Stage Malware\"},\n      {\"id\": \"T1548\", \"name\": \"Valid Accounts\"},\n      {\"id\": \"T1562\", \"name\": \"Impair Defenses\"},\n      {\"id\": \"T1568\", \"name\": \"Dynamic Resolution\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 2056,
+      "response_chars": 1030,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior, including encoding data using Base64, linking functions at runtime, and dropping multiple files. Additionally, it creates registry keys for persistence and uses mutexes, which are indicative of malicious activity.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior s",
+      "elapsed_seconds": 4.86
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "1 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 1,
+      "ttps_found": [
+        "T1027",
+        "T1218",
+        "T1547",
+        "T1548",
+        "T1562",
+        "T1568"
+      ],
+      "hallucinated_ttps": [
+        "T1218",
+        "T1547",
+        "T1548",
+        "T1562",
+        "T1568"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 5
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- link function at runtime on Windows\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by the report.\nDI",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1102",
+        "T1218",
+        "T1547",
+        "T1548",
+        "T1562",
+        "T1568"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 1,
+      "best_ttp_fp": 5
+    },
+    {
+      "step": 5,
+      "type": "refinement_stopped",
+      "iteration": 1,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 1,
+      "ttp_fp": 6
+    }
+  ],
+  "total_llm_calls": 2,
+  "total_elapsed": 10.61,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8857
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.25,
+      "ttp_precision": 0.1667,
+      "ttp_recall": 0.5,
+      "gt_ttps": [
+        "T1027",
+        "T1129"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1218",
+        "T1547",
+        "T1548",
+        "T1562",
+        "T1568"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1218",
+        "T1547",
+        "T1548",
+        "T1562",
+        "T1568"
+      ],
+      "q3_missed_ttps": [
+        "T1129"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.25,
+      "breakdown": {
+        "ttp_f1": 0.25
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

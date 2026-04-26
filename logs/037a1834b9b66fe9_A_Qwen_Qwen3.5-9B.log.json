@@ -1,0 +1,77 @@
+{
+  "hash": "037a1834b9b66fe9dd2150792fa55c5461308bd1d3bf1ba8f4e10085bfba4a2e",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits multiple anti-analysis behaviors including UPX packing, virtual machine detection strings, and attempts to hide graphical windows. It drops files to the Temp directory and opens network connections to a non-standard port (18903) and a suspicious domain (green-fuel.us). However, the observed behavior is limited to execution chain manipulation and network probing without evidence of data exfiltration, persistence mechanisms, or destructive actions typical of confirmed malware.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample is packed with UPX, contains anti-VM strings, and attempts to hide its window, which are common characteristics of Trojans designed to evade detection. The network activity to a suspicious domain and non-standard port suggests it may be a dropper or a backdoor, but 'Trojan' is the most appropriate classification from the fixed vocabulary given the lack of specific ransomware or worm behaviors.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1055.005\",\n        \"name\": \"Process Injection via DLL\"\n      },\n      {\n        \"id\": \"T1055.012\",\n        \"name\": \"Process Injection via Child Process\"\n      },\n      {\n        \"id\": \"T1562.001\",\n        \"name\": \"Clear Windows Event Logs\"\n      },\n      {\n        \"id\": \"T1070.001\",\n        \"name\": \"Indicator Removal by Deleting File\"\n      },\n      {\n        \"id\": \"T1070.004\",\n        \"name\": \"Indicator Removal by Clearing Artifact\"\n      },\n      {\n        \"id\": \"T1070.005\",\n        \"name\": \"Indicator Removal by Clearing History\"\n      },\n      {\n        \"id\": \"T1070.006\",\n        \"name\": \"Indicator Removal by Clearing Temporary Files\"\n      },\n      {\n        \"id\": \"T1070.007\",\n        \"name\": \"Indicator Removal by Clearing Registry\"\n      },\n      {\n        \"id\": \"T1070.008\",\n        \"name\": \"Indicator Removal by Clearing Browser History\"\n      },\n      {\n        \"id\": \"T1070.009\",\n        \"name\": \"Indicator Removal by Clearing Cookies\"\n      },\n      {\n        \"id\": \"T1070.010\",\n        \"name\": \"Indicator Removal by Clearing Temporary Internet Files\"\n      },\n      {\n        \"id\": \"T1070.011\",\n        \"name\": \"Indicator Removal by Clearing Cache\"\n      },\n      {\n        \"id\": \"T1070.012\",\n        \"name\": \"Indicator Removal by Clearing History\"\n      },\n      {\n        \"id\": \"T1070.013\",\n        \"name\": \"Indicator Removal by Clearing Temporary Files\"\n      },\n      {\n        \"id\": \"T1070.014\",\n        \"name\": \"Indicator Removal by Clearing Registry\"\n      },\n      {\n        \"id\": \"T1070.015\",\n        \"name\": \"Indicator Removal by Clearing Browser History\"\n      },\n      {\n        \"id\": \"T1070.016\",\n        \"name\": \"Indicator Removal by Clearing Cookies\"\n      },\n      {\n        \"id\": \"T1070.017\",\n        \"name\": \"Indicator Removal by Clearing Temporary Internet Files\"\n      },\n      {\n        \"id\": \"T1070.018\",\n        \"name\": \"Indicator Removal by Clearing Cache\"\n      },\n      {\n        \"id\": \"T1070.019\",\n        \"name\": \"Indicator Removal by Clearing History\"\n      },\n      {\n        \"id\": \"T1070.020\",\n        \"name\": \"Indicator Removal by Clearing Temporary Files\"\n      },\n      {\n        \"id\": \"T1070.021\",\n        \"name\": \"Indicator Removal by Clearing Registry\"\n      },\n      {\n        \"id\": \"T1070.022\",\n        \"name\": \"Indicator Removal by Clearing Browser History\"\n      },\n      {\n        \"id\": \"T1070.023\",\n        \"name\": \"Indicator Removal by Clearing Cookies\"\n      },\n      {\n        \"id\": \"T1070.024\",\n        \"name\": \"Indicator Removal by Clearing Temporary Internet Files\"\n      },\n      {\n        \"id\": \"T1070.025\",\n        \"name\": \"Indicator Removal by Clearing Cache\"\n      },\n      {\n        \"id\": \"T1070.026\",\n        \"name\": \"Indicator Removal by Clearing History\"\n      },\n      {\n        \"id\": \"T1070.027\",\n        \"name\": \"Indicator Removal by Clearing Temporary File",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 3096,
+      "response_chars": 12354,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits multiple anti-analysis behaviors including UPX packing, virtual machine detection strings, and attempts to hide graphical windows. It drops files to the Temp directory and opens network connections to a non-standard port (18903) and a suspicious domain (green-fuel.us). However, the observed behavior is limited to exec",
+      "elapsed_seconds": 128.15
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 128.15,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": true,
+    "verdict": {
+      "verdict_score": 0.5,
+      "predicted": "SUSPICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8986
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1010",
+        "T1027",
+        "T1497",
+        "T1564"
+      ],
+      "pred_ttps": [
+        "T1055",
+        "T1070",
+        "T1562"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1070",
+        "T1562"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1027",
+        "T1497",
+        "T1564"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

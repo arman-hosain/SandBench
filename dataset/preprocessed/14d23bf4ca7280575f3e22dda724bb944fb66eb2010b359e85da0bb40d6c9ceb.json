@@ -1,0 +1,68 @@
+{
+  "hash": "14d23bf4ca7280575f3e22dda724bb944fb66eb2010b359e85da0bb40d6c9ceb",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  web.qinvv.com\n\nSERVICES OPENED (1):\n  Firewall\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    firewall.exe\n  services.exe\n    firewall.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\Windows\\Firewall.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - link function at runtime on Windows\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - contain loop\n  - link function at runtime on Windows\n  - contain a resource (.rsrc) section\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (2):\n  C:\\Documents and Settings\\All Users\\Application Data\\Microsoft\\Dr Watson\\drwtsn32.log\n  C:\\WINDOWS\\Firewall.exe\n\nPERSISTENCE REGISTRY KEYS (4):\n  \\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\Firewall\\ConnectGroup = E9BB98E8AEA4E58886E7BB8400\n  \\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\Firewall\\DeleteFiles = C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe\u0000\n  \\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\Firewall\\Description\n  \\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\Firewall\\MarkTime = 2019-11-30 14:07\u0000\n\nOTHER REGISTRY KEYS SET (2):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\WINDOWS\\\n  \\REGISTRY\\USER\\.DEFAULT\\Software\\Microsoft\\ActiveMovie\\devenum\\Version\n\nMUTEXES CREATED (12):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  ShimCacheMutex\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n\nPROCESSES CREATED (1):\n  C:\\WINDOWS\\system32\\drwtsn32 -p 1024 -e 168 -g\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Library] MFC\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C++\n  [Compiler] Microsoft Visual C/C++\n  [Library] MFC\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++'}\n\nPE SECTIONS (entropy):\n  .text        entropy=4.57\n  .rdata       entropy=3.0\n  .data        entropy=7.98\n  .rsrc        entropy=3.44\n  ZxcAS        entropy=0.01\n  [overlay]    entropy=1.0174978971481323  size=4096\n",
+  "ground_truth": {
+    "hash": "14d23bf4ca7280575f3e22dda724bb944fb66eb2010b359e85da0bb40d6c9ceb",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8873,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RW memory",
+      "delay execution",
+      "contain loop",
+      "link function at runtime on Windows",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [
+        "web.qinvv.com"
+      ],
+      "urls": [],
+      "registry_persistence": [
+        "\\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\Firewall\\ConnectGroup",
+        "\\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\Firewall\\DeleteFiles",
+        "\\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\Firewall\\Description",
+        "\\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\Firewall\\MarkTime"
+      ],
+      "registry_all_count": 6,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "ShimCacheMutex",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex",
+        "_SHuassist.mtx",
+        "eed3bd3a-a1ad-4e99-987b-d7cb3fcfa7f0 - S-1-5-18"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\system32\\drwtsn32 -p 1024 -e 168 -g"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

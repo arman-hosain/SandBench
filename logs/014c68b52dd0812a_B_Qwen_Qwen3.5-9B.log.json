@@ -1,0 +1,235 @@
+{
+  "hash": "014c68b52dd0812a1f6b9feda23b50426516e70583a38aaeca84c7afe4f04328",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is malicious. It masquerades as a legitimate utility ('EmNotepad') but exhibits clear dropper/backdoor behavior: it downloads and executes additional components, modifies registry keys for persistence (Uninstall, FeatureControl), and communicates with external C2-like domains (58bingboluo.com) sending encoded data. It utilizes anti-analysis techniques such as referencing anti-VM strings targeting Xen, attempting to kill its own process ('taskkill'), and using XOR encoding. The combination of persistence mechanisms, C2 communication, and evasion techniques confirms malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Dropper\", \"Backdoor\"],\n    \"explanation\": \"The sample is classified as a Trojan because it masquerades as a legitimate application ('EmNotepad') to trick the user into execution. It functions as a Dropper by downloading and executing additional files from remote servers (e.g., EmNotepad.dll, config files). It is also a Backdoor as it establishes persistent communication with remote C2 servers and likely provides remote access capabilities, evidenced by the network activity and registry modifications. It does not exhibit ransomware, worm, or spyware characteristics.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1037\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1562.001\",\n        \"name\": \"Impair Defenses: Impair Defense Evasion Tools\"\n      },\n      {\n        \"id\": \"T1070.001\",\n        \"name\": \"Indicator Removal: Delete Convoluted\"\n      },\n      {\n        \"id\": \"T1083\",\n        \"name\": \"File and Directory Discovery\"\n      },\n      {\n        \"id\": \"T1082\",\n        \"name\": \"System Information Discovery\"\n      },\n      {\n        \"id\": \"T1057\",\n        \"name\": \"Process Discovery\"\n      },\n      {\n        \"id\": \"T1055.005\",\n        \"name\": \"Process Injection: Dynamic Resolution of Indirect Function Calls\"\n      },\n      {\n        \"id\": \"T1078\",\n        \"name\": \"Valid Accounts\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 8968,
+      "response_chars": 1800,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including dropping files to AppData, registering itself as a legitimate application ('EmNotepad') via registry keys (Uninstall, FeatureControl), executing itself with command-line arguments, and attempting to kill its own process ('taskkill.exe /f /im EmNotepad.exe') likely to evade analysis or",
+      "elapsed_seconds": 16.14
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "8 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 8,
+      "ttps_found": [
+        "T1027",
+        "T1037",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1562"
+      ],
+      "hallucinated_ttps": [
+        "T1037",
+        "T1055",
+        "T1070",
+        "T1562"
+      ],
+      "ttp_tp": 2,
+      "ttp_fp": 4
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- query or enumerate registry value\n- get system information on Windows\n- get common file path\n- link function at runtime on Windows\n- modify access privileges\n- reference anti-VM strings targeting Xen\n- shutdown system\n- get geographical location\n\nInstru",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1037",
+        "T1055",
+        "T1057",
+        "T1059",
+        "T1070",
+        "T1078",
+        "T1082",
+        "T1083",
+        "T1562"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 4,
+      "best_ttp_fp": 6
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "6 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 6,
+      "ttps_found": [
+        "T1027",
+        "T1037",
+        "T1055",
+        "T1057",
+        "T1059",
+        "T1070",
+        "T1078",
+        "T1082",
+        "T1083",
+        "T1562"
+      ],
+      "hallucinated_ttps": [
+        "T1037",
+        "T1055",
+        "T1057",
+        "T1070",
+        "T1078",
+        "T1562"
+      ],
+      "ttp_tp": 4,
+      "ttp_fp": 6
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- query or enumerate registry value\n- link function at runtime on Windows\n- modify access privileges\n- reference anti-VM strings targeting Xen\n- shutdown system\n- get geographical location\n\nInstructions:\n- Add a TTP only when the behavior phrase and repor",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "refinement_rejected",
+      "iteration": 2,
+      "reason": "response not in structured format - keeping previous output",
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is malicious. It masquerades as a legitimate utility ('EmNotepad') but exhibits clear dropper/backdoor behavior: it downloads and"
+    },
+    {
+      "step": 8,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1027",
+        "T1037",
+        "T1055",
+        "T1057",
+        "T1059",
+        "T1070",
+        "T1078",
+        "T1082",
+        "T1083",
+        "T1562"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 4,
+      "best_ttp_fp": 6
+    },
+    {
+      "step": 9,
+      "type": "refinement_stopped",
+      "iteration": 2,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 4,
+      "ttp_fp": 6
+    }
+  ],
+  "total_llm_calls": 3,
+  "total_elapsed": 148.16,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.6712
+    },
+    "family": {
+      "family_f1": 0.8,
+      "family_precision": 0.6667,
+      "family_recall": 1.0,
+      "predicted": [
+        "trojan",
+        "dropper",
+        "backdoor"
+      ],
+      "matched": [
+        "trojan",
+        "dropper"
+      ],
+      "reachable_gt": [
+        "trojan",
+        "dropper"
+      ],
+      "gt_pool": [
+        "chindo",
+        "downloader",
+        "mikey",
+        "trojan",
+        "ursu"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 0.4,
+      "ttp_precision": 0.4,
+      "ttp_recall": 0.4,
+      "gt_ttps": [
+        "T1012",
+        "T1027",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1134",
+        "T1497",
+        "T1529",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1037",
+        "T1055",
+        "T1057",
+        "T1059",
+        "T1070",
+        "T1078",
+        "T1082",
+        "T1083",
+        "T1562"
+      ],
+      "tp": 4,
+      "q3_hallucinated_ttps": [
+        "T1037",
+        "T1055",
+        "T1057",
+        "T1070",
+        "T1078",
+        "T1562"
+      ],
+      "q3_missed_ttps": [
+        "T1012",
+        "T1129",
+        "T1134",
+        "T1497",
+        "T1529",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4,
+      "breakdown": {
+        "ttp_f1": 0.4
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

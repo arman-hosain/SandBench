@@ -1,0 +1,53 @@
+{
+  "hash": "34d0b008500517e8fd39ea8871d778fe559b0f01dec5baa0ee751fdf76de6eeb",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - encode data using Base64 via WinAPI\n  - encode data using XOR\n  - check if file exists\n\nCAPA RULE MATCHES (MBC):\n  - encode data using Base64 via WinAPI\n  - Memory::Allocate Memory [C0007]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Process::Create Mutex [C0042]\n  - Discovery::File and Directory Discovery [E1083]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  ctvqzym.exe  [sha256: 9ec4fd3023e4b54b...]\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: d171abfe43256217...]\n\nFILES WRITTEN (2):\n  C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\ctvqzym.exe\n  C:\\WINDOWS\\Tasks\\hiqvsnd.job\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] Watcom\n  [Linker] Watcom Linker\n\nPE SECTIONS (entropy):\n  AUTO         entropy=6.42\n  DGROUP       entropy=5.34\n  .idata       entropy=4.11\n  .reloc       entropy=5.22\n  .rsrc        entropy=3.87\n  [overlay]    entropy=7.861786365509033  size=1336\n",
+  "ground_truth": {
+    "hash": "34d0b008500517e8fd39ea8871d778fe559b0f01dec5baa0ee751fdf76de6eeb",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8333,
+    "malicious_count": 60,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using Base64 via WinAPI"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "check if file exists"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using Base64 via WinAPI",
+      "allocate memory",
+      "allocate RWX memory",
+      "encode data using XOR",
+      "contain loop",
+      "create mutex",
+      "check if file exists"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "ctvqzym.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

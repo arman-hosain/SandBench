@@ -1,0 +1,143 @@
+{
+  "hash": "133bbfa37781fcb4280416a47cc16f459849af2ab2b447ac5ee1f96ba8a4c071",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  AUTOEXEC.BAT .exe\n    C:\\ProgramData\\wcrbkq.exe\n\nCOMMAND EXECUTIONS (4):\n  (open) C:\\133bbfa37781fcb4280416a47cc16f459849af2ab2b447ac5ee1f96ba8a(null) [(null)]\n  C:\\Users\\<USER>\\Downloads\\AUTOEXEC.BAT\n  \"C:\\ProgramData\\fjscla.exe\"\n   \n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (6):\n  - contain obfuscated stackstrings\n  - get startup folder\n  - set file attributes\n  - get common file path\n  - accept command line arguments\n  - packed with generic packer\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - get startup folder\n  - Process::Create Process [C0017]\n  - File System::Set File Attributes [C0050]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Delete File [C0047]\n  - File System::Create Directory [C0046]\n  - Process::Allocate Thread Local Storage [C0040]\n  - get thread local storage value\n  - Process::Set Thread Local Storage Value [C0041]\n  - File System::Read File [C0051]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - contain pusha popa sequence\n  - resolve function by parsing PE exports\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - contain a resource (.rsrc) section\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (30):\n  133bbfa37781fcb4280416a47cc16f459849af2ab2b447ac5ee1f96ba8a4c071 .exe  [sha256: 0ef62ffd048b393c...]\n  AUTOEXEC.BAT .exe  [sha256: d8bc30108eb3daa8...]\n  boot.ini .exe  [sha256: 6ab4a9e5a45f4f15...]\n  CONFIG.SYS .exe  [sha256: fa06c0cb5304e1fa...]\n  cuckoo .exe  [sha256: f2b6d9719db6dda5...]\n  Documents and Settings .exe  [sha256: 714bee74d7cd719c...]\n  eula.1028.txt .exe  [sha256: b7e0006041afc1ae...]\n  eula.1031.txt .exe  [sha256: f1ac94fcb722da83...]\n  eula.1033.txt .exe  [sha256: d0749e9ac0d21cf5...]\n  eula.1036.txt .exe  [sha256: 0454324508ed5ce5...]\n  eula.1040.txt .exe  [sha256: 50330e702a59e00b...]\n  eula.1041.txt .exe  [sha256: 33517212ae6a81f1...]\n  eula.1042.txt .exe  [sha256: 71fb7034027c3b64...]\n  eula.2052.txt .exe  [sha256: 5acddee8feb66de1...]\n  eula.3082.txt .exe  [sha256: 36d3e4801cd5d0ae...]\n  globdata.ini .exe  [sha256: 749c7c59c942c9ea...]\n  install.exe .exe  [sha256: 0932af307bac7578...]\n  install.ini .exe  [sha256: af44a7ed05245054...]\n  install.res.1028.dll .exe  [sha256: 76647ec61d04b837...]\n  install.res.1031.dll .exe  [sha256: 8d93e22c0ff9a007...]\n\nFILES WRITTEN (30):\n  C:\\$Recycle.Bin\n  C:\\$Recycle.Bin .exe\n  C:\\CommonFramework\n  C:\\CommonFramework .exe\n  C:\\Documents and Settings\n  C:\\Documents and Settings .exe\n  C:\\Documents and Settings\\All Users\\Application Data\\wkejx.exe\n  C:\\MSOCache\n  C:\\MSOCache .exe\n  C:\\Mirak\n  C:\\Mirak .exe\n  C:\\ProgramData\\Saaaalamm\\Mira.h\n  C:\\ProgramData\\wcrbkq.exe\n  c:\\$Recycle.Bin .exe\n  c:\\133bbfa37781fcb4280416a47cc16f459849af2ab2b447ac5ee1f96ba8a4c071 .exe\n  c:\\AUTOEXEC.BAT .exe\n  c:\\Documents and Settings .exe\n  c:\\Mirau\n  c:\\PerfLogs .exe\n  c:\\Program Files (x86) .exe\n\nPERSISTENCE REGISTRY KEYS (2):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft\u00ae Windows\u00ae Operating System = C:\\ProgramData\\wcrbkq.exe\n  HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft?Windows?Operating System = C:\\ProgramData\\fjscla.exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (2):\n  C:\\Documents and Settings\\All Users\\Application Data\\wkejx.exe\n  C:\\ProgramData\\fjscla.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCOMPILER AND PACKER:\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n\nPE SECTIONS (entropy):\n  .text        entropy=6.11\n  .data        entropy=0.71\n  .rdata       entropy=5.01\n  .bss         entropy=0.0\n  .idata       entropy=4.29\n  .rsrc        entropy=6.16\n  [overlay]    entropy=6.809249401092529  size=324956\n",
+  "ground_truth": {
+    "hash": "133bbfa37781fcb4280416a47cc16f459849af2ab2b447ac5ee1f96ba8a4c071",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8611,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "get startup folder"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "get startup folder",
+      "create process on Windows",
+      "set file attributes",
+      "delay execution",
+      "create or open file",
+      "contain loop",
+      "get common file path",
+      "delete file",
+      "create directory",
+      "allocate thread local storage",
+      "get thread local storage value",
+      "set thread local storage value",
+      "read file on Windows",
+      "accept command line arguments",
+      "contain pusha popa sequence",
+      "resolve function by parsing PE exports",
+      "packed with generic packer",
+      "contain a resource (.rsrc) section",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft\u00ae Windows\u00ae Operating System",
+        "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft?Windows?Operating System"
+      ],
+      "registry_all_count": 2,
+      "files_dropped": [
+        "133bbfa37781fcb4280416a47cc16f459849af2ab2b447ac5ee1f96ba8a4c071 .exe",
+        "AUTOEXEC.BAT .exe",
+        "C:\\ProgramData\\Saaaalamm\\Mira.h",
+        "C:\\ProgramData\\wcrbkq.exe",
+        "CONFIG.SYS .exe",
+        "Documents and Settings .exe",
+        "IO.SYS .exe",
+        "MSDOS.SYS .exe",
+        "Mira.h",
+        "NTDETECT.COM .exe",
+        "Program Files .exe",
+        "Python27 .exe",
+        "RECYCLER .exe",
+        "System Volume Information .exe",
+        "VC_RED.MSI .exe",
+        "VC_RED.cab .exe",
+        "WINDOWS .exe",
+        "boot.ini .exe",
+        "c:\\$Recycle.Bin .exe",
+        "c:\\Documents and Settings .exe",
+        "c:\\PerfLogs .exe",
+        "c:\\Program Files (x86) .exe",
+        "c:\\Program Files .exe",
+        "c:\\ProgramData .exe",
+        "c:\\Recovery .exe",
+        "c:\\System Volume Information .exe",
+        "c:\\dev_man.exe .exe",
+        "c:\\l.bat .exe",
+        "c:\\pagefile.sys .exe",
+        "c:\\r.py .exe",
+        "c:\\r.pyw .exe",
+        "c:\\sdel.exe .exe",
+        "cuckoo .exe",
+        "eula.1028.txt .exe",
+        "eula.1031.txt .exe",
+        "eula.1033.txt .exe",
+        "eula.1036.txt .exe",
+        "eula.1040.txt .exe",
+        "eula.1041.txt .exe",
+        "eula.1042.txt .exe",
+        "eula.2052.txt .exe",
+        "eula.3082.txt .exe",
+        "globdata.ini .exe",
+        "install.exe .exe",
+        "install.ini .exe",
+        "install.res.1028.dll .exe",
+        "install.res.1031.dll .exe",
+        "install.res.1033.dll .exe",
+        "install.res.1036.dll .exe",
+        "install.res.1040.dll .exe",
+        "install.res.1041.dll .exe",
+        "install.res.1042.dll .exe",
+        "install.res.2052.dll .exe",
+        "install.res.3082.dll .exe",
+        "ntldr .exe",
+        "pagefile.sys .exe",
+        "vcredist.bmp .exe",
+        "wkejx.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\All Users\\Application Data\\wkejx.exe",
+        "C:\\ProgramData\\fjscla.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Rising MOVES",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

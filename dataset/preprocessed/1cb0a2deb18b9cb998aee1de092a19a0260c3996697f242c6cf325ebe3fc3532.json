@@ -1,0 +1,70 @@
+{
+  "hash": "1cb0a2deb18b9cb998aee1de092a19a0260c3996697f242c6cf325ebe3fc3532",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\Documents and Settings\\All Users\\Application Data\\bnxbkh.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\1cb0a2deb18b9cb998aee1de092a19a0260c3996697f242c6cf325ebe3f(null) [(null)]\n  c:\\dev_man.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - encode data using XOR\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - contain pusha popa sequence\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (21):\n  1cb0a2deb18b9cb998aee1de092a19a0260c3996697f242c6cf325ebe3fc3532 .exe  [sha256: e31b0ddddc357d41...]\n  AUTOEXEC.BAT .exe  [sha256: 3cd3caaa35212edf...]\n  bnxbkh.exe  [sha256: 153b068daf459a58...]\n  boot.ini .exe  [sha256: 01148769a4ca7617...]\n  CONFIG.SYS .exe  [sha256: e5c83979ea42dc24...]\n  cuckoo .exe  [sha256: f5de162687b2600b...]\n  Documents and Settings .exe  [sha256: 3294b92e812f2341...]\n  eula.1028.txt .exe  [sha256: b798ab8f7db12332...]\n  eula.1031.txt .exe  [sha256: f83d4d08730f3668...]\n  eula.1033.txt .exe  [sha256: a0877e6c19d167ef...]\n  eula.1036.txt .exe  [sha256: d97303c4f652e79e...]\n  eula.1040.txt .exe  [sha256: 184550de9d3a60b0...]\n  eula.1041.txt .exe  [sha256: d032e9bbe6c27adc...]\n  eula.1042.txt .exe  [sha256: 850a72d916ab40e3...]\n  eula.2052.txt .exe  [sha256: aa6998b714cf9890...]\n  eula.3082.txt .exe  [sha256: f7ac5c3d1f1ad577...]\n  globdata.ini .exe  [sha256: 5aecfe294150671f...]\n  install.exe .exe  [sha256: 832676081b7027db...]\n  install.ini .exe  [sha256: d25e10d6adb3c86c...]\n  install.res.1028.dll .exe  [sha256: 4200206a4fc5acd4...]\n\nFILES WRITTEN (4):\n  C:\\Documents and Settings\\All Users\\Application Data\\Saaaalamm\\Mira.h\n  C:\\Documents and Settings\\All Users\\Application Data\\bnxbkh.exe\n  c:\\1cb0a2deb18b9cb998aee1de092a19a0260c3996697f242c6cf325ebe3fc3532 .exe\n  c:\\AUTOEXEC.BAT .exe\n\nMUTEXES CREATED (2):\n  ShimCacheMutex\n  _SHuassist.mtx\n\nPROCESSES CREATED (1):\n  C:\\Documents and Settings\\All Users\\Application Data\\bnxbkh.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n\nPE SECTIONS (entropy):\n  .text        entropy=6.09\n  .data        entropy=0.71\n  .rdata       entropy=5.01\n  .bss         entropy=0.0\n  .idata       entropy=4.29\n  .rsrc        entropy=4.73\n  .NewSec      entropy=0.47\n  [overlay]    entropy=6.660835266113281  size=479244\n",
+  "ground_truth": {
+    "hash": "1cb0a2deb18b9cb998aee1de092a19a0260c3996697f242c6cf325ebe3fc3532",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9296,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain loop",
+      "contain pusha popa sequence",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "1cb0a2deb18b9cb998aee1de092a19a0260c3996697f242c6cf325ebe3fc3532 .exe",
+        "AUTOEXEC.BAT .exe",
+        "CONFIG.SYS .exe",
+        "Documents and Settings .exe",
+        "bnxbkh.exe",
+        "boot.ini .exe",
+        "cuckoo .exe",
+        "eula.1028.txt .exe",
+        "eula.1031.txt .exe",
+        "eula.1033.txt .exe",
+        "eula.1036.txt .exe",
+        "eula.1040.txt .exe",
+        "eula.1041.txt .exe",
+        "eula.1042.txt .exe",
+        "eula.2052.txt .exe",
+        "eula.3082.txt .exe",
+        "globdata.ini .exe",
+        "install.exe .exe",
+        "install.ini .exe",
+        "install.res.1028.dll .exe",
+        "install.res.1031.dll .exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex",
+        "_SHuassist.mtx"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\All Users\\Application Data\\bnxbkh.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

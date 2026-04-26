@@ -1,0 +1,45 @@
+{
+  "hash": "039d68e9d542bf47807ba5f63a429f4e1cf60202c3cd389fe2d7cc7aad431aed",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  zbhnd.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\zbhnd.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\zbhnd.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - contain obfuscated stackstrings\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - contain loop\n  - resolve function by parsing PE exports\n  - Data::Decompress Data [C0025]\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\zbhnd.exe  [sha256: d710e2fe3df4b2c0...]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Packer] DxPack\n  [Protector] Obsidium\n\nPE SECTIONS (entropy):\n  .rsrc        entropy=5.99\n  coderpub     entropy=5.8\n  [overlay]    entropy=3.4904208183288574  size=9318\n",
+  "ground_truth": {
+    "hash": "039d68e9d542bf47807ba5f63a429f4e1cf60202c3cd389fe2d7cc7aad431aed",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8286,
+    "malicious_count": 58,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "ppatre",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "decompress data using LZO",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\zbhnd.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

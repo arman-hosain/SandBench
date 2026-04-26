@@ -1,0 +1,55 @@
+{
+  "hash": "08bbebaf9436b14cacc4ef2a6e8d719b8c138c0045e66e6665cd5b337dc49f0c",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    reg.exe REG DELETE HKLM\\SYSTEM\\C2rren2Con2rolSe2\\Con2rol\\SafeBoo2 /f\n    ntvdm.exe -f -i1 -o\n\nCOMMAND EXECUTIONS (2):\n  REG DELETE HKLM\\SYSTEM\\C2rren2Con2rolSe2\\Con2rol\\SafeBoo2 /f\n  \"C:\\WINDOWS\\system32\\ntvdm.exe\" -f -i1 -o\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - parse PE header\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - parse PE header\n  - contain a resource (.rsrc) section\n  - Execution::Install Additional Program [B0023]\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (4):\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\avscan.exe\n  C:\\WINDOWS\\Temp\\scs2.tmp\n  C:\\WINDOWS\\Temp\\scs3.tmp\n  C:\\WINDOWS\\hosts.exe\n\nOTHER REGISTRY KEYS SET (6):\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsof2\\Windo2s\\C2rren2Version\\R2n\\a2scan\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Sof22are\\Microsof2\\Windo2s\\C2rren2Version\\E\ue525plorer\\Ad2anced\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Sof22are\\Microsof2\\Windo2s\\C2rren2Version\\E\ue525plorer\\Ad2anced\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Sof22are\\Microsof2\\Windo2s\\C2rren2Version\\E\ue525plorer\\Ad2anced\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsof2\\Windo2s\\C2rren2Version\\E\ue525plorer\\Ad2anced\\Folder\\HideFileE\ue5252\\Defa2l2Val2e\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsof2\\Windo2s\\C2rren2Version\\E\ue525plorer\\Ad2anced\\Folder\\HideFileE\ue5252\\UncheckedVal2e\n\nMUTEXES CREATED (6):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n\nPROCESSES CREATED (2):\n  C:\\WINDOWS\\system32\\ntvdm.exe\n  C:\\WINDOWS\\system32\\reg.exe\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.08\n  .rsrc        entropy=7.64\n  [overlay]    entropy=7.940356254577637  size=2895665\n",
+  "ground_truth": {
+    "hash": "08bbebaf9436b14cacc4ef2a6e8d719b8c138c0045e66e6665cd5b337dc49f0c",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8611,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "parse PE header",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 6,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\system32\\ntvdm.exe",
+        "C:\\WINDOWS\\system32\\reg.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "hash": "00c5aeeb5be65428ebab9cfb33cbc3ea944c2054bc22aef5b5b4da7acd984d50",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits multiple anti-analysis behaviors including debugger detection (PEB access), delayed execution, and dynamic analysis evasion. It performs network reconnaissance (checking internet connectivity, getting geographical location) and creates sockets (TCP/UDP). While it does not show definitive malicious actions like file encryption (ransomware) or credential theft in this specific report, the combination of evasion techniques and network activity warrants a suspicious verdict.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Dropper\"],\n    \"explanation\": \"The sample uses anti-analysis techniques (debugger detection, delayed execution) typical of Trojans designed to evade detection. It creates sockets and checks network connectivity, suggesting it may be a dropper or a Trojan that establishes a C2 channel. The presence of an overlay with high entropy suggests it may be packed or contain embedded payloads, common in Droppers.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1055.012\",\n        \"name\": \"Process Injection via PEB\"\n      },\n      {\n        \"id\": \"T1055.015\",\n        \"name\": \"Thread Local Storage\"\n      },\n      {\n        \"id\": \"T1055.012\",\n        \"name\": \"Process Environment Block\"\n      },\n      {\n        \"id\": \"T1055.012\",\n        \"name\": \"Debugger Detection\"\n      },\n      {\n        \"id\": \"T1055.012\",\n        \"name\": \"Delayed Execution\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1070\",\n        \"name\": \"Indicator Removal\"\n      },\n      {\n        \"id\": \"T1070.001\",\n        \"name\": \"Delete or Modify File\"\n      },\n      {\n        \"id\": \"T1070.003\",\n        \"name\": \"Network Traffic\"\n      },\n      {\n        \"id\": \"T1070.004\",\n        \"name\": \"File System\"\n      },\n      {\n        \"id\": \"T1070.005\",\n        \"name\": \"Registry\"\n      },\n      {\n        \"id\": \"T1070.006\",\n        \"name\": \"Process\"\n      },\n      {\n        \"id\": \"T1070.007\",\n        \"name\": \"Thread\"\n      },\n      {\n        \"id\": \"T1070.008\",\n        \"name\": \"Memory\"\n      },\n      {\n        \"id\": \"T1070.009\",\n        \"name\": \"Network\"\n      },\n      {\n        \"id\": \"T1070.010\",\n        \"name\": \"File\"\n      },\n      {\n        \"id\": \"T1070.011\",\n        \"name\": \"Registry\"\n      },\n      {\n        \"id\": \"T1070.012\",\n        \"name\": \"Process\"\n      },\n      {\n        \"id\": \"T1070.013\",\n        \"name\": \"Thread\"\n      },\n      {\n        \"id\": \"T1070.014\",\n        \"name\": \"Memory\"\n      },\n      {\n        \"id\": \"T1070.015\",\n        \"name\": \"Network\"\n      },\n      {\n        \"id\": \"T1070.016\",\n        \"name\": \"File\"\n      },\n      {\n        \"id\": \"T1070.017\",\n        \"name\": \"Registry\"\n      },\n      {\n        \"id\": \"T1070.018\",\n        \"name\": \"Process\"\n      },\n      {\n        \"id\": \"T1070.019\",\n        \"name\": \"Thread\"\n      },\n      {\n        \"id\": \"T1070.020\",\n        \"name\": \"Memory\"\n      },\n      {\n        \"id\": \"T1070.021\",\n        \"name\": \"Network\"\n      },\n      {\n        \"id\": \"T1070.022\",\n        \"name\": \"File\"\n      },\n      {\n        \"id\": \"T1070.023\",\n        \"name\": \"Registry\"\n      },\n      {\n        \"id\": \"T1070.024\",\n        \"name\": \"Process\"\n      },\n      {\n        \"id\": \"T1070.025\",\n        \"name\": \"Thread\"\n      },\n      {\n        \"id\": \"T1070.026\",\n        \"name\": \"Memory\"\n      },\n      {\n        \"id\": \"T1070.027\",\n        \"name\": \"Network\"\n      },\n      {\n        \"id\": \"T1070.028\",\n        \"name\": \"File\"\n      },\n      {\n        \"id\": \"T1070.029\",\n        \"name\": \"Registry\"\n      },\n      {\n        \"id\": \"T1070.030\",\n        \"name\": \"Process\"\n      },\n      {\n        \"id\": \"T1070.031\",\n        \"name\": \"Thread\"\n      },\n      {\n        \"id\": \"T1070.032\",\n        \"name\": \"Memory\"\n      },\n      {\n        \"id\": \"T1070.033\",\n        \"name\": \"Network\"\n      },\n      {\n        \"id\": \"T1070.034\",\n        \"name\": \"F",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 2079,
+      "response_chars": 10082,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits multiple anti-analysis behaviors including debugger detection (PEB access), delayed execution, and dynamic analysis evasion. It performs network reconnaissance (checking internet connectivity, getting geographical location) and creates sockets (TCP/UDP). While it does not show definitive malicious actions like file en",
+      "elapsed_seconds": 123.22
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 123.22,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": true,
+    "verdict": {
+      "verdict_score": 0.5,
+      "predicted": "SUSPICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9167
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1012",
+        "T1016",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1547",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1070"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1055",
+        "T1070"
+      ],
+      "q3_missed_ttps": [
+        "T1012",
+        "T1016",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1547",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

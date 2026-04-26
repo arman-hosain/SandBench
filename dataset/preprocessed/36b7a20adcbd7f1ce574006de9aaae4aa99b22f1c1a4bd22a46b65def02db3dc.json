@@ -1,0 +1,127 @@
+{
+  "hash": "36b7a20adcbd7f1ce574006de9aaae4aa99b22f1c1a4bd22a46b65def02db3dc",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nIP TRAFFIC (2):\n  218.54.28.146:11180 (TCP)\n  27.125.205.36:11170 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  buadoi.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\_uninsep.bat\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\rodavuw.exe\n      C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DFA3E6.tmp OK\n\nCOMMAND EXECUTIONS (2):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\_uninsep.bat\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\cujilm.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (14):\n  - acquire debug privileges\n  - set file attributes\n  - encode data using XOR\n  - check OS version\n  - get file size\n  - get MAC address on Windows\n  - modify access privileges\n  - link function at runtime on Windows\n  - get common file path\n  - check if file exists\n  - query or enumerate registry value\n  - interact with driver via control codes\n  - download and write a file\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - File System::Create File [C0016]\n  - Process::Open Process [C0065]\n  - acquire debug privileges\n  - File System::Get File Attributes [C0049]\n  - Process::Create Process [C0017]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Thread [C0038]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - reference absolute stream path on Windows\n  - File System::Set File Attributes [C0050]\n  - Communication::Socket Communication::Create TCP Socket [C0001.011]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Cryptography::Generate Pseudo-random Sequence [C0021]\n  - contain loop\n  - get OS version\n  - Discovery::System Information Discovery [E1082]\n  - Discovery::File and Directory Discovery [E1083]\n  - get MAC address on Windows\n  - modify access privileges\n  - link function at runtime on Windows\n  - Process::Terminate Process [C0018]\n  - File System::Read File [C0051]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\rodavuw.exe  [sha256: 00c5b4f0964f6a35...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DFA3E6.tmp  [sha256: aa235abb829d491e...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\cujilm.exe  [sha256: b29e89b482eccf73...]\n\nFILES WRITTEN (3):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\_uninsep.bat\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\gbp.ini\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\golfinfo.ini\n\nOTHER REGISTRY KEYS SET (2):\n  HKCU\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\Run\n  HKCU\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\SubKey\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessW, GetProcAddress, LoadLibraryW, VirtualAlloc\n  ADVAPI32.dll: AdjustTokenPrivileges, OpenProcessToken\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.67\n  .rdata       entropy=5.16\n  .data        entropy=7.42\n  .rsrc        entropy=4.34\n  .reloc       entropy=6.6\n  Ghsdwer      entropy=4.49\n  [overlay]    entropy=0.0  size=597568\n",
+  "ground_truth": {
+    "hash": "36b7a20adcbd7f1ce574006de9aaae4aa99b22f1c1a4bd22a46b65def02db3dc",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9014,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "urelas",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "check OS version"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1105",
+        "signature_description": "download and write a file"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "acquire debug privileges"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "create or open file",
+      "open process",
+      "acquire debug privileges",
+      "get file attributes",
+      "create process on Windows",
+      "delay execution",
+      "create thread",
+      "create or open registry key",
+      "reference absolute stream path on Windows",
+      "set file attributes",
+      "create TCP socket",
+      "encode data using XOR",
+      "generate random numbers using the Delphi LCG",
+      "contain loop",
+      "get OS version",
+      "check OS version",
+      "get file size",
+      "get MAC address on Windows",
+      "modify access privileges",
+      "link function at runtime on Windows",
+      "get common file path",
+      "check if file exists",
+      "terminate process",
+      "read file on Windows",
+      "write file on Windows",
+      "set registry value",
+      "delete file",
+      "initialize Winsock library",
+      "query or enumerate registry value",
+      "interact with driver via control codes",
+      "extract resource via kernel32 functions",
+      "write and execute a file",
+      "hash data using SHA1",
+      "resolve DNS",
+      "connect TCP socket",
+      "act as TCP client",
+      "send data on socket",
+      "send data",
+      "receive data on socket",
+      "receive data",
+      "download and write a file",
+      "receive and write data from server to client",
+      "resolve function by parsing PE exports",
+      "hash data with CRC32",
+      "compute adler32 checksum",
+      "allocate thread local storage",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section",
+      "linked against ZLIB"
+    ],
+    "iocs": {
+      "ips": [
+        "218.54.28.146",
+        "27.125.205.36"
+      ],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 2,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\cujilm.exe",
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\rodavuw.exe",
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DFA3E6.tmp"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

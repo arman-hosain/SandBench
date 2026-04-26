@@ -1,0 +1,91 @@
+{
+  "hash": "0219c6fcf94840b866da321c30ba842d5751ac98e3afd1e301e8ae232c363ac5",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it spawns a deep process tree of identical files in System32, drops multiple executable and DLL files to System32, registers CLSIDs and ShellServiceObjectDelayLoad keys to hijack the Explorer shell, and uses obfuscation/packing techniques to evade analysis. The combination of shell hijacking, file dropping, and evasion techniques confirms malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The primary behavior observed is the dropping of additional payloads (Lecnbc32.exe, Ofphiamb.dll, etc.) into System32 and registering them to hijack the Windows shell. This 'dropping' and 'installing' behavior without immediate ransomware encryption or spyware data exfiltration in the provided report aligns best with the Dropper family.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1562.1\",\n        \"name\": \"Disable Process Termination\"\n      },\n      {\n        \"id\": \"T1546.001\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 3774,
+      "response_chars": 1257,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it spawns a deep process tree of identical files in System32, drops multiple executable and DLL files to System32, registers CLSIDs and ShellServiceObjectDelayLoad keys to hijack the Explorer shell, and uses obfuscation/packing techniques to evade analysis. The combination of shell hijacking, ",
+      "elapsed_seconds": 8.13
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": false,
+      "gap_summary": "",
+      "missed_behavior_count": 0,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1546",
+        "T1562"
+      ],
+      "hallucinated_ttps": [
+        "T1055",
+        "T1546",
+        "T1562"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 3
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 8.13,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9155
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.4,
+      "ttp_precision": 0.25,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1546",
+        "T1562"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1546",
+        "T1562"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4,
+      "breakdown": {
+        "ttp_f1": 0.4
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "hash": "028b034606b1f82920d437ad2d50f4b5b621751b27ef1fd0817decdcc1505143",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is malicious. It masquerades as the legitimate Windows Error Reporting tool (drwtsn32) to evade detection. It exhibits strong anti-analysis capabilities including XOR encoding, stack strings, and delayed execution. The malware establishes C2 communication to download a secondary payload ('updata.exe'), modifies Internet Explorer proxy settings, and performs reconnaissance by gathering system information and geographical location.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Dropper\"],\n    \"explanation\": \"The sample is classified as a Dropper because it downloads and executes a secondary payload ('updata.exe') from a remote server. It is a Trojan because it masquerades as a legitimate system utility (drwtsn32) and performs unauthorized modifications to system settings (IE proxy configuration) without user consent.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1036\",\n        \"name\": \"Masquerading\"\n      },\n      {\n        \"id\": \"T1083\",\n        \"name\": \"File and Directory Discovery\"\n      },\n      {\n        \"id\": \"T1082\",\n        \"name\": \"System Information Discovery\"\n      },\n      {\n        \"id\": \"T1087\",\n        \"name\": \"Account Discovery\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 4260,
+      "response_chars": 1455,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including network communication to a suspicious IP (150.242.250.53:8080) to download a file named 'updata.dat', dropping a new executable 'updata.exe' in the Internet Explorer directory, modifying Internet Explorer proxy settings, and utilizing anti-analysis techniques such as XOR enco",
+      "elapsed_seconds": 12.59
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "4 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 4,
+      "ttps_found": [
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1562"
+      ],
+      "hallucinated_ttps": [
+        "T1036",
+        "T1055",
+        "T1070",
+        "T1562"
+      ],
+      "ttp_tp": 2,
+      "ttp_fp": 4
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- get system information on Windows\n- get file size\n- link function at runtime on Windows\n- get geographical location\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder ID",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1036",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1087"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 4,
+      "best_ttp_fp": 2
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "2 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 2,
+      "ttps_found": [
+        "T1027",
+        "T1036",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1087"
+      ],
+      "hallucinated_ttps": [
+        "T1036",
+        "T1087"
+      ],
+      "ttp_tp": 4,
+      "ttp_fp": 2
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- link function at runtime on Windows\n- get geographical location\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1087"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 4,
+      "best_ttp_fp": 2
+    },
+    {
+      "step": 8,
+      "type": "refinement_stopped",
+      "iteration": 2,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 4,
+      "ttp_fp": 3
+    }
+  ],
+  "total_llm_calls": 3,
+  "total_elapsed": 29.25,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.7945
+    },
+    "family": {
+      "family_f1": 1.0,
+      "family_precision": 1.0,
+      "family_recall": 1.0,
+      "predicted": [
+        "trojan",
+        "dropper"
+      ],
+      "matched": [
+        "trojan",
+        "dropper"
+      ],
+      "reachable_gt": [
+        "trojan",
+        "dropper"
+      ],
+      "gt_pool": [
+        "bkdr",
+        "bulz",
+        "downloader",
+        "farfli",
+        "trojan",
+        "virus"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 0.6667,
+      "ttp_precision": 0.6667,
+      "ttp_recall": 0.6667,
+      "gt_ttps": [
+        "T1027",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1036",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1087"
+      ],
+      "tp": 4,
+      "q3_hallucinated_ttps": [
+        "T1036",
+        "T1087"
+      ],
+      "q3_missed_ttps": [
+        "T1129",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.6667,
+      "breakdown": {
+        "ttp_f1": 0.6667
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

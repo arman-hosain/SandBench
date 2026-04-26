@@ -1,0 +1,79 @@
+{
+  "hash": "02a54c7fa71124153228984035e09a4e27722d91c5c3550bbaedc875d5d0545e",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including dropping multiple executable files in system directories (AppData, Windows), creating persistence mechanisms via Registry RunOnce keys, and establishing C2 communication. Most critically, the CAPA analysis explicitly detects 'encrypt data using RC4 KSA' and 'Cryptography::Encrypt Data::RC4', combined with mutexes containing 'ransom_id' strings, which confirms ransomware activity.\"\n  },\n  \"q2\": {\n    \"family\": [\"Ransomware\"],\n    \"explanation\": \"The behavioral evidence strongly points to Ransomware. The sample uses RC4 encryption (detected by CAPA), creates mutexes with unique 'ransom_id' identifiers, and drops executables in user profile and system directories. The DNS lookups for 'ransomware.bit' further corroborate this classification.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1547\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1070\",\n        \"name\": \"Indicator Removal\"\n      },\n      {\n        \"id\": \"T1071\",\n        \"name\": \"Application Layer Protocol\"\n      },\n      {\n        \"id\": \"T1053\",\n        \"name\": \"Scheduled Task/Job\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 6168,
+      "response_chars": 1491,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including dropping multiple executable files in system directories (AppData, Windows), creating persistence mechanisms via Registry RunOnce keys, and establishing C2 communication. Most critically, the CAPA analysis explicitly detects 'encrypt data using RC4 KSA' and 'Cryptography::Encrypt Data",
+      "elapsed_seconds": 14.17
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 14.17,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9444
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.2222,
+      "ttp_precision": 0.1429,
+      "ttp_recall": 0.5,
+      "gt_ttps": [
+        "T1027",
+        "T1129"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1071",
+        "T1547"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1071",
+        "T1547"
+      ],
+      "q3_missed_ttps": [
+        "T1129"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2222,
+      "breakdown": {
+        "ttp_f1": 0.2222
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

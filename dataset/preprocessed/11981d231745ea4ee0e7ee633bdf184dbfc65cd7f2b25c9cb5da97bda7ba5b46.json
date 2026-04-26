@@ -1,0 +1,339 @@
+{
+  "hash": "11981d231745ea4ee0e7ee633bdf184dbfc65cd7f2b25c9cb5da97bda7ba5b46",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (5):\n  llxm.kfj.cc\n  llxm.kfj.cc \u2192 47.91.234.63\n  llxm.kfj.cc \u2192 67.198.196.97\n  tom-PC \u2192 192.168.122.105\n  tom-PC \u2192 192.168.122.188\n\nIP TRAFFIC (2):\n  47.91.234.63:8562 (TCP)\n  67.198.196.97:8562 ()\n\n--- EXECUTION CHAIN ---\n\nCOMMAND EXECUTIONS (3):\n   \n  \\??\\C:\\Windows\\system32\\conhost.exe\n  C:\\Windows\\system32\\schtasks.exe /delete /f /TN \"Microsoft\\Windows\\Customer Experience Improvement Program\\Uploader\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (64):\n  - contain obfuscated stackstrings\n  - get user security identifier\n  - get file system object information\n  - hide graphical window\n  - acquire debug privileges\n  - get startup folder\n  - set file attributes\n  - access PEB ldr_data\n  - list groups for user account\n  - add user account\n  - add user account to group\n  - delete user account\n  - list user accounts\n  - encode data using XOR\n  - open clipboard\n  - read clipboard data\n  - get common file path\n  - enumerate files on Windows\n  - interact with driver via control codes\n  - shutdown system\n  - modify access privileges\n  - link function at runtime on Windows\n  - check OS version\n  - check if file exists\n  - query or enumerate registry value\n  - get disk information\n  - get disk size\n  - get file size\n  - enumerate files recursively\n  - query service status\n  - stop service\n  - delete service\n  - delete registry key\n  - persist via Windows service\n  - overwrite Master Boot Record (MBR)\n  - find graphical window\n  - hide the Windows taskbar\n  - write process memory\n  - link many functions at runtime\n  - inject thread\n  - write file to startup folder\n  - log keystrokes via polling\n  - get CPU information\n  - get hostname\n  - get memory capacity\n  - get system information on Windows\n  - get socket information\n  - get local IPv4 addresses\n  - query or enumerate registry key\n  - delete registry value\n  - log keystrokes\n  - enumerate services\n  - modify service\n  - start service\n  - execute shell command and capture output\n  - enumerate process modules\n  - enumerate processes\n  - enumerate gui resources\n  - get session information\n  - get session user name\n  - download and write a file\n  - get socket status\n  - reference Base64 string\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Process::Terminate Thread [C0039]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Thread [C0038]\n  - Process::Resume Thread [C0054]\n  - Memory::Allocate Memory [C0007]\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - File System::Create File [C0016]\n  - get user security identifier\n  - File System::Get File Attributes [C0049]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Create Process [C0017]\n  - get file system object information\n  - reference absolute stream path on Windows\n  - hide graphical window\n  - power down monitor\n  - acquire debug privileges\n  - Process::Open Process [C0065]\n  - get startup folder\n  - File System::Set File Attributes [C0050]\n  - Process::Create Process::Create Suspended Process [C0017.003]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - access PEB ldr_data\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (2):\n  C:\\Documents and Settings\\All Users\\Application Data\\Microsoft\\Dr Watson\\drwtsn32.log\n  C:\\Program Files\\Internet Explorer\\iexplore0.exe\n\nMUTEXES CREATED (9):\n  +/vn+r34Bfm9AACf\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  DBWinMutex\n  Local\\MSCTF.Asm.MutexDefault0\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA, CreateRemoteThread, GetProcAddress, LoadLibraryW, VirtualAlloc, VirtualAllocEx, WinExec, WriteProcessMemory\n  ADVAPI32.dll: AdjustTokenPrivileges, OpenProcessToken\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.41\n  .rdata       entropy=4.63\n  .data        entropy=3.27\n  .rsrc        entropy=6.94\n  nwlmpzp      entropy=0.0\n  [overlay]    entropy=0.0  size=14484\n",
+  "ground_truth": {
+    "hash": "11981d231745ea4ee0e7ee633bdf184dbfc65cd7f2b25c9cb5da97bda7ba5b46",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8116,
+    "malicious_count": 56,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 17
+      },
+      {
+        "value": "virus",
+        "count": 4
+      },
+      {
+        "value": "downloader",
+        "count": 3
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "killmbr",
+        "count": 6
+      },
+      {
+        "value": "farfli",
+        "count": 5
+      },
+      {
+        "value": "zegost",
+        "count": 5
+      }
+    ],
+    "suggested_label": "trojan.killmbr/farfli",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1007",
+        "signature_description": "query service status"
+      },
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1016",
+        "signature_description": "get socket information"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1033",
+        "signature_description": "get session information"
+      },
+      {
+        "id": "T1055",
+        "signature_description": "write process memory"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate process modules"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "execute shell command and capture output"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "check OS version"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file system object information"
+      },
+      {
+        "id": "T1087",
+        "signature_description": "get user security identifier"
+      },
+      {
+        "id": "T1098",
+        "signature_description": "add user account to group"
+      },
+      {
+        "id": "T1105",
+        "signature_description": "download and write a file"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry key"
+      },
+      {
+        "id": "T1115",
+        "signature_description": "open clipboard"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "acquire debug privileges"
+      },
+      {
+        "id": "T1136",
+        "signature_description": "add user account"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1489",
+        "signature_description": "stop service"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1529",
+        "signature_description": "shutdown system"
+      },
+      {
+        "id": "T1531",
+        "signature_description": "delete user account"
+      },
+      {
+        "id": "T1543",
+        "signature_description": "stop service"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "get startup folder"
+      },
+      {
+        "id": "T1561",
+        "signature_description": "overwrite Master Boot Record (MBR)"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      },
+      {
+        "id": "T1620",
+        "signature_description": "inject thread"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "terminate thread",
+      "delay execution",
+      "create thread",
+      "resume thread",
+      "allocate memory",
+      "allocate RW memory",
+      "contain obfuscated stackstrings",
+      "create or open file",
+      "get user security identifier",
+      "get file attributes",
+      "create or open registry key",
+      "create process on Windows",
+      "get file system object information",
+      "reference absolute stream path on Windows",
+      "hide graphical window",
+      "power down monitor",
+      "acquire debug privileges",
+      "open process",
+      "allocate RWX memory",
+      "get startup folder",
+      "set file attributes",
+      "create process suspended",
+      "PEB access",
+      "access PEB ldr_data",
+      "create TCP socket",
+      "create UDP socket",
+      "list groups for user account",
+      "add user account",
+      "add user account to group",
+      "delete user account",
+      "list user accounts",
+      "encode data using XOR",
+      "contain loop",
+      "open clipboard",
+      "read clipboard data",
+      "get common file path",
+      "enumerate files on Windows",
+      "get OS version",
+      "interact with driver via control codes",
+      "shutdown system",
+      "modify access privileges",
+      "write file on Windows",
+      "write clipboard data",
+      "replace clipboard data",
+      "set socket configuration",
+      "send data on socket",
+      "send data",
+      "read .ini file",
+      "link function at runtime on Windows",
+      "check OS version",
+      "delete file",
+      "create directory",
+      "check if file exists",
+      "query or enumerate registry value",
+      "get disk information",
+      "get disk size",
+      "get file size",
+      "read file on Windows",
+      "enumerate files recursively",
+      "move file",
+      "get service handle",
+      "query service status",
+      "stop service",
+      "delete service",
+      "delete registry key",
+      "set registry value",
+      "persist via Windows service",
+      "overwrite Master Boot Record (MBR)",
+      "find graphical window",
+      "manipulate CD-ROM drive",
+      "swap mouse buttons",
+      "find taskbar",
+      "hide the Windows taskbar",
+      "write process memory",
+      "link many functions at runtime",
+      "inject thread",
+      "spawn thread to RWX shellcode",
+      "terminate process",
+      "write file to startup folder",
+      "get graphical window text",
+      "log keystrokes via polling",
+      "create HTTP request",
+      "connect to URL",
+      "read data from Internet",
+      "receive data",
+      "get CPU information",
+      "get hostname",
+      "get memory capacity",
+      "get system information on Windows",
+      "get socket information",
+      "get local IPv4 addresses",
+      "initialize Winsock library",
+      "resolve DNS",
+      "print debug messages",
+      "copy file",
+      "create mutex",
+      "check mutex and exit",
+      "query or enumerate registry key",
+      "delete registry value",
+      "log keystrokes",
+      "check for time delay via GetTickCount",
+      "enumerate services",
+      "modify service",
+      "start service",
+      "create pipe",
+      "create two anonymous pipes",
+      "create a process with modified I/O handles and window",
+      "execute shell command and capture output",
+      "read pipe",
+      "enumerate process modules",
+      "enumerate processes",
+      "enumerate gui resources",
+      "get session information",
+      "get session user name",
+      "simulate CTRL ALT DEL",
+      "download and write a file",
+      "receive and write data from server to client",
+      "send HTTP request",
+      "receive data on socket",
+      "connect TCP socket",
+      "act as TCP client",
+      "start TCP server",
+      "get socket status",
+      "resolve function by parsing PE exports",
+      "extract resource via kernel32 functions",
+      "get thread local storage value",
+      "contain a resource (.rsrc) section",
+      "reference Base64 string",
+      "reference anti-VM strings",
+      "linked against ZLIB",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [
+        "47.91.234.63",
+        "67.198.196.97"
+      ],
+      "domains": [
+        "llxm.kfj.cc",
+        "tom-pc"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "+/vn+r34Bfm9AACf",
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "DBWinMutex",
+        "Local\\MSCTF.Asm.MutexDefault0"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "Rising MOVES",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

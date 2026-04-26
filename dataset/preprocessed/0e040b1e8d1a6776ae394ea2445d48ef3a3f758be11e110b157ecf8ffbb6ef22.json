@@ -1,0 +1,79 @@
+{
+  "hash": "0e040b1e8d1a6776ae394ea2445d48ef3a3f758be11e110b157ecf8ffbb6ef22",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  hohoho.ho.funpic.org\n\nIP TRAFFIC (1):\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  jusched.exe\n    C:\\Program Files (x86)\\Java\\jre-09\\bin\\jusched.exe\n\nCOMMAND EXECUTIONS (4):\n  C:\\Program Files (x86)\\Java\\jre-09\\bin\\jusched.exe\n  ( 2492 - cmd.exe ) c:\\windows\\system32\\cmd.exe /c \"c:\\users\\user41~1\\appdata\\local\\temp\\bksmfjxl.exe\"\n  ( 3980 - bksmfjxl.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\bksmfjxl.exe\n  ( 740 - jusched.exe ) \"c:\\program files (x86)\\java\\jre-09\\bin\\jusched.exe\" \n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - parse PE header\n  - get geographical location\n  - accept command line arguments\n  - query environment variable\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Memory::Allocate Memory [C0007]\n  - File System::Create File [C0016]\n  - contain loop\n  - resolve function by parsing PE exports\n  - parse PE header\n  - get geographical location\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Process::Terminate Process [C0018]\n  - Discovery::System Information Discovery [E1082]\n  - File System::Read File [C0051]\n  - File System::Writes File [C0052]\n  - File System::Delete File [C0047]\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  C:\\Program Files (x86)\\Java\\jre-09\\bin\\jusched.exe  [sha256: d2b763b8e66144b3...]\n  c:\\program files (x86)\\java\\jre-09\\bin\\jusched.exe  [sha256: 0e040b1e8d1a6776...]\n\nFILES WRITTEN (3):\n  ( 3980 - bksmfjxl.exe ) c:\\program files (x86)\\java\\jre-09\\bin\\jusched.exe\n  ( 3980 - bksmfjxl.exe ) c:\\program files (x86)\\java\\jre-09\\bin\\uf\n  C:\\Program Files (x86)\\Java\\jre-09\\bin\\UF\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\AuthorizedApplications\\List\\C:\\Program Files (x86)\\Java\\jre-09\\bin\\jusched.exe = C:\\Program Files (x86)\\Java\\jre-09\\bin\\jusched.exe:*:Enabled:JavaUpdate9\n\nMUTEXES CREATED (1):\n  _SHuassist.mtx\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Linker] Polink\n\nPE SECTIONS (entropy):\n  .text        entropy=6.44\n  .rdata       entropy=5.45\n  .data        entropy=1.9\n  .rsrc        entropy=3.62\n  [overlay]    entropy=3.8711540699005127  size=448\n",
+  "ground_truth": {
+    "hash": "0e040b1e8d1a6776ae394ea2445d48ef3a3f758be11e110b157ecf8ffbb6ef22",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9296,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "delay execution",
+      "allocate memory",
+      "allocate RW memory",
+      "create or open file",
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "parse PE header",
+      "get geographical location",
+      "accept command line arguments",
+      "terminate process",
+      "query environment variable",
+      "read file on Windows",
+      "write file on Windows",
+      "delete file",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "hohoho.ho.funpic.org"
+      ],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\AuthorizedApplications\\List\\C:\\Program Files (x86)\\Java\\jre-09\\bin\\jusched.exe"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "C:\\Program Files (x86)\\Java\\jre-09\\bin\\jusched.exe",
+        "c:\\program files (x86)\\java\\jre-09\\bin\\jusched.exe"
+      ],
+      "mutexes": [
+        "_SHuassist.mtx"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "ReaQta-Hive",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

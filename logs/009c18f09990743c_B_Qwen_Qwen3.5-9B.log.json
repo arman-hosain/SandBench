@@ -1,0 +1,180 @@
+{
+  "hash": "009c18f09990743c367d6c238438e000afd34194e851faa355e7002c8c0bcfe8",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is confirmed malicious. It exhibits a classic dropper/spyware behavior pattern: it drops multiple child processes with random names to the Temp directory, utilizes extensive anti-analysis techniques (anti-debugging, PEB access, thread manipulation), and employs strong encryption (XOR, DES, RC4, RC6). Crucially, it demonstrates active data exfiltration capabilities by logging keystrokes, capturing screenshots, accessing the clipboard, and capturing webcam images. The combination of evasion, persistence via multiple processes, and direct information gathering confirms its malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Spyware\"],\n    \"explanation\": \"The sample is classified as a Trojan and Spyware. It acts as a Trojan by deceiving the user (via a generic name like C0ATO.exe) to execute a payload that drops and runs multiple child processes. It is classified as Spyware because the Capa analysis explicitly identifies capabilities for 'log keystrokes via polling', 'capture screenshot', 'open clipboard', and 'capture webcam image', indicating its primary function is the theft of user data.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1055.012\",\n        \"name\": \"Process Injection - Process Hollowing\"\n      },\n      {\n        \"id\": \"T1055.015\",\n        \"name\": \"Process Injection - Thread Suspension and Resumption\"\n      },\n      {\n        \"id\": \"T1055.017\",\n        \"name\": \"Process Injection - Dynamic Resolution of Functions\"\n      },\n      {\n        \"id\": \"T1056\",\n        \"name\": \"Credential Access\"\n      },\n      {\n        \"id\": \"T1056.001\",\n        \"name\": \"Keylogging\"\n      },\n      {\n        \"id\": \"T1005\",\n        \"name\": \"Data from Local System\"\n      },\n      {\n        \"id\": \"T1005.001\",\n        \"name\": \"Data from Local System - Clipboard Data\"\n      },\n      {\n        \"id\": \"T1005.002\",\n        \"name\": \"Data from Local System - Screenshot\"\n      },\n      {\n        \"id\": \"T1005.003\",\n        \"name\": \"Data from Local System - Webcam\"\n      },\n      {\n        \"id\": \"T1012\",\n        \"name\": \"Data from Local System\"\n      },\n      {\n        \"id\": \"T1012.001\",\n        \"name\": \"Data from Local System - Registry\"\n      },\n      {\n        \"id\": \"T1083\",\n        \"name\": \"File and Directory Discovery\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 5777,
+      "response_chars": 13335,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including spawning multiple child processes with random names, dropping numerous files to the Temp directory, and utilizing advanced evasion techniques such as anti-debugging, process hollowing/thread manipulation, and extensive data encryption (XOR, DES, RC4, RC6). The presence of keylogging c",
+      "elapsed_seconds": 76.35
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "9 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 9,
+      "ttps_found": [
+        "T1027",
+        "T1055"
+      ],
+      "hallucinated_ttps": [
+        "T1055"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 1
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- query or enumerate registry value\n- log keystrokes via polling\n- get process heap flags\n- get number of processors\n- enumerate files on Windows\n- capture screenshot\n- open clipboard\n- capture webcam image\n- access PEB ldr_data\n\nInstructions:\n- Add a TTP",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1005",
+        "T1012",
+        "T1027",
+        "T1055",
+        "T1056",
+        "T1083"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 4,
+      "best_ttp_fp": 2
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "6 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 6,
+      "ttps_found": [
+        "T1005",
+        "T1012",
+        "T1027",
+        "T1055",
+        "T1056",
+        "T1083"
+      ],
+      "hallucinated_ttps": [
+        "T1005",
+        "T1055"
+      ],
+      "ttp_tp": 4,
+      "ttp_fp": 2
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- get process heap flags\n- get number of processors\n- capture screenshot\n- open clipboard\n- capture webcam image\n- access PEB ldr_data\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not inve",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1005",
+        "T1012",
+        "T1027",
+        "T1055",
+        "T1056",
+        "T1083"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 4,
+      "best_ttp_fp": 2
+    },
+    {
+      "step": 8,
+      "type": "refinement_stopped",
+      "iteration": 2,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 4,
+      "ttp_fp": 2
+    }
+  ],
+  "total_llm_calls": 3,
+  "total_elapsed": 101.96,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8986
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.5,
+      "ttp_precision": 0.6667,
+      "ttp_recall": 0.4,
+      "gt_ttps": [
+        "T1012",
+        "T1027",
+        "T1056",
+        "T1057",
+        "T1082",
+        "T1083",
+        "T1113",
+        "T1115",
+        "T1125",
+        "T1129"
+      ],
+      "pred_ttps": [
+        "T1005",
+        "T1012",
+        "T1027",
+        "T1055",
+        "T1056",
+        "T1083"
+      ],
+      "tp": 4,
+      "q3_hallucinated_ttps": [
+        "T1005",
+        "T1055"
+      ],
+      "q3_missed_ttps": [
+        "T1057",
+        "T1082",
+        "T1113",
+        "T1115",
+        "T1125",
+        "T1129"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5,
+      "breakdown": {
+        "ttp_f1": 0.5
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

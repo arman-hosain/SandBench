@@ -1,0 +1,107 @@
+{
+  "hash": "1640fff65d2d0bad25fcb489de95ce35e64cb3a2acca8ff0c24f5e21893878b1",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ec47bd1fef1f871d6fb3a9bda10c1a97.virus.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\3582-490\\ec47bd1fef1f871d6fb3a9bda10c1a97.virus.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\3582-490\\1640fff65d2d0bad25fcb489de95ce35e64cb3a2acca8ff0c24f5e21893878b1 [(null)]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\3582-490\\ec47bd1fef1f871d6fb3a9bda10c1a97.virus.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (10):\n  - encode data using XOR\n  - set file attributes\n  - query or enumerate registry value\n  - get geographical location\n  - accept command line arguments\n  - get common file path\n  - enumerate files on Windows\n  - get file size\n  - capture screenshot\n  - get disk information\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - Cryptography::Generate Pseudo-random Sequence [C0021]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - File System::Create File [C0016]\n  - File System::Get File Attributes [C0049]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - File System::Set File Attributes [C0050]\n  - Process::Create Process [C0017]\n  - contain loop\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - File System::Writes File [C0052]\n  - get geographical location\n  - Execution::Command and Scripting Interpreter [E1059]\n  - get OS version\n  - Process::Set Thread Local Storage Value [C0041]\n  - get thread local storage value\n  - Process::Create Mutex [C0042]\n  - File System::Read File [C0051]\n  - File System::Create Directory [C0046]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Delete File [C0047]\n  - contain pusha popa sequence\n\n--- ARTIFACTS ---\n\nFILES DROPPED (4):\n  1640fff65d2d0bad25fcb489de95ce35e64cb3a2acca8ff0c24f5e21893878b1  [sha256: b9f1d4b16a667463...]\n  svchost.com  [sha256: d245036b14f38f9d...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\3582-490\\ec47bd1fef1f871d6fb3a9bda10c1a97.virus.exe  [sha256: b9f1d4b16a667463...]\n  C:\\Windows\\svchost.com  [sha256: d245036b14f38f9d...]\n\nFILES WRITTEN (3):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\3582-490\\1640fff65d2d0bad25fcb489de95ce35e64cb3a2acca8ff0c24f5e21893878b1\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\tmp5023.tmp\n  C:\\WINDOWS\\svchost.com\n\nOTHER REGISTRY KEYS SET (1):\n  HKCR\\exefile\\shell\\open\\command\\\n\nMUTEXES CREATED (1):\n  MutexPolesskayaGlush*.*\u0090svchost.com\u0090exefile\\shell\\open\\command\u2039\u00c0 \"%1\" %*\u0153\u2018@\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: VirtualAlloc, WinExec\n\nCOMPILER AND PACKER:\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n\nPE SECTIONS (entropy):\n  CODE         entropy=6.51\n  DATA         entropy=3.15\n  BSS          entropy=0.0\n  .idata       entropy=4.17\n  .tls         entropy=0.0\n  .rdata       entropy=0.21\n  .reloc       entropy=6.44\n  .rsrc        entropy=6.36\n  [overlay]    entropy=6.947782516479492  size=81254\n",
+  "ground_truth": {
+    "hash": "1640fff65d2d0bad25fcb489de95ce35e64cb3a2acca8ff0c24f5e21893878b1",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9014,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "neshuta-1",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk information"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1113",
+        "signature_description": "capture screenshot"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "allocate RW memory",
+      "generate random numbers using the Delphi LCG",
+      "create or open registry key",
+      "create or open file",
+      "get file attributes",
+      "encode data using XOR",
+      "set file attributes",
+      "create process on Windows",
+      "contain loop",
+      "query or enumerate registry value",
+      "write file on Windows",
+      "get geographical location",
+      "accept command line arguments",
+      "get OS version",
+      "set thread local storage value",
+      "get thread local storage value",
+      "create mutex",
+      "read file on Windows",
+      "create directory",
+      "get common file path",
+      "enumerate files on Windows",
+      "delete file",
+      "contain pusha popa sequence",
+      "set registry value",
+      "get file size",
+      "capture screenshot",
+      "get disk information",
+      "set current directory",
+      "contain a thread local storage (.tls) section",
+      "contain a resource (.rsrc) section",
+      "compiled with Borland Delphi"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "1640fff65d2d0bad25fcb489de95ce35e64cb3a2acca8ff0c24f5e21893878b1",
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\3582-490\\ec47bd1fef1f871d6fb3a9bda10c1a97.virus.exe",
+        "C:\\Windows\\svchost.com",
+        "svchost.com"
+      ],
+      "mutexes": [
+        "MutexPolesskayaGlush*.*\u0090svchost.com\u0090exefile\\shell\\open\\command\u2039\u00c0 \"%1\" %*\u0153\u2018@"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

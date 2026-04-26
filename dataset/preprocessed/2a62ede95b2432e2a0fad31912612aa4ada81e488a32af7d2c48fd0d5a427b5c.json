@@ -1,0 +1,134 @@
+{
+  "hash": "2a62ede95b2432e2a0fad31912612aa4ada81e488a32af7d2c48fd0d5a427b5c",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  C:\\Users\\Olivia\\AppData\\Local\\Temp\\rPNSsqgU9VQgqNQLhirD.exe\n\nCOMMAND EXECUTIONS (2):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\3582-490\\89690838474b73406e285a1a9d5e7194.virus.exe\n  C:\\Users\\Olivia\\AppData\\Local\\Temp\\rPNSsqgU9VQgqNQLhirD.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (10):\n  - encode data using XOR\n  - set file attributes\n  - query or enumerate registry value\n  - get geographical location\n  - accept command line arguments\n  - get common file path\n  - enumerate files on Windows\n  - get file size\n  - capture screenshot\n  - get disk information\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - Cryptography::Generate Pseudo-random Sequence [C0021]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - File System::Create File [C0016]\n  - File System::Get File Attributes [C0049]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - File System::Set File Attributes [C0050]\n  - Process::Create Process [C0017]\n  - contain loop\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - File System::Writes File [C0052]\n  - get geographical location\n  - Execution::Command and Scripting Interpreter [E1059]\n  - get OS version\n  - Process::Set Thread Local Storage Value [C0041]\n  - get thread local storage value\n  - Process::Create Mutex [C0042]\n  - File System::Read File [C0051]\n  - File System::Create Directory [C0046]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Delete File [C0047]\n  - contain pusha popa sequence\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\3582-490\\89690838474b73406e285a1a9d5e7194.virus.exe  [sha256: 3b8c614d8ce278f1...]\n  C:\\Windows\\svchost.com  [sha256: 31d5d27b2833965a...]\n\nOTHER REGISTRY KEYS SET (3):\n  HKCR\\exefile\\shell\\open\\command\\\n  HKU\\S-1-5-21-1143565567-962705147-4090495373-1003\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\INTERNET SETTINGS\\ZONEMAP\n  HKLM\\SOFTWARE\\CLASSES\\EXEFILE\\SHELL\\OPEN\\COMMAND\n\nMUTEXES CREATED (6):\n  Global\\SyncRootManager\n  Local\\SM0:1032:168:WilStaging_02\n  Local\\SM0:1032:64:WilError_01\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n  MutexPolesskayaGlush*.*\u0090svchost.com\u0090exefile\\shell\\open\\command\u2039\u00c0 \"%1\" %*\u0153\u2018@\n\nMUTEXES OPENED (1):\n  Local\\ShimViewer\n\nPROCESSES CREATED (1):\n  C:\\Users\\Olivia\\AppData\\Local\\Temp\\rPNSsqgU9VQgqNQLhirD.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: VirtualAlloc, WinExec\n\nCOMPILER AND PACKER:\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n\nPE SECTIONS (entropy):\n  CODE         entropy=6.51\n  DATA         entropy=3.15\n  BSS          entropy=0.0\n  .idata       entropy=4.17\n  .tls         entropy=0.0\n  .rdata       entropy=0.21\n  .reloc       entropy=6.44\n  .rsrc        entropy=5.1\n  [overlay]    entropy=7.917362689971924  size=41472\n",
+  "ground_truth": {
+    "hash": "2a62ede95b2432e2a0fad31912612aa4ada81e488a32af7d2c48fd0d5a427b5c",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9444,
+    "malicious_count": 68,
+    "popular_threat_category": [
+      {
+        "value": "virus",
+        "count": 24
+      },
+      {
+        "value": "trojan",
+        "count": 4
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "neshta",
+        "count": 38
+      },
+      {
+        "value": "hllp",
+        "count": 3
+      },
+      {
+        "value": "apanas",
+        "count": 2
+      }
+    ],
+    "suggested_label": "virus.neshta/hllp",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk information"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1113",
+        "signature_description": "capture screenshot"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "allocate RW memory",
+      "generate random numbers using the Delphi LCG",
+      "create or open registry key",
+      "create or open file",
+      "get file attributes",
+      "encode data using XOR",
+      "set file attributes",
+      "create process on Windows",
+      "contain loop",
+      "query or enumerate registry value",
+      "write file on Windows",
+      "get geographical location",
+      "accept command line arguments",
+      "get OS version",
+      "set thread local storage value",
+      "get thread local storage value",
+      "create mutex",
+      "read file on Windows",
+      "create directory",
+      "get common file path",
+      "enumerate files on Windows",
+      "delete file",
+      "contain pusha popa sequence",
+      "set registry value",
+      "get file size",
+      "capture screenshot",
+      "get disk information",
+      "set current directory",
+      "contain a thread local storage (.tls) section",
+      "contain a resource (.rsrc) section",
+      "compiled with Borland Delphi"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 3,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\3582-490\\89690838474b73406e285a1a9d5e7194.virus.exe",
+        "C:\\Windows\\svchost.com"
+      ],
+      "mutexes": [
+        "Global\\SyncRootManager",
+        "Local\\SM0:1032:168:WilStaging_02",
+        "Local\\SM0:1032:64:WilError_01",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "MutexPolesskayaGlush*.*\u0090svchost.com\u0090exefile\\shell\\open\\command\u2039\u00c0 \"%1\" %*\u0153\u2018@"
+      ],
+      "processes": [
+        "C:\\Users\\Olivia\\AppData\\Local\\Temp\\rPNSsqgU9VQgqNQLhirD.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Lastline",
+    "VirusTotal Jujubox"
+  ]
+}

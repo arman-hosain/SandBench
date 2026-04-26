@@ -1,0 +1,64 @@
+{
+  "hash": "14f022e849545d54dcde725ec115d44fdb5ae60acf552cf1b60113996955fc7d",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (5):\n  - set file attributes\n  - contain obfuscated stackstrings\n  - get system information on Windows\n  - link function at runtime on Windows\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - File System::Set File Attributes [C0050]\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - contain loop\n  - Discovery::File and Directory Discovery::Log File [E1083.m01]\n  - get system information on Windows\n  - File System::Read File [C0051]\n  - link function at runtime on Windows\n  - get thread local storage value\n  - print debug messages\n  - link many functions at runtime\n  - contain a resource (.rsrc) section\n  - linked against CPP standard library\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryExW\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.56\n  .rdata       entropy=4.66\n  .data        entropy=3.33\n  .rsrc        entropy=7.9\n  .reloc       entropy=6.44\n  [overlay]    entropy=2.503258466720581  size=9\n",
+  "ground_truth": {
+    "hash": "14f022e849545d54dcde725ec115d44fdb5ae60acf552cf1b60113996955fc7d",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8873,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get system information on Windows"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      }
+    ],
+    "capa_sig_names": [
+      "set file attributes",
+      "contain obfuscated stackstrings",
+      "delay execution",
+      "create or open file",
+      "contain loop",
+      "access the Windows event log",
+      "get system information on Windows",
+      "read .ini file",
+      "link function at runtime on Windows",
+      "get thread local storage value",
+      "print debug messages",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section",
+      "linked against CPP standard library"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

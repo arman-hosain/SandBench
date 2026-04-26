@@ -1,0 +1,88 @@
+{
+  "hash": "39bc167c16825916955ac0c5ba5d19ee859e0c44e0f7350cd66f86d3ad938db0",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\39bc167c16825916955ac0c5ba5d19ee859e0c44e0f7350cd66f86d3ad938db0.cab\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (8):\n  - set file attributes\n  - timestomp file\n  - enumerate files on Windows\n  - enumerate files recursively\n  - get disk information\n  - get file size\n  - link function at runtime on Windows\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - Process::Create Process [C0017]\n  - File System::Set File Attributes [C0050]\n  - File System::Create File [C0016]\n  - File System::Get File Attributes [C0049]\n  - contain loop\n  - extract resource via kernel32 functions\n  - timestomp file\n  - File System::Delete File [C0047]\n  - File System::Copy File [C0045]\n  - File System::Read File [C0051]\n  - Discovery::File and Directory Discovery [E1083]\n  - Discovery::System Information Discovery [E1082]\n  - File System::Writes File [C0052]\n  - Process::Terminate Process [C0018]\n  - Process::Allocate Thread Local Storage [C0040]\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - contain a resource (.rsrc) section\n  - contains PDB path\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (9):\n  DW20.EXE  [sha256: d099cccc49f0e104...]\n  DWTRIG20.EXE  [sha256: d38f675e49ffecba...]\n  icwconn1.exe  [sha256: b85b23c7101036e3...]\n  icwconn2.exe  [sha256: 581cf40ad904ced7...]\n  iedw.exe  [sha256: de4744251b4fd609...]\n  IEXPLORE.EXE  [sha256: 37c6f47f5f2b2a67...]\n  msmsgs.exe  [sha256: c8cd72c5d2110c99...]\n  uninst.exe  [sha256: 07a660feea5dec29...]\n  VBoxControl.exe  [sha256: c607e4bbe0162fc3...]\n\nFILES WRITTEN (30):\n  C:\\39bc167c16825916955ac0c5ba5d19ee859e0c44e0f7350cd66f86d3ad938db0\n  C:\\Program Files\\Common Files\\Microsoft Shared\\DW\\DW20.EXE\n  C:\\Program Files\\Common Files\\Microsoft Shared\\DW\\DWTRIG20.EXE\n  C:\\Program Files\\Common Files\\Microsoft Shared\\DW\\RCX3.tmp\n  C:\\Program Files\\Common Files\\Microsoft Shared\\DW\\RCX4.tmp\n  C:\\Program Files\\Common Files\\Microsoft Shared\\DW\\RCX5.tmp\n  C:\\Program Files\\Common Files\\Microsoft Shared\\DW\\RCX6.tmp\n  C:\\Program Files\\Common Files\\Microsoft Shared\\DW\\RCX7.tmp\n  C:\\Program Files\\Internet Explorer\\RCX13.tmp\n  C:\\Program Files\\Internet Explorer\\RCX15.tmp\n  C:\\Program Files\\Internet Explorer\\RCX16.tmp\n  C:\\Program Files\\Internet Explorer\\RCX17.tmp\n  C:\\Program Files\\Internet Explorer\\RCX18.tmp\n  C:\\Program Files\\Internet Explorer\\RCX19.tmp\n  C:\\Program Files\\Internet Explorer\\RCX1A.tmp\n  C:\\Program Files\\Internet Explorer\\RCX1B.tmp\n  C:\\Program Files\\ga\\RCX8.tmp\n  C:\\Program Files\\ga\\RCX9.tmp\n  C:\\Program Files\\ga\\RCXA.tmp\n  C:\\Program Files\\ga\\RCXB.tmp\n\nPROCESSES CREATED (1):\n  C:\\39bc167c16825916955ac0c5ba5d19ee859e0c44e0f7350cd66f86d3ad938db0.cab\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualAlloc, WinExec\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.51\n  .rdata       entropy=5.19\n  .data        entropy=7.88\n  .rsrc        entropy=3.77\n  [overlay]    entropy=0.0  size=1325170\n",
+  "ground_truth": {
+    "hash": "39bc167c16825916955ac0c5ba5d19ee859e0c44e0f7350cd66f86d3ad938db0",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9444,
+    "malicious_count": 68,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1070",
+        "signature_description": "timestomp file"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk information"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "enumerate files on Windows"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      }
+    ],
+    "capa_sig_names": [
+      "create process on Windows",
+      "set file attributes",
+      "create or open file",
+      "get file attributes",
+      "contain loop",
+      "extract resource via kernel32 functions",
+      "timestomp file",
+      "delete file",
+      "copy file",
+      "read file on Windows",
+      "enumerate files on Windows",
+      "enumerate files recursively",
+      "get disk information",
+      "write file on Windows",
+      "get file size",
+      "terminate process",
+      "allocate thread local storage",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section",
+      "contains PDB path"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "DW20.EXE",
+        "DWTRIG20.EXE",
+        "IEXPLORE.EXE",
+        "VBoxControl.exe",
+        "icwconn1.exe",
+        "icwconn2.exe",
+        "iedw.exe",
+        "msmsgs.exe",
+        "uninst.exe"
+      ],
+      "mutexes": [],
+      "processes": [
+        "C:\\39bc167c16825916955ac0c5ba5d19ee859e0c44e0f7350cd66f86d3ad938db0.cab"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

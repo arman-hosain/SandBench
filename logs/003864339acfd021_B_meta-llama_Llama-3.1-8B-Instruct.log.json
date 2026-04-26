@@ -1,0 +1,109 @@
+{
+  "hash": "003864339acfd0219e7704afef2dee303e3151d687ac5b864475955b3bf8ace8",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity, including DNS lookups and HTTP conversations with a suspicious domain. It also modifies the registry, deletes browser helper objects, and creates persistence mechanisms. Additionally, it is packed with UPX and has low entropy in certain sections, indicating potential obfuscation.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior suggests it is a Trojan, as it establishes a connection to a suspicious domain, modifies the registry, and creates persistence mechanisms. It also deletes browser helper objects, which is a common tactic used by Trojans to evade detection.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 5640,
+      "response_chars": 818,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity, including DNS lookups and HTTP conversations with a suspicious domain. It also modifies the registry, deletes browser helper objects, and creates persistence mechanisms. Additionally, it is packed with UPX and has low entropy in certain sections, indicating potential obfuscation.\"\n  },\n  \"q",
+      "elapsed_seconds": 3.48
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "1 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 1,
+      "ttps_found": [
+        "T1218"
+      ],
+      "hallucinated_ttps": [
+        "T1218"
+      ],
+      "ttp_tp": 0,
+      "ttp_fp": 1
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- packed with UPX\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by the report.\nDIRECTION: ADD_TTPS",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1218"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 0,
+      "best_ttp_fp": 1
+    },
+    {
+      "step": 5,
+      "type": "refinement_stopped",
+      "iteration": 1,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 0,
+      "ttp_fp": 1
+    }
+  ],
+  "total_llm_calls": 2,
+  "total_elapsed": 7.91,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8873
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1218"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1027"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

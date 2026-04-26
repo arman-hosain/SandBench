@@ -1,0 +1,80 @@
+{
+  "hash": "16f5fa1edddf3eb50a784af6c21806c9b2db3b827c7c7e5c4a2989259052d81f",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (9):\n  - encode data using XOR\n  - access PEB ldr_data\n  - get ntdll base address\n  - encrypt data using AES\n  - reference AES constants\n  - check OS version\n  - get geographical location\n  - link function at runtime on Windows\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Process::Open Process [C0065]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - listen for remote procedure calls\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - access PEB ldr_data\n  - get ntdll base address\n  - File System::Create File [C0016]\n  - contain loop\n  - Defense Evasion::Obfuscated Files or Information::Encryption-Standard Algorithm [E1027.m05]\n  - Cryptography::Encrypt Data::AES [C0027.001]\n  - reference AES constants\n  - get OS version\n  - Process::Terminate Process [C0018]\n  - Discovery::System Information Discovery [E1082]\n  - resolve function by parsing PE exports\n  - Data::Check String [C0019]\n  - Data::Non-Cryptographic Hash::FNV [C0030.005]\n  - Communication::Interprocess Communication::Create Pipe [C0003.001]\n  - get thread local storage value\n  - get geographical location\n  - File System::Writes File [C0052]\n  - print debug messages\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA, GetProcAddress, LoadLibraryExW, LoadLibraryW\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.68\n  .rdata       entropy=4.75\n  .data        entropy=7.48\n  .rsrc        entropy=4.72\n  .reloc       entropy=2.34\n  [overlay]    entropy=7.487459182739258  size=1256\n",
+  "ground_truth": {
+    "hash": "16f5fa1edddf3eb50a784af6c21806c9b2db3b827c7c7e5c4a2989259052d81f",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8194,
+    "malicious_count": 59,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "check OS version"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "encode data using XOR",
+      "open process",
+      "delay execution",
+      "listen for remote procedure calls",
+      "PEB access",
+      "access PEB ldr_data",
+      "get ntdll base address",
+      "create or open file",
+      "contain loop",
+      "encrypt data using AES",
+      "reference AES constants",
+      "get OS version",
+      "terminate process",
+      "check OS version",
+      "resolve function by parsing PE exports",
+      "parse credit card information",
+      "hash data using fnv",
+      "create pipe",
+      "get thread local storage value",
+      "get geographical location",
+      "write file on Windows",
+      "print debug messages",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "read file on Windows",
+      "linked against CPP regex library",
+      "linked against CPP standard library",
+      "contain a resource (.rsrc) section",
+      "contains PDB path"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

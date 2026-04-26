@@ -1,0 +1,103 @@
+{
+  "hash": "14ff37454b52ba753a1f477e0a047d4b63d1803978b522bbf06bbdb80e17c655",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nSERVICES OPENED (4):\n  RASMAN\n  RasMan\n  RemoteAccess\n  Router\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  vssvc.pe32\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (10):\n  - list user accounts for group\n  - accept command line arguments\n  - get disk information\n  - delete registry key\n  - query or enumerate registry key\n  - query or enumerate registry value\n  - interact with driver via control codes\n  - parse PE header\n  - get file size\n  - get token membership\n\nCAPA RULE MATCHES (MBC):\n  - reference absolute stream path on Windows\n  - Process::Create Thread [C0038]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Open Thread [C0066]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Resume Thread [C0054]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - File System::Create File [C0016]\n  - list user accounts for group\n  - compare security identifiers\n  - contain loop\n  - Discovery::File and Directory Discovery::Log File [E1083.m01]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Discovery::System Information Discovery [E1082]\n  - Operating System::Registry::Delete Registry Key [C0036.002]\n  - Operating System::Registry::Query Registry Key [C0036.005]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - interact with driver via control codes\n  - parse PE header\n  - print debug messages\n  - File System::Writes File [C0052]\n  - Discovery::File and Directory Discovery [E1083]\n  - get token membership\n  - resolve function by parsing PE exports\n\n--- ARTIFACTS ---\n\nPERSISTENCE REGISTRY KEYS (2):\n  \\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\AuthorizedApplications\\List\\\\??\\C:\\WINDOWS\\system32\\winlogon.exe = \\??\\C:\\WINDOWS\\system32\\winlogon.exe:*:enabled:@shell32.dll,-1\u0000\n  \\REGISTRY\\USER\\.DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders\\Cache = C:\\Documents and Settings\\Administrator\\Local Settings\\Temporary Internet Files\u0000\n\nOTHER REGISTRY KEYS SET (4):\n  \\REGISTRY\\MACHINE\\SAM\\SAM\\Domains\\Account\\Users\\000001F4\\F\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\ProfileList\\S-1-5-21-1482476501-1645522239-1417001333-500\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Prefetcher\\TracesProcessed\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\SessionInformation\\ProgramCount\n\nMUTEXES CREATED (2):\n  RasPbFile\n  l0r2\n\nMUTEXES OPENED (4):\n  _!MSFTHISTORY!_\n  c:!documents and settings!administrator!cookies!\n  c:!documents and settings!administrator!local settings!history!history.ie5!\n  c:!documents and settings!administrator!local settings!temporary internet files!content.ie5!\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  ADVAPI32.dll: OpenProcessToken\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=5.99\n  .data        entropy=1.53\n  .rsrc        entropy=6.11\n",
+  "ground_truth": {
+    "hash": "14ff37454b52ba753a1f477e0a047d4b63d1803978b522bbf06bbdb80e17c655",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8873,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": null,
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry key"
+      },
+      {
+        "id": "T1033",
+        "signature_description": "get token membership"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1069",
+        "signature_description": "list user accounts for group"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk information"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry key"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      }
+    ],
+    "capa_sig_names": [
+      "reference absolute stream path on Windows",
+      "create thread",
+      "delay execution",
+      "open thread",
+      "create or open registry key",
+      "resume thread",
+      "PEB access",
+      "create or open file",
+      "list user accounts for group",
+      "compare security identifiers",
+      "contain loop",
+      "access the Windows event log",
+      "accept command line arguments",
+      "get disk information",
+      "delete registry key",
+      "query or enumerate registry key",
+      "query or enumerate registry value",
+      "interact with driver via control codes",
+      "parse PE header",
+      "print debug messages",
+      "write file on Windows",
+      "get file size",
+      "get token membership",
+      "resolve function by parsing PE exports",
+      "contain a resource (.rsrc) section",
+      "run as service"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "\\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\AuthorizedApplications\\List\\\\??\\C:\\WINDOWS\\system32\\winlogon.exe",
+        "\\REGISTRY\\USER\\.DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders\\Cache"
+      ],
+      "registry_all_count": 6,
+      "files_dropped": [],
+      "mutexes": [
+        "RasPbFile",
+        "l0r2"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "Tencent HABO"
+  ]
+}

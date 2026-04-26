@@ -1,0 +1,88 @@
+{
+  "hash": "0032eac4b51a66043b90e4d8b720413abb7e5fe2bd905cee272d6b6959899346",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as enumerating GUI resources, getting disk information, and checking if files exist. It also attempts to evade detection by referencing anti-VM strings targeting VirtualBox and Qemu. Furthermore, it creates mutexes and writes files to various locations on the system, indicating a potential malware infection.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior suggests that it is a Trojan, as it attempts to hide its presence and evade detection. It also creates mutexes and writes files to various locations on the system, which is consistent with the behavior of a Trojan.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"}\n  ]\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 3911,
+      "response_chars": 878,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as enumerating GUI resources, getting disk information, and checking if files exist. It also attempts to evade detection by referencing anti-VM strings targeting VirtualBox and Qemu. Furthermore, it creates mutexes and writes files to various locations on the system, indicating a potential malw",
+      "elapsed_seconds": 4.0
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 4.0,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": true,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9437
+    },
+    "family": {
+      "family_f1": 1.0,
+      "family_precision": 1.0,
+      "family_recall": 1.0,
+      "predicted": [
+        "trojan"
+      ],
+      "matched": [
+        "trojan"
+      ],
+      "reachable_gt": [
+        "trojan"
+      ],
+      "gt_pool": [
+        "ausiv",
+        "emnr",
+        "krap",
+        "trojan",
+        "virus"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1010",
+        "T1082",
+        "T1083",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1218"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1082",
+        "T1083",
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

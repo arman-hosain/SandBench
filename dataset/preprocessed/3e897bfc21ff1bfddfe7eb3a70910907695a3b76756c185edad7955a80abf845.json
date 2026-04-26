@@ -1,0 +1,83 @@
+{
+  "hash": "3e897bfc21ff1bfddfe7eb3a70910907695a3b76756c185edad7955a80abf845",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  GET https://tmupi.com/books/2204zr.exe\n  GET https://partners-gs.com/films/css/2204zr.exe\n\nDNS LOOKUPS (2):\n  partners-gs.com\n  tmupi.com\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  3e897bfc21ff1bfd_lasma.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\lasma.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\lasma.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - get file size\n  - get common file path\n  - download and write a file\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - Process::Create Process [C0017]\n  - Communication::HTTP Communication [C0002]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - Communication::HTTP Communication::Send Request [C0002.003]\n  - Communication::HTTP Communication::Create Request [C0002.012]\n  - File System::Delete File [C0047]\n  - Process::Terminate Process [C0018]\n  - File System::Read File [C0051]\n  - Communication::HTTP Communication::Connect to Server [C0002.009]\n  - Communication::HTTP Communication::Get Response [C0002.017]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - File System::Writes File [C0052]\n  - Command and Control::C2 Communication::Server to Client File Transfer [B0030.003]\n  - Execution::Install Additional Program [B0023]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - read and send data from client to server\n  - receive and write data from server to client\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\lasma.exe  [sha256: f8be2102217a696c...]\n\nFILES WRITTEN (1):\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\lasma.exe\n\nOTHER REGISTRY KEYS SET (2):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n\nMUTEXES CREATED (10):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  RasPbFile\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n\nMUTEXES OPENED (4):\n  _!MSFTHISTORY!_\n  c:!documents and settings!administrator!cookies!\n  c:!documents and settings!administrator!local settings!history!history.ie5!\n  c:!documents and settings!administrator!local settings!temporary internet files!content.ie5!\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=5.65\n  .rdata       entropy=3.68\n  .data        entropy=0.21\n  .rsrc        entropy=5.07\n  .reloc       entropy=1.65\n  [overlay]    entropy=3.447248697280884  size=2134\n",
+  "ground_truth": {
+    "hash": "3e897bfc21ff1bfddfe7eb3a70910907695a3b76756c185edad7955a80abf845",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9155,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1105",
+        "signature_description": "download and write a file"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "create process on Windows",
+      "get HTTP content length",
+      "contain loop",
+      "get file size",
+      "get common file path",
+      "send HTTP request",
+      "create HTTP request",
+      "delete file",
+      "terminate process",
+      "read file on Windows",
+      "connect to HTTP server",
+      "read data from Internet",
+      "receive data",
+      "write file on Windows",
+      "download and write a file",
+      "write and execute a file",
+      "send data",
+      "read and send data from client to server",
+      "receive and write data from server to client",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [
+        "partners-gs.com",
+        "tmupi.com"
+      ],
+      "urls": [
+        "https://partners-gs.com/films/css/2204zr.exe",
+        "https://tmupi.com/books/2204zr.exe"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 2,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\lasma.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "RasPbFile",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

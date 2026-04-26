@@ -1,0 +1,70 @@
+{
+  "hash": "39122afec3e39e9424618cade1280b17e54098d99a8e2718bf5879d92ca7ccea",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (3):\n  GET https://animalworld.ro/images/load.exe\n  GET https://antikvarium.ro/img/logo.exe\n  GET https://apdl-mures.org/images/save.exe\n\nDNS LOOKUPS (4):\n  animalworld.ro\n  animalworld.ro \u2192 85.217.170.193\n  antikvarium.ro\n  apdl-mures.org\n\nIP TRAFFIC (1):\n  85.217.170.193:443 (TCP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  zuty.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\zuty.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\zuty.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\zuty.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  zuty.exe  [sha256: 6789f0caf67136a3...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\zuty.exe  [sha256: 828c2a12cc3857ce...]\n\nFILES WRITTEN (2):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\zuty.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\zuty.exe\n\nOTHER REGISTRY KEYS SET (2):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n\nMUTEXES CREATED (10):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  RasPbFile\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n\nMUTEXES OPENED (4):\n  _!MSFTHISTORY!_\n  c:!documents and settings!administrator!cookies!\n  c:!documents and settings!administrator!local settings!history!history.ie5!\n  c:!documents and settings!administrator!local settings!temporary internet files!content.ie5!\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\zuty.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\zuty.exe\" \"\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.9\n  .rdata       entropy=5.73\n  .data        entropy=5.67\n  .rsrc        entropy=4.73\n  [overlay]    entropy=3.486570119857788  size=6154\n",
+  "ground_truth": {
+    "hash": "39122afec3e39e9424618cade1280b17e54098d99a8e2718bf5879d92ca7ccea",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9155,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "spy",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "85.217.170.193"
+      ],
+      "domains": [
+        "animalworld.ro",
+        "antikvarium.ro",
+        "apdl-mures.org"
+      ],
+      "urls": [
+        "https://animalworld.ro/images/load.exe",
+        "https://antikvarium.ro/img/logo.exe",
+        "https://apdl-mures.org/images/save.exe"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 2,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\zuty.exe",
+        "zuty.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "RasPbFile",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\zuty.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\zuty.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

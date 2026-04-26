@@ -1,0 +1,58 @@
+{
+  "hash": "3ef9957dd24c67e632c366982296bd553fe3af9e807dca9d36d523985717f831",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  6a98f92f8d60b448b1ed9fe750ba2666.virus.exe\n    \\backup.exe \\\n      C:\\Program Files\\backup.exe C:\\Program Files\\\n      C:\\PerfLogs\\backup.exe C:\\PerfLogs\\\n        C:\\PerfLogs\\Admin\\backup.exe C:\\PerfLogs\\Admin\\\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - contain a resource (.rsrc) section\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n  - (internal) packer file limitation\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES DROPPED (5):\n  C:\\Users\\<USER>\\Downloads\\backup.exe  [sha256: efca56e837772fc6...]\n  C:\\Users\\<USER>\\Downloads\\temp.zip  [sha256: 8739c76e681f9009...]\n  C:\\backup.exe  [sha256: f505d76220c7c83a...]\n  C:\\PerfLogs\\backup.exe  [sha256: 699d828ca769a5b2...]\n  C:\\PerfLogs\\Admin\\backup.exe  [sha256: 29a2faec8e7b8b35...]\n\nFILES WRITTEN (14):\n  C:\\3ef9957dd24c67e632c366982296bd553fe3af9e807dca9d36d523985717f831.dat\n  C:\\<USER>.zip\n  C:\\Documents and Settings\\backup.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\U4a02916\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF0B38146CF59C0809.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF6564475FE67BB112.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF8D1C8C94D3CDA27E.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DFF1BF1261C4D71A11.TMP\n  C:\\Users\\<USER>\\Downloads\\6a98f92f8d60b448b1ed9fe750ba2666.virus.dat\n  C:\\WINDOWS\\TEMP\\scs8.tmp\n  C:\\WINDOWS\\TEMP\\scs9.tmp\n  C:\\WINDOWS\\TEMP\\scsA.tmp\n  C:\\temp.zip\n  C:\\update.exe\n\nOTHER REGISTRY KEYS SET (4):\n  HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\CabinetState\\FullPath\n  HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\HideFileExt\n  HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Hidden\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoFolderOptions\n\nMUTEXES CREATED (2):\n  Pro3\n  ShimCacheMutex\n\nPROCESSES CREATED (4):\n  C:\\Documents and Settings\\backup.exe C:\\Documents and Settings\\\n  C:\\Program Files\\backup.exe C:\\Program Files\\\n  C:\\Python27\\backup.exe C:\\Python27\\\n  C:\\WINDOWS\\backup.exe C:\\WINDOWS\\\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Microsoft Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=4.66\n  UPX1         entropy=4.41\n  .rsrc        entropy=4.19\n  .imports     entropy=2.19\n  [overlay]    entropy=3.722435474395752  size=402\n",
+  "ground_truth": {
+    "hash": "3ef9957dd24c67e632c366982296bd553fe3af9e807dca9d36d523985717f831",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9296,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with UPX"
+      }
+    ],
+    "capa_sig_names": [
+      "packed with UPX",
+      "contain a resource (.rsrc) section",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 4,
+      "files_dropped": [
+        "C:\\PerfLogs\\Admin\\backup.exe",
+        "C:\\PerfLogs\\backup.exe",
+        "C:\\Users\\<USER>\\Downloads\\backup.exe",
+        "C:\\Users\\<USER>\\Downloads\\temp.zip",
+        "C:\\backup.exe"
+      ],
+      "mutexes": [
+        "Pro3",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\backup.exe C:\\Documents and Settings\\",
+        "C:\\Program Files\\backup.exe C:\\Program Files\\",
+        "C:\\Python27\\backup.exe C:\\Python27\\",
+        "C:\\WINDOWS\\backup.exe C:\\WINDOWS\\"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "hash": "02b5fa7619c2545f14e5aad0273537288c65fabf35fb29a855e0bad5d171a2be",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it unpacks itself (UPX packed), creates a deep chain of child processes (3202a through 3202l), drops multiple executable files to the temp directory, and establishes persistence via the Registry Run key. The use of XOR encoding, PEB access for anti-analysis, and the 'Trickler' persistence name are strong indicators of malicious intent designed to evade detection and maintain access.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The primary behavior observed is the creation of a chain of processes and the dropping of additional executable files (3202a-3202l) from the downloads folder to the temp directory. This 'dropping' mechanism is the defining characteristic of a Dropper, which typically installs a payload or further stages. While it uses persistence, the core action is deployment/dropping.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1036\",\n        \"name\": \"Masquerading\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 8304,
+      "response_chars": 1394,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it unpacks itself (UPX packed), creates a deep chain of child processes (3202a through 3202l), drops multiple executable files to the temp directory, and establishes persistence via the Registry Run key. The use of XOR encoding, PEB access for anti-analysis, and the 'Trickler' persistence name",
+      "elapsed_seconds": 8.19
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 8.19,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9286
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.2667,
+      "ttp_precision": 0.4,
+      "ttp_recall": 0.2,
+      "gt_ttps": [
+        "T1010",
+        "T1012",
+        "T1027",
+        "T1082",
+        "T1083",
+        "T1112",
+        "T1129",
+        "T1222",
+        "T1547",
+        "T1564"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1059",
+        "T1547"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1036",
+        "T1055",
+        "T1059"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1012",
+        "T1082",
+        "T1083",
+        "T1112",
+        "T1129",
+        "T1222",
+        "T1564"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2667,
+      "breakdown": {
+        "ttp_f1": 0.2667
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

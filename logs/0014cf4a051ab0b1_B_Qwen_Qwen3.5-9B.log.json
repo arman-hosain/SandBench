@@ -1,0 +1,87 @@
+{
+  "hash": "0014cf4a051ab0b17bad33c8db0d6fd3e6534853037390f93e81ac48745f9187",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it drops a large number of files (30) to the root of the C: drive, executes them in a deep chain, and uses heavy obfuscation (DxPack, Obsidium, UPX_LZMA) combined with anti-analysis techniques (stack strings, argument obfuscation). The presence of GetProcAddress and the pattern of dropping many small executables strongly indicates a malicious payload delivery mechanism.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The primary behavior observed is the dropping of multiple executable files to the filesystem and executing them in a chain. This is the definition of a Dropper. While the ultimate payload is unknown, the current sample's function is to deliver and execute other files.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1562.001\",\n        \"name\": \"Disable Anti-VM Protections\"\n      },\n      {\n        \"id\": \"T1059.001\",\n        \"name\": \"Command and Scripting Interpreter: PowerShell\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 2254,
+      "response_chars": 1139,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it drops a large number of files (30) to the root of the C: drive, executes them in a deep chain, and uses heavy obfuscation (DxPack, Obsidium, UPX_LZMA) combined with anti-analysis techniques (stack strings, argument obfuscation). The presence of GetProcAddress and the pattern of dropping man",
+      "elapsed_seconds": 6.2
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": false,
+      "gap_summary": "",
+      "missed_behavior_count": 0,
+      "ttps_found": [
+        "T1027",
+        "T1059",
+        "T1562"
+      ],
+      "hallucinated_ttps": [
+        "T1059",
+        "T1562"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 2
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 6.2,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9028
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.5,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1059",
+        "T1562"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1059",
+        "T1562"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5,
+      "breakdown": {
+        "ttp_f1": 0.5
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

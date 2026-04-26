@@ -1,0 +1,87 @@
+{
+  "hash": "27ffee22330e67d2b64bb491ebad607a5d96eaa1a97c7ebc788ddabf5a7265a4",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (3):\n  pool.minexmr.com \u2192 37.59.44.193, 37.59.55.60\n  pool.minexmr.com \u2192 37.59.55.60, 37.187.154.79\n  pool.minexmr.com \u2192 88.99.193.240, 37.59.54.205\n\nIP TRAFFIC (3):\n  37.187.154.79:80 (TCP)\n  37.59.43.136:80 (TCP)\n  88.99.193.240:80 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\svchost.exe\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\svchost.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - link function at runtime on Windows\n  - reference anti-VM strings targeting Xen\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - contain loop\n  - Process::Terminate Process [C0018]\n  - link function at runtime on Windows\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nOTHER REGISTRY KEYS SET (1):\n  <HKLM>\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\NetworkList\\Nla\\Cache\\Intranet\\\\{6A52BE73-EC8E-4F63-A268-7517A50DCB3\n\nMUTEXES CREATED (2):\n  Global\\94fad2a28742b746497b862e6795115a_v2.99.0\n  \\Sessions\\1\\BaseNamedObjects\\Global\\94fad2a28742b746497b862e6795115a_v2.99.0\n\nMUTEXES OPENED (2):\n  \\Sessions\\1\\BaseNamedObjects\\Global\\BFE_Notify_Event_{c69d8548-f742-44b9-be54-adc7814a4e07}\n  \\Sessions\\1\\BaseNamedObjects\\Global\\BFE_Notify_Event_{fa7983fc-b498-457b-a834-ce7c8e4b7b1d}\n\nPROCESSES CREATED (1):\n  <PATH_SAMPLE.EXE>\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualProtect\n\nCERTIFICATE INFO:\n\nPE SECTIONS (entropy):\n  .text        entropy=0.0\n  .data        entropy=7.93\n  .rsrc        entropy=3.99\n  [overlay]    entropy=0.006305715534836054  size=9946030\n",
+  "ground_truth": {
+    "hash": "27ffee22330e67d2b64bb491ebad607a5d96eaa1a97c7ebc788ddabf5a7265a4",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7808,
+    "malicious_count": 57,
+    "popular_threat_category": [
+      {
+        "value": "miner",
+        "count": 22
+      },
+      {
+        "value": "trojan",
+        "count": 21
+      },
+      {
+        "value": "pua",
+        "count": 2
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "dacic",
+        "count": 7
+      },
+      {
+        "value": "r002c0dat25",
+        "count": 2
+      },
+      {
+        "value": "xbklzj",
+        "count": 2
+      }
+    ],
+    "suggested_label": "miner.dacic/r002c0dat25",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting Xen"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RW memory",
+      "contain loop",
+      "terminate process",
+      "link function at runtime on Windows",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting Xen"
+    ],
+    "iocs": {
+      "ips": [
+        "37.187.154.79",
+        "37.59.43.136",
+        "88.99.193.240"
+      ],
+      "domains": [
+        "pool.minexmr.com"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 1,
+      "files_dropped": [],
+      "mutexes": [
+        "Global\\94fad2a28742b746497b862e6795115a_v2.99.0",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\94fad2a28742b746497b862e6795115a_v2.99.0"
+      ],
+      "processes": [
+        "<PATH_SAMPLE.EXE>"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Dr.Web vxCube",
+    "VirusTotal Jujubox"
+  ]
+}

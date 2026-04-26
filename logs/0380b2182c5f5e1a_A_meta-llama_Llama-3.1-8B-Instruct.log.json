@@ -1,0 +1,91 @@
+{
+  "hash": "0380b2182c5f5e1a3b981bfaeef061f4409b8c26d01f57651ee3fe73a11ab68b",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a complex execution chain, employs various anti-debugging and anti-static analysis evasion techniques, and demonstrates capabilities such as data encoding, encryption, and registry access, indicating malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior, including its ability to set Windows hooks, capture screenshots, and access the registry, suggests a Trojan-like functionality, designed to compromise the system and potentially steal sensitive information.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1036\", \"name\": \"Masquerading\"},\n      {\"id\": \"T1218\", \"name\": \"File and Directory Discovery\"},\n      {\"id\": \"T1219\", \"name\": \"System Service Discovery\"},\n      {\"id\": \"T1056\", \"name\": \"Input Capture\"},\n      {\"id\": \"T1113\", \"name\": \"Screen Capture\"},\n      {\"id\": \"T1140\", \"name\": \"Deobfuscate/Decode Files or Information\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 2879,
+      "response_chars": 1036,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a complex execution chain, employs various anti-debugging and anti-static analysis evasion techniques, and demonstrates capabilities such as data encoding, encryption, and registry access, indicating malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior, including its abi",
+      "elapsed_seconds": 4.95
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 4.95,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8732
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.3529,
+      "ttp_precision": 0.4286,
+      "ttp_recall": 0.3,
+      "gt_ttps": [
+        "T1012",
+        "T1027",
+        "T1056",
+        "T1057",
+        "T1082",
+        "T1083",
+        "T1113",
+        "T1115",
+        "T1125",
+        "T1129"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1036",
+        "T1056",
+        "T1113",
+        "T1140",
+        "T1218",
+        "T1219"
+      ],
+      "tp": 3,
+      "q3_hallucinated_ttps": [
+        "T1036",
+        "T1140",
+        "T1218",
+        "T1219"
+      ],
+      "q3_missed_ttps": [
+        "T1012",
+        "T1057",
+        "T1082",
+        "T1083",
+        "T1115",
+        "T1125",
+        "T1129"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.3529,
+      "breakdown": {
+        "ttp_f1": 0.3529
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

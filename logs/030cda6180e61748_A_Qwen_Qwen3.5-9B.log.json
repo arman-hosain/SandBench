@@ -1,0 +1,71 @@
+{
+  "hash": "030cda6180e61748b255cc8c5b4966e168f02b6a02742e6a16d07f4095793130",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it is packed with UPX, contains anti-VM/anti-analysis strings, and spawns a deep chain of 12+ child processes with randomized names (sysqem...). It drops numerous files to the Temp directory and creates many processes, but the report does not show evidence of payload execution (e.g., no network connections, no registry persistence for malicious purposes, no file encryption, no credential theft). The behavior is highly indicative of a dropper waiting for a trigger or a failed execution in a sandbox, but without confirmed malicious payload activity, it is classified as Suspicious.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The sample's primary observable behavior is the creation of a long process chain and the dropping of multiple executable files to the Temp directory. It uses standard packing (UPX) and anti-analysis techniques. There is no evidence of the actual malicious payload (ransomware, spyware, etc.) executing within the provided report. Therefore, it fits the definition of a Dropper.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1562.1\",\n        \"name\": \"Disable or Modify System Defense\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 6846,
+      "response_chars": 1433,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it is packed with UPX, contains anti-VM/anti-analysis strings, and spawns a deep chain of 12+ child processes with randomized names (sysqem...). It drops numerous files to the Temp directory and creates many processes, but the report does not show evidence of payload execution (e.g., no netwo",
+      "elapsed_seconds": 12.57
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 12.57,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 0.5,
+      "predicted": "SUSPICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9014
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.4,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 0.5,
+      "gt_ttps": [
+        "T1027",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1562"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1562"
+      ],
+      "q3_missed_ttps": [
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4,
+      "breakdown": {
+        "ttp_f1": 0.4
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

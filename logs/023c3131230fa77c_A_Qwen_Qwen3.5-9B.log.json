@@ -1,0 +1,70 @@
+{
+  "hash": "023c3131230fa77ce63341348bba0da2707d3c3fcdf1d9f37de331af35b00251",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic malware behavior including dropping multiple executable files and DLLs, creating scheduled tasks for persistence, modifying AppInit_DLLs registry keys to load malicious libraries into all processes, and using obfuscation techniques (Base64 encoding, high entropy sections). The use of the 'Mozilla' folder name is a common social engineering tactic to evade user suspicion.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Dropper\"],\n    \"explanation\": \"The sample acts as a Dropper by dropping additional payloads (ctvqzym.exe, suwzfrh.exe) and DLLs. It is classified as a Trojan because it uses deceptive file names (Mozilla) and registry modifications to establish persistence and execute malicious code without the user's explicit consent for those actions.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1546.013\",\n        \"name\": \"Windows Management Instrumentation Event Subscription\"\n      },\n      {\n        \"id\": \"T1546.001\",\n        \"name\": \"Scheduled Task/Job\"\n      },\n      {\n        \"id\": \"T1571\",\n        \"name\": \"Boot or Logon Autostart Execution: AppInit_DLLs\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 2670,
+      "response_chars": 1408,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic malware behavior including dropping multiple executable files and DLLs, creating scheduled tasks for persistence, modifying AppInit_DLLs registry keys to load malicious libraries into all processes, and using obfuscation techniques (Base64 encoding, high entropy sections). The use of the 'Mozilla' folder name i",
+      "elapsed_seconds": 7.64
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 7.64,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8873
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.4,
+      "ttp_precision": 0.25,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1546",
+        "T1547",
+        "T1571"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1546",
+        "T1547",
+        "T1571"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4,
+      "breakdown": {
+        "ttp_f1": 0.4
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

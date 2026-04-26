@@ -1,0 +1,81 @@
+{
+  "hash": "3f14a6fdf59ec606752fbc208b95d8d49c40e81091a51b662cc490a378bbffe0",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    klnox.exe\n\nCOMMAND EXECUTIONS (1):\n  (open) C:\\3f14a6fdf59ec606752fbc208b95d8d49c40e81091a51b662cc490a378b(null) [(null)]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (30):\n  3f14a6fdf59ec606752fbc208b95d8d49c40e81091a51b662cc490a378bbffe0 .exe  [sha256: 38ed316454f0565c...]\n  AUTOEXEC.BAT .exe  [sha256: 7c3cbb6bbabe22d9...]\n  boot.ini .exe  [sha256: e4c7170bbe33c341...]\n  CONFIG.SYS .exe  [sha256: 3ada71ad7f14efa9...]\n  cuckoo .exe  [sha256: 631541fbf2260592...]\n  Documents and Settings .exe  [sha256: 89c3d64b0cacf1a3...]\n  drwhof.exe  [sha256: 3fd0038b3cebaba4...]\n  eula.1028.txt .exe  [sha256: 6d5ded55aa87f559...]\n  eula.1031.txt .exe  [sha256: 7c2ad2d348093701...]\n  eula.1033.txt .exe  [sha256: 2f5d2c683688361a...]\n  eula.1036.txt .exe  [sha256: 4de5dd3df0f472c0...]\n  eula.1040.txt .exe  [sha256: 8b8408a7dee36f23...]\n  eula.1041.txt .exe  [sha256: e0df10299a8bfc12...]\n  eula.1042.txt .exe  [sha256: b81ef7ba79003838...]\n  eula.2052.txt .exe  [sha256: 6ed50e214ed7c5e3...]\n  eula.3082.txt .exe  [sha256: 42274196bd9ad980...]\n  globdata.ini .exe  [sha256: b93fb173834647fa...]\n  install.exe .exe  [sha256: 2c75424b9ac7e01f...]\n  install.ini .exe  [sha256: 226f0309d9685767...]\n  install.res.1028.dll .exe  [sha256: 8e6df963fa20c126...]\n\nFILES WRITTEN (30):\n  C:\\0 .exe\n  C:\\AUTOEXEC.BAT .exe\n  C:\\CONFIG.SYS .exe\n  C:\\DiskD .exe\n  C:\\DiskX .exe\n  C:\\DllLoader.exe .exe\n  C:\\Documents and Settings .exe\n  C:\\Documents and Settings\\All Users\\Application Data\\Saaaalamm\\Mira.h\n  C:\\Documents and Settings\\All Users\\Application Data\\drwhof.exe\n  C:\\Documents and Settings\\All Users\\Application Data\\klnox.exe\n  C:\\IO.SYS .exe\n  C:\\MSDOS.SYS .exe\n  C:\\Mirae-newfile .exe\n  C:\\Mirae-samplefile .exe\n  C:\\NTDETECT.COM .exe\n  C:\\Program Files .exe\n  C:\\boot.ini .exe\n  C:\\bootfont.bin .exe\n  C:\\eula.2052.txt .exe\n  C:\\globdata.ini .exe\n\nPERSISTENCE REGISTRY KEYS (1):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft?Windows?Operating System = C:\\Documents and Settings\\All Users\\Application Data\\klnox.exe\u0000\n\nMUTEXES CREATED (7):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  C:\\Documents and Settings\\All Users\\Application Data\\drwhof.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, VirtualAlloc\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] PECompact\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n  Packers: {'PEiD': 'PeCompact 2.xx --> BitSum Technologies'}\n\nPE SECTIONS (entropy):\n  .text        entropy=7.99\n  .rsrc        entropy=5.22\n  [overlay]    entropy=6.944869518280029  size=608429\n",
+  "ground_truth": {
+    "hash": "3f14a6fdf59ec606752fbc208b95d8d49c40e81091a51b662cc490a378bbffe0",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.875,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [],
+    "capa_sig_names": [],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "\\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft?Windows?Operating System"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "3f14a6fdf59ec606752fbc208b95d8d49c40e81091a51b662cc490a378bbffe0 .exe",
+        "AUTOEXEC.BAT .exe",
+        "CONFIG.SYS .exe",
+        "Documents and Settings .exe",
+        "IO.SYS .exe",
+        "MSDOS.SYS .exe",
+        "Mira.h",
+        "NTDETECT.COM .exe",
+        "Program Files .exe",
+        "Python27 .exe",
+        "boot.ini .exe",
+        "cuckoo .exe",
+        "drwhof.exe",
+        "eula.1028.txt .exe",
+        "eula.1031.txt .exe",
+        "eula.1033.txt .exe",
+        "eula.1036.txt .exe",
+        "eula.1040.txt .exe",
+        "eula.1041.txt .exe",
+        "eula.1042.txt .exe",
+        "eula.2052.txt .exe",
+        "eula.3082.txt .exe",
+        "globdata.ini .exe",
+        "install.exe .exe",
+        "install.ini .exe",
+        "install.res.1028.dll .exe",
+        "install.res.1031.dll .exe",
+        "install.res.1033.dll .exe",
+        "install.res.1036.dll .exe",
+        "install.res.1040.dll .exe",
+        "install.res.1041.dll .exe",
+        "install.res.1042.dll .exe",
+        "install.res.2052.dll .exe",
+        "install.res.3082.dll .exe",
+        "ntldr .exe",
+        "pagefile.sys .exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\All Users\\Application Data\\drwhof.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "Tencent HABO",
+    "VirusTotal Cuckoofork"
+  ]
+}

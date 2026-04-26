@@ -1,0 +1,131 @@
+{
+  "hash": "08b7a26c7829eadc7fff94be345d0ac9399b350f8d26e6e072b21b39a2da842d",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (12):\n  - modify access privileges\n  - get file size\n  - query environment variable\n  - get disk information\n  - query or enumerate registry value\n  - interact with driver via control codes\n  - get hostname\n  - get common file path\n  - accept command line arguments\n  - check OS version\n  - parse PE header\n  - reference anti-VM strings targeting VirtualBox\n\nCAPA RULE MATCHES (MBC):\n  - reference absolute stream path on Windows\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - File System::Get File Attributes [C0049]\n  - Process::Create Thread [C0038]\n  - contain loop\n  - File System::Read File [C0051]\n  - modify access privileges\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Writes File [C0052]\n  - Discovery::System Information Discovery [E1082]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - print debug messages\n  - interact with driver via control codes\n  - Anti-Behavioral Analysis::Debugger Detection::Timing/Delay Check QueryPerformanceCounter [B0001.033]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - get OS version\n  - Process::Terminate Process [C0018]\n  - parse PE header\n  - Execution::Install Additional Program [B0023]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (7):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  MSCTF.Shared.MUTEX.EBH\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  ADVAPI32.dll: AdjustTokenPrivileges, OpenProcessToken\n  KERNEL32.dll: LoadLibraryW\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] MASM\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual C++ v7.1 EXE'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.59\n  .data        entropy=0.9\n  .rsrc        entropy=3.18\n  [overlay]    entropy=6.4476799964904785  size=1378440\n",
+  "ground_truth": {
+    "hash": "08b7a26c7829eadc7fff94be345d0ac9399b350f8d26e6e072b21b39a2da842d",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.6027,
+    "malicious_count": 44,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 8
+      },
+      {
+        "value": "worm",
+        "count": 6
+      },
+      {
+        "value": "pua",
+        "count": 2
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "ditertag",
+        "count": 2
+      },
+      {
+        "value": "scar",
+        "count": 2
+      },
+      {
+        "value": "vindor",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.ditertag/scar",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "modify access privileges"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      }
+    ],
+    "capa_sig_names": [
+      "reference absolute stream path on Windows",
+      "delay execution",
+      "create or open file",
+      "create or open registry key",
+      "get file attributes",
+      "create thread",
+      "contain loop",
+      "read file on Windows",
+      "modify access privileges",
+      "get file size",
+      "write file on Windows",
+      "query environment variable",
+      "get disk information",
+      "query or enumerate registry value",
+      "set registry value",
+      "print debug messages",
+      "interact with driver via control codes",
+      "check for time delay via QueryPerformanceCounter",
+      "get hostname",
+      "get common file path",
+      "accept command line arguments",
+      "get OS version",
+      "check OS version",
+      "terminate process",
+      "parse PE header",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting VirtualBox",
+      "contains PDB path",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "MSCTF.Shared.MUTEX.EBH"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork"
+  ]
+}

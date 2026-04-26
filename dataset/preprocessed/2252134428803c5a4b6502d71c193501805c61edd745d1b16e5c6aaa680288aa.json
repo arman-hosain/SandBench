@@ -1,0 +1,122 @@
+{
+  "hash": "2252134428803c5a4b6502d71c193501805c61edd745d1b16e5c6aaa680288aa",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  rolandoochoa.duckdns.org \u2192 181.58.154.33\n\nIP TRAFFIC (1):\n  181.58.154.33:1990 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  <PATH_SAMPLE.EXE>\n    %WINDIR%\\microsoft.net\\framework\\v4.0.30319\\regasm.exe\n    %WINDIR%\\microsoft.net\\framework\\v4.0.30319\\regasm.exe\n    <PATH_SAMPLE.EXE>\n  %WINDIR%\\microsoft.net\\framework\\v4.0.30319\\regasm.exe\n    %WINDIR%\\syswow64\\schtasks.exe\n    %WINDIR%\\syswow64\\schtasks.exe\n  <SYSTEM32>\\svchost.exe\n  <PATH_SAMPLE.EXE>\n    %WINDIR%\\microsoft.net\\framework\\v4.0.30319\\regasm.exe\n    <PATH_SAMPLE.EXE>\n  %WINDIR%\\microsoft.net\\framework\\v4.0.30319\\regasm.exe\n    %WINDIR%\\syswow64\\schtasks.exe\n    %WINDIR%\\syswow64\\schtasks.exe\n  <PATH_SAMPLE.EXE>\n\nCOMMAND EXECUTIONS (1):\n  5112899e141fb7c52e8f782a723c241b.virus\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - load .NET assembly\n  - decode data using Base64 in .NET\n\nCAPA RULE MATCHES (MBC):\n  - load .NET assembly\n  - Data::Decode Data::Base64 [C0053.001]\n  - compiled to the .NET platform\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  %APPDATA%\\microsoft\\windows\\start menu\\programs\\startup\\hjdytuap.exe  [sha256: 17f14710de1faef9...]\n  %HOMEPATH%\\chrome.exe  [sha256: 2252134428803c5a...]\n  <SYSTEM32>\\tasks\\nyan  [sha256: 89350ef3487af142...]\n\nFILES WRITTEN (1):\n  C:\\Documents and Settings\\Administrator\\Chrome.exe\n\nPERSISTENCE REGISTRY KEYS (2):\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Client.exe = \"%WINDIR%\\Microsoft.NET\\Framework\\v4.0.30319\\RegAsm.exe\" ..\n  <HKLM>\\Software\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\\Client.exe = \"%WINDIR%\\Microsoft.NET\\Framework\\v4.0.30319\\RegAsm.exe\" ..\n\nOTHER REGISTRY KEYS SET (10):\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\\\UNCAsIntranet\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\\\AutoDetect\n  <HKCU>\\Environment\\SEE_MASK_NOZONECHECKS\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Hidden\n  \\REGISTRY\\A\\{4cebc830-fa9b-11e9-a5c8-4a05319e6e3e}\\DefaultObjectStore\\ObjectTable\\E9\\_ObjectId_\n  \\REGISTRY\\A\\{4cebc830-fa9b-11e9-a5c8-4a05319e6e3e}\\DefaultObjectStore\\LruList\\CurrentLru\n  \\REGISTRY\\A\\{4cebc830-fa9b-11e9-a5c8-4a05319e6e3e}\\DefaultObjectStore\\LruList\\00000000000002FD\\ObjectId\n  \\REGISTRY\\A\\{4cebc830-fa9b-11e9-a5c8-4a05319e6e3e}\\DefaultObjectStore\\LruList\\00000000000002FD\\ObjectLru\n  \\REGISTRY\\A\\{4cebc830-fa9b-11e9-a5c8-4a05319e6e3e}\\DefaultObjectStore\\ObjectTable\\E9\\_ObjectLru_\n  \\REGISTRY\\A\\{4cebc830-fa9b-11e9-a5c8-4a05319e6e3e}\\DefaultObjectStore\\ObjectTable\\E9\\_FileId_\n\nMUTEXES CREATED (57):\n  Startup_shellcode_006\n  \\Sessions\\1\\BaseNamedObjects\\Client.exe\n  \\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1016_v4.0.30319\n  \\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1124_v4.0.30319\n  \\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1132_v4.0.30319\n  \\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1196_v4.0.30319\n  \\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1372_v4.0.30319\n  \\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1388_v4.0.30319\n  \\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1440_v4.0.30319\n  \\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1476_v4.0.30319\n\nMUTEXES OPENED (1):\n  \\Sessions\\1\\BaseNamedObjects\\Global\\BFE_Notify_Event_{9782a417-0c08-407c-9a6f-6485153e4685}\n\nPROCESSES CREATED (5):\n  %WINDIR%\\microsoft.net\\framework\\v4.0.30319\\regasm.exe\n  %WINDIR%\\syswow64\\schtasks.exe\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\conhost.exe\n  <SYSTEM32>\\wbem\\wmiprvse.exe\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Library] .NET\n  [Library] .NET\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': '.NET executable'}\n\nPE SECTIONS (entropy):\n  .text        entropy=3.81\n  .rsrc        entropy=3.73\n  .reloc       entropy=0.1\n",
+  "ground_truth": {
+    "hash": "2252134428803c5a4b6502d71c193501805c61edd745d1b16e5c6aaa680288aa",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7857,
+    "malicious_count": 55,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "msil",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1140",
+        "signature_description": "decode data using Base64 in .NET"
+      },
+      {
+        "id": "T1620",
+        "signature_description": "load .NET assembly"
+      }
+    ],
+    "capa_sig_names": [
+      "load .NET assembly",
+      "decode data using Base64 in .NET",
+      "compiled to the .NET platform"
+    ],
+    "iocs": {
+      "ips": [
+        "181.58.154.33"
+      ],
+      "domains": [
+        "rolandoochoa.duckdns.org"
+      ],
+      "urls": [],
+      "registry_persistence": [
+        "<HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Client.exe",
+        "<HKLM>\\Software\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\\Client.exe"
+      ],
+      "registry_all_count": 96,
+      "files_dropped": [
+        "%APPDATA%\\microsoft\\windows\\start menu\\programs\\startup\\hjdytuap.exe",
+        "%HOMEPATH%\\chrome.exe",
+        "<SYSTEM32>\\tasks\\nyan"
+      ],
+      "mutexes": [
+        "Startup_shellcode_006",
+        "\\Sessions\\1\\BaseNamedObjects\\Client.exe",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1016_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1124_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1132_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1196_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1372_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1388_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1440_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1476_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1564_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1652_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1700_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1716_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1720_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1728_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1764_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1932_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_1956_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2068_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2076_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2120_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2204_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2268_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2300_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2312_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2332_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2376_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2412_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2416_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2420_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2444_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2460_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2520_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2524_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_252_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2680_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2764_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2780_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2852_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2908_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2984_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_2988_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_3000_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_300_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_3060_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_3064_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_324_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_564_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_636_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_780_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_844_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_896_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CPFATE_952_v4.0.30319",
+        "\\Sessions\\1\\BaseNamedObjects\\Startup_shellcode_006",
+        "\\Sessions\\1\\BaseNamedObjects\\frenchy_shellcode_006",
+        "frenchy_shellcode_006"
+      ],
+      "processes": [
+        "%WINDIR%\\microsoft.net\\framework\\v4.0.30319\\regasm.exe",
+        "%WINDIR%\\syswow64\\schtasks.exe",
+        "<PATH_SAMPLE.EXE>",
+        "<SYSTEM32>\\conhost.exe",
+        "<SYSTEM32>\\wbem\\wmiprvse.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Dr.Web vxCube",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "hash": "32804579aa62c25e7d3186dbf87a59ad70c5b0e01177ab5eb82f228d44e8a920",
+  "report_text": "--- EXECUTION CHAIN ---\n\nCOMMAND EXECUTIONS (2):\n  ( 1016 - cmd.exe ) c:\\windows\\system32\\cmd.exe /c \"c:\\users\\user41~1\\appdata\\local\\temp\\nxwdueinl.exe\"\n  ( 3748 - nxwdueinl.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\nxwdueinl.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - packed with generic packer\n  - get common file path\n\nCAPA RULE MATCHES (MBC):\n  - inspect load icon resource\n  - File System::Create File [C0016]\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Discovery::File and Directory Discovery [E1083]\n  - contain a resource (.rsrc) section\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  ctvqzym.exe  [sha256: 6d8495590359f980...]\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: 692b5c19fdf46f3b...]\n  c:\\progra~3\\mozilla\\jctrxem.exe  [sha256: d0f596e99ee3ce6e...]\n\nFILES WRITTEN (3):\n  ( 3748 - nxwdueinl.exe ) c:\\progra~3\\mozilla\\jctrxem.exe\n  C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\ctvqzym.exe\n  C:\\WINDOWS\\Tasks\\hiqvsnd.job\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  ADVAPI32.dll: AdjustTokenPrivileges, OpenProcessToken\n  KERNEL32.dll: GetProcAddress, VirtualAlloc\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=5.46\n  .text        entropy=1.1\n  .rdata       entropy=1.62\n  .data        entropy=6.9\n  .rdata2      entropy=0.16\n  .rsrc        entropy=2.12\n  .NewSec      entropy=0.0\n  [overlay]    entropy=7.8758955001831055  size=1488\n",
+  "ground_truth": {
+    "hash": "32804579aa62c25e7d3186dbf87a59ad70c5b0e01177ab5eb82f228d44e8a920",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9296,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      }
+    ],
+    "capa_sig_names": [
+      "inspect load icon resource",
+      "create or open file",
+      "contain loop",
+      "packed with generic packer",
+      "get common file path",
+      "contain a resource (.rsrc) section",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "c:\\progra~3\\mozilla\\jctrxem.exe",
+        "ctvqzym.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "ReaQta-Hive",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

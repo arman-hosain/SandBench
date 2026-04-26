@@ -1,0 +1,45 @@
+{
+  "hash": "2025b50ac0db3f7253b23dccef1c985ffffa8925d368c27bee42eb43aa9fd66e",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - contain obfuscated stackstrings\n  - reference anti-VM strings targeting Qemu\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] MASM\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.3\n  .data        entropy=5.69\n  .rsrc        entropy=5.7\n  [overlay]    entropy=5.7007155418396  size=53687\n",
+  "ground_truth": {
+    "hash": "2025b50ac0db3f7253b23dccef1c985ffffa8925d368c27bee42eb43aa9fd66e",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.6901,
+    "malicious_count": 49,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "agent",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting Qemu"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting Qemu"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

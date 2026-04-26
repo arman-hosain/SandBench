@@ -1,0 +1,78 @@
+{
+  "hash": "238386a1ebba5842b5816b8aaddbbf20ebb7dea1613997f19ec538284e8ad676",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - query or enumerate registry value\n  - query or enumerate registry key\n  - parse PE header\n  - get local IPv4 addresses\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Thread [C0038]\n  - Communication::Socket Communication::Create TCP Socket [C0001.011]\n  - contain loop\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Operating System::Registry::Query Registry Key [C0036.005]\n  - Process::Terminate Process [C0018]\n  - parse PE header\n  - get local IPv4 addresses\n  - File System::Read File [C0051]\n  - File System::Writes File [C0052]\n  - Cryptography::Generate Pseudo-random Sequence::Use API [C0021.003]\n  - contain a resource (.rsrc) section\n  - Execution::Install Additional Program [B0023]\n  - Anti-Behavioral Analysis::Conditional Execution::Runs as Service [B0025.007]\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] MASM\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual C++ v7.1 EXE'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.13\n  .data        entropy=2.85\n  .rsrc        entropy=5.27\n  [overlay]    entropy=5.577396392822266  size=656558\n",
+  "ground_truth": {
+    "hash": "238386a1ebba5842b5816b8aaddbbf20ebb7dea1613997f19ec538284e8ad676",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.4795,
+    "malicious_count": 35,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 9
+      },
+      {
+        "value": "pua",
+        "count": 2
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "filerepmalware",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.filerepmalware",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1016",
+        "signature_description": "get local IPv4 addresses"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "create or open registry key",
+      "delay execution",
+      "create thread",
+      "create TCP socket",
+      "contain loop",
+      "query or enumerate registry value",
+      "query or enumerate registry key",
+      "terminate process",
+      "parse PE header",
+      "get local IPv4 addresses",
+      "read file on Windows",
+      "write file on Windows",
+      "generate random numbers via RtlGenRandom",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "run as service"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork"
+  ]
+}

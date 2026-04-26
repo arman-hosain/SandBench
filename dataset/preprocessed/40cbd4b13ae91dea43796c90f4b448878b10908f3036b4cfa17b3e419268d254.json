@@ -1,0 +1,72 @@
+{
+  "hash": "40cbd4b13ae91dea43796c90f4b448878b10908f3036b4cfa17b3e419268d254",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\WINDOWS\\system32\\drwtsn32 -p 420 -e 176 -g\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - packed with ASPack\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - contain loop\n  - contain a resource (.rsrc) section\n  - contain a thread local storage (.tls) section\n  - Anti-Static Analysis::Software Packing [F0001]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  C:\\WINDOWS\\system32\\drwtsn32 -p 420 -e 176 -g\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] ASPack\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n  Packers: {'PEiD': 'ASPack v2.12', 'F-PROT': 'Aspack'}\n\nPE SECTIONS (entropy):\n  CODE         entropy=8.0\n  DATA         entropy=7.6\n  BSS          entropy=0.0\n  .idata       entropy=7.58\n  .tls         entropy=0.0\n  .rdata       entropy=0.17\n  .reloc       entropy=0.0\n  .rsrc        entropy=6.52\n  .aspack      entropy=5.56\n  .adata       entropy=0.0\n  .aspack      entropy=6.68\n  .adata       entropy=0.0\n  [overlay]    entropy=7.80672550201416  size=413448\n",
+  "ground_truth": {
+    "hash": "40cbd4b13ae91dea43796c90f4b448878b10908f3036b4cfa17b3e419268d254",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.726,
+    "malicious_count": 53,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 18
+      },
+      {
+        "value": "pua",
+        "count": 2
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "bulz",
+        "count": 9
+      },
+      {
+        "value": "aspm",
+        "count": 4
+      },
+      {
+        "value": "pedex",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.bulz/aspm",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with ASPack"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "contain a thread local storage (.tls) section",
+      "packed with ASPack",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\system32\\drwtsn32 -p 420 -e 176 -g"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

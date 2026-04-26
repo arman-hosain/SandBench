@@ -1,0 +1,232 @@
+{
+  "hash": "1995a0ccd5ff4579db2c5d0a1b496b4980cfda25cb4bf9f3da99fe68efa5dc15",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (42):\n  - contain obfuscated stackstrings\n  - encode data using XOR\n  - set file attributes\n  - hide graphical window\n  - get Program Files directory\n  - get user security identifier\n  - access PEB ldr_data\n  - get process heap flags\n  - link function at runtime on Windows\n  - encrypt data using RC4 KSA\n  - encrypt data using RC4 PRGA\n  - get common file path\n  - get file size\n  - query environment variable\n  - write process memory\n  - check if file exists\n  - enumerate gui resources\n  - link many functions at runtime\n  - parse PE header\n  - encode data using Base64\n  - find graphical window\n  - enumerate processes\n  - check OS version\n  - encrypt data using TEA\n  - encrypt data using AES\n  - reference AES constants\n  - enumerate services\n  - interact with driver via control codes\n  - get MAC address on Windows\n  - get disk information\n  - get hostname\n  - create new key via CryptAcquireContext\n  - get file version info\n  - log keystrokes via polling\n  - check for unmoving mouse cursor\n  - get keyboard layout\n  - get socket status\n  - get socket information\n  - get local IPv4 addresses\n  - encrypt or decrypt via WinCrypt\n  - encrypt data using DES via WinAPI\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - Process::Create Thread [C0038]\n  - Process::Check Mutex [C0043]\n  - Process::Create Process [C0017]\n  - Process::Create Process::Create Suspended Process [C0017.003]\n  - File System::Set File Attributes [C0050]\n  - hide graphical window\n  - reference absolute stream path on Windows\n  - File System::Get File Attributes [C0049]\n  - get Program Files directory\n  - Process::Resume Thread [C0054]\n  - Process::Open Process [C0065]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Process::Terminate Thread [C0039]\n  - Communication::HTTP Communication [C0002]\n  - get user security identifier\n  - access PEB ldr_data\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessW, CreateRemoteThread, GetProcAddress, LoadLibraryExW, LoadLibraryW, WriteProcessMemory\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.59\n  .rdata       entropy=5.58\n  .data        entropy=0.73\n  .gfids       entropy=3.0\n  .rsrc        entropy=6.93\n  .reloc       entropy=0.0\n  [overlay]    entropy=6.92824125289917  size=29561\n",
+  "ground_truth": {
+    "hash": "1995a0ccd5ff4579db2c5d0a1b496b4980cfda25cb4bf9f3da99fe68efa5dc15",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.5068,
+    "malicious_count": 37,
+    "popular_threat_category": [
+      {
+        "value": "adware",
+        "count": 11
+      },
+      {
+        "value": "trojan",
+        "count": 6
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "kuaizip",
+        "count": 12
+      },
+      {
+        "value": "adload",
+        "count": 2
+      },
+      {
+        "value": "kuzitui",
+        "count": 2
+      }
+    ],
+    "suggested_label": "adware.kuaizip/adload",
+    "av_family_vote": "kuaizip",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1007",
+        "signature_description": "enumerate services"
+      },
+      {
+        "id": "T1010",
+        "signature_description": "enumerate gui resources"
+      },
+      {
+        "id": "T1016",
+        "signature_description": "get socket status"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1055",
+        "signature_description": "write process memory"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "get process heap flags"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get Program Files directory"
+      },
+      {
+        "id": "T1087",
+        "signature_description": "get user security identifier"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "check for unmoving mouse cursor"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get keyboard layout"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "contain obfuscated stackstrings",
+      "create or open registry key",
+      "encode data using XOR",
+      "delay execution",
+      "create or open file",
+      "create thread",
+      "check mutex",
+      "create process on Windows",
+      "create process suspended",
+      "set file attributes",
+      "hide graphical window",
+      "reference absolute stream path on Windows",
+      "get file attributes",
+      "get Program Files directory",
+      "resume thread",
+      "open process",
+      "PEB access",
+      "terminate thread",
+      "get HTTP content length",
+      "get user security identifier",
+      "access PEB ldr_data",
+      "get process heap flags",
+      "hash data using MD4",
+      "contain loop",
+      "link function at runtime on Windows",
+      "encrypt data using RC4 KSA",
+      "encrypt data using RC4 PRGA",
+      "get common file path",
+      "extract resource via kernel32 functions",
+      "create mutex",
+      "check mutex and exit",
+      "get file size",
+      "delete file",
+      "query environment variable",
+      "copy file",
+      "write process memory",
+      "terminate process",
+      "create shortcut via IShellLink",
+      "write file on Windows",
+      "check if file exists",
+      "get graphical window text",
+      "enumerate gui resources",
+      "read file on Windows",
+      "connect pipe",
+      "create pipe",
+      "read pipe",
+      "write pipe",
+      "link many functions at runtime",
+      "parse PE header",
+      "encode data using Base64",
+      "find graphical window",
+      "enumerate processes",
+      "check for time delay via GetTickCount",
+      "get OS version",
+      "check OS version",
+      "encrypt data using TEA",
+      "hash data with MD5",
+      "encrypt data using AES",
+      "reference AES constants",
+      "enumerate services",
+      "send HTTP request",
+      "create HTTP request",
+      "check HTTP status code",
+      "connect to HTTP server",
+      "read data from Internet",
+      "receive data",
+      "reference HTTP User-Agent string",
+      "send data",
+      "interact with driver via control codes",
+      "get MAC address on Windows",
+      "hash data using murmur3",
+      "get disk information",
+      "get hostname",
+      "hash data using SHA256",
+      "create new key via CryptAcquireContext",
+      "hash data using SHA1",
+      "initialize hashing via WinCrypt",
+      "hash data using SHA1 via WinCrypt",
+      "hash data via WinCrypt",
+      "get file version info",
+      "create directory",
+      "set environment variable",
+      "print debug messages",
+      "log keystrokes via polling",
+      "check for unmoving mouse cursor",
+      "hash data with CRC32",
+      "initialize Winsock library",
+      "resolve DNS",
+      "get keyboard layout",
+      "get socket status",
+      "receive data on socket",
+      "send data on socket",
+      "set socket configuration",
+      "get socket information",
+      "get local IPv4 addresses",
+      "hash data using djb2",
+      "generate random numbers via WinAPI",
+      "parse credit card information",
+      "encrypt or decrypt via WinCrypt",
+      "encrypt data using DES via WinAPI",
+      "authenticate HMAC",
+      "contain a resource (.rsrc) section",
+      "linked against CPP standard library",
+      "debug build",
+      "linked against CPP JSON library",
+      "reference Base64 string",
+      "linked against libcurl",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

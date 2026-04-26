@@ -1,0 +1,45 @@
+{
+  "hash": "29b960e98d2c91d575bf6e7668d426e2f913308c5731e01f6e7040c6035dd378",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - encode data using XOR\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Communication::HTTP Communication::Read Header [C0002.014]\n  - contain a resource (.rsrc) section\n  - linked against CPP standard library\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessW, GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAlloc, VirtualProtect\n  ADVAPI32.dll: OpenProcessToken\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=7.81\n  .rdata       entropy=5.16\n  .data        entropy=4.68\n  init         entropy=0.06\n  .rsrc        entropy=5.31\n",
+  "ground_truth": {
+    "hash": "29b960e98d2c91d575bf6e7668d426e2f913308c5731e01f6e7040c6035dd378",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8429,
+    "malicious_count": 59,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RWX memory",
+      "encode data using XOR",
+      "contain loop",
+      "check HTTP status code",
+      "contain a resource (.rsrc) section",
+      "linked against CPP standard library"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

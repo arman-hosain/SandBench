@@ -1,0 +1,63 @@
+{
+  "hash": "2f32ec44598281bee4e2981e066bfc960faef18bf6a0d5c768c4b6f3bf263098",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  digiplas.com \u2192 136.243.204.158\n\nIP TRAFFIC (2):\n  136.243.204.158:443 (TCP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\ntprint.exe\n  C:\\WINDOWS\\system32\\cmd.exe C:\\WINDOWS\\system32\\cmd.exe\"  /c TimeOut 1 & Del /F \"C:\\2f32ec44598281bee4e2981e066bfc960faef18bf6a0d5c768c4b6f3bf263098\"\"\n  C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\RegAsm.exe\n\nCOMMAND EXECUTIONS (1):\n  () cmd /c TimeOut 1 & Del /F C:\\2f32ec44598281bee4e2981e066bfc960faef18bf6a0d5c768c4b6f3bf263098\"\" []\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - packed with generic packer\n  - packed with UPX\n  - compiled with AutoIt\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - contain a resource (.rsrc) section\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - compiled with AutoIt\n  - (internal) autoit file limitation\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  AppVScripting.exe  [sha256: 0bdec17e9a8488ad...]\n\nFILES WRITTEN (3):\n  C:\\Documents and Settings\\<USER>\\Application Data\\ApplyTrustOffline\\AppVScripting.exe\n  C:\\Documents and Settings\\<USER>\\Application Data\\ApplyTrustOffline\\FXSUNATD.vbs\n  C:\\Documents and Settings\\<USER>\\Start Menu\\Programs\\Startup\\FXSUNATD.url\n\nMUTEXES CREATED (2):\n  RasPbFile\n  ShimCacheMutex\n\nPROCESSES CREATED (3):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\ntprint.exe\n  C:\\WINDOWS\\system32\\cmd.exe C:\\WINDOWS\\system32\\cmd.exe\"  /c TimeOut 1 & Del /F \"C:\\2f32ec44598281bee4e2981e066bfc960faef18bf6a0d5c768c4b6f3bf263098\"\"\n  C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\RegAsm.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Library] AutoIt\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'UPX v0.89.6 - v1.02 / v1.05 -v1.24 -> Markus & Laszlo [overlay]', 'F-PROT': 'UPX'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.94\n  .rsrc        entropy=7.89\n  [overlay]    entropy=5.399337291717529  size=264\n",
+  "ground_truth": {
+    "hash": "2f32ec44598281bee4e2981e066bfc960faef18bf6a0d5c768c4b6f3bf263098",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8028,
+    "malicious_count": 57,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "heur",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "compiled with AutoIt"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "packed with generic packer",
+      "contain a resource (.rsrc) section",
+      "packed with UPX",
+      "compiled with AutoIt",
+      "(internal) autoit file limitation",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [
+        "136.243.204.158",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "digiplas.com"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "AppVScripting.exe"
+      ],
+      "mutexes": [
+        "RasPbFile",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\ntprint.exe",
+        "C:\\WINDOWS\\system32\\cmd.exe C:\\WINDOWS\\system32\\cmd.exe\"  /c TimeOut 1 & Del /F \"C:\\2f32ec44598281bee4e2981e066bfc960faef18bf6a0d5c768c4b6f3bf263098\"\"",
+        "C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\RegAsm.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

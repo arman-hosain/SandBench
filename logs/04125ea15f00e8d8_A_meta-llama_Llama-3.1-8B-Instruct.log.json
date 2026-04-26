@@ -1,0 +1,95 @@
+{
+  "hash": "04125ea15f00e8d81fe112e311a33b569dcf27fafeef36f28987aba23b30101a",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity, creates multiple files and registry keys, and uses persistence mechanisms to maintain its presence on the system. These behaviors are indicative of a malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior of creating multiple files and registry keys, and using persistence mechanisms to maintain its presence on the system, is consistent with the characteristics of a Trojan. Additionally, the sample's network activity and use of encryption suggest a malicious intent.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1204\", \"name\": \"User Execution\"},\n      {\"id\": \"T1059\", \"name\": \"Command and Control\"},\n      {\"id\": \"T1005\", \"name\": \"Remote File Copy\"},\n      {\"id\": \"T1056\", \"name\": \"Exfiltration Over Command and Control Channel\"},\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"},\n      {\"id\": \"T1083\", \"name\": \"File and Directory Discovery\"},\n      {\"id\": \"T1052\", \"name\": \"Scheduled Task/Job\"},\n      {\"id\": \"T1218\", \"name\": \"File and Directory Permissions Modification\"},\n      {\"id\": \"T1071\", \"name\": \"Application Layer Protocol: Web Service\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1053\", \"name\": \"Scheduled Task/Job\"},\n      {\"id\": \"T1051\", \"name\": \"Scheduled Task/Job\"},\n      {\"id\": \"T1050\", \"name\": \"Service Execution\"},\n      {\"id\": \"T1056\", \"name\": \"Exfiltration Over Command and Control Channel\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 5289,
+      "response_chars": 1521,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity, creates multiple files and registry keys, and uses persistence mechanisms to maintain its presence on the system. These behaviors are indicative of a malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior of creating multiple files and registry",
+      "elapsed_seconds": 7.58
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 7.58,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9014
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.2222,
+      "ttp_precision": 0.1538,
+      "ttp_recall": 0.4,
+      "gt_ttps": [
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1222",
+        "T1564"
+      ],
+      "pred_ttps": [
+        "T1005",
+        "T1050",
+        "T1051",
+        "T1052",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1059",
+        "T1071",
+        "T1082",
+        "T1083",
+        "T1204",
+        "T1218"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1005",
+        "T1050",
+        "T1051",
+        "T1052",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1059",
+        "T1071",
+        "T1204",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1129",
+        "T1222",
+        "T1564"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2222,
+      "breakdown": {
+        "ttp_f1": 0.2222
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

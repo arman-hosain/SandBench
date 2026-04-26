@@ -1,0 +1,48 @@
+{
+  "hash": "2cd296bf2169740420a46fa931ec66fb780ca6e992d25dc3c2cc17ef6a2931a9",
+  "report_text": "--- EXECUTION CHAIN ---\n\nCOMMAND EXECUTIONS (2):\n  ( 936 - cmd.exe ) c:\\windows\\system32\\cmd.exe /c \"c:\\users\\user41~1\\appdata\\local\\temp\\jbqvseafoj.exe\"\n  ( 1688 - jbqvseafoj.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\jbqvseafoj.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - encode data using Base64 via WinAPI\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - encode data using Base64 via WinAPI\n  - contain loop\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  ctvqzym.exe  [sha256: 7ba9d4472432f3fd...]\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: 4e44ec467d60cb2e...]\n  c:\\progra~3\\mozilla\\jctrxem.exe  [sha256: 48bb2866d8c29f88...]\n\nFILES WRITTEN (3):\n  ( 1688 - jbqvseafoj.exe ) c:\\progra~3\\mozilla\\jctrxem.exe\n  C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\ctvqzym.exe\n  C:\\WINDOWS\\Tasks\\hiqvsnd.job\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] LCC-Win32\n  [Linker] LCC Linker\n  Packers: {'PEiD': 'Microsoft Visual C++ (3.0 old crap)'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.58\n  .bss         entropy=0.0\n  .data        entropy=6.73\n  .idata       entropy=3.92\n  .reloc       entropy=5.75\n  [overlay]    entropy=7.999640941619873  size=565068\n",
+  "ground_truth": {
+    "hash": "2cd296bf2169740420a46fa931ec66fb780ca6e992d25dc3c2cc17ef6a2931a9",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8857,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using Base64 via WinAPI"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RWX memory",
+      "encode data using Base64 via WinAPI",
+      "contain loop"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "c:\\progra~3\\mozilla\\jctrxem.exe",
+        "ctvqzym.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "ReaQta-Hive",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

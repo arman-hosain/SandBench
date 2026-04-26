@@ -1,0 +1,101 @@
+{
+  "hash": "030cee0d534139c6baf4111c4d0ae177009bfdd12fe03d5040f8e2144e8f1604",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it drops multiple executable files with pornographic names into legitimate system directories (e.g., C:\\\\Windows, C:\\\\Program Files\\\\dotnet, C:\\\\Program Files\\\\Adobe) to hide them. It establishes persistence via the Run registry key, creates mutexes, and performs system enumeration. The file names and the use of Polink (a packer/linker) strongly indicate a malicious payload designed to evade detection and spread.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The primary behavior observed is the dropping of secondary payloads (files with .exe extensions disguised as media files) into various system folders. This 'dropping' mechanism is the defining characteristic of a Dropper. While it may eventually execute other malware, its immediate function in this report is distribution and deployment.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1566\",\n        \"name\": \"Phishing\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1547\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1005\",\n        \"name\": \"Data from Local System\"\n      },\n      {\n        \"id\": \"T1083\",\n        \"name\": \"File and Directory Discovery\"\n      },\n      {\n        \"id\": \"T1035\",\n        \"name\": \"Network Service Discovery\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 4345,
+      "response_chars": 1634,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it drops multiple executable files with pornographic names into legitimate system directories (e.g., C:\\\\Windows, C:\\\\Program Files\\\\dotnet, C:\\\\Program Files\\\\Adobe) to hide them. It establishes persistence via the Run registry key, creates mutexes, and performs system enumeration. The file n",
+      "elapsed_seconds": 8.96
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 8.96,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9577
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.2727,
+      "ttp_precision": 0.375,
+      "ttp_recall": 0.2143,
+      "gt_ttps": [
+        "T1007",
+        "T1010",
+        "T1012",
+        "T1057",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1135",
+        "T1489",
+        "T1518",
+        "T1543",
+        "T1547",
+        "T1569"
+      ],
+      "pred_ttps": [
+        "T1005",
+        "T1027",
+        "T1035",
+        "T1055",
+        "T1059",
+        "T1083",
+        "T1547",
+        "T1566"
+      ],
+      "tp": 3,
+      "q3_hallucinated_ttps": [
+        "T1005",
+        "T1027",
+        "T1035",
+        "T1055",
+        "T1566"
+      ],
+      "q3_missed_ttps": [
+        "T1007",
+        "T1010",
+        "T1012",
+        "T1057",
+        "T1082",
+        "T1129",
+        "T1135",
+        "T1489",
+        "T1518",
+        "T1543",
+        "T1569"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2727,
+      "breakdown": {
+        "ttp_f1": 0.2727
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

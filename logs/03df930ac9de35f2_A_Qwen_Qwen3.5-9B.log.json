@@ -1,0 +1,95 @@
+{
+  "hash": "03df930ac9de35f23bfe367261bec1b825402a9ee0b2d13dac7d95d251b17aa0",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including dropping files with suspicious names like 'svchost.com' to the Windows system directory, modifying the registry to hijack the 'exefile' shell command, creating mutexes with obfuscated names, and utilizing XOR encryption and memory allocation techniques typical of malware loaders or droppers.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The behavior of dropping a secondary executable ('svchost.com') to the system directory, modifying registry keys to associate file extensions with the dropped payload, and using obfuscation techniques strongly suggests a Dropper designed to install and execute further malicious payloads.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1566.001\",\n        \"name\": \"Phishing: Spearphishing Attachment\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1053\",\n        \"name\": \"Scheduled Task/Job\"\n      },\n      {\n        \"id\": \"T1547\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1057\",\n        \"name\": \"File and Directory Discovery\"\n      },\n      {\n        \"id\": \"T1003\",\n        \"name\": \"OS Credential Dumping\"\n      },\n      {\n        \"id\": \"T1070\",\n        \"name\": \"Indicator Removal\"\n      },\n      {\n        \"id\": \"T1029\",\n        \"name\": \"Data from Local System\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 3110,
+      "response_chars": 1657,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including dropping files with suspicious names like 'svchost.com' to the Windows system directory, modifying the registry to hijack the 'exefile' shell command, creating mutexes with obfuscated names, and utilizing XOR encryption and memory allocation techniques typical of malware load",
+      "elapsed_seconds": 15.82
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 15.82,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9306
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.2222,
+      "ttp_precision": 0.2,
+      "ttp_recall": 0.25,
+      "gt_ttps": [
+        "T1012",
+        "T1027",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1113",
+        "T1222",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1003",
+        "T1027",
+        "T1029",
+        "T1053",
+        "T1055",
+        "T1057",
+        "T1059",
+        "T1070",
+        "T1547",
+        "T1566"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1003",
+        "T1029",
+        "T1053",
+        "T1055",
+        "T1057",
+        "T1070",
+        "T1547",
+        "T1566"
+      ],
+      "q3_missed_ttps": [
+        "T1012",
+        "T1082",
+        "T1083",
+        "T1113",
+        "T1222",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2222,
+      "breakdown": {
+        "ttp_f1": 0.2222
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "hash": "01211ab3028192420cd4869a4c93ca01e8165c6eec59179c941d62816fc3019c",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including anti-VM detection capabilities, creation of persistence mechanisms via RunOnce registry keys, dropping of new executable files, and suspicious network activity contacting a domain with 'ransomware' in the subdomain. The combination of these behaviors strongly indicates malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Ransomware\"],\n    \"explanation\": \"The sample is classified as a Trojan due to its deceptive nature (dropping files, using legitimate-looking processes like svchost.exe) and its capability to perform actions without user consent. It is also classified as Ransomware due to the explicit 'ransomware' subdomain contacted and the creation of mutexes with 'ransom_id' in the name, which are typical indicators of ransomware operations.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1547\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1070\",\n        \"name\": \"Indicator Removal\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 3327,
+      "response_chars": 1351,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including anti-VM detection capabilities, creation of persistence mechanisms via RunOnce registry keys, dropping of new executable files, and suspicious network activity contacting a domain with 'ransomware' in the subdomain. The combination of these behaviors strongly indicates malici",
+      "elapsed_seconds": 7.08
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 7.08,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9014
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1082",
+        "T1129",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1547"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1547"
+      ],
+      "q3_missed_ttps": [
+        "T1082",
+        "T1129",
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

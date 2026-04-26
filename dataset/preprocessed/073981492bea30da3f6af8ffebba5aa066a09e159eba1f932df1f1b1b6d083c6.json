@@ -1,0 +1,123 @@
+{
+  "hash": "073981492bea30da3f6af8ffebba5aa066a09e159eba1f932df1f1b1b6d083c6",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (11):\n  - hide graphical window\n  - enumerate processes\n  - query or enumerate registry value\n  - get common file path\n  - link function at runtime on Windows\n  - persist via Windows service\n  - get keyboard layout\n  - reference anti-VM strings targeting VirtualBox\n  - reference anti-VM strings targeting Qemu\n  - reference anti-VM strings targeting VMWare\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Create Process [C0017]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Memory::Allocate Memory [C0007]\n  - hide graphical window\n  - File System::Create File [C0016]\n  - contain loop\n  - enumerate processes\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Communication::HTTP Communication::Send Request [C0002.003]\n  - Communication::HTTP Communication::Create Request [C0002.012]\n  - Communication::HTTP Communication::Connect to Server [C0002.009]\n  - Communication::HTTP Communication::Get Response [C0002.017]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - Discovery::File and Directory Discovery [E1083]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - Process::Terminate Process [C0018]\n  - link function at runtime on Windows\n  - persist via Windows service\n  - get keyboard layout\n  - Execution::Install Additional Program [B0023]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA, GetProcAddress, LoadLibraryExW, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.63\n  .rdata       entropy=5.27\n  .data        entropy=2.57\n  .rsrc        entropy=7.93\n  .reloc       entropy=0.0\n  [overlay]    entropy=7.92868709564209  size=887654\n",
+  "ground_truth": {
+    "hash": "073981492bea30da3f6af8ffebba5aa066a09e159eba1f932df1f1b1b6d083c6",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.726,
+    "malicious_count": 53,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 20
+      },
+      {
+        "value": "downloader",
+        "count": 14
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "fugrafa",
+        "count": 6
+      },
+      {
+        "value": "vidar",
+        "count": 3
+      },
+      {
+        "value": "legionloader",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.fugrafa/vidar",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1543",
+        "signature_description": "persist via Windows service"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "persist via Windows service"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get keyboard layout"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open registry key",
+      "create process on Windows",
+      "delay execution",
+      "allocate memory",
+      "allocate RW memory",
+      "hide graphical window",
+      "create or open file",
+      "contain loop",
+      "enumerate processes",
+      "query or enumerate registry value",
+      "send HTTP request",
+      "create HTTP request",
+      "connect to HTTP server",
+      "read data from Internet",
+      "receive data",
+      "send data",
+      "get common file path",
+      "set registry value",
+      "terminate process",
+      "link function at runtime on Windows",
+      "persist via Windows service",
+      "get keyboard layout",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting VirtualBox",
+      "reference anti-VM strings targeting Qemu",
+      "reference anti-VM strings targeting VMWare",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

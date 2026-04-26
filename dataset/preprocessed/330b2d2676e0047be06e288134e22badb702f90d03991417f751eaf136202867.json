@@ -1,0 +1,56 @@
+{
+  "hash": "330b2d2676e0047be06e288134e22badb702f90d03991417f751eaf136202867",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  45dea291cd1b3b74bd12.pe32\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - encode data using XOR\n  - parse PE header\n  - link function at runtime on Windows\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - File System::Create File [C0016]\n  - contain loop\n  - extract resource via kernel32 functions\n  - parse PE header\n  - Process::Terminate Process [C0018]\n  - Process::Allocate Thread Local Storage [C0040]\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - contain a resource (.rsrc) section\n  - contains PDB path\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryW, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.51\n  .rdata       entropy=4.91\n  .data        entropy=2.14\n  .rsrc        entropy=7.62\n  .reloc       entropy=3.92\n",
+  "ground_truth": {
+    "hash": "330b2d2676e0047be06e288134e22badb702f90d03991417f751eaf136202867",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7606,
+    "malicious_count": 54,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RWX memory",
+      "encode data using XOR",
+      "create or open file",
+      "contain loop",
+      "extract resource via kernel32 functions",
+      "parse PE header",
+      "terminate process",
+      "allocate thread local storage",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section",
+      "contains PDB path"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "Tencent HABO"
+  ]
+}

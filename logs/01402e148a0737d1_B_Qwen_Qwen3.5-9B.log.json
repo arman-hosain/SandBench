@@ -1,0 +1,173 @@
+{
+  "hash": "01402e148a0737d16eee3d2194461ff085df700a9db1f8076045f633c3663353",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is confirmed malicious. It acts as a Dropper, utilizing WinRAR to extract and deploy numerous files into suspicious system directories (System32, DC++ Share). It exhibits anti-analysis capabilities by referencing anti-VM strings targeting Xen and performing debugger detection. Additionally, it creates a text file named 'marijuana.txt' (likely a decoy or IOCA), sets registry keys, and imports dangerous functions like VirtualAlloc and WinExec. The combination of file dropping, anti-analysis behavior, and suspicious registry modifications confirms malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The primary behavior observed is the unpacking and deployment of additional payloads. The initial executable uses WinRAR to extract numerous files into system directories, which is the defining characteristic of a Dropper. While it performs registry queries and network discovery, it does not immediately exhibit ransomware encryption, worm propagation, or spyware data exfiltration in this specific report, focusing instead on dropping files for subsequent execution.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1083\",\n        \"name\": \"Internal System Discovery\"\n      },\n      {\n        \"id\": \"T1012\",\n        \"name\": \"Query Registry\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 5540,
+      "response_chars": 1662,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic Dropper behavior: it uses WinRAR to extract and drop a large number of files into suspicious directories (System32, DC++ Share, dccPrograms). It creates a text file named 'marijuana.txt' (likely a decoy or indicator of compromise), sets registry keys related to 'SoftWare', and imports dangerous functions like V",
+      "elapsed_seconds": 15.08
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "4 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 4,
+      "ttps_found": [
+        "T1027",
+        "T1035",
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1543",
+        "T1566"
+      ],
+      "hallucinated_ttps": [
+        "T1027",
+        "T1035",
+        "T1053",
+        "T1055",
+        "T1543",
+        "T1566"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 6
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- query or enumerate registry value\n- get local IPv4 addresses\n- get file size\n- reference anti-VM strings targeting Xen\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1012",
+        "T1027",
+        "T1059",
+        "T1083"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 3,
+      "best_ttp_fp": 1
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "2 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 2,
+      "ttps_found": [
+        "T1012",
+        "T1027",
+        "T1059",
+        "T1083"
+      ],
+      "hallucinated_ttps": [
+        "T1027"
+      ],
+      "ttp_tp": 3,
+      "ttp_fp": 1
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- get local IPv4 addresses\n- reference anti-VM strings targeting Xen\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not direc",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1012",
+        "T1027",
+        "T1059",
+        "T1070",
+        "T1083",
+        "T1562"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 3,
+      "best_ttp_fp": 1
+    },
+    {
+      "step": 8,
+      "type": "refinement_stopped",
+      "iteration": 2,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 3,
+      "ttp_fp": 3
+    }
+  ],
+  "total_llm_calls": 3,
+  "total_elapsed": 42.77,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9722
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.6667,
+      "ttp_precision": 0.75,
+      "ttp_recall": 0.6,
+      "gt_ttps": [
+        "T1012",
+        "T1016",
+        "T1059",
+        "T1083",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1012",
+        "T1027",
+        "T1059",
+        "T1083"
+      ],
+      "tp": 3,
+      "q3_hallucinated_ttps": [
+        "T1027"
+      ],
+      "q3_missed_ttps": [
+        "T1016",
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.6667,
+      "breakdown": {
+        "ttp_f1": 0.6667
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

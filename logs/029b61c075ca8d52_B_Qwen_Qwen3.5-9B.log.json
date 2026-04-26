@@ -1,0 +1,157 @@
+{
+  "hash": "029b61c075ca8d5269ecf6cb050110714cb1c6cee4ad5ad3556bd047820b4d18",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is malicious due to the combination of persistence mechanisms (Registry Run key), file system manipulation (creating 'c:\\\\Mirax', setting file attributes), and robust anti-analysis techniques including argument obfuscation, stack strings, and delayed execution. The use of MinGW compilation and PEiD packing further indicates an effort to evade static analysis.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Dropper\"],\n    \"explanation\": \"The sample exhibits behavior typical of a Trojan, utilizing obfuscation and anti-analysis techniques to evade detection while establishing persistence. It also functions as a Dropper by creating a new file ('c:\\\\Mirax') and potentially dropping additional payloads, evidenced by the file creation and attribute setting behaviors.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1059.001\",\n        \"name\": \"Command and Scripting Interpreter: Windows Command Shell\"\n      },\n      {\n        \"id\": \"T1083\",\n        \"name\": \"Internal or External System Object Manipulation\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1901,
+      "response_chars": 1145,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence via the Run registry key, file system manipulation (creating 'c:\\\\Mirax'), and strong indicators of anti-analysis techniques such as argument obfuscation, stack strings, and delayed execution. The presence of obfuscated code and evasion tactics confirms malicious intent.\"\n",
+      "elapsed_seconds": 5.88
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "2 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 2,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1055"
+      ],
+      "ttp_tp": 3,
+      "ttp_fp": 1
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- get common file path\n- set file attributes\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by the rep",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1059",
+        "T1083",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 4,
+      "best_ttp_fp": 0
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "1 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 1,
+      "ttps_found": [
+        "T1027",
+        "T1059",
+        "T1083",
+        "T1547"
+      ],
+      "hallucinated_ttps": [],
+      "ttp_tp": 4,
+      "ttp_fp": 0
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- set file attributes\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by the report.\nDIRECTION: ADD_TTP",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1027",
+        "T1083",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 4,
+      "best_ttp_fp": 0
+    },
+    {
+      "step": 8,
+      "type": "refinement_stopped",
+      "iteration": 2,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 3,
+      "ttp_fp": 0
+    }
+  ],
+  "total_llm_calls": 3,
+  "total_elapsed": 18.4,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9437
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.8889,
+      "ttp_precision": 1.0,
+      "ttp_recall": 0.8,
+      "gt_ttps": [
+        "T1027",
+        "T1059",
+        "T1083",
+        "T1222",
+        "T1547"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1059",
+        "T1083",
+        "T1547"
+      ],
+      "tp": 4,
+      "q3_hallucinated_ttps": [],
+      "q3_missed_ttps": [
+        "T1222"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.8889,
+      "breakdown": {
+        "ttp_f1": 0.8889
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

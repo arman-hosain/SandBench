@@ -1,0 +1,84 @@
+{
+  "hash": "0412c0613d2b1f7d054bc7181efc59dc24f5b3c0882e14ead6e4238ebd2025b4",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a complex execution chain, is packed with generic and UPX packers, and contains loop functionality, which are indicative of malicious behavior.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The sample's purpose appears to be the delivery of additional malware components, as evidenced by the creation of multiple files in the system directory, which is consistent with the behavior of a dropper.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1003\", \"name\": \"OS Credential Dumping\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 1555,
+      "response_chars": 707,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a complex execution chain, is packed with generic and UPX packers, and contains loop functionality, which are indicative of malicious behavior.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The sample's purpose appears to be the delivery of additional malware components, as evidenced by the creation of",
+      "elapsed_seconds": 3.44
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 3.44,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9726
+    },
+    "family": {
+      "family_f1": 0.5,
+      "family_precision": 1.0,
+      "family_recall": 0.3333,
+      "predicted": [
+        "dropper"
+      ],
+      "matched": [
+        "dropper"
+      ],
+      "reachable_gt": [
+        "spyware",
+        "dropper",
+        "trojan"
+      ],
+      "gt_pool": [
+        "banker",
+        "blackmoon",
+        "dinwod",
+        "dropper",
+        "eydrop",
+        "trojan"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 0.5,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1003",
+        "T1027",
+        "T1055"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1003",
+        "T1055"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5,
+      "breakdown": {
+        "ttp_f1": 0.5
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

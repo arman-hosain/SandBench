@@ -1,0 +1,45 @@
+{
+  "hash": "2d335c322accc0524d9b4ac6ab7db967cc186b64730fd7a66cd9d986a46e7a54",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nIP TRAFFIC (3):\n  1.234.83.146:11170 (TCP)\n  218.54.31.165:11110 (TCP)\n  218.54.31.226:11110 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  woygg.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\_uinsey.bat\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\tulea.exe\n\nCOMMAND EXECUTIONS (4):\n  ((null)) C:\\WINDOWS\\system32\\ryozf.exe [(null)]\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_uinsey.bat(null) [(null)]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\tulea.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\_uinsey.bat\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  ryozf.exe  [sha256: e30197fe9e78f3b3...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\tulea.exe  [sha256: aeb45e2f1b255818...]\n\nFILES WRITTEN (5):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_uinsey.bat\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\golfinfo.ini\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\_uinsey.bat\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\golfinfo.ini\n  C:\\WINDOWS\\system32\\ryozf.exe\n\nOTHER REGISTRY KEYS SET (1):\n  HKCU\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\Run\n\nMUTEXES CREATED (2):\n  DBWinMutex\n  ShimCacheMutex\n\nPROCESSES CREATED (2):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_uinsey.bat\" \"\n  C:\\WINDOWS\\system32\\ryozf.exe C:\\WINDOWS\\system32\\ryozf.exe\" \"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Packer] PECompact\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'F-PROT': 'PECompact, PecBundle', 'Cyren': 'PecBundle, PECompact'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.19\n  .rsrc        entropy=6.09\n  .reloc       entropy=0.22\n  [overlay]    entropy=7.982326984405518  size=150782\n",
+  "ground_truth": {
+    "hash": "2d335c322accc0524d9b4ac6ab7db967cc186b64730fd7a66cd9d986a46e7a54",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8472,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [],
+    "capa_sig_names": [],
+    "iocs": {
+      "ips": [
+        "1.234.83.146",
+        "218.54.31.165",
+        "218.54.31.226"
+      ],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\tulea.exe",
+        "ryozf.exe"
+      ],
+      "mutexes": [
+        "DBWinMutex",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_uinsey.bat\" \"",
+        "C:\\WINDOWS\\system32\\ryozf.exe C:\\WINDOWS\\system32\\ryozf.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

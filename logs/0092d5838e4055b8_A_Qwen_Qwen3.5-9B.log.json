@@ -1,0 +1,83 @@
+{
+  "hash": "0092d5838e4055b81227dacba87631a802c2282d42e377e2ec06a8fff1bdc557",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of malicious activity: it creates a file named 'C:\\\\marijuana.txt' (likely a ransom note or data exfiltration marker), uses anti-analysis techniques (anti-VM strings, debugger detection, delayed execution), performs network communication (UDP socket, DNS resolution), and utilizes dangerous API imports (WinExec, VirtualAlloc). The high entropy in the overlay section suggests packed or encrypted payload, typical of malware.\"\n  },\n  \"q2\": {\n    \"family\": [\"Ransomware\"],\n    \"explanation\": \"The creation of a specific text file named 'marijuana.txt' in the root directory is a strong indicator of ransomware behavior, where such files often serve as ransom notes or markers for encrypted data. Combined with the anti-analysis capabilities and network activity, this points to a ransomware family rather than simple adware or a dropper.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1070\",\n        \"name\": \"Indicator Removal\"\n      },\n      {\n        \"id\": \"T1562\",\n        \"name\": \"Impair Defenses\"\n      },\n      {\n        \"id\": \"T1071\",\n        \"name\": \"Application Layer Protocol\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 2151,
+      "response_chars": 1470,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of malicious activity: it creates a file named 'C:\\\\marijuana.txt' (likely a ransom note or data exfiltration marker), uses anti-analysis techniques (anti-VM strings, debugger detection, delayed execution), performs network communication (UDP socket, DNS resolution), and utilizes dangerous API impor",
+      "elapsed_seconds": 12.86
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 12.86,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9714
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.1818,
+      "ttp_precision": 0.1667,
+      "ttp_recall": 0.2,
+      "gt_ttps": [
+        "T1012",
+        "T1016",
+        "T1059",
+        "T1083",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1071",
+        "T1562"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1055",
+        "T1070",
+        "T1071",
+        "T1562"
+      ],
+      "q3_missed_ttps": [
+        "T1012",
+        "T1016",
+        "T1083",
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.1818,
+      "breakdown": {
+        "ttp_f1": 0.1818
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

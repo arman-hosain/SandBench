@@ -1,0 +1,184 @@
+{
+  "hash": "3565208bb02964a60058a66d384616e423ca444cfd5240208fa1f8645e14d8e9",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  arc.msn.com \u2192 20.82.210.154\n\nIP TRAFFIC (1):\n  23.215.176.114:80 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  %WINDIR%\\explorer.exe\n    %SAMPLEPATH%\\WallpaperSuite.exe\n\nCOMMAND EXECUTIONS (1):\n  \"%SAMPLEPATH%\\WallpaperSuite.exe\" \n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (23):\n  - get user security identifier\n  - encode data using XOR\n  - get common file path\n  - check if file exists\n  - link function at runtime on Windows\n  - get hostname\n  - get disk information\n  - create new key via CryptAcquireContext\n  - get file size\n  - enumerate gui resources\n  - find graphical window\n  - enumerate files on Windows\n  - delete registry key\n  - query or enumerate registry value\n  - accept command line arguments\n  - enumerate processes\n  - encrypt data using AES\n  - reference AES constants\n  - get memory capacity\n  - link many functions at runtime\n  - encode data using Base64\n  - reference Base64 string\n  - create shortcut via IShellLink\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Operating System::Wallpaper [C0035]\n  - Process::Create Process [C0017]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - get user security identifier\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Process::Open Process [C0065]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - parse URL\n  - compare security identifiers\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - File System::Copy File [C0045]\n  - extract resource via kernel32 functions\n  - link function at runtime on Windows\n  - Discovery::System Information Discovery [E1082]\n  - Cryptography::Encryption Key [C0028]\n  - Cryptography::Cryptographic Hash::SHA1 [C0029.002]\n  - initialize hashing via WinCrypt\n  - hash data using SHA1 via WinCrypt\n  - Cryptography::Cryptographic Hash [C0029]\n\nHIGHLIGHTED CALLS:\n  GetTickCount\n\n--- ARTIFACTS ---\n\nFILES DROPPED (5):\n  C:\\Sysmon\\438274944D21C3590AB2F6C5A34D5933B808ACB6409037FFE5B95B31EF18E8BDCFC6B5E6A0049489ADC5CECAFC7F95524157170C3CDA66F72AD85350D09F0476432071D000000000000000000000000000000000\n  C:\\Windows\\System32\\Microsoft\\Protect\\S-1-5-18\\User\\70c37ab5-e5ba-4cb5-b17a-2ecbfad99332\n  C:\\Windows\\ServiceProfiles\\LocalService\\AppData\\Roaming\\Microsoft\\Crypto\\Keys\\de7cf8a7901d2ad13e5c67c29e5d1662_cbbb49d6-b7ff-44ca-aba5-8a5e250d4d42\n  C:\\Windows\\System32\\spp\\store\\2.0\\data.dat.tmp\n  %USERPROFILE%\\AppData\\Local\\Microsoft\\Windows\\WER\\ERC\\statecache.lock\n\nPROCESSES CREATED (1):\n  %SAMPLEPATH%\\WallpaperSuite.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessW, GetProcAddress, LoadLibraryExW, LoadLibraryW\n  ADVAPI32.dll: OpenProcessToken\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.61\n  .rdata       entropy=5.68\n  .data        entropy=7.18\n  .rsrc        entropy=7.91\n  .reloc       entropy=6.57\n",
+  "ground_truth": {
+    "hash": "3565208bb02964a60058a66d384616e423ca444cfd5240208fa1f8645e14d8e9",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.3333,
+    "malicious_count": 24,
+    "popular_threat_category": [
+      {
+        "value": "adware",
+        "count": 4
+      },
+      {
+        "value": "trojan",
+        "count": 3
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "wallpaperhd",
+        "count": 8
+      }
+    ],
+    "suggested_label": "adware.wallpaperhd",
+    "av_family_vote": "wallpaperhd",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "enumerate gui resources"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get hostname"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1087",
+        "signature_description": "get user security identifier"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry key"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "create shortcut via IShellLink"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "change the wallpaper",
+      "create process on Windows",
+      "create or open registry key",
+      "get user security identifier",
+      "encode data using XOR",
+      "open process",
+      "delay execution",
+      "create or open file",
+      "parse URL",
+      "compare security identifiers",
+      "contain loop",
+      "get common file path",
+      "set registry value",
+      "copy file",
+      "check if file exists",
+      "extract resource via kernel32 functions",
+      "link function at runtime on Windows",
+      "get hostname",
+      "get disk information",
+      "create new key via CryptAcquireContext",
+      "hash data using SHA1",
+      "initialize hashing via WinCrypt",
+      "hash data using SHA1 via WinCrypt",
+      "hash data via WinCrypt",
+      "get file size",
+      "enumerate gui resources",
+      "terminate process",
+      "read file on Windows",
+      "write file on Windows",
+      "parse credit card information",
+      "download URL",
+      "delete file",
+      "receive data",
+      "get OS version",
+      "find graphical window",
+      "enumerate files on Windows",
+      "delete registry key",
+      "query or enumerate registry value",
+      "create HTTP request",
+      "connect to URL",
+      "hash data with MD5",
+      "create mutex",
+      "accept command line arguments",
+      "check mutex and exit",
+      "enumerate processes",
+      "create shortcut via IShellLink",
+      "authenticate HMAC",
+      "resolve function by parsing PE exports",
+      "hash data using murmur3",
+      "access the Windows event log",
+      "encrypt data using AES",
+      "reference AES constants",
+      "get memory capacity",
+      "check for time delay via GetTickCount",
+      "link many functions at runtime",
+      "check for software breakpoints",
+      "encode data using Base64",
+      "allocate thread local storage",
+      "get thread local storage value",
+      "set thread local storage value",
+      "set environment variable",
+      "linked against OpenSSL",
+      "contain a resource (.rsrc) section",
+      "reference Base64 string",
+      "create or open file",
+      "get common file path",
+      "copy file",
+      "extract resource via kernel32 functions",
+      "write file on Windows",
+      "read file on Windows",
+      "get OS version",
+      "create shortcut via IShellLink",
+      "encrypt data using AES"
+    ],
+    "iocs": {
+      "ips": [
+        "23.215.176.114"
+      ],
+      "domains": [
+        "arc.msn.com"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "%USERPROFILE%\\AppData\\Local\\Microsoft\\Windows\\WER\\ERC\\statecache.lock",
+        "C:\\Sysmon\\438274944D21C3590AB2F6C5A34D5933B808ACB6409037FFE5B95B31EF18E8BDCFC6B5E6A0049489ADC5CECAFC7F95524157170C3CDA66F72AD85350D09F0476432071D000000000000000000000000000000000",
+        "C:\\Windows\\ServiceProfiles\\LocalService\\AppData\\Roaming\\Microsoft\\Crypto\\Keys\\de7cf8a7901d2ad13e5c67c29e5d1662_cbbb49d6-b7ff-44ca-aba5-8a5e250d4d42",
+        "C:\\Windows\\System32\\Microsoft\\Protect\\S-1-5-18\\User\\70c37ab5-e5ba-4cb5-b17a-2ecbfad99332",
+        "C:\\Windows\\System32\\spp\\store\\2.0\\data.dat.tmp"
+      ],
+      "mutexes": [],
+      "processes": [
+        "%SAMPLEPATH%\\WallpaperSuite.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Microsoft Sysinternals",
+    "VirusTotal Jujubox",
+    "Zenbox"
+  ]
+}

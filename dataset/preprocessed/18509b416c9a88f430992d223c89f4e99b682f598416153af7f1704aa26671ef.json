@@ -1,0 +1,115 @@
+{
+  "hash": "18509b416c9a88f430992d223c89f4e99b682f598416153af7f1704aa26671ef",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  CONFIG.SYS .exe\n    C:\\ProgramData\\dralta.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\18509b416c9a88f430992d223c89f4e99b682f598416153af7f1704aa26(null) [(null)]\n  C:\\Users\\<USER>\\Downloads\\CONFIG.SYS\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (5):\n  - contain obfuscated stackstrings\n  - get startup folder\n  - set file attributes\n  - get common file path\n  - accept command line arguments\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - get startup folder\n  - Process::Create Process [C0017]\n  - File System::Set File Attributes [C0050]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Delete File [C0047]\n  - File System::Create Directory [C0046]\n  - Process::Allocate Thread Local Storage [C0040]\n  - get thread local storage value\n  - Process::Set Thread Local Storage Value [C0041]\n  - File System::Read File [C0051]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - resolve function by parsing PE exports\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (28):\n  AUTOEXEC.BAT .exe  [sha256: fcf7ddca7c54e933...]\n  boot.ini .exe  [sha256: d9ff20dbfbc60a53...]\n  CONFIG.SYS .exe  [sha256: f2607d05907bab25...]\n  cuckoo .exe  [sha256: 97bb285f51eb1e1c...]\n  Documents and Settings .exe  [sha256: 29bedd1ed4331c24...]\n  emyqo.exe  [sha256: c1bceb9fa330daea...]\n  eula.1028.txt .exe  [sha256: 8a92b268a3cbe003...]\n  eula.1031.txt .exe  [sha256: 455346f2784a71c1...]\n  eula.1033.txt .exe  [sha256: 3b8650811674f6d5...]\n  eula.1036.txt .exe  [sha256: e3afcdb15ac5407e...]\n  eula.1040.txt .exe  [sha256: 181a957380237600...]\n  eula.1041.txt .exe  [sha256: 1e3ac26e4b1911c4...]\n  eula.1042.txt .exe  [sha256: 3383da4fba85ffe1...]\n  eula.2052.txt .exe  [sha256: 67898bd932403ce4...]\n  eula.3082.txt .exe  [sha256: 84a3f150aabfa13d...]\n  globdata.ini .exe  [sha256: ebfba3665746448c...]\n  install.exe .exe  [sha256: e090c3157956777c...]\n  install.ini .exe  [sha256: 081653c3917726ad...]\n  install.res.1028.dll .exe  [sha256: b3ea3608eb6bd6e9...]\n  install.res.1031.dll .exe  [sha256: 55e1eae7d438b3ba...]\n\nFILES WRITTEN (30):\n  C:\\0 .exe\n  C:\\AUTOEXEC.BAT .exe\n  C:\\CONFIG.SYS .exe\n  C:\\DiskD .exe\n  C:\\DiskX .exe\n  C:\\DllLoader.exe .exe\n  C:\\Documents and Settings .exe\n  C:\\Documents and Settings\\All Users\\Application Data\\Saaaalamm\\Mira.h\n  C:\\Documents and Settings\\All Users\\Application Data\\emyqo.exe\n  C:\\Documents and Settings\\All Users\\Application Data\\xrslyn.exe\n  C:\\IO.SYS .exe\n  C:\\MSDOS.SYS .exe\n  C:\\Mirab-newfile .exe\n  C:\\Mirab-samplefile .exe\n  C:\\NTDETECT.COM .exe\n  C:\\ProgramData\\dralta.exe\n  C:\\boot.ini .exe\n  C:\\bootfont.bin .exe\n  C:\\eula.2052.txt .exe\n  C:\\globdata.ini .exe\n\nPERSISTENCE REGISTRY KEYS (3):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft\u00ae Windows\u00ae Operating System = C:\\ProgramData\\dralta.exe\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft?Windows?Operating System = C:\\Documents and Settings\\All Users\\Application Data\\uilxc.exe\u0000\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft?Windows?Operating System = C:\\Documents and Settings\\All Users\\Application Data\\xrslyn.exe\u0000\n\nMUTEXES CREATED (7):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  C:\\Documents and Settings\\All Users\\Application Data\\emyqo.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCOMPILER AND PACKER:\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n  Packers: {'PEiD': 'MingWin32 v?.? (h)'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.08\n  .data        entropy=0.71\n  .rdata       entropy=5.01\n  .bss         entropy=0.0\n  .idata       entropy=4.29\n  .rsrc        entropy=7.0\n  [overlay]    entropy=6.804618835449219  size=334670\n",
+  "ground_truth": {
+    "hash": "18509b416c9a88f430992d223c89f4e99b682f598416153af7f1704aa26671ef",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9155,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "get startup folder"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "get startup folder",
+      "create process on Windows",
+      "set file attributes",
+      "delay execution",
+      "create or open file",
+      "contain loop",
+      "get common file path",
+      "delete file",
+      "create directory",
+      "allocate thread local storage",
+      "get thread local storage value",
+      "set thread local storage value",
+      "read file on Windows",
+      "accept command line arguments",
+      "resolve function by parsing PE exports",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft\u00ae Windows\u00ae Operating System",
+        "\\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft?Windows?Operating System"
+      ],
+      "registry_all_count": 2,
+      "files_dropped": [
+        "AUTOEXEC.BAT .exe",
+        "C:\\ProgramData\\Saaaalamm\\Mira.h",
+        "CONFIG.SYS .exe",
+        "Documents and Settings .exe",
+        "boot.ini .exe",
+        "c:\\$Recycle.Bin .exe",
+        "c:\\Documents and Settings .exe",
+        "c:\\dev_man.exe .exe",
+        "c:\\l.bat .exe",
+        "c:\\pagefile.sys .exe",
+        "cuckoo .exe",
+        "emyqo.exe",
+        "eula.1028.txt .exe",
+        "eula.1031.txt .exe",
+        "eula.1033.txt .exe",
+        "eula.1036.txt .exe",
+        "eula.1040.txt .exe",
+        "eula.1041.txt .exe",
+        "eula.1042.txt .exe",
+        "eula.2052.txt .exe",
+        "eula.3082.txt .exe",
+        "globdata.ini .exe",
+        "install.exe .exe",
+        "install.ini .exe",
+        "install.res.1028.dll .exe",
+        "install.res.1031.dll .exe",
+        "install.res.1033.dll .exe",
+        "install.res.1036.dll .exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\All Users\\Application Data\\emyqo.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

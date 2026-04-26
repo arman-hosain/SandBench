@@ -1,0 +1,91 @@
+{
+  "hash": "328a809c77944c0723ecc549d4ce30bab88bbaddbb716cd1743269bf7289d787",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://75.127.91.217/ldr/?&v=1.3&s=0\n\nIP TRAFFIC (1):\n  75.127.91.217:80 (TCP)\n\nSERVICES OPENED (2):\n  RASMAN\n  Sens\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - (internal) packer file limitation\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  C:\\Users\\<USER>\\ftp33.dll  [sha256: 4c2185520a7439b3...]\n  C:\\Users\\<USER>\\cftmon.exe  [sha256: c93900a7892d23fe...]\n\nFILES WRITTEN (5):\n  C:\\Documents and Settings\\Administrator\\cftmon.exe\n  C:\\Documents and Settings\\Administrator\\ftp33.dll\n  C:\\WINDOWS\\system32\\drivers\\spools.exe\n  C:\\WINDOWS\\system32\\ftp33.dll\n  C:\\Windows\\system32\\ftp33.dll\n\nPERSISTENCE REGISTRY KEYS (8):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\autoload = C:\\Users\\<USER>\\cftmon.exe\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\ntuser = C:\\Windows\\system32\\drivers\\spools.exe\n  HKLM\\SYSTEM\\CurrentControlSet\\Services\\Schedule\\ImagePath = C:\\Windows\\system32\\drivers\\spools.exe\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\autoload = C:\\Documents and Settings\\Administrator\\cftmon.exe\u0000\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\ntuser = C:\\WINDOWS\\system32\\drivers\\spools.exe\u0000\n  \\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\Schedule\\ImagePath = C:\\WINDOWS\\system32\\drivers\\spools.exe\u0000\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\autoload = C:\\Documents and Settings\\Administrator\\cftmon.exe\u0000\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\ntuser = C:\\WINDOWS\\system32\\drivers\\spools.exe\u0000\n\nOTHER REGISTRY KEYS SET (7):\n  HKCR\\\\exefile\\shell\\open\\command\\\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\exefile\\shell\\open\\command\\\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\SessionInformation\\ProgramCount\n\nMUTEXES CREATED (6):\n  IESQMMUTEX_0_208\n  RasPbFile\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n  fa34\n\nMUTEXES OPENED (7):\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n  _!MSFTHISTORY!_\n  c:!documents and settings!administrator!cookies!\n  c:!documents and settings!administrator!local settings!history!history.ie5!\n  c:!documents and settings!administrator!local settings!temporary internet files!content.ie5!\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualAlloc, VirtualProtect\n  ADVAPI32.dll: OpenProcessToken\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'UPX 2.90 [LZMA] -> Markus Oberhumer, Laszlo Molnar & John Reiser', 'F-PROT': 'UPX', 'Cyren': 'UPX', 'Varist': 'UPX'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.82\n  UPX2         entropy=3.08\n  [overlay]    entropy=7.9844841957092285  size=708325\n",
+  "ground_truth": {
+    "hash": "328a809c77944c0723ecc549d4ce30bab88bbaddbb716cd1743269bf7289d787",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9041,
+    "malicious_count": 66,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 23
+      },
+      {
+        "value": "worm",
+        "count": 9
+      },
+      {
+        "value": "downloader",
+        "count": 3
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "socks",
+        "count": 11
+      },
+      {
+        "value": "fireon",
+        "count": 2
+      },
+      {
+        "value": "injecter",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.socks/fireon",
+    "av_family_vote": "crypt",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with UPX"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "packed with UPX",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [
+        "75.127.91.217"
+      ],
+      "domains": [],
+      "urls": [
+        "http://75.127.91.217/ldr/?&v=1.3&s=0"
+      ],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\autoload",
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\ntuser",
+        "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Schedule\\ImagePath",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\autoload",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\ntuser",
+        "\\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\Schedule\\ImagePath",
+        "\\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\autoload",
+        "\\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\ntuser"
+      ],
+      "registry_all_count": 15,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\cftmon.exe",
+        "C:\\Users\\<USER>\\ftp33.dll"
+      ],
+      "mutexes": [
+        "IESQMMUTEX_0_208",
+        "RasPbFile",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex",
+        "fa34"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "hash": "03427fd025f4226741760bdb61af3dc0a9d9a8be8def2af8c52df6fc4746773e",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  02200759d46b2db73191893571d5c9ab.exe\n    mshta vbscript:msgbox(\u00ce\u00c4\u00bc\u00fe\u00cb\u00f0\u00bb\u00b5,16,)(window.close)\n\nCOMMAND EXECUTIONS (1):\n  mshta vbscript:msgbox(\"\u6587\u4ef6\u635f\u574f\",16,\"\")(window.close)\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (10):\n  - hide graphical window\n  - encode data using XOR\n  - create new key via CryptAcquireContext\n  - get common file path\n  - enumerate processes\n  - check if file exists\n  - write process memory\n  - link function at runtime on Windows\n  - encrypt data using RC4 PRGA\n  - packed with ASPack\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - hide graphical window\n  - Process::Open Process [C0065]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - Process::Create Process [C0017]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - contain loop\n  - Cryptography::Encryption Key [C0028]\n  - initialize hashing via WinCrypt\n  - Cryptography::Cryptographic Hash [C0029]\n  - Process::Terminate Process [C0018]\n  - Discovery::File and Directory Discovery [E1083]\n  - enumerate processes\n  - Discovery::Application Window Discovery [E1010]\n  - Anti-Behavioral Analysis::Debugger Detection::Timing/Delay Check GetTickCount [B0001.032]\n  - write process memory\n  - File System::Writes File [C0052]\n  - File System::Delete File [C0047]\n  - link function at runtime on Windows\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Generate Pseudo-random Sequence::RC4 PRGA [C0021.004]\n  - contain pusha popa sequence\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (12):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  Local\\!PrivacIE!SharedMemory!Mutex\n  MSCTF.Shared.MUTEX.EBH\n  ShimCacheMutex\n  ZonesCacheCounterMutex\n\nMUTEXES OPENED (5):\n  CTF.Asm.MutexDefaultS-1-5-21-1275210071-920026266-1060284298-1003\n  CTF.Compart.MutexDefaultS-1-5-21-1275210071-920026266-1060284298-1003\n  CTF.LBES.MutexDefaultS-1-5-21-1275210071-920026266-1060284298-1003\n  CTF.Layouts.MutexDefaultS-1-5-21-1275210071-920026266-1060284298-1003\n  CTF.TMD.MutexDefaultS-1-5-21-1275210071-920026266-1060284298-1003\n\nPROCESSES CREATED (2):\n  C:\\WINDOWS\\system32\\mshta.exe\n  mshta vbscript:msgbox(\\xce\\xc4\\xbc\\xfe\\xcb\\xf0\\xbb\\xb5\"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA, GetProcAddress, WriteProcessMemory\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.32\n  .rdata       entropy=5.08\n  .data        entropy=8.0\n  .rsrc        entropy=2.78\n  [overlay]    entropy=7.523629188537598  size=511\n",
+  "ground_truth": {
+    "hash": "03427fd025f4226741760bdb61af3dc0a9d9a8be8def2af8c52df6fc4746773e",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.6575,
+    "malicious_count": 48,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 21
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "aan3kxbb",
+        "count": 5
+      },
+      {
+        "value": "blackmoon",
+        "count": 4
+      },
+      {
+        "value": "genericml",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.aan3kxbb/blackmoon",
+    "av_family_vote": "heur",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1055",
+        "signature_description": "write process memory"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "hide graphical window",
+      "open process",
+      "delay execution",
+      "create or open file",
+      "create process on Windows",
+      "encode data using XOR",
+      "PEB access",
+      "contain loop",
+      "create new key via CryptAcquireContext",
+      "initialize hashing via WinCrypt",
+      "hash data via WinCrypt",
+      "terminate process",
+      "get common file path",
+      "enumerate processes",
+      "check if file exists",
+      "get graphical window text",
+      "check for time delay via GetTickCount",
+      "write process memory",
+      "write file on Windows",
+      "delete file",
+      "link function at runtime on Windows",
+      "encrypt data using RC4 PRGA",
+      "contain pusha popa sequence",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "packed with ASPack",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "Local\\!PrivacIE!SharedMemory!Mutex",
+        "MSCTF.Shared.MUTEX.EBH",
+        "ShimCacheMutex",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\system32\\mshta.exe",
+        "mshta vbscript:msgbox(\\xce\\xc4\\xbc\\xfe\\xcb\\xf0\\xbb\\xb5\""
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

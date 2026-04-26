@@ -1,0 +1,98 @@
+{
+  "hash": "2ceab14f6cd114b60d300364dbf1b710446316012d453cb518fd8cc812c33a5b",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  2ceab14f6cd114b6_sysceampcgzh.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\Sysceamewcmh.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\Sysceamewcmh\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (9):\n  - encode data using XOR\n  - get common file path\n  - enumerate processes\n  - log keystrokes via polling\n  - get file size\n  - check if file exists\n  - query or enumerate registry value\n  - link function at runtime on Windows\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Process::Terminate Thread [C0039]\n  - Process::Open Process [C0065]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Process [C0017]\n  - File System::Create File [C0016]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - enumerate processes\n  - Process::Terminate Process [C0018]\n  - Discovery::Application Window Discovery [E1010]\n  - Communication::HTTP Communication::Send Request [C0002.003]\n  - Communication::HTTP Communication::Create Request [C0002.012]\n  - make an HTTP request with a Cookie\n  - Communication::HTTP Communication::Connect to Server [C0002.009]\n  - Communication::HTTP Communication::Get Response [C0002.017]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - File System::Read File [C0051]\n  - Collection::Keylogging::Polling [F0002.002]\n  - File System::Delete File [C0047]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\Syscaemybtdh.exe  [sha256: 66df5357042c3311...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\Sysceamewcmh.exe  [sha256: add940e969432632...]\n\nFILES WRITTEN (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\cpath.ini\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  UPX0         entropy=5.93\n  UPX1         entropy=1.72\n  UPX2         entropy=3.32\n  .imports     entropy=4.64\n  [overlay]    entropy=4.093605041503906  size=1188\n",
+  "ground_truth": {
+    "hash": "2ceab14f6cd114b60d300364dbf1b710446316012d453cb518fd8cc812c33a5b",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8889,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "terminate thread",
+      "open process",
+      "delay execution",
+      "create process on Windows",
+      "create or open file",
+      "create or open registry key",
+      "encode data using XOR",
+      "contain loop",
+      "get common file path",
+      "enumerate processes",
+      "terminate process",
+      "get graphical window text",
+      "send HTTP request",
+      "create HTTP request",
+      "make an HTTP request with a Cookie",
+      "connect to HTTP server",
+      "read data from Internet",
+      "receive data",
+      "send data",
+      "read file via mapping",
+      "log keystrokes via polling",
+      "get file size",
+      "read file on Windows",
+      "check if file exists",
+      "delete file",
+      "query or enumerate registry value",
+      "resolve function by parsing PE exports",
+      "write file on Windows",
+      "read .ini file",
+      "link function at runtime on Windows",
+      "packed with UPX",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\Syscaemybtdh.exe",
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\Sysceamewcmh.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

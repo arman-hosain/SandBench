@@ -1,0 +1,67 @@
+{
+  "hash": "1c0c0f091f1301b537fbc939cc6cc4bf58fd4a47418225d80f544fd2b64856d7",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  GET https://delanecanada.ca/images/banners/pdf.exe\n  GET https://capitalistocracy.com/images/_notes/pdf.exe\n\nDNS LOOKUPS (3):\n  capitalistocracy.com\n  capitalistocracy.com \u2192 148.251.123.41\n  delanecanada.ca\n\nIP TRAFFIC (2):\n  148.251.123.41:443 (TCP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  pdfupdate.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\pdfupdate.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\pdfupdate.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\pdfupdate.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - reference startup folder\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - reference startup folder\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  pdfupdate.exe  [sha256: 608fc2d22e1a822d...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\pdfupdate.exe  [sha256: bda822c2541f036d...]\n\nFILES WRITTEN (2):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\pdfupdate.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\pdfupdate.exe\n\nOTHER REGISTRY KEYS SET (2):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n\nMUTEXES CREATED (10):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  RasPbFile\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n\nMUTEXES OPENED (4):\n  _!MSFTHISTORY!_\n  c:!documents and settings!administrator!cookies!\n  c:!documents and settings!administrator!local settings!history!history.ie5!\n  c:!documents and settings!administrator!local settings!temporary internet files!content.ie5!\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\pdfupdate.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\pdfupdate.exe\" \"\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] MASM\n  [Linker] Microsoft Linker\n\nPE SECTIONS (entropy):\n  .text        entropy=7.57\n  .dataeb      entropy=5.05\n  .rsrcU       entropy=4.71\n  .reloc       entropy=1.48\n  .qqrc        entropy=5.28\n  .Qy:Feb      entropy=0.86\n  [overlay]    entropy=3.5665955543518066  size=8480\n",
+  "ground_truth": {
+    "hash": "1c0c0f091f1301b537fbc939cc6cc4bf58fd4a47418225d80f544fd2b64856d7",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8028,
+    "malicious_count": 57,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "ppatre",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1547",
+        "signature_description": "reference startup folder"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "reference startup folder"
+    ],
+    "iocs": {
+      "ips": [
+        "148.251.123.41",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "capitalistocracy.com",
+        "delanecanada.ca"
+      ],
+      "urls": [
+        "https://capitalistocracy.com/images/_notes/pdf.exe",
+        "https://delanecanada.ca/images/banners/pdf.exe"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 2,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\pdfupdate.exe",
+        "pdfupdate.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "RasPbFile",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\pdfupdate.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\pdfupdate.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

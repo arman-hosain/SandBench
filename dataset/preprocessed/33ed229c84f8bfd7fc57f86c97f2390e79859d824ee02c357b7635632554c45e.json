@@ -1,0 +1,151 @@
+{
+  "hash": "33ed229c84f8bfd7fc57f86c97f2390e79859d824ee02c357b7635632554c45e",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nSERVICES OPENED (1):\n  Messenger\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  33ed229c84f8bfd7_swedish gang bang lesbian big .avi.exe\n    C:\\Users\\<USER>\\Downloads\\33ed229c84f8bfd7_swedish gang bang lesbian big .avi.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\Users\\<USER>\\Downloads\\33ed229c84f8bfd7_swedish gang bang lesbian big .avi.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (18):\n  - get disk information\n  - query or enumerate registry value\n  - persist via Run registry key\n  - get common file path\n  - get hostname\n  - enumerate network shares\n  - enumerate files on Windows\n  - enumerate files recursively\n  - start service\n  - modify service\n  - enumerate services\n  - stop service\n  - delete service\n  - enumerate gui resources\n  - enumerate processes\n  - link function at runtime on Windows\n  - accept command line arguments\n  - query environment variable\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Thread [C0038]\n  - Process::Check Mutex [C0043]\n  - File System::Create File [C0016]\n  - reference absolute stream path on Windows\n  - Process::Open Process [C0065]\n  - Process::Create Process [C0017]\n  - Communication::Socket Communication::Create UDP Socket [C0001.010]\n  - Memory::Allocate Memory [C0007]\n  - contain loop\n  - Discovery::System Information Discovery [E1082]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Persistence::Registry Run Keys / Startup Folder [F0012]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - Discovery::File and Directory Discovery [E1083]\n  - connect network resource\n  - enumerate network shares\n  - Process::Create Mutex [C0042]\n  - get OS version\n  - File System::Read File [C0051]\n  - File System::Writes File [C0052]\n  - get service handle\n\n--- ARTIFACTS ---\n\nFILES DROPPED (7):\n  C:\\Windows\\mssrv.exe  [sha256: 5fe1ff6e0bb01588...]\n  C:\\Program Files\\Common Files\\Microsoft Shared\\japanese sperm fetish public black hairunshaved .zip.exe  [sha256: 15601a509cc10d45...]\n  C:\\Program Files\\dotnet\\shared\\fucking cum [milf] .avi.exe  [sha256: a3294f8ae4360b9d...]\n  C:\\Program Files\\DVD Maker\\Shared\\canadian beastiality gay voyeur hole shoes .rar.exe  [sha256: 26f4c781bfa1f172...]\n  C:\\Program Files\\Windows Journal\\Templates\\fucking hot (!) glans  (Sandy,Sonja).avi.exe  [sha256: 78b4c90f8aacab3c...]\n  C:\\Program Files\\Windows Sidebar\\Shared Gadgets\\lingerie action licking glans pregnant  (Sandy).mpg.exe  [sha256: 801c3249c38dc9b6...]\n  C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\IDTemplates\\lesbian sleeping .rar.exe  [sha256: 41e9a093d0f28e7d...]\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\mssrv32 = C:\\Windows\\mssrv.exe\n\nMUTEXES CREATED (1):\n  mutex666\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Linker] Polink\n\nPE SECTIONS (entropy):\n  .text        entropy=6.45\n  .rdata       entropy=5.17\n  .data        entropy=7.65\n  [overlay]    entropy=7.880517959594727  size=609049\n",
+  "ground_truth": {
+    "hash": "33ed229c84f8bfd7fc57f86c97f2390e79859d824ee02c357b7635632554c45e",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9577,
+    "malicious_count": 68,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1007",
+        "signature_description": "enumerate services"
+      },
+      {
+        "id": "T1010",
+        "signature_description": "enumerate gui resources"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk information"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1135",
+        "signature_description": "enumerate network shares"
+      },
+      {
+        "id": "T1489",
+        "signature_description": "stop service"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1543",
+        "signature_description": "start service"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "persist via Run registry key"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "modify service"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "create or open registry key",
+      "delay execution",
+      "create thread",
+      "check mutex",
+      "create or open file",
+      "reference absolute stream path on Windows",
+      "open process",
+      "create process on Windows",
+      "create UDP socket",
+      "allocate memory",
+      "allocate RW memory",
+      "contain loop",
+      "get disk information",
+      "query or enumerate registry value",
+      "persist via Run registry key",
+      "set registry value",
+      "get common file path",
+      "connect network resource",
+      "get hostname",
+      "enumerate network shares",
+      "create mutex",
+      "get OS version",
+      "read file via mapping",
+      "write file on Windows",
+      "enumerate files on Windows",
+      "enumerate files recursively",
+      "get service handle",
+      "start service",
+      "modify service",
+      "enumerate services",
+      "stop service",
+      "delete service",
+      "terminate process",
+      "get graphical window text",
+      "enumerate gui resources",
+      "enumerate processes",
+      "send data on socket",
+      "receive data on socket",
+      "receive data",
+      "send data",
+      "initialize Winsock library",
+      "resolve DNS",
+      "link function at runtime on Windows",
+      "accept command line arguments",
+      "query environment variable",
+      "delete file",
+      "read file on Windows",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\mssrv32"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\IDTemplates\\lesbian sleeping .rar.exe",
+        "C:\\Program Files\\Common Files\\Microsoft Shared\\japanese sperm fetish public black hairunshaved .zip.exe",
+        "C:\\Program Files\\DVD Maker\\Shared\\canadian beastiality gay voyeur hole shoes .rar.exe",
+        "C:\\Program Files\\Windows Journal\\Templates\\fucking hot (!) glans  (Sandy,Sonja).avi.exe",
+        "C:\\Program Files\\Windows Sidebar\\Shared Gadgets\\lingerie action licking glans pregnant  (Sandy).mpg.exe",
+        "C:\\Program Files\\dotnet\\shared\\fucking cum [milf] .avi.exe",
+        "C:\\Windows\\mssrv.exe"
+      ],
+      "mutexes": [
+        "mutex666"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "hash": "0bc9f1abed356f3dbe16b11be0ab9c63545125fba69f377dfec10a5f9a997e3e",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  POST http://kinohome.live/v2/events\n\nDNS LOOKUPS (2):\n  kinohome.live\n  kinohome.live \u2192 104.27.142.212, 104.27.143.212\n\nIP TRAFFIC (1):\n  104.27.142.212:80 (TCP)\n\nSERVICES OPENED (2):\n  RASMAN\n  TermService\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    ****.exe\n      verclsid.exe /S /C {871C5380-42A0-1069-A2EA-08002B30309D} /I {000214E6-0000-0000-C000-000000000046} /X 0x401\n\nCOMMAND EXECUTIONS (3):\n  (runas) C:\\0bc9f1abed356f3dbe16b11be0ab9c63545125fba69f377dfec10a5f9a997e3e(null) [(null)]\n  \"C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe\" \n  /S /C {871C5380-42A0-1069-A2EA-08002B30309D} /I {000214E6-0000-0000-C000-000000000046} /X 0x401\n\n--- ARTIFACTS ---\n\nOTHER REGISTRY KEYS SET (2):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\Document\n  <HKLM>\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\NetworkList\\Nla\\Cache\\Intranet\\\\{6A52BE73-EC8E-4F63-A268-7517A50DCB3\n\nMUTEXES CREATED (16):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  FDSJFJSDFUSUDFSDFNDBFSDF\n  MSCTF.Shared.MUTEX.EBH\n  MSCTF.Shared.MUTEX.IGH\n  RasPbFile\n\nMUTEXES OPENED (7):\n  CTF.Asm.MutexDefaultS-1-5-21-1275210071-920026266-1060284298-1003\n  CTF.Compart.MutexDefaultS-1-5-21-1275210071-920026266-1060284298-1003\n  CTF.LBES.MutexDefaultS-1-5-21-1275210071-920026266-1060284298-1003\n  CTF.Layouts.MutexDefaultS-1-5-21-1275210071-920026266-1060284298-1003\n  CTF.TMD.MutexDefaultS-1-5-21-1275210071-920026266-1060284298-1003\n  \\Sessions\\1\\BaseNamedObjects\\Global\\BFE_Notify_Event_{0cb7c187-e93b-4de9-8a0d-2547ad85c632}\n  \\Sessions\\1\\BaseNamedObjects\\Global\\TermSrvReadyEvent\n\nPROCESSES CREATED (3):\n  <PATH_SAMPLE.EXE>\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe\n  C:\\WINDOWS\\system32\\verclsid.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAlloc, VirtualProtect\n\nCERTIFICATE INFO:\n  Signer: Noriyuki Miyazaki; GlobalSign CodeSigning CA - SHA256 - G3; GlobalSign Root CA - R3\n\nCOMPILER AND PACKER:\n  [Protector] VMProtect\n  [Sign tool] Windows Authenticode\n\nPE SECTIONS (entropy):\n  .text        entropy=0.0\n  .rdata       entropy=0.0\n  .data        entropy=0.0\n  .tls         entropy=0.0\n  .oZijh0      entropy=0.0\n  .oZijh1      entropy=7.96\n  .rsrc        entropy=3.81\n  [overlay]    entropy=7.42501163482666  size=14392\n",
+  "ground_truth": {
+    "hash": "0bc9f1abed356f3dbe16b11be0ab9c63545125fba69f377dfec10a5f9a997e3e",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.726,
+    "malicious_count": 53,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 22
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "razy",
+        "count": 8
+      },
+      {
+        "value": "ekstak",
+        "count": 5
+      },
+      {
+        "value": "vmprotect",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.razy/ekstak",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [],
+    "capa_sig_names": [],
+    "iocs": {
+      "ips": [
+        "104.27.142.212"
+      ],
+      "domains": [
+        "kinohome.live"
+      ],
+      "urls": [
+        "http://kinohome.live/v2/events"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 2,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "FDSJFJSDFUSUDFSDFNDBFSDF",
+        "MSCTF.Shared.MUTEX.EBH",
+        "MSCTF.Shared.MUTEX.IGH",
+        "RasPbFile",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex",
+        "\\Sessions\\1\\BaseNamedObjects\\FDSJFJSDFUSUDFSDFNDBFSDF",
+        "_SHuassist.mtx",
+        "oleacc-msaa-loaded"
+      ],
+      "processes": [
+        "<PATH_SAMPLE.EXE>",
+        "C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe",
+        "C:\\WINDOWS\\system32\\verclsid.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "Dr.Web vxCube",
+    "SNDBOX",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

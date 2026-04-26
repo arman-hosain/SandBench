@@ -1,0 +1,93 @@
+{
+  "hash": "0184facd9a93a82f347b5c0e5bd6af455ee629c917dbc37a120f698b1d672585",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a range of malicious behaviors, including dropping multiple files, writing to the file system, and using anti-debugging techniques. It also contains a resource (.rsrc) section, which is often used to hide malicious code.\"\n  },\n  \"q2\": {\n    \"family\": [\"PUA\", \"Trojan\"],\n    \"explanation\": \"The sample's purpose appears to be to distribute and execute multiple malicious files, which is consistent with the behavior of a PUA. Additionally, its use of anti-debugging techniques and resource hiding suggests that it may also be a Trojan.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1059\", \"name\": \"Command and Control (C2)\"},\n      {\"id\": \"T1218\", \"name\": \"File and Directory Discovery\"},\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"},\n      {\"id\": \"T1210\", \"name\": \"Traffic Filtering Evasion\"},\n      {\"id\": \"T1056\", \"name\": \"Execution through API\"},\n      {\"id\": \"T1211\", \"name\": \"Code Injection\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1053\", \"name\": \"Scheduled Task/Job\"},\n      {\"id\": \"T1052\", \"name\": \"Scheduled Task\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 4506,
+      "response_chars": 1225,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a range of malicious behaviors, including dropping multiple files, writing to the file system, and using anti-debugging techniques. It also contains a resource (.rsrc) section, which is often used to hide malicious code.\"\n  },\n  \"q2\": {\n    \"family\": [\"PUA\", \"Trojan\"],\n    \"explanation\": \"The sample's purpose appears t",
+      "elapsed_seconds": 6.36
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 6.36,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9296
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.3333,
+      "ttp_precision": 0.3,
+      "ttp_recall": 0.375,
+      "gt_ttps": [
+        "T1012",
+        "T1027",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1547",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1052",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1059",
+        "T1082",
+        "T1210",
+        "T1211",
+        "T1218"
+      ],
+      "tp": 3,
+      "q3_hallucinated_ttps": [
+        "T1052",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1210",
+        "T1211",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1012",
+        "T1083",
+        "T1129",
+        "T1547",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.3333,
+      "breakdown": {
+        "ttp_f1": 0.3333
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

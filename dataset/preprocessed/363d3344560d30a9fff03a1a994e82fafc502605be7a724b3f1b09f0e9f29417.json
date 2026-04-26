@@ -1,0 +1,147 @@
+{
+  "hash": "363d3344560d30a9fff03a1a994e82fafc502605be7a724b3f1b09f0e9f29417",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  won.channeltest.bid\n\n--- EXECUTION CHAIN ---\n\nCOMMAND EXECUTIONS (1):\n   \n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (22):\n  - encode data using XOR\n  - get user security identifier\n  - get common file path\n  - query environment variable\n  - check if file exists\n  - create new key via CryptAcquireContext\n  - encrypt or decrypt via WinCrypt\n  - encrypt data using DES via WinAPI\n  - query or enumerate registry value\n  - query or enumerate registry key\n  - reference SQL statements\n  - encrypt data using RC4 PRGA\n  - parse PE header\n  - enumerate files on Windows\n  - encrypt data using DPAPI\n  - accept command line arguments\n  - check OS version\n  - get file version info\n  - link function at runtime on Windows\n  - get session user name\n  - link many functions at runtime\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Process::Create Thread [C0038]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Process::Create Process [C0017]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Get File Attributes [C0049]\n  - Memory::Allocate Memory [C0007]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - File System::Create File [C0016]\n  - get user security identifier\n  - contain loop\n  - Communication::HTTP Communication::Read Header [C0002.014]\n  - File System::Writes File [C0052]\n  - File System::Create Directory [C0046]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Delete File [C0047]\n  - extract resource via kernel32 functions\n  - Discovery::System Information Discovery [E1082]\n  - Communication::Socket Communication::Receive Data [C0001.006]\n  - Communication::Socket Communication::Send Data [C0001.007]\n  - Communication::DNS Communication::Resolve [C0011.001]\n  - Communication::HTTP Communication::Send Request [C0002.003]\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (7):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  MSCTF.Shared.MUTEX.EBH\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessW, GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAlloc, VirtualProtect\n  ADVAPI32.dll: OpenProcessToken\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.72\n  .rdata       entropy=5.36\n  .data        entropy=4.78\n  .rsrc        entropy=5.88\n  .reloc       entropy=6.57\n",
+  "ground_truth": {
+    "hash": "363d3344560d30a9fff03a1a994e82fafc502605be7a724b3f1b09f0e9f29417",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8261,
+    "malicious_count": 57,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1033",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1087",
+        "signature_description": "get user security identifier"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      },
+      {
+        "id": "T1213",
+        "signature_description": "reference SQL statements"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "create thread",
+      "PEB access",
+      "create process on Windows",
+      "delay execution",
+      "get file attributes",
+      "allocate memory",
+      "allocate RWX memory",
+      "create or open registry key",
+      "encode data using XOR",
+      "create or open file",
+      "get user security identifier",
+      "contain loop",
+      "check HTTP status code",
+      "write file on Windows",
+      "create directory",
+      "get common file path",
+      "delete file",
+      "extract resource via kernel32 functions",
+      "query environment variable",
+      "check if file exists",
+      "receive data on socket",
+      "send data on socket",
+      "resolve DNS",
+      "send HTTP request",
+      "send HTTP request with Host header",
+      "receive data",
+      "send data",
+      "prepare HTTP request",
+      "initialize WinHTTP library",
+      "read HTTP header",
+      "set HTTP header",
+      "make an HTTP request with a Cookie",
+      "receive HTTP response",
+      "resolve function by parsing PE exports",
+      "get graphical window text",
+      "hash data with MD5",
+      "create new key via CryptAcquireContext",
+      "encrypt or decrypt via WinCrypt",
+      "encrypt data using DES via WinAPI",
+      "query or enumerate registry value",
+      "query or enumerate registry key",
+      "read file on Windows",
+      "reference SQL statements",
+      "enumerate PE sections",
+      "encrypt data using RC4 PRGA",
+      "parse credit card information",
+      "parse PE header",
+      "enumerate files on Windows",
+      "encrypt data using DPAPI",
+      "copy file",
+      "accept command line arguments",
+      "initialize Winsock library",
+      "get OS version",
+      "check OS version",
+      "get file version info",
+      "link function at runtime on Windows",
+      "get session user name",
+      "get thread local storage value",
+      "print debug messages",
+      "link many functions at runtime",
+      "linked against CPP standard library",
+      "contain a resource (.rsrc) section",
+      "linked against CPP JSON library",
+      "reference Base64 string",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [
+        "won.channeltest.bid"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "MSCTF.Shared.MUTEX.EBH"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Rising MOVES",
+    "Tencent HABO"
+  ]
+}

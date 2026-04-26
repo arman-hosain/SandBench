@@ -1,0 +1,138 @@
+{
+  "hash": "04125ea15f00e8d81fe112e311a33b569dcf27fafeef36f28987aba23b30101a",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including establishing Command and Control (C2) communication via HTTP to known malicious domains (hq-pharma.org, 124.217.253.6), creating persistence mechanisms via Registry Run keys and Service modifications, dropping multiple executable files (cftmon.exe, spools.exe) in system directories, and utilizing anti-analysis techniques like delayed execution and hiding graphical windows.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample behaves as a Trojan by masquerading as legitimate software (phishing URL 'hq-pharma.org', fake names like 'cftmon.exe' and 'spools.exe'), establishing persistence, and communicating with a C2 server to likely receive further instructions or exfiltrate data. It does not exhibit the specific encryption behavior of Ransomware or the self-replication of a Worm.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1071.001\",\n        \"name\": \"Web Protocols\"\n      },\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1543.003\",\n        \"name\": \"Windows Service\"\n      },\n      {\n        \"id\": \"T1055.012\",\n        \"name\": \"Dynamic Resolution\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055.005\",\n        \"name\": \"Process Injection\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 5289,
+      "response_chars": 1466,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including establishing Command and Control (C2) communication via HTTP to known malicious domains (hq-pharma.org, 124.217.253.6), creating persistence mechanisms via Registry Run keys and Service modifications, dropping multiple executable files (cftmon.exe, spools.exe) in system directories, a",
+      "elapsed_seconds": 8.42
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "5 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 5,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1071",
+        "T1543",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1027",
+        "T1055",
+        "T1071",
+        "T1543",
+        "T1547"
+      ],
+      "ttp_tp": 0,
+      "ttp_fp": 5
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- get disk information\n- get common file path\n- link function at runtime on Windows\n- set file attributes\n- hide graphical window\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent pl",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1003",
+        "T1027",
+        "T1055",
+        "T1071",
+        "T1543",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 0,
+      "best_ttp_fp": 5
+    },
+    {
+      "step": 5,
+      "type": "refinement_stopped",
+      "iteration": 1,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 0,
+      "ttp_fp": 6
+    }
+  ],
+  "total_llm_calls": 2,
+  "total_elapsed": 18.33,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9014
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1222",
+        "T1564"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1071",
+        "T1543",
+        "T1547"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1055",
+        "T1071",
+        "T1543",
+        "T1547"
+      ],
+      "q3_missed_ttps": [
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1222",
+        "T1564"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

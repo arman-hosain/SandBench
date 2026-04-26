@@ -1,0 +1,193 @@
+{
+  "hash": "27ea5f0b6029bcb35aa278a56bfe6eae50a2c073b958e26d9ce2e73af5ff12d9",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (3):\n  a1507.g.akamai.net \u2192 2.19.194.137, 2.19.194.154\n  apiconstasurfinf-a.akamaihd.net \u2192 2.19.194.137, 2.19.194.154\n  apiconstasurfinf-a.akamaihd.net.edgesuite.net \u2192 2.19.194.137, 2.19.194.154\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (30):\n  - get OS version in .NET\n  - set file attributes\n  - find graphical window\n  - find process by PID\n  - access WMI data in .NET\n  - get session information\n  - enumerate gui resources\n  - load .NET assembly\n  - check if directory exists\n  - enumerate files on Windows\n  - check if file exists\n  - get file version info\n  - decode data using Base64 in .NET\n  - query environment variable\n  - get common file path\n  - encode data using Base64\n  - link function at runtime on Windows\n  - get number of processors\n  - get file size\n  - enumerate files recursively\n  - compile .NET assembly\n  - compile CSharp in .NET\n  - find process by name\n  - get session user name\n  - enumerate processes\n  - get disk information\n  - query or enumerate registry value\n  - delete registry key\n  - delete registry value\n  - query or enumerate registry key\n\nCAPA RULE MATCHES (MBC):\n  - Process::Suspend Thread [C0055]\n  - get OS version in .NET\n  - Process::Create Process [C0017]\n  - Process::Open Process [C0065]\n  - File System::Get File Attributes [C0049]\n  - File System::Set File Attributes [C0050]\n  - Process::Open Thread [C0066]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Thread [C0038]\n  - Communication::HTTP Communication::Send Request [C0002.003]\n  - Communication::HTTP Communication::Create Request [C0002.012]\n  - Communication::HTTP Communication::Get Response [C0002.017]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - unmanaged call\n  - find graphical window\n  - find process by PID\n  - access WMI data in .NET\n  - manipulate unmanaged memory in .NET\n  - allocate unmanaged memory in .NET\n  - get token privileges\n  - get session information\n  - enumerate gui resources\n  - load .NET assembly\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nMUTEXES OPENED (1):\n  Global\\CLR_CASOFF_MUTEX\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Protector] Crypto Obfuscator For .Net\n  [Library] .NET\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': '.NET executable'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.14\n  .reloc       entropy=0.1\n  .rsrc        entropy=3.99\n",
+  "ground_truth": {
+    "hash": "27ea5f0b6029bcb35aa278a56bfe6eae50a2c073b958e26d9ce2e73af5ff12d9",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7123,
+    "malicious_count": 52,
+    "popular_threat_category": [
+      {
+        "value": "adware",
+        "count": 20
+      },
+      {
+        "value": "trojan",
+        "count": 7
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "browsefox",
+        "count": 15
+      },
+      {
+        "value": "msil",
+        "count": 11
+      },
+      {
+        "value": "razy",
+        "count": 8
+      }
+    ],
+    "suggested_label": "adware.browsefox/msil",
+    "av_family_vote": "razy",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using Base64"
+      },
+      {
+        "id": "T1033",
+        "signature_description": "get session information"
+      },
+      {
+        "id": "T1047",
+        "signature_description": "access WMI data in .NET"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "find process by PID"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get OS version in .NET"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "check if directory exists"
+      },
+      {
+        "id": "T1087",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry key"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1140",
+        "signature_description": "decode data using Base64 in .NET"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1620",
+        "signature_description": "load .NET assembly"
+      }
+    ],
+    "capa_sig_names": [
+      "suspend thread",
+      "get OS version in .NET",
+      "create process on Windows",
+      "open process",
+      "get file attributes",
+      "set file attributes",
+      "open thread",
+      "create or open registry key",
+      "delay execution",
+      "create thread",
+      "send HTTP request",
+      "create HTTP request",
+      "receive HTTP response",
+      "send data",
+      "unmanaged call",
+      "find graphical window",
+      "find process by PID",
+      "access WMI data in .NET",
+      "manipulate unmanaged memory in .NET",
+      "allocate unmanaged memory in .NET",
+      "get token privileges",
+      "get session information",
+      "enumerate gui resources",
+      "load .NET assembly",
+      "access .NET resource",
+      "check if directory exists",
+      "delete file",
+      "enumerate files on Windows",
+      "check if file exists",
+      "get file version info",
+      "decode data using Base64 in .NET",
+      "query environment variable",
+      "get common file path",
+      "delete directory",
+      "create directory",
+      "create a process with modified I/O handles and window",
+      "encode data using Base64",
+      "terminate process",
+      "read file on Windows",
+      "write file on Windows",
+      "write and execute a file",
+      "hash data using SHA256",
+      "generate random numbers in .NET",
+      "generate random filename in .NET",
+      "move file",
+      "check file extension in .NET",
+      "check for debugger via API",
+      "link function at runtime on Windows",
+      "generate method via reflection in .NET",
+      "manipulate console buffer",
+      "get number of processors",
+      "get file size",
+      "find data using regex in .NET",
+      "contain loop",
+      "enumerate files recursively",
+      "compile .NET assembly",
+      "compile CSharp in .NET",
+      "find process by name",
+      "terminate process by name in .NET",
+      "get session user name",
+      "enumerate processes",
+      "get disk information",
+      "set registry value",
+      "query or enumerate registry value",
+      "delete registry key",
+      "delete registry value",
+      "query or enumerate registry key",
+      "execute via timer in .NET",
+      "copy file",
+      "compiled to the .NET platform",
+      "run as service",
+      "use .NET library Newtonsoft.Json"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [
+        "a1507.g.akamai.net",
+        "apiconstasurfinf-a.akamaihd.net",
+        "apiconstasurfinf-a.akamaihd.net.edgesuite.net"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

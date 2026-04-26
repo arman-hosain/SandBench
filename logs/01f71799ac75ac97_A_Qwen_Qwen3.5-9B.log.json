@@ -1,0 +1,89 @@
+{
+  "hash": "01f71799ac75ac9788dbedf72e49a0dbed12e62793419cf9ad9c0eb48ee25acc",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including dropping files with deceptive names (svchost.com) to mimic system processes, creating registry keys to hijack the 'exefile' shell command, using XOR encryption for data obfuscation, and possessing capabilities to capture screenshots and enumerate files. The combination of file masquerading, registry manipulation, and evasion techniques confirms malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Spyware\"],\n    \"explanation\": \"The sample behaves like a Trojan by masquerading as a legitimate system file (svchost.com) and dropping itself in the Temp directory. It exhibits Spyware characteristics by capturing screenshots and potentially gathering user data. The use of XOR encryption and registry hijacking further supports this classification.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1566.001\",\n        \"name\": \"Phishing: Spearphishing Attachment\"\n      },\n      {\n        \"id\": \"T1036\",\n        \"name\": \"Masquerading\"\n      },\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1003\",\n        \"name\": \"OS Credential Dumping\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 3112,
+      "response_chars": 1467,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including dropping files with deceptive names (svchost.com) to mimic system processes, creating registry keys to hijack the 'exefile' shell command, using XOR encryption for data obfuscation, and possessing capabilities to capture screenshots and enumerate files. The combination of fil",
+      "elapsed_seconds": 13.0
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 13.0,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9155
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.1429,
+      "ttp_precision": 0.1667,
+      "ttp_recall": 0.125,
+      "gt_ttps": [
+        "T1012",
+        "T1027",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1113",
+        "T1222",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1003",
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1547",
+        "T1566"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1003",
+        "T1036",
+        "T1055",
+        "T1547",
+        "T1566"
+      ],
+      "q3_missed_ttps": [
+        "T1012",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1113",
+        "T1222",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.1429,
+      "breakdown": {
+        "ttp_f1": 0.1429
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

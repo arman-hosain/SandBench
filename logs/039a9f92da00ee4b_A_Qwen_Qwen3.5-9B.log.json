@@ -1,0 +1,77 @@
+{
+  "hash": "039a9f92da00ee4bca594b6d89fdce5f6ad2de8b1c01a79f0cc3e9b5b73c737a",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including establishing C2 communication with suspicious domains (fewfwe.net, blinko-usa.com), dropping multiple executable files (cftmon.exe, spools.exe) in system directories, creating persistence mechanisms via Registry Run keys and Service ImagePath, modifying Winlogon/Terminal registry keys to potentially hijack logon sessions, and utilizing anti-analysis techniques like UPX packing and VM detection.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Backdoor\"],\n    \"explanation\": \"The sample behaves like a Trojan/Dropper by dropping secondary payloads and establishing persistence. It modifies critical system registry keys (Winlogon, Terminal) which is characteristic of backdoors used to hijack user sessions or establish remote access. The combination of file dropping, persistence, and registry manipulation fits the Trojan/Backdoor profile.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1547\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1070\",\n        \"name\": \"Indicator Removal\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1071\",\n        \"name\": \"Application Layer Protocol\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 5398,
+      "response_chars": 1504,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including establishing C2 communication with suspicious domains (fewfwe.net, blinko-usa.com), dropping multiple executable files (cftmon.exe, spools.exe) in system directories, creating persistence mechanisms via Registry Run keys and Service ImagePath, modifying Winlogon/Terminal registry keys",
+      "elapsed_seconds": 8.0
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 8.0,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.25,
+      "ttp_precision": 0.1667,
+      "ttp_recall": 0.5,
+      "gt_ttps": [
+        "T1027",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1071",
+        "T1547"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1071",
+        "T1547"
+      ],
+      "q3_missed_ttps": [
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.25,
+      "breakdown": {
+        "ttp_f1": 0.25
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

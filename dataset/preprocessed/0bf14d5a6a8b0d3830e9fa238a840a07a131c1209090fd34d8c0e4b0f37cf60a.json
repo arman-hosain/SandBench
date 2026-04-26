@@ -1,0 +1,126 @@
+{
+  "hash": "0bf14d5a6a8b0d3830e9fa238a840a07a131c1209090fd34d8c0e4b0f37cf60a",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (5):\n  google.com \u2192 216.58.213.174\n  rtvwerjyuver.com \u2192 45.55.36.236\n  supnewdmn.com \u2192 82.112.184.197\n  tvrstrynyvwstrtve.com\n  wqerveybrstyhcerveantbe.com\n\nIP TRAFFIC (3):\n  216.58.213.174:80 (TCP)\n  45.55.36.236:447 (TCP)\n  82.112.184.197:447 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  IAStorIconLaunch.exe\n    C:\\Users\\<USER>\\Downloads\\IAStorIconLaunchmgr.exe\n      C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe\n      C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - accept command line arguments\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - parse PE header\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Process [C0017]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Process::Terminate Process [C0018]\n  - contain loop\n  - Process::Allocate Thread Local Storage [C0040]\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - parse PE header\n  - resolve function by parsing PE exports\n  - contain a resource (.rsrc) section\n  - contains PDB path\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  Cmgr.exe  [sha256: 54282ec29d4993ed...]\n  C:\\Users\\<USER>\\Downloads\\IAStorIconLaunchmgr.exe  [sha256: 54282ec29d4993ed...]\n  C:\\Program Files (x86)\\Internet Explorer\\dmlconf.dat  [sha256: 308eb3ef3f890b26...]\n\nMUTEXES CREATED (53):\n  ShimCacheMutex\n  {455AEFA5-CDD1-1E71-23A6-686FA5539B84}\n  {455AF59C-CDD1-1E71-23A6-686FA5539B84}\n  {455AFBB3-CDD1-1E71-23A6-686FA66B9B84}\n  {455AFBB3-CDD1-1E71-23A6-686FA7979B84}\n  {455AFBB3-CDD1-1E71-23A6-686FAB839B84}\n  {455B00E6-CDD1-1E71-23A6-686FA5539B84}\n  {455B00E6-CDD1-1E71-23A6-686FA5579B84}\n  {455B00E6-CDD1-1E71-23A6-686FA6539B84}\n  {455B00E6-CDD1-1E71-23A6-686FA6A79B84}\n\nMUTEXES OPENED (44):\n  {455AF282-CDD1-1E71-23A6-686FA5539B84}\n  {455AFBB3-CDD1-1E71-23A6-686FA5539B84}\n  {455AFBB3-CDD1-1E71-23A6-686FA5579B84}\n  {455AFBB3-CDD1-1E71-23A6-686FA6539B84}\n  {455AFBB3-CDD1-1E71-23A6-686FA6A79B84}\n  {455AFBB3-CDD1-1E71-23A6-686FA6CF9B84}\n  {455AFBB3-CDD1-1E71-23A6-686FA6DF9B84}\n  {455AFBB3-CDD1-1E71-23A6-686FA7079B84}\n  {455AFBB3-CDD1-1E71-23A6-686FA72B9B84}\n  {455AFBB3-CDD1-1E71-23A6-686FA7339B84}\n\nPROCESSES CREATED (2):\n  C:\\Program Files\\Internet Explorer\\iexplore.exe\n  Cmgr.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessW, GetProcAddress, LoadLibraryW\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.47\n  .rdata       entropy=4.65\n  .data        entropy=2.49\n  .rsrc        entropy=4.37\n  .reloc       entropy=4.56\n  .text        entropy=7.89\n  [overlay]    entropy=7.519053936004639  size=463\n",
+  "ground_truth": {
+    "hash": "0bf14d5a6a8b0d3830e9fa238a840a07a131c1209090fd34d8c0e4b0f37cf60a",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9143,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "ramnit-1847",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "delay execution",
+      "create process on Windows",
+      "accept command line arguments",
+      "terminate process",
+      "contain loop",
+      "allocate thread local storage",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "parse PE header",
+      "resolve function by parsing PE exports",
+      "contain a resource (.rsrc) section",
+      "contains PDB path"
+    ],
+    "iocs": {
+      "ips": [
+        "216.58.213.174",
+        "45.55.36.236",
+        "82.112.184.197"
+      ],
+      "domains": [
+        "google.com",
+        "rtvwerjyuver.com",
+        "supnewdmn.com",
+        "tvrstrynyvwstrtve.com",
+        "wqerveybrstyhcerveantbe.com"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Program Files (x86)\\Internet Explorer\\dmlconf.dat",
+        "C:\\Users\\<USER>\\Downloads\\IAStorIconLaunchmgr.exe",
+        "Cmgr.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex",
+        "{455AEFA5-CDD1-1E71-23A6-686FA5539B84}",
+        "{455AF59C-CDD1-1E71-23A6-686FA5539B84}",
+        "{455AFBB3-CDD1-1E71-23A6-686FA66B9B84}",
+        "{455AFBB3-CDD1-1E71-23A6-686FA7979B84}",
+        "{455AFBB3-CDD1-1E71-23A6-686FAB839B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA5539B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA5579B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA6539B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA6A79B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA6CF9B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA6DF9B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA7079B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA72B9B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA7339B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA7439B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA74B9B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA7979B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA7AF9B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA7FB9B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA8379B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA87F9B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA8AB9B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA8EF9B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA9479B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA9639B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA9979B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FA9E39B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FAA139B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FAA879B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FAA8F9B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FAAAB9B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FAB2B9B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FAB839B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FAC179B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FACD39B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FACEB9B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FACF39B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FAD1B9B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FAD439B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FAD479B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FAD5B9B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FAD739B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FADE39B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FAE339B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FAE639B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FAEB39B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FAF579B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FAF7B9B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FAFB79B84}",
+        "{455B00E6-CDD1-1E71-23A6-686FB0DB9B84}",
+        "{65D180CA-BACE-614C-7239-5ABDD5E947B0}",
+        "{65D186C1-BACE-614C-7239-5ABDD5E947B0}"
+      ],
+      "processes": [
+        "C:\\Program Files\\Internet Explorer\\iexplore.exe",
+        "Cmgr.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

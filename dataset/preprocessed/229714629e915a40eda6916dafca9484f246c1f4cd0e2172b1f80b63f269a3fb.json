@@ -1,0 +1,58 @@
+{
+  "hash": "229714629e915a40eda6916dafca9484f246c1f4cd0e2172b1f80b63f269a3fb",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  dfa674adfd8a8f8668d63c744ff470c7.virus.exe\n    dfa674adfd8a8f8668d63c744ff470c7.virus.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - packed with ASPack\n  - reference anti-VM strings targeting VirtualBox\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - contain loop\n  - contain a thread local storage (.tls) section\n  - contain a resource (.rsrc) section\n  - Anti-Static Analysis::Software Packing [F0001]\n  - Execution::Install Additional Program [B0023]\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (6):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] ASPack\n  [Compiler] Borland Delphi\n  Packers: {'PEiD': 'ASPack v2.12'}\n\nPE SECTIONS (entropy):\n  .text        entropy=8.0\n  .itext       entropy=7.2\n  .data        entropy=7.82\n  .bss         entropy=0.0\n  .idata       entropy=7.7\n  .tls         entropy=0.0\n  .rdata       entropy=0.2\n  .reloc       entropy=0.0\n  .rsrc        entropy=7.58\n  .aspack      entropy=4.96\n  .adata       entropy=0.0\n  [overlay]    entropy=7.25808048248291  size=204422\n",
+  "ground_truth": {
+    "hash": "229714629e915a40eda6916dafca9484f246c1f4cd0e2172b1f80b63f269a3fb",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9296,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with ASPack"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "contain loop",
+      "contain a thread local storage (.tls) section",
+      "contain a resource (.rsrc) section",
+      "packed with ASPack",
+      "contain an embedded PE file",
+      "reference anti-VM strings targeting VirtualBox",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

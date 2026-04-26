@@ -1,0 +1,66 @@
+{
+  "hash": "28c21723b10cd8f1eb9e99d330c65e2d6645bcffade5638cecbf545275eed38e",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    cmd.exe cmd /c ****kill.bat\n    rundll32.exe url.dll, FileProtocolHandler open.exe\n\nCOMMAND EXECUTIONS (3):\n  cmd /c C:\\DOCUME~1\\ADMINI~1\\LOCALS~1\\Temp\\996Ekill.bat\n  Rundll32.exe url.dll, FileProtocolHandler C:\\DOCUME~1\\ADMINI~1\\LOCALS~1\\Temp\\open.exe\n  cmd /c C:\\Users\\Petra\\AppData\\Local\\Temp\\avpkill.bat\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - reference anti-VM strings targeting Qemu\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Execution::Install Additional Program [B0023]\n  - packaged as a NSIS installer\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n  - (internal) installer file limitation\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (5):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\28c21723b10cd8f1eb9e99d330c65e2d6645bcffade5638cecbf545275eed38ekill.bat\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\avpkill.bat\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DFF8F9E86DE5383858.TMP\n  C:\\WINDOWS\\avp.exe\n\nMUTEXES CREATED (9):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n\nPROCESSES CREATED (5):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\28c21723b10cd8f1eb9e99d330c65e2d6645bcffade5638cecbf545275eed38ekill.bat\n  C:\\WINDOWS\\avp.exe\n  C:\\WINDOWS\\system32\\cmd.exe\n  C:\\WINDOWS\\system32\\rundll32.exe\n  cmd.exe\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.27\n  .data        entropy=0.0\n  .rsrc        entropy=6.47\n  [overlay]    entropy=7.999677658081055  size=12302276\n",
+  "ground_truth": {
+    "hash": "28c21723b10cd8f1eb9e99d330c65e2d6645bcffade5638cecbf545275eed38e",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7778,
+    "malicious_count": 56,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "generickdz",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting Qemu"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "packaged as a NSIS installer",
+      "reference anti-VM strings targeting Qemu",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation",
+      "(internal) installer file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\28c21723b10cd8f1eb9e99d330c65e2d6645bcffade5638cecbf545275eed38ekill.bat",
+        "C:\\WINDOWS\\avp.exe",
+        "C:\\WINDOWS\\system32\\cmd.exe",
+        "C:\\WINDOWS\\system32\\rundll32.exe",
+        "cmd.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

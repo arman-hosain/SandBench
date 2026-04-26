@@ -1,0 +1,142 @@
+{
+  "hash": "397d1ecccab060a49c3bd4b80731f247555dfe2824aabc965c554fccacb2a36d",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  windowsupdate.microsoft.com \u2192 52.185.71.28\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  <PATH_SAMPLE.EXE>\n    %WINDIR%\\syswow64\\explorer.exe\n  %WINDIR%\\syswow64\\explorer.exe\n    %TEMP%\\@ae3ad.tmp.exe\n    <PATH_SAMPLE.EXE>\n  %TEMP%\\@ae3ad.tmp.exe\n    %WINDIR%\\syswow64\\cmd.exe\n    %WINDIR%\\syswow64\\cmd.exe\n  <SYSTEM32>\\svchost.exe\n  %WINDIR%\\syswow64\\cmd.exe\n  %WINDIR%\\syswow64\\cmd.exe\n    %APPDATA%\\microsoft\\messenger\\extension\\wdext.exe\n  %APPDATA%\\microsoft\\messenger\\extension\\wdext.exe\n    %WINDIR%\\syswow64\\cmd.exe\n  %WINDIR%\\syswow64\\cmd.exe\n\nCOMMAND EXECUTIONS (4):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\@AE8AD2.tmp.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\0cb29f079a8a46abe9ea26cf86387a9c.virus.exe\n  explorer.exe\n  \"C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe\" \n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - write process memory\n  - get common file path\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Process::Create Process [C0017]\n  - Memory::Allocate Memory [C0007]\n  - Process::Resume Thread [C0054]\n  - write process memory\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Read File [C0051]\n  - contain a resource (.rsrc) section\n  - contains PDB path\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (30):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\@AE8AD2.tmp.exe  [sha256: f72291ed90e8e721...]\n  %TEMP%\\8b6b.tmp  [sha256: 27e678bf5dc82219...]\n  %TEMP%\\@ae3ad.tmp.exe  [sha256: f72291ed90e8e721...]\n  %TEMP%\\se2252.tmp  [sha256: db66d62796ae12bf...]\n  %TEMP%\\sp2251.tmp  [sha256: 0c72539397c59d85...]\n  %TEMP%\\tmp207c.tmp  [sha256: fc9b6a9d1ac7182e...]\n  %TEMP%\\tmp2253.tmp  [sha256: d95b926caf9be13b...]\n  %TEMP%\\tmp6555.tmp  [sha256: 07ffcde2097d0af6...]\n  %TEMP%\\tmp6611.tmp  [sha256: 70a392389aecd0f5...]\n  %TEMP%\\tmp6670.tmp  [sha256: 01631353726dc51b...]\n  %TEMP%\\tmp66de.tmp  [sha256: ae5697f849fa48db...]\n  %TEMP%\\tmp673d.tmp  [sha256: 63149ad45db380f5...]\n  %TEMP%\\tmp678c.tmp  [sha256: 5ec8093ef5939d1a...]\n  %TEMP%\\tmp67fa.tmp  [sha256: 27c945ccb84aa024...]\n  %TEMP%\\tmp6869.tmp  [sha256: d2fa6f9686386a92...]\n  %TEMP%\\wtmps.exe  [sha256: 3b20c853d4ca2324...]\n  %APPDATA%\\microsoft\\caches\\files\\usd.dll  [sha256: d3a46f71aa746792...]\n  %APPDATA%\\microsoft\\common\\shared\\dis.dll  [sha256: b0c0c49eed934e6d...]\n  %APPDATA%\\microsoft\\defender\\launch.exe  [sha256: 6a7093440420306c...]\n  %APPDATA%\\microsoft\\identities\\user\\arc.dll  [sha256: 126593b3672e6985...]\n\nFILES WRITTEN (5):\n  C:\\Documents and Settings\\Administrator\\Application Data\\Microsoft\\Messenger\\Extension\\WdExt.exe\n  C:\\Documents and Settings\\Administrator\\Application Data\\Temp\\mydll.dll\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\@AE2.tmp.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\tmp3.tmp\n\nPERSISTENCE REGISTRY KEYS (1):\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Windows Defender Extension = \"%APPDATA%\\Microsoft\\Defender\\launch.exe\"\n\nOTHER REGISTRY KEYS SET (6):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartPage2\\FavoritesRemovedChanges\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\Document\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\\\UNCAsIntranet\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\\\AutoDetect\n  <HKLM>\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\NetworkList\\Nla\\Cache\\Intranet\\\\{6A52BE73-EC8E-4F63-A268-7517A50DCB3\n\nMUTEXES CREATED (11):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  DBWinMutex\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n\nMUTEXES OPENED (10):\n  \\Sessions\\1\\BaseNamedObjects\\Global\\BFE_Notify_Event_{72702e9a-39f1-45a0-a2b6-62776399081d}\n  \\Sessions\\1\\BaseNamedObjects\\Global\\BFE_Notify_Event_{c61917e9-157b-4373-987f-a9297ee43fff}\n  \\Sessions\\1\\BaseNamedObjects\\Local\\WininetConnectionMutex\n  \\Sessions\\1\\BaseNamedObjects\\Local\\WininetProxyRegistryMutex\n  \\Sessions\\1\\BaseNamedObjects\\Local\\WininetStartupMutex\n  \\Sessions\\1\\BaseNamedObjects\\Local\\_!MSFTHISTORY!_\n  \\Sessions\\1\\BaseNamedObjects\\Local\\c:!users!user!appdata!local!microsoft!windows!history!history.ie5!\n  \\Sessions\\1\\BaseNamedObjects\\Local\\c:!users!user!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  \\Sessions\\1\\BaseNamedObjects\\Local\\c:!users!user!appdata!roaming!microsoft!windows!cookies!\n  \\Sessions\\1\\BaseNamedObjects\\RasPbFile\n\nPROCESSES CREATED (12):\n  %APPDATA%\\microsoft\\defender\\launch.exe\n  %APPDATA%\\microsoft\\messenger\\extension\\wdext.exe\n  %TEMP%\\@ae3ad.tmp.exe\n  %TEMP%\\wtmps.exe\n  %WINDIR%\\syswow64\\cmd.exe\n  %WINDIR%\\syswow64\\explorer.exe\n  %WINDIR%\\syswow64\\mscaps.exe\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\conhost.exe\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessW, WriteProcessMemory\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.44\n  .rdata       entropy=4.86\n  .data        entropy=0.55\n  .rsrc        entropy=6.46\n  [overlay]    entropy=7.972860336303711  size=1856463\n",
+  "ground_truth": {
+    "hash": "397d1ecccab060a49c3bd4b80731f247555dfe2824aabc965c554fccacb2a36d",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9028,
+    "malicious_count": 65,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 20
+      },
+      {
+        "value": "dropper",
+        "count": 11
+      },
+      {
+        "value": "virus",
+        "count": 3
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "daws",
+        "count": 7
+      },
+      {
+        "value": "decap",
+        "count": 6
+      },
+      {
+        "value": "pwszbot",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.daws/decap",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1055",
+        "signature_description": "write process memory"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "create process on Windows",
+      "allocate memory",
+      "resume thread",
+      "allocate RWX memory",
+      "write process memory",
+      "contain loop",
+      "get common file path",
+      "read file on Windows",
+      "contain a resource (.rsrc) section",
+      "contains PDB path"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [
+        "windowsupdate.microsoft.com"
+      ],
+      "urls": [],
+      "registry_persistence": [
+        "<HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Windows Defender Extension"
+      ],
+      "registry_all_count": 7,
+      "files_dropped": [
+        "%APPDATA%\\microsoft\\caches\\files\\usd.dll",
+        "%APPDATA%\\microsoft\\common\\shared\\dis.dll",
+        "%APPDATA%\\microsoft\\defender\\launch.exe",
+        "%APPDATA%\\microsoft\\identities\\user\\arc.dll",
+        "%APPDATA%\\microsoft\\messenger\\extension\\wdext.exe",
+        "%APPDATA%\\microsoft\\repairs\\sha.dll",
+        "%APPDATA%\\microsoft\\shared\\modules\\fil.dll",
+        "%APPDATA%\\microsoft\\windows\\addins\\att.dll",
+        "%APPDATA%\\temp\\mydll.dll",
+        "%APPDATA%\\temp\\user0.bat",
+        "%APPDATA%\\temp\\user1.bat",
+        "%APPDATA%\\temp\\user2.bat",
+        "%TEMP%\\8b6b.tmp",
+        "%TEMP%\\@ae3ad.tmp.exe",
+        "%TEMP%\\se2252.tmp",
+        "%TEMP%\\sp2251.tmp",
+        "%TEMP%\\tmp207c.tmp",
+        "%TEMP%\\tmp2253.tmp",
+        "%TEMP%\\tmp6555.tmp",
+        "%TEMP%\\tmp6611.tmp",
+        "%TEMP%\\tmp6670.tmp",
+        "%TEMP%\\tmp66de.tmp",
+        "%TEMP%\\tmp673d.tmp",
+        "%TEMP%\\tmp678c.tmp",
+        "%TEMP%\\tmp67fa.tmp",
+        "%TEMP%\\tmp6869.tmp",
+        "%TEMP%\\wtmps.exe",
+        "%WINDIR%\\syswow64\\mscaps.exe",
+        "<PATH_SAMPLE.EXE>",
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\@AE8AD2.tmp.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "DBWinMutex",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex",
+        "_SHuassist.mtx"
+      ],
+      "processes": [
+        "%APPDATA%\\microsoft\\defender\\launch.exe",
+        "%APPDATA%\\microsoft\\messenger\\extension\\wdext.exe",
+        "%TEMP%\\@ae3ad.tmp.exe",
+        "%TEMP%\\wtmps.exe",
+        "%WINDIR%\\syswow64\\cmd.exe",
+        "%WINDIR%\\syswow64\\explorer.exe",
+        "%WINDIR%\\syswow64\\mscaps.exe",
+        "<PATH_SAMPLE.EXE>",
+        "<SYSTEM32>\\conhost.exe",
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp",
+        "C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe",
+        "C:\\WINDOWS\\explorer.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "Dr.Web vxCube",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "hash": "02c306f9befea627cbcba2f25a47ed856f5c9257e9ccbd9b81d0c27889e1301a",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including persistence mechanisms (Registry Run keys, Winlogon Shell/UIHost/UserInit modifications, Service creation), file drops with suspicious names (spools.exe, cftmon.exe), and execution of registry deletion commands. The use of UPX packing and generic packers combined with these behaviors strongly indicates malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Backdoor\"],\n    \"explanation\": \"The sample installs itself via multiple persistence mechanisms (Run keys, Winlogon, Services) and drops executables that mimic system utilities (spools.exe). This behavior is characteristic of a Trojan designed to maintain persistence, potentially acting as a backdoor for remote access or further compromise.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1547\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1037\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 3148,
+      "response_chars": 1312,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including persistence mechanisms (Registry Run keys, Winlogon Shell/UIHost/UserInit modifications, Service creation), file drops with suspicious names (spools.exe, cftmon.exe), and execution of registry deletion commands. The use of UPX packing and generic packers combined with these b",
+      "elapsed_seconds": 11.53
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 11.53,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8451
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.3333,
+      "ttp_precision": 0.2,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1037",
+        "T1055",
+        "T1059",
+        "T1547"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1037",
+        "T1055",
+        "T1059",
+        "T1547"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.3333,
+      "breakdown": {
+        "ttp_f1": 0.3333
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,291 @@
+{
+  "hash": "03a7b25e6e0fe5360d2c609b3d5ac83019f45a917ca27c6d872eecec5736824f",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is confirmed malicious. It exhibits classic dropper behavior by dropping numerous executable files with deceptive adult-themed names into critical system directories (Program Files, Windows, Temp). It establishes persistence via the Run registry key, creates mutexes, and performs extensive system enumeration (services, processes, registry, network shares). The use of high-entropy sections and dynamic linking further indicates obfuscation and evasion techniques.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\", \"Adware\"],\n    \"explanation\": \"The primary classification is Dropper because the main executable's sole function is to unpack and drop secondary payloads (files with .exe extensions masquerading as media) into various system locations. The secondary payloads and the initial filename utilize adult content themes to lure users, which is a hallmark of Adware distribution tactics. The combination of file dropping and deceptive naming aligns with both families.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1036\",\n        \"name\": \"Masquerading\"\n      },\n      {\n        \"id\": \"T1006\",\n        \"name\": \"System Service Discovery\"\n      },\n      {\n        \"id\": \"T1013\",\n        \"name\": \"Network Service Discovery\"\n      },\n      {\n        \"id\": \"T1012\",\n        \"name\": \"Data from Local System\"\n      },\n      {\n        \"id\": \"T1083\",\n        \"name\": \"File and Directory Discovery\"\n      },\n      {\n        \"id\": \"T1005\",\n        \"name\": \"Data from Removable Sticks\"\n      },\n      {\n        \"id\": \"T1000.001\",\n        \"name\": \"Dynamic Resolution: DLL Side-Loading\"\n      },\n      {\n        \"id\": \"T1035\",\n        \"name\": \"Create or Modify System Process\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 6053,
+      "response_chars": 1607,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including dropping multiple executable files with highly inappropriate and deceptive names (e.g., 'brasilian handjob...', 'beastiality...') into system directories like Program Files, Windows, and Temp folders. It establishes persistence via the Run registry key, creates mutexes, enumerates sys",
+      "elapsed_seconds": 8.49
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "12 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 12,
+      "ttps_found": [
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1059",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1027",
+        "T1036",
+        "T1055"
+      ],
+      "ttp_tp": 2,
+      "ttp_fp": 3
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- enumerate services\n- enumerate gui resources\n- query or enumerate registry value\n- enumerate processes\n- get disk information\n- get common file path\n- link function at runtime on Windows\n- enumerate network shares\n- stop service\n- enumerate processes\n\nI",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1000",
+        "T1005",
+        "T1006",
+        "T1012",
+        "T1013",
+        "T1027",
+        "T1036",
+        "T1083",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 3,
+      "best_ttp_fp": 6
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "11 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 11,
+      "ttps_found": [
+        "T1000",
+        "T1005",
+        "T1006",
+        "T1012",
+        "T1013",
+        "T1027",
+        "T1036",
+        "T1083",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1000",
+        "T1005",
+        "T1006",
+        "T1013",
+        "T1027",
+        "T1036"
+      ],
+      "ttp_tp": 3,
+      "ttp_fp": 6
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- enumerate services\n- enumerate gui resources\n- enumerate processes\n- accept command line arguments\n- get disk information\n- link function at runtime on Windows\n- enumerate network shares\n- stop service\n- enumerate processes\n- start service\n\nInstructions",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1000",
+        "T1005",
+        "T1006",
+        "T1012",
+        "T1013",
+        "T1027",
+        "T1035",
+        "T1036",
+        "T1055",
+        "T1059",
+        "T1083",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 4,
+      "best_ttp_fp": 8
+    },
+    {
+      "step": 8,
+      "type": "judge_check",
+      "iteration": 3,
+      "needs_more": true,
+      "gap_summary": "10 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 10,
+      "ttps_found": [
+        "T1000",
+        "T1005",
+        "T1006",
+        "T1012",
+        "T1013",
+        "T1027",
+        "T1035",
+        "T1036",
+        "T1055",
+        "T1059",
+        "T1083",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1000",
+        "T1005",
+        "T1006",
+        "T1013",
+        "T1027",
+        "T1035",
+        "T1036",
+        "T1055"
+      ],
+      "ttp_tp": 4,
+      "ttp_fp": 8
+    },
+    {
+      "step": 9,
+      "type": "judge_feedback",
+      "iteration": 3,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- enumerate services\n- enumerate gui resources\n- enumerate processes\n- get disk information\n- link function at runtime on Windows\n- enumerate network shares\n- stop service\n- enumerate processes\n- start service\n- modify service\n\nInstructions:\n- Add a TTP o",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 10,
+      "type": "refinement_rejected",
+      "iteration": 3,
+      "reason": "response not in structured format - keeping previous output",
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is confirmed malicious. It exhibits classic dropper behavior by dropping numerous executable files with deceptive adult-themed na"
+    },
+    {
+      "step": 11,
+      "type": "analyst_refinement",
+      "iteration": 3,
+      "ttps_now": [
+        "T1000",
+        "T1005",
+        "T1006",
+        "T1012",
+        "T1013",
+        "T1027",
+        "T1035",
+        "T1036",
+        "T1055",
+        "T1059",
+        "T1083",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 4,
+      "best_ttp_fp": 8
+    },
+    {
+      "step": 12,
+      "type": "refinement_stopped",
+      "iteration": 3,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 4,
+      "ttp_fp": 8
+    }
+  ],
+  "total_llm_calls": 4,
+  "total_elapsed": 106.75,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9571
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.3077,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 0.2857,
+      "gt_ttps": [
+        "T1007",
+        "T1010",
+        "T1012",
+        "T1057",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1135",
+        "T1489",
+        "T1518",
+        "T1543",
+        "T1547",
+        "T1569"
+      ],
+      "pred_ttps": [
+        "T1000",
+        "T1005",
+        "T1006",
+        "T1012",
+        "T1013",
+        "T1027",
+        "T1035",
+        "T1036",
+        "T1055",
+        "T1059",
+        "T1083",
+        "T1547"
+      ],
+      "tp": 4,
+      "q3_hallucinated_ttps": [
+        "T1000",
+        "T1005",
+        "T1006",
+        "T1013",
+        "T1027",
+        "T1035",
+        "T1036",
+        "T1055"
+      ],
+      "q3_missed_ttps": [
+        "T1007",
+        "T1010",
+        "T1057",
+        "T1082",
+        "T1129",
+        "T1135",
+        "T1489",
+        "T1518",
+        "T1543",
+        "T1569"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.3077,
+      "breakdown": {
+        "ttp_f1": 0.3077
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

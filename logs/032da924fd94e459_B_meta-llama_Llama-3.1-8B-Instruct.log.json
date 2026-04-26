@@ -1,0 +1,147 @@
+{
+  "hash": "032da924fd94e459cc7f332a61a9d0563232311116be64f6ee1d3f1211cf1237",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits anti-VM strings targeting multiple virtualization platforms, packed with UPX, and uses techniques like link function at runtime on Windows, change memory protection, and terminate process, indicating malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's purpose appears to be to evade detection and execute additional malicious payloads, characteristic of a Trojan. The execution chain and file drops suggest a complex, multi-stage attack.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"},\n      {\"id\": \"T1210\", \"name\": \"Operator Execution\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 2065,
+      "response_chars": 897,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits anti-VM strings targeting multiple virtualization platforms, packed with UPX, and uses techniques like link function at runtime on Windows, change memory protection, and terminate process, indicating malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's purpose appears to be to ev",
+      "elapsed_seconds": 4.1
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "2 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 2,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1082",
+        "T1210",
+        "T1218"
+      ],
+      "hallucinated_ttps": [
+        "T1055",
+        "T1082",
+        "T1210",
+        "T1218"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 4
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- link function at runtime on Windows\n- reference anti-VM strings targeting VMWare\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1055",
+        "T1082",
+        "T1106",
+        "T1210",
+        "T1218",
+        "T1552"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 1,
+      "best_ttp_fp": 4
+    },
+    {
+      "step": 5,
+      "type": "refinement_stopped",
+      "iteration": 1,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 1,
+      "ttp_fp": 6
+    }
+  ],
+  "total_llm_calls": 2,
+  "total_elapsed": 8.98,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8767
+    },
+    "family": {
+      "family_f1": 0.6667,
+      "family_precision": 1.0,
+      "family_recall": 0.5,
+      "predicted": [
+        "trojan"
+      ],
+      "matched": [
+        "trojan"
+      ],
+      "reachable_gt": [
+        "pua",
+        "trojan"
+      ],
+      "gt_pool": [
+        "hacktool",
+        "malxmr",
+        "miner",
+        "smcgr24",
+        "trojan",
+        "xmrminer"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 0.25,
+      "ttp_precision": 0.2,
+      "ttp_recall": 0.3333,
+      "gt_ttps": [
+        "T1027",
+        "T1129",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1082",
+        "T1210",
+        "T1218"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1082",
+        "T1210",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1129",
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.25,
+      "breakdown": {
+        "ttp_f1": 0.25
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

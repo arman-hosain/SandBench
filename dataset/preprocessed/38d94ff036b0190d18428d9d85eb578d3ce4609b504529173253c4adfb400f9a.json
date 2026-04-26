@@ -1,0 +1,56 @@
+{
+  "hash": "38d94ff036b0190d18428d9d85eb578d3ce4609b504529173253c4adfb400f9a",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  93725465903c33ad81f484886825f284.virus.exe\n    \\update.exe \\\n      C:\\Program Files (x86)\\backup.exe C:\\Program Files (x86)\\\n        C:\\Program Files (x86)\\Adobe\\backup.exe C:\\Program Files (x86)\\Adobe\\\n      C:\\Program Files\\backup.exe C:\\Program Files\\\n        C:\\Program Files\\dotnet\\backup.exe C:\\Program Files\\dotnet\\\n        C:\\Program Files\\Common Files\\backup.exe C:\\Program Files\\Common Files\\\n          C:\\Program Files\\Common Files\\Microsoft Shared\\backup.exe C:\\Program Files\\Common Files\\Microsoft Shared\\\n            C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\backup.exe C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\\n              C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\cs-CZ\\backup.exe C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\cs-CZ\\\n              C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\bg-BG\\backup.exe C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\bg-BG\\\n              C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\ar-SA\\backup.exe C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\ar-SA\\\n      C:\\PerfLogs\\backup.exe C:\\PerfLogs\\\n        C:\\PerfLogs\\Admin\\backup.exe C:\\PerfLogs\\Admin\\\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - packed with generic packer\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - contain a resource (.rsrc) section\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - (internal) packer file limitation\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  C:\\Users\\<USER>\\Downloads\\backup.exe  [sha256: 60b290f1cae87e01...]\n  C:\\Users\\<USER>\\Downloads\\temp.zip  [sha256: 8739c76e681f9009...]\n  C:\\update.exe  [sha256: eab45e4eabdc380c...]\n\nFILES WRITTEN (22):\n  C:\\38d94ff036b0190d18428d9d85eb578d3ce4609b504529173253c4adfb400f9a.dat\n  C:\\<USER>.zip\n  C:\\Documents and Settings\\backup.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\9Ea01896\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF2774F5A8CC72AA84.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF2FE1176CE39A2056.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF529E674FA610F029.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF76FF4D019D3581C3.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF920C7AC46A210FEA.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF9CAF8F2F2B8F42EC.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DFACA82766A20C5413.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DFB1F6275F462FCAA6.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DFD28FFC126987E50C.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DFD2F90D3A98307B58.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DFD81B79B960A69157.TMP\n  C:\\Users\\<USER>\\Downloads\\93725465903c33ad81f484886825f284.virus.dat\n  C:\\WINDOWS\\TEMP\\scs7.tmp\n  C:\\WINDOWS\\TEMP\\scs8.tmp\n  C:\\WINDOWS\\TEMP\\scs9.tmp\n  C:\\WINDOWS\\TEMP\\scsA.tmp\n\nOTHER REGISTRY KEYS SET (4):\n  HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\CabinetState\\FullPath\n  HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\HideFileExt\n  HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Hidden\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoFolderOptions\n\nMUTEXES CREATED (2):\n  Pro3\n  ShimCacheMutex\n\nPROCESSES CREATED (4):\n  C:\\Documents and Settings\\backup.exe C:\\Documents and Settings\\\n  C:\\Program Files\\backup.exe C:\\Program Files\\\n  C:\\Python27\\backup.exe C:\\Python27\\\n  C:\\WINDOWS\\backup.exe C:\\WINDOWS\\\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualProtect\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Microsoft Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'UPX v0.89.6 - v1.02 / v1.05 -v1.24 -> Markus & Laszlo [overlay]', 'F-PROT': 'UPX'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.8\n  .rsrc        entropy=4.19\n  [overlay]    entropy=3.708822011947632  size=398\n",
+  "ground_truth": {
+    "hash": "38d94ff036b0190d18428d9d85eb578d3ce4609b504529173253c4adfb400f9a",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8873,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "packed with generic packer",
+      "contain a resource (.rsrc) section",
+      "packed with UPX",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 4,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\Downloads\\backup.exe",
+        "C:\\Users\\<USER>\\Downloads\\temp.zip",
+        "C:\\update.exe"
+      ],
+      "mutexes": [
+        "Pro3",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\backup.exe C:\\Documents and Settings\\",
+        "C:\\Program Files\\backup.exe C:\\Program Files\\",
+        "C:\\Python27\\backup.exe C:\\Python27\\",
+        "C:\\WINDOWS\\backup.exe C:\\WINDOWS\\"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

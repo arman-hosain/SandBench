@@ -1,0 +1,97 @@
+{
+  "hash": "2810d4695b1f365878cc63fc37419d6cfade62e7235db3a6fe50a7b8016d0dbb",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    8131l.exe\n      cg0f0i6.exe\n        k95i9.exe\n          6gm19i.exe\n            9q46m.exe\n              55piw8a.exe\n                3q37re.exe\n                  8ccc4.exe\n                    nh82x52.exe\n                      93r96f0.exe\n                        1d7kh64.exe\n                          3166178.exe\n                            rai4s8.exe\n                              lp61d3.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - packed with generic packer\n  - packed with UPX\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - resolve function by parsing PE exports\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Execution::Install Additional Program [B0023]\n  - contain a resource (.rsrc) section\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (30):\n  60227.exe  [sha256: 5249734c8966eba7...]\n  c:\\57d08.exe  [sha256: e9ff67edc4d530b8...]\n  c:\\m312a.exe  [sha256: 198b3dacbeac01eb...]\n  c:\\9w31kh.exe  [sha256: 45661ed7f2b4110c...]\n  c:\\eek112.exe  [sha256: 933ae0ccc125b4f7...]\n  c:\\4x92834.exe  [sha256: c78d212650471f1d...]\n  c:\\b7t9b5.exe  [sha256: faf93cc7a6119fe2...]\n  c:\\ww7wk8.exe  [sha256: 52cf9c5c81f255cf...]\n  c:\\mmj34.exe  [sha256: 13bb0247e17cfae9...]\n  c:\\858j5.exe  [sha256: 10b418fbaaadc726...]\n  c:\\450u7uo.exe  [sha256: bcd30ab93729e893...]\n  c:\\9a52dm.exe  [sha256: 48e3a6d588c70584...]\n  c:\\2qw181.exe  [sha256: 9a2a7270877db16e...]\n  c:\\b18eh4.exe  [sha256: 8643cc7a6cea6af5...]\n  c:\\cc67ru0.exe  [sha256: 2e13cadb3c3c2635...]\n  c:\\fiii11u.exe  [sha256: 70254f9e8c89ea37...]\n  c:\\js4d0.exe  [sha256: f68fdf4316592f59...]\n  c:\\577686.exe  [sha256: df36103071e4e98e...]\n  c:\\v2g2p.exe  [sha256: 0d89f9c1f9046977...]\n  c:\\6s71a.exe  [sha256: 61643a3cf62c65f7...]\n\nFILES WRITTEN (30):\n  C:\\1d7kh64.exe\n  C:\\3166178.exe\n  C:\\3q37re.exe\n  C:\\55piw8a.exe\n  C:\\6gm19i.exe\n  C:\\6n1s2b.exe\n  C:\\8131l.exe\n  C:\\8ccc4.exe\n  C:\\93r96f0.exe\n  C:\\9q46m.exe\n  C:\\cg0f0i6.exe\n  C:\\i06409.exe\n  C:\\k95i9.exe\n  C:\\l6r4b.exe\n  C:\\lp61d3.exe\n  C:\\nh82x52.exe\n  C:\\o680ov.exe\n  C:\\r8v1gdc.exe\n  C:\\rai4s8.exe\n  c:\\1gv99.exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  c:\\60227.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'F-PROT': 'UPX_LZMA'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.66\n  .rsrc        entropy=7.83\n  [overlay]    entropy=4.897237300872803  size=374838\n",
+  "ground_truth": {
+    "hash": "2810d4695b1f365878cc63fc37419d6cfade62e7235db3a6fe50a7b8016d0dbb",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9306,
+    "malicious_count": 67,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "packed with generic packer",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "packed with UPX",
+      "reference anti-VM strings",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "60227.exe",
+        "c:\\1c785xi.exe",
+        "c:\\1gv99.exe",
+        "c:\\276mp.exe",
+        "c:\\2964p.exe",
+        "c:\\2ek12q.exe",
+        "c:\\2k351w.exe",
+        "c:\\2qw181.exe",
+        "c:\\31d17.exe",
+        "c:\\450u7uo.exe",
+        "c:\\4x92834.exe",
+        "c:\\577686.exe",
+        "c:\\57d08.exe",
+        "c:\\5uc1xcf.exe",
+        "c:\\63463.exe",
+        "c:\\6s71a.exe",
+        "c:\\7t840q.exe",
+        "c:\\7u9ix9l.exe",
+        "c:\\83h02w.exe",
+        "c:\\858j5.exe",
+        "c:\\9a52dm.exe",
+        "c:\\9w31kh.exe",
+        "c:\\b18eh4.exe",
+        "c:\\b73t6k.exe",
+        "c:\\b7t9b5.exe",
+        "c:\\c2oc391.exe",
+        "c:\\c73i7fo.exe",
+        "c:\\cc67ru0.exe",
+        "c:\\e24t16.exe",
+        "c:\\eek112.exe",
+        "c:\\f3o7o7f.exe",
+        "c:\\fiii11u.exe",
+        "c:\\js4d0.exe",
+        "c:\\m312a.exe",
+        "c:\\m4796.exe",
+        "c:\\mmj34.exe",
+        "c:\\ol2co1x.exe",
+        "c:\\v2g2p.exe",
+        "c:\\w531w1.exe",
+        "c:\\ww7wk8.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "c:\\60227.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

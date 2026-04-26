@@ -1,0 +1,75 @@
+{
+  "hash": "0076fb9f1496f9bd319da97ea26aafcc26c3b8adde18dbb8639000fe5d5eec1c",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence via the Run registry key, file system manipulation (creating and deleting files), and anti-analysis techniques such as argument obfuscation, stack strings, and delayed execution. The presence of a specific file drop ('c:\\\\Mirav') and registry persistence strongly indicates a malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample uses obfuscation and anti-analysis techniques to evade detection, establishes persistence via the Windows Run key, and drops files. These behaviors are characteristic of a Trojan, specifically one designed to maintain access or deliver further payloads, rather than ransomware (no encryption observed), adware (no ad-serving behavior), or a simple dropper (it performs persistence itself).\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1083\",\n        \"name\": \"Internal System Discovery\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1966,
+      "response_chars": 1363,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence via the Run registry key, file system manipulation (creating and deleting files), and anti-analysis techniques such as argument obfuscation, stack strings, and delayed execution. The presence of a specific file drop ('c:\\\\Mirav') and registry persistence strongly indicates",
+      "elapsed_seconds": 6.89
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 6.89,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9571
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.8,
+      "ttp_precision": 0.8,
+      "ttp_recall": 0.8,
+      "gt_ttps": [
+        "T1027",
+        "T1059",
+        "T1083",
+        "T1222",
+        "T1547"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1083",
+        "T1547"
+      ],
+      "tp": 4,
+      "q3_hallucinated_ttps": [
+        "T1055"
+      ],
+      "q3_missed_ttps": [
+        "T1222"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.8,
+      "breakdown": {
+        "ttp_f1": 0.8
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

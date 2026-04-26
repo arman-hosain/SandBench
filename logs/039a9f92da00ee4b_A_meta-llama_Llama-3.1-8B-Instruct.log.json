@@ -1,0 +1,71 @@
+{
+  "hash": "039a9f92da00ee4bca594b6d89fdce5f6ad2de8b1c01a79f0cc3e9b5b73c737a",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a range of malicious behaviors, including network communication with suspicious domains, execution of a reg.exe command to modify the Windows registry, and the creation of multiple mutexes and registry keys. Additionally, the presence of a UPX packer and the use of anti-VM strings suggest an attempt to evade detection.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior is consistent with a Trojan, which is a type of malware that disguises itself as legitimate software but actually performs malicious actions. The sample's ability to communicate with suspicious domains and modify the Windows registry suggests a Trojan-like behavior.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"},\n      {\"id\": \"T1210\", \"name\": \"Input Capture\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 5398,
+      "response_chars": 970,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a range of malicious behaviors, including network communication with suspicious domains, execution of a reg.exe command to modify the Windows registry, and the creation of multiple mutexes and registry keys. Additionally, the presence of a UPX packer and the use of anti-VM strings suggest an attempt to evade detection.",
+      "elapsed_seconds": 4.5
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 4.5,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.4,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 0.5,
+      "gt_ttps": [
+        "T1027",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1210",
+        "T1218"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1210",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4,
+      "breakdown": {
+        "ttp_f1": 0.4
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "hash": "1e0cba08a562107b17b8b544ad14d80feaa74aee5b595d80e54eff4ead1c5bf3",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nSERVICES OPENED (2):\n  IPFILTERDRIVER\n  amsint32\n\n--- EXECUTION CHAIN ---\n\nCOMMAND EXECUTIONS (2):\n  ( 1588 - cmd.exe ) c:\\windows\\system32\\cmd.exe /c \"c:\\users\\user41~1\\appdata\\local\\temp\\qrdsiivl.exe\"\n  ( 604 - qrdsiivl.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\qrdsiivl.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (20):\n  - contain obfuscated stackstrings\n  - encode data using XOR\n  - encrypt data using DES\n  - accept command line arguments\n  - link function at runtime on Windows\n  - query or enumerate registry value\n  - check if file exists\n  - get file version info\n  - get file size\n  - enumerate files on Windows\n  - encrypt data using AES\n  - reference AES constants\n  - encode data using Base64\n  - query environment variable\n  - check OS version\n  - enumerate processes\n  - get common file path\n  - link many functions at runtime\n  - encrypt data using AES via x86 extensions\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Process::Open Process [C0065]\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Create Process [C0017]\n  - File System::Create File [C0016]\n  - File System::Get File Attributes [C0049]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - compare security identifiers\n  - Defense Evasion::Obfuscated Files or Information::Encryption-Standard Algorithm [E1027.m05]\n  - Cryptography::Encrypt Data::3DES [C0027.004]\n  - contain loop\n  - Process::Terminate Process [C0018]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - link function at runtime on Windows\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Read File [C0051]\n  - File System::Create Directory [C0046]\n  - Cryptography::Encrypt Data::AES [C0027.001]\n  - reference AES constants\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  gitsi.sys  [sha256: e0b193d47609c962...]\n  c:\\users\\user41~1\\appdata\\local\\temp\\winrggli.exe  [sha256: 03e0c6c4ca8a24f9...]\n\nFILES WRITTEN (5):\n  ( 604 - qrdsiivl.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\winrggli.exe\n  ( 604 - qrdsiivl.exe ) c:\\windows\\system.ini\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\winvmww.exe\n  C:\\WINDOWS\\system32\\drivers\\gitsi.sys\n  C:\\Windows\\501b9e0\n\nPERSISTENCE REGISTRY KEYS (3):\n  HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\DisableNotifications = 1\n  HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\DoNotAllowExceptions = 0\n  HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\EnableFirewall = 0\n\nOTHER REGISTRY KEYS SET (10):\n  HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Hidden\n  HKLM\\SOFTWARE\\Microsoft\\Security Center\\AntiVirusOverride\n  HKLM\\SOFTWARE\\Microsoft\\Security Center\\AntiVirusDisableNotify\n  HKLM\\SOFTWARE\\Microsoft\\Security Center\\FirewallDisableNotify\n  HKLM\\SOFTWARE\\Microsoft\\Security Center\\FirewallOverride\n  HKLM\\SOFTWARE\\Microsoft\\Security Center\\UpdatesDisableNotify\n  HKLM\\SOFTWARE\\Microsoft\\Security Center\\UacDisableNotify\n  HKLM\\SOFTWARE\\Microsoft\\Security Center\\Svc\\AntiVirusOverride\n  HKLM\\SOFTWARE\\Microsoft\\Security Center\\Svc\\AntiVirusDisableNotify\n  HKLM\\SOFTWARE\\Microsoft\\Security Center\\Svc\\FirewallDisableNotify\n\nMUTEXES CREATED (2):\n  smss.exeM_256_\n  uxJLpe1m\n\nMUTEXES OPENED (5):\n  csrss.exeM_512_\n  lsass.exeM_660_\n  services.exeM_648_\n  smss.exeM_388_\n  winlogon.exeM_568_\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  ADVAPI32.dll: OpenProcessToken\n  KERNEL32.dll: CreateProcessW, GetProcAddress, LoadLibraryW\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Sign tool] Windows Authenticode\n\nPE SECTIONS (entropy):\n  .text        entropy=6.68\n  .rdata       entropy=5.76\n  .data        entropy=5.05\n  .rsrc        entropy=6.0\n  .reloc       entropy=6.37\n  [overlay]    entropy=7.340118408203125  size=13480\n",
+  "ground_truth": {
+    "hash": "1e0cba08a562107b17b8b544ad14d80feaa74aee5b595d80e54eff4ead1c5bf3",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.831,
+    "malicious_count": 59,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": null,
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "check if file exists"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "open process",
+      "contain obfuscated stackstrings",
+      "create or open registry key",
+      "create process on Windows",
+      "create or open file",
+      "get file attributes",
+      "encode data using XOR",
+      "delay execution",
+      "compare security identifiers",
+      "encrypt data using DES",
+      "contain loop",
+      "terminate process",
+      "accept command line arguments",
+      "link function at runtime on Windows",
+      "query or enumerate registry value",
+      "check if file exists",
+      "get file version info",
+      "get file size",
+      "read file on Windows",
+      "create directory",
+      "enumerate files on Windows",
+      "encrypt data using AES",
+      "reference AES constants",
+      "encode data using Base64",
+      "read .ini file",
+      "query environment variable",
+      "get OS version",
+      "check OS version",
+      "enumerate processes",
+      "get common file path",
+      "link many functions at runtime",
+      "hash data with MD5",
+      "hash data using SHA1",
+      "encrypt data using AES via x86 extensions",
+      "linked against Crypto++",
+      "contain a resource (.rsrc) section",
+      "linked against CPP standard library",
+      "reference Base64 string",
+      "contains PDB path",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\DisableNotifications",
+        "HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\DoNotAllowExceptions",
+        "HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\EnableFirewall"
+      ],
+      "registry_all_count": 43,
+      "files_dropped": [
+        "c:\\users\\user41~1\\appdata\\local\\temp\\winrggli.exe",
+        "gitsi.sys"
+      ],
+      "mutexes": [
+        "smss.exeM_256_",
+        "uxJLpe1m"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "ReaQta-Hive",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

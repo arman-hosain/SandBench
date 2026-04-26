@@ -1,0 +1,70 @@
+{
+  "hash": "024d2434a2a273c76d856ecf2f095a6e2efb520e546f6eb0bf3cace74aa2748e",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence mechanisms (modifying Winlogon Shell and Startup folder shortcuts), dropping multiple executable files and batch scripts, and attempting to hide its presence by writing to system directories like $Recycle.Bin and boot.ini. The use of ASPack packing and Delphi compilation further indicates an effort to evade detection.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample behaves like a Trojan by masquerading as a legitimate utility (HelpMe.exe), establishing persistence via the Winlogon Shell and Startup folders, and dropping additional payloads. It does not exhibit ransomware encryption, worm-like self-propagation across networks, or specific spyware data exfiltration behaviors in this report.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1562.001\",\n        \"name\": \"Disable or Modify System\"\n      },\n      {\n        \"id\": \"T1036\",\n        \"name\": \"Masquerading\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 2251,
+      "response_chars": 1270,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence mechanisms (modifying Winlogon Shell and Startup folder shortcuts), dropping multiple executable files and batch scripts, and attempting to hide its presence by writing to system directories like $Recycle.Bin and boot.ini. The use of ASPack packing and Delphi compilation f",
+      "elapsed_seconds": 6.59
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 6.59,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9155
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.6667,
+      "ttp_precision": 0.5,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027",
+        "T1547"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1036",
+        "T1547",
+        "T1562"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1036",
+        "T1562"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.6667,
+      "breakdown": {
+        "ttp_f1": 0.6667
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

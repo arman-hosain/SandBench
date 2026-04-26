@@ -1,0 +1,119 @@
+{
+  "hash": "1ed13b8ff90baeebcb61bcd40fc5b7bf13e6994f3932026f71c5e9c2466fde5e",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  c:\\04888q5.exe\n  c:\\159t1.exe\n  c:\\1sdib.exe\n  c:\\29loj7.exe\n  c:\\2a8wn8.exe\n  c:\\2l666.exe\n  c:\\2s05e.exe\n  c:\\30vt0.exe\n  c:\\32e0s.exe\n  c:\\38p0qk.exe\n  c:\\3h80812.exe\n  c:\\480ij9j.exe\n  c:\\483l2a.exe\n  c:\\5prsmf.exe\n  c:\\69v912x.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - packed with generic packer\n  - packed with UPX\n  - reference Base64 string\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - resolve function by parsing PE exports\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - packaged as an InstallShield installer\n  - Execution::Install Additional Program [B0023]\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - Data::Encode Data::Base64 [C0026.001]\n  - Data::Check String [C0019]\n  - compiled with Borland Delphi\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - (internal) installer file limitation\n  - (internal) packer file limitation\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (12):\n  2a8wn8.exe  [sha256: f0cece6de6851e79...]\n  32e0s.exe  [sha256: a9e4499e217bcf12...]\n  480ij9j.exe  [sha256: 893bf5ae8eca0e7b...]\n  483l2a.exe  [sha256: dce061e3b8398a70...]\n  7d16j.exe  [sha256: ae5cb50a433fe08c...]\n  8f65x79.exe  [sha256: 8ecf1a99b166fa6b...]\n  9j426f2.exe  [sha256: 0588a203bf385c35...]\n  eq286.exe  [sha256: bfff826bf0d92cde...]\n  f02q9c.exe  [sha256: 8c4ddc05bcff5bb2...]\n  hhb0oqm.exe  [sha256: 2dd07862caa215b2...]\n  k06w7.exe  [sha256: 36b874b6bad418b2...]\n  n77oc3k.exe  [sha256: bab585a77169163e...]\n\nFILES WRITTEN (12):\n  c:\\2a8wn8.exe\n  c:\\32e0s.exe\n  c:\\480ij9j.exe\n  c:\\483l2a.exe\n  c:\\7d16j.exe\n  c:\\8f65x79.exe\n  c:\\9j426f2.exe\n  c:\\eq286.exe\n  c:\\f02q9c.exe\n  c:\\hhb0oqm.exe\n  c:\\k06w7.exe\n  c:\\n77oc3k.exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (49):\n  c:\\04888q5.exe\n  c:\\159t1.exe\n  c:\\1sdib.exe\n  c:\\29loj7.exe\n  c:\\2a8wn8.exe\n  c:\\2l666.exe\n  c:\\2s05e.exe\n  c:\\30vt0.exe\n  c:\\32e0s.exe\n  c:\\38p0qk.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'F-PROT': 'UPX_LZMA'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.97\n  UPX2         entropy=2.93\n  [overlay]    entropy=6.63734769821167  size=1984063\n",
+  "ground_truth": {
+    "hash": "1ed13b8ff90baeebcb61bcd40fc5b7bf13e6994f3932026f71c5e9c2466fde5e",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9286,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "packed with generic packer",
+      "packaged as an InstallShield installer",
+      "contain an embedded PE file",
+      "packed with UPX",
+      "reference Base64 string",
+      "compiled with Borland Delphi",
+      "reference anti-VM strings",
+      "(internal) installer file limitation",
+      "(internal) packer file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "2a8wn8.exe",
+        "32e0s.exe",
+        "480ij9j.exe",
+        "483l2a.exe",
+        "7d16j.exe",
+        "8f65x79.exe",
+        "9j426f2.exe",
+        "eq286.exe",
+        "f02q9c.exe",
+        "hhb0oqm.exe",
+        "k06w7.exe",
+        "n77oc3k.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "c:\\04888q5.exe",
+        "c:\\159t1.exe",
+        "c:\\1sdib.exe",
+        "c:\\29loj7.exe",
+        "c:\\2a8wn8.exe",
+        "c:\\2l666.exe",
+        "c:\\2s05e.exe",
+        "c:\\30vt0.exe",
+        "c:\\32e0s.exe",
+        "c:\\38p0qk.exe",
+        "c:\\3h80812.exe",
+        "c:\\480ij9j.exe",
+        "c:\\483l2a.exe",
+        "c:\\5prsmf.exe",
+        "c:\\69v912x.exe",
+        "c:\\6e2ko.exe",
+        "c:\\79m20.exe",
+        "c:\\7d16j.exe",
+        "c:\\7q801.exe",
+        "c:\\808h9.exe",
+        "c:\\8295s.exe",
+        "c:\\8b7638.exe",
+        "c:\\8c44w.exe",
+        "c:\\8f65x79.exe",
+        "c:\\99u09.exe",
+        "c:\\9j426f2.exe",
+        "c:\\a9j82.exe",
+        "c:\\b577124.exe",
+        "c:\\c81f0.exe",
+        "c:\\e554qiv.exe",
+        "c:\\eq286.exe",
+        "c:\\f02q9c.exe",
+        "c:\\f82knk.exe",
+        "c:\\gc96a13.exe",
+        "c:\\hhb0oqm.exe",
+        "c:\\hm4e5su.exe",
+        "c:\\ivra4.exe",
+        "c:\\k06w7.exe",
+        "c:\\l1at20d.exe",
+        "c:\\m2xel6.exe",
+        "c:\\n77oc3k.exe",
+        "c:\\n7b21g.exe",
+        "c:\\plfbu.exe",
+        "c:\\ql1ti.exe",
+        "c:\\qx09551.exe",
+        "c:\\vbgo1x1.exe",
+        "c:\\w1b1j.exe",
+        "c:\\x7c6j.exe",
+        "c:\\xphxph.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

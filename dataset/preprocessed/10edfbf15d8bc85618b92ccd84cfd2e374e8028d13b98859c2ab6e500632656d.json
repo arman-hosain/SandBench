@@ -1,0 +1,93 @@
+{
+  "hash": "10edfbf15d8bc85618b92ccd84cfd2e374e8028d13b98859c2ab6e500632656d",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\svchost.exe\n    <SYSTEM32>\\taskeng.exe\n  <SYSTEM32>\\taskeng.exe\n    %ProgramFiles%\\mozilla\\nengnjg.exe\n  %ProgramFiles%\\mozilla\\nengnjg.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\PROGRA~2\\Mozilla\\xjsdpxh.exe -hyqaudl\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - hide graphical window\n  - packed with generic packer\n  - link function at runtime on Windows\n\nCAPA RULE MATCHES (MBC):\n  - hide graphical window\n  - inspect load icon resource\n  - reference absolute stream path on Windows\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - link function at runtime on Windows\n  - contain a resource (.rsrc) section\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (4):\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: fad4412d97b93b48...]\n  \\PROGRA~2\\Mozilla\\xjsdpxh.exe  [sha256: 567aef987d1b347e...]\n  \\PROGRA~2\\Mozilla\\fgpypmj.dll  [sha256: 33f74f3530af748c...]\n  <SYSTEM32>\\tasks\\efabovn  [sha256: d3a65dcdc8163411...]\n\nFILES WRITTEN (4):\n  %ProgramFiles%\\mozilla\\nengnjg.exe\n  %ProgramFiles%\\mozilla\\ryogiqg.dll\n  C:\\PROGRA~2\\Mozilla\\fgpypmj.dll\n  C:\\PROGRA~2\\Mozilla\\xjsdpxh.exe\n\nPERSISTENCE REGISTRY KEYS (2):\n  <HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs = %ProgramFiles%\\Mozilla\\ryogiqg.dll\n  <HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs = 0x00000001\n\nOTHER REGISTRY KEYS SET (10):\n  \\REGISTRY\\MACHINE\\HexStream = 53004F004600540057004100520045005C004D006900630072006F0073006F00660074005C00570069006E0064\n  \\REGISTRY\\MACHINE\\HexStream = 53004F004600540057004100520045005C004D006900630072006F0073006F00660074005C00570069006E0064\n  \\REGISTRY\\A\\{a2ff147a-1021-11ea-bc52-52691c245b48}\\DefaultObjectStore\\ObjectTable\\E9\\_ObjectId_\n  \\REGISTRY\\A\\{a2ff147a-1021-11ea-bc52-52691c245b48}\\DefaultObjectStore\\LruList\\CurrentLru\n  \\REGISTRY\\A\\{a2ff147a-1021-11ea-bc52-52691c245b48}\\DefaultObjectStore\\LruList\\00000000000002FD\\ObjectId\n  \\REGISTRY\\A\\{a2ff147a-1021-11ea-bc52-52691c245b48}\\DefaultObjectStore\\LruList\\00000000000002FD\\ObjectLru\n  \\REGISTRY\\A\\{a2ff147a-1021-11ea-bc52-52691c245b48}\\DefaultObjectStore\\ObjectTable\\E9\\_ObjectLru_\n  \\REGISTRY\\A\\{a2ff147a-1021-11ea-bc52-52691c245b48}\\DefaultObjectStore\\ObjectTable\\E9\\_FileId_\n  \\REGISTRY\\A\\{a2ff147a-1021-11ea-bc52-52691c245b48}\\DefaultObjectStore\\ObjectTable\\E9\\_Usn_\n  \\REGISTRY\\A\\{a2ff147a-1021-11ea-bc52-52691c245b48}\\DefaultObjectStore\\ObjectTable\\E9\\_UsnJournalId_\n\nPROCESSES CREATED (6):\n  %ProgramFiles%\\mozilla\\nengnjg.exe\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\taskeng.exe\n  ctvqzym.pe32\n  taskeng.exe\n  xjsdpxh.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=7.67\n  .rdata       entropy=4.79\n  .data        entropy=2.0\n  .rsrc        entropy=2.77\n  [overlay]    entropy=7.999456882476807  size=314584\n",
+  "ground_truth": {
+    "hash": "10edfbf15d8bc85618b92ccd84cfd2e374e8028d13b98859c2ab6e500632656d",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9167,
+    "malicious_count": 66,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 34
+      },
+      {
+        "value": "dropper",
+        "count": 12
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "gepys",
+        "count": 7
+      },
+      {
+        "value": "shipup",
+        "count": 5
+      },
+      {
+        "value": "mods",
+        "count": 3
+      }
+    ],
+    "suggested_label": "trojan.gepys/shipup",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      }
+    ],
+    "capa_sig_names": [
+      "hide graphical window",
+      "inspect load icon resource",
+      "reference absolute stream path on Windows",
+      "contain loop",
+      "packed with generic packer",
+      "link function at runtime on Windows",
+      "contain a resource (.rsrc) section",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "<HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs",
+        "<HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs"
+      ],
+      "registry_all_count": 23,
+      "files_dropped": [
+        "<SYSTEM32>\\tasks\\efabovn",
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "\\PROGRA~2\\Mozilla\\fgpypmj.dll",
+        "\\PROGRA~2\\Mozilla\\xjsdpxh.exe"
+      ],
+      "mutexes": [],
+      "processes": [
+        "%ProgramFiles%\\mozilla\\nengnjg.exe",
+        "<PATH_SAMPLE.EXE>",
+        "<SYSTEM32>\\taskeng.exe",
+        "ctvqzym.pe32",
+        "taskeng.exe",
+        "xjsdpxh.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Dr.Web vxCube",
+    "SNDBOX",
+    "VirusTotal Jujubox"
+  ]
+}

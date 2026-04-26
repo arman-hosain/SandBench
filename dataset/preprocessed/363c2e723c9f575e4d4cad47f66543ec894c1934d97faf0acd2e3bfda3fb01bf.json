@@ -1,0 +1,59 @@
+{
+  "hash": "363c2e723c9f575e4d4cad47f66543ec894c1934d97faf0acd2e3bfda3fb01bf",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://google.com/\n\nDNS LOOKUPS (1):\n  google.com \u2192 216.58.213.142\n\nIP TRAFFIC (1):\n  216.58.213.142:80 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  e26cb5b3b760f8e86090280842339320.virus.exe\n    C:\\Users\\<USER>\\vkggYoQE\\bgwoocAU.exe\n      VVVI\n    ZKFN\n\nCOMMAND EXECUTIONS (1):\n  BLDM\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - reference anti-VM strings targeting Qemu\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Users\\<USER>\\vkggYoQE\\bgwoocAU.exe  [sha256: d87f7139d6c7b4e8...]\n\nFILES WRITTEN (2):\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996EBLDM\n  C:\\Users\\<USER>\\Downloads\\e26cb5b3b760f8e86090280842339320.virusZKFN\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKCU\\software\\microsoft\\windows\\currentversion\\run\\bgwoocAU.exe = C\n\nMUTEXES CREATED (2):\n  QuwAwYQo\n  rWMUIEsU\n\nPROCESSES CREATED (1):\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] MASM32\n  [Compiler] MASM\n  [Linker] Microsoft Linker\n  [Tool] masm32\n\nPE SECTIONS (entropy):\n  .text        entropy=7.31\n  .rdata       entropy=1.91\n  .data        entropy=7.79\n  .rsrc        entropy=5.99\n",
+  "ground_truth": {
+    "hash": "363c2e723c9f575e4d4cad47f66543ec894c1934d97faf0acd2e3bfda3fb01bf",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9028,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting Qemu"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RWX memory",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting Qemu"
+    ],
+    "iocs": {
+      "ips": [
+        "216.58.213.142"
+      ],
+      "domains": [
+        "google.com"
+      ],
+      "urls": [
+        "http://google.com/"
+      ],
+      "registry_persistence": [
+        "HKCU\\software\\microsoft\\windows\\currentversion\\run\\bgwoocAU.exe"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\vkggYoQE\\bgwoocAU.exe"
+      ],
+      "mutexes": [
+        "QuwAwYQo",
+        "rWMUIEsU"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "hash": "10c3f369e00a0064547fe912e797c4ce759bed202e4cca226006738b1e3210d2",
+  "report_text": "--- EXECUTION CHAIN ---\n\nCOMMAND EXECUTIONS (1):\n   \n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - reference anti-VM strings targeting Xen\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (2):\n  DBWinMutex\n  SINGLE_INSTANCE_APP_MUTEX\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Protector] Obsidium\n  [Protector] Themida/Winlicense\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Sign tool] Windows Authenticode\n\nPE SECTIONS (entropy):\n  .rsrc        entropy=8.0\n  .idata       entropy=1.29\n  fkvujzcn     entropy=7.95\n  dxqkxsle     entropy=7.23\n  .taggant     entropy=3.71\n  [overlay]    entropy=7.486746311187744  size=3920\n",
+  "ground_truth": {
+    "hash": "10c3f369e00a0064547fe912e797c4ce759bed202e4cca226006738b1e3210d2",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7778,
+    "malicious_count": 56,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 21
+      },
+      {
+        "value": "dropper",
+        "count": 5
+      },
+      {
+        "value": "pua",
+        "count": 2
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "sysn",
+        "count": 8
+      },
+      {
+        "value": "keylogger",
+        "count": 4
+      },
+      {
+        "value": "r002c0rao25",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.sysn/keylogger",
+    "av_family_vote": "generic",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting Xen"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting Xen",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "DBWinMutex",
+        "SINGLE_INSTANCE_APP_MUTEX"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Rising MOVES",
+    "VirusTotal Jujubox"
+  ]
+}

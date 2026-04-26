@@ -1,0 +1,70 @@
+{
+  "hash": "00e9dee0c2dcb9d1acb0541e72a8e67b1845b109f703ca6c10f03271987435d4",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including the use of a generic packer (UPX) to evade analysis, dropping multiple executable files (acrotray.exe, vboxtray.exe) to legitimate-looking locations (Adobe, System32), and executing commands with obfuscated paths and spaces. The presence of 'vboxtray.exe' in System32 is a strong indicator of a dropper or rootkit attempting to hide or persist. The network activity involves querying search engines with encoded parameters, typical of droppers looking for other payloads or C2 infrastructure.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The sample's primary observable behavior is dropping additional executable files (acrotray.exe, vboxtray.exe) to system directories and executing them. It uses packing (UPX) to hide its payload and obfuscates file paths to avoid detection. This behavior aligns with the definition of a Dropper, which delivers and executes other malware.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1562.1\",\n        \"name\": \"Clear Windows Event Logs\"\n      },\n      {\n        \"id\": \"T1036\",\n        \"name\": \"Masquerading\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 5064,
+      "response_chars": 1371,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including the use of a generic packer (UPX) to evade analysis, dropping multiple executable files (acrotray.exe, vboxtray.exe) to legitimate-looking locations (Adobe, System32), and executing commands with obfuscated paths and spaces. The presence of 'vboxtray.exe' in System32 is a strong indic",
+      "elapsed_seconds": 12.61
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 12.61,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8611
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.4,
+      "ttp_precision": 0.25,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1562"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1036",
+        "T1055",
+        "T1562"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4,
+      "breakdown": {
+        "ttp_f1": 0.4
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

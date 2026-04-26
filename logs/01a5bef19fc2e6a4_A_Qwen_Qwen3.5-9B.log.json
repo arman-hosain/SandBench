@@ -1,0 +1,63 @@
+{
+  "hash": "01a5bef19fc2e6a423d8a918d92e39769557cdff06e5287c1afeb7a8a91d338d",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits defensive evasion techniques, specifically using XOR encoding to obfuscate data (CAPA trigger: 'encode data using XOR', MBC: 'Encoding-Standard Algorithm'). It also performs file system operations (Create/Read files) and checks the OS version. While these behaviors are common in malware, they are also used by legitimate software for obfuscation or configuration. Without evidence of malicious payload execution, network exfiltration, or persistence, the verdict is Suspicious due to the presence of obfuscation.\"\n  },\n  \"q2\": {\n    \"family\": [\"PUA\"],\n    \"explanation\": \"The sample is a Potentially Unwanted Application (PUA). It uses obfuscation (XOR encoding) and file system manipulation, which are typical of PUA or adware that attempts to hide its presence or modify system settings, but lacks definitive evidence of being a full-blown Trojan, Ransomware, or Backdoor in this specific report.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 856,
+      "response_chars": 1111,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits defensive evasion techniques, specifically using XOR encoding to obfuscate data (CAPA trigger: 'encode data using XOR', MBC: 'Encoding-Standard Algorithm'). It also performs file system operations (Create/Read files) and checks the OS version. While these behaviors are common in malware, they are also used by legitima",
+      "elapsed_seconds": 8.9
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 8.9,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 0.5,
+      "predicted": "SUSPICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.3857
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 1.0,
+      "ttp_precision": 1.0,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 1.0,
+      "breakdown": {
+        "ttp_f1": 1.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

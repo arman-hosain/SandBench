@@ -1,0 +1,101 @@
+{
+  "hash": "0f0532830f272234e3a9b87bc39e4a5ea1789ae6abedef5906c49982715faef8",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  0.0.0.0.in-addr.arpa.\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    ~bf918e.tmp\n    cmd.exe cmd /c \"_uninsep.bat\" \"\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_uninsep.bat(null) [(null)]\n  cmd /c \"\"C:\\DOCUME~1\\ADMINI~1\\LOCALS~1\\Temp\\_uninsep.bat\" \"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (7):\n  - check OS version\n  - get MAC address on Windows\n  - get common file path\n  - check if file exists\n  - download and write a file\n  - link function at runtime on Windows\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - Process::Create Process [C0017]\n  - File System::Get File Attributes [C0049]\n  - Communication::Socket Communication::Create TCP Socket [C0001.011]\n  - contain loop\n  - get OS version\n  - Discovery::System Information Discovery [E1082]\n  - get MAC address on Windows\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Writes File [C0052]\n  - Execution::Install Additional Program [B0023]\n  - File System::Read File [C0051]\n  - Communication::Socket Communication::Initialize Winsock Library [C0001.009]\n  - Process::Terminate Process [C0018]\n  - Cryptography::Cryptographic Hash::SHA1 [C0029.002]\n  - Communication::DNS Communication::Resolve [C0011.001]\n  - Communication::Socket Communication::Connect Socket [C0001.004]\n  - Communication::Socket Communication::TCP Client [C0001.008]\n  - Communication::Socket Communication::Send Data [C0001.007]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - Communication::Socket Communication::Receive Data [C0001.006]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - Command and Control::C2 Communication::Server to Client File Transfer [B0030.003]\n  - receive and write data from server to client\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  ~BF911F.tmp  [sha256: e625c4f6b7f15d1a...]\n\nFILES WRITTEN (3):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_uninsep.bat\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\~BF911F.tmp\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\~BF918E.tmp\n\nOTHER REGISTRY KEYS SET (1):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n\nMUTEXES CREATED (10):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  ShimCacheMutex\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n\nPROCESSES CREATED (4):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_uninsep.bat\" \"\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\~BF911F.tmp\n  C:\\WINDOWS\\system32\\cmd.exe\n  C:\\WINDOWS\\system32\\drwtsn32 -p 1996 -e 240 -g\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessW, GetProcAddress, VirtualAlloc\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.63\n  .rdata       entropy=5.51\n  .data        entropy=2.36\n  .rsrc        entropy=4.02\n  .reloc       entropy=4.14\n  [overlay]    entropy=0.04329155012965202  size=1335576\n",
+  "ground_truth": {
+    "hash": "0f0532830f272234e3a9b87bc39e4a5ea1789ae6abedef5906c49982715faef8",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8194,
+    "malicious_count": 59,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1082",
+        "signature_description": "check OS version"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1105",
+        "signature_description": "download and write a file"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "delay execution",
+      "create or open file",
+      "create process on Windows",
+      "get file attributes",
+      "create TCP socket",
+      "contain loop",
+      "get OS version",
+      "check OS version",
+      "get MAC address on Windows",
+      "get common file path",
+      "write file on Windows",
+      "write and execute a file",
+      "read file on Windows",
+      "initialize Winsock library",
+      "terminate process",
+      "check if file exists",
+      "hash data using SHA1",
+      "resolve DNS",
+      "connect TCP socket",
+      "act as TCP client",
+      "send data on socket",
+      "send data",
+      "receive data on socket",
+      "receive data",
+      "download and write a file",
+      "receive and write data from server to client",
+      "allocate thread local storage",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [
+        "0.0.0.0.in-addr.arpa."
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "~BF911F.tmp"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "ShimCacheMutex",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_uninsep.bat\" \"",
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\~BF911F.tmp",
+        "C:\\WINDOWS\\system32\\cmd.exe",
+        "C:\\WINDOWS\\system32\\drwtsn32 -p 1996 -e 240 -g"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork"
+  ]
+}

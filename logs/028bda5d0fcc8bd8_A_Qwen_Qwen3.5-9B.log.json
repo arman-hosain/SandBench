@@ -1,0 +1,70 @@
+{
+  "hash": "028bda5d0fcc8bd83c419c872c386f9d61f6f1e58391443df03a5e10e9d84c54",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic malware behavior including spawning a process tree of identical suspicious executables in System32, using XOR encoding and generic packing to evade analysis, writing files to protected system directories, and registering shell extensions via the ShellServiceObjectDelayLoad registry key. The presence of dangerous imports like WinExec and CreateProcessA further confirms malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The behavior of dropping files to System32, registering shell extensions, and executing additional programs via WinExec is characteristic of a Trojan horse designed to establish persistence and execute further payloads, rather than encrypting data (Ransomware) or primarily displaying ads (Adware).\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1562.1\",\n        \"name\": \"Disable Process Creation Auditing\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1695,
+      "response_chars": 1234,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic malware behavior including spawning a process tree of identical suspicious executables in System32, using XOR encoding and generic packing to evade analysis, writing files to protected system directories, and registering shell extensions via the ShellServiceObjectDelayLoad registry key. The presence of dangerou",
+      "elapsed_seconds": 10.26
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 10.26,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9571
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.4,
+      "ttp_precision": 0.25,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1547",
+        "T1562"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1547",
+        "T1562"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4,
+      "breakdown": {
+        "ttp_f1": 0.4
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

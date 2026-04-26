@@ -1,0 +1,45 @@
+{
+  "hash": "3f4ed65165b96a4894a140cee04439a8f6f31b76e423b5a577fa79b6785f7171",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - query or enumerate registry value\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  ctvqzym.exe  [sha256: 22fa7c8d57605daf...]\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: 48324970c722b80e...]\n\nFILES WRITTEN (2):\n  C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\ctvqzym.exe\n  C:\\WINDOWS\\Tasks\\hiqvsnd.job\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: VirtualAlloc\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Linker] Polink\n\nPE SECTIONS (entropy):\n  .data        entropy=4.77\n  .rdata51     entropy=0.16\n  .rdata5      entropy=5.86\n  .text        entropy=5.69\n  ggg8         entropy=0.16\n  ggg7         entropy=0.16\n  ggg6         entropy=1.23\n  .rsrc        entropy=6.18\n  .reloc       entropy=5.67\n  [overlay]    entropy=6.999623775482178  size=224\n",
+  "ground_truth": {
+    "hash": "3f4ed65165b96a4894a140cee04439a8f6f31b76e423b5a577fa79b6785f7171",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9437,
+    "malicious_count": 67,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "query or enumerate registry value",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "ctvqzym.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "hash": "14a1618388753a9b9f947479dfd369b5f4fbe2d1b14a1bb5fd532c36c63f23e9",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  e71d7ffec95bfc83e6e1.pe32\n    Eihiigba.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\Windows\\system32\\Eihiigba.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - encode data using XOR\n  - packed with generic packer\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Execution::Install Additional Program [B0023]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  \\Windows\\System32\\Eihiigba.exe  [sha256: 2b8169f58c13c0ce...]\n  \\Windows\\System32\\Digdnhnc.dll  [sha256: d9ffc3f02d973268...]\n\nFILES WRITTEN (3):\n  C:\\Windows\\system32\\Digdnhnc.dll\n  C:\\Windows\\system32\\Eihiigba.exe\n  C:\\Windows\\system32\\surf.dat\n\nOTHER REGISTRY KEYS SET (8):\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C00570069006E0064\n  \\REGISTRY\\USER\\HexStream = 2E00440045004600410055004C0054005C0053004F004600540057004100520045005C004D006900630072006F007\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n\nMUTEXES CREATED (5):\n  KingKarton_10\n  Local\\_!MSFTHISTORY!_\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n\nPROCESSES CREATED (1):\n  Eihiigba.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: CreateProcessA, GetProcAddress, WinExec\n\nCOMPILER AND PACKER:\n  [sfx] temporary EXE SFX\n  [Linker] LCC Linker\n  [Overlay] EXE file\n  Packers: {'Cyren': 'dropped'}\n\nPE SECTIONS (entropy):\n  .text        entropy=7.18\n  .bss         entropy=0.0\n  .data        entropy=6.04\n  .idata       entropy=5.08\n  .aajaic      entropy=2.23\n  [overlay]    entropy=7.492872714996338  size=8067072\n",
+  "ground_truth": {
+    "hash": "14a1618388753a9b9f947479dfd369b5f4fbe2d1b14a1bb5fd532c36c63f23e9",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9306,
+    "malicious_count": 67,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain loop",
+      "packed with generic packer",
+      "contain an embedded PE file",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 8,
+      "files_dropped": [
+        "\\Windows\\System32\\Digdnhnc.dll",
+        "\\Windows\\System32\\Eihiigba.exe"
+      ],
+      "mutexes": [
+        "KingKarton_10",
+        "Local\\_!MSFTHISTORY!_",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!",
+        "Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!"
+      ],
+      "processes": [
+        "Eihiigba.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX"
+  ]
+}

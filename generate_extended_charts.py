@@ -1,0 +1,385 @@
+#!/usr/bin/env python3
+"""
+SandBench: Extended Charts
+Additional publication-quality charts beyond the base 6.
+
+Usage:
+    python generate_extended_charts.py
+    python generate_extended_charts.py --results ./results/benchmark_results.json
+"""
+
+import json
+import os
+import argparse
+import numpy as np
+
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+
+MODEL_COLORS = {
+    "llama-3.1-8b": "#1E88E5",
+    "gpt-oss-20b": "#43A047",
+    "qwen3-8b": "#E53935",
+}
+MODEL_LABELS = {
+    "llama-3.1-8b": "Llama-3.1-8B",
+    "gpt-oss-20b": "GPT-OSS-20B",
+    "qwen3-8b": "Qwen3-8B",
+}
+MODE_LABELS = {"A": "Single-Shot", "B": "Judge-Refined", "C": "Agentic", "D": "Agentic+Judge"}
+MODE_COLORS = {"A": "#58a6ff", "B": "#3fb950", "C": "#d29922", "D": "#bc8cff"}
+
+plt.rcParams.update({
+    "font.family": "sans-serif",
+    "font.size": 11,
+    "figure.dpi": 150,
+    "savefig.dpi": 200,
+    "savefig.bbox": "tight",
+})
+
+
+def load_results(path):
+    with open(path) as f:
+        return json.load(f).get("results", [])
+
+
+def get_vals(results, model, mode, metric_path):
+    vals = []
+    for r in results:
+        if r["model_key"] == model and r["mode"] == mode:
+            v = r.get("evaluation", {})
+            for p in metric_path.split("."):
+                v = v.get(p, 0) if isinstance(v, dict) else 0
+            vals.append(float(v) if v is not None else 0)
+    return vals
+
+
+# ── Chart 7: Box plots per metric ──
+VT_SCORE_METRICS = [
+    ("composite.composite_score", "Composite"),
+    ("ttp.ttp_f1", "TTP F1"),
+    ("ttp.ttp_recall", "TTP Recall"),
+    ("verdict.verdict_score", "Threat Verdict Accuracy"),
+]
+
+
+def chart_boxplots(results, output_dir):
+    models = sorted(set(r["model_key"] for r in results))
+    modes = sorted(set(r["mode"] for r in results))
+
+    metrics = [
+        ("composite.composite_score", "Composite Score"),
+        ("ttp.ttp_f1", "TTP F1"),
+        ("verdict.verdict_score", "Threat Verdict Accuracy"),
+    ]
+
+    fig, axes = plt.subplots(1, 3, figsize=(18, 6))
+    axes = axes.flatten()
+
+    for ax, (metric_path, metric_name) in zip(axes, metrics):
+        positions = []
+        data = []
+        colors = []
+        labels = []
+        pos = 0
+
+        for model in models:
+            for mode in modes:
+                vals = get_vals(results, model, mode, metric_path)
+                if vals:
+                    data.append(vals)
+                    positions.append(pos)
+                    colors.append(MODE_COLORS.get(mode, "#888"))
+                    labels.append(f"{MODEL_LABELS.get(model, model)[:6]}\n{mode}")
+                    pos += 1
+            pos += 0.5  # gap between models
+
+        if not data:
+            continue
+
+        bp = ax.boxplot(data, positions=positions, widths=0.6, patch_artist=True,
+                        showmeans=True, meanprops=dict(marker='D', markerfacecolor='white', markersize=5))
+
+        for patch, color in zip(bp['boxes'], colors):
+            patch.set_facecolor(color)
+            patch.set_alpha(0.6)
+
+        ax.set_xticks(positions)
+        ax.set_xticklabels(labels, fontsize=8, rotation=45, ha="right")
+        ax.set_title(metric_name, fontsize=13, fontweight="bold")
+        ax.grid(axis="y", alpha=0.3)
+
+        if "error" in metric_name.lower():
+            ax.invert_yaxis()
+
+    # Legend
+    legend_patches = [mpatches.Patch(color=MODE_COLORS[m], label=MODE_LABELS[m], alpha=0.6) for m in modes]
+    fig.legend(handles=legend_patches, loc="upper center", ncol=4, fontsize=10,
+               bbox_to_anchor=(0.5, 1.02))
+    fig.suptitle("SandBench: Score Distributions (Box Plots)", fontsize=15, y=1.05)
+    fig.tight_layout()
+
+    path = os.path.join(output_dir, "07_boxplots.png")
+    fig.savefig(path)
+    plt.close(fig)
+    print(f"  Saved: {path}")
+
+
+# ── Chart 8: Mode progression (A→B→C→D) line chart per model ──
+def chart_mode_progression(results, output_dir):
+    models = sorted(set(r["model_key"] for r in results))
+    modes = sorted(set(r["mode"] for r in results))
+
+    metrics = [
+        ("composite.composite_score", "Composite"),
+        ("ttp.ttp_f1", "TTP F1"),
+        ("verdict.verdict_score", "Threat Verdict Accuracy"),
+    ]
+
+    fig, axes = plt.subplots(1, len(metrics), figsize=(5 * len(metrics), 5))
+    if len(metrics) == 1:
+        axes = [axes]
+
+    for ax, (metric_path, metric_name) in zip(axes, metrics):
+        for model in models:
+            means = []
+            stds = []
+            for mode in modes:
+                vals = get_vals(results, model, mode, metric_path)
+                means.append(np.mean(vals) if vals else 0)
+                stds.append(np.std(vals) if vals else 0)
+
+            ax.errorbar(range(len(modes)), means, yerr=stds,
+                        marker='o', linewidth=2, markersize=8, capsize=4,
+                        color=MODEL_COLORS.get(model, "#888"),
+                        label=MODEL_LABELS.get(model, model))
+
+            # Annotate values
+            for i, (m, s) in enumerate(zip(means, stds)):
+                ax.annotate(f"{m:.3f}", (i, m), textcoords="offset points",
+                            xytext=(0, 12), ha="center", fontsize=9, fontweight="bold",
+                            color=MODEL_COLORS.get(model, "#888"))
+
+        ax.set_xticks(range(len(modes)))
+        ax.set_xticklabels([MODE_LABELS.get(m, m) for m in modes], fontsize=10)
+        ax.set_title(metric_name, fontsize=13, fontweight="bold")
+        ax.set_ylabel("Score")
+        ax.set_ylim(0, 1.1)
+        ax.grid(alpha=0.3)
+        ax.legend(fontsize=9)
+
+    fig.suptitle("SandBench: Performance Progression Across Modes (A → B → C → D)",
+                 fontsize=14, y=1.02)
+    fig.tight_layout()
+
+    path = os.path.join(output_dir, "08_mode_progression.png")
+    fig.savefig(path)
+    plt.close(fig)
+    print(f"  Saved: {path}")
+
+
+# ── Chart 9: LLM calls vs composite score (efficiency frontier) ──
+def chart_efficiency_frontier(results, output_dir):
+    models = sorted(set(r["model_key"] for r in results))
+    modes = sorted(set(r["mode"] for r in results))
+
+    fig, ax = plt.subplots(figsize=(10, 7))
+
+    for model in models:
+        for mode in modes:
+            subset = [r for r in results if r["model_key"] == model and r["mode"] == mode]
+            if not subset:
+                continue
+
+            points = [
+                (r.get("total_llm_calls", 0),
+                 r.get("evaluation", {}).get("composite", {}).get("composite_score"))
+                for r in subset
+            ]
+            points = [(x, y) for x, y in points if y is not None]
+            xs = [x for x, _ in points]
+            ys = [y for _, y in points]
+
+            if not xs or not ys:
+                continue
+
+            mean_x = np.mean(xs)
+            mean_y = np.mean(ys)
+
+            ax.scatter(xs, ys, c=MODEL_COLORS.get(model, "#888"),
+                       marker={"A": "o", "B": "s", "C": "^", "D": "D"}.get(mode, "o"),
+                       alpha=0.4, s=30)
+
+            ax.scatter([mean_x], [mean_y], c=MODEL_COLORS.get(model, "#888"),
+                       marker={"A": "o", "B": "s", "C": "^", "D": "D"}.get(mode, "o"),
+                       s=150, edgecolors="white", linewidth=2, zorder=5)
+
+            ax.annotate(f"{MODEL_LABELS.get(model, model)[:5]}-{mode}",
+                        (mean_x, mean_y), textcoords="offset points",
+                        xytext=(8, 8), fontsize=8, fontweight="bold",
+                        color=MODEL_COLORS.get(model, "#888"))
+
+    ax.set_xlabel("LLM API Calls", fontsize=12)
+    ax.set_ylabel("Composite Score", fontsize=12)
+    ax.set_title("SandBench: Efficiency Frontier (Cost vs Quality)", fontsize=14)
+    ax.grid(alpha=0.3)
+
+    # Legend
+    model_patches = [mpatches.Patch(color=MODEL_COLORS.get(m, "#888"),
+                                     label=MODEL_LABELS.get(m, m)) for m in models]
+    import matplotlib.lines as mlines
+    mode_markers = [mlines.Line2D([], [], color="gray", marker=mk, linestyle="None",
+                                   markersize=8, label=MODE_LABELS.get(m, m))
+                    for m, mk in zip(modes, ["o", "s", "^", "D"])]
+    ax.legend(handles=model_patches + mode_markers, loc="lower right", fontsize=9, ncol=2)
+
+    path = os.path.join(output_dir, "09_efficiency_frontier.png")
+    fig.savefig(path)
+    plt.close(fig)
+    print(f"  Saved: {path}")
+
+
+# ── Chart 10: Summary table as image ──
+def chart_summary_table(results, output_dir):
+    models = sorted(set(r["model_key"] for r in results))
+    modes = sorted(set(r["mode"] for r in results))
+
+    metrics = VT_SCORE_METRICS
+
+    # Build table data
+    col_headers = ["Model", "Mode"] + [name for _, name in metrics] + ["LLM Calls", "Time (s)"]
+    rows = []
+
+    for model in models:
+        for mode in modes:
+            row = [MODEL_LABELS.get(model, model), MODE_LABELS.get(mode, mode)]
+            for metric_path, _ in metrics:
+                vals = get_vals(results, model, mode, metric_path)
+                row.append(f"{np.mean(vals):.3f}" if vals else "—")
+
+            calls = [r["total_llm_calls"] for r in results
+                     if r["model_key"] == model and r["mode"] == mode]
+            times = [r["total_elapsed_seconds"] for r in results
+                     if r["model_key"] == model and r["mode"] == mode
+                     and r.get("total_elapsed_seconds")]
+
+            row.append(f"{np.mean(calls):.1f}" if calls else "—")
+            row.append(f"{np.mean(times):.1f}" if times else "—")
+            rows.append(row)
+
+    fig, ax = plt.subplots(figsize=(16, 2 + len(rows) * 0.4))
+    ax.axis("off")
+
+    table = ax.table(cellText=rows, colLabels=col_headers,
+                     loc="center", cellLoc="center")
+    table.auto_set_font_size(False)
+    table.set_fontsize(9)
+    table.scale(1, 1.5)
+
+    # Style header
+    for j in range(len(col_headers)):
+        cell = table[0, j]
+        cell.set_facecolor("#1B2A4A")
+        cell.set_text_props(color="white", fontweight="bold")
+
+    # Alternate row colors and highlight best scores
+    for i in range(len(rows)):
+        bg = "#f0f5fa" if i % 2 == 0 else "white"
+        for j in range(len(col_headers)):
+            table[i + 1, j].set_facecolor(bg)
+
+    ax.set_title("SandBench: Complete Results Summary", fontsize=14, fontweight="bold", pad=20)
+
+    path = os.path.join(output_dir, "10_summary_table.png")
+    fig.savefig(path)
+    plt.close(fig)
+    print(f"  Saved: {path}")
+
+
+# ── Chart 11: Agentic-only metrics (modes C/D) ──
+def chart_agentic_metrics(results, output_dir):
+    agentic = [r for r in results if r["mode"] in ("C", "D")]
+    if not agentic:
+        print("  Skipping agentic metrics chart (no Mode C/D results)")
+        return
+
+    models = sorted(set(r["model_key"] for r in agentic))
+    modes = sorted(set(r["mode"] for r in agentic))
+
+    metrics = [
+        ("evidence_grounding.grounding_score", "Evidence Grounding"),
+        ("composite.composite_score", "Composite"),
+        ("ttp.ttp_f1", "TTP F1"),
+        ("ioc.overall.recall", "IOC Recall"),
+    ]
+
+    fig, axes = plt.subplots(2, 2, figsize=(12, 9))
+    axes = axes.flatten()
+
+    for ax, (metric_path, metric_name) in zip(axes, metrics):
+        x = np.arange(len(models))
+        width = 0.3
+
+        for i, mode in enumerate(modes):
+            means = []
+            stds = []
+            for model in models:
+                vals = get_vals(agentic, model, mode, metric_path)
+                means.append(np.mean(vals) if vals else 0)
+                stds.append(np.std(vals) if vals else 0)
+
+            bars = ax.bar(x + i * width, means, width, yerr=stds,
+                          label=MODE_LABELS.get(mode, mode),
+                          color=MODE_COLORS.get(mode, "#888"),
+                          alpha=0.8, capsize=3, edgecolor="white")
+
+            for bar, m in zip(bars, means):
+                if m > 0:
+                    ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.01,
+                            f"{m:.3f}", ha="center", va="bottom", fontsize=9)
+
+        ax.set_xticks(x + width * (len(modes) - 1) / 2)
+        ax.set_xticklabels([MODEL_LABELS.get(m, m) for m in models])
+        ax.set_title(metric_name, fontsize=12, fontweight="bold")
+        ax.set_ylim(0, 1.1)
+        ax.legend(fontsize=9)
+        ax.grid(axis="y", alpha=0.3)
+
+    fig.suptitle("SandBench: Agentic Investigation Metrics (Modes C & D Only)",
+                 fontsize=14, y=1.02)
+    fig.tight_layout()
+
+    path = os.path.join(output_dir, "11_agentic_metrics.png")
+    fig.savefig(path)
+    plt.close(fig)
+    print(f"  Saved: {path}")
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Generate extended SandBench charts")
+    parser.add_argument("--results", default="./results/benchmark_results.json")
+    parser.add_argument("--output", default="./charts")
+    args = parser.parse_args()
+
+    os.makedirs(args.output, exist_ok=True)
+
+    print("=" * 50)
+    print("  SandBench: Generating Extended Charts")
+    print("=" * 50)
+
+    results = load_results(args.results)
+    print(f"  Loaded {len(results)} experiment results")
+
+    chart_boxplots(results, args.output)
+    chart_mode_progression(results, args.output)
+    chart_efficiency_frontier(results, args.output)
+    chart_summary_table(results, args.output)
+    chart_agentic_metrics(results, args.output)
+
+    print(f"\n  All extended charts saved to: {args.output}/")
+
+
+if __name__ == "__main__":
+    main()

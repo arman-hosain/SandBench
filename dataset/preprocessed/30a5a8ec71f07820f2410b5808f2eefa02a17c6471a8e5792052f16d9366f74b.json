@@ -1,0 +1,63 @@
+{
+  "hash": "30a5a8ec71f07820f2410b5808f2eefa02a17c6471a8e5792052f16d9366f74b",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - enumerate gui resources\n  - get disk information\n  - check if file exists\n  - reference anti-VM strings targeting VirtualBox\n\nCAPA RULE MATCHES (MBC):\n  - File System::Get File Attributes [C0049]\n  - contain loop\n  - File System::Writes File [C0052]\n  - enumerate gui resources\n  - Discovery::System Information Discovery [E1082]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Create Directory [C0046]\n  - contain a resource (.rsrc) section\n  - Execution::Install Additional Program [B0023]\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  cmonitor.dll  [sha256: a529cb717bc7ab13...]\n  fJyZmv.dll  [sha256: 356435a040962601...]\n\nFILES WRITTEN (30):\n  c:/AUTOEXEC.BAT\n  c:/Documents and Settings/All Users/Application Data/Microsoft/Crypto/RSA/S-1-5-18/d42cc0c3858a58db2db37658219e6400_fabbc6a1-c573-4ea0-9ca1-50004b35a440\n  c:/Documents and Settings/All Users/Application Data/Microsoft/Network/Connections/Pbk/sharedaccess.ini\n  c:/Documents and Settings/All Users/Application Data/Microsoft/Network/Downloader/qmgr0.dat\n  c:/Documents and Settings/All Users/Application Data/Microsoft/Network/Downloader/qmgr1.dat\n  c:/Documents and Settings/All Users/Application Data/Microsoft/User Account Pictures/<USER>.bmp\n  c:/Documents and Settings/All Users/Application Data/Microsoft/User Account Pictures/Default Pictures/airplane.bmp\n  c:/Documents and Settings/All Users/Application Data/Microsoft/User Account Pictures/guest.bmp\n  c:/Documents and Settings/All Users/Application Data/desktop.ini\n  c:/Documents and Settings/All Users/Documents/My Music/Desktop.ini\n  c:/Documents and Settings/All Users/Documents/My Music/Sample Music/Beethoven's Symphony No. 9 (Scherzo).wma\n  c:/Documents and Settings/All Users/Documents/My Music/Sample Music/New Stories (Highway Blues).wma\n  c:/Documents and Settings/All Users/Documents/My Music/Sample Music/desktop.ini\n  c:/Documents and Settings/All Users/Documents/My Music/Sample Playlists/000511FF/Plylst1.wpl\n  c:/Documents and Settings/All Users/Documents/My Music/Sample Playlists/000511FF/Plylst10.wpl\n  c:/Documents and Settings/All Users/Documents/My Music/Sample Playlists/000511FF/Plylst11.wpl\n  c:/Documents and Settings/All Users/Documents/My Music/Sample Playlists/000511FF/Plylst12.wpl\n  c:/Documents and Settings/All Users/Documents/My Music/Sample Playlists/000511FF/Plylst13.wpl\n  c:/Documents and Settings/All Users/Documents/My Music/Sample Playlists/000511FF/Plylst14.wpl\n  c:/Documents and Settings/All Users/Documents/My Music/Sample Playlists/000511FF/Plylst15.wpl\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCOMPILER AND PACKER:\n  [Linker] Polink\n\nPE SECTIONS (entropy):\n  .code        entropy=5.34\n  .text        entropy=6.19\n  .rdata       entropy=1.77\n  .data        entropy=4.98\n  .rsrc        entropy=5.07\n  .NewSec      entropy=0.53\n  [overlay]    entropy=4.318094730377197  size=608922\n",
+  "ground_truth": {
+    "hash": "30a5a8ec71f07820f2410b5808f2eefa02a17c6471a8e5792052f16d9366f74b",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9143,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "agent",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "enumerate gui resources"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk information"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "check if file exists"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "get file attributes",
+      "contain loop",
+      "write file on Windows",
+      "enumerate gui resources",
+      "get disk information",
+      "check if file exists",
+      "create directory",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "reference anti-VM strings targeting VirtualBox"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "cmonitor.dll",
+        "fJyZmv.dll"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

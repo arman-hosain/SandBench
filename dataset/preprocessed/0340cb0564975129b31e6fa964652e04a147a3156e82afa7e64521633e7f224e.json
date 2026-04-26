@@ -1,0 +1,93 @@
+{
+  "hash": "0340cb0564975129b31e6fa964652e04a147a3156e82afa7e64521633e7f224e",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  0340cb0564975129_checksum.exe.ignore.exe\n    C:\\Windows\\CTS.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (13):\n  - encode data using XOR\n  - access PEB ldr_data\n  - encrypt data using RC4 PRGA\n  - get file size\n  - query environment variable\n  - persist via Run registry key\n  - enumerate files on Windows\n  - enumerate files recursively\n  - get disk information\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - packed with UPX\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - File System::Create File [C0016]\n  - Process::Create Process [C0017]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - access PEB ldr_data\n  - Process::Create Thread [C0038]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - contain loop\n  - Data::Checksum::CRC32 [C0032.001]\n  - Cryptography::Generate Pseudo-random Sequence::Use API [C0021.003]\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Generate Pseudo-random Sequence::RC4 PRGA [C0021.004]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Read File [C0051]\n  - Discovery::System Information Discovery [E1082]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - Process::Terminate Process [C0018]\n  - File System::Writes File [C0052]\n  - Execution::Install Additional Program [B0023]\n  - Persistence::Registry Run Keys / Startup Folder [F0012]\n  - Process::Create Mutex [C0042]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Windows\\CTS.exe  [sha256: 27697ac78b171a47...]\n\nFILES WRITTEN (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\tTgu3enhKK9yb5V.exe\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\CTS = C\n\nMUTEXES CREATED (1):\n  Global\\3pc6RWOgectGTFqCowxjeGy3XIGPtLwNrsr2zDctYD4hAU5pj4GW7rm8gHrHyTB6\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: CreateProcessW, GetProcAddress, LoadLibraryExW, LoadLibraryW\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  UPX0         entropy=5.52\n  UPX1         entropy=3.12\n  UPX2         entropy=2.9\n  .imports     entropy=4.05\n  .reloc       entropy=6.53\n  [overlay]    entropy=4.251628875732422  size=24\n",
+  "ground_truth": {
+    "hash": "0340cb0564975129b31e6fa964652e04a147a3156e82afa7e64521633e7f224e",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9167,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "agent",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "persist via Run registry key"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "encode data using XOR",
+      "create or open file",
+      "create process on Windows",
+      "create or open registry key",
+      "PEB access",
+      "access PEB ldr_data",
+      "create thread",
+      "delay execution",
+      "contain loop",
+      "hash data with CRC32",
+      "generate random numbers via WinAPI",
+      "encrypt data using RC4 PRGA",
+      "get file size",
+      "read file on Windows",
+      "query environment variable",
+      "set registry value",
+      "terminate process",
+      "write file on Windows",
+      "write and execute a file",
+      "persist via Run registry key",
+      "enumerate files on Windows",
+      "enumerate files recursively",
+      "get disk information",
+      "create mutex",
+      "check mutex and exit",
+      "get thread local storage value",
+      "print debug messages",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "packed with UPX",
+      "reference Base64 string",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\CTS"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "C:\\Windows\\CTS.exe"
+      ],
+      "mutexes": [
+        "Global\\3pc6RWOgectGTFqCowxjeGy3XIGPtLwNrsr2zDctYD4hAU5pj4GW7rm8gHrHyTB6"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

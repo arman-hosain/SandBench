@@ -1,0 +1,63 @@
+{
+  "hash": "1ca50e1494edbed9adcc3282e4456629aa4f94621c4b99dad382c4bf8833e04a",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - contain obfuscated stackstrings\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - contain loop\n  - Data::Non-Cryptographic Hash [C0030]\n  - resolve function by parsing PE exports\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.39\n  .rdata       entropy=0.0\n  .data        entropy=0.0\n  .reloc       entropy=0.0\n  [overlay]    entropy=6.200900554656982  size=8480\n",
+  "ground_truth": {
+    "hash": "1ca50e1494edbed9adcc3282e4456629aa4f94621c4b99dad382c4bf8833e04a",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.4795,
+    "malicious_count": 35,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 10
+      },
+      {
+        "value": "downloader",
+        "count": 3
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "bkdr",
+        "count": 2
+      },
+      {
+        "value": "citeary",
+        "count": 2
+      },
+      {
+        "value": "genericrxfa",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.bkdr/citeary",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "contain loop",
+      "hash data using rshash",
+      "resolve function by parsing PE exports"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

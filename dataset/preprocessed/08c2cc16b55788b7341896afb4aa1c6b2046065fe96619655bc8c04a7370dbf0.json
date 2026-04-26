@@ -1,0 +1,47 @@
+{
+  "hash": "08c2cc16b55788b7341896afb4aa1c6b2046065fe96619655bc8c04a7370dbf0",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\wsace.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\wsace.exe\" \"\n\nCOMMAND EXECUTIONS (1):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\wsace.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  wsace.exe  [sha256: 028511d573a32310...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\wsace.exe\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\wsace.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\wsace.exe\" \"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: LoadLibraryW\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  UPX0         entropy=2.62\n  UPX1         entropy=7.55\n  .rsrc        entropy=3.8\n  .ap0x        entropy=4.39\n  [overlay]    entropy=3.382392644882202  size=9736\n",
+  "ground_truth": {
+    "hash": "08c2cc16b55788b7341896afb4aa1c6b2046065fe96619655bc8c04a7370dbf0",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8889,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "ipatre",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with UPX"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "packed with UPX",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "wsace.exe"
+      ],
+      "mutexes": [],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\wsace.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\wsace.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

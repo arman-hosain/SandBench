@@ -1,0 +1,114 @@
+{
+  "hash": "25b723058788ffc05199d7dff7192948645efccab9de8331b20690e1a2ae59a7",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nIP TRAFFIC (3):\n  112.175.88.208:11150 (TCP)\n  112.175.88.209:11120 (TCP)\n  112.175.88.209:11170 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  huter.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\sanfdr.bat\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\huter.exe\n\nCOMMAND EXECUTIONS (8):\n  ((null)) C:\\WINDOWS\\system32\\huter.exe [(null)]\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\sanfdr.bat(null) [(null)]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\huter.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\sanfdr.bat\n  ( 3900 - cmd.exe ) c:\\windows\\system32\\cmd.exe /c \"c:\\users\\user41~1\\appdata\\local\\temp\\lpkiish.exe\"\n  ( 3460 - lpkiish.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\lpkiish.exe\n  ( 1916 - huter.exe ) \"c:\\users\\user41~1\\appdata\\local\\temp\\huter.exe\" \n  ( 3320 - cmd.exe ) c:\\windows\\system32\\cmd.exe /c \"\"c:\\users\\user41~1\\appdata\\local\\temp\\sanfdr.bat\" \"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (10):\n  - get common file path\n  - query or enumerate registry value\n  - check if file exists\n  - check OS version\n  - interact with driver via control codes\n  - get MAC address on Windows\n  - get local IPv4 addresses\n  - download and write a file\n  - link function at runtime on Windows\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Process [C0017]\n  - Process::Create Thread [C0038]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - File System::Get File Attributes [C0049]\n  - File System::Create File [C0016]\n  - reference absolute stream path on Windows\n  - Communication::Socket Communication::Create TCP Socket [C0001.011]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - Process::Terminate Process [C0018]\n  - Communication::Socket Communication::Initialize Winsock Library [C0001.009]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - File System::Read File [C0051]\n  - File System::Writes File [C0052]\n  - File System::Delete File [C0047]\n  - get OS version\n  - Discovery::System Information Discovery [E1082]\n  - interact with driver via control codes\n  - Execution::Install Additional Program [B0023]\n  - get MAC address on Windows\n  - get local IPv4 addresses\n  - Communication::DNS Communication::Resolve [C0011.001]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  huter.exe  [sha256: 7efbcf3df5f0edd3...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\huter.exe  [sha256: 90134db40dd34625...]\n  c:\\users\\user41~1\\appdata\\local\\temp\\huter.exe  [sha256: e20ae82c5c27dd74...]\n\nFILES WRITTEN (8):\n  ( 3460 - lpkiish.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\golfinfo.ini\n  ( 3460 - lpkiish.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\huter.exe\n  ( 3460 - lpkiish.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\sanfdr.bat\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\golfinfo.ini\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\sanfdr.bat\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\golfinfo.ini\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\sanfdr.bat\n  C:\\WINDOWS\\system32\\huter.exe\n\nOTHER REGISTRY KEYS SET (1):\n  HKCU\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\Run\n\nMUTEXES CREATED (2):\n  RasPbFile\n  ShimCacheMutex\n\nPROCESSES CREATED (2):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\sanfdr.bat\" \"\n  C:\\WINDOWS\\system32\\huter.exe C:\\WINDOWS\\system32\\huter.exe\" \"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.52\n  .rdata       entropy=5.05\n  .data        entropy=2.19\n  .rsrc        entropy=4.32\n  .reloc       entropy=6.68\n  cbnjiffe     entropy=4.78\n  [overlay]    entropy=4.594954013824463  size=4440\n",
+  "ground_truth": {
+    "hash": "25b723058788ffc05199d7dff7192948645efccab9de8331b20690e1a2ae59a7",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8732,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1016",
+        "signature_description": "get local IPv4 addresses"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "check OS version"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1105",
+        "signature_description": "download and write a file"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      }
+    ],
+    "capa_sig_names": [
+      "delay execution",
+      "create process on Windows",
+      "create thread",
+      "create or open registry key",
+      "get file attributes",
+      "create or open file",
+      "reference absolute stream path on Windows",
+      "create TCP socket",
+      "contain loop",
+      "get common file path",
+      "terminate process",
+      "initialize Winsock library",
+      "set registry value",
+      "query or enumerate registry value",
+      "check if file exists",
+      "read file on Windows",
+      "write file on Windows",
+      "delete file",
+      "get OS version",
+      "check OS version",
+      "interact with driver via control codes",
+      "write and execute a file",
+      "get MAC address on Windows",
+      "get local IPv4 addresses",
+      "resolve DNS",
+      "connect TCP socket",
+      "act as TCP client",
+      "send data on socket",
+      "send data",
+      "receive data on socket",
+      "receive data",
+      "download and write a file",
+      "receive and write data from server to client",
+      "allocate thread local storage",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "112.175.88.208",
+        "112.175.88.209"
+      ],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\huter.exe",
+        "c:\\users\\user41~1\\appdata\\local\\temp\\huter.exe",
+        "huter.exe"
+      ],
+      "mutexes": [
+        "RasPbFile",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\sanfdr.bat\" \"",
+        "C:\\WINDOWS\\system32\\huter.exe C:\\WINDOWS\\system32\\huter.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "ReaQta-Hive",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "hash": "3dca88ea661c98415314076000af4b9e5426b8156def25c323f22b440b6bd284",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (9):\n  40nlkrjpd.nnnn.eu.org\n  HkbaE8Y94c.nnnn.eu.org\n  baidu.com\n  eguw1pdjzr.nnnn.eu.org\n  emf8ingqi5.nnnn.eu.org\n  i4QvS41KO.nnnn.eu.org\n  www.a.shifen.com \u2192 103.235.46.39\n  www.baidu.com \u2192 103.235.46.39\n  www.wshifen.com \u2192 103.235.46.39\n\nIP TRAFFIC (2):\n  103.235.46.39:80 (TCP)\n  104.193.88.123:80 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  <PATH_SAMPLE.EXE>\n    %WINDIR%\\syswow64\\attrib.exe\n    %WINDIR%\\syswow64\\cmd.exe\n  <SYSTEM32>\\services.exe\n    <SYSTEM32>\\svchost.exe\n    <SYSTEM32>\\svchost.exe\n    <SYSTEM32>\\svchost.exe\n    <SYSTEM32>\\svchost.exe\n    <SYSTEM32>\\svchost.exe\n    <SYSTEM32>\\svchost.exe\n    <SYSTEM32>\\svchost.exe\n    <SYSTEM32>\\spoolsv.exe\n    <SYSTEM32>\\taskhost.exe\n    <SYSTEM32>\\svchost.exe\n    <SYSTEM32>\\svchost.exe\n\nCOMMAND EXECUTIONS (2):\n  (Open) C:\\WINDOWS\\system32\\cmd.exe/c del C:\\3DCA88~1 > nul [(null)]\n  C:\\Windows\\system32\\cmd.exe /c del C:\\Users\\<USER>\\DOWNLO~1\\632D4A~1.EXE > nul\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (11):\n  - contain obfuscated stackstrings\n  - encode data using XOR\n  - get hostname\n  - identify system language via API\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - get networking interfaces\n  - get socket status\n  - delete registry key\n  - reference Base64 string\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Process::Create Thread [C0038]\n  - Process::Create Process [C0017]\n  - Process::Check Mutex [C0043]\n  - File System::Create File [C0016]\n  - contain loop\n  - Discovery::System Information Discovery [E1082]\n  - identify system language via API\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - resolve function by parsing PE exports\n  - get networking interfaces\n  - Communication::Socket Communication::Set Socket Config [C0001.001]\n  - Communication::Socket Communication::Get Socket Status [C0001.012]\n  - Communication::Socket Communication::Receive Data [C0001.006]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - Communication::Socket Communication::Send Data [C0001.007]\n  - Process::Terminate Process [C0018]\n  - Operating System::Registry::Delete Registry Key [C0036.002]\n  - File System::Writes File [C0052]\n  - Execution::Install Additional Program [B0023]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  neahost.exe  [sha256: f251d182555aceda...]\n  %WINDIR%\\debug\\dkkhost.exe  [sha256: 57bd0dfeb6cabde1...]\n\nFILES WRITTEN (1):\n  C:\\WINDOWS\\Debug\\neahost.exe\n\nPERSISTENCE REGISTRY KEYS (11):\n  <HKLM>\\SYSTEM\\CurrentControlSet\\Services\\Serxiev\\Description = Microsoft .NET COM+ Integration with SOAP\n  <HKLM>\\System\\CurrentControlSet\\Services\\Serxiev\\Description = Microsoft .NET COM+ Integration with SOAP\n  <HKLM>\\System\\CurrentControlSet\\Services\\Serxiev\\DisplayName = Microsoft .Net Frameworjk COMs+ Suppoyt\n  <HKLM>\\System\\CurrentControlSet\\Services\\Serxiev\\ErrorControl = 0x00000001\n  <HKLM>\\System\\CurrentControlSet\\Services\\Serxiev\\FailureActions = \\x80\\x51\\x01\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x03\\x00\\x00\\x00\\x14\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x00\n  <HKLM>\\System\\CurrentControlSet\\Services\\Serxiev\\ImagePath = %WINDIR%\\Debug\\dkkhost.exe\n  <HKLM>\\System\\CurrentControlSet\\Services\\Serxiev\\ObjectName = LocalSystem\n  <HKLM>\\System\\CurrentControlSet\\Services\\Serxiev\\Start = 0x00000002\n  <HKLM>\\System\\CurrentControlSet\\Services\\Serxiev\\Type = 0x00000110\n  <HKLM>\\System\\CurrentControlSet\\Services\\Serxiev\\WOW64 = 0x00000001\n  HKLM\\SYSTEM\\CurrentControlSet\\Services\\Serxiev\\Description = Microsoft .NET COM+ Integration with SOAP\n\nOTHER REGISTRY KEYS SET (10):\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\\\UNCAsIntranet\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\\\AutoDetect\n  \\REGISTRY\\A\\{50bbcb78-1331-11ea-af9f-86234d57ee3f}\\DefaultObjectStore\\ObjectTable\\E9\\_ObjectId_\n  \\REGISTRY\\A\\{50bbcb78-1331-11ea-af9f-86234d57ee3f}\\DefaultObjectStore\\LruList\\CurrentLru\n  \\REGISTRY\\A\\{50bbcb78-1331-11ea-af9f-86234d57ee3f}\\DefaultObjectStore\\LruList\\00000000000002FD\\ObjectId\n  \\REGISTRY\\A\\{50bbcb78-1331-11ea-af9f-86234d57ee3f}\\DefaultObjectStore\\LruList\\00000000000002FD\\ObjectLru\n  \\REGISTRY\\A\\{50bbcb78-1331-11ea-af9f-86234d57ee3f}\\DefaultObjectStore\\ObjectTable\\E9\\_ObjectLru_\n  \\REGISTRY\\A\\{50bbcb78-1331-11ea-af9f-86234d57ee3f}\\DefaultObjectStore\\ObjectTable\\E9\\_FileId_\n  \\REGISTRY\\A\\{50bbcb78-1331-11ea-af9f-86234d57ee3f}\\DefaultObjectStore\\ObjectTable\\E9\\_Usn_\n  \\REGISTRY\\A\\{50bbcb78-1331-11ea-af9f-86234d57ee3f}\\DefaultObjectStore\\ObjectTable\\E9\\_UsnJournalId_\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nMUTEXES OPENED (2):\n  \\BaseNamedObjects\\Global\\BFE_Notify_Event_{0efd2d57-5ed7-445c-b982-ae45eb874425}\n  \\BaseNamedObjects\\Global\\SvcctrlStartEvent_A3752DX\n\nPROCESSES CREATED (7):\n  %WINDIR%\\debug\\dkkhost.exe\n  %WINDIR%\\syswow64\\attrib.exe\n  %WINDIR%\\syswow64\\cmd.exe\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\conhost.exe\n  C:\\WINDOWS\\system32\\cmd.exe C:\\WINDOWS\\system32\\cmd.exe\" /c del C:\\3DCA88~1 > nul\"\n  attrib +a +s +h +r C:\\WINDOWS\\Debug\\neahost.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA, GetProcAddress\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Library] MFC\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C++\n  [Compiler] Microsoft Visual C/C++\n  [Library] MFC\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.42\n  .rdata       entropy=4.05\n  .data        entropy=4.93\n  .rsrc        entropy=2.82\n  [overlay]    entropy=5.886744976043701  size=4750\n",
+  "ground_truth": {
+    "hash": "3dca88ea661c98415314076000af4b9e5426b8156def25c323f22b440b6bd284",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9437,
+    "malicious_count": 67,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1016",
+        "signature_description": "get networking interfaces"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get hostname"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry key"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "identify system language via API"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "delay execution",
+      "encode data using XOR",
+      "create thread",
+      "create process on Windows",
+      "check mutex",
+      "create or open file",
+      "contain loop",
+      "get hostname",
+      "identify system language via API",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "resolve function by parsing PE exports",
+      "get networking interfaces",
+      "set socket configuration",
+      "get socket status",
+      "receive data on socket",
+      "receive data",
+      "send data on socket",
+      "terminate process",
+      "delete registry key",
+      "write file on Windows",
+      "write and execute a file",
+      "send data",
+      "contain a resource (.rsrc) section",
+      "reference Base64 string",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "103.235.46.39",
+        "104.193.88.123"
+      ],
+      "domains": [
+        "40nlkrjpd.nnnn.eu.org",
+        "baidu.com",
+        "eguw1pdjzr.nnnn.eu.org",
+        "emf8ingqi5.nnnn.eu.org",
+        "hkbae8y94c.nnnn.eu.org",
+        "i4qvs41ko.nnnn.eu.org",
+        "www.a.shifen.com",
+        "www.baidu.com",
+        "www.wshifen.com"
+      ],
+      "urls": [],
+      "registry_persistence": [
+        "<HKLM>\\SYSTEM\\CurrentControlSet\\Services\\Serxiev\\Description",
+        "<HKLM>\\System\\CurrentControlSet\\Services\\Serxiev\\Description",
+        "<HKLM>\\System\\CurrentControlSet\\Services\\Serxiev\\DisplayName",
+        "<HKLM>\\System\\CurrentControlSet\\Services\\Serxiev\\ErrorControl",
+        "<HKLM>\\System\\CurrentControlSet\\Services\\Serxiev\\FailureActions",
+        "<HKLM>\\System\\CurrentControlSet\\Services\\Serxiev\\ImagePath",
+        "<HKLM>\\System\\CurrentControlSet\\Services\\Serxiev\\ObjectName",
+        "<HKLM>\\System\\CurrentControlSet\\Services\\Serxiev\\Start",
+        "<HKLM>\\System\\CurrentControlSet\\Services\\Serxiev\\Type",
+        "<HKLM>\\System\\CurrentControlSet\\Services\\Serxiev\\WOW64",
+        "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Serxiev\\Description"
+      ],
+      "registry_all_count": 47,
+      "files_dropped": [
+        "%WINDIR%\\debug\\dkkhost.exe",
+        "neahost.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "%WINDIR%\\debug\\dkkhost.exe",
+        "%WINDIR%\\syswow64\\attrib.exe",
+        "%WINDIR%\\syswow64\\cmd.exe",
+        "<PATH_SAMPLE.EXE>",
+        "<SYSTEM32>\\conhost.exe",
+        "C:\\WINDOWS\\system32\\cmd.exe C:\\WINDOWS\\system32\\cmd.exe\" /c del C:\\3DCA88~1 > nul\"",
+        "attrib +a +s +h +r C:\\WINDOWS\\Debug\\neahost.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Dr.Web vxCube",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

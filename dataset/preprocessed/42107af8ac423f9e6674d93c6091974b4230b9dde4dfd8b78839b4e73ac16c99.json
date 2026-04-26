@@ -1,0 +1,119 @@
+{
+  "hash": "42107af8ac423f9e6674d93c6091974b4230b9dde4dfd8b78839b4e73ac16c99",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_sannuy.bat\" \"\n  C:\\WINDOWS\\system32\\cimub.exe C:\\WINDOWS\\system32\\cimub.exe\" \"\n\nCOMMAND EXECUTIONS (2):\n  ((null)) C:\\WINDOWS\\system32\\cimub.exe [(null)]\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_sannuy.bat(null) [(null)]\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (12):\n  - set file attributes\n  - encode data using XOR\n  - check OS version\n  - get common file path\n  - check if file exists\n  - interact with driver via control codes\n  - get MAC address on Windows\n  - download and write a file\n  - query or enumerate registry value\n  - get file size\n  - link function at runtime on Windows\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - File System::Get File Attributes [C0049]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Create Process [C0017]\n  - File System::Create File [C0016]\n  - reference absolute stream path on Windows\n  - Process::Create Thread [C0038]\n  - Communication::Socket Communication::Create TCP Socket [C0001.011]\n  - File System::Set File Attributes [C0050]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - get OS version\n  - Discovery::System Information Discovery [E1082]\n  - Discovery::File and Directory Discovery [E1083]\n  - contain loop\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - File System::Delete File [C0047]\n  - File System::Read File [C0051]\n  - interact with driver via control codes\n  - File System::Writes File [C0052]\n  - Execution::Install Additional Program [B0023]\n  - Communication::Socket Communication::Initialize Winsock Library [C0001.009]\n  - get MAC address on Windows\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  cimub.exe  [sha256: 52a407692883efc7...]\n\nFILES WRITTEN (3):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_sannuy.bat\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\golfinfo.ini\n  C:\\WINDOWS\\system32\\cimub.exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (2):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_sannuy.bat\" \"\n  C:\\WINDOWS\\system32\\cimub.exe C:\\WINDOWS\\system32\\cimub.exe\" \"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryW, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.91\n  .rsrc        entropy=6.13\n  .reloc       entropy=0.23\n  [overlay]    entropy=4.7052693367004395  size=4454\n",
+  "ground_truth": {
+    "hash": "42107af8ac423f9e6674d93c6091974b4230b9dde4dfd8b78839b4e73ac16c99",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8592,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "check OS version"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1105",
+        "signature_description": "download and write a file"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "get file attributes",
+      "delay execution",
+      "create or open registry key",
+      "create process on Windows",
+      "create or open file",
+      "reference absolute stream path on Windows",
+      "create thread",
+      "create TCP socket",
+      "set file attributes",
+      "encode data using XOR",
+      "get OS version",
+      "check OS version",
+      "get common file path",
+      "contain loop",
+      "set registry value",
+      "delete file",
+      "check if file exists",
+      "read file on Windows",
+      "interact with driver via control codes",
+      "write file on Windows",
+      "write and execute a file",
+      "initialize Winsock library",
+      "get MAC address on Windows",
+      "terminate process",
+      "resolve DNS",
+      "connect TCP socket",
+      "act as TCP client",
+      "send data on socket",
+      "send data",
+      "receive data on socket",
+      "receive data",
+      "download and write a file",
+      "receive and write data from server to client",
+      "query or enumerate registry value",
+      "extract resource via kernel32 functions",
+      "get file size",
+      "hash data with CRC32",
+      "create directory",
+      "link function at runtime on Windows",
+      "allocate thread local storage",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section",
+      "linked against XZip",
+      "contains PDB path",
+      "linked against ZLIB"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "cimub.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_sannuy.bat\" \"",
+        "C:\\WINDOWS\\system32\\cimub.exe C:\\WINDOWS\\system32\\cimub.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

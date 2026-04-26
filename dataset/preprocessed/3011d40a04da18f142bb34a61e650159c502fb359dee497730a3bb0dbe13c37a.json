@@ -1,0 +1,223 @@
+{
+  "hash": "3011d40a04da18f142bb34a61e650159c502fb359dee497730a3bb0dbe13c37a",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  virusbenci\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  6ffdffbed19789a145bbfc268acfb68e.virus.exe\n    xowhuclgzimdo.exe\n    qsmgmoxx.exe\n    cfnhiddzzphwqux.exe\n    qdfrsgufop.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\Windows\\mydoc.rtf\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (42):\n  - encode data using XOR\n  - set file attributes\n  - hide graphical window\n  - get common file path\n  - link function at runtime on Windows\n  - log keystrokes\n  - enumerate gui resources\n  - get system information on Windows\n  - check OS version\n  - query or enumerate registry value\n  - parse PE header\n  - log keystrokes via polling\n  - get keyboard layout\n  - find graphical window\n  - write process memory\n  - check if file exists\n  - get file version info\n  - enumerate files on Windows\n  - get hostname\n  - shutdown system\n  - modify access privileges\n  - enumerate files recursively\n  - get disk information\n  - get disk size\n  - interact with driver via control codes\n  - query environment variable\n  - list drag and drop files\n  - open clipboard\n  - read clipboard data\n  - capture screenshot\n  - get file size\n  - get memory capacity\n  - query or enumerate registry key\n  - get COMSPEC environment variable\n  - get session user name\n  - persist via Run registry key\n  - delete registry key\n  - delete registry value\n  - check for unmoving mouse cursor\n  - encode data using Base64\n  - link many functions at runtime\n  - compiled with AutoIt\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Process::Create Process [C0017]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Process::Open Process [C0065]\n  - File System::Create File [C0016]\n  - Process::Create Thread [C0038]\n  - File System::Get File Attributes [C0049]\n  - File System::Set File Attributes [C0050]\n  - Communication::Socket Communication::Create TCP Socket [C0001.011]\n  - Communication::Socket Communication::Create UDP Socket [C0001.010]\n  - hide graphical window\n  - Discovery::File and Directory Discovery [E1083]\n  - set current directory\n  - contain loop\n  - link function at runtime on Windows\n  - log keystrokes\n  - Discovery::Application Window Discovery [E1010]\n  - enumerate gui resources\n  - get OS version\n  - get system information on Windows\n  - Discovery::System Information Discovery [E1082]\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nPERSISTENCE REGISTRY KEYS (7):\n  HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\SFCDisable = -99\n  HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\SFCScan = 0\n  HKLM\\SYSTEM\\ControlSet001\\Services\\Tcpip\\Parameters\\Hostname = V\n  HKLM\\SYSTEM\\ControlSet001\\Services\\Tcpip\\Parameters\\NV Hostname = V\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\ = x\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\afcnbrqz = c\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\nncbgsop = q\n\nOTHER REGISTRY KEYS SET (10):\n  HKLM\\Software\\Classes\\CLV.Classes\\Com1\n  HKLM\\Software\\Classes\\CLV.Classes\\Com2\n  HKLM\\Software\\Classes\\CLV.Classes\\Com3\n  HKLM\\Software\\Classes\\CLV.Classes\\Com4\n  HKLM\\Software\\Classes\\CLV.Classes\\StartCom1\n  HKLM\\Software\\Classes\\CLV.Classes\\StartCom2\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\DisableRegistryTools\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowSuperHidden\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\HideFileExt\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Folder\\Hidden\\ShowAll\\CheckedValue\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  ADVAPI32.dll: AdjustTokenPrivileges, OpenProcessToken\n  KERNEL32.DLL: CreateProcessW, GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAlloc, WriteProcessMemory\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Overlay] AutoIt compiled script\n\nPE SECTIONS (entropy):\n  .text        entropy=6.7\n  .rdata       entropy=4.79\n  .data        entropy=3.84\n  .rsrc        entropy=5.41\n  [overlay]    entropy=7.962246894836426  size=9347\n",
+  "ground_truth": {
+    "hash": "3011d40a04da18f142bb34a61e650159c502fb359dee497730a3bb0dbe13c37a",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9437,
+    "malicious_count": 67,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "enumerate gui resources"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1033",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1055",
+        "signature_description": "write process memory"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "compiled with AutoIt"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get system information on Windows"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1087",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry key"
+      },
+      {
+        "id": "T1113",
+        "signature_description": "capture screenshot"
+      },
+      {
+        "id": "T1115",
+        "signature_description": "list drag and drop files"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "modify access privileges"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "check for unmoving mouse cursor"
+      },
+      {
+        "id": "T1529",
+        "signature_description": "shutdown system"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "persist via Run registry key"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get keyboard layout"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "create process on Windows",
+      "delay execution",
+      "create or open registry key",
+      "encode data using XOR",
+      "open process",
+      "create or open file",
+      "create thread",
+      "get file attributes",
+      "set file attributes",
+      "create TCP socket",
+      "create UDP socket",
+      "hide graphical window",
+      "get common file path",
+      "set current directory",
+      "contain loop",
+      "link function at runtime on Windows",
+      "log keystrokes",
+      "get graphical window text",
+      "enumerate gui resources",
+      "get OS version",
+      "get system information on Windows",
+      "check OS version",
+      "query or enumerate registry value",
+      "parse PE header",
+      "log keystrokes via polling",
+      "get keyboard layout",
+      "check for time delay via QueryPerformanceCounter",
+      "find graphical window",
+      "find taskbar",
+      "read file via mapping",
+      "write process memory",
+      "write file on Windows",
+      "read file on Windows",
+      "terminate process",
+      "check if file exists",
+      "get file version info",
+      "delete file",
+      "enumerate files on Windows",
+      "copy file",
+      "move file",
+      "create directory",
+      "delete directory",
+      "resolve DNS",
+      "get hostname",
+      "shutdown system",
+      "modify access privileges",
+      "extract resource via kernel32 functions",
+      "print debug messages",
+      "generate random numbers using a Mersenne Twister",
+      "hash data with MD5",
+      "resolve function by parsing PE exports",
+      "read .ini file",
+      "enumerate files recursively",
+      "get disk information",
+      "get disk size",
+      "interact with driver via control codes",
+      "create shortcut via IShellLink",
+      "query environment variable",
+      "list drag and drop files",
+      "open clipboard",
+      "read clipboard data",
+      "capture screenshot",
+      "get file size",
+      "get memory capacity",
+      "receive data on socket",
+      "receive data",
+      "send data on socket",
+      "send data",
+      "connect TCP socket",
+      "act as TCP client",
+      "query or enumerate registry key",
+      "connect network resource",
+      "get COMSPEC environment variable",
+      "get session user name",
+      "persist via Run registry key",
+      "set registry value",
+      "delete registry key",
+      "delete registry value",
+      "check for unmoving mouse cursor",
+      "encode data using Base64",
+      "parse credit card information",
+      "authenticate HMAC",
+      "inspect section memory permissions",
+      "allocate thread local storage",
+      "get thread local storage value",
+      "set thread local storage value",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section",
+      "compiled with AutoIt",
+      "(internal) autoit file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [
+        "virusbenci"
+      ],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\SFCDisable",
+        "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\SFCScan",
+        "HKLM\\SYSTEM\\ControlSet001\\Services\\Tcpip\\Parameters\\Hostname",
+        "HKLM\\SYSTEM\\ControlSet001\\Services\\Tcpip\\Parameters\\NV Hostname",
+        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\",
+        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\afcnbrqz",
+        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\nncbgsop"
+      ],
+      "registry_all_count": 33,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

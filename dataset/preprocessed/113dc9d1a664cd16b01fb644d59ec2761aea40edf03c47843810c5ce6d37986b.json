@@ -1,0 +1,100 @@
+{
+  "hash": "113dc9d1a664cd16b01fb644d59ec2761aea40edf03c47843810c5ce6d37986b",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  GET https://delanecanada.ca/images/banners/pdf.exe\n  GET https://capitalistocracy.com/images/_notes/pdf.exe\n\nDNS LOOKUPS (4):\n  capitalistocracy.com\n  capitalistocracy.com \u2192 136.243.60.66\n  capitalistocracy.com \u2192 148.251.123.41\n  delanecanada.ca\n\nIP TRAFFIC (4):\n  114.114.114.114:53 (UDP)\n  148.251.123.41:443 (TCP)\n  218.85.157.99:53 (UDP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  pdfupdate.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\pdfupdate.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\pdfupdate.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\pdfupdate.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  pdfupdate.exe  [sha256: 8b1a2feabfd400c2...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\pdfupdate.exe  [sha256: 64633f8d1b604d28...]\n  c:\\users\\admin\\appdata\\local\\temp\\pdfupdate.exe  [sha256: 62a5488158989142...]\n\nFILES WRITTEN (2):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\pdfupdate.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\pdfupdate.exe\n\nOTHER REGISTRY KEYS SET (4):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n  HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap//A\n  HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap//U\n\nMUTEXES CREATED (14):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n\nMUTEXES OPENED (4):\n  _!MSFTHISTORY!_\n  c:!documents and settings!administrator!cookies!\n  c:!documents and settings!administrator!local settings!history!history.ie5!\n  c:!documents and settings!administrator!local settings!temporary internet files!content.ie5!\n\nPROCESSES CREATED (3):\n  C:\\113dc9d1a664cd16b01fb644d59ec2761aea40edf03c47843810c5ce6d37986b.exe\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\pdfupdate.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\pdfupdate.exe\" \"\n  C:\\Users\\admin\\AppData\\Local\\Temp\\pdfupdate.exe \n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] MASM\n  [Linker] Microsoft Linker\n\nPE SECTIONS (entropy):\n  .text        entropy=6.56\n  .data        entropy=5.05\n  .rsrc        entropy=4.71\n  .reloc       entropy=1.48\n  [overlay]    entropy=3.5714805126190186  size=10116\n",
+  "ground_truth": {
+    "hash": "113dc9d1a664cd16b01fb644d59ec2761aea40edf03c47843810c5ce6d37986b",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9306,
+    "malicious_count": 67,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 34
+      },
+      {
+        "value": "downloader",
+        "count": 11
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "upatre",
+        "count": 9
+      },
+      {
+        "value": "bublik",
+        "count": 6
+      },
+      {
+        "value": "ppatre",
+        "count": 6
+      }
+    ],
+    "suggested_label": "trojan.upatre/bublik",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "114.114.114.114",
+        "148.251.123.41",
+        "218.85.157.99",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "capitalistocracy.com",
+        "delanecanada.ca"
+      ],
+      "urls": [
+        "https://capitalistocracy.com/images/_notes/pdf.exe",
+        "https://delanecanada.ca/images/banners/pdf.exe"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 4,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\pdfupdate.exe",
+        "c:\\users\\admin\\appdata\\local\\temp\\pdfupdate.exe",
+        "pdfupdate.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "RasPbFile",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\113dc9d1a664cd16b01fb644d59ec2761aea40edf03c47843810c5ce6d37986b.exe",
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\pdfupdate.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\pdfupdate.exe\" \"",
+        "C:\\Users\\admin\\AppData\\Local\\Temp\\pdfupdate.exe "
+      ]
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "Sangfor ZSand",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

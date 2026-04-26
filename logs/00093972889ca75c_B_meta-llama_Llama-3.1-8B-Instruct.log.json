@@ -1,0 +1,82 @@
+{
+  "hash": "00093972889ca75c5958fafc8dea39d9d5502a22af8ac030da5d72b22fbadef2",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits behavior indicative of a malicious program, including persistence through registry keys, creation of mutexes and processes, and the use of a compiler and packer. The presence of a resource section and the use of XOR encoding also suggest malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Ransomware\"],\n    \"explanation\": \"The sample's behavior, including the creation of multiple files and registry keys, and the use of persistence mechanisms, is consistent with a ransomware attack. The presence of multiple language files (e.g. eula.1028.txt, eula.1031.txt) also suggests a ransomware family.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 3740,
+      "response_chars": 845,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits behavior indicative of a malicious program, including persistence through registry keys, creation of mutexes and processes, and the use of a compiler and packer. The presence of a resource section and the use of XOR encoding also suggest malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Ransomware\"],\n    \"explanation\":",
+      "elapsed_seconds": 3.9
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": false,
+      "gap_summary": "",
+      "missed_behavior_count": 0,
+      "ttps_found": [
+        "T1027",
+        "T1218"
+      ],
+      "hallucinated_ttps": [
+        "T1218"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 1
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 3.9,
+  "evaluation": {
+    "parse_ok": true,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9296
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.6667,
+      "ttp_precision": 0.5,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1218"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1218"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.6667,
+      "breakdown": {
+        "ttp_f1": 0.6667
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

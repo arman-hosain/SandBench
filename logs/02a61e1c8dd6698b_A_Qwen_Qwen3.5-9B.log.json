@@ -1,0 +1,97 @@
+{
+  "hash": "02a61e1c8dd6698b982d663361c0bb87e0d3522055d16b87bfc4066170e4a8de",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence via a Windows service ('NetRoot'), creation of a fake system file ('C:\\\\WINDOWS\\\\svchost.exe'), obfuscation techniques (stack strings, argument obfuscation), anti-analysis evasion (anti-VM strings, delayed execution), and network communication to a suspicious domain. The combination of these indicators confirms malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample installs a service named 'NetRoot' and drops a file masquerading as 'svchost.exe' to achieve persistence. It uses obfuscation and anti-analysis techniques typical of Trojans designed to evade detection and maintain access. It does not exhibit ransomware encryption, worm-like self-propagation, or specific spyware data exfiltration behaviors in this report.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1543.003\",\n        \"name\": \"Create or Modify a Process for Persistence\"\n      },\n      {\n        \"id\": \"T1562.001\",\n        \"name\": \"Clear Windows Event Logs\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1070\",\n        \"name\": \"Indicator Removal\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 3604,
+      "response_chars": 1455,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence via a Windows service ('NetRoot'), creation of a fake system file ('C:\\\\WINDOWS\\\\svchost.exe'), obfuscation techniques (stack strings, argument obfuscation), anti-analysis evasion (anti-VM strings, delayed execution), and network communication to a suspicious domain. The c",
+      "elapsed_seconds": 13.22
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 13.22,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8194
+    },
+    "family": {
+      "family_f1": 0.6667,
+      "family_precision": 1.0,
+      "family_recall": 0.5,
+      "predicted": [
+        "trojan"
+      ],
+      "matched": [
+        "trojan"
+      ],
+      "reachable_gt": [
+        "trojan",
+        "dropper"
+      ],
+      "gt_pool": [
+        "bkdr",
+        "downloader",
+        "farfli",
+        "nadrac",
+        "trojan"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 0.4615,
+      "ttp_precision": 0.5,
+      "ttp_recall": 0.4286,
+      "gt_ttps": [
+        "T1027",
+        "T1070",
+        "T1082",
+        "T1129",
+        "T1497",
+        "T1543",
+        "T1569"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1543",
+        "T1562"
+      ],
+      "tp": 3,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1059",
+        "T1562"
+      ],
+      "q3_missed_ttps": [
+        "T1082",
+        "T1129",
+        "T1497",
+        "T1569"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4615,
+      "breakdown": {
+        "ttp_f1": 0.4615
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "hash": "122cd6132d98cb3e63ef06cf1461ddcc65b23986090115f20a18b00ba8af457b",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  5bd19fc3c9f42c21149b24e0f4890b2b.virus.exe\n    c:\\windows\\system\\explorer.exe\n      c:\\windows\\system\\spoolsv.exe SE\n        c:\\windows\\system\\svchost.exe\n          at 05:42 /interactive /every:M,T,W,Th,F,S,Su c:\\windows\\system\\svchost.exe\n          c:\\windows\\system\\spoolsv.exe PR\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - acquire debug privileges\n  - parse PE header\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - acquire debug privileges\n  - contain loop\n  - Communication::HTTP Communication::Read Header [C0002.014]\n  - parse PE header\n  - contain a resource (.rsrc) section\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES DROPPED (4):\n  c:\\windows\\system\\explorer.exe  [sha256: 18e51d74b5b17458...]\n  c:\\windows\\system\\spoolsv.exe  [sha256: 38fe3e3fef3cc80f...]\n  c:\\windows\\system\\svchost.exe  [sha256: 129c3d5be30c3360...]\n  C:\\Users\\<USER>\\AppData\\Roaming\\mrsys.exe  [sha256: 84e88bd60feec6ba...]\n\nFILES WRITTEN (5):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF225CC5BE9DA3D952.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF4679E8BAAAC0D1B0.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF8CB59C41B0046DD1.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF92E129C370A6A11E.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DFB4E71F0B2E5AFF0B.TMP\n\nPERSISTENCE REGISTRY KEYS (2):\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\Explorer = c:\\windows\\system\\explorer.exe RO\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\Svchost = c:\\windows\\system\\svchost.exe RO\n\nOTHER REGISTRY KEYS SET (4):\n  HKCU\\Software\\VB and VBA Program Settings\\Explorer\\Process\\LO\n  HKLM\\Software\\Microsoft\\Active Setup\\Installed Components\\{Y479C6D0-OTRW-U5GH-S1EE-E0AC10B4E666}\\StubPath\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowSuperHidden\n  HKLM\\Software\\Microsoft\\Active Setup\\Installed Components\\{F146C9B1-VMVQ-A9RC-NUFL-D0BA00B4E999}\\StubPath\n\nPROCESSES CREATED (1):\n  c:\\windows\\system\\explorer.exe\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n\nPE SECTIONS (entropy):\n  .text        entropy=5.8\n  .rsrc        entropy=7.55\n  [overlay]    entropy=7.1967668533325195  size=7943\n",
+  "ground_truth": {
+    "hash": "122cd6132d98cb3e63ef06cf1461ddcc65b23986090115f20a18b00ba8af457b",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.875,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "acquire debug privileges"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "acquire debug privileges",
+      "contain loop",
+      "check HTTP status code",
+      "parse PE header",
+      "contain a resource (.rsrc) section",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\Explorer",
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\Svchost"
+      ],
+      "registry_all_count": 6,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Roaming\\mrsys.exe",
+        "c:\\windows\\system\\explorer.exe",
+        "c:\\windows\\system\\spoolsv.exe",
+        "c:\\windows\\system\\svchost.exe"
+      ],
+      "mutexes": [],
+      "processes": [
+        "c:\\windows\\system\\explorer.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "hash": "33e5e6b25ca1e3b87af2c6b7bff7069a3edb970dee9ea6cafad393fd4328e9e6",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - reference absolute stream path on Windows\n  - contain loop\n  - Data::Encode Data::Base64 [C0026.001]\n  - Data::Check String [C0019]\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n  Signer: HT Srl; VeriSign Class 3 Code Signing 2010 CA; VeriSign\n\nCOMPILER AND PACKER:\n  [Protector] VMProtect\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Sign tool] Windows Authenticode\n\nPE SECTIONS (entropy):\n  .text        entropy=6.51\n  .rdata       entropy=6.32\n  .data        entropy=0.32\n  .pdata       entropy=4.35\n  INIT         entropy=6.22\n  .upx0        entropy=7.99\n  .upx1        entropy=7.38\n  .reloc       entropy=0.26\n  [overlay]    entropy=7.35800313949585  size=5096\n",
+  "ground_truth": {
+    "hash": "33e5e6b25ca1e3b87af2c6b7bff7069a3edb970dee9ea6cafad393fd4328e9e6",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7123,
+    "malicious_count": 52,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 22
+      },
+      {
+        "value": "miner",
+        "count": 2
+      },
+      {
+        "value": "pua",
+        "count": 2
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "dangeroussig",
+        "count": 2
+      },
+      {
+        "value": "genericrxnf",
+        "count": 2
+      },
+      {
+        "value": "rootkit",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.dangeroussig/genericrxnf",
+    "av_family_vote": "generickd",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "reference Base64 string"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "reference absolute stream path on Windows",
+      "contain loop",
+      "reference Base64 string"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

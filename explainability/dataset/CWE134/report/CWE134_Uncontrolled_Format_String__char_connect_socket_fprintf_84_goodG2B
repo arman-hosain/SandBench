@@ -1,0 +1,33 @@
+Flawfinder version 2.0.19, (C) 2001-2019 David A. Wheeler.
+Number of rules (primarily dangerous function names) in C/C++ ruleset: 222
+Examining /Users/USER/Desktop/CWE_Extracted/CWE134/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_84_goodG2B.cpp
+
+FINAL RESULTS:
+
+/Users/USER/Desktop/CWE_Extracted/CWE134/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_84_goodG2B.cpp:55:  [4] (format) fprintf:
+  If format strings can be influenced by an attacker, they can be exploited
+  (CWE-134). Use a constant for the format specification.
+/Users/USER/Desktop/CWE_Extracted/CWE134/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_84_goodG2B.cpp:49:  [2] (buffer) strcpy:
+  Does not check for buffer overflows when copying to destination [MS-banned]
+  (CWE-120). Consider using snprintf, strcpy_s, or strlcpy (warning: strncpy
+  easily misused). Risk is low because the source is a constant string.
+
+ANALYSIS SUMMARY:
+
+Hits = 2
+Lines analyzed = 58 in approximately 0.00 seconds (29250 lines/second)
+Physical Source Lines of Code (SLOC) = 35
+Hits@level = [0]   0 [1]   0 [2]   1 [3]   0 [4]   1 [5]   0
+Hits@level+ = [0+]   2 [1+]   2 [2+]   2 [3+]   1 [4+]   1 [5+]   0
+Hits/KSLOC@level+ = [0+] 57.1429 [1+] 57.1429 [2+] 57.1429 [3+] 28.5714 [4+] 28.5714 [5+]   0
+Minimum risk level = 1
+
+Not every hit is necessarily a security vulnerability.
+You can inhibit a report by adding a comment in this form:
+// flawfinder: ignore
+Make *sure* it's a false positive!
+You can use the option --neverignore to show these.
+
+There may be other security vulnerabilities; review your code!
+See 'Secure Programming HOWTO'
+(https://dwheeler.com/secure-programs) for more information.

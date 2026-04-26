@@ -1,0 +1,109 @@
+{
+  "hash": "016d547a5c240693650ce74555c9a8b219e522f0c88db1a33d4860e9d5a3958a",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is packed with VMProtect, a sophisticated obfuscation tool, and exhibits clear anti-analysis behaviors including debugger detection and software breakpoint handling. It actively communicates with a suspicious domain (a6281279.yolox.net) using POST requests, which is indicative of Command and Control (C2) activity or data exfiltration. The combination of strong anti-analysis techniques and active C2 communication confirms malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\", \"Backdoor\"],\n    \"explanation\": \"The sample is packed with VMProtect and contains anti-debugging capabilities, which are hallmarks of a Dropper designed to evade static analysis before downloading a secondary payload. The network activity shows communication with a suspicious domain (yolox.net) via POST requests, suggesting it may be establishing a backdoor connection or exfiltrating data. While no direct payload execution (like ransomware encryption) is observed in the sandbox, the behavior aligns with a Dropper or a Backdoor.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1055.001\",\n        \"name\": \"Process Injection via DLL\"\n      },\n      {\n        \"id\": \"T1055.012\",\n        \"name\": \"Process Injection via Thread Execution\"\n      },\n      {\n        \"id\": \"T1055.015\",\n        \"name\": \"Process Injection via Dynamic Function Resolution\"\n      },\n      {\n        \"id\": \"T1055.016\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (PEB)\"\n      },\n      {\n        \"id\": \"T1055.017\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (NTDLL)\"\n      },\n      {\n        \"id\": \"T1055.018\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (KERNEL32)\"\n      },\n      {\n        \"id\": \"T1055.019\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (ADVAPI32)\"\n      },\n      {\n        \"id\": \"T1055.020\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (USER32)\"\n      },\n      {\n        \"id\": \"T1055.021\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (GDI32)\"\n      },\n      {\n        \"id\": \"T1055.022\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (WININET)\"\n      },\n      {\n        \"id\": \"T1055.023\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (WS2_32)\"\n      },\n      {\n        \"id\": \"T1055.024\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (WS2_32)\"\n      },\n      {\n        \"id\": \"T1055.025\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (WS2_32)\"\n      },\n      {\n        \"id\": \"T1055.026\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (WS2_32)\"\n      },\n      {\n        \"id\": \"T1055.027\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (WS2_32)\"\n      },\n      {\n        \"id\": \"T1055.028\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (WS2_32)\"\n      },\n      {\n        \"id\": \"T1055.029\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (WS2_32)\"\n      },\n      {\n        \"id\": \"T1055.030\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (WS2_32)\"\n      },\n      {\n        \"id\": \"T1055.031\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (WS2_32)\"\n      },\n      {\n        \"id\": \"T1055.032\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (WS2_32)\"\n      },\n      {\n        \"id\": \"T1055.033\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (WS2_32)\"\n      },\n      {\n        \"id\": \"T1055.034\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (WS2_32)\"\n      },\n      {\n        \"id\": \"T1055.035\",\n        \"name\": \"Process Injection via Dynamic Function Resolution (WS2_32)\"\n      },\n      {\n        \"id\": \"T1055.036\",\n        \"name\": \"Process Injection via Dynamic F",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 3750,
+      "response_chars": 12536,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits strong indicators of malicious intent, specifically anti-analysis techniques and suspicious network behavior. It is packed with VMProtect, a common obfuscation tool used by malware to evade static analysis. CAPA rules confirm 'Anti-Static Analysis' and 'Debugger Detection'. The sample attempts to communicate with a su",
+      "elapsed_seconds": 97.62
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "1 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 1,
+      "ttps_found": [
+        "T1055"
+      ],
+      "hallucinated_ttps": [
+        "T1055"
+      ],
+      "ttp_tp": 0,
+      "ttp_fp": 1
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- packed with VMProtect\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by the report.\nDIRECTION: ADD_T",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1055"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 0,
+      "best_ttp_fp": 1
+    },
+    {
+      "step": 5,
+      "type": "refinement_stopped",
+      "iteration": 1,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 0,
+      "ttp_fp": 1
+    }
+  ],
+  "total_llm_calls": 2,
+  "total_elapsed": 145.96,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8333
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1055"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1055"
+      ],
+      "q3_missed_ttps": [
+        "T1027"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

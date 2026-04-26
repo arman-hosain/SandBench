@@ -1,0 +1,167 @@
+{
+  "hash": "17628c4ff25d3fb42e2a7fba02db5a3c1a3ec04f94d149753e1e0d938e927be6",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (23):\n  - set file attributes\n  - get file system object information\n  - encode data using XOR\n  - query or enumerate registry key\n  - delete registry key\n  - query environment variable\n  - find graphical window\n  - query or enumerate registry value\n  - get file version info\n  - enumerate files on Windows\n  - delete registry value\n  - get file size\n  - shutdown system\n  - accept command line arguments\n  - get common file path\n  - log keystrokes via polling\n  - get disk size\n  - capture webcam image\n  - open clipboard\n  - check if file exists\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - enumerate files recursively\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Set File Attributes [C0050]\n  - File System::Get File Attributes [C0049]\n  - Process::Create Process [C0017]\n  - get file system object information\n  - Process::Create Thread [C0038]\n  - File System::Create File [C0016]\n  - Process::Open Process [C0065]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Operating System::Registry::Query Registry Key [C0036.005]\n  - Operating System::Registry::Delete Registry Key [C0036.002]\n  - set current directory\n  - Discovery::System Information Discovery [E1082]\n  - find graphical window\n  - File System::Create Directory [C0046]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - File System::Delete File [C0047]\n  - File System::Read File [C0051]\n  - File System::Move File [C0063]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessW, GetProcAddress, LoadLibraryExW, LoadLibraryW\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Installer] Nullsoft Scriptable Install System\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'F-PROT': 'NSIS, appended', 'Cyren': 'NSIS', 'Varist': 'NSIS'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.5\n  .rdata       entropy=4.5\n  .data        entropy=1.8\n  .ndata       entropy=0.0\n  .rsrc        entropy=2.3\n  .reloc       entropy=1.58\n  [overlay]    entropy=7.997185230255127  size=8820422\n",
+  "ground_truth": {
+    "hash": "17628c4ff25d3fb42e2a7fba02db5a3c1a3ec04f94d149753e1e0d938e927be6",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.6986,
+    "malicious_count": 51,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 15
+      },
+      {
+        "value": "dropper",
+        "count": 6
+      },
+      {
+        "value": "pua",
+        "count": 2
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "jaik",
+        "count": 7
+      },
+      {
+        "value": "coins",
+        "count": 5
+      },
+      {
+        "value": "dapato",
+        "count": 4
+      }
+    ],
+    "suggested_label": "trojan.jaik/coins",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry key"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file system object information"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry key"
+      },
+      {
+        "id": "T1115",
+        "signature_description": "open clipboard"
+      },
+      {
+        "id": "T1125",
+        "signature_description": "capture webcam image"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1529",
+        "signature_description": "shutdown system"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "create or open registry key",
+      "delay execution",
+      "set file attributes",
+      "get file attributes",
+      "create process on Windows",
+      "get file system object information",
+      "create thread",
+      "create or open file",
+      "open process",
+      "encode data using XOR",
+      "contain loop",
+      "query or enumerate registry key",
+      "delete registry key",
+      "set current directory",
+      "query environment variable",
+      "find graphical window",
+      "create directory",
+      "set registry value",
+      "delete file",
+      "read file on Windows",
+      "read .ini file",
+      "move file",
+      "query or enumerate registry value",
+      "get file version info",
+      "create shortcut via IShellLink",
+      "write file on Windows",
+      "enumerate files on Windows",
+      "write and execute a file",
+      "delete registry value",
+      "check for time delay via GetTickCount",
+      "get file size",
+      "shutdown system",
+      "accept command line arguments",
+      "get common file path",
+      "terminate process",
+      "copy file",
+      "log keystrokes via polling",
+      "get disk size",
+      "capture webcam image",
+      "open clipboard",
+      "write clipboard data",
+      "replace clipboard data",
+      "get graphical window text",
+      "check if file exists",
+      "link function at runtime on Windows",
+      "get OS version",
+      "link many functions at runtime",
+      "delete directory",
+      "enumerate files recursively",
+      "hash data with CRC32",
+      "contain a resource (.rsrc) section",
+      "packaged as a NSIS installer",
+      "(internal) installer file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

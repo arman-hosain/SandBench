@@ -1,0 +1,70 @@
+{
+  "hash": "0b7b39bee9e060a74b3bae1997e67f39e7be19319fe001702315546867d76f27",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  GET http://carder.bit/  UA: Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko\n  GET http://carder.bit/\n\nDNS LOOKUPS (3):\n  ipv4bot.whatismyipaddress.com \u2192 66.171.248.178\n  ns1.wowservers.ru \u2192 185.103.243.59\n  ns2.wowservers.ru \u2192 185.103.243.59\n\nIP TRAFFIC (2):\n  185.103.243.59:53 (UDP)\n  66.171.248.178:80 (TCP)\n\nSERVICES OPENED (2):\n  RASMAN\n  Sens\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  oxuerq.exe\n    nslookup carder.bit ns2.wowservers.ru\n    nslookup ransomware.bit ns2.wowservers.ru\n    nslookup carder.bit ns1.wowservers.ru\n    nslookup ransomware.bit ns1.wowservers.ru\n    nslookup carder.bit ns2.wowservers.ru\n    nslookup ransomware.bit ns2.wowservers.ru\n    nslookup carder.bit ns1.wowservers.ru\n    nslookup ransomware.bit ns1.wowservers.ru\n    nslookup carder.bit ns2.wowservers.ru\n    nslookup ransomware.bit ns2.wowservers.ru\n    nslookup carder.bit ns1.wowservers.ru\n    nslookup ransomware.bit ns1.wowservers.ru\n    nslookup carder.bit ns2.wowservers.ru\n    nslookup ransomware.bit ns2.wowservers.ru\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - link function at runtime on Windows\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - File System::Create File [C0016]\n  - contain loop\n  - Process::Terminate Process [C0018]\n  - Process::Allocate Thread Local Storage [C0040]\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - linked against CPP standard library\n  - contain a resource (.rsrc) section\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  uvbfno.exe  [sha256: 6ee47c9dc13139bb...]\n  C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\dqzvap.exe  [sha256: 98f168ee10bfb684...]\n\nFILES WRITTEN (2):\n  C:\\Documents and Settings\\<USER>\\Application Data\\Microsoft\\uvbfno.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows\\Temporary Internet Files\\Content.IE5\\XBL73YY1\\ipv4bot_whatismyipaddress_com[1].htm\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\odxyhmqufxd = \"\n\nOTHER REGISTRY KEYS SET (3):\n  HKU\\S-1-5-18\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-18\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\SavedLegacySettings\n  HKU\\S-1-5-18\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\DefaultConnectionSettings\n\nMUTEXES CREATED (4):\n  Global\\pc_group=WORKGROUP&ransom_id=4029414471d2c847\n  IESQMMUTEX_0_208\n  RasPbFile\n  ShimCacheMutex\n\nMUTEXES OPENED (4):\n  Global\\pc_group=WORKGROUP&ransom_id=e8b0adc86c78a9c3\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n\nPROCESSES CREATED (1):\n  nslookup carder.bit ns1.wowservers.ru\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryW, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.67\n  .rdata       entropy=4.96\n  .data        entropy=3.51\n  .rsrc        entropy=7.65\n  .reloc       entropy=1.23\n  [overlay]    entropy=2.503258466720581  size=9\n",
+  "ground_truth": {
+    "hash": "0b7b39bee9e060a74b3bae1997e67f39e7be19319fe001702315546867d76f27",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9296,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RWX memory",
+      "create or open file",
+      "contain loop",
+      "terminate process",
+      "allocate thread local storage",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "linked against CPP standard library",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "185.103.243.59",
+        "66.171.248.178"
+      ],
+      "domains": [
+        "ipv4bot.whatismyipaddress.com",
+        "ns1.wowservers.ru",
+        "ns2.wowservers.ru"
+      ],
+      "urls": [
+        "http://carder.bit/"
+      ],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\odxyhmqufxd"
+      ],
+      "registry_all_count": 4,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\dqzvap.exe",
+        "uvbfno.exe"
+      ],
+      "mutexes": [
+        "Global\\pc_group=WORKGROUP&ransom_id=4029414471d2c847",
+        "IESQMMUTEX_0_208",
+        "RasPbFile",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "nslookup carder.bit ns1.wowservers.ru"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

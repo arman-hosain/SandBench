@@ -1,0 +1,178 @@
+{
+  "hash": "1b77289e33fa9522d6d6d3ed3e5933a43153f90f5ede587f6262e8e5f0d0c552",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nSERVICES OPENED (2):\n  NapAgent\n  policyagent\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  d96f1c05b57d8142273053d436bf61cb.exe\n    C:\\Windows\\system32\\WindowsPowershell\\v1.0\\powershell.exe Set-MpPreference -DisableBehaviorMonitoring $true ; Set-MpPreference -MAPSReporting 0 ; Set-MpPreference -ExclusionProcess rundll32.exe ; Set-MpPreference -ExclusionExtension dll\n    C:\\Windows\\System32\\netsh.exe advfirewall firewall add rule name=Rundll32 dir=out action=allow protocol=any program=C:\\Windows\\system32\\rundll32.exe\n\nCOMMAND EXECUTIONS (2):\n  netsh.exe advfirewall firewall add rule name=\"Rundll32\" dir=out action=allow protocol=any program=\"C:\\Windows\\system32\\rundll32.exe\"\n  C:\\Windows\\system32\\WindowsPowershell\\v1.0\\powershell.exe Set-MpPreference -DisableBehaviorMonitoring $true ; Set-MpPreference -MAPSReporting 0 ; Set-MpPreference -ExclusionProcess rundll32.exe ; Set-MpPreference -ExclusionExtension dll\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - get session user name\n  - link function at runtime on Windows\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - get session user name\n  - link function at runtime on Windows\n  - contain loop\n  - Process::Allocate Thread Local Storage [C0040]\n  - link many functions at runtime\n  - Process::Terminate Process [C0018]\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\mpsrec = rundll32.exe \"C:\\Users\\<USER>\\AppData\\Local\\mpsrec.dll\",mpsrec\n\nMUTEXES CREATED (102):\n  00082fbb-a419-43f4-bd80-e3631ebbf4c8\n  12a2c0fc-00d2-4614-b4ae-c18eb500a088\n  138be83c-2a52-4c31-9ee8-bfd4eac53d72\n  15417794-7485-46f6-9965-d34730ea0f48\n  168cb052-69eb-45be-be07-d4f323dc67d6\n  172821eb-729d-4307-a56f-63063b2677de\n  17689d7a-89bf-4e2a-a49c-9e4e5a51a9d7\n  197a1689-8bb1-4fcd-80e9-32b86e3751f5\n  1e8e5806-2e99-4002-b62c-7a78a6641874\n  1f1769de-42fa-4883-b37c-f0de488de557\n\nMUTEXES OPENED (17):\n  ATYNKAJP30Z9AQ\n  BiosChecksumChecker\n  CBKZiOPASRHKL\n  I0N8129AZR1A\n  IntelBIOSReader\n  JKLSXX1ZA1QRLER\n  MK5Cheats\n  MLIXNJAEGPSE\n  MaverickMeerkat\n  NetworkLighter\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAlloc, VirtualAllocEx, VirtualProtect\n  ADVAPI32.dll: AdjustTokenPrivileges, OpenProcessToken\n\nCERTIFICATE INFO:\n  Signer: LJRVBTIRATDSSVXJUJ\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Sign tool] Windows Authenticode\n\nPE SECTIONS (entropy):\n  .text        entropy=4.35\n  .rdata       entropy=5.73\n  .data        entropy=3.8\n  .rsrc        entropy=2.85\n  [overlay]    entropy=7.410891532897949  size=5296\n",
+  "ground_truth": {
+    "hash": "1b77289e33fa9522d6d6d3ed3e5933a43153f90f5ede587f6262e8e5f0d0c552",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7945,
+    "malicious_count": 58,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 26
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "eiba",
+        "count": 8
+      },
+      {
+        "value": "netstream",
+        "count": 6
+      },
+      {
+        "value": "bauh",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.eiba/netstream",
+    "av_family_vote": "agent",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1033",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1087",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "get session user name",
+      "link function at runtime on Windows",
+      "contain loop",
+      "allocate thread local storage",
+      "link many functions at runtime",
+      "terminate process",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\mpsrec"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [],
+      "mutexes": [
+        "00082fbb-a419-43f4-bd80-e3631ebbf4c8",
+        "12a2c0fc-00d2-4614-b4ae-c18eb500a088",
+        "138be83c-2a52-4c31-9ee8-bfd4eac53d72",
+        "15417794-7485-46f6-9965-d34730ea0f48",
+        "168cb052-69eb-45be-be07-d4f323dc67d6",
+        "172821eb-729d-4307-a56f-63063b2677de",
+        "17689d7a-89bf-4e2a-a49c-9e4e5a51a9d7",
+        "197a1689-8bb1-4fcd-80e9-32b86e3751f5",
+        "1e8e5806-2e99-4002-b62c-7a78a6641874",
+        "1f1769de-42fa-4883-b37c-f0de488de557",
+        "240187f4-b097-4a3c-a6fa-2ca5b1e0b373",
+        "25f07256-3b46-4531-aa3e-e1729d9aa7cb",
+        "274f61dd-3fed-4bfe-9aa6-8a012339a41f",
+        "27a0f05f-41fa-43f1-86b9-7e48bde3d716",
+        "39309b80-cef5-4ce1-b215-0719723c4c30",
+        "3G1S91V5ZA5fB56W",
+        "3f78ca48-011c-4ffb-abfa-c9f659e4a820",
+        "48353b4f-51f9-4961-bcc1-c8d5163a8978",
+        "4e1ac580-d3cf-4961-81eb-072dff249c17",
+        "4e5e7d5e-a1fe-4de7-ad53-5f4aaecd7402",
+        "5962654a-a395-4714-96f2-2419ab2172bf",
+        "5e76294a-2787-4ae2-9ddc-b792b0c45ec2",
+        "60f8896b-a437-4e79-9e29-96522ca88c4c",
+        "62e64ec9-d662-4595-bf77-634764dcf810",
+        "67f4e0eb-54cc-4779-b3c3-fe277c8478ae",
+        "6b264507-ba91-4d85-86c9-1e827315cbe0",
+        "7eb5ccec-3fd7-4826-b681-02a6129aa108",
+        "85e6784c-7904-41ee-99b4-8b286e19da70",
+        "8AZB70HDFK0WOZIZ",
+        "8f1a37f6-9cff-447e-a00c-cb19512de134",
+        "9f7e0dc2-bc5c-497e-aa70-f8072e71550c",
+        "ARScenes",
+        "ASUSNet20",
+        "BlueEye",
+        "CDNetStreamer2.r05",
+        "China1839099",
+        "China4150039",
+        "CryptoMaxima",
+        "D1JozWrldD",
+        "FMPsDSCV0l",
+        "FamilyWeekend",
+        "FixLCD",
+        "FoloDrite",
+        "Global\\3a886eb8-fe40-4d0a-b78b-9e0bcb683fb7",
+        "HTTPBalancer_v2.15",
+        "Hk4kKLL0ZAF8a",
+        "ImageCreator_v4.2",
+        "InRAMQueue",
+        "IwS01003993",
+        "JerkPatrol",
+        "KDOWEtRVAB",
+        "LenovoSuite",
+        "MDISequencer",
+        "MLIXNJ9AEGPSE",
+        "MovieFinder",
+        "N800HANOI",
+        "NHO9AZB7HDK0WAZMM",
+        "NMOZAQcxzER",
+        "NNDRIOZ8933",
+        "NattyNarwhal",
+        "NeoNetPlasma",
+        "NeonRhythmbox",
+        "NetRegistry",
+        "OMXBJSJ3WA1ZIN",
+        "OnlineShopFinder",
+        "P79zA00FfF3",
+        "PCV5ATULCN",
+        "PrecisePangolin",
+        "QOSUser2.r10",
+        "QuantalQuetzal",
+        "RaringRingtail",
+        "RaspberryManualViewer",
+        "RouteMatrix",
+        "SSDOptimizerV13",
+        "SoloWrite",
+        "StreamCoder1.0",
+        "Tropic819331",
+        "UEFIConfig",
+        "VHO9AZB7HDK0WAZMM",
+        "VRK1AlIXBJDA5U3A",
+        "VideoBind",
+        "VirginPoint",
+        "VirtualPrinterDriver",
+        "VividVervet",
+        "WireDefender",
+        "_SHuassist.mtx",
+        "ab7d92f2-968a-461e-9da6-e569dedb0a91",
+        "b22d1dd8-e3ea-4764-ba9b-0ebf41fddee7",
+        "b3e32042-d969-43d1-b20c-bcf8da5ba436",
+        "beb41e13-5e33-450f-a9c5-3e5a382d224d",
+        "bitcoreguard",
+        "c3c2a8b3-fc8a-4fe3-8f24-6f2a757a5012",
+        "ca1b68fd-56d5-4355-94b2-ed6ab0857890",
+        "cf3573d5-bf4f-4094-bbea-ced8efde2257",
+        "d8ba5865-ac00-4df1-8437-eb144077e031",
+        "dec0f5aa-1fd1-458f-916c-693887610891",
+        "e3024a8f-3f2b-4e06-ac36-0997c1090d0",
+        "ed3a7d1d-ed6f-4c8f-86d4-44dcde3b32f8",
+        "f378f238-6503-4544-8e43-cbe4bbf3615e",
+        "fbac80bd-ba6a-4cd5-92d9-3a31a87f7af6",
+        "sqlcasheddbm",
+        "wwallmutex"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

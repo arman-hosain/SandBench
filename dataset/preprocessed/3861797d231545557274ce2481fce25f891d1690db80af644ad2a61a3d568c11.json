@@ -1,0 +1,59 @@
+{
+  "hash": "3861797d231545557274ce2481fce25f891d1690db80af644ad2a61a3d568c11",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - enumerate gui resources\n  - get disk information\n  - check if file exists\n  - reference anti-VM strings targeting Qemu\n\nCAPA RULE MATCHES (MBC):\n  - File System::Get File Attributes [C0049]\n  - contain loop\n  - File System::Writes File [C0052]\n  - enumerate gui resources\n  - Discovery::System Information Discovery [E1082]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Create Directory [C0046]\n  - Execution::Install Additional Program [B0023]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCOMPILER AND PACKER:\n  [Linker] Polink\n\nPE SECTIONS (entropy):\n  .code        entropy=5.34\n  .text        entropy=6.19\n  .rdata       entropy=1.77\n  .data        entropy=4.98\n  .rsrc        entropy=5.07\n  .NewSec      entropy=0.53\n  [overlay]    entropy=5.0149993896484375  size=870105\n",
+  "ground_truth": {
+    "hash": "3861797d231545557274ce2481fce25f891d1690db80af644ad2a61a3d568c11",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9014,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "agent",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "enumerate gui resources"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk information"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "check if file exists"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting Qemu"
+      }
+    ],
+    "capa_sig_names": [
+      "get file attributes",
+      "contain loop",
+      "write file on Windows",
+      "enumerate gui resources",
+      "get disk information",
+      "check if file exists",
+      "create directory",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting Qemu"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "hash": "00993baae5846cee46599d53665c1ff0b0e8e1dd6231b95419482d42b18c75f0",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including the creation of a new executable (C:/exp/khipzhk.exe), modification of system configuration files (C:\\\\CONFIG.SYS), and the installation of additional programs. It uses delayed execution techniques to evade analysis and creates files in system directories like 'Documents and Settings' and 'Program Files'. The presence of dangerous imports like CreateProcessA and the use of a compiler/packer combination (PureBasic/Polink) further indicates a malicious payload designed to persist and execute.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Dropper\"],\n    \"explanation\": \"The sample acts as a Dropper by creating a new executable (khipzhk.exe) and installing additional programs. It also exhibits Trojan behavior by modifying system files (CONFIG.SYS) and potentially establishing persistence or executing further payloads. The use of delayed execution and file system manipulation aligns with these families.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1105\",\n        \"name\": \"Ingress Tool Transfer\"\n      },\n      {\n        \"id\": \"T1547\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1562\",\n        \"name\": \"Impair Defenses\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 3552,
+      "response_chars": 1566,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including the creation of a new executable (C:/exp/khipzhk.exe), modification of system configuration files (C:\\\\CONFIG.SYS), and the installation of additional programs. It uses delayed execution techniques to evade analysis and creates files in system directories like 'Documents and Settings'",
+      "elapsed_seconds": 13.67
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 13.67,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8732
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1010",
+        "T1082",
+        "T1083",
+        "T1222"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1105",
+        "T1547",
+        "T1562"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1105",
+        "T1547",
+        "T1562"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1082",
+        "T1083",
+        "T1222"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

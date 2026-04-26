@@ -1,0 +1,58 @@
+{
+  "hash": "280486375f54cfbfeebe1e8bee656a9aa0b524267df9f1467798841f646b60a2",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - persist via Run registry key\n  - get common file path\n  - enumerate files on Windows\n  - enumerate files recursively\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - reference absolute stream path on Windows\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - contain loop\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - Persistence::Registry Run Keys / Startup Folder [F0012]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Writes File [C0052]\n  - File System::Create Directory [C0046]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  C:/Windows/Intelx386/Winamp 5.0 (full version).exe  [sha256: 771b9fd2e61117a8...]\n  C:/Windows/Intelx386/Winamp 3 (full version).exe  [sha256: aad7332eff53a3e3...]\n\nFILES WRITTEN (17):\n  C:\\WINDOWS\\Intelx386\\3D Studio R8 (It\"s Work!!).exe\n  C:\\WINDOWS\\Intelx386\\BsPlayer v3.exe\n  C:\\WINDOWS\\Intelx386\\ContaWin 2000 (full version).exe\n  C:\\WINDOWS\\Intelx386\\DivX 7.2 freeware.exe\n  C:\\WINDOWS\\Intelx386\\Download Accelerator Plus (DAP) (full version with serial).exe\n  C:\\WINDOWS\\Intelx386\\MSN messenger 6.3.exe\n  C:\\WINDOWS\\Intelx386\\RealOne Player (Full version).exe\n  C:\\WINDOWS\\Intelx386\\Update Photoshop 7.0 to Photoshop 9.16 (It\u78d7 Work!).exe\n  C:\\WINDOWS\\Intelx386\\Update Photoshop 8.0 to Photoshop 9.5 (It\u78d7 Work!).exe\n  C:\\WINDOWS\\Intelx386\\VirtualDub 2.1.4.exe\n  C:\\WINDOWS\\Intelx386\\WinAce 3.85 (with Serial).exe\n  C:\\WINDOWS\\Intelx386\\WinRar 4 (with crack).exe\n  C:\\WINDOWS\\Intelx386\\WinRar v6.11 (with crack).exe\n  C:\\WINDOWS\\Intelx386\\WinZip 9.exe\n  C:\\WINDOWS\\Intelx386\\Winamp 3 (full version).exe\n  C:\\WINDOWS\\Intelx386\\Winamp 3.5 (full version).exe\n  C:\\WINDOWS\\Intelx386\\Winamp 5.0 (full version).exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualAlloc\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++'}\n\nPE SECTIONS (entropy):\n  .textU       entropy=6.37\n  .rdata       entropy=3.74\n  .dataU       entropy=3.43\n  .rsrcs       entropy=2.49\n  .hoAiXT      entropy=0.23\n  [overlay]    entropy=0.0  size=14914230\n",
+  "ground_truth": {
+    "hash": "280486375f54cfbfeebe1e8bee656a9aa0b524267df9f1467798841f646b60a2",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "persist via Run registry key"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "reference absolute stream path on Windows",
+      "delay execution",
+      "create or open registry key",
+      "contain loop",
+      "set registry value",
+      "persist via Run registry key",
+      "get common file path",
+      "enumerate files on Windows",
+      "enumerate files recursively",
+      "write file on Windows",
+      "create directory"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:/Windows/Intelx386/Winamp 3 (full version).exe",
+        "C:/Windows/Intelx386/Winamp 5.0 (full version).exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

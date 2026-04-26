@@ -1,0 +1,91 @@
+{
+  "hash": "3a0c005f82a6463a77cd5f1eceb671934420ed2bda4d7f4d4b5071f00fecaee1",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://carder.bit/  UA: Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko\n\nDNS LOOKUPS (2):\n  ipv4bot.whatismyipaddress.com \u2192 66.171.248.178\n  ns1.wowservers.ru \u2192 185.103.243.59\n\nIP TRAFFIC (3):\n  185.103.243.59:53 (UDP)\n  66.171.248.178:80 (TCP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  nslookup carder.bit ns1.wowservers.ru\n\nCOMMAND EXECUTIONS (4):\n  ( 3680 - cmd.exe ) c:\\windows\\system32\\cmd.exe /c \"c:\\users\\user41~1\\appdata\\local\\temp\\ubjpm.exe\"\n  ( 1312 - ubjpm.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\ubjpm.exe\n  ( 4552 - nslookup.exe ) nslookup carder.bit ns1.wowservers.ru\n  ( 1080 - nslookup.exe ) nslookup ransomware.bit ns2.wowservers.ru\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (6):\n  - contain obfuscated stackstrings\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - modify service\n  - open clipboard\n  - get common file path\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - contain loop\n  - Process::Terminate Process [C0018]\n  - Process::Allocate Thread Local Storage [C0040]\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - modify service\n  - open clipboard\n  - Discovery::File and Directory Discovery [E1083]\n  - linked against CPP standard library\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  voobae.exe  [sha256: 331f540a0dac7ed8...]\n  c:\\users\\USER\\appdata\\roaming\\microsoft\\rctucb.exe  [sha256: 0678e9e9df192694...]\n\nFILES WRITTEN (4):\n  ( 1312 - ubjpm.exe ) c:\\users\\USER\\appdata\\local\\microsoft\\windows\\temporary internet files\\content.ie5\\5lsvrwql\\eoohwajj.htm\n  ( 1312 - ubjpm.exe ) c:\\users\\USER\\appdata\\roaming\\microsoft\\crypto\\rsa\\s-1-5-21-2589874625-3071026754-1203412979-1000\\e153234844501881412c51e2c7543666_6b201fd4-5376-4a35-9219-15dd13aea13c\n  ( 1312 - ubjpm.exe ) c:\\users\\USER\\appdata\\roaming\\microsoft\\rctucb.exe\n  C:\\Documents and Settings\\<USER>\\Application Data\\Microsoft\\voobae.exe\n\nPERSISTENCE REGISTRY KEYS (1):\n  \\registry\\machine\\software\\wow6432node\\microsoft\\windows\\currentversion\\runonce\\znnxhfdslja = \"c:\\users\\USER\\appdata\\roaming\\microsoft\\rctucb.exe\"\n\nOTHER REGISTRY KEYS SET (4):\n  \\registry\\user\\s-1-5-21-2589874625-3071026754-1203412979-1000\\software\\microsoft\\windows\\currentversion\\internet setting\n  \\registry\\user\\s-1-5-21-2589874625-3071026754-1203412979-1000\\software\\microsoft\\windows\\currentversion\\internet setting\n  \\registry\\user\\s-1-5-21-2589874625-3071026754-1203412979-1000\\software\\microsoft\\windows\\currentversion\\internet setting\n  \\registry\\user\\s-1-5-21-2589874625-3071026754-1203412979-1000\\software\\microsoft\\windows\\currentversion\\internet setting\n\nMUTEXES CREATED (2):\n  RasPbFile\n  ShimCacheMutex\n\nMUTEXES OPENED (1):\n  Global\\pc_group=WORKGROUP&ransom_id=cd19fdb96c78a9c3\n\nPROCESSES CREATED (1):\n  nslookup carder.bit ns1.wowservers.ru\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryW, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.61\n  .rdata       entropy=5.83\n  .data        entropy=4.12\n  .rsrc        entropy=7.8\n  .reloc       entropy=1.3\n  [overlay]    entropy=2.503258466720581  size=9\n",
+  "ground_truth": {
+    "hash": "3a0c005f82a6463a77cd5f1eceb671934420ed2bda4d7f4d4b5071f00fecaee1",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9444,
+    "malicious_count": 68,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1115",
+        "signature_description": "open clipboard"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1543",
+        "signature_description": "modify service"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "modify service"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "contain obfuscated stackstrings",
+      "contain loop",
+      "terminate process",
+      "allocate thread local storage",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "modify service",
+      "open clipboard",
+      "get common file path",
+      "linked against CPP standard library",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "185.103.243.59",
+        "66.171.248.178",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "ipv4bot.whatismyipaddress.com",
+        "ns1.wowservers.ru"
+      ],
+      "urls": [
+        "http://carder.bit/"
+      ],
+      "registry_persistence": [
+        "\\registry\\machine\\software\\wow6432node\\microsoft\\windows\\currentversion\\runonce\\znnxhfdslja"
+      ],
+      "registry_all_count": 5,
+      "files_dropped": [
+        "c:\\users\\USER\\appdata\\roaming\\microsoft\\rctucb.exe",
+        "voobae.exe"
+      ],
+      "mutexes": [
+        "RasPbFile",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "nslookup carder.bit ns1.wowservers.ru"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "ReaQta-Hive",
+    "VirusTotal Cuckoofork"
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "hash": "017ddf02e991c0a8d257b35065ad4896f25d86804df55e73b9fa4bc8efdb0250",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is confirmed malicious. It utilizes a multi-stage execution chain involving a dropped payload (qnjzbaah.exe) that employs anti-analysis techniques (IsDebuggerPresent check, XOR/Base64 encoding, delayed execution). The malware establishes persistence via Registry Run keys and Scheduled Tasks, masquerading as legitimate system components (Smart Tag, Firefox plugins). It exhibits active data exfiltration capabilities including keystroke logging, screenshot capture, clipboard access, and system enumeration. The use of AutoIt compilation and obfuscation further confirms its malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Spyware\", \"Dropper\"],\n    \"explanation\": \"The sample is classified as a Trojan because it masquerades as legitimate software (Smart Tag enhancements, Firefox plugins) to execute. It is Spyware due to its extensive capabilities to log keystrokes, capture screenshots, read clipboard data, and gather system information. It acts as a Dropper because it downloads and writes additional files to the filesystem (e.g., plugin-container.exe, syntpenh.exe) to establish persistence and potentially deploy further payloads.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1053\",\n        \"name\": \"Scheduled Task/Job\"\n      },\n      {\n        \"id\": \"T1547\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1056\",\n        \"name\": \"Input Capture\"\n      },\n      {\n        \"id\": \"T1005\",\n        \"name\": \"Data from Local System\"\n      },\n      {\n        \"id\": \"T1036\",\n        \"name\": \"Masquerading\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1083\",\n        \"name\": \"File and Directory Discovery\"\n      },\n      {\n        \"id\": \"T1012\",\n        \"name\": \"Query Registry\"\n      },\n      {\n        \"id\": \"T1082\",\n        \"name\": \"System Information Discovery\"\n      },\n      {\n        \"id\": \"T1057\",\n        \"name\": \"Process Discovery\"\n      },\n      {\n        \"id\": \"T1003\",\n        \"name\": \"OS Credential Dumping\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1070\",\n        \"name\": \"Indicator Removal\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 5511,
+      "response_chars": 1666,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence mechanisms (Registry Run key, Startup folder, Scheduled Task), credential harvesting (logging keystrokes), information gathering (screenshots, clipboard access), and anti-analysis techniques (debugger checks, delayed execution). It drops multiple files masquerading as legi",
+      "elapsed_seconds": 12.4
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "19 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 19,
+      "ttps_found": [
+        "T1005",
+        "T1027",
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1083",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1005",
+        "T1036",
+        "T1053",
+        "T1547"
+      ],
+      "ttp_tp": 5,
+      "ttp_fp": 4
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- find graphical window\n- query or enumerate registry value\n- get session user name\n- compiled with AutoIt\n- get system information on Windows\n- get session user name\n- download and write a file\n- delete registry key\n- capture screenshot\n- open clipboard\n",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1003",
+        "T1005",
+        "T1012",
+        "T1027",
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 7,
+      "best_ttp_fp": 5
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "17 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 17,
+      "ttps_found": [
+        "T1003",
+        "T1005",
+        "T1012",
+        "T1027",
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1003",
+        "T1005",
+        "T1036",
+        "T1053",
+        "T1547"
+      ],
+      "ttp_tp": 7,
+      "ttp_fp": 5
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- find graphical window\n- get session user name\n- compiled with AutoIt\n- get session user name\n- download and write a file\n- delete registry key\n- capture screenshot\n- open clipboard\n- link function at runtime on Windows\n- acquire debug privileges\n\nInstru",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1003",
+        "T1005",
+        "T1012",
+        "T1027",
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1059",
+        "T1070",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 8,
+      "best_ttp_fp": 6
+    },
+    {
+      "step": 8,
+      "type": "judge_check",
+      "iteration": 3,
+      "needs_more": true,
+      "gap_summary": "16 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 16,
+      "ttps_found": [
+        "T1003",
+        "T1005",
+        "T1012",
+        "T1027",
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1059",
+        "T1070",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1003",
+        "T1005",
+        "T1036",
+        "T1053",
+        "T1070",
+        "T1547"
+      ],
+      "ttp_tp": 8,
+      "ttp_fp": 6
+    },
+    {
+      "step": 9,
+      "type": "judge_feedback",
+      "iteration": 3,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- find graphical window\n- get session user name\n- get session user name\n- download and write a file\n- delete registry key\n- capture screenshot\n- open clipboard\n- link function at runtime on Windows\n- acquire debug privileges\n- set file attributes\n\nInstruc",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 10,
+      "type": "refinement_rejected",
+      "iteration": 3,
+      "reason": "response not in structured format - keeping previous output",
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is confirmed malicious. It utilizes a multi-stage execution chain involving a dropped payload (qnjzbaah.exe) that employs anti-an"
+    },
+    {
+      "step": 11,
+      "type": "analyst_refinement",
+      "iteration": 3,
+      "ttps_now": [
+        "T1003",
+        "T1005",
+        "T1012",
+        "T1027",
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1059",
+        "T1070",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 8,
+      "best_ttp_fp": 6
+    },
+    {
+      "step": 12,
+      "type": "refinement_stopped",
+      "iteration": 3,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 8,
+      "ttp_fp": 6
+    }
+  ],
+  "total_llm_calls": 4,
+  "total_elapsed": 115.93,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.7887
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.4211,
+      "ttp_precision": 0.5714,
+      "ttp_recall": 0.3333,
+      "gt_ttps": [
+        "T1010",
+        "T1012",
+        "T1027",
+        "T1033",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1087",
+        "T1105",
+        "T1112",
+        "T1113",
+        "T1115",
+        "T1129",
+        "T1134",
+        "T1222",
+        "T1497",
+        "T1518",
+        "T1529",
+        "T1564",
+        "T1569",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1003",
+        "T1005",
+        "T1012",
+        "T1027",
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1059",
+        "T1070",
+        "T1082",
+        "T1083",
+        "T1547"
+      ],
+      "tp": 8,
+      "q3_hallucinated_ttps": [
+        "T1003",
+        "T1005",
+        "T1036",
+        "T1053",
+        "T1070",
+        "T1547"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1033",
+        "T1087",
+        "T1105",
+        "T1112",
+        "T1113",
+        "T1115",
+        "T1129",
+        "T1134",
+        "T1222",
+        "T1497",
+        "T1518",
+        "T1529",
+        "T1564",
+        "T1569",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4211,
+      "breakdown": {
+        "ttp_f1": 0.4211
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

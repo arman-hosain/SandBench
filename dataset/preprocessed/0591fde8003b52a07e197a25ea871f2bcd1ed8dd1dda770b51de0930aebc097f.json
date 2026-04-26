@@ -1,0 +1,65 @@
+{
+  "hash": "0591fde8003b52a07e197a25ea871f2bcd1ed8dd1dda770b51de0930aebc097f",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (5):\n  - contain obfuscated stackstrings\n  - encode data using XOR\n  - encode data using Base64\n  - packed with generic packer\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - contain loop\n  - Data::Encode Data::Base64 [C0026.001]\n  - reference HTTP User-Agent string\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Data::Check String [C0019]\n  - (internal) packer file limitation\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n  Signer: HT Srl; VeriSign Class 3 Code Signing 2010 CA; VeriSign\n\nCOMPILER AND PACKER:\n  [Protector] VMProtect\n  [Sign tool] Windows Authenticode\n\nPE SECTIONS (entropy):\n  .text        entropy=6.71\n  .rdata       entropy=5.52\n  .data        entropy=0.0\n  INIT         entropy=7.51\n  .upx0        entropy=7.98\n  .upx1        entropy=7.75\n  .reloc       entropy=5.29\n  [overlay]    entropy=7.359634876251221  size=5096\n",
+  "ground_truth": {
+    "hash": "0591fde8003b52a07e197a25ea871f2bcd1ed8dd1dda770b51de0930aebc097f",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7945,
+    "malicious_count": 58,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 21
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "fragtor",
+        "count": 7
+      },
+      {
+        "value": "rootkit",
+        "count": 5
+      },
+      {
+        "value": "dangeroussig",
+        "count": 3
+      }
+    ],
+    "suggested_label": "trojan.fragtor/rootkit",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "encode data using XOR",
+      "PEB access",
+      "contain loop",
+      "encode data using Base64",
+      "reference HTTP User-Agent string",
+      "packed with generic packer",
+      "reference Base64 string",
+      "(internal) packer file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

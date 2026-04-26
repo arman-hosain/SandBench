@@ -1,0 +1,216 @@
+{
+  "hash": "03df930ac9de35f23bfe367261bec1b825402a9ee0b2d13dac7d95d251b17aa0",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a range of suspicious behaviors, including encoding data using XOR, setting file attributes, querying registry values, and creating mutexes. It also drops several files, including a copy of svchost.com, and writes to various locations on the system. These behaviors are indicative of a malicious payload.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior is consistent with a Trojan, which is a type of malware that disguises itself as a legitimate program but actually performs malicious actions. The sample's ability to drop files, create mutexes, and write to system locations is typical of a Trojan.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1210\", \"name\": \"Exploit Public-Facing Application\"},\n      {\"id\": \"T1036\", \"name\": \"Masquerading as a Legitimate System Component\"},\n      {\"id\": \"T1059\", \"name\": \"Command and Scripting Interpreter\"},\n      {\"id\": \"T1047\", \"name\": \"Windows Service Installation\"},\n      {\"id\": \"T1212\", \"name\": \"Exploitation of Remote Services\"},\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"},\n      {\"id\": \"T1012\", \"name\": \"Remote Services\"},\n      {\"id\": \"T1056\", \"name\": \"Input Capture\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 3110,
+      "response_chars": 1209,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a range of suspicious behaviors, including encoding data using XOR, setting file attributes, querying registry values, and creating mutexes. It also drops several files, including a copy of svchost.com, and writes to various locations on the system. These behaviors are indicative of a malicious payload.\"\n  },\n  \"q2\": {",
+      "elapsed_seconds": 5.66
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "6 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 6,
+      "ttps_found": [
+        "T1027",
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1210",
+        "T1218"
+      ],
+      "hallucinated_ttps": [
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1210",
+        "T1218"
+      ],
+      "ttp_tp": 2,
+      "ttp_fp": 5
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- query or enumerate registry value\n- get disk information\n- get common file path\n- capture screenshot\n- set file attributes\n- get geographical location\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact techni",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1012",
+        "T1027",
+        "T1036",
+        "T1047",
+        "T1055",
+        "T1056",
+        "T1059",
+        "T1082",
+        "T1210",
+        "T1212"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 4,
+      "best_ttp_fp": 6
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "4 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 4,
+      "ttps_found": [
+        "T1012",
+        "T1027",
+        "T1036",
+        "T1047",
+        "T1055",
+        "T1056",
+        "T1059",
+        "T1082",
+        "T1210",
+        "T1212"
+      ],
+      "hallucinated_ttps": [
+        "T1036",
+        "T1047",
+        "T1055",
+        "T1056",
+        "T1210",
+        "T1212"
+      ],
+      "ttp_tp": 4,
+      "ttp_fp": 6
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- get common file path\n- capture screenshot\n- set file attributes\n- get geographical location\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remov",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "refinement_rejected",
+      "iteration": 2,
+      "reason": "response not in structured format - keeping previous output",
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a range of suspicious behaviors, including encoding data using XOR, setting file attributes, querying registry values, c"
+    },
+    {
+      "step": 8,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1012",
+        "T1027",
+        "T1036",
+        "T1047",
+        "T1055",
+        "T1056",
+        "T1059",
+        "T1082",
+        "T1210",
+        "T1212"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 4,
+      "best_ttp_fp": 6
+    },
+    {
+      "step": 9,
+      "type": "refinement_stopped",
+      "iteration": 2,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 4,
+      "ttp_fp": 6
+    }
+  ],
+  "total_llm_calls": 3,
+  "total_elapsed": 50.04,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9306
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.4444,
+      "ttp_precision": 0.4,
+      "ttp_recall": 0.5,
+      "gt_ttps": [
+        "T1012",
+        "T1027",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1113",
+        "T1222",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1012",
+        "T1027",
+        "T1036",
+        "T1047",
+        "T1055",
+        "T1056",
+        "T1059",
+        "T1082",
+        "T1210",
+        "T1212"
+      ],
+      "tp": 4,
+      "q3_hallucinated_ttps": [
+        "T1036",
+        "T1047",
+        "T1055",
+        "T1056",
+        "T1210",
+        "T1212"
+      ],
+      "q3_missed_ttps": [
+        "T1083",
+        "T1113",
+        "T1222",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4444,
+      "breakdown": {
+        "ttp_f1": 0.4444
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

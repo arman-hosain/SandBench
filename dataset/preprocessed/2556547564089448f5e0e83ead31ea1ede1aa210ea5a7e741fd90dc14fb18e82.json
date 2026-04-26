@@ -1,0 +1,47 @@
+{
+  "hash": "2556547564089448f5e0e83ead31ea1ede1aa210ea5a7e741fd90dc14fb18e82",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - packed with ASPack\n\nCAPA RULE MATCHES (MBC):\n  - reference absolute stream path on Windows\n  - contain loop\n  - Execution::Install Additional Program [B0023]\n  - contain a resource (.rsrc) section\n  - Anti-Static Analysis::Software Packing [F0001]\n  - contains PDB path\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n  - (internal) packer file limitation\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] ASPack\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.29\n  .data        entropy=0.0\n  .rsrc        entropy=0.0\n  .aspack      entropy=0.0\n  .adata       entropy=0.0\n  [overlay]    entropy=6.224608898162842  size=1908533\n",
+  "ground_truth": {
+    "hash": "2556547564089448f5e0e83ead31ea1ede1aa210ea5a7e741fd90dc14fb18e82",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8971,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with ASPack"
+      }
+    ],
+    "capa_sig_names": [
+      "reference absolute stream path on Windows",
+      "contain loop",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "packed with ASPack",
+      "contains PDB path",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation",
+      "(internal) packer file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

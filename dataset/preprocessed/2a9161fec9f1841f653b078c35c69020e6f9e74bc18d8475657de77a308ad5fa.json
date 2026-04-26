@@ -1,0 +1,57 @@
+{
+  "hash": "2a9161fec9f1841f653b078c35c69020e6f9e74bc18d8475657de77a308ad5fa",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nIP TRAFFIC (1):\n  104.123.71.136:80 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  taskeng.exe\n    xjsdpxh.exe\n  svchost.exe\n    WmiPrvSE.exe\n  zhsrrgd.pe32\n\nCOMMAND EXECUTIONS (1):\n  C:\\PROGRA~2\\Mozilla\\xjsdpxh.exe -hyqaudl\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - encode data using Base64 via WinAPI\n  - encode data using XOR\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - encode data using Base64 via WinAPI\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - File System::Delete File [C0047]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: e1362dec11829c75...]\n  \\PROGRA~2\\Mozilla\\xjsdpxh.exe  [sha256: 7bb42cda420107c8...]\n  \\PROGRA~2\\Mozilla\\fgpypmj.dll  [sha256: 48fdfb5d4f4f561d...]\n\nFILES WRITTEN (3):\n  C:\\PROGRA~2\\Mozilla\\fgpypmj.dll\n  C:\\PROGRA~2\\Mozilla\\xjsdpxh.exe\n  C:\\Windows\\System32\\Tasks\\calbdib\n\nOTHER REGISTRY KEYS SET (3):\n  \\REGISTRY\\MACHINE\\HexStream = 53004F004600540057004100520045005C004D006900630072006F0073006F00660074005C00570069006E0064\n  \\REGISTRY\\MACHINE\\HexStream = 53004F004600540057004100520045005C004D006900630072006F0073006F00660074005C00570069006E0064\n  \\REGISTRY\\MACHINE\\HexStream = 53004F004600540057004100520045005C004D006900630072006F0073006F00660074005C00570069006E0064\n\nPROCESSES CREATED (5):\n  WmiPrvSE.exe\n  svchost.exe\n  taskeng.exe\n  xjsdpxh.exe\n  zhsrrgd.pe32\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] Watcom\n  [Linker] Watcom Linker\n\nPE SECTIONS (entropy):\n  AUTO         entropy=6.08\n  DGROUP       entropy=6.53\n  .idata       entropy=3.9\n  .reloc       entropy=2.7\n  [overlay]    entropy=7.531241416931152  size=424\n",
+  "ground_truth": {
+    "hash": "2a9161fec9f1841f653b078c35c69020e6f9e74bc18d8475657de77a308ad5fa",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9155,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using Base64 via WinAPI"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RWX memory",
+      "encode data using Base64 via WinAPI",
+      "encode data using XOR",
+      "contain loop",
+      "delete file"
+    ],
+    "iocs": {
+      "ips": [
+        "104.123.71.136"
+      ],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 3,
+      "files_dropped": [
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "\\PROGRA~2\\Mozilla\\fgpypmj.dll",
+        "\\PROGRA~2\\Mozilla\\xjsdpxh.exe"
+      ],
+      "mutexes": [],
+      "processes": [
+        "WmiPrvSE.exe",
+        "svchost.exe",
+        "taskeng.exe",
+        "xjsdpxh.exe",
+        "zhsrrgd.pe32"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Jujubox"
+  ]
+}

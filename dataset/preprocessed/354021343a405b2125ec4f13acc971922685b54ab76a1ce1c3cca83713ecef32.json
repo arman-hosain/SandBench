@@ -1,0 +1,63 @@
+{
+  "hash": "354021343a405b2125ec4f13acc971922685b54ab76a1ce1c3cca83713ecef32",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  sdfklxcjv8r89234uijxdzsfsrfwdfsdf.linkpc.net \u2192 64.42.179.59\n\nIP TRAFFIC (2):\n  64.42.179.59:33077 (TCP)\n  8.8.8.8:53 (UDP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  skype.pe32\n    RegAsm.exe\n\nCOMMAND EXECUTIONS (3):\n  \"C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\RegAsm.exe\"\n  \"C:\\Windows\\system32\\rundll32.exe\" C:\\Windows\\system32\\shell32.dll,OpenAs_RunDLL C:\\analyse\\1575021554.8563652_c1337c84-1c7b-4bda-834c-7a6a8a74b5e3\n   \n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - invoke .NET assembly method\n  - decode data using Base64 in .NET\n\nCAPA RULE MATCHES (MBC):\n  - invoke .NET assembly method\n  - Data::Decode Data::Base64 [C0053.001]\n  - contain loop\n  - compiled to the .NET platform\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  \\Users\\Petra\\VmaKK.exe  [sha256: 354021343a405b21...]\n  \\Users\\Petra\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\HJdyTuap.exe  [sha256: 259db7dbd79712f5...]\n\nFILES WRITTEN (3):\n  C:\\Documents and Settings\\Administrator\\VmaKK.exe\n  C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\HJdyTuap.exe\n  C:\\Users\\<USER>\\VmaKK.exe\n\nOTHER REGISTRY KEYS SET (1):\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C00520065006D0\n\nMUTEXES CREATED (3):\n  Remcos-RD48R6\n  Startup_shellcode_006\n  frenchy_shellcode_006\n\nPROCESSES CREATED (2):\n  C:\\Windows\\System32\\rundll32.exe\n  RegAsm.exe\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Library] .NET\n  [Library] .NET\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': '.NET executable'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.14\n  .rsrc        entropy=3.52\n  .reloc       entropy=0.1\n",
+  "ground_truth": {
+    "hash": "354021343a405b2125ec4f13acc971922685b54ab76a1ce1c3cca83713ecef32",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7042,
+    "malicious_count": 50,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "msil",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1140",
+        "signature_description": "decode data using Base64 in .NET"
+      },
+      {
+        "id": "T1620",
+        "signature_description": "invoke .NET assembly method"
+      }
+    ],
+    "capa_sig_names": [
+      "invoke .NET assembly method",
+      "decode data using Base64 in .NET",
+      "contain loop",
+      "compiled to the .NET platform"
+    ],
+    "iocs": {
+      "ips": [
+        "64.42.179.59",
+        "8.8.8.8"
+      ],
+      "domains": [
+        "sdfklxcjv8r89234uijxdzsfsrfwdfsdf.linkpc.net"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "\\Users\\Petra\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\HJdyTuap.exe",
+        "\\Users\\Petra\\VmaKK.exe"
+      ],
+      "mutexes": [
+        "Remcos-RD48R6",
+        "Startup_shellcode_006",
+        "frenchy_shellcode_006"
+      ],
+      "processes": [
+        "C:\\Windows\\System32\\rundll32.exe",
+        "RegAsm.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Rising MOVES",
+    "SNDBOX",
+    "Tencent HABO"
+  ]
+}

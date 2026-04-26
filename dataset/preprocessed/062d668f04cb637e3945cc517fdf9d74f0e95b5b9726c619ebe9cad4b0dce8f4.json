@@ -1,0 +1,73 @@
+{
+  "hash": "062d668f04cb637e3945cc517fdf9d74f0e95b5b9726c619ebe9cad4b0dce8f4",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - packed with generic packer\n  - get common file path\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - inspect load icon resource\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Discovery::File and Directory Discovery [E1083]\n  - contain a resource (.rsrc) section\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: 50a65be85084b3c2...]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  ADVAPI32.dll: AdjustTokenPrivileges, OpenProcessToken\n  KERNEL32.dll: GetProcAddress, VirtualAlloc\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=5.65\n  .text        entropy=0.98\n  .rdata       entropy=1.29\n  .data        entropy=7.27\n  .rdata4      entropy=0.0\n  .rdata3      entropy=0.0\n  .rdata2      entropy=0.0\n  .ta1         entropy=0.0\n  .rsrc        entropy=0.04\n  [overlay]    entropy=1.5490691661834717  size=4056\n",
+  "ground_truth": {
+    "hash": "062d668f04cb637e3945cc517fdf9d74f0e95b5b9726c619ebe9cad4b0dce8f4",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.875,
+    "malicious_count": 63,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 30
+      },
+      {
+        "value": "dropper",
+        "count": 2
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "shipup",
+        "count": 11
+      },
+      {
+        "value": "androm",
+        "count": 6
+      },
+      {
+        "value": "zbot",
+        "count": 4
+      }
+    ],
+    "suggested_label": "trojan.shipup/androm",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "inspect load icon resource",
+      "contain loop",
+      "packed with generic packer",
+      "get common file path",
+      "contain a resource (.rsrc) section",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

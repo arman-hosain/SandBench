@@ -1,0 +1,104 @@
+{
+  "hash": "21d300f9be3c470bcdcedfd3f5280360d89432c29c6bd3d48d3d30d7dc93dcae",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://www.microsoft.com/  UA: Microsoft Internet Explorer\n\nDNS LOOKUPS (2):\n  www.flaxweb.org\n  www.microsoft.com \u2192 104.80.22.51\n\nIP TRAFFIC (1):\n  104.80.22.51:80 (TCP)\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (9):\n  - set file attributes\n  - encrypt data using TEA\n  - get file size\n  - write process memory\n  - get common file path\n  - link function at runtime on Windows\n  - use process replacement\n  - accept command line arguments\n  - get number of processors\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - Process::Create Thread [C0038]\n  - Process::Open Process [C0065]\n  - File System::Set File Attributes [C0050]\n  - reference absolute stream path on Windows\n  - Process::Create Process [C0017]\n  - Process::Create Process::Create Suspended Process [C0017.003]\n  - Memory::Allocate Memory [C0007]\n  - Process::Resume Thread [C0054]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - contain loop\n  - Defense Evasion::Obfuscated Files or Information::Encryption-Standard Algorithm [E1027.m05]\n  - Process::Terminate Process [C0018]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Read File [C0051]\n  - File System::Writes File [C0052]\n  - write process memory\n  - link function at runtime on Windows\n  - use process replacement\n  - Discovery::Code Discovery::Enumerate PE Sections [B0046.001]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - File System::Delete File [C0047]\n  - File System::Copy File [C0045]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA, GetProcAddress, VirtualAllocEx, WriteProcessMemory\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=5.89\n  .rsrc        entropy=7.93\n",
+  "ground_truth": {
+    "hash": "21d300f9be3c470bcdcedfd3f5280360d89432c29c6bd3d48d3d30d7dc93dcae",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8714,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encrypt data using TEA"
+      },
+      {
+        "id": "T1055",
+        "signature_description": "write process memory"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get number of processors"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1620",
+        "signature_description": "use process replacement"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "delay execution",
+      "create or open file",
+      "create thread",
+      "open process",
+      "set file attributes",
+      "reference absolute stream path on Windows",
+      "create process on Windows",
+      "create process suspended",
+      "allocate memory",
+      "allocate RW memory",
+      "resume thread",
+      "PEB access",
+      "contain loop",
+      "encrypt data using TEA",
+      "terminate process",
+      "get file size",
+      "read file on Windows",
+      "write file on Windows",
+      "write process memory",
+      "get common file path",
+      "link function at runtime on Windows",
+      "use process replacement",
+      "enumerate PE sections",
+      "accept command line arguments",
+      "delete file",
+      "copy file",
+      "get number of processors",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "104.80.22.51"
+      ],
+      "domains": [
+        "www.flaxweb.org",
+        "www.microsoft.com"
+      ],
+      "urls": [
+        "http://www.microsoft.com/"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

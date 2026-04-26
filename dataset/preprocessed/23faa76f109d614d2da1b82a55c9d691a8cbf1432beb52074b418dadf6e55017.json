@@ -1,0 +1,46 @@
+{
+  "hash": "23faa76f109d614d2da1b82a55c9d691a8cbf1432beb52074b418dadf6e55017",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  svchost.exe\n    byiamvi.exe -iipcnmc\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  ctvqzym.exe  [sha256: b2674c8c77fcc7d8...]\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: 9b57d7de751edc8f...]\n\nFILES WRITTEN (5):\n  C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\ctvqzym.exe\n  C:\\Documents and Settings\\All Users\\Application Data\\Mozilla\\aopsara.dll\n  C:\\Documents and Settings\\All Users\\Application Data\\Mozilla\\byiamvi.exe\n  C:\\WINDOWS\\Tasks\\hiqvsnd.job\n  C:\\WINDOWS\\Tasks\\rwdqoxi.job\n\nPERSISTENCE REGISTRY KEYS (2):\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs = C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\aopsara.dll\u0000\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs = 01000000\n\nMUTEXES CREATED (6):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: VirtualAlloc, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Linker] Polink\n  Packers: {'F-PROT': 'appended, embedded'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.88\n  .rdata2      entropy=0.0\n  .rdata       entropy=3.54\n  .data        entropy=4.54\n  .rsrc        entropy=3.12\n  .reloc       entropy=3.99\n  [overlay]    entropy=7.289403915405273  size=336\n",
+  "ground_truth": {
+    "hash": "23faa76f109d614d2da1b82a55c9d691a8cbf1432beb52074b418dadf6e55017",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9143,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [],
+    "capa_sig_names": [],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs"
+      ],
+      "registry_all_count": 2,
+      "files_dropped": [
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "ctvqzym.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

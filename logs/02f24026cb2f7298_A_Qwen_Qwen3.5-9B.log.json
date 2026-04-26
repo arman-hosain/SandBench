@@ -1,0 +1,71 @@
+{
+  "hash": "02f24026cb2f7298a6b07fef67bf7e3a4e5e1e3da195210538825dbcea40f034",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits several suspicious behaviors including the use of a custom compiler (LCC-Win32) and a packer identified as 'Microsoft Visual C++ (3.0 old crap)', which is often used to obfuscate malicious code. It drops multiple executable files in system directories (Program Files, Windows Tasks) and writes a scheduled task (hiqvsnd.job), indicating persistence mechanisms. The presence of GetProcAddress in imports suggests dynamic code execution or API hooking. However, without definitive evidence of data exfiltration, ransomware encryption, or command-and-control communication, the verdict remains suspicious rather than confirmed malicious.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Dropper\"],\n    \"explanation\": \"The sample acts as a Dropper by dropping additional executable files (ctvqzym.exe, zhsrrgd.exe) and creating a scheduled task for persistence. It likely functions as a Trojan given its obfuscation techniques (packing, custom compiler) and the ability to execute code dynamically via GetProcAddress. The behavior aligns with a Trojan/Dropper designed to establish persistence and potentially deliver further payloads.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1053\",\n        \"name\": \"Scheduled Task/Job\"\n      },\n      {\n        \"id\": \"T1569\",\n        \"name\": \"Scheduled Task/Job\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 978,
+      "response_chars": 1490,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits several suspicious behaviors including the use of a custom compiler (LCC-Win32) and a packer identified as 'Microsoft Visual C++ (3.0 old crap)', which is often used to obfuscate malicious code. It drops multiple executable files in system directories (Program Files, Windows Tasks) and writes a scheduled task (hiqvsnd",
+      "elapsed_seconds": 7.13
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 7.13,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 0.5,
+      "predicted": "SUSPICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8451
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1129"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1053",
+        "T1569"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1053",
+        "T1569"
+      ],
+      "q3_missed_ttps": [
+        "T1129"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

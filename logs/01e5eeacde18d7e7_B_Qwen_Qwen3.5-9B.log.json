@@ -1,0 +1,144 @@
+{
+  "hash": "01e5eeacde18d7e7a81749aa1e863795eba4aa7ebdbdd1d706e7584786e3d0fc",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"BENIGN\",\n    \"explanation\": \"The sample is identified as 'DictionaryBoss', a legitimate browser extension/add-on used for dictionary services. The behavior consists of standard installation procedures: creating directories, registering services (v4barsvc.exe), setting up persistence via the Run key for legitimate functionality (Search Scope Monitor, Browser Plugin Loader), and dropping associated DLLs and executables. The presence of a valid VeriSign certificate from Mindspark Interactive Network further confirms its legitimacy. No malicious indicators such as encryption, data exfiltration, or unauthorized system modifications were observed.\"\n  },\n  \"q2\": {\n    \"family\": [\"PUA\"],\n    \"explanation\": \"While DictionaryBoss is a legitimate tool, in the context of malware classification, it is often categorized as PUA (Potentially Unwanted Application) because it installs browser extensions and modifies browser settings (search scope, homepage guard) which users may not desire, even if the software itself is not malicious. It fits the profile of an adware-like or browser-hijacking tool that is unwanted but not inherently destructive like Ransomware or a Trojan.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1543.003\",\n        \"name\": \"Service Installation: Windows Service\"\n      },\n      {\n        \"id\": \"T1055.004\",\n        \"name\": \"Process Injection: Dynamic Resolution\"\n      },\n      {\n        \"id\": \"T1059.001\",\n        \"name\": \"Command and Scripting Interpreter: Command Prompt\"\n      },\n      {\n        \"id\": \"T1070.004\",\n        \"name\": \"Indicator Removal: File Deletion\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 6926,
+      "response_chars": 1782,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"BENIGN\",\n    \"explanation\": \"The sample is identified as 'DictionaryBoss', a legitimate browser extension/add-on used for dictionary services. The behavior consists of standard installation procedures: creating directories, registering services (v4barsvc.exe), setting up persistence via the Run key for legitimate functionality (Search Scope Monitor, Browser Plugin Loade",
+      "elapsed_seconds": 15.06
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "9 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 9,
+      "ttps_found": [
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1543",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1055",
+        "T1070",
+        "T1543",
+        "T1547"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 4
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- enumerate gui resources\n- query or enumerate registry value\n- reference Base64 string\n- get disk information\n- get common file path\n- delete registry value\n- link function at runtime on Windows\n- set file attributes\n- identify system language via API\n\nI",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1005",
+        "T1012",
+        "T1013",
+        "T1055",
+        "T1070"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 1,
+      "best_ttp_fp": 4
+    },
+    {
+      "step": 5,
+      "type": "refinement_stopped",
+      "iteration": 1,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 1,
+      "ttp_fp": 4
+    }
+  ],
+  "total_llm_calls": 2,
+  "total_elapsed": 29.37,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 0.0,
+      "predicted": "BENIGN",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.5915
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.1333,
+      "ttp_precision": 0.2,
+      "ttp_recall": 0.1,
+      "gt_ttps": [
+        "T1010",
+        "T1012",
+        "T1027",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1112",
+        "T1129",
+        "T1222",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1543",
+        "T1547"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1070",
+        "T1543",
+        "T1547"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1012",
+        "T1027",
+        "T1082",
+        "T1083",
+        "T1112",
+        "T1129",
+        "T1222",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.1333,
+      "breakdown": {
+        "ttp_f1": 0.1333
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

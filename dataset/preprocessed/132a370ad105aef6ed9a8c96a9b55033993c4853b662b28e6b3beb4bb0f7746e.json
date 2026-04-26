@@ -1,0 +1,42 @@
+{
+  "hash": "132a370ad105aef6ed9a8c96a9b55033993c4853b662b28e6b3beb4bb0f7746e",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  c:\\windows\\spoolsv.exe c:\\windows\\spoolsv.exe\" PR\"\n  c:\\windows\\spoolsv.exe c:\\windows\\spoolsv.exe\" SE\"\n  c:\\windows\\svchost.exe c:\\windows\\svchost.exe\" \"\n  c:\\windows\\system32\\explorer.exe c:\\windows\\system32\\explorer.exe\" \"\n\nCOMMAND EXECUTIONS (4):\n  (open) c:\\windows\\system32\\explorer.exe []\n  (open) c:\\windows\\spoolsv.exeSE []\n  (open) c:\\windows\\svchost.exe []\n  (open) c:\\windows\\spoolsv.exePR []\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  explorer.exe  [sha256: 584e58db14ea030d...]\n  spoolsv.exe  [sha256: 096cc4f6f71cd332...]\n  svchost.exe  [sha256: 511e5e3c1ac1f29d...]\n\nFILES WRITTEN (4):\n  \\\\.\\PIPE\\wkssvc\n  c:\\windows\\spoolsv.exe\n  c:\\windows\\svchost.exe\n  c:\\windows\\system32\\explorer.exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nMUTEXES OPENED (7):\n  MutexNPA_UnitVersioning_1272\n  MutexNPA_UnitVersioning_1532\n  MutexNPA_UnitVersioning_1556\n  MutexNPA_UnitVersioning_1764\n  MutexNPA_UnitVersioning_1828\n  MutexNPA_UnitVersioning_2476\n  MutexNPA_UnitVersioning_312\n\nPROCESSES CREATED (4):\n  c:\\windows\\spoolsv.exe c:\\windows\\spoolsv.exe\" PR\"\n  c:\\windows\\spoolsv.exe c:\\windows\\spoolsv.exe\" SE\"\n  c:\\windows\\svchost.exe c:\\windows\\svchost.exe\" \"\n  c:\\windows\\system32\\explorer.exe c:\\windows\\system32\\explorer.exe\" \"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAlloc, WinExec\n  advapi32.dll: OpenProcessToken\n\nCOMPILER AND PACKER:\n  [Compiler] Embarcadero Delphi\n  [Linker] Turbo Linker\n  Packers: {'PEiD': 'BobSoft Mini Delphi -> BoB / BobSoft'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.41\n  .itext       entropy=5.95\n  .data        entropy=5.93\n  .bss         entropy=0.0\n  .idata       entropy=5.14\n  .didata      entropy=3.25\n  .tls         entropy=0.0\n  .rdata       entropy=0.21\n  .reloc       entropy=6.7\n  .rsrc        entropy=5.2\n",
+  "ground_truth": {
+    "hash": "132a370ad105aef6ed9a8c96a9b55033993c4853b662b28e6b3beb4bb0f7746e",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8889,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [],
+    "capa_sig_names": [],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "explorer.exe",
+        "spoolsv.exe",
+        "svchost.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "c:\\windows\\spoolsv.exe c:\\windows\\spoolsv.exe\" PR\"",
+        "c:\\windows\\spoolsv.exe c:\\windows\\spoolsv.exe\" SE\"",
+        "c:\\windows\\svchost.exe c:\\windows\\svchost.exe\" \"",
+        "c:\\windows\\system32\\explorer.exe c:\\windows\\system32\\explorer.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "VirusTotal Cuckoofork"
+  ]
+}

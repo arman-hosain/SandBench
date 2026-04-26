@@ -1,0 +1,88 @@
+{
+  "hash": "0e8669c1df12fa849f776999ecf1bbbfcc9a7f1b0b841701ad0dcfb773d80238",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\Documents and Settings\\All Users\\Application Data\\vlgdc.exe\n\nCOMMAND EXECUTIONS (1):\n  (open) C:\\0e8669c1df12fa849f776999ecf1bbbfcc9a7f1b0b841701ad0dcfb773d(null) [(null)]\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - encode data using XOR\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain pusha popa sequence\n  - contain loop\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (30):\n  AUTOEXEC.BAT .exe  [sha256: 7ac9d73b6ab3313b...]\n  boot.ini .exe  [sha256: 274699e270ee4235...]\n  CONFIG.SYS .exe  [sha256: 1e15883b83c4321d...]\n  cuckoo .exe  [sha256: e405acf5b76fbb24...]\n  Documents and Settings .exe  [sha256: 9a2c836a3c926752...]\n  eula.1028.txt .exe  [sha256: 35ae0604a7856ade...]\n  eula.1031.txt .exe  [sha256: e433b7e4211e39a3...]\n  eula.1033.txt .exe  [sha256: ab6ad25027fe9f86...]\n  eula.1036.txt .exe  [sha256: 69b3499214ac57cc...]\n  eula.1040.txt .exe  [sha256: f4730a617bd270b0...]\n  eula.1041.txt .exe  [sha256: 10884fc662695918...]\n  eula.1042.txt .exe  [sha256: 7e2a49154ca48661...]\n  eula.2052.txt .exe  [sha256: 7a93f9365c0ae5d4...]\n  eula.3082.txt .exe  [sha256: d434c31d07477982...]\n  globdata.ini .exe  [sha256: 27c79cadbe4e6dd2...]\n  install.exe .exe  [sha256: b3822b71d23c1d4a...]\n  install.ini .exe  [sha256: d9578f595597f991...]\n  install.res.1028.dll .exe  [sha256: 771474ba1edb4b7d...]\n  install.res.1031.dll .exe  [sha256: b3bd9e821469638b...]\n  install.res.1033.dll .exe  [sha256: b6ac33198cc3e463...]\n\nFILES WRITTEN (3):\n  C:\\Documents and Settings\\All Users\\Application Data\\Saaaalamm\\Mira.h\n  C:\\Documents and Settings\\All Users\\Application Data\\vlgdc.exe\n  c:\\AUTOEXEC.BAT .exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  C:\\Documents and Settings\\All Users\\Application Data\\vlgdc.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n\nPE SECTIONS (entropy):\n  .text        entropy=6.09\n  .data        entropy=0.71\n  .rdata       entropy=5.01\n  .bss         entropy=0.0\n  .idata       entropy=4.29\n  .rsrc        entropy=4.73\n  .NewSec      entropy=0.47\n  [overlay]    entropy=6.60701322555542  size=401080\n",
+  "ground_truth": {
+    "hash": "0e8669c1df12fa849f776999ecf1bbbfcc9a7f1b0b841701ad0dcfb773d80238",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9014,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain pusha popa sequence",
+      "contain loop",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "AUTOEXEC.BAT .exe",
+        "CONFIG.SYS .exe",
+        "Documents and Settings .exe",
+        "IO.SYS .exe",
+        "MSDOS.SYS .exe",
+        "Mira.h",
+        "NTDETECT.COM .exe",
+        "Program Files .exe",
+        "Python27 .exe",
+        "RECYCLER .exe",
+        "System Volume Information .exe",
+        "VC_RED.MSI .exe",
+        "VC_RED.cab .exe",
+        "WINDOWS .exe",
+        "boot.ini .exe",
+        "cuckoo .exe",
+        "eula.1028.txt .exe",
+        "eula.1031.txt .exe",
+        "eula.1033.txt .exe",
+        "eula.1036.txt .exe",
+        "eula.1040.txt .exe",
+        "eula.1041.txt .exe",
+        "eula.1042.txt .exe",
+        "eula.2052.txt .exe",
+        "eula.3082.txt .exe",
+        "globdata.ini .exe",
+        "install.exe .exe",
+        "install.ini .exe",
+        "install.res.1028.dll .exe",
+        "install.res.1031.dll .exe",
+        "install.res.1033.dll .exe",
+        "install.res.1036.dll .exe",
+        "install.res.1040.dll .exe",
+        "install.res.1041.dll .exe",
+        "install.res.1042.dll .exe",
+        "install.res.2052.dll .exe",
+        "install.res.3082.dll .exe",
+        "ntldr .exe",
+        "pagefile.sys .exe",
+        "vcredist.bmp .exe",
+        "vlgdc.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\All Users\\Application Data\\vlgdc.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

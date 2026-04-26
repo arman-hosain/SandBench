@@ -1,0 +1,84 @@
+{
+  "hash": "0280a438998b6122b624af743d30a68e16d97be859626574c920f2d16448d70b",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as DNS lookups, IP traffic, and file drops, and also contains packed code and uses techniques like AutoIt, which are commonly used in malware.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's purpose appears to be to drop and execute a Trojan, as evidenced by the file drops and registry key modifications, which are typical of Trojan behavior.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 4799,
+      "response_chars": 646,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as DNS lookups, IP traffic, and file drops, and also contains packed code and uses techniques like AutoIt, which are commonly used in malware.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's purpose appears to be to drop and execute a Trojan, as evidenced by the file ",
+      "elapsed_seconds": 3.41
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 3.41,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.7887
+    },
+    "family": {
+      "family_f1": 0.5,
+      "family_precision": 1.0,
+      "family_recall": 0.3333,
+      "predicted": [
+        "trojan"
+      ],
+      "matched": [
+        "trojan"
+      ],
+      "reachable_gt": [
+        "spyware",
+        "dropper",
+        "trojan"
+      ],
+      "gt_pool": [
+        "autoit",
+        "banker1",
+        "downloader",
+        "gen8",
+        "trojan"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 0.5,
+      "ttp_precision": 0.5,
+      "ttp_recall": 0.5,
+      "gt_ttps": [
+        "T1027",
+        "T1059"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1218"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1059"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5,
+      "breakdown": {
+        "ttp_f1": 0.5
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

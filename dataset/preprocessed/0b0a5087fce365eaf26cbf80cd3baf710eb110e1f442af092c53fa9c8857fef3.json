@@ -1,0 +1,61 @@
+{
+  "hash": "0b0a5087fce365eaf26cbf80cd3baf710eb110e1f442af092c53fa9c8857fef3",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nIP TRAFFIC (1):\n  216.171.192.88:443 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  0b0a5087fce365ea_mhomof32.exe\n    C:\\Windows\\system32\\Dohbcghc.exe\n      C:\\Windows\\system32\\Dohbcghc.exe\n        C:\\Windows\\system32\\Dohbcghc.exe\n          C:\\Windows\\system32\\Dohbcghc.exe\n            C:\\Windows\\system32\\Dohbcghc.exe\n              C:\\Windows\\system32\\Dohbcghc.exe\n                C:\\Windows\\system32\\Dohbcghc.exe\n                  C:\\Windows\\system32\\Dohbcghc.exe\n                    C:\\Windows\\system32\\Dohbcghc.exe\n                      C:\\Windows\\system32\\Dohbcghc.exe\n                        C:\\Windows\\system32\\Dohbcghc.exe\n                          C:\\Windows\\system32\\Dohbcghc.exe\n                            C:\\Windows\\system32\\Dohbcghc.exe\n                              C:\\Windows\\system32\\Dohbcghc.exe\n\nCOMMAND EXECUTIONS (4):\n  C:\\Windows\\system32\\Igpopmfo.exe\n  %WINDIR%\\system32\\Hpbgepip.exe\n  %WINDIR%\\system32\\wbem\\wmiprvse.exe -Embedding\n  taskhost.exe $(Arg0)\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - encode data using XOR\n  - packed with generic packer\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Execution::Install Additional Program [B0023]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (5):\n  \\Windows\\System32\\Goadlijd.dll  [sha256: d418ef8314c1f038...]\n  \\Windows\\System32\\Igpopmfo.exe  [sha256: ad72f723e27dd70a...]\n  %WINDIR%\\System32\\surf.dat  [sha256: 3c3d17d2adbab87a...]\n  %WINDIR%\\System32\\Hpbgepip.exe  [sha256: 663f2363cb18a703...]\n  %WINDIR%\\System32\\Ofllkmpq.dll  [sha256: f138d2ca576ff5d1...]\n\nFILES WRITTEN (5):\n  C:\\Windows\\system32\\Dohbcghc.exe\n  C:\\Windows\\system32\\Gjhbol32.dll\n  C:\\Windows\\system32\\Goadlijd.dll\n  C:\\Windows\\system32\\Igpopmfo.exe\n  C:\\Windows\\system32\\surf.dat\n\nOTHER REGISTRY KEYS SET (10):\n  HKCR\\CLSID\\{79FEACFF-FFCE-815E-A900-316290B5B738}\\InProcServer32\\\n  HKCR\\CLSID\\{79FEACFF-FFCE-815E-A900-316290B5B738}\\InProcServer32\\ThreadingModel\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\ShellServiceObjectDelayLoad\\Web Event Logger\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C00570069006E0064\n  \\REGISTRY\\USER\\HexStream = 2E00440045004600410055004C0054005C0053004F004600540057004100520045005C004D006900630072006F007\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n\nMUTEXES CREATED (5):\n  KingKarton_10\n  Local\\_!MSFTHISTORY!_\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n\nPROCESSES CREATED (1):\n  Igpopmfo.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: CreateProcessA, GetProcAddress, WinExec\n\nCOMPILER AND PACKER:\n  [sfx] temporary EXE SFX\n  [Linker] LCC Linker\n  [Overlay] EXE file\n  Packers: {'Cyren': 'dropped'}\n\nPE SECTIONS (entropy):\n  .text        entropy=7.14\n  .bss         entropy=0.0\n  .data        entropy=6.09\n  .idata       entropy=5.08\n  .aajaic      entropy=2.27\n  [overlay]    entropy=7.490777492523193  size=4809216\n",
+  "ground_truth": {
+    "hash": "0b0a5087fce365eaf26cbf80cd3baf710eb110e1f442af092c53fa9c8857fef3",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9296,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain loop",
+      "packed with generic packer",
+      "contain an embedded PE file",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [
+        "216.171.192.88"
+      ],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 12,
+      "files_dropped": [
+        "%WINDIR%\\System32\\Hpbgepip.exe",
+        "%WINDIR%\\System32\\Ofllkmpq.dll",
+        "%WINDIR%\\System32\\surf.dat",
+        "\\Windows\\System32\\Goadlijd.dll",
+        "\\Windows\\System32\\Igpopmfo.exe"
+      ],
+      "mutexes": [
+        "KingKarton_10",
+        "Local\\_!MSFTHISTORY!_",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!",
+        "Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!"
+      ],
+      "processes": [
+        "Igpopmfo.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VenusEye Sandbox",
+    "VirusTotal Jujubox"
+  ]
+}

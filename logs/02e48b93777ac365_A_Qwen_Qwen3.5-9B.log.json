@@ -1,0 +1,99 @@
+{
+  "hash": "02e48b93777ac365b9aa44208d389458d6fcb3fefbd6c23d40090e263a4a9ae2",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence via the Run registry key, creation of mutexes, extensive file system enumeration, and dropping numerous files with sexually explicit names disguised as executables. The use of obfuscation (high entropy overlay, Polink linker) and dynamic analysis evasion techniques further confirms its malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The primary behavior of the sample is to drop additional files (likely other droppers or payloads) to various system directories and user profiles. While it may eventually deliver other malware, its immediate observable function in the sandbox is dropping files, which classifies it as a Dropper.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1036\",\n        \"name\": \"Masquerading\"\n      },\n      {\n        \"id\": \"T1005\",\n        \"name\": \"Data from Local System\"\n      },\n      {\n        \"id\": \"T1083\",\n        \"name\": \"File and Directory Discovery\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 5493,
+      "response_chars": 1369,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence via the Run registry key, creation of mutexes, extensive file system enumeration, and dropping numerous files with sexually explicit names disguised as executables. The use of obfuscation (high entropy overlay, Polink linker) and dynamic analysis evasion techniques further",
+      "elapsed_seconds": 7.55
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 7.55,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9577
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.2,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 0.1429,
+      "gt_ttps": [
+        "T1007",
+        "T1010",
+        "T1012",
+        "T1057",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1135",
+        "T1489",
+        "T1518",
+        "T1543",
+        "T1547",
+        "T1569"
+      ],
+      "pred_ttps": [
+        "T1005",
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1083",
+        "T1547"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1005",
+        "T1027",
+        "T1036",
+        "T1055"
+      ],
+      "q3_missed_ttps": [
+        "T1007",
+        "T1010",
+        "T1012",
+        "T1057",
+        "T1059",
+        "T1082",
+        "T1129",
+        "T1135",
+        "T1489",
+        "T1518",
+        "T1543",
+        "T1569"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2,
+      "breakdown": {
+        "ttp_f1": 0.2
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

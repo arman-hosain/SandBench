@@ -1,0 +1,54 @@
+{
+  "hash": "0c81f12ddf80d496c587aac2c5e490afae21b64d77e440c7673e6ac2ec6605b5",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://icanhazip.com/\n\nDNS LOOKUPS (1):\n  icanhazip.com \u2192 104.20.16.242, 104.20.17.242\n\nIP TRAFFIC (2):\n  104.20.16.242:80 (TCP)\n  98.181.17.39:443 (TCP)\n\nSERVICES OPENED (1):\n  Sens\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  mibidot.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\mibidot.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - contain pusha popa sequence\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - contain a resource (.rsrc) section\n  - (internal) packer file limitation\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\mibidot.exe  [sha256: 68cdb2ee08ef1132...]\n\nFILES WRITTEN (2):\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows\\Temporary Internet Files\\Content.IE5\\XBL73YY1\\icanhazip_com[1].txt\n  C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\Windows\\Cookies\\admin@icanhazip[1].txt\n\nOTHER REGISTRY KEYS SET (3):\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n\nMUTEXES CREATED (1):\n  IESQMMUTEX_0_208\n\nMUTEXES OPENED (3):\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  Packers: {'PEiD': 'Microsoft Visual C++'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=4.82\n  UPX1         entropy=4.46\n  .rsrc        entropy=5.25\n  .imports     entropy=4.4\n  [overlay]    entropy=3.5280847549438477  size=4676\n",
+  "ground_truth": {
+    "hash": "0c81f12ddf80d496c587aac2c5e490afae21b64d77e440c7673e6ac2ec6605b5",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8472,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "ipatre",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with UPX"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "contain pusha popa sequence",
+      "packed with UPX",
+      "contain a resource (.rsrc) section",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [
+        "104.20.16.242",
+        "98.181.17.39"
+      ],
+      "domains": [
+        "icanhazip.com"
+      ],
+      "urls": [
+        "http://icanhazip.com/"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 3,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\mibidot.exe"
+      ],
+      "mutexes": [
+        "IESQMMUTEX_0_208"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "hash": "03b5f64322853f8e65af12af28ccf94f0b3bb91a028017f98ca6e7acd96290af",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits multiple suspicious behaviors including importing CreateProcessA, creating directories, writing files, and installing additional programs. The presence of a 'Linker' compiler/packer and high entropy in the overlay section suggests potential packing or obfuscation. While definitive malicious indicators like encryption or network exfiltration are not explicitly detailed in this specific report, the combination of file system manipulation, process execution capabilities, and installation behavior warrants a suspicious verdict.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\", \"Unknown\"],\n    \"explanation\": \"The sample imports CreateProcessA, creates directories, and installs additional programs, which are classic behaviors of a dropper designed to deploy other payloads. The high entropy in the overlay and the use of a linker suggest it may be packed to hide its payload. Due to the lack of confirmed payload execution or specific malicious functionality in the provided report, 'Unknown' is also included as a possibility.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1082\",\n        \"name\": \"System Information Discovery\"\n      },\n      {\n        \"id\": \"T1083\",\n        \"name\": \"File and Directory Discovery\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1081,
+      "response_chars": 1264,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits several suspicious behaviors including importing CreateProcessA (potential for code execution), creating directories, writing files, and installing additional programs. However, the presence of a 'Linker' compiler/packer and high entropy in the overlay section suggests it might be a legitimate tool or a dropper rather",
+      "elapsed_seconds": 10.38
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "3 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 3,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1070"
+      ],
+      "hallucinated_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1070"
+      ],
+      "ttp_tp": 0,
+      "ttp_fp": 4
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- enumerate gui resources\n- get disk information\n- check if file exists\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not di",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1082",
+        "T1083"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 2,
+      "best_ttp_fp": 1
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "1 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 1,
+      "ttps_found": [
+        "T1027",
+        "T1082",
+        "T1083"
+      ],
+      "hallucinated_ttps": [
+        "T1027"
+      ],
+      "ttp_tp": 2,
+      "ttp_fp": 1
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- enumerate gui resources\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by the report.\nDIRECTION: ADD",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1027",
+        "T1082",
+        "T1083",
+        "T1105"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 2,
+      "best_ttp_fp": 1
+    },
+    {
+      "step": 8,
+      "type": "refinement_stopped",
+      "iteration": 2,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 2,
+      "ttp_fp": 2
+    }
+  ],
+  "total_llm_calls": 3,
+  "total_elapsed": 33.83,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 0.5,
+      "predicted": "SUSPICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8889
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.6667,
+      "ttp_precision": 0.6667,
+      "ttp_recall": 0.6667,
+      "gt_ttps": [
+        "T1010",
+        "T1082",
+        "T1083"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1082",
+        "T1083"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1027"
+      ],
+      "q3_missed_ttps": [
+        "T1010"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.6667,
+      "breakdown": {
+        "ttp_f1": 0.6667
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

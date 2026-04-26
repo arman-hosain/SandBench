@@ -1,0 +1,69 @@
+{
+  "hash": "14dc71d67585066e3a24aed23c3c76b33c51461ff7e8f057ce65631f028029f4",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (6):\n  GET http://infikuje.freevnn.com/aa.txt\n  GET http://infikuje.freevnn.com/px.gif?ch=1&rn=1.771366734746596\n  GET http://www.google.com/adsense/domains/caf.js\n  GET http://infikuje.freevnn.com/px.gif?ch=2&rn=1.771366734746596\n  GET http://infikuje.freevnn.com/favicon.ico\n  GET http://infikuje.freevnn.com/glp?r=&u=http%3A%2F%2Finfikuje.freevnn.com%2Faa.txt&rw=1024&rh=768&ww=780&wh=447&ie=8\n\nDNS LOOKUPS (3):\n  11776.BODIS.com \u2192 199.59.242.153\n  infikuje.freevnn.com \u2192 199.59.242.153\n  www.google.com \u2192 216.58.213.164\n\nIP TRAFFIC (2):\n  199.59.242.153:80 (TCP)\n  216.58.213.164:80 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  14dc71d67585066e_svhost.exe\n    commander.exe /C schtasks /run /tn at1\n      schtasks /run /tn at1\n    commander.exe /C at 9:00 /interactive C:\\Windows\\svhost.exe\n      at 9:00 /interactive C:\\Windows\\svhost.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - packed with generic packer\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - contain a resource (.rsrc) section\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - (internal) packer file limitation\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nFILES DROPPED (4):\n  commander.exe  [sha256: efeac69485e33831...]\n  svhost.exe  [sha256: 08f38f27c33a52d3...]\n  C:\\Windows\\svhost.exe  [sha256: c01b40a9b1cc13d3...]\n  C:\\Windows\\SysWOW64\\commander.exe  [sha256: ae09aa34cee29449...]\n\nFILES WRITTEN (2):\n  C:\\WINDOWS\\svhost.exe\n  C:\\WINDOWS\\system32\\commander.exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (3):\n  commander.exe /C at 9:00 /interactive  C:\\WINDOWS\\svhost.exe\n  commander.exe /C schtasks /run /tn at1\n  explorer.exe C:\\14dc71d67585066e3a24aed23c3c76b33c51461ff7e8f057ce65631f028029f4\"\"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Overlay] AutoIt compiled script\n  Packers: {'PEiD': 'UPX v0.89.6 - v1.02 / v1.05 -v1.24 -> Markus & Laszlo [overlay]', 'F-PROT': 'UPX'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.93\n  .rsrc        entropy=4.15\n  [overlay]    entropy=7.957330226898193  size=57577\n",
+  "ground_truth": {
+    "hash": "14dc71d67585066e3a24aed23c3c76b33c51461ff7e8f057ce65631f028029f4",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8611,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "packed with generic packer",
+      "contain a resource (.rsrc) section",
+      "packed with UPX",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [
+        "199.59.242.153",
+        "216.58.213.164"
+      ],
+      "domains": [
+        "11776.bodis.com",
+        "infikuje.freevnn.com",
+        "www.google.com"
+      ],
+      "urls": [
+        "http://infikuje.freevnn.com/aa.txt",
+        "http://infikuje.freevnn.com/favicon.ico",
+        "http://infikuje.freevnn.com/glp?r=&u=http%3A%2F%2Finfikuje.freevnn.com%2Faa.txt&rw=1024&rh=768&ww=780&wh=447&ie=8",
+        "http://infikuje.freevnn.com/px.gif?ch=1&rn=1.771366734746596",
+        "http://infikuje.freevnn.com/px.gif?ch=2&rn=1.771366734746596",
+        "http://www.google.com/adsense/domains/caf.js"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Windows\\SysWOW64\\commander.exe",
+        "C:\\Windows\\svhost.exe",
+        "commander.exe",
+        "svhost.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "commander.exe /C at 9:00 /interactive  C:\\WINDOWS\\svhost.exe",
+        "commander.exe /C schtasks /run /tn at1",
+        "explorer.exe C:\\14dc71d67585066e3a24aed23c3c76b33c51461ff7e8f057ce65631f028029f4\"\""
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

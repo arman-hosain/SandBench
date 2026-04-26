@@ -1,0 +1,133 @@
+{
+  "hash": "17f77a3c59b4b0a3d0e2922c7b6ba626b850dc521c503c6ca0c2acabef306ce6",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (18):\n  - encode data using XOR\n  - hide graphical window\n  - get geographical location\n  - identify system language via API\n  - link function at runtime on Windows\n  - query or enumerate registry value\n  - find graphical window\n  - encrypt data using RC4 PRGA\n  - get disk size\n  - get file version info\n  - query or enumerate registry key\n  - delete registry key\n  - delete registry value\n  - capture screenshot\n  - log keystrokes via polling\n  - log keystrokes\n  - get keyboard layout\n  - enumerate gui resources\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Thread [C0038]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - File System::Create File [C0016]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Process::Resume Thread [C0054]\n  - Process::Suspend Thread [C0055]\n  - hide graphical window\n  - set global application hook\n  - inspect load icon resource\n  - contain loop\n  - Anti-Behavioral Analysis::Debugger Detection::Timing/Delay Check GetTickCount [B0001.032]\n  - File System::Writes File [C0052]\n  - get geographical location\n  - identify system language via API\n  - link function at runtime on Windows\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Process::Set Thread Local Storage Value [C0041]\n  - get thread local storage value\n  - find graphical window\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (7):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  MSCTF.Shared.MUTEX.EBH\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] Embarcadero Delphi\n  [Linker] Turbo Linker\n  Packers: {'PEiD': 'BobSoft Mini Delphi -> BoB / BobSoft'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.67\n  .itext       entropy=5.83\n  .data        entropy=4.02\n  .bss         entropy=0.0\n  .idata       entropy=5.26\n  .didata      entropy=3.17\n  .tls         entropy=0.0\n  .rdata       entropy=0.21\n  .reloc       entropy=0.0\n  .rsrc        entropy=4.83\n",
+  "ground_truth": {
+    "hash": "17f77a3c59b4b0a3d0e2922c7b6ba626b850dc521c503c6ca0c2acabef306ce6",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.6528,
+    "malicious_count": 47,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "dealply",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk size"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file version info"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry key"
+      },
+      {
+        "id": "T1113",
+        "signature_description": "capture screenshot"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "allocate RW memory",
+      "delay execution",
+      "create thread",
+      "create or open registry key",
+      "PEB access",
+      "create or open file",
+      "encode data using XOR",
+      "resume thread",
+      "suspend thread",
+      "allocate RWX memory",
+      "hide graphical window",
+      "set global application hook",
+      "inspect load icon resource",
+      "contain loop",
+      "check for time delay via GetTickCount",
+      "write file on Windows",
+      "get geographical location",
+      "identify system language via API",
+      "link function at runtime on Windows",
+      "query or enumerate registry value",
+      "set thread local storage value",
+      "get thread local storage value",
+      "find graphical window",
+      "encrypt data using RC4 PRGA",
+      "get disk size",
+      "get OS version",
+      "get file version info",
+      "extract resource via kernel32 functions",
+      "query or enumerate registry key",
+      "delete registry key",
+      "delete registry value",
+      "set registry value",
+      "capture screenshot",
+      "log keystrokes via polling",
+      "log keystrokes",
+      "resolve function by parsing PE exports",
+      "get keyboard layout",
+      "enumerate gui resources",
+      "set application hook",
+      "get graphical window text",
+      "contain a resource (.rsrc) section",
+      "contain a thread local storage (.tls) section",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "MSCTF.Shared.MUTEX.EBH"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

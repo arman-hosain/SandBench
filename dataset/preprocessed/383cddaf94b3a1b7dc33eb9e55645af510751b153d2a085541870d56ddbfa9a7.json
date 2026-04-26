@@ -1,0 +1,79 @@
+{
+  "hash": "383cddaf94b3a1b7dc33eb9e55645af510751b153d2a085541870d56ddbfa9a7",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    ****.exe\n    ntvdm.exe -f -i1 -o\n\nCOMMAND EXECUTIONS (2):\n  \"c:\\documents and settings\\administrator\\local settings\\temp\\eb93a6\\996e.exe\"\n  \"C:\\WINDOWS\\system32\\ntvdm.exe\" -f -i1 -o\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (5):\n  - encode data using XOR\n  - parse PE header\n  - packed with enigma\n  - reference anti-VM strings targeting VirtualBox\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Cryptography::Generate Pseudo-random Sequence [C0021]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - contain loop\n  - Data::Checksum::CRC32 [C0032.001]\n  - Data::Decompress Data::aPLib [C0025.003]\n  - parse PE header\n  - resolve function by parsing PE exports\n  - Discovery::Code Discovery::Enumerate PE Sections [B0046.001]\n  - Execution::Install Additional Program [B0023]\n  - contain a resource (.rsrc) section\n  - Anti-Static Analysis::Software Packing [F0001]\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - Data::Encode Data::Base64 [C0026.001]\n  - Data::Check String [C0019]\n  - compiled with Borland Delphi\n  - (internal) packer file limitation\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExW\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  c:\\windows\\system\\spoolsv.exe  [sha256: 464fc11bc84c0698...]\n\nFILES WRITTEN (4):\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Application Data\\.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF8479FE4955CC27D3.TMP\n  C:\\WINDOWS\\Temp\\scs2.tmp\n  C:\\WINDOWS\\Temp\\scs3.tmp\n\nOTHER REGISTRY KEYS SET (2):\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C0056004200200\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\Software\\VB and VBA Program Settings\\Explorer\\HexStream = 5\n\nMUTEXES CREATED (6):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n\nPROCESSES CREATED (3):\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe\n  C:\\WINDOWS\\system32\\ntvdm.exe\n  c:\\windows\\system\\explorer.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Protector] ENIGMA\n  [Protector] Enigma Virtual Box\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'BobSoft Mini Delphi -> BoB / BobSoft', 'F-PROT': 'Enigma, embedded'}\n\nPE SECTIONS (entropy):\n  .rsrc        entropy=5.16\n  .data        entropy=7.98\n  .enigma1     entropy=7.69\n  .enigma2     entropy=5.92\n  [overlay]    entropy=7.604070663452148  size=343417\n",
+  "ground_truth": {
+    "hash": "383cddaf94b3a1b7dc33eb9e55645af510751b153d2a085541870d56ddbfa9a7",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8592,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "encode data using XOR",
+      "generate random numbers using the Delphi LCG",
+      "PEB access",
+      "contain loop",
+      "hash data with CRC32",
+      "decompress data using aPLib",
+      "parse PE header",
+      "resolve function by parsing PE exports",
+      "enumerate PE sections",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "packed with enigma",
+      "reference anti-VM strings targeting VirtualBox",
+      "reference Base64 string",
+      "compiled with Borland Delphi",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 2,
+      "files_dropped": [
+        "c:\\windows\\system\\spoolsv.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe",
+        "C:\\WINDOWS\\system32\\ntvdm.exe",
+        "c:\\windows\\system\\explorer.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

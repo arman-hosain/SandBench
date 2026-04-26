@@ -1,0 +1,110 @@
+{
+  "hash": "35674a3348a090bbb9534ca1472696541862b055f4de9b4853f7e358d3a98687",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (11):\n  - set file attributes\n  - query or enumerate registry key\n  - delete registry value\n  - query environment variable\n  - find process by name\n  - accept command line arguments\n  - delete registry key\n  - decode data using Base64 in .NET\n  - get file size\n  - access WMI data in .NET\n  - reference anti-VM strings targeting Qemu\n\nCAPA RULE MATCHES (MBC):\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Suspend Thread [C0055]\n  - Process::Create Process [C0017]\n  - File System::Get File Attributes [C0049]\n  - File System::Set File Attributes [C0050]\n  - reference absolute stream path on Windows\n  - Operating System::Registry::Query Registry Key [C0036.005]\n  - Operating System::Registry::Delete Registry Value [C0036.007]\n  - Process::Terminate Process [C0018]\n  - Discovery::System Information Discovery [E1082]\n  - find process by name\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Communication::DNS Communication::Resolve [C0011.001]\n  - terminate process by name in .NET\n  - Operating System::Registry::Delete Registry Key [C0036.002]\n  - Data::Decode Data::Base64 [C0053.001]\n  - File System::Delete File [C0047]\n  - File System::Read File [C0051]\n  - File System::Writes File [C0052]\n  - Cryptography::Generate Pseudo-random Sequence::Use API [C0021.003]\n  - unmanaged call\n  - Discovery::File and Directory Discovery [E1083]\n  - access .NET resource\n  - access WMI data in .NET\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (6):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Library] .NET\n  [Compiler] VB.NET\n  [Compiler] VB.NET\n  [Library] .NET\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': '.NET executable'}\n\nPE SECTIONS (entropy):\n  .text        entropy=4.96\n  .sdata       entropy=2.16\n  .rsrc        entropy=4.32\n  .reloc       entropy=0.1\n  [overlay]    entropy=4.585234642028809  size=54\n",
+  "ground_truth": {
+    "hash": "35674a3348a090bbb9534ca1472696541862b055f4de9b4853f7e358d3a98687",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8056,
+    "malicious_count": 58,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "msilzilla",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry key"
+      },
+      {
+        "id": "T1047",
+        "signature_description": "access WMI data in .NET"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "find process by name"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry value"
+      },
+      {
+        "id": "T1140",
+        "signature_description": "decode data using Base64 in .NET"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting Qemu"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open registry key",
+      "suspend thread",
+      "create process on Windows",
+      "get file attributes",
+      "set file attributes",
+      "reference absolute stream path on Windows",
+      "query or enumerate registry key",
+      "delete registry value",
+      "create a process with modified I/O handles and window",
+      "terminate process",
+      "query environment variable",
+      "find process by name",
+      "accept command line arguments",
+      "resolve DNS",
+      "terminate process by name in .NET",
+      "delete registry key",
+      "decode data using Base64 in .NET",
+      "delete file",
+      "read file on Windows",
+      "write file on Windows",
+      "generate random numbers in .NET",
+      "unmanaged call",
+      "get file size",
+      "access .NET resource",
+      "access WMI data in .NET",
+      "compiled to the .NET platform",
+      "contains PDB path",
+      "reference anti-VM strings targeting Qemu"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

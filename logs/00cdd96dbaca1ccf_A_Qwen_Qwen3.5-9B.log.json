@@ -1,0 +1,81 @@
+{
+  "hash": "00cdd96dbaca1ccf5c7767a689896e4213b84c310ca9ede975d84e7ecc078395",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence via the Run registry key, execution of obfuscated/packed code (UPX), and the creation of numerous files with names mimicking software downloaders and keygens (e.g., 'MSN Password Hacker and Stealer.exe', 'Borland Delphi 6 Key Generator.exe'). The presence of dangerous imports like GetProcAddress and VirtualAlloc, combined with anti-analysis techniques (delayed execution, debugger detection), confirms a malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\", \"Trojan\"],\n    \"explanation\": \"The sample acts as a Dropper by unpacking itself (UPX) and dropping multiple secondary payloads (fake downloaders, keygens) to the Temp folder. It also exhibits Trojan behavior by attempting persistence and likely executing the dropped payloads to steal data or perform other malicious actions.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1059.001\",\n        \"name\": \"Command and Scripting Interpreter: Windows Command Shell\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055.012\",\n        \"name\": \"Process Injection: Thread Local Storage\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 3081,
+      "response_chars": 1443,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence via the Run registry key, execution of obfuscated/packed code (UPX), and the creation of numerous files with names mimicking software downloaders and keygens (e.g., 'MSN Password Hacker and Stealer.exe', 'Borland Delphi 6 Key Generator.exe'). The presence of dangerous impo",
+      "elapsed_seconds": 7.61
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 7.61,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9167
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.5,
+      "ttp_precision": 0.75,
+      "ttp_recall": 0.375,
+      "gt_ttps": [
+        "T1012",
+        "T1027",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1547",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1547"
+      ],
+      "tp": 3,
+      "q3_hallucinated_ttps": [
+        "T1055"
+      ],
+      "q3_missed_ttps": [
+        "T1012",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5,
+      "breakdown": {
+        "ttp_f1": 0.5
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

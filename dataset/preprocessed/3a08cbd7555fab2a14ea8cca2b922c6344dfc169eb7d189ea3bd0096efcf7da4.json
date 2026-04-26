@@ -1,0 +1,138 @@
+{
+  "hash": "3a08cbd7555fab2a14ea8cca2b922c6344dfc169eb7d189ea3bd0096efcf7da4",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  d951e622971a77c2da02d6718923a72a.exe\n    C:\\Windows\\System\\ZvksVqw.exe\n    C:\\Windows\\System\\mPbMXmh.exe\n    C:\\Windows\\System\\nmbbUMz.exe\n    C:\\Windows\\System\\GeJBQjs.exe\n    C:\\Windows\\System\\yuOAXew.exe\n    C:\\Windows\\System\\iaHajFQ.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (18):\n  - encode data using XOR\n  - encrypt data using RC4 PRGA\n  - log keystrokes\n  - get common file path\n  - get system information on Windows\n  - get socket status\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - modify access privileges\n  - encrypt data using AES via x86 extensions\n  - encrypt data using AES\n  - reference AES constants\n  - reference cryptocurrency strings\n  - packed with UPX\n  - reference anti-VM strings targeting VirtualBox\n  - reference Base64 string\n  - reference anti-VM strings targeting Qemu\n  - reference anti-VM strings targeting VMWare\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - Process::Create Thread [C0038]\n  - Process::Resume Thread [C0054]\n  - Process::Create Process::Create Suspended Process [C0017.003]\n  - Process::Create Process [C0017]\n  - reference absolute stream path on Windows\n  - Memory::Allocate Memory [C0007]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Generate Pseudo-random Sequence::RC4 PRGA [C0021.004]\n  - Communication::Socket Communication::Send Data [C0001.007]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - Operating System::Console [C0033]\n  - log keystrokes\n  - Discovery::File and Directory Discovery [E1083]\n  - Communication::DNS Communication::Resolve [C0011.001]\n  - Communication::Socket Communication::Set Socket Config [C0001.001]\n  - Communication::Socket Communication::Receive Data [C0001.006]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - get system information on Windows\n  - Anti-Behavioral Analysis::Debugger Detection::Timing/Delay Check QueryPerformanceCounter [B0001.033]\n  - Process::Allocate Thread Local Storage [C0040]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (7):\n  C:\\Windows\\System\\iaHajFQ.exe  [sha256: 5a05b56df28adf77...]\n  C:\\Windows\\System\\yuOAXew.exe  [sha256: 1cdf08223a7e7f75...]\n  C:\\Windows\\System\\GeJBQjs.exe  [sha256: f551cf9ca2b25245...]\n  C:\\Windows\\System\\nmbbUMz.exe  [sha256: 843af7f45d159c9e...]\n  C:\\Windows\\System\\mPbMXmh.exe  [sha256: f551cf9ca2b25245...]\n  C:\\Windows\\System\\ZvksVqw.exe  [sha256: f551cf9ca2b25245...]\n  C:\\Windows\\System\\hvcwqDu.exe  [sha256: c480bca4c5fb1f87...]\n\nMUTEXES CREATED (1):\n  sfdkjjhgkdsfhgjksd\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: CreateProcessW, GetProcAddress, VirtualAlloc, VirtualProtect\n  ADVAPI32.dll: AdjustTokenPrivileges, OpenProcessToken\n\nCOMPILER AND PACKER:\n  [sfx] temporary EXE SFX\n  [Compiler] Microsoft Visual C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Overlay] EXE file\n  Packers: {'Cyren': 'exefile'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=6.49\n  UPX1         entropy=1.49\n  .rsrc        entropy=4.24\n  .imports     entropy=4.99\n  .reloc       entropy=5.27\n  [overlay]    entropy=6.470388412475586  size=3738488\n",
+  "ground_truth": {
+    "hash": "3a08cbd7555fab2a14ea8cca2b922c6344dfc169eb7d189ea3bd0096efcf7da4",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8611,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win64",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1016",
+        "signature_description": "get socket status"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get system information on Windows"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "modify access privileges"
+      },
+      {
+        "id": "T1496",
+        "signature_description": "reference cryptocurrency strings"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "delay execution",
+      "create or open file",
+      "create thread",
+      "resume thread",
+      "create process suspended",
+      "create process on Windows",
+      "reference absolute stream path on Windows",
+      "allocate memory",
+      "allocate RWX memory",
+      "allocate RW memory",
+      "encode data using XOR",
+      "contain loop",
+      "encrypt data using RC4 PRGA",
+      "send data on socket",
+      "send data",
+      "manipulate console buffer",
+      "log keystrokes",
+      "get common file path",
+      "resolve DNS",
+      "set socket configuration",
+      "receive data on socket",
+      "receive data",
+      "get system information on Windows",
+      "check for time delay via QueryPerformanceCounter",
+      "allocate thread local storage",
+      "set thread local storage value",
+      "create pipe",
+      "connect pipe",
+      "read file on Windows",
+      "write file on Windows",
+      "get socket status",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "initialize Winsock library",
+      "create mutex",
+      "check mutex and exit",
+      "write and execute a file",
+      "validate payment card number using luhn algorithm with no lookup table",
+      "validate payment card number using luhn algorithm",
+      "manipulate user privileges",
+      "modify access privileges",
+      "enumerate PE sections",
+      "hash data using SHA256",
+      "encrypt data using AES via x86 extensions",
+      "encrypt data using AES",
+      "reference AES constants",
+      "resolve function by parsing PE exports",
+      "reference cryptocurrency strings",
+      "contain an embedded PE file",
+      "packed with UPX",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting VirtualBox",
+      "reference Base64 string",
+      "reference anti-VM strings targeting Qemu",
+      "compiled with Go",
+      "reference anti-VM strings targeting VMWare",
+      "linked against wolfSSL",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Windows\\System\\GeJBQjs.exe",
+        "C:\\Windows\\System\\ZvksVqw.exe",
+        "C:\\Windows\\System\\hvcwqDu.exe",
+        "C:\\Windows\\System\\iaHajFQ.exe",
+        "C:\\Windows\\System\\mPbMXmh.exe",
+        "C:\\Windows\\System\\nmbbUMz.exe",
+        "C:\\Windows\\System\\yuOAXew.exe"
+      ],
+      "mutexes": [
+        "sfdkjjhgkdsfhgjksd"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

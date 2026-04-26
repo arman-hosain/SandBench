@@ -1,0 +1,75 @@
+{
+  "hash": "0ba05c83c1c3841155dd3436259b8a14a6d9df958dfb17f4089c9e26a349c22c",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  byqlpj.pe32\n    PIAUON.EXE\n\nCOMMAND EXECUTIONS (1):\n  C:\\tmprzcakn\\PIAUON.EXE\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - packed with Mpress\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - resolve function by parsing PE exports\n  - Anti-Static Analysis::Software Packing [F0001]\n  - contain a resource (.rsrc) section\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (23):\n  ABRJXV.EXE  [sha256: 9f60976e95326f2b...]\n  DJV.EXE  [sha256: 46b53668a5d26412...]\n  DVOKMN.EXE  [sha256: cd3ad1645e044671...]\n  LGG.EXE  [sha256: 5fcea6cbaad3f89c...]\n  RTA.EXE  [sha256: 44979c17b82e235a...]\n  TQYK.EXE  [sha256: 18da379403d58eff...]\n  C:\\$Recycle.Bin\\NJO.EXE  [sha256: d60a49b92d3fffd0...]\n  C:\\Program Files\\EANWS.EXE  [sha256: 9364c9f7e57bd91a...]\n  C:\\Program Files\\DCDIO.EXE  [sha256: b54c980684d84b37...]\n  C:\\Users\\<USER>  [sha256: 5136c6b47a1bdb92...]\n  C:\\PerfLogs\\OMSA.EXE  [sha256: 04bbcec69c59e99b...]\n  C:\\PerfLogs\\HCXJ.EXE  [sha256: 46fa3faf99cab8b6...]\n  C:\\Program Files (x86)\\LZJRUC.EXE  [sha256: 8a1efac5451f29fd...]\n  C:\\Program Files (x86)\\KFOQK.EXE  [sha256: d2384b3c0e0197fc...]\n  \\$Recycle.Bin\\EPJ.EXE  [sha256: efb389ee70fd2439...]\n  \\tmprzcakn\\PIAUON.EXE  [sha256: 72c7235c8ebe40ba...]\n  \\PerfLogs\\VKQ.EXE  [sha256: b86776d4ad40aa15...]\n  \\tmprzcakn\\CQOWCE.EXE  [sha256: 7c437a1d18e8279c...]\n  \\PerfLogs\\DAFY.EXE  [sha256: dea05d1364d7c8db...]\n  \\tmpmqgko7\\AKGDG.EXE  [sha256: 7b1574f1b90de0ba...]\n\nFILES WRITTEN (17):\n  C:\\$Recycle.Bin\\EPJ.EXE\n  C:\\Documents and Settings\\RTA.EXE\n  C:\\PerfLogs\\DAFY.EXE\n  C:\\PerfLogs\\VKQ.EXE\n  C:\\Program Files\\TQYK.EXE\n  C:\\RECYCLER\\ABRJXV.EXE\n  C:\\RECYCLER\\DVOKMN.EXE\n  C:\\System Volume Information\\JOSVHG.EXE\n  C:\\cuckoo\\DJV.EXE\n  C:\\cuckoo\\LGG.EXE\n  C:\\tmp_xg9dg\\RJOREQA.EXE\n  C:\\tmpmqgko7\\AKGDG.EXE\n  C:\\tmpmqgko7\\AQAZM.EXE\n  C:\\tmpmqgko7\\UOORQ.EXE\n  C:\\tmprzcakn\\CQOWCE.EXE\n  C:\\tmprzcakn\\PIAUON.EXE\n  c:\\filedebug\n\nOTHER REGISTRY KEYS SET (7):\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Setup\\workfile\n  HKCR\\txtfile\\shell\\open\\command\\\n  HKCR\\QQQ.file\\shell\\open\\command\\\n  HKCR\\QQQfile\\shell\\open\\command\\\n  HKCR\\inffile\\shell\\open\\command\\\n  \\REGISTRY\\MACHINE\\HexStream = 53004F004600540057004100520045005C004D006900630072006F0073006F00660074005C00570069006E0064\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C00570069006E0064\n\nMUTEXES CREATED (2):\n  ShimCacheMutex\n  qqpass7\n\nPROCESSES CREATED (2):\n  C:\\Documents and Settings\\RTA.EXE\n  PIAUON.EXE\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Packer] EP:MPRESS\n  [Packer] MPRESS\n  [Compiler] Borland Delphi\n\nPE SECTIONS (entropy):\n  .MPRESS1     entropy=8.0\n  .MPRESS2     entropy=5.85\n  .rsrc        entropy=2.49\n  [overlay]    entropy=0.2706829309463501  size=46860\n",
+  "ground_truth": {
+    "hash": "0ba05c83c1c3841155dd3436259b8a14a6d9df958dfb17f4089c9e26a349c22c",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8028,
+    "malicious_count": 57,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with Mpress"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "packed with Mpress",
+      "contain a resource (.rsrc) section",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 7,
+      "files_dropped": [
+        "ABRJXV.EXE",
+        "C:\\$Recycle.Bin\\NJO.EXE",
+        "C:\\PerfLogs\\HCXJ.EXE",
+        "C:\\PerfLogs\\OMSA.EXE",
+        "C:\\Program Files (x86)\\KFOQK.EXE",
+        "C:\\Program Files (x86)\\LZJRUC.EXE",
+        "C:\\Program Files\\DCDIO.EXE",
+        "C:\\Program Files\\EANWS.EXE",
+        "C:\\Users\\<USER>",
+        "DJV.EXE",
+        "DVOKMN.EXE",
+        "LGG.EXE",
+        "RTA.EXE",
+        "TQYK.EXE",
+        "\\$Recycle.Bin\\EPJ.EXE",
+        "\\PerfLogs\\DAFY.EXE",
+        "\\PerfLogs\\VKQ.EXE",
+        "\\tmp_xg9dg\\RJOREQA.EXE",
+        "\\tmpmqgko7\\AKGDG.EXE",
+        "\\tmpmqgko7\\AQAZM.EXE",
+        "\\tmpmqgko7\\UOORQ.EXE",
+        "\\tmprzcakn\\CQOWCE.EXE",
+        "\\tmprzcakn\\PIAUON.EXE"
+      ],
+      "mutexes": [
+        "ShimCacheMutex",
+        "qqpass7"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\RTA.EXE",
+        "PIAUON.EXE"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

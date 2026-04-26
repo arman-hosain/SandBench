@@ -1,0 +1,58 @@
+{
+  "hash": "33ef4868f21527aaed6bfa99e9c94b9ff5be5e75e5d6b76ca36905b171e7c01b",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - get common file path\n  - find graphical window\n  - enumerate files on Windows\n  - check if file exists\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - File System::Create File [C0016]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - Communication::Socket Communication::Initialize Winsock Library [C0001.009]\n  - Process::Create Mutex [C0042]\n  - find graphical window\n  - Process::Check Mutex [C0043]\n  - Process::Terminate Process [C0018]\n  - contain pusha popa sequence\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  ctvqzym.exe  [sha256: f00165d2cebdf9cd...]\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: 2c88c2746a02f0a5...]\n\nFILES WRITTEN (2):\n  C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\ctvqzym.exe\n  C:\\WINDOWS\\Tasks\\hiqvsnd.job\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] Watcom\n  [Linker] Watcom Linker\n\nPE SECTIONS (entropy):\n  AUTO         entropy=4.35\n  DGROUP       entropy=6.58\n  .idata       entropy=4.35\n  .reloc       entropy=5.11\n  .rsrc        entropy=3.3\n  [overlay]    entropy=7.9390082359313965  size=2936\n",
+  "ground_truth": {
+    "hash": "33ef4868f21527aaed6bfa99e9c94b9ff5be5e75e5d6b76ca36905b171e7c01b",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8873,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RWX memory",
+      "create or open file",
+      "contain loop",
+      "get common file path",
+      "initialize Winsock library",
+      "create mutex",
+      "find graphical window",
+      "check mutex and exit",
+      "enumerate files on Windows",
+      "check if file exists",
+      "contain pusha popa sequence"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "ctvqzym.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

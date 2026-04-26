@@ -1,0 +1,81 @@
+{
+  "hash": "0052bba127e6e2ff0baab15a45fa6a434e033be5a1edd5bfb6e5d5b9c7672caf",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits several suspicious behaviors including delayed execution (anti-analysis evasion), creation of new processes, file system enumeration, and writing files to disk. However, the specific artifacts (e.g., 'yanakwe.exe', 'dev_man.exe') and the use of PureBasic as a compiler suggest it might be a legitimate tool or a dropper for a specific purpose rather than a known malware family. The presence of 'desktop.ini' in the recycle bin and the creation of a batch file are common in both malware and legitimate automation scripts. Without clear evidence of data exfiltration, encryption, or persistence mechanisms typical of confirmed malware, the verdict remains suspicious.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The sample uses delayed execution techniques (Anti-Behavioral Analysis) and creates multiple executable files ('yanakwe.exe', 'dev_man.exe') and a batch file ('l.bat'). This behavior is characteristic of a dropper, which is designed to download or deploy other payloads. The use of PureBasic and the specific file names suggest it may be a custom-built dropper or a legitimate utility masquerading as one, but the primary behavioral pattern aligns with a dropper.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1036\",\n        \"name\": \"Masquerading\"\n      },\n      {\n        \"id\": \"T1053\",\n        \"name\": \"Scheduled Task/Job\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1417,
+      "response_chars": 1722,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits several suspicious behaviors including delayed execution (anti-analysis evasion), creation of new processes, file system enumeration, and writing files to disk. However, the specific artifacts (e.g., 'yanakwe.exe', 'dev_man.exe') and the use of PureBasic as a compiler suggest it might be a legitimate tool or a dropper",
+      "elapsed_seconds": 8.5
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 8.5,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 0.5,
+      "predicted": "SUSPICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8714
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1010",
+        "T1082",
+        "T1083",
+        "T1222"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1059"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1059"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1082",
+        "T1083",
+        "T1222"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

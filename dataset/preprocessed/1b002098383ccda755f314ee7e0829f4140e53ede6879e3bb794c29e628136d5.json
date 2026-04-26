@@ -1,0 +1,80 @@
+{
+  "hash": "1b002098383ccda755f314ee7e0829f4140e53ede6879e3bb794c29e628136d5",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (3):\n  CENTRUM.CO.ID\n  centrum.co.id\n  fashionbagus.net\n\nIP TRAFFIC (2):\n  8.249.117.254:80 (TCP)\n  8.8.8.8:53 (UDP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  fireupdater.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\fireupdater.exe\n\nCOMMAND EXECUTIONS (2):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\fireupdater.exe\n  \"C:\\Users\\Petra\\AppData\\Local\\Temp\\fireupdater.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - accept command line arguments\n  - reference startup folder\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Process::Terminate Process [C0018]\n  - contain a resource (.rsrc) section\n  - reference startup folder\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\fireupdater.exe  [sha256: e0296e0df547dd05...]\n  \\Users\\Petra\\AppData\\Local\\Temp\\fireupdater.exe  [sha256: ed79a10726bd155d...]\n\nOTHER REGISTRY KEYS SET (8):\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C0054007200610063\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C0054007200610063\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n\nMUTEXES CREATED (15):\n  IESQMMUTEX_0_208\n  Local\\!IETld!Mutex\n  Local\\WininetConnectionMutex\n  Local\\WininetProxyRegistryMutex\n  Local\\WininetStartupMutex\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n  Local\\_!MSFTHISTORY!_\n\nPROCESSES CREATED (1):\n  fireupdater.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++ v6.0 SPx'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.63\n  .rdata       entropy=5.71\n  .data        entropy=3.9\n  .rsrc        entropy=5.44\n  [overlay]    entropy=3.542651653289795  size=10796\n",
+  "ground_truth": {
+    "hash": "1b002098383ccda755f314ee7e0829f4140e53ede6879e3bb794c29e628136d5",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8873,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "reference startup folder"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "accept command line arguments",
+      "terminate process",
+      "contain a resource (.rsrc) section",
+      "reference startup folder",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "8.249.117.254",
+        "8.8.8.8"
+      ],
+      "domains": [
+        "centrum.co.id",
+        "fashionbagus.net"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 8,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\fireupdater.exe",
+        "\\Users\\Petra\\AppData\\Local\\Temp\\fireupdater.exe"
+      ],
+      "mutexes": [
+        "IESQMMUTEX_0_208",
+        "Local\\!IETld!Mutex",
+        "Local\\WininetConnectionMutex",
+        "Local\\WininetProxyRegistryMutex",
+        "Local\\WininetStartupMutex",
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "Local\\_!MSFTHISTORY!_",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!",
+        "Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!",
+        "Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!ietldcache!",
+        "RasPbFile"
+      ],
+      "processes": [
+        "fireupdater.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Jujubox"
+  ]
+}

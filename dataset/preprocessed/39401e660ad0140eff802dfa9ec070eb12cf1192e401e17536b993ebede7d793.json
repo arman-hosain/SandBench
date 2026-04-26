@@ -1,0 +1,107 @@
+{
+  "hash": "39401e660ad0140eff802dfa9ec070eb12cf1192e401e17536b993ebede7d793",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\sanfdr.bat\" \"\n  C:\\WINDOWS\\system32\\gfjieor.exe C:\\WINDOWS\\system32\\gfjieor.exe\" \"\n\nCOMMAND EXECUTIONS (2):\n  ((null)) C:\\WINDOWS\\system32\\gfjieor.exe [(null)]\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\sanfdr.bat(null) [(null)]\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (10):\n  - get common file path\n  - check if file exists\n  - query or enumerate registry value\n  - check OS version\n  - interact with driver via control codes\n  - get MAC address on Windows\n  - get local IPv4 addresses\n  - download and write a file\n  - link function at runtime on Windows\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Process [C0017]\n  - Process::Create Thread [C0038]\n  - File System::Get File Attributes [C0049]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - File System::Create File [C0016]\n  - reference absolute stream path on Windows\n  - Communication::Socket Communication::Create TCP Socket [C0001.011]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - Process::Terminate Process [C0018]\n  - Communication::Socket Communication::Initialize Winsock Library [C0001.009]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - File System::Read File [C0051]\n  - File System::Writes File [C0052]\n  - File System::Delete File [C0047]\n  - get OS version\n  - Discovery::System Information Discovery [E1082]\n  - interact with driver via control codes\n  - Execution::Install Additional Program [B0023]\n  - get MAC address on Windows\n  - get local IPv4 addresses\n  - Communication::DNS Communication::Resolve [C0011.001]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  gfjieor.exe  [sha256: e1577aefa71cf49d...]\n\nFILES WRITTEN (3):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\golfinfo.ini\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\sanfdr.bat\n  C:\\WINDOWS\\system32\\gfjieor.exe\n\nMUTEXES CREATED (2):\n  RasPbFile\n  ShimCacheMutex\n\nPROCESSES CREATED (2):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\sanfdr.bat\" \"\n  C:\\WINDOWS\\system32\\gfjieor.exe C:\\WINDOWS\\system32\\gfjieor.exe\" \"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryW\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.46\n  .rdata       entropy=4.73\n  .data        entropy=2.31\n  .rsrc        entropy=4.32\n  .reloc       entropy=6.36\n  fdhjygdf     entropy=6.23\n  [overlay]    entropy=4.660701274871826  size=8137\n",
+  "ground_truth": {
+    "hash": "39401e660ad0140eff802dfa9ec070eb12cf1192e401e17536b993ebede7d793",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8889,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1016",
+        "signature_description": "get local IPv4 addresses"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "check OS version"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1105",
+        "signature_description": "download and write a file"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      }
+    ],
+    "capa_sig_names": [
+      "delay execution",
+      "create process on Windows",
+      "create thread",
+      "get file attributes",
+      "create or open registry key",
+      "create or open file",
+      "reference absolute stream path on Windows",
+      "create TCP socket",
+      "contain loop",
+      "get common file path",
+      "terminate process",
+      "initialize Winsock library",
+      "check if file exists",
+      "set registry value",
+      "query or enumerate registry value",
+      "read file on Windows",
+      "write file on Windows",
+      "delete file",
+      "get OS version",
+      "check OS version",
+      "interact with driver via control codes",
+      "write and execute a file",
+      "get MAC address on Windows",
+      "get local IPv4 addresses",
+      "resolve DNS",
+      "connect TCP socket",
+      "act as TCP client",
+      "send data on socket",
+      "send data",
+      "receive data on socket",
+      "receive data",
+      "download and write a file",
+      "receive and write data from server to client",
+      "allocate thread local storage",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "gfjieor.exe"
+      ],
+      "mutexes": [
+        "RasPbFile",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\sanfdr.bat\" \"",
+        "C:\\WINDOWS\\system32\\gfjieor.exe C:\\WINDOWS\\system32\\gfjieor.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

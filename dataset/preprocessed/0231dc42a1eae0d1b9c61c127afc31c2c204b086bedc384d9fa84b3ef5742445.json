@@ -1,0 +1,52 @@
+{
+  "hash": "0231dc42a1eae0d1b9c61c127afc31c2c204b086bedc384d9fa84b3ef5742445",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\avscan.exe\n  C:\\WINDOWS\\W_X_C.vbs W_X_C.vbs\n  C:\\windows\\hosts.exe C:\\windows\\hosts.exe\n  REG DELETE HKLM\\SYSTEM\\CurrentControlSet\\Control\\SafeBoot /f\n  c:\\windows\\W_X_C.bat\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - parse PE header\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - parse PE header\n  - Execution::Install Additional Program [B0023]\n  - contain a resource (.rsrc) section\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (5):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\avscan.exe\n  C:\\WINDOWS\\TEMP\\scs3.tmp\n  C:\\WINDOWS\\TEMP\\scs4.tmp\n  C:\\windows\\W_X_C.vbs\n  c:\\windows\\W_X_C.bat\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (5):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\avscan.exe\n  C:\\WINDOWS\\W_X_C.vbs W_X_C.vbs\n  C:\\windows\\hosts.exe C:\\windows\\hosts.exe\n  REG DELETE HKLM\\SYSTEM\\CurrentControlSet\\Control\\SafeBoot /f\n  c:\\windows\\W_X_C.bat\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.08\n  .rsrc        entropy=7.64\n  [overlay]    entropy=7.894729137420654  size=5717247\n",
+  "ground_truth": {
+    "hash": "0231dc42a1eae0d1b9c61c127afc31c2c204b086bedc384d9fa84b3ef5742445",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8732,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "parse PE header",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\avscan.exe",
+        "C:\\WINDOWS\\W_X_C.vbs W_X_C.vbs",
+        "C:\\windows\\hosts.exe C:\\windows\\hosts.exe",
+        "REG DELETE HKLM\\SYSTEM\\CurrentControlSet\\Control\\SafeBoot /f",
+        "c:\\windows\\W_X_C.bat"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

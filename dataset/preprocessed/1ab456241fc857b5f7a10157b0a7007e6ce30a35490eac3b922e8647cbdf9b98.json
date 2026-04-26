@@ -1,0 +1,68 @@
+{
+  "hash": "1ab456241fc857b5f7a10157b0a7007e6ce30a35490eac3b922e8647cbdf9b98",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  networello.duckdns.org\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    svchost.exe\n\nCOMMAND EXECUTIONS (1):\n  \"C:\\WINDOWS\\system32\\svchost.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - packed with generic packer\n  - packed with UPX\n  - compiled with AutoIt\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - contain a resource (.rsrc) section\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - compiled with AutoIt\n  - (internal) autoit file limitation\n  - (internal) packer file limitation\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  auditpolmhbsg.exe  [sha256: 6bf5d48b41131c4b...]\n  C:\\Users\\<USER>\\DXCape\\auditpolmhbsg.exe  [sha256: a297d4e19d2137b6...]\n\nFILES WRITTEN (2):\n  C:\\Documents and Settings\\<USER>\\DXCape\\auditpolmhbsg.exe\n  C:\\Documents and Settings\\Administrator\\DXCape\\auditpolmhbsg.exe\n\nOTHER REGISTRY KEYS SET (2):\n  HKCU\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\Load\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\Load\n\nMUTEXES CREATED (9):\n  -\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  SHIMLIB_LOG_MUTEX\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  C:\\WINDOWS\\system32\\svchost.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Library] AutoIt\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'UPX v0.89.6 - v1.02 / v1.05 -v1.24 -> Markus & Laszlo [overlay]', 'F-PROT': 'UPX'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.94\n  .rsrc        entropy=6.75\n  [overlay]    entropy=5.128692150115967  size=160\n",
+  "ground_truth": {
+    "hash": "1ab456241fc857b5f7a10157b0a7007e6ce30a35490eac3b922e8647cbdf9b98",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7465,
+    "malicious_count": 53,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "heur",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "compiled with AutoIt"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "packed with generic packer",
+      "contain a resource (.rsrc) section",
+      "packed with UPX",
+      "compiled with AutoIt",
+      "(internal) autoit file limitation",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [
+        "networello.duckdns.org"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 2,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\DXCape\\auditpolmhbsg.exe",
+        "auditpolmhbsg.exe"
+      ],
+      "mutexes": [
+        "-",
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "SHIMLIB_LOG_MUTEX",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\system32\\svchost.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

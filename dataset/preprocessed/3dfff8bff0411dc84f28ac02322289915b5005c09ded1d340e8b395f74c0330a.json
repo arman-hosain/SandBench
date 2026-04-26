@@ -1,0 +1,158 @@
+{
+  "hash": "3dfff8bff0411dc84f28ac02322289915b5005c09ded1d340e8b395f74c0330a",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://www.aieov.com/logo.gif\n\nDNS LOOKUPS (3):\n  5isohu.com\n  www.aieov.com \u2192 104.200.22.130, 104.200.23.95\n  www.aieov.com \u2192 104.200.23.95\n\nIP TRAFFIC (2):\n  104.200.22.130:80 (TCP)\n  104.200.23.95:80 (TCP)\n\nSERVICES OPENED (1):\n  Sens\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (23):\n  - contain obfuscated stackstrings\n  - get startup folder\n  - get process heap force flags\n  - access PEB ldr_data\n  - encode data using XOR\n  - hide graphical window\n  - get common file path\n  - check if file exists\n  - check OS version\n  - get MAC address on Windows\n  - accept command line arguments\n  - enumerate processes\n  - delete registry key\n  - persist via Run registry key\n  - delete registry value\n  - encrypt data using RC4 PRGA\n  - identify system language via API\n  - get file size\n  - log keystrokes via polling\n  - check for unmoving mouse cursor\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - reference anti-VM strings targeting VirtualBox\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Communication::HTTP Communication [C0002]\n  - parse URL\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - get startup folder\n  - Process::Create Process [C0017]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - get process heap force flags\n  - access PEB ldr_data\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - hide graphical window\n  - File System::Create File [C0016]\n  - Process::Create Thread [C0038]\n  - contain loop\n  - Communication::HTTP Communication::Create Request [C0002.012]\n  - Communication::HTTP Communication::Send Request [C0002.003]\n  - Communication::HTTP Communication::Connect to Server [C0002.009]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - Communication::HTTP Communication::Get Response [C0002.017]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Program Files\\Common Files\\System\\symsrv.dll  [sha256: de055a89de246e62...]\n\nFILES WRITTEN (3):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\frida-bf1f80d4fe40683033afcb51c5e2943a\\frida-agent-32.dll.tmp\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\frida-bf1f80d4fe40683033afcb51c5e2943a\\frida-winjector-helper-32.exe.tmp\n  c:\\program files\\common files\\system\\symsrv.dll.000\n\nOTHER REGISTRY KEYS SET (3):\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n\nMUTEXES CREATED (1):\n  IESQMMUTEX_0_208\n\nMUTEXES OPENED (3):\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessW, GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAlloc, VirtualProtect\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Sign tool] Windows Authenticode\n\nPE SECTIONS (entropy):\n  .text        entropy=6.57\n  .rdata       entropy=5.23\n  .data        entropy=4.91\n  .rsrc        entropy=7.96\n  .reloc       entropy=6.56\n  [overlay]    entropy=7.734415054321289  size=94143\n",
+  "ground_truth": {
+    "hash": "3dfff8bff0411dc84f28ac02322289915b5005c09ded1d340e8b395f74c0330a",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8169,
+    "malicious_count": 58,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": null,
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "get process heap force flags"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "check OS version"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry key"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "check for unmoving mouse cursor"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "get startup folder"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "identify system language via API"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "PEB access",
+      "get HTTP content length",
+      "parse URL",
+      "contain obfuscated stackstrings",
+      "get startup folder",
+      "create process on Windows",
+      "delay execution",
+      "get process heap force flags",
+      "access PEB ldr_data",
+      "create or open registry key",
+      "encode data using XOR",
+      "hide graphical window",
+      "create or open file",
+      "create thread",
+      "contain loop",
+      "create HTTP request",
+      "send HTTP request",
+      "connect to HTTP server",
+      "send data",
+      "read data from Internet",
+      "receive data",
+      "extract resource via kernel32 functions",
+      "hash data with MD5",
+      "get common file path",
+      "check if file exists",
+      "get OS version",
+      "check OS version",
+      "get MAC address on Windows",
+      "copy file",
+      "accept command line arguments",
+      "enumerate processes",
+      "delete registry key",
+      "persist via Run registry key",
+      "delete registry value",
+      "write file on Windows",
+      "hash data with CRC32",
+      "encrypt data using RC4 PRGA",
+      "identify system language via API",
+      "get file size",
+      "read file on Windows",
+      "log keystrokes via polling",
+      "check for unmoving mouse cursor",
+      "check for time delay via GetTickCount",
+      "link function at runtime on Windows",
+      "terminate process",
+      "get graphical window text",
+      "get thread local storage value",
+      "set thread local storage value",
+      "delete file",
+      "delete directory",
+      "print debug messages",
+      "link many functions at runtime",
+      "linked against CPP standard library",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "reference anti-VM strings targeting VirtualBox",
+      "contains PDB path",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [
+        "104.200.22.130",
+        "104.200.23.95"
+      ],
+      "domains": [
+        "5isohu.com",
+        "www.aieov.com"
+      ],
+      "urls": [
+        "http://www.aieov.com/logo.gif"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 3,
+      "files_dropped": [
+        "C:\\Program Files\\Common Files\\System\\symsrv.dll"
+      ],
+      "mutexes": [
+        "IESQMMUTEX_0_208"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

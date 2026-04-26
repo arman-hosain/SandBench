@@ -1,0 +1,170 @@
+{
+  "hash": "043015370e946cc10eb035c1414e202a27f6c53d3b95526ce5caa3a9c7cc81e5",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  GET http://www.google.com.br/  UA: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727)\n  GET http://www.google.com.br/\n\nDNS LOOKUPS (4):\n  www.google.com.br\n  www.google.com.br \u2192 172.217.19.227\n  www.google.com.br \u2192 172.217.212.94\n  www.google.com.br \u2192 172.217.23.67\n\nIP TRAFFIC (5):\n  172.217.212.94:80 (TCP)\n  172.217.23.67:80 (TCP)\n  216.58.206.227:80 (TCP)\n  8.8.8.8:53 (UDP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  e161b004e651bfba37e0.pe32\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (26):\n  - encode data using XOR\n  - hide graphical window\n  - access PEB ldr_data\n  - get process heap force flags\n  - get process heap flags\n  - accept command line arguments\n  - get file size\n  - query or enumerate registry value\n  - link function at runtime on Windows\n  - get geographical location\n  - find graphical window\n  - get disk size\n  - get file version info\n  - get system information on Windows\n  - read clipboard data\n  - capture screenshot\n  - get hostname\n  - link many functions at runtime\n  - enumerate gui resources\n  - log keystrokes via polling\n  - get keyboard layout\n  - log keystrokes\n  - get number of processors\n  - encode data using Base64\n  - encrypt data using RC4 KSA\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - File System::Create File [C0016]\n  - Cryptography::Generate Pseudo-random Sequence [C0021]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Create Thread [C0038]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - hide graphical window\n  - set global application hook\n  - access PEB ldr_data\n  - Process::Resume Thread [C0054]\n  - get process heap force flags\n  - get process heap flags\n  - reference absolute stream path on Windows\n  - contain loop\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Read File [C0051]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - File System::Writes File [C0052]\n  - link function at runtime on Windows\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  upNext.exe  [sha256: b0ce0f09e7c2139b...]\n  C:\\Users\\<USER>\\AppData\\Local\\upNext.exe  [sha256: 726a8f950259c50b...]\n  \\Users\\Petra\\AppData\\Local\\upNext.exe  [sha256: 2fa07d9785910dc5...]\n\nFILES WRITTEN (5):\n  C:\\043015370e946cc10eb035c1414e202a27f6c53d3b95526ce5caa3a9c7cc81e5.tmp\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Application Data\\upNext.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.tmp\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\e161b004e651bfba37e0.tmp\n  C:\\Users\\<USER>\\Downloads\\e161b004e651bfba37e09be0ac36f11e.virus.tmp\n\nPERSISTENCE REGISTRY KEYS (2):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\MSNCore = C:\\Users\\<USER>\\AppData\\Local\\upNext.exe --i\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\MSNCore = C:\\Documents and Settings\\Administrator\\Local Settings\\Application Data\\upNext.exe --i\u0000\n\nOTHER REGISTRY KEYS SET (1):\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n\nMUTEXES CREATED (7):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  ctrl.mtx.rbt\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, VirtualAlloc\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [sfx] temporary EXE SFX\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n  [Overlay] EXE file\n\nPE SECTIONS (entropy):\n  CODE         entropy=6.37\n  DATA         entropy=5.26\n  BSS          entropy=0.0\n  .idata       entropy=4.97\n  .tls         entropy=0.0\n  .rdata       entropy=0.34\n  .reloc       entropy=6.76\n  .rsrc        entropy=3.62\n  [overlay]    entropy=6.459923267364502  size=1016832\n",
+  "ground_truth": {
+    "hash": "043015370e946cc10eb035c1414e202a27f6c53d3b95526ce5caa3a9c7cc81e5",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9014,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "delf",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "get process heap force flags"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk size"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1113",
+        "signature_description": "capture screenshot"
+      },
+      {
+        "id": "T1115",
+        "signature_description": "read clipboard data"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "allocate RW memory",
+      "create or open file",
+      "generate random numbers using the Delphi LCG",
+      "create or open registry key",
+      "create thread",
+      "delay execution",
+      "PEB access",
+      "allocate RWX memory",
+      "encode data using XOR",
+      "hide graphical window",
+      "set global application hook",
+      "access PEB ldr_data",
+      "resume thread",
+      "get process heap force flags",
+      "get process heap flags",
+      "reference absolute stream path on Windows",
+      "contain loop",
+      "accept command line arguments",
+      "get file size",
+      "read file on Windows",
+      "query or enumerate registry value",
+      "write file on Windows",
+      "link function at runtime on Windows",
+      "get geographical location",
+      "get OS version",
+      "set thread local storage value",
+      "get thread local storage value",
+      "create mutex",
+      "find graphical window",
+      "get disk size",
+      "get file version info",
+      "extract resource via kernel32 functions",
+      "get system information on Windows",
+      "read clipboard data",
+      "capture screenshot",
+      "get hostname",
+      "link many functions at runtime",
+      "enumerate gui resources",
+      "check for time delay via GetTickCount",
+      "log keystrokes via polling",
+      "get keyboard layout",
+      "set application hook",
+      "get graphical window text",
+      "log keystrokes",
+      "get number of processors",
+      "encode data using Base64",
+      "encrypt data using RC4 KSA",
+      "set current directory",
+      "check for PEB NtGlobalFlag flag",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "contain a thread local storage (.tls) section",
+      "reference Base64 string",
+      "compiled with Borland Delphi"
+    ],
+    "iocs": {
+      "ips": [
+        "172.217.212.94",
+        "172.217.23.67",
+        "216.58.206.227",
+        "8.8.8.8",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "www.google.com.br"
+      ],
+      "urls": [
+        "http://www.google.com.br/"
+      ],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\MSNCore",
+        "\\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\MSNCore"
+      ],
+      "registry_all_count": 3,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\upNext.exe",
+        "\\Users\\Petra\\AppData\\Local\\upNext.exe",
+        "upNext.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "ctrl.mtx.rbt"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

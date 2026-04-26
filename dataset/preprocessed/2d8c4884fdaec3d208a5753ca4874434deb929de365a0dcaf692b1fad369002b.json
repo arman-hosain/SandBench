@@ -1,0 +1,46 @@
+{
+  "hash": "2d8c4884fdaec3d208a5753ca4874434deb929de365a0dcaf692b1fad369002b",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    skypee.exe\n    cmd.exe cmd /c \"uahho.bat\" \"\n      reg.exe REG ADD \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"skypee\" /t REG_SZ /d skypee.exe\" /f\n\nCOMMAND EXECUTIONS (2):\n  cmd /c \"\"C:\\DOCUME~1\\ADMINI~1\\LOCALS~1\\Temp\\UAHHO.bat\" \"\n  REG ADD \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"skypee\" /t REG_SZ /d \"C:\\WINDOWS\\Skypee\\skypee.exe\" /f\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (2):\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\UAHHO.txt\n  C:\\WINDOWS\\Skypee\\skypee.exe\n\nPERSISTENCE REGISTRY KEYS (1):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\skypee = C:\\WINDOWS\\Skypee\\skypee.exe\u0000\n\nOTHER REGISTRY KEYS SET (2):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\WINDOWS\\\n\nMUTEXES CREATED (9):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n\nPROCESSES CREATED (2):\n  C:\\WINDOWS\\system32\\cmd.exe\n  C:\\WINDOWS\\system32\\reg.exe\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Microsoft Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0'}\n\nPE SECTIONS (entropy):\n  .text        entropy=4.4\n  .data        entropy=0.0\n  .rsrc        entropy=1.97\n  [overlay]    entropy=0.0  size=1\n",
+  "ground_truth": {
+    "hash": "2d8c4884fdaec3d208a5753ca4874434deb929de365a0dcaf692b1fad369002b",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8732,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "agent",
+    "has_family_label": false,
+    "ttps": [],
+    "capa_sig_names": [],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "\\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\skypee"
+      ],
+      "registry_all_count": 3,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\system32\\cmd.exe",
+        "C:\\WINDOWS\\system32\\reg.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "Tencent HABO"
+  ]
+}

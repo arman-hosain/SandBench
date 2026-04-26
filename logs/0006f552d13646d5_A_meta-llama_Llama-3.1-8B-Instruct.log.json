@@ -1,0 +1,74 @@
+{
+  "hash": "0006f552d13646d55afb158344932c1c8f4776d5077b7ff57e1e4e3459125f62",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity, including DNS lookups and HTTP conversations with potentially malicious domains. Additionally, it drops executable files and creates mutexes, indicating a potential malware presence.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior, including its network activity and file drops, suggests a Trojan horse malware. It appears to be designed to download and execute additional payloads, potentially for malicious purposes.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1204\", \"name\": \"User Execution\"},\n      {\"id\": \"T1052\", \"name\": \"Scheduled Task/Job\"},\n      {\"id\": \"T1053\", \"name\": \"Scheduled Task/Job\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1056\", \"name\": \"API Call\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 2907,
+      "response_chars": 854,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity, including DNS lookups and HTTP conversations with potentially malicious domains. Additionally, it drops executable files and creates mutexes, indicating a potential malware presence.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior, including its network a",
+      "elapsed_seconds": 4.16
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 4.16,
+  "evaluation": {
+    "parse_ok": true,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8889
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1052",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1204"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1052",
+        "T1053",
+        "T1055",
+        "T1056",
+        "T1204"
+      ],
+      "q3_missed_ttps": [
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

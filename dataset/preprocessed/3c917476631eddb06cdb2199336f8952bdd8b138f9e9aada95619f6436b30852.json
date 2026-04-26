@@ -1,0 +1,44 @@
+{
+  "hash": "3c917476631eddb06cdb2199336f8952bdd8b138f9e9aada95619f6436b30852",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Cryptography::Generate Pseudo-random Sequence [C0021]\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - compiled with Borland Delphi\n  - (internal) packer file limitation\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n\nPE SECTIONS (entropy):\n  UPX0         entropy=6.98\n  UPX1         entropy=0.0\n  .rsrc        entropy=0.0\n  .imports     entropy=0.0\n  [overlay]    entropy=6.9565205574035645  size=93351\n",
+  "ground_truth": {
+    "hash": "3c917476631eddb06cdb2199336f8952bdd8b138f9e9aada95619f6436b30852",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8,
+    "malicious_count": 56,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with UPX"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "generate random numbers using the Delphi LCG",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "packed with UPX",
+      "compiled with Borland Delphi",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

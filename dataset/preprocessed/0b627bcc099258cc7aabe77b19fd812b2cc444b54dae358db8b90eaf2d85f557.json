@@ -1,0 +1,60 @@
+{
+  "hash": "0b627bcc099258cc7aabe77b19fd812b2cc444b54dae358db8b90eaf2d85f557",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  ns1.player1352.com \u2192 204.11.56.48\n\nIP TRAFFIC (1):\n  204.11.56.48:8000 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  waoodod.exe\n    C:\\Users\\<USER>\\raomao.exe\n\nCOMMAND EXECUTIONS (3):\n  ((null)) C:\\Documents and Settings\\<USER>\\wioug.exe(null) [(null)]\n  ((null)) C:\\0b627bcc099258cc7aabe77b19fd812b2cc444b54dae358db8b90eaf2d85f557(null) [(null)]\n  C:\\Users\\<USER>\\raomao.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - parse PE header\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - contain loop\n  - parse PE header\n  - contain a resource (.rsrc) section\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  wioug.exe  [sha256: 75d58375bb2e6f83...]\n  C:\\Users\\<USER>\\raomao.exe  [sha256: 10cae5ee2bb17bec...]\n\nFILES WRITTEN (1):\n  C:\\Documents and Settings\\<USER>\\wioug.exe\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\raomao = C\n\nOTHER REGISTRY KEYS SET (2):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowSuperHidden\n  HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU\\NoAutoUpdate\n\nMUTEXES CREATED (3):\n  ShimCacheMutex\n  a\n  j\n\nPROCESSES CREATED (1):\n  C:\\Documents and Settings\\<USER>\\wioug.exe C:\\Documents and Settings\\<USER>\\wioug.exe\" \"\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.87\n  .data        entropy=0.0\n  .rsrc        entropy=2.78\n",
+  "ground_truth": {
+    "hash": "0b627bcc099258cc7aabe77b19fd812b2cc444b54dae358db8b90eaf2d85f557",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8873,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "contain loop",
+      "parse PE header",
+      "contain a resource (.rsrc) section",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation"
+    ],
+    "iocs": {
+      "ips": [
+        "204.11.56.48"
+      ],
+      "domains": [
+        "ns1.player1352.com"
+      ],
+      "urls": [],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\raomao"
+      ],
+      "registry_all_count": 3,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\raomao.exe",
+        "wioug.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex",
+        "a",
+        "j"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\<USER>\\wioug.exe C:\\Documents and Settings\\<USER>\\wioug.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "hash": "295f69bf125207544c4d003d486d9ecc514216a1195e8bfd770b8f3ef6ef3e43",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  hl2rcv.adobe.com \u2192 192.147.130.244\n\nIP TRAFFIC (1):\n  192.147.130.244:443 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  295f69bf12520754_logtransport2.exe\n    cmd /c reg ADD HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v svchost /t REG_SZ /d C:\\WINDOWS\\system32\\svchost.exe /f\n      reg ADD HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v svchost /t REG_SZ /d C:\\WINDOWS\\system32\\svchost.exe /f\n    cmd /c reg ADD HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v freizer /t REG_SZ /d C:\\WINDOWS\\system32\\freizer.exe /f\n      reg ADD HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v freizer /t REG_SZ /d C:\\WINDOWS\\system32\\freizer.exe /f\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (9):\n  - accept command line arguments\n  - get file size\n  - query or enumerate registry value\n  - get geographical location\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - get common file path\n  - persist via Run registry key\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - Cryptography::Generate Pseudo-random Sequence [C0021]\n  - File System::Create File [C0016]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - reference absolute stream path on Windows\n  - Process::Create Process [C0017]\n  - contain loop\n  - Execution::Command and Scripting Interpreter [E1059]\n  - File System::Read File [C0051]\n  - File System::Writes File [C0052]\n  - Discovery::File and Directory Discovery [E1083]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - get geographical location\n  - get OS version\n  - Process::Set Thread Local Storage Value [C0041]\n  - get thread local storage value\n  - Process::Create Mutex [C0042]\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - File System::Delete File [C0047]\n  - File System::Copy File [C0045]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - Persistence::Registry Run Keys / Startup Folder [F0012]\n\n--- ARTIFACTS ---\n\nPERSISTENCE REGISTRY KEYS (2):\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\freizer = C\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\svchost = C\n\nMUTEXES CREATED (1):\n  BELARUS-VIRUS-MAKER\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, VirtualAlloc, WinExec\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [sfx] temporary EXE SFX\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n  [Overlay] EXE file\n  Packers: {'PEiD': 'BobSoft Mini Delphi -> BoB / BobSoft'}\n\nPE SECTIONS (entropy):\n  CODE         entropy=6.47\n  DATA         entropy=1.95\n  BSS          entropy=0.0\n  .idata       entropy=3.71\n  .tls         entropy=0.0\n  .rdata       entropy=0.2\n  .reloc       entropy=5.68\n  .rsrc        entropy=2.88\n  [overlay]    entropy=4.770024299621582  size=7536335\n",
+  "ground_truth": {
+    "hash": "295f69bf125207544c4d003d486d9ecc514216a1195e8bfd770b8f3ef6ef3e43",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9143,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "malware",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "reference Base64 string"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "persist via Run registry key"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "allocate RW memory",
+      "generate random numbers using the Delphi LCG",
+      "create or open file",
+      "create or open registry key",
+      "reference absolute stream path on Windows",
+      "create process on Windows",
+      "contain loop",
+      "accept command line arguments",
+      "read file on Windows",
+      "write file on Windows",
+      "get file size",
+      "query or enumerate registry value",
+      "get geographical location",
+      "get OS version",
+      "set thread local storage value",
+      "get thread local storage value",
+      "create mutex",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "delete file",
+      "copy file",
+      "get common file path",
+      "set registry value",
+      "persist via Run registry key",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "contain a thread local storage (.tls) section",
+      "reference Base64 string",
+      "contains PDB path",
+      "compiled with Borland Delphi",
+      "linked against ZLIB",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [
+        "192.147.130.244"
+      ],
+      "domains": [
+        "hl2rcv.adobe.com"
+      ],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\freizer",
+        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\svchost"
+      ],
+      "registry_all_count": 2,
+      "files_dropped": [],
+      "mutexes": [
+        "BELARUS-VIRUS-MAKER"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

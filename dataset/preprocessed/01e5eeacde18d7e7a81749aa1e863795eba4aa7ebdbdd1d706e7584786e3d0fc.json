@@ -1,0 +1,189 @@
+{
+  "hash": "01e5eeacde18d7e7a81749aa1e863795eba4aa7ebdbdd1d706e7584786e3d0fc",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nSERVICES OPENED (2):\n  DictionaryBossService\n  NULL\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  v4barsvc.exe\n  v4setup.pe32\n    v4barsvc.exe\n    v4barsvc.exe\n    v4brmon.exe\n    v4highin.exe\n    v4SrchMn.exe\n    v4barsvc.exe\n\nCOMMAND EXECUTIONS (7):\n  (open) C:\\PROGRA~1\\DICTIO~1\\bar\\1.bin\\v4brmon.exe(null) [(null)]\n  C:\\PROGRA~2\\DICTIO~1\\bar\\1.bin\\v4brmon.exe\n  \"C:\\PROGRA~1\\DICTIO~1\\bar\\1.bin\\v4barsvc.exe\" -install\n  \"C:\\PROGRA~1\\DICTIO~1\\bar\\1.bin\\v4srchmn.exe\" /m=2 /w /h /r\n  \"C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4HighIn.exe\" v4tpinst.dll,#5\n  \"C:\\PROGRA~1\\DICTIO~1\\bar\\1.bin\\v4brmon.exe\"\n  \"C:\\PROGRA~1\\DICTIO~1\\bar\\1.bin\\v4barsvc.exe\" -remove\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (13):\n  - set file attributes\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - enumerate gui resources\n  - identify system language via API\n  - parse PE header\n  - accept command line arguments\n  - query or enumerate registry value\n  - delete registry value\n  - get common file path\n  - get disk information\n  - check if file exists\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - File System::Set File Attributes [C0050]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - File System::Get File Attributes [C0049]\n  - contain loop\n  - File System::Delete File [C0047]\n  - File System::Writes File [C0052]\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - enumerate gui resources\n  - identify system language via API\n  - File System::Delete Directory [C0048]\n  - File System::Create Directory [C0046]\n  - set current directory\n  - extract resource via kernel32 functions\n  - parse PE header\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Process::Terminate Process [C0018]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - Operating System::Registry::Delete Registry Value [C0036.007]\n  - Discovery::File and Directory Discovery [E1083]\n  - Discovery::System Information Discovery [E1082]\n  - get OS version\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES DROPPED (10):\n  T8RES.DLL  [sha256: 212f45bad33ebdc1...]\n  v4brmon.exe  [sha256: 5418b7bb40b097da...]\n  v4brstub.dll  [sha256: b67d6eba635dc1ce...]\n  v4highin.exe  [sha256: b1c485330062beb4...]\n  v4tpinst.dll  [sha256: fb71b4792e7dc01e...]\n  \\Program Files\\DictionaryBoss\\bar\\1.bin\\T8RES.DLL  [sha256: 212f45bad33ebdc1...]\n  \\Program Files\\DictionaryBoss\\bar\\1.bin\\v4brmon.exe  [sha256: 5418b7bb40b097da...]\n  \\Program Files\\DictionaryBoss\\bar\\1.bin\\v4tpinst.dll  [sha256: fb71b4792e7dc01e...]\n  \\Program Files\\DictionaryBoss\\bar\\1.bin\\v4highin.exe  [sha256: b1c485330062beb4...]\n  \\Program Files\\DictionaryBoss\\bar\\1.bin\\v4brstub.dll  [sha256: b67d6eba635dc1ce...]\n\nFILES WRITTEN (30):\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\CHROME.MANIFEST\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\INSTALL.RDF\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\LOGO.BMP\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\NPv4Stub.dll\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\T8RES.DLL\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4Plugin.dll\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4auxstb.dll\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4bar.dll\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4barsvc.exe\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4brmon.exe\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4brstub.dll\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4datact.dll\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4dlghk.dll\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4dyn.dll\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4feedmg.dll\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4highin.exe\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4hkstub.dll\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4html.dll\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4htmlmu.dll\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4httpct.dll\n\nPERSISTENCE REGISTRY KEYS (5):\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\DictionaryBoss Browser Plugin Loader = C:\\PROGRA~2\\DICTIO~1\\bar\\1.bin\\v4brmon.exe\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\DictionaryBoss Search Scope Monitor = \"C:\\PROGRA~2\\DICTIO~1\\bar\\1.bin\\v4srchmn.exe\" /m=2 /w /h\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\DictionaryBoss = rundll32 C:\\PROGRA~1\\DICTIO~1\\bar\\1.bin\\v4bar.dll,S\u0000\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\DictionaryBoss Browser Plugin Loader = C:\\PROGRA~1\\DICTIO~1\\bar\\1.bin\\v4brmon.exe\u0000\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\DictionaryBoss Search Scope Monitor = \"C:\\PROGRA~1\\DICTIO~1\\bar\\1.bin\\v4srchmn.exe\" /m=2 /w /h\u0000\n\nOTHER REGISTRY KEYS SET (10):\n  HKLM\\Software\\DictionaryBoss\\bar\\Maximized\n  HKLM\\Software\\DictionaryBoss\\bar\\Visible\n  HKLM\\Software\\DictionaryBoss\\bar\\pid\n  HKLM\\Software\\DictionaryBoss\\bar\\un\n  HKLM\\Software\\DictionaryBoss\\bar\\tiec\n  HKCU\\Software\\AppDataLow\\Software\\DictionaryBoss\\bar\\tiec\n  HKLM\\Software\\DictionaryBoss\\bar\\Switches\\ok\n  HKLM\\Software\\DictionaryBoss\\bar\\Switches\\od\n  HKLM\\Software\\DictionaryBoss\\bar\\Switches\\nk\n  HKLM\\Software\\DictionaryBoss\\bar\\Switches\\nd\n\nMUTEXES CREATED (51):\n  042949596940\n  042949646950\n  5B535F17-5053-466e-A56A-A02A2842FCCF04294959694mtx\n  5B535F17-5053-466e-A56A-A02A2842FCCF04294964695mtx\n  7B2B9034-3B04-425c-AB4C-8BE8942546AA04294959694mtx\n  7B2B9034-3B04-425c-AB4C-8BE8942546AA04294964695mtx\n  C0825EC2-D3DC-4F38-8E92-66FB45840205HomePageGuard04294959694mtx\n  C0825EC2-D3DC-4F38-8E92-66FB45840205HomePageGuard04294964695mtx\n  C0825EC2-D3DC-4F38-8E92-66FB45840205SearchScopeMonintor04294964695mtx\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n\nPROCESSES CREATED (10):\n  C:\\PROGRA~1\\DICTIO~1\\bar\\1.bin\\v4barsvc.exe\" -install\"\n  C:\\PROGRA~1\\DICTIO~1\\bar\\1.bin\\v4barsvc.exe\" -remove\"\n  C:\\PROGRA~1\\DICTIO~1\\bar\\1.bin\\v4brmon.exe C:\\PROGRA~1\\DICTIO~1\\bar\\1.bin\\v4brmon.exe\" \"\n  C:\\PROGRA~1\\DICTIO~1\\bar\\1.bin\\v4srchmn.exe\" /m=2 /w /h /r\"\n  C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4HighIn.exe\" v4tpinst.dll\n  v4SrchMn.exe\n  v4barsvc.exe\n  v4brmon.exe\n  v4highin.exe\n  v4setup.pe32\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress\n\nCERTIFICATE INFO:\n  Signer: Mindspark Interactive Network; VeriSign Class 3 Code Signing 2010 CA; VeriSign\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Sign tool] Windows Authenticode\n  Packers: {'F-PROT': 'maxorder, appended'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.76\n  .rdata       entropy=3.81\n  .data        entropy=2.66\n  .rsrc        entropy=5.95\n  [overlay]    entropy=7.289632320404053  size=4512\n",
+  "ground_truth": {
+    "hash": "01e5eeacde18d7e7a81749aa1e863795eba4aa7ebdbdd1d706e7584786e3d0fc",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.5915,
+    "malicious_count": 42,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "enumerate gui resources"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "reference Base64 string"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk information"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry value"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "identify system language via API"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "set file attributes",
+      "create or open registry key",
+      "get file attributes",
+      "contain loop",
+      "delete file",
+      "write file on Windows",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "enumerate gui resources",
+      "identify system language via API",
+      "delete directory",
+      "create directory",
+      "set current directory",
+      "extract resource via kernel32 functions",
+      "parse PE header",
+      "accept command line arguments",
+      "terminate process",
+      "query or enumerate registry value",
+      "set registry value",
+      "delete registry value",
+      "get common file path",
+      "get disk information",
+      "check if file exists",
+      "get OS version",
+      "contain a resource (.rsrc) section",
+      "linked against CPP standard library",
+      "contain an embedded PE file",
+      "reference Base64 string",
+      "contains PDB path",
+      "linked against ZLIB",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\DictionaryBoss Browser Plugin Loader",
+        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\DictionaryBoss Search Scope Monitor",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\DictionaryBoss",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\DictionaryBoss Browser Plugin Loader",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\DictionaryBoss Search Scope Monitor"
+      ],
+      "registry_all_count": 432,
+      "files_dropped": [
+        "T8RES.DLL",
+        "\\Program Files\\DictionaryBoss\\bar\\1.bin\\T8RES.DLL",
+        "\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4brmon.exe",
+        "\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4brstub.dll",
+        "\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4highin.exe",
+        "\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4tpinst.dll",
+        "v4brmon.exe",
+        "v4brstub.dll",
+        "v4highin.exe",
+        "v4tpinst.dll"
+      ],
+      "mutexes": [
+        "042949596940",
+        "042949646950",
+        "5B535F17-5053-466e-A56A-A02A2842FCCF04294959694mtx",
+        "5B535F17-5053-466e-A56A-A02A2842FCCF04294964695mtx",
+        "7B2B9034-3B04-425c-AB4C-8BE8942546AA04294959694mtx",
+        "7B2B9034-3B04-425c-AB4C-8BE8942546AA04294964695mtx",
+        "C0825EC2-D3DC-4F38-8E92-66FB45840205HomePageGuard04294959694mtx",
+        "C0825EC2-D3DC-4F38-8E92-66FB45840205HomePageGuard04294964695mtx",
+        "C0825EC2-D3DC-4F38-8E92-66FB45840205SearchScopeMonintor04294964695mtx",
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "DictionaryBoss--Shared02042949596940",
+        "DictionaryBoss--Shared02042949646950",
+        "DictionaryBoss--Shared08042949596941",
+        "DictionaryBoss--Shared08042949596942",
+        "DictionaryBoss--Shared0C",
+        "DictionaryBoss--Shared0L042949596940",
+        "DictionaryBoss--Shared0L042949646950",
+        "DictionaryBoss-518322033B4F042949596940",
+        "DictionaryBoss-518322033B4F042949646950",
+        "DictionaryBoss:HTMLMenu01",
+        "DictionaryBoss:Skin:C042949596941",
+        "DictionaryBoss:Skin:C042949596942",
+        "DictionaryBoss:Skin:C042949646951",
+        "DictionaryBoss:Skin:C042949646952",
+        "DictionaryBossLogObjBaseMtx",
+        "DictionaryBossMsgY042949596941",
+        "DictionaryBossMsgY042949596942",
+        "DictionaryBossMsgY042949646951",
+        "DictionaryBossMsgY042949646952",
+        "DictionaryBossTHRDPRT_INST_SINGLETON",
+        "DictionaryBossTRDPRT_INST_DATA_MUTEX",
+        "DictionaryBoss_Shared0M042949596940",
+        "DictionaryBoss_Shared0M04294959694srv0",
+        "DictionaryBoss_Shared0M042949646950",
+        "DictionaryBoss_Shared0M04294964695srv0",
+        "Local\\RstrMgr-3887CAB8-533F-4C85-B0DC-3E5639F8D511-Session0000",
+        "Local\\RstrMgr3887CAB8-533F-4C85-B0DC-3E5639F8D511",
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "ShimCacheMutex",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex",
+        "oleacc-msaa-loaded"
+      ],
+      "processes": [
+        "C:\\PROGRA~1\\DICTIO~1\\bar\\1.bin\\v4barsvc.exe\" -install\"",
+        "C:\\PROGRA~1\\DICTIO~1\\bar\\1.bin\\v4barsvc.exe\" -remove\"",
+        "C:\\PROGRA~1\\DICTIO~1\\bar\\1.bin\\v4brmon.exe C:\\PROGRA~1\\DICTIO~1\\bar\\1.bin\\v4brmon.exe\" \"",
+        "C:\\PROGRA~1\\DICTIO~1\\bar\\1.bin\\v4srchmn.exe\" /m=2 /w /h /r\"",
+        "C:\\Program Files\\DictionaryBoss\\bar\\1.bin\\v4HighIn.exe\" v4tpinst.dll",
+        "v4SrchMn.exe",
+        "v4barsvc.exe",
+        "v4brmon.exe",
+        "v4highin.exe",
+        "v4setup.pe32"
+      ]
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

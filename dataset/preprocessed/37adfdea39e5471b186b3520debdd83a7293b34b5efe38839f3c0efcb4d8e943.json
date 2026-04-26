@@ -1,0 +1,143 @@
+{
+  "hash": "37adfdea39e5471b186b3520debdd83a7293b34b5efe38839f3c0efcb4d8e943",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nSERVICES OPENED (2):\n  LanmanWorkstation\n  WebClient\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\37adfdea39e5471b186b3520debdd83a7293b34b5efe38839f3c0efcb4d8e943\"\"\n  C:\\WINDOWS\\system32\\setupx.exe\n  C:\\WINDOWS\\system32\\updatex.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (23):\n  - access PEB ldr_data\n  - encode data using XOR\n  - get ntdll base address\n  - get process heap force flags\n  - get kernel32 base address\n  - get file system object information\n  - encrypt data using DES\n  - encrypt data using AES\n  - reference AES constants\n  - encrypt data using AES via x86 extensions\n  - get file size\n  - get common file path\n  - get disk size\n  - get disk information\n  - query or enumerate registry value\n  - delete registry value\n  - link function at runtime on Windows\n  - enumerate processes\n  - get socket status\n  - get hostname\n  - encode data using Base64\n  - link many functions at runtime\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - access PEB ldr_data\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - get ntdll base address\n  - get process heap force flags\n  - get kernel32 base address\n  - File System::Create File [C0016]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Thread [C0038]\n  - Process::Terminate Thread [C0039]\n  - get file system object information\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Open Process [C0065]\n  - Defense Evasion::Obfuscated Files or Information::Encryption-Standard Algorithm [E1027.m05]\n  - Cryptography::Encrypt Data::3DES [C0027.004]\n  - contain loop\n  - resolve function by parsing PE exports\n  - Cryptography::Cryptographic Hash::SHA1 [C0029.002]\n  - Cryptography::Generate Pseudo-random Sequence::Use API [C0021.003]\n  - Cryptography::Cryptographic Hash::SHA256 [C0029.003]\n  - Cryptography::Encrypt Data::AES [C0027.001]\n  - reference AES constants\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  Serverx.exe  [sha256: 9cc2bc6916811115...]\n\nFILES WRITTEN (6):\n  C:\\WINDOWS\\system32\\Serverx.exe\n  PIL-1.1.7.win32-py2.7[1].exe\n  install.exe\n  pythonw.exe\n  spotify.exe\n  uninst.exe\n\nMUTEXES CREATED (3):\n  DllHasRun\n  Koino AnySupport_nFTDClient_Win32_Instance_Mutex\n  ShimCacheMutex\n\nMUTEXES OPENED (1):\n  Angry Angel v3.0\n\nPROCESSES CREATED (3):\n  C:\\37adfdea39e5471b186b3520debdd83a7293b34b5efe38839f3c0efcb4d8e943\"\"\n  C:\\WINDOWS\\system32\\setupx.exe\n  C:\\WINDOWS\\system32\\updatex.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryW\n  ADVAPI32.dll: OpenProcessToken\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.7\n  .rdata       entropy=5.37\n  .data        entropy=4.98\n  .rsrc        entropy=5.17\n  .reloc       entropy=3.31\n",
+  "ground_truth": {
+    "hash": "37adfdea39e5471b186b3520debdd83a7293b34b5efe38839f3c0efcb4d8e943",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9167,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1016",
+        "signature_description": "get socket status"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "get process heap force flags"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk size"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file system object information"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry value"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "PEB access",
+      "access PEB ldr_data",
+      "encode data using XOR",
+      "get ntdll base address",
+      "get process heap force flags",
+      "get kernel32 base address",
+      "create or open file",
+      "delay execution",
+      "create thread",
+      "terminate thread",
+      "get file system object information",
+      "create or open registry key",
+      "open process",
+      "encrypt data using DES",
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "hash data using SHA1",
+      "generate random numbers via WinAPI",
+      "hash data using SHA256",
+      "encrypt data using AES",
+      "reference AES constants",
+      "encrypt data using AES via x86 extensions",
+      "print debug messages",
+      "write file on Windows",
+      "delete file",
+      "move file",
+      "get OS version",
+      "create mutex",
+      "check mutex and exit",
+      "set current directory",
+      "read file on Windows",
+      "get file size",
+      "get common file path",
+      "create directory",
+      "get disk size",
+      "get disk information",
+      "set registry value",
+      "query or enumerate registry value",
+      "delete registry value",
+      "initialize WinHTTP library",
+      "link function at runtime on Windows",
+      "enumerate processes",
+      "send data on socket",
+      "send data",
+      "receive data on socket",
+      "receive data",
+      "initialize Winsock library",
+      "set socket configuration",
+      "resolve DNS",
+      "get socket status",
+      "get hostname",
+      "encode data using Base64",
+      "hash data with MD5",
+      "hash data using murmur3",
+      "terminate process",
+      "allocate thread local storage",
+      "link many functions at runtime",
+      "linked against CPP standard library",
+      "contain a resource (.rsrc) section",
+      "linked against Crypto++",
+      "reference Base64 string"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "Serverx.exe"
+      ],
+      "mutexes": [
+        "DllHasRun",
+        "Koino AnySupport_nFTDClient_Win32_Instance_Mutex",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\37adfdea39e5471b186b3520debdd83a7293b34b5efe38839f3c0efcb4d8e943\"\"",
+        "C:\\WINDOWS\\system32\\setupx.exe",
+        "C:\\WINDOWS\\system32\\updatex.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

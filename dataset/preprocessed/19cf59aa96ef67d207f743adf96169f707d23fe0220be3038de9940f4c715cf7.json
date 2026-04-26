@@ -1,0 +1,118 @@
+{
+  "hash": "19cf59aa96ef67d207f743adf96169f707d23fe0220be3038de9940f4c715cf7",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nSERVICES OPENED (1):\n  Sens\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (14):\n  - set file attributes\n  - hide graphical window\n  - get file system object information\n  - encode data using XOR\n  - get common file path\n  - query or enumerate registry value\n  - check if file exists\n  - query environment variable\n  - get geographical location\n  - find graphical window\n  - link function at runtime on Windows\n  - accept command line arguments\n  - enumerate files on Windows\n  - modify access privileges\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - File System::Set File Attributes [C0050]\n  - File System::Get File Attributes [C0049]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Create Process [C0017]\n  - hide graphical window\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - get file system object information\n  - File System::Create File [C0016]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Discovery::File and Directory Discovery [E1083]\n  - contain loop\n  - set current directory\n  - File System::Delete File [C0047]\n  - File System::Move File [C0063]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Discovery::System Information Discovery [E1082]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - get geographical location\n  - create shortcut via IShellLink\n  - find graphical window\n  - link function at runtime on Windows\n  - Execution::Command and Scripting Interpreter [E1059]\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExW\n  SetFileTime\n\n--- ARTIFACTS ---\n\nOTHER REGISTRY KEYS SET (2):\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n\nMUTEXES CREATED (1):\n  Local\\!PrivacIE!SharedMemory!Mutex\n\nMUTEXES OPENED (3):\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress\n  ADVAPI32.DLL: AdjustTokenPrivileges, OpenProcessToken\n\nCOMPILER AND PACKER:\n  [sfx] WinRAR\n  [Compiler] Borland C++\n  [Linker] Turbo Linker\n  [Overlay] RAR archive\n  [Archive] RAR\n  Packers: {'F-PROT': 'PecBundle, TeLock, Aspack, PECompact, RAR, UPX'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.45\n  .data        entropy=4.71\n  .idata       entropy=4.41\n  .rsrc        entropy=7.46\n  [overlay]    entropy=7.999789237976074  size=3759879\n",
+  "ground_truth": {
+    "hash": "19cf59aa96ef67d207f743adf96169f707d23fe0220be3038de9940f4c715cf7",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.5,
+    "malicious_count": 35,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file system object information"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "modify access privileges"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "set file attributes",
+      "get file attributes",
+      "create or open registry key",
+      "create process on Windows",
+      "hide graphical window",
+      "delay execution",
+      "get file system object information",
+      "create or open file",
+      "encode data using XOR",
+      "get common file path",
+      "contain loop",
+      "set current directory",
+      "delete file",
+      "move file",
+      "query or enumerate registry value",
+      "check if file exists",
+      "query environment variable",
+      "set registry value",
+      "get geographical location",
+      "create shortcut via IShellLink",
+      "find graphical window",
+      "link function at runtime on Windows",
+      "accept command line arguments",
+      "set environment variable",
+      "check for time delay via GetTickCount",
+      "get OS version",
+      "get graphical window text",
+      "enumerate files on Windows",
+      "create directory",
+      "hash data with CRC32",
+      "resolve function by parsing PE exports",
+      "modify access privileges",
+      "hash data using SHA1",
+      "write file on Windows",
+      "read file on Windows",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 2,
+      "files_dropped": [],
+      "mutexes": [
+        "Local\\!PrivacIE!SharedMemory!Mutex"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

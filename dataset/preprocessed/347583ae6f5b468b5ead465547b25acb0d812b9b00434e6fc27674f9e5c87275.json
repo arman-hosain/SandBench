@@ -1,0 +1,56 @@
+{
+  "hash": "347583ae6f5b468b5ead465547b25acb0d812b9b00434e6fc27674f9e5c87275",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - enumerate gui resources\n  - get disk information\n  - check if file exists\n\nCAPA RULE MATCHES (MBC):\n  - File System::Get File Attributes [C0049]\n  - contain loop\n  - File System::Writes File [C0052]\n  - enumerate gui resources\n  - Discovery::System Information Discovery [E1082]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Create Directory [C0046]\n  - contain a resource (.rsrc) section\n  - Execution::Install Additional Program [B0023]\n  - contains PDB path\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Linker] Polink\n\nPE SECTIONS (entropy):\n  .code        entropy=5.34\n  .text        entropy=6.19\n  .rdata       entropy=1.77\n  .data        entropy=4.98\n  .rsrc        entropy=5.07\n  .NewSec      entropy=0.53\n  [overlay]    entropy=6.206106662750244  size=1136766\n",
+  "ground_truth": {
+    "hash": "347583ae6f5b468b5ead465547b25acb0d812b9b00434e6fc27674f9e5c87275",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9014,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "agent",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "enumerate gui resources"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk information"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "check if file exists"
+      }
+    ],
+    "capa_sig_names": [
+      "get file attributes",
+      "contain loop",
+      "write file on Windows",
+      "enumerate gui resources",
+      "get disk information",
+      "check if file exists",
+      "create directory",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "contains PDB path",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

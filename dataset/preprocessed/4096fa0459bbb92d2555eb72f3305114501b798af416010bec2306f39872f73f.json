@@ -1,0 +1,119 @@
+{
+  "hash": "4096fa0459bbb92d2555eb72f3305114501b798af416010bec2306f39872f73f",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  excel.pe32\n    cmd.exe\n      WinRAR.exe\n    cmd.exe\n      WinRAR.exe\n    cmd.exe\n      WinRAR.exe\n    cmd.exe\n      WinRAR.exe\n\nCOMMAND EXECUTIONS (4):\n  \"C:\\Program Files\\WinRAR\\WinRAR.exe\"  a -idp -inul -c- -m5 \"C:\\Windows\\system32\\DC++ Share\\wow_helper\" \"C:\\Windows\\system32\\DC++ Share\\wow_helper.exe\"\n  cmd /c C:\\rar.bat\n  \"C:\\Program Files\\WinRAR\\WinRAR.exe\"  a -idp -inul -c- -m5 \"C:\\Windows\\system32\\DC++ Share\\Eula\" \"C:\\Windows\\system32\\DC++ Share\\Eula.exe\"\n  \"C:\\Program Files\\WinRAR\\WinRAR.exe\"  a -idp -inul -c- -m5 \"C:\\Windows\\system32\\xdccPrograms\\AcroRd32\" \"C:\\Windows\\system32\\xdccPrograms\\AcroRd32.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (7):\n  - accept command line arguments\n  - get file size\n  - query or enumerate registry value\n  - get common file path\n  - check if file exists\n  - get local IPv4 addresses\n  - reference anti-VM strings targeting Xen\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - File System::Create File [C0016]\n  - Cryptography::Generate Pseudo-random Sequence [C0021]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Create Thread [C0038]\n  - Process::Create Process [C0017]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Get File Attributes [C0049]\n  - Communication::Socket Communication::Create UDP Socket [C0001.010]\n  - reference absolute stream path on Windows\n  - contain loop\n  - Execution::Command and Scripting Interpreter [E1059]\n  - File System::Read File [C0051]\n  - File System::Writes File [C0052]\n  - Discovery::File and Directory Discovery [E1083]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Process::Set Thread Local Storage Value [C0041]\n  - get thread local storage value\n  - Process::Create Mutex [C0042]\n  - File System::Copy File [C0045]\n  - File System::Delete File [C0047]\n  - Communication::DNS Communication::Resolve [C0011.001]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (20):\n  \\Windows\\System32\\xdccPrograms\\RdrCEF.exe  [sha256: bf230d320bebf2bf...]\n  \\Windows\\System32\\xdccPrograms\\ADelRCP.exe  [sha256: db65ee19e1ad0b60...]\n  \\Windows\\System32\\sIRC4.exe  [sha256: 4096fa0459bbb92d...]\n  \\Windows\\System32\\xdccPrograms\\AcroTextExtractor.exe  [sha256: 3d672a270b08a058...]\n  \\Windows\\System32\\DC++ Share\\Eula.exe  [sha256: 1b63263dd2ca3214...]\n  \\Windows\\System32\\xdccPrograms\\AdobeCollabSync.exe  [sha256: bf38ecf2718f8d4d...]\n  \\Windows\\System32\\xdccPrograms\\RdrServicesUpdater.exe  [sha256: f511712ce27b0cfa...]\n  \\Windows\\System32\\DC++ Share\\jucheck.exe  [sha256: 9e51863826a630e6...]\n  \\Windows\\System32\\DC++ Share\\AdobeARMHelper.exe  [sha256: cfddc71aabdf84de...]\n  \\Windows\\System32\\DC++ Share\\reader_sl.exe  [sha256: ddf5f6b1b67d5f2c...]\n  \\Windows\\System32\\xdccPrograms\\AcroBroker.exe  [sha256: a8141d8e90f2bf3e...]\n  \\Windows\\System32\\xdccPrograms\\AcroRd32.exe  [sha256: b05556a0e9a8cffb...]\n  \\Windows\\System32\\DC++ Share\\LogTransport2.exe  [sha256: baad677aded5e4b5...]\n  \\Windows\\System32\\DC++ Share\\jusched.exe  [sha256: 9f86de28fbeb0c4d...]\n  \\Windows\\System32\\DC++ Share\\32BitMAPIBroker.exe  [sha256: beba9fc7c1890c0f...]\n  \\Windows\\System32\\DC++ Share\\jaureg.exe  [sha256: 4ad094ebe33982dc...]\n  \\Windows\\System32\\DC++ Share\\WCChromeNativeMessagingHost.exe  [sha256: ebe05f22d177fddb...]\n  \\Windows\\System32\\DC++ Share\\wow_helper.exe  [sha256: 5ecbbe9f7d7d8def...]\n  \\Windows\\System32\\DC++ Share\\AdobeARM.exe  [sha256: 56458fd48fe3eee7...]\n  \\Windows\\System32\\DC++ Share\\armsvc.exe  [sha256: d67b29d6beda1e09...]\n\nFILES WRITTEN (5):\n  C:\\Windows\\system32\\sIRC4.exe\n  C:\\Windows\\system32\\xdccPrograms\\AcroBroker.exe\n  C:\\Windows\\system32\\xdccPrograms\\RdrCEF.exe\n  C:\\Windows\\system32\\xdccPrograms\\autoexec.exe\n  C:\\marijuana.txt\n\nOTHER REGISTRY KEYS SET (2):\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C00570069006E0\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C00570069006E0\n\nMUTEXES CREATED (2):\n  WinRAR_Busy\n  sIRC4\n\nPROCESSES CREATED (2):\n  WinRAR.exe\n  cmd.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: VirtualAlloc, WinExec\n\nCOMPILER AND PACKER:\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n  Packers: {'PEiD': 'BobSoft Mini Delphi -> BoB / BobSoft'}\n\nPE SECTIONS (entropy):\n  CODE         entropy=6.57\n  DATA         entropy=4.53\n  BSS          entropy=0.0\n  .idata       entropy=4.17\n  .tls         entropy=0.0\n  .rdata       entropy=0.21\n  .reloc       entropy=6.26\n  .rsrc        entropy=1.68\n  [overlay]    entropy=7.991203308105469  size=20409\n",
+  "ground_truth": {
+    "hash": "4096fa0459bbb92d2555eb72f3305114501b798af416010bec2306f39872f73f",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9718,
+    "malicious_count": 69,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1016",
+        "signature_description": "get local IPv4 addresses"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting Xen"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "allocate RW memory",
+      "create or open file",
+      "generate random numbers using the Delphi LCG",
+      "create or open registry key",
+      "create thread",
+      "create process on Windows",
+      "PEB access",
+      "delay execution",
+      "get file attributes",
+      "create UDP socket",
+      "reference absolute stream path on Windows",
+      "contain loop",
+      "accept command line arguments",
+      "read file on Windows",
+      "write file on Windows",
+      "get file size",
+      "query or enumerate registry value",
+      "set thread local storage value",
+      "get thread local storage value",
+      "create mutex",
+      "copy file",
+      "get common file path",
+      "delete file",
+      "resolve DNS",
+      "send data on socket",
+      "send data",
+      "check if file exists",
+      "create directory",
+      "receive data on socket",
+      "receive data",
+      "get local IPv4 addresses",
+      "contain a resource (.rsrc) section",
+      "contain a thread local storage (.tls) section",
+      "reference anti-VM strings targeting Xen",
+      "compiled with Borland Delphi"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 2,
+      "files_dropped": [
+        "\\Windows\\System32\\DC++ Share\\32BitMAPIBroker.exe",
+        "\\Windows\\System32\\DC++ Share\\AdobeARM.exe",
+        "\\Windows\\System32\\DC++ Share\\AdobeARMHelper.exe",
+        "\\Windows\\System32\\DC++ Share\\Eula.exe",
+        "\\Windows\\System32\\DC++ Share\\LogTransport2.exe",
+        "\\Windows\\System32\\DC++ Share\\WCChromeNativeMessagingHost.exe",
+        "\\Windows\\System32\\DC++ Share\\armsvc.exe",
+        "\\Windows\\System32\\DC++ Share\\jaureg.exe",
+        "\\Windows\\System32\\DC++ Share\\jucheck.exe",
+        "\\Windows\\System32\\DC++ Share\\jusched.exe",
+        "\\Windows\\System32\\DC++ Share\\reader_sl.exe",
+        "\\Windows\\System32\\DC++ Share\\wow_helper.exe",
+        "\\Windows\\System32\\sIRC4.exe",
+        "\\Windows\\System32\\xdccPrograms\\ADelRCP.exe",
+        "\\Windows\\System32\\xdccPrograms\\AcroBroker.exe",
+        "\\Windows\\System32\\xdccPrograms\\AcroRd32.exe",
+        "\\Windows\\System32\\xdccPrograms\\AcroTextExtractor.exe",
+        "\\Windows\\System32\\xdccPrograms\\AdobeCollabSync.exe",
+        "\\Windows\\System32\\xdccPrograms\\RdrCEF.exe",
+        "\\Windows\\System32\\xdccPrograms\\RdrServicesUpdater.exe"
+      ],
+      "mutexes": [
+        "WinRAR_Busy",
+        "sIRC4"
+      ],
+      "processes": [
+        "WinRAR.exe",
+        "cmd.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Jujubox"
+  ]
+}

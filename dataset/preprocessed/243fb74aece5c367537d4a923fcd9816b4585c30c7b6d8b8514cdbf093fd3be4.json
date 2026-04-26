@@ -1,0 +1,105 @@
+{
+  "hash": "243fb74aece5c367537d4a923fcd9816b4585c30c7b6d8b8514cdbf093fd3be4",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET \u0002\u0001\u56a5\u8a6cM`\u00040?\u00068?~\u5117\u9b66D\ue389H\u74d6{iG\r\u0005??~\ue4f7\uf8f5$\u66c5<?s\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\WINDOWS\\microsofthelp.exe\n  C:\\Windows\\microsofthelp.exe\n\nCOMMAND EXECUTIONS (5):\n  ( 1020 - cmd.exe ) c:\\windows\\system32\\cmd.exe /c \"c:\\users\\user41~1\\appdata\\local\\temp\\drrghltcxg.exe\"\n  ( 3928 - drrghltcxg.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\drrghltcxg.exe\n  ( 2704 - microsofthelp.exe ) \"c:\\windows\\microsofthelp.exe\"\n  \"C:\\Windows\\microsofthelp.exe\"\n   \n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (6):\n  - get common file path\n  - link function at runtime on Windows\n  - query or enumerate registry value\n  - persist via Run registry key\n  - get MAC address on Windows\n  - get file size\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Thread [C0038]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - reference absolute stream path on Windows\n  - Process::Create Process [C0017]\n  - File System::Create File [C0016]\n  - Discovery::File and Directory Discovery [E1083]\n  - contain loop\n  - File System::Delete File [C0047]\n  - Process::Terminate Process [C0018]\n  - Process::Create Mutex [C0042]\n  - Process::Check Mutex [C0043]\n  - link function at runtime on Windows\n  - Communication::HTTP Communication::Create Request [C0002.012]\n  - Communication::HTTP Communication::Open URL [C0002.004]\n  - Communication::HTTP Communication::Get Response [C0002.017]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Persistence::Registry Run Keys / Startup Folder [F0012]\n  - get MAC address on Windows\n  - File System::Read File [C0051]\n  - File System::Writes File [C0052]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  microsofthelp.exe  [sha256: a5b89086ea186c37...]\n  C:\\Windows\\microsofthelp.exe  [sha256: 20cccf600bcf68b9...]\n  c:\\windows\\microsofthelp.exe  [sha256: 1c8943a9f29b23ac...]\n\nFILES WRITTEN (8):\n  ( 2704 - microsofthelp.exe ) c:\\windows\\hideplugin.dll\n  ( 3928 - drrghltcxg.exe ) c:\\windows\\microsofthelp.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows\\History\\History.IE5\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows\\Temporary Internet Files\\Content.IE5\n  C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\Windows\\Cookies\n  C:\\WINDOWS\\HidePlugin.dll\n  C:\\WINDOWS\\microsofthelp.exe\n  C:\\Windows\\HidePlugin.dll\n\nPERSISTENCE REGISTRY KEYS (3):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\microsofthelp = C:\\Windows\\microsofthelp.exe\n  HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\microsofthelp = C:\\Windows\\microsofthelp.exe\n  \\registry\\user\\s-1-5-21-2589874625-3071026754-1203412979-1000\\software\\microsoft\\windows\\currentversion\\run\\microsofthelp = c:\\windows\\microsofthelp.exe\n\nMUTEXES CREATED (8):\n  Local\\WininetProxyRegistryMutex\n  Local\\WininetStartupMutex\n  Local\\_!MSFTHISTORY!_\n  Local\\c:!users!administrator!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!administrator!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!administrator!appdata!roaming!microsoft!windows!cookies!\n  ShimCacheMutex\n  pomdfghrt\n\nPROCESSES CREATED (2):\n  C:\\WINDOWS\\microsofthelp.exe\n  C:\\Windows\\microsofthelp.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA, GetProcAddress\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'Cyren': 'dropped, dropped, dropped'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.4\n  .rdata       entropy=4.73\n  .data        entropy=0.96\n  .shoooo      entropy=7.84\n  .imports     entropy=3.61\n  [overlay]    entropy=3.297978639602661  size=37612\n",
+  "ground_truth": {
+    "hash": "243fb74aece5c367537d4a923fcd9816b4585c30c7b6d8b8514cdbf093fd3be4",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8889,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get MAC address on Windows"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "persist via Run registry key"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "delay execution",
+      "create thread",
+      "create or open registry key",
+      "reference absolute stream path on Windows",
+      "create process on Windows",
+      "create or open file",
+      "get common file path",
+      "contain loop",
+      "delete file",
+      "terminate process",
+      "create mutex",
+      "check mutex and exit",
+      "link function at runtime on Windows",
+      "create HTTP request",
+      "connect to URL",
+      "read data from Internet",
+      "receive data",
+      "set registry value",
+      "query or enumerate registry value",
+      "persist via Run registry key",
+      "get MAC address on Windows",
+      "read file on Windows",
+      "write file on Windows",
+      "get file size"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [
+        "\u0002\u0001\u56a5\u8a6cM`\u00040?\u00068?~\u5117\u9b66D\ue389H\u74d6{iG\r\u0005??~\ue4f7\uf8f5$\u66c5<?s"
+      ],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\microsofthelp",
+        "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\microsofthelp",
+        "\\registry\\user\\s-1-5-21-2589874625-3071026754-1203412979-1000\\software\\microsoft\\windows\\currentversion\\run\\microsofthelp"
+      ],
+      "registry_all_count": 3,
+      "files_dropped": [
+        "C:\\Windows\\microsofthelp.exe",
+        "c:\\windows\\microsofthelp.exe",
+        "microsofthelp.exe"
+      ],
+      "mutexes": [
+        "Local\\WininetProxyRegistryMutex",
+        "Local\\WininetStartupMutex",
+        "Local\\_!MSFTHISTORY!_",
+        "Local\\c:!users!administrator!appdata!local!microsoft!windows!history!history.ie5!",
+        "Local\\c:!users!administrator!appdata!local!microsoft!windows!temporary internet files!content.ie5!",
+        "Local\\c:!users!administrator!appdata!roaming!microsoft!windows!cookies!",
+        "ShimCacheMutex",
+        "pomdfghrt"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\microsofthelp.exe",
+        "C:\\Windows\\microsofthelp.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 6,
+  "sandbox_names": [
+    "CAPA",
+    "ReaQta-Hive",
+    "Rising MOVES",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

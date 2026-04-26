@@ -1,0 +1,161 @@
+{
+  "hash": "0a15909f0100b3a498f08f2d90cd85ac1061b91fc0e22f347956fedd66bbd0f3",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nIP TRAFFIC (2):\n  185.166.128.248:443 (TCP)\n  72.21.81.240:80 (TCP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  upd.pe32\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (21):\n  - access PEB ldr_data\n  - get process heap flags\n  - encode data using XOR\n  - get common file path\n  - encode data using Base64\n  - accept command line arguments\n  - link function at runtime on Windows\n  - query or enumerate registry value\n  - query environment variable\n  - get file version info\n  - delete registry key\n  - query or enumerate registry key\n  - delete registry value\n  - schedule task via ITaskScheduler\n  - persist via Run registry key\n  - get session user name\n  - check if file exists\n  - get file size\n  - reference SQL statements\n  - link many functions at runtime\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - File System::Create File [C0016]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Thread [C0038]\n  - Process::Create Process [C0017]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - access PEB ldr_data\n  - get process heap flags\n  - inspect load icon resource\n  - Process::Open Process [C0065]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - File System::Get File Attributes [C0049]\n  - Memory::Allocate Memory [C0007]\n  - Communication::HTTP Communication::WinHTTP [C0002.008]\n  - Communication::HTTP Communication::Create Request [C0002.012]\n  - Communication::HTTP Communication::Get Response [C0002.017]\n  - contain loop\n  - Communication::HTTP Communication::Read Header [C0002.014]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Writes File [C0052]\n  - Data::Encode Data::Base64 [C0026.001]\n  - Execution::Command and Scripting Interpreter [E1059]\n\n--- ARTIFACTS ---\n\nOTHER REGISTRY KEYS SET (1):\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\ESENT\\Process\\996E\\DEBUG\\Trace Level\n\nMUTEXES CREATED (8):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  Global\\AmInst__Runing_1\n  RasPbFile\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAlloc, VirtualProtect\n  ADVAPI32.dll: OpenProcessToken\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.62\n  .rdata       entropy=5.35\n  .data        entropy=4.39\n  .rsrc        entropy=5.84\n  .reloc       entropy=5.63\n",
+  "ground_truth": {
+    "hash": "0a15909f0100b3a498f08f2d90cd85ac1061b91fc0e22f347956fedd66bbd0f3",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7183,
+    "malicious_count": 51,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1033",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1053",
+        "signature_description": "schedule task via ITaskScheduler"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "get process heap flags"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1087",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry key"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1213",
+        "signature_description": "reference SQL statements"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "persist via Run registry key"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "create or open file",
+      "create or open registry key",
+      "delay execution",
+      "create thread",
+      "create process on Windows",
+      "PEB access",
+      "access PEB ldr_data",
+      "get process heap flags",
+      "inspect load icon resource",
+      "open process",
+      "encode data using XOR",
+      "get file attributes",
+      "allocate memory",
+      "allocate RWX memory",
+      "initialize WinHTTP library",
+      "prepare HTTP request",
+      "receive HTTP response",
+      "contain loop",
+      "read HTTP header",
+      "check HTTP status code",
+      "get common file path",
+      "write file on Windows",
+      "encode data using Base64",
+      "accept command line arguments",
+      "print debug messages",
+      "hash data with MD5",
+      "link function at runtime on Windows",
+      "set registry value",
+      "delete file",
+      "move file",
+      "query or enumerate registry value",
+      "query environment variable",
+      "get file version info",
+      "read .ini file",
+      "extract resource via kernel32 functions",
+      "delete registry key",
+      "query or enumerate registry key",
+      "delete registry value",
+      "execute VBScript Javascript or JScript in memory",
+      "terminate process",
+      "schedule task via ITaskScheduler",
+      "persist via Run registry key",
+      "get session user name",
+      "create mutex",
+      "check mutex and exit",
+      "get OS version",
+      "check if file exists",
+      "read file on Windows",
+      "get file size",
+      "allocate thread local storage",
+      "get thread local storage value",
+      "set thread local storage value",
+      "resolve function by parsing PE exports",
+      "reference SQL statements",
+      "enumerate PE sections",
+      "link many functions at runtime",
+      "linked against CPP standard library",
+      "contain a resource (.rsrc) section",
+      "reference Base64 string"
+    ],
+    "iocs": {
+      "ips": [
+        "185.166.128.248",
+        "72.21.81.240"
+      ],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 1,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "Global\\AmInst__Runing_1",
+        "RasPbFile"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

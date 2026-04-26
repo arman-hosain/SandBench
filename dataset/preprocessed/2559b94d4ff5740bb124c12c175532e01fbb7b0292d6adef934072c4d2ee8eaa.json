@@ -1,0 +1,47 @@
+{
+  "hash": "2559b94d4ff5740bb124c12c175532e01fbb7b0292d6adef934072c4d2ee8eaa",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - accept command line arguments\n  - reference anti-VM strings targeting VirtualBox\n\nCAPA RULE MATCHES (MBC):\n  - Execution::Command and Scripting Interpreter [E1059]\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Execution::Install Additional Program [B0023]\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - contains PDB path\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Sign tool] Windows Authenticode\n  Packers: {'F-PROT': 'appended'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.84\n  .rdata       entropy=3.84\n  .data        entropy=0.98\n  .pdata       entropy=1.56\n  .rsrc        entropy=5.04\n  .reloc       entropy=0.47\n  [overlay]    entropy=5.768309116363525  size=2519421\n",
+  "ground_truth": {
+    "hash": "2559b94d4ff5740bb124c12c175532e01fbb7b0292d6adef934072c4d2ee8eaa",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.3472,
+    "malicious_count": 25,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "accept command line arguments",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "reference anti-VM strings targeting VirtualBox",
+      "contains PDB path"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

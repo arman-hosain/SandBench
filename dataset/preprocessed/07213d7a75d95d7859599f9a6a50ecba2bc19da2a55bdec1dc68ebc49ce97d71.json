@@ -1,0 +1,59 @@
+{
+  "hash": "07213d7a75d95d7859599f9a6a50ecba2bc19da2a55bdec1dc68ebc49ce97d71",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  0.0.0.0.in-addr.arpa.\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    sander.exe\n      ctfmom.exe\n    cmd.exe cmd /c \"_sannuyex.bat\" \"\n\nCOMMAND EXECUTIONS (1):\n  cmd /c \"\"C:\\DOCUME~1\\ADMINI~1\\LOCALS~1\\Temp\\_sannuyex.bat\" \"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - packed with ASPack\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - contain loop\n  - Anti-Static Analysis::Software Packing [F0001]\n  - contain a resource (.rsrc) section\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (4):\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\HGDraw.dll\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\ctfmom.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\golfinfo.ini\n  C:\\WINDOWS\\system32\\sander.exe\n\nOTHER REGISTRY KEYS SET (6):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\Run\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\WINDOWS\\\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\ESENT\\Process\\sander\\DEBUG\\Trace Level\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\TrayKe\n\nMUTEXES CREATED (11):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  RasPbFile\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n\nMUTEXES OPENED (1):\n  DBWinMutex\n\nPROCESSES CREATED (1):\n  C:\\WINDOWS\\system32\\cmd.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Packer] ASPack\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'ASPack v2.12'}\n\nPE SECTIONS (entropy):\n  .text        entropy=8.0\n  .rdata       entropy=7.98\n  .data        entropy=7.83\n  .rsrc        entropy=7.64\n  .reloc       entropy=7.79\n  IHHYNNN      entropy=5.66\n  .adata       entropy=0.0\n  [overlay]    entropy=4.631084442138672  size=3113\n",
+  "ground_truth": {
+    "hash": "07213d7a75d95d7859599f9a6a50ecba2bc19da2a55bdec1dc68ebc49ce97d71",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8406,
+    "malicious_count": 58,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with ASPack"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "contain loop",
+      "packed with ASPack",
+      "contain a resource (.rsrc) section",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [
+        "0.0.0.0.in-addr.arpa."
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 6,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "RasPbFile",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex",
+        "oleacc-msaa-loaded"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\system32\\cmd.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO"
+  ]
+}

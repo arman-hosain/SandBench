@@ -1,0 +1,135 @@
+{
+  "hash": "017d9d8876465dde5f0ea392982169c30b08ae266bb35366ca5bc22b38738fc5",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including the use of obfuscated stackstrings and argument obfuscation to evade static analysis, creation of files in the Startup folder and ProgramData, execution of child processes, and deletion of files. The presence of 'Mira.h' (a common header for the Mirai botnet) and the specific obfuscation techniques strongly indicate malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Dropper\"],\n    \"explanation\": \"The sample uses obfuscation (stackstrings, argument obfuscation) and drops additional executables (ijjmk.exe, auuxuf.exe) and headers (Mira.h) to other locations, which is characteristic of a Dropper. The use of 'Mira.h' suggests it may be part of the Mirai botnet infrastructure, classifying it as a Trojan.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1070\",\n        \"name\": \"Indicator Removal\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 2896,
+      "response_chars": 1313,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including the use of obfuscated stackstrings and argument obfuscation to evade static analysis, creation of files in the Startup folder and ProgramData, execution of child processes, and deletion of files. The presence of 'Mira.h' (a common header for the Mirai botnet) and the specific",
+      "elapsed_seconds": 7.44
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "2 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 2,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1547"
+      ],
+      "hallucinated_ttps": [
+        "T1055",
+        "T1070"
+      ],
+      "ttp_tp": 3,
+      "ttp_fp": 2
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- get common file path\n- set file attributes\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by the rep",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "refinement_rejected",
+      "iteration": 1,
+      "reason": "response not in structured format - keeping previous output",
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is malicious. It employs anti-analysis techniques including argument obfuscation and stack strings. It drops multiple executables"
+    },
+    {
+      "step": 5,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1547"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 3,
+      "best_ttp_fp": 2
+    },
+    {
+      "step": 6,
+      "type": "refinement_stopped",
+      "iteration": 1,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 3,
+      "ttp_fp": 2
+    }
+  ],
+  "total_llm_calls": 2,
+  "total_elapsed": 83.78,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9296
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.6,
+      "ttp_precision": 0.6,
+      "ttp_recall": 0.6,
+      "gt_ttps": [
+        "T1027",
+        "T1059",
+        "T1083",
+        "T1222",
+        "T1547"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1547"
+      ],
+      "tp": 3,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1070"
+      ],
+      "q3_missed_ttps": [
+        "T1083",
+        "T1222"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.6,
+      "breakdown": {
+        "ttp_f1": 0.6
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "hash": "35c12ed170e7fc34a31eddc134b924c1ef81d091d97cb15c5a4ac62720fdba70",
+  "report_text": "--- EXECUTION CHAIN ---\n\nCOMMAND EXECUTIONS (2):\n  ( 3748 - cmd.exe ) c:\\windows\\system32\\cmd.exe /c \"c:\\users\\user41~1\\appdata\\local\\temp\\sjcyyocclo.exe\"\n  ( 2100 - sjcyyocclo.exe ) c:\\users\\user41~1\\appdata\\local\\temp\\sjcyyocclo.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (5):\n  - encode data using Base64 via WinAPI\n  - get common file path\n  - query environment variable\n  - accept command line arguments\n  - link function at runtime on Windows\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - encode data using Base64 via WinAPI\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - File System::Create File [C0016]\n  - contain loop\n  - Communication::Socket Communication::Initialize Winsock Library [C0001.009]\n  - Discovery::File and Directory Discovery [E1083]\n  - Discovery::System Information Discovery [E1082]\n  - get OS version\n  - Execution::Command and Scripting Interpreter [E1059]\n  - link function at runtime on Windows\n  - File System::Writes File [C0052]\n  - Process::Terminate Process [C0018]\n  - Operating System::Environment Variable::Set Variable [C0034.001]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: fd22a623a41301a7...]\n  c:\\progra~3\\mozilla\\jctrxem.exe  [sha256: 6f60f1ff8c9f3124...]\n\nFILES WRITTEN (1):\n  ( 2100 - sjcyyocclo.exe ) c:\\progra~3\\mozilla\\jctrxem.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, LoadLibraryW, VirtualAlloc, VirtualProtect\n  ADVAPI32.dll: OpenProcessToken\n\nCOMPILER AND PACKER:\n  [Compiler] Watcom\n  [Linker] Watcom Linker\n\nPE SECTIONS (entropy):\n  AUTO         entropy=6.54\n  .idata       entropy=4.53\n  DGROUP       entropy=6.59\n  .reloc       entropy=6.15\n  .rsrc        entropy=1.52\n  [overlay]    entropy=7.995015621185303  size=38104\n",
+  "ground_truth": {
+    "hash": "35c12ed170e7fc34a31eddc134b924c1ef81d091d97cb15c5a4ac62720fdba70",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8889,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using Base64 via WinAPI"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "allocate RWX memory",
+      "allocate RW memory",
+      "encode data using Base64 via WinAPI",
+      "PEB access",
+      "create or open file",
+      "contain loop",
+      "initialize Winsock library",
+      "get common file path",
+      "query environment variable",
+      "get OS version",
+      "accept command line arguments",
+      "link function at runtime on Windows",
+      "write file on Windows",
+      "terminate process",
+      "set environment variable"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "c:\\progra~3\\mozilla\\jctrxem.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "ReaQta-Hive",
+    "VirusTotal Jujubox"
+  ]
+}

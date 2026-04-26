@@ -1,0 +1,103 @@
+{
+  "hash": "1a9ee33ac28a86a11ebaa45d7de4eb9905228d349612399095aa1a8908376746",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nSERVICES OPENED (2):\n  sppsvc\n  sppuinotify\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  1a9ee33ac28a86a11ebaa45d7de4eb9905228d349612399095aa1a8908376746.exe\n    C:\\Windows\\system32\\NOTEPAD.EXE C:\\Users\\<USER>\\Downloads\\imgui.ini\n    C:\\ProgramData\\TWBIAY\\CLJ.exe\n\nCOMMAND EXECUTIONS (5):\n  (open) C:\\Documents and Settings\\All Users\\Application Data\\TWBIAY\\CLJ.exe(null) [(null)]\n  (open) C:\\imgui.ini(null) [(null)]\n  C:\\ProgramData\\TWBIAY\\CLJ.exe\n  C:\\Users\\<USER>\\Downloads\\imgui.ini\n  \"C:\\WINDOWS\\System32\\NOTEPAD.EXE\" C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\imgui.ini\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - encode data using XOR\n  - link function at runtime on Windows\n  - find graphical window\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - link function at runtime on Windows\n  - find graphical window\n  - Process::Terminate Process [C0018]\n  - Process::Allocate Thread Local Storage [C0040]\n  - link many functions at runtime\n  - contain a resource (.rsrc) section\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExW\n\n--- ARTIFACTS ---\n\nFILES DROPPED (4):\n  CLJ.01  [sha256: d5dd6bf3f86b7bc8...]\n  CLJ.exe  [sha256: 6dc4e4712ec2b46c...]\n  C:\\ProgramData\\TWBIAY\\CLJ.exe  [sha256: 6dc4e4712ec2b46c...]\n  C:\\ProgramData\\TWBIAY\\CLJ.01  [sha256: d5dd6bf3f86b7bc8...]\n\nFILES WRITTEN (11):\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\imgui.ini\n  C:\\Documents and Settings\\All Users\\Application Data\\PEZ\\CLJ.004\n  C:\\Documents and Settings\\All Users\\Application Data\\TWBIAY\\CLJ.00\n  C:\\Documents and Settings\\All Users\\Application Data\\TWBIAY\\CLJ.01\n  C:\\Documents and Settings\\All Users\\Application Data\\TWBIAY\\CLJ.02\n  C:\\Documents and Settings\\All Users\\Application Data\\TWBIAY\\CLJ.exe\n  C:\\ProgramData\\PEZ\\CLJ.004\n  C:\\ProgramData\\TWBIAY\\CLJ.00\n  C:\\ProgramData\\TWBIAY\\CLJ.02\n  C:\\Users\\<USER>\\Downloads\\imgui.ini\n  C:\\imgui.ini\n\nPERSISTENCE REGISTRY KEYS (2):\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\CLJ Start = C\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\CLJ Start = C:\\Documents and Settings\\All Users\\Application Data\\TWBIAY\\CLJ.exe\u0000\n\nOTHER REGISTRY KEYS SET (1):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\Document\n\nMUTEXES CREATED (12):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  Local\\{D45184B2-D44D-4D99-931B-B84626BC5EF2}\n  MSCTF.Shared.MUTEX.EBH\n  ShimCacheMutex\n  ZonesCacheCounterMutex\n\nPROCESSES CREATED (3):\n  C:\\Documents and Settings\\All Users\\Application Data\\TWBIAY\\CLJ.exe C:\\Documents and Settings\\All Users\\Application Data\\TWBIAY\\CLJ.exe\" \"\n  C:\\WINDOWS\\System32\\NOTEPAD.EXE C:\\WINDOWS\\System32\\NOTEPAD.EXE\" C:\\imgui.ini\"\n  C:\\WINDOWS\\system32\\notepad.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryW, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.39\n  .rdata       entropy=5.49\n  .data        entropy=2.29\n  .rsrc        entropy=7.68\n  .reloc       entropy=3.62\n",
+  "ground_truth": {
+    "hash": "1a9ee33ac28a86a11ebaa45d7de4eb9905228d349612399095aa1a8908376746",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8219,
+    "malicious_count": 60,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 16
+      },
+      {
+        "value": "dropper",
+        "count": 3
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "ardamax",
+        "count": 10
+      },
+      {
+        "value": "keylogger",
+        "count": 9
+      },
+      {
+        "value": "keyloggerx",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.ardamax/keylogger",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain loop",
+      "link function at runtime on Windows",
+      "find graphical window",
+      "terminate process",
+      "allocate thread local storage",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\CLJ Start",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\CLJ Start"
+      ],
+      "registry_all_count": 3,
+      "files_dropped": [
+        "C:\\ProgramData\\TWBIAY\\CLJ.01",
+        "C:\\ProgramData\\TWBIAY\\CLJ.exe",
+        "CLJ.01",
+        "CLJ.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "Local\\{D45184B2-D44D-4D99-931B-B84626BC5EF2}",
+        "MSCTF.Shared.MUTEX.EBH",
+        "ShimCacheMutex",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\All Users\\Application Data\\TWBIAY\\CLJ.exe C:\\Documents and Settings\\All Users\\Application Data\\TWBIAY\\CLJ.exe\" \"",
+        "C:\\WINDOWS\\System32\\NOTEPAD.EXE C:\\WINDOWS\\System32\\NOTEPAD.EXE\" C:\\imgui.ini\"",
+        "C:\\WINDOWS\\system32\\notepad.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

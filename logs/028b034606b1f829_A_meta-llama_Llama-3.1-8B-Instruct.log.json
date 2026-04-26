@@ -1,0 +1,96 @@
+{
+  "hash": "028b034606b1f82920d437ad2d50f4b5b621751b27ef1fd0817decdcc1505143",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity (downloading a file from a suspicious IP), process behavior (executing a suspicious process), and capabilities (encoding data using XOR, containing obfuscated stackstrings, and linking functions at runtime).\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior suggests it is a Trojan, as it downloads and executes a suspicious file, and exhibits capabilities typical of a Trojan, such as encoding data and linking functions at runtime.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1204\", \"name\": \"User Execution\"},\n      {\"id\": \"T1210\", \"name\": \"Server-Side Request Forgery\"},\n      {\"id\": \"T1212\", \"name\": \"Exploit Public-Facing Application\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 4260,
+      "response_chars": 861,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity (downloading a file from a suspicious IP), process behavior (executing a suspicious process), and capabilities (encoding data using XOR, containing obfuscated stackstrings, and linking functions at runtime).\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior ",
+      "elapsed_seconds": 4.27
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 4.27,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.7945
+    },
+    "family": {
+      "family_f1": 0.6667,
+      "family_precision": 1.0,
+      "family_recall": 0.5,
+      "predicted": [
+        "trojan"
+      ],
+      "matched": [
+        "trojan"
+      ],
+      "reachable_gt": [
+        "dropper",
+        "trojan"
+      ],
+      "gt_pool": [
+        "bkdr",
+        "bulz",
+        "downloader",
+        "farfli",
+        "trojan",
+        "virus"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 0.2,
+      "ttp_precision": 0.25,
+      "ttp_recall": 0.1667,
+      "gt_ttps": [
+        "T1027",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1204",
+        "T1210",
+        "T1212"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1204",
+        "T1210",
+        "T1212"
+      ],
+      "q3_missed_ttps": [
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2,
+      "breakdown": {
+        "ttp_f1": 0.2
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

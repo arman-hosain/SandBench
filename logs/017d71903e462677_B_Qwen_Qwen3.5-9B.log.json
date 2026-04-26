@@ -1,0 +1,153 @@
+{
+  "hash": "017d71903e4626773bd9fb9c945c1c9474b85e185688ce79216ab674a3fae07f",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including keylogging via polling (SetWindowsHookExW), dynamic analysis evasion (Delayed Execution), and writing suspicious files to system directories. The combination of credential harvesting capabilities and anti-analysis techniques confirms a malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Spyware\"],\n    \"explanation\": \"The primary observable behavior is keylogging ('log keystrokes via polling', 'SetWindowsHookExW'), which is the defining characteristic of Spyware. While it uses evasion techniques, the core function is information collection rather than ransomware, dropper, or backdoor functionality.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1056\",\n        \"name\": \"Input Capture\"\n      },\n      {\n        \"id\": \"T1055.001\",\n        \"name\": \"Process Injection - DLL Injection\"\n      },\n      {\n        \"id\": \"T1563.001\",\n        \"name\": \"Allow Domain Trust\"\n      },\n      {\n        \"id\": \"T1070.004\",\n        \"name\": \"Indicator Removal on Host - Clear Windows Event Logs\"\n      },\n      {\n        \"id\": \"T1055.012\",\n        \"name\": \"Process Injection - Thread Injection\"\n      },\n      {\n        \"id\": \"T1055.004\",\n        \"name\": \"Process Injection - Dynamic Resolution of Imported Functions\"\n      },\n      {\n        \"id\": \"T1055.013\",\n        \"name\": \"Process Injection - Process Hollowing\"\n      },\n      {\n        \"id\": \"T1055.014\",\n        \"name\": \"Process Injection - Reflective DLL Injection\"\n      },\n      {\n        \"id\": \"T1055.015\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.016\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.017\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.018\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.019\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.020\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.021\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.022\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.023\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.024\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.025\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.026\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.027\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.028\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.029\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.030\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.031\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.032\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.033\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.034\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.035\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.036\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.037\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.038\",\n        \"name\": \"Process Injection - Thread Spawning\"\n      },\n      {\n        \"id\": \"T1055.03",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 2407,
+      "response_chars": 11745,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including keylogging via polling (SetWindowsHookExW), dynamic analysis evasion (Delayed Execution), and writing suspicious files to system directories. The combination of credential harvesting capabilities and anti-analysis techniques confirms a malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [",
+      "elapsed_seconds": 76.09
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "7 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 7,
+      "ttps_found": [
+        "T1055",
+        "T1056",
+        "T1070",
+        "T1563"
+      ],
+      "hallucinated_ttps": [
+        "T1055",
+        "T1070",
+        "T1563"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 3
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- query or enumerate registry value\n- accept command line arguments\n- query environment variable\n- get file system object information\n- delete registry key\n- link function at runtime on Windows\n- get geographical location\n\nInstructions:\n- Add a TTP only w",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "refinement_rejected",
+      "iteration": 1,
+      "reason": "response not in structured format - keeping previous output",
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is confirmed malicious due to the presence of keylogging capabilities ('log keystrokes via polling', 'SetWindowsHookExW'), dynami"
+    },
+    {
+      "step": 5,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1055",
+        "T1056",
+        "T1070",
+        "T1563"
+      ],
+      "is_structured": false,
+      "best_ttp_tp": 1,
+      "best_ttp_fp": 3
+    },
+    {
+      "step": 6,
+      "type": "refinement_stopped",
+      "iteration": 1,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 1,
+      "ttp_fp": 3
+    }
+  ],
+  "total_llm_calls": 2,
+  "total_elapsed": 194.7,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": true,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.6849
+    },
+    "family": {
+      "family_f1": 0.0,
+      "family_precision": 0.0,
+      "family_recall": 0.0,
+      "predicted": [
+        "spyware"
+      ],
+      "matched": [],
+      "reachable_gt": [
+        "trojan"
+      ],
+      "gt_pool": [
+        "trojan",
+        "virtob",
+        "virus",
+        "virut",
+        "vitro"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 0.1667,
+      "ttp_precision": 0.25,
+      "ttp_recall": 0.125,
+      "gt_ttps": [
+        "T1012",
+        "T1056",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1112",
+        "T1129",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1055",
+        "T1056",
+        "T1070",
+        "T1563"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1070",
+        "T1563"
+      ],
+      "q3_missed_ttps": [
+        "T1012",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1112",
+        "T1129",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.1667,
+      "breakdown": {
+        "ttp_f1": 0.1667
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

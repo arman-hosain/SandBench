@@ -1,0 +1,62 @@
+{
+  "hash": "023c3131230fa77ce63341348bba0da2707d3c3fcdf1d9f37de331af35b00251",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  svchost.exe\n    byiamvi.exe -iipcnmc\n\nCOMMAND EXECUTIONS (3):\n  C:\\PROGRA~2\\Mozilla\\suwzfrh.exe -qchpuvi\n   \n  taskeng.exe {9C689768-2787-4BB3-BE3E-E7A485EA2EAB} S-1-5-18:NT AUTHORITY\\System:Service:\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - encode data using Base64 via WinAPI\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - encode data using Base64 via WinAPI\n  - contain loop\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  ctvqzym.exe  [sha256: 38389d5bcfec3970...]\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: 763a4fe0164915db...]\n\nFILES WRITTEN (8):\n  C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\ctvqzym.exe\n  C:\\Documents and Settings\\All Users\\Application Data\\Mozilla\\aopsara.dll\n  C:\\Documents and Settings\\All Users\\Application Data\\Mozilla\\byiamvi.exe\n  C:\\PROGRA~2\\Mozilla\\suwjaej.dll\n  C:\\PROGRA~2\\Mozilla\\suwzfrh.exe\n  C:\\ProgramData\\Mozilla\\\n  C:\\WINDOWS\\Tasks\\hiqvsnd.job\n  C:\\WINDOWS\\Tasks\\rwdqoxi.job\n\nPERSISTENCE REGISTRY KEYS (4):\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs = C:\\PROGRA~2\\Mozilla\\suwjaej.dll\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs = 1\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs = C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\aopsara.dll\u0000\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs = 01000000\n\nOTHER REGISTRY KEYS SET (1):\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Handshake\\{9C689768-2787-4BB3-BE3E-E7A485EA2EAB\n\nMUTEXES CREATED (6):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n\nPROCESSES CREATED (1):\n  C:\\PROGRA~2\\Mozilla\\suwzfrh.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] LCC-Win32\n  [Linker] LCC Linker\n  Packers: {'PEiD': 'Microsoft Visual C++ (3.0 old crap)'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.57\n  .bss         entropy=0.0\n  .data        entropy=6.73\n  .idata       entropy=4.35\n  .reloc       entropy=5.63\n  [overlay]    entropy=7.999510765075684  size=505582\n",
+  "ground_truth": {
+    "hash": "023c3131230fa77ce63341348bba0da2707d3c3fcdf1d9f37de331af35b00251",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8873,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using Base64 via WinAPI"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RWX memory",
+      "encode data using Base64 via WinAPI",
+      "contain loop"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs",
+        "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\LoadAppInit_DLLs"
+      ],
+      "registry_all_count": 5,
+      "files_dropped": [
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "ctvqzym.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500"
+      ],
+      "processes": [
+        "C:\\PROGRA~2\\Mozilla\\suwzfrh.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "Rising MOVES",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

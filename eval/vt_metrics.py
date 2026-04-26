@@ -1,0 +1,501 @@
+"""
+eval/vt_metrics.py — SandBench Evaluation Metrics
+
+Parse gate: hard zero on all scored metrics if JSON parse fails after structural repair.
+
+Q1 — Verdict Score : tier-distance against gt["verdict"] derived from detection_rate
+Q2 — Family F1     : precision/recall/F1; recall denominator = GT-reachable vocab labels
+Q3 — TTP F1        : records q3_hallucinated_ttps and q3_missed_ttps separately
+Composite          : TTP F1 (+ evidence grounding for agentic); renormalized per sample
+Aggregate          : mean + coverage per metric; skipped samples never mixed into a mean
+"""
+
+import re
+import json
+import numpy as np
+from typing import Optional
+
+
+# ── 0. Parse ──────────────────────────────────────────────────────────────────
+
+def _strip_json_wrappers(text: str) -> str:
+    cleaned = text.strip()
+
+    if cleaned.startswith("```json"):
+        cleaned = cleaned[7:]
+    elif cleaned.startswith("```"):
+        cleaned = cleaned[3:]
+    if cleaned.endswith("```"):
+        cleaned = cleaned[:-3]
+
+    cleaned = cleaned.strip()
+    start = cleaned.find("{")
+    if start > 0:
+        cleaned = cleaned[start:]
+    return cleaned
+
+
+def _loads_json_dict(text: str) -> dict:
+    data = json.loads(text)
+    if not isinstance(data, dict):
+        raise ValueError("top-level JSON value is not an object")
+    return data
+
+
+def _close_truncated_json(text: str) -> str:
+    """
+    Best-effort repair for LLM outputs cut off before closing JSON brackets.
+    It does not invent missing fields; it only closes an open string/container.
+    """
+    cleaned = _strip_json_wrappers(text)
+    stack = []
+    in_string = False
+    escaped = False
+
+    for ch in cleaned:
+        if in_string:
+            if escaped:
+                escaped = False
+            elif ch == "\\":
+                escaped = True
+            elif ch == '"':
+                in_string = False
+            continue
+
+        if ch == '"':
+            in_string = True
+        elif ch in "{[":
+            stack.append(ch)
+        elif ch in "}]":
+            if stack and ((stack[-1] == "{" and ch == "}") or
+                          (stack[-1] == "[" and ch == "]")):
+                stack.pop()
+
+    repaired = cleaned.rstrip()
+    if in_string:
+        if escaped:
+            repaired = repaired[:-1]
+        repaired += '"'
+
+    repaired = re.sub(r",\s*$", "", repaired)
+    closers = {"{": "}", "[": "]"}
+    repaired += "".join(closers[ch] for ch in reversed(stack))
+    return repaired
+
+
+def parse_llm_output(text: str) -> dict:
+    parse_repaired = False
+    try:
+        data = _loads_json_dict(_strip_json_wrappers(text))
+    except Exception:
+        try:
+            data = _loads_json_dict(_close_truncated_json(text))
+            parse_repaired = True
+        except Exception:
+            return {"q1": {}, "q2": {}, "q3": {},
+                    "parse_ok": False, "parse_repaired": False}
+
+    try:
+        return {
+            "q1": data.get("q1", {}),
+            "q2": data.get("q2", {}),
+            "q3": data.get("q3", {}),
+            "parse_ok": True,
+            "parse_repaired": parse_repaired,
+        }
+    except Exception:
+        return {"q1": {}, "q2": {}, "q3": {},
+                "parse_ok": False, "parse_repaired": parse_repaired}
+
+
+def _normalise(value: str) -> str:
+    """Normalize evidence values for loose IOC citation matching."""
+    return re.sub(r"\s+", "", value.lower().strip())
+
+
+# ── 1. Verdict (Q1) ───────────────────────────────────────────────────────────
+
+_VERDICT_ORDER  = ["BENIGN", "SUSPICIOUS", "MALICIOUS"]
+_VERDICT_SCORES = {"MALICIOUS": 1.0, "SUSPICIOUS": 0.5, "BENIGN": 0.0}
+
+
+def compute_verdict(q1_data: dict, gt: dict) -> dict:
+    """
+    Score Q1 verdict against gt["verdict"].
+    Exact match=1.0, one tier off=0.5, two tiers off=0.0.
+    Hard zero (not None) when verdict field is missing or invalid.
+    """
+    gt_verdict = gt.get("verdict", "MALICIOUS")
+    pred = (q1_data.get("verdict") or "").upper().strip()
+    if pred not in _VERDICT_SCORES:
+        return {
+            "verdict_score":  0.0,
+            "predicted":      pred or None,
+            "gt":             gt_verdict,
+            "detection_rate": gt.get("detection_rate"),
+            "note":           "missing or invalid verdict field",
+        }
+    distance = abs(_VERDICT_ORDER.index(pred) - _VERDICT_ORDER.index(gt_verdict))
+    return {
+        "verdict_score":  [1.0, 0.5, 0.0][distance],
+        "predicted":      pred,
+        "gt":             gt_verdict,
+        "detection_rate": gt.get("detection_rate"),
+    }
+
+
+# ── 2. Family F1 (Q2) ─────────────────────────────────────────────────────────
+
+FAMILY_VOCAB = {
+    "ransomware", "trojan", "adware", "dropper",
+    "spyware", "worm", "pua", "backdoor", "unknown",
+}
+
+_FAMILY_SYNONYMS = {
+    "ransomware": {"ransomware", "ransom", "cryptor", "locker", "crypt"},
+    "trojan":     {"trojan", "trojandownloader", "downloader"},
+    "adware":     {"adware"},
+    "dropper":    {"dropper", "downloader", "download"},
+    "spyware":    {"spyware", "infostealer", "stealer", "keylogger", "spy", "banker"},
+    "worm":       {"worm"},
+    "pua":        {"pua", "unwanted", "riskware", "hacktool"},
+    "backdoor":   {"backdoor", "rat", "remote"},
+    "unknown":    set(),
+}
+
+
+def _build_gt_family_pool(gt: dict) -> set:
+    """Build GT token pool from three sources separately — never merged into one string."""
+    pool = set()
+    for entry in gt.get("popular_threat_category", []):
+        v = (entry.get("value", "") if isinstance(entry, dict) else str(entry)).lower().strip()
+        if v:
+            pool.add(v)
+    for entry in gt.get("popular_threat_name", []):
+        v = (entry.get("value", "") if isinstance(entry, dict) else str(entry)).lower().strip()
+        if v:
+            pool.add(v)
+    label = (gt.get("suggested_label") or "").lower()
+    for tok in re.split(r"[./\-_ ]", label):
+        tok = tok.strip()
+        if len(tok) > 1:
+            pool.add(tok)
+    return pool
+
+
+def _hits_pool(fam: str, pool: set) -> bool:
+    syns = _FAMILY_SYNONYMS.get(fam, set())
+    return any(syn in tok or tok in syn for syn in syns for tok in pool)
+
+
+def compute_family(q2_data: dict, gt: dict) -> dict:
+    """
+    Q2 Family F1.
+    Precision = matched / |predicted vocab labels (excl. unknown)|
+    Recall    = matched / |GT-reachable vocab labels|
+    GT-reachable: vocab labels (excl. unknown) whose synonyms hit the GT pool.
+    Skipped (None) when GT pool is empty.
+    """
+    gt_pool = _build_gt_family_pool(gt)
+    if not gt_pool:
+        return {
+            "family_f1": None, "family_precision": None, "family_recall": None,
+            "predicted": [], "matched": [], "note": "no GT family data",
+        }
+
+    raw_pred    = [f.lower().strip() for f in (q2_data.get("family") or [])]
+    pred_labels = [f for f in raw_pred if f in FAMILY_VOCAB and f != "unknown"]
+
+    reachable_gt = [f for f in FAMILY_VOCAB if f != "unknown" and _hits_pool(f, gt_pool)]
+    matched      = [f for f in pred_labels  if _hits_pool(f, gt_pool)]
+
+    n_matched   = len(matched)
+    n_pred      = len(pred_labels)
+    n_reachable = len(reachable_gt)
+
+    precision = n_matched / n_pred      if n_pred      > 0 else 0.0
+    recall    = n_matched / n_reachable if n_reachable > 0 else 0.0
+    f1        = (2 * precision * recall / (precision + recall)
+                 if (precision + recall) > 0 else 0.0)
+
+    return {
+        "family_f1":        round(f1, 4),
+        "family_precision": round(precision, 4),
+        "family_recall":    round(recall, 4),
+        "predicted":        pred_labels,
+        "matched":          matched,
+        "reachable_gt":     reachable_gt,
+        "gt_pool":          sorted(gt_pool),
+    }
+
+
+# ── 3. TTP F1 (Q3) ────────────────────────────────────────────────────────────
+
+def _gt_ttp_set(gt_ttps: list, top_level_only: bool) -> set:
+    result = set()
+    for t in gt_ttps:
+        tid = t["id"] if isinstance(t, dict) else t
+        result.add(tid.split(".")[0] if top_level_only else tid)
+    return result
+
+
+def compute_ttp_f1(gt_ttps: list, q3_data: dict, top_level_only: bool = True) -> dict:
+    """
+    TTP F1 from q3.ttps[].id. No regex fallback.
+    Skipped (None) when GT has no TTPs.
+    Records hallucinated (FP) and missed (FN) TTP lists separately.
+    """
+    if not gt_ttps:
+        return {
+            "ttp_f1": None, "ttp_precision": None, "ttp_recall": None,
+            "gt_ttps": [], "pred_ttps": [],
+            "q3_hallucinated_ttps": [], "q3_missed_ttps": [],
+            "note": "no GT TTPs",
+        }
+
+    gt_set = _gt_ttp_set(gt_ttps, top_level_only)
+
+    pred_set = set()
+    for t in (q3_data.get("ttps") or []):
+        tid = t.get("id", "") if isinstance(t, dict) else str(t)
+        if top_level_only:
+            tid = tid.split(".")[0]
+        if tid:
+            pred_set.add(tid)
+
+    tp        = len(gt_set & pred_set)
+    precision = tp / len(pred_set) if pred_set else 0.0
+    recall    = tp / len(gt_set)
+    f1        = (2 * precision * recall / (precision + recall)
+                 if (precision + recall) > 0 else 0.0)
+
+    return {
+        "ttp_f1":               round(f1, 4),
+        "ttp_precision":        round(precision, 4),
+        "ttp_recall":           round(recall, 4),
+        "gt_ttps":              sorted(gt_set),
+        "pred_ttps":            sorted(pred_set),
+        "tp":                   tp,
+        "q3_hallucinated_ttps": sorted(pred_set - gt_set),
+        "q3_missed_ttps":       sorted(gt_set - pred_set),
+    }
+
+
+# ── 4. Evidence Grounding (agentic) ───────────────────────────────────────────
+
+def compute_evidence_grounding(hypotheses: list, gt_iocs: dict) -> dict:
+    if not hypotheses:
+        return {"grounding_score": 0.0, "total_citations": 0, "valid_citations": 0}
+
+    valid_values = set()
+    for vals in gt_iocs.values():
+        if isinstance(vals, list):
+            for v in vals:
+                valid_values.add(_normalise(str(v)))
+
+    total, valid, details = 0, 0, []
+    for hyp in hypotheses:
+        for ev in hyp.get("evidence", []):
+            val = str(ev.get("value", ""))
+            total += 1
+            is_valid = _normalise(val) in valid_values or any(
+                _normalise(val) in v for v in valid_values
+            )
+            if is_valid:
+                valid += 1
+            details.append({"value": val, "valid": is_valid, "type": ev.get("type", "")})
+
+    return {
+        "grounding_score": round(valid / total, 4) if total > 0 else 0.0,
+        "total_citations": total,
+        "valid_citations": valid,
+        "details":         details,
+    }
+
+
+# ── 6. Composite ──────────────────────────────────────────────────────────────
+
+def compute_composite(ttp_result: dict, grounding_result: Optional[dict],
+                      weights: dict) -> dict:
+    """
+    Weighted composite over TTP F1 and (for agentic) evidence grounding.
+    Renormalized per sample over only the dimensions with GT data.
+    composite_weights_used recorded for full reproducibility.
+    """
+    is_agentic = grounding_result is not None
+    w = weights.get("agentic" if is_agentic else "non_agentic", {})
+
+    scores, raw_w = {}, {}
+
+    ttp_f1    = ttp_result.get("ttp_f1")
+    grounding = grounding_result.get("grounding_score") if is_agentic else None
+
+    if ttp_f1 is not None:
+        scores["ttp_f1"] = ttp_f1; raw_w["ttp_f1"] = w.get("ttp_f1", 1.0)
+    if grounding is not None:
+        scores["evidence_grounding"] = grounding; raw_w["evidence_grounding"] = w.get("evidence_grounding", 0.2)
+
+    if not scores:
+        return {"composite_score": None, "note": "no scoreable dimensions",
+                "composite_weights_used": {}}
+
+    total_w   = sum(raw_w.values())
+    norm_w    = {k: v / total_w for k, v in raw_w.items()}
+    composite = sum(scores[k] * norm_w[k] for k in scores)
+    breakdown = {k: round(scores[k] * norm_w[k], 4) for k in scores}
+
+    return {
+        "composite_score":        round(composite, 4),
+        "breakdown":              breakdown,
+        "composite_weights_used": {k: round(v, 4) for k, v in norm_w.items()},
+    }
+
+
+# ── 7. Hard-zero result (parse gate) ──────────────────────────────────────────
+
+def _hard_zero_result(gt: dict, cfg: dict,
+                      hypotheses: Optional[list], is_agentic: bool) -> dict:
+    """Return hard-zero scores for dimensions with GT data; None for empty GT."""
+    eval_cfg       = cfg.get("eval", {})
+    top_level_only = eval_cfg.get("ttp_top_level_only", True)
+    weights        = eval_cfg.get("composite_weights", {})
+
+    gt_pool = _build_gt_family_pool(gt)
+    gt_ttps = gt.get("ttps", [])
+    gt_iocs = gt.get("iocs", {})
+
+    ttp_result = {
+        "ttp_f1":               0.0 if gt_ttps else None,
+        "ttp_precision":        0.0 if gt_ttps else None,
+        "ttp_recall":           0.0 if gt_ttps else None,
+        "gt_ttps":              sorted(_gt_ttp_set(gt_ttps, top_level_only)),
+        "pred_ttps":            [],
+        "q3_hallucinated_ttps": [],
+        "q3_missed_ttps":       sorted(_gt_ttp_set(gt_ttps, top_level_only)),
+    }
+
+    grounding_result = None
+    if is_agentic and hypotheses:
+        grounding_result = compute_evidence_grounding(hypotheses, gt_iocs)
+
+    composite = compute_composite(ttp_result, grounding_result, weights)
+
+    return {
+        "parse_ok": False,
+        "parse_repaired": False,
+        "verdict": {
+            "verdict_score":  0.0,
+            "predicted":      None,
+            "gt":             gt.get("verdict"),
+            "detection_rate": gt.get("detection_rate"),
+            "note":           "parse failed",
+        },
+        "family": {
+            "family_f1":        0.0 if gt_pool else None,
+            "family_precision": 0.0 if gt_pool else None,
+            "family_recall":    0.0 if gt_pool else None,
+            "predicted":        [],
+            "matched":          [],
+            "note":             "parse failed",
+        },
+        "ttp":                ttp_result,
+        "evidence_grounding": grounding_result,
+        "composite":          composite,
+    }
+
+
+# ── 8. Aggregate ──────────────────────────────────────────────────────────────
+
+def aggregate_results(results: list) -> dict:
+    """
+    Aggregate a list of evaluate_sample dicts.
+    Reports mean and coverage for every scalar metric.
+    coverage = number of samples where the metric is not None (i.e. was scored).
+    Skipped samples (None) are never mixed into the mean.
+    """
+    n_total = len(results)
+    if n_total == 0:
+        return {}
+
+    def _agg(values):
+        scored = [v for v in values if v is not None]
+        mean   = round(sum(scored) / len(scored), 4) if scored else None
+        return {"mean": mean, "coverage": len(scored), "n_total": n_total}
+
+    def _get(r, *keys, default=None):
+        v = r
+        for k in keys:
+            v = v.get(k, {}) if isinstance(v, dict) else {}
+        return v if v != {} else default
+
+    return {
+        "n_total":          n_total,
+        "parse_ok_rate":    round(sum(1 for r in results if r.get("parse_ok")) / n_total, 4),
+        "verdict":          _agg([_get(r, "verdict", "verdict_score")   for r in results]),
+        "family_f1":        _agg([_get(r, "family",  "family_f1")       for r in results]),
+        "family_precision": _agg([_get(r, "family",  "family_precision") for r in results]),
+        "family_recall":    _agg([_get(r, "family",  "family_recall")   for r in results]),
+        "ttp_f1":           _agg([_get(r, "ttp",     "ttp_f1")          for r in results]),
+        "ttp_precision":    _agg([_get(r, "ttp",     "ttp_precision")   for r in results]),
+        "ttp_recall":       _agg([_get(r, "ttp",     "ttp_recall")      for r in results]),
+        "composite":        _agg([_get(r, "composite", "composite_score") for r in results]),
+    }
+
+
+# ── Bootstrap CI ──────────────────────────────────────────────────────────────
+
+def bootstrap_ci(scores: list, n: int = 1000, alpha: float = 0.05):
+    """Return (mean, lower, upper) bootstrap 95% CI. Filters out None values."""
+    scores = [s for s in scores if s is not None]
+    if not scores:
+        return None, None, None
+    arr   = np.array(scores)
+    means = [np.mean(np.random.choice(arr, size=len(arr), replace=True)) for _ in range(n)]
+    return (round(float(np.mean(arr)), 4),
+            round(np.percentile(means, 100 * alpha / 2), 4),
+            round(np.percentile(means, 100 * (1 - alpha / 2)), 4))
+
+
+# ── Top-level evaluate_sample ─────────────────────────────────────────────────
+
+def evaluate_sample(gt: dict, llm_output: str,
+                    hypotheses: Optional[list] = None,
+                    cfg: Optional[dict] = None,
+                    is_agentic: bool = False) -> dict:
+    """
+    Full evaluation of one sample.
+
+    gt:         ground truth dict (from preprocess.py / ground_truth.json)
+    llm_output: raw string output from the LLM (expected to be JSON)
+    hypotheses: hypothesis dicts from agentic modes C/D
+    cfg:        config dict (for weights)
+    is_agentic: whether this is an agentic run
+    """
+    cfg = cfg or {}
+    eval_cfg       = cfg.get("eval", {})
+    top_level_only = eval_cfg.get("ttp_top_level_only", True)
+    weights        = eval_cfg.get("composite_weights", {})
+
+    parsed = parse_llm_output(llm_output)
+    if not parsed["parse_ok"]:
+        return _hard_zero_result(gt, cfg, hypotheses, is_agentic)
+
+    verdict_result = compute_verdict(parsed["q1"], gt)
+    family_result  = compute_family(parsed["q2"], gt)
+    ttp_result     = compute_ttp_f1(gt.get("ttps", []), parsed["q3"], top_level_only)
+
+    grounding_result = None
+    if is_agentic and hypotheses:
+        grounding_result = compute_evidence_grounding(hypotheses, gt.get("iocs", {}))
+
+    composite = compute_composite(ttp_result, grounding_result, weights)
+
+    return {
+        "parse_ok":           parsed["parse_ok"],
+        "parse_repaired":     parsed.get("parse_repaired", False),
+        "verdict":            verdict_result,
+        "family":             family_result,
+        "ttp":                ttp_result,
+        "evidence_grounding": grounding_result,
+        "composite":          composite,
+    }

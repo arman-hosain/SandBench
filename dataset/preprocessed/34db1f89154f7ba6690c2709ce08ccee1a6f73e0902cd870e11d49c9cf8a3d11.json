@@ -1,0 +1,102 @@
+{
+  "hash": "34db1f89154f7ba6690c2709ce08ccee1a6f73e0902cd870e11d49c9cf8a3d11",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\Documents and Settings\\All Users\\Application Data\\njlit.exe\n\nCOMMAND EXECUTIONS (1):\n  (open) C:\\34db1f89154f7ba6690c2709ce08ccee1a6f73e0902cd870e11d49c9cf8(null) [(null)]\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (6):\n  - contain obfuscated stackstrings\n  - get startup folder\n  - set file attributes\n  - get common file path\n  - accept command line arguments\n  - get number of processors\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - get startup folder\n  - Process::Create Process [C0017]\n  - File System::Set File Attributes [C0050]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Delete File [C0047]\n  - File System::Create Directory [C0046]\n  - Process::Allocate Thread Local Storage [C0040]\n  - get thread local storage value\n  - Process::Set Thread Local Storage Value [C0041]\n  - File System::Read File [C0051]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - get number of processors\n  - resolve function by parsing PE exports\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (20):\n  34db1f89154f7ba6690c2709ce08ccee1a6f73e0902cd870e11d49c9cf8a3d11 .exe  [sha256: 19b50c4e7d183241...]\n  AUTOEXEC.BAT .exe  [sha256: 63c81efd8895d81a...]\n  boot.ini .exe  [sha256: d65ea093b2aae1aa...]\n  CONFIG.SYS .exe  [sha256: 7f499e5401e7fbf6...]\n  cuckoo .exe  [sha256: a9e5124b7a33e84a...]\n  Documents and Settings .exe  [sha256: e2487e1744812af5...]\n  eula.1028.txt .exe  [sha256: 5261c93593e2a553...]\n  eula.1031.txt .exe  [sha256: c02f4be78d6de029...]\n  eula.1033.txt .exe  [sha256: 45df1be2ae2097b7...]\n  eula.1036.txt .exe  [sha256: 0cbc372682352cd9...]\n  eula.1040.txt .exe  [sha256: e1a4a75b5ea89812...]\n  eula.1041.txt .exe  [sha256: 3611d5291de32161...]\n  eula.1042.txt .exe  [sha256: 659cea75233b5d31...]\n  eula.2052.txt .exe  [sha256: 2c1e9ee9c9e9ef6c...]\n  eula.3082.txt .exe  [sha256: 7394a6c39d3b30a6...]\n  globdata.ini .exe  [sha256: b51d3c8d45e2fd5a...]\n  install.exe .exe  [sha256: c58d81a577385cf0...]\n  install.ini .exe  [sha256: 4bec0812d2e150e3...]\n  install.res.1028.dll .exe  [sha256: e6ada6035330c423...]\n  install.res.1031.dll .exe  [sha256: d17a6a8a0084852c...]\n\nFILES WRITTEN (4):\n  C:\\Documents and Settings\\All Users\\Application Data\\Saaaalamm\\Mira.h\n  C:\\Documents and Settings\\All Users\\Application Data\\njlit.exe\n  c:\\34db1f89154f7ba6690c2709ce08ccee1a6f73e0902cd870e11d49c9cf8a3d11 .exe\n  c:\\AUTOEXEC.BAT .exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  C:\\Documents and Settings\\All Users\\Application Data\\njlit.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n  Packers: {'PEiD': 'MingWin32 v?.? (h)'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.1\n  .data        entropy=0.71\n  .rdata       entropy=5.01\n  .bss         entropy=0.0\n  .idata       entropy=4.29\n  .rsrc        entropy=7.08\n  [overlay]    entropy=6.995245456695557  size=182\n",
+  "ground_truth": {
+    "hash": "34db1f89154f7ba6690c2709ce08ccee1a6f73e0902cd870e11d49c9cf8a3d11",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9571,
+    "malicious_count": 67,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get number of processors"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "get startup folder"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "get startup folder",
+      "create process on Windows",
+      "set file attributes",
+      "delay execution",
+      "create or open file",
+      "PEB access",
+      "contain loop",
+      "get common file path",
+      "delete file",
+      "create directory",
+      "allocate thread local storage",
+      "get thread local storage value",
+      "set thread local storage value",
+      "read file on Windows",
+      "accept command line arguments",
+      "get number of processors",
+      "resolve function by parsing PE exports",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "34db1f89154f7ba6690c2709ce08ccee1a6f73e0902cd870e11d49c9cf8a3d11 .exe",
+        "AUTOEXEC.BAT .exe",
+        "CONFIG.SYS .exe",
+        "Documents and Settings .exe",
+        "boot.ini .exe",
+        "cuckoo .exe",
+        "eula.1028.txt .exe",
+        "eula.1031.txt .exe",
+        "eula.1033.txt .exe",
+        "eula.1036.txt .exe",
+        "eula.1040.txt .exe",
+        "eula.1041.txt .exe",
+        "eula.1042.txt .exe",
+        "eula.2052.txt .exe",
+        "eula.3082.txt .exe",
+        "globdata.ini .exe",
+        "install.exe .exe",
+        "install.ini .exe",
+        "install.res.1028.dll .exe",
+        "install.res.1031.dll .exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\All Users\\Application Data\\njlit.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

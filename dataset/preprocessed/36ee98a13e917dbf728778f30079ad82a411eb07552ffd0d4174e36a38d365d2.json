@@ -1,0 +1,121 @@
+{
+  "hash": "36ee98a13e917dbf728778f30079ad82a411eb07552ffd0d4174e36a38d365d2",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (6):\n  GET http://dwonload.wencyy.top/wuming/png/monids.png\n  GET http://aa.softznz.com/op.php?value=MjQ2NzMwMzMyNzU5Njc1NzIzNjAwMjYxNzEzMDQ1NDk2NzQ3MzgzNDIzMzMxNjQ4Njc1OTM1NjQyNzU5Njc2NDAyNDI1MTU2MjMzMDM4Mzg2NzQ3MzkyNjIzMDUwMjIwMzU0NjU1Njk3MTA1NTczODM1NDIzODY5NzE0NTM0MjA0ODU0NDQ0MTQ0NjczNzA5NDgwODI2MDg0NDA4NjAzMjQ4NzE0MjUwMDgxNTI2MTIzNDI3MjYyMjMwMjc0MzUyMjYyNDI2MzI2NTE1NTk3MTU4NDUzNDU3MDgzMDE3NjkwMjQzNTI2NA%3D%3D\n  GET http://api.ip138.com/query/\n  GET http://dl.softznz.com/a/.dat\n  GET http://aa.softznz.com/x.php?value=OWYxN2MwZjAzYTlkNDc5YWQ1OWY1MmU3NjllYTRiNGMJQnVuZGxlQmluZAkxLjIuMS41CQlXaW5kb3dzNwkwCTAJCQkxCW9wZW4JCTA%3D\n  GET http://101.37.129.204/x.txt?value=OWYxN2MwZjAzYTlkNDc5YWQ1OWY1MmU3NjllYTRiNGMJQnVuZGxlQmluZAkxLjIuMS41CQlXaW5kb3dzNwkwCTAJCQkxCW9wZW4JCTA%3D\n\nDNS LOOKUPS (7):\n  aa.softznz.com \u2192 112.124.193.155\n  api.ip138.com \u2192 129.226.77.151\n  dl.softznz.com \u2192 163.171.130.132\n  dl.softznz.com.wsglb0.com \u2192 163.171.130.132\n  dwonload.wencyy.top\n  dwonload.wencyy.top \u2192 163.171.131.87\n  dwonload.wencyy.top.wsdvs.com \u2192 163.171.131.87\n\nIP TRAFFIC (5):\n  101.37.129.204:80 (TCP)\n  112.124.193.155:80 (TCP)\n  129.226.77.151:80 (TCP)\n  163.171.130.132:80 (TCP)\n  163.171.131.87:80 (TCP)\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (13):\n  - encode data using XOR\n  - get socket information\n  - get local IPv4 addresses\n  - parse PE header\n  - get common file path\n  - link function at runtime on Windows\n  - get socket status\n  - query environment variable\n  - get hostname\n  - get system information on Windows\n  - check OS version\n  - reference anti-VM strings targeting VirtualBox\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - File System::Create File [C0016]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Communication::Socket Communication::Create UDP Socket [C0001.010]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Thread [C0038]\n  - contain loop\n  - contain pusha popa sequence\n  - Communication::HTTP Communication::Read Header [C0002.014]\n  - resolve function by parsing PE exports\n  - Communication::Socket Communication::Initialize Winsock Library [C0001.009]\n  - Data::Non-Cryptographic Hash::djb2 [C0030.006]\n  - Communication::Socket Communication::Receive Data [C0001.006]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - Communication::Socket Communication::Send Data [C0001.007]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - File System::Writes File [C0052]\n  - Communication::Socket Communication::Set Socket Config [C0001.001]\n  - get socket information\n  - get local IPv4 addresses\n  - parse PE header\n  - Discovery::File and Directory Discovery [E1083]\n  - link function at runtime on Windows\n  - Communication::DNS Communication::Resolve [C0011.001]\n\n--- ARTIFACTS ---\n\nOTHER REGISTRY KEYS SET (1):\n  HKCU\\Software\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Compatibility Assistant\\Persisted\\C:\\Users\\<USER>\\Downl\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAllocEx\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.43\n  .rdata       entropy=5.43\n  .data        entropy=7.84\n  .tls         entropy=0.02\n  .rsrc        entropy=4.36\n  .reloc       entropy=6.55\n",
+  "ground_truth": {
+    "hash": "36ee98a13e917dbf728778f30079ad82a411eb07552ffd0d4174e36a38d365d2",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7778,
+    "malicious_count": 56,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1016",
+        "signature_description": "get socket information"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "create or open file",
+      "encode data using XOR",
+      "create UDP socket",
+      "delay execution",
+      "create thread",
+      "contain loop",
+      "contain pusha popa sequence",
+      "check HTTP status code",
+      "resolve function by parsing PE exports",
+      "initialize Winsock library",
+      "hash data using djb2",
+      "receive data on socket",
+      "receive data",
+      "send data on socket",
+      "send data",
+      "write file on Windows",
+      "set socket configuration",
+      "get socket information",
+      "get local IPv4 addresses",
+      "parse PE header",
+      "get common file path",
+      "link function at runtime on Windows",
+      "resolve DNS",
+      "get socket status",
+      "read pipe",
+      "read file on Windows",
+      "query environment variable",
+      "hash data with MD5",
+      "authenticate HMAC",
+      "get hostname",
+      "get system information on Windows",
+      "get OS version",
+      "check OS version",
+      "set environment variable",
+      "contain a resource (.rsrc) section",
+      "contain a thread local storage (.tls) section",
+      "reference anti-VM strings targeting VirtualBox",
+      "reference Base64 string",
+      "contains PDB path",
+      "linked against libcurl",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [
+        "101.37.129.204",
+        "112.124.193.155",
+        "129.226.77.151",
+        "163.171.130.132",
+        "163.171.131.87"
+      ],
+      "domains": [
+        "aa.softznz.com",
+        "api.ip138.com",
+        "dl.softznz.com",
+        "dl.softznz.com.wsglb0.com",
+        "dwonload.wencyy.top",
+        "dwonload.wencyy.top.wsdvs.com"
+      ],
+      "urls": [
+        "http://101.37.129.204/x.txt?value=OWYxN2MwZjAzYTlkNDc5YWQ1OWY1MmU3NjllYTRiNGMJQnVuZGxlQmluZAkxLjIuMS41CQlXaW5kb3dzNwkwCTAJCQkxCW9wZW4JCTA%3D",
+        "http://aa.softznz.com/op.php?value=MjQ2NzMwMzMyNzU5Njc1NzIzNjAwMjYxNzEzMDQ1NDk2NzQ3MzgzNDIzMzMxNjQ4Njc1OTM1NjQyNzU5Njc2NDAyNDI1MTU2MjMzMDM4Mzg2NzQ3MzkyNjIzMDUwMjIwMzU0NjU1Njk3MTA1NTczODM1NDIzODY5NzE0NTM0MjA0ODU0NDQ0MTQ0NjczNzA5NDgwODI2MDg0NDA4NjAzMjQ4NzE0MjUwMDgxNTI2MTIzNDI3MjYyMjMwMjc0MzUyMjYyNDI2MzI2NTE1NTk3MTU4NDUzNDU3MDgzMDE3NjkwMjQzNTI2NA%3D%3D",
+        "http://aa.softznz.com/x.php?value=OWYxN2MwZjAzYTlkNDc5YWQ1OWY1MmU3NjllYTRiNGMJQnVuZGxlQmluZAkxLjIuMS41CQlXaW5kb3dzNwkwCTAJCQkxCW9wZW4JCTA%3D",
+        "http://api.ip138.com/query/",
+        "http://dl.softznz.com/a/.dat",
+        "http://dwonload.wencyy.top/wuming/png/monids.png"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 1,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

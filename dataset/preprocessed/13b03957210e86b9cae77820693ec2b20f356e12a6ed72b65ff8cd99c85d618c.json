@@ -1,0 +1,123 @@
+{
+  "hash": "13b03957210e86b9cae77820693ec2b20f356e12a6ed72b65ff8cd99c85d618c",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (9):\n  F5ESsoxH.nnnn.eu.org\n  qjejbul86q.nnnn.eu.org\n  tbXF06q41L.nnnn.eu.org\n  www.a.shifen.com \u2192 103.235.46.39\n  www.baidu.com\n  www.baidu.com \u2192 103.235.46.39\n  www.wshifen.com \u2192 103.235.46.39\n  zf7gdmioai.nnnn.eu.org\n  zzqvsopgq4.nnnn.eu.org\n\nIP TRAFFIC (2):\n  103.235.46.39:80 (TCP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (3):\n  RemoteAccess\n  Router\n  Serpiei\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  services.exe\n    zykhost.exe\n  ****.exe\n    cmd.exe /c del ****.exe > nul\n\nCOMMAND EXECUTIONS (3):\n  (Open) C:\\WINDOWS\\system32\\cmd.exe/c del C:\\13B039~1 > nul [(null)]\n  C:\\Windows\\system32\\cmd.exe /c del C:\\Users\\<USER>\\DOWNLO~1\\iwyhost.exe > nul\n  \"C:\\WINDOWS\\system32\\cmd.exe\" /c del C:\\DOCUME~1\\ADMINI~1\\LOCALS~1\\Temp\\EB93A6\\996E.exe > nul\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (11):\n  - contain obfuscated stackstrings\n  - encode data using XOR\n  - get hostname\n  - identify system language via API\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - get networking interfaces\n  - get socket status\n  - delete registry key\n  - reference Base64 string\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Process::Create Thread [C0038]\n  - Process::Create Process [C0017]\n  - Process::Check Mutex [C0043]\n  - File System::Create File [C0016]\n  - Discovery::System Information Discovery [E1082]\n  - identify system language via API\n  - contain loop\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - resolve function by parsing PE exports\n  - get networking interfaces\n  - Communication::Socket Communication::Set Socket Config [C0001.001]\n  - Communication::Socket Communication::Get Socket Status [C0001.012]\n  - Communication::Socket Communication::Receive Data [C0001.006]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - Communication::Socket Communication::Send Data [C0001.007]\n  - Process::Terminate Process [C0018]\n  - Anti-Behavioral Analysis::Debugger Detection::Timing/Delay Check GetTickCount [B0001.032]\n  - Operating System::Registry::Delete Registry Key [C0036.002]\n  - File System::Writes File [C0052]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  qwwhost.exe  [sha256: 774e48447b994f63...]\n\nFILES WRITTEN (2):\n  C:\\WINDOWS\\Debug\\qwwhost.exe\n  C:\\WINDOWS\\Debug\\zykhost.exe\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKLM\\SYSTEM\\CurrentControlSet\\Services\\Serpiei\\Description = Microsoft .NET COM+ Integration with SOAP\n\nMUTEXES CREATED (11):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  Serpiei\n  ShimCacheMutex\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n\nPROCESSES CREATED (2):\n  C:\\WINDOWS\\system32\\cmd.exe\n  C:\\WINDOWS\\system32\\cmd.exe C:\\WINDOWS\\system32\\cmd.exe\" /c del C:\\13B039~1 > nul\"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA, GetProcAddress\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Library] MFC\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C++\n  [Compiler] Microsoft Visual C/C++\n  [Library] MFC\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.43\n  .rdata       entropy=4.05\n  .data        entropy=4.92\n  .rsrc        entropy=3.03\n  [overlay]    entropy=5.851070404052734  size=4300\n",
+  "ground_truth": {
+    "hash": "13b03957210e86b9cae77820693ec2b20f356e12a6ed72b65ff8cd99c85d618c",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9014,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1016",
+        "signature_description": "get networking interfaces"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get hostname"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry key"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "identify system language via API"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "delay execution",
+      "encode data using XOR",
+      "create thread",
+      "create process on Windows",
+      "check mutex",
+      "create or open file",
+      "get hostname",
+      "identify system language via API",
+      "contain loop",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "resolve function by parsing PE exports",
+      "get networking interfaces",
+      "set socket configuration",
+      "get socket status",
+      "receive data on socket",
+      "receive data",
+      "send data on socket",
+      "terminate process",
+      "check for time delay via GetTickCount",
+      "delete registry key",
+      "write file on Windows",
+      "write and execute a file",
+      "send data",
+      "contain a resource (.rsrc) section",
+      "reference Base64 string",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "103.235.46.39",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "f5essoxh.nnnn.eu.org",
+        "qjejbul86q.nnnn.eu.org",
+        "tbxf06q41l.nnnn.eu.org",
+        "www.a.shifen.com",
+        "www.baidu.com",
+        "www.wshifen.com",
+        "zf7gdmioai.nnnn.eu.org",
+        "zzqvsopgq4.nnnn.eu.org"
+      ],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Serpiei\\Description"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "qwwhost.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "Serpiei",
+        "ShimCacheMutex",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\system32\\cmd.exe",
+        "C:\\WINDOWS\\system32\\cmd.exe C:\\WINDOWS\\system32\\cmd.exe\" /c del C:\\13B039~1 > nul\""
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

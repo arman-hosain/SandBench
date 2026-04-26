@@ -1,0 +1,99 @@
+{
+  "hash": "00b10d6a4e2c8608103511d140e93c8e9feb7c254e05f2a42b5cd34081c5f249",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including persistence mechanisms (Winlogon Shell hijacking, Startup folder shortcuts), file system manipulation (dropping .exe files with misleading extensions like .jpg.exe, .html.exe, and .bat.exe), anti-analysis techniques (debugger detection, delayed execution, obfuscation), and capabilities for keylogging and screenshot capture. The behavior is consistent with a Trojan designed for information gathering and persistence.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample behaves as a Trojan by disguising itself as legitimate files (e.g., images, HTML, batch files) to trick users into execution. It establishes persistence, performs reconnaissance (keylogging, screenshots), and uses obfuscation to evade detection, which aligns with the characteristics of a Trojan rather than ransomware, adware, or a dropper alone.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1547\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1057\",\n        \"name\": \"File and Directory Discovery\"\n      },\n      {\n        \"id\": \"T1056\",\n        \"name\": \"Input Capture\"\n      },\n      {\n        \"id\": \"T1562\",\n        \"name\": \"Impair Defenses\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 5533,
+      "response_chars": 1587,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including persistence mechanisms (Winlogon Shell hijacking, Startup folder shortcuts), file system manipulation (dropping .exe files with misleading extensions like .jpg.exe, .html.exe, and .bat.exe), anti-analysis techniques (debugger detection, delayed execution, obfuscation), and ca",
+      "elapsed_seconds": 8.69
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 8.69,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9167
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.3636,
+      "ttp_precision": 0.5714,
+      "ttp_recall": 0.2667,
+      "gt_ttps": [
+        "T1010",
+        "T1012",
+        "T1027",
+        "T1056",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1113",
+        "T1115",
+        "T1129",
+        "T1222",
+        "T1529",
+        "T1547",
+        "T1564",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1059",
+        "T1547",
+        "T1562"
+      ],
+      "tp": 4,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1057",
+        "T1562"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1012",
+        "T1082",
+        "T1083",
+        "T1113",
+        "T1115",
+        "T1129",
+        "T1222",
+        "T1529",
+        "T1564",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.3636,
+      "breakdown": {
+        "ttp_f1": 0.3636
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "hash": "3bb2cafbf868cf06e9938e0738e0c8b33a2e3680291e43f36f5556ab74e3c512",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (7):\n  627491.shoplightspeed.com \u2192 35.172.214.108\n  california89.com \u2192 162.159.129.85, 162.159.130.85\n  california89.com \u2192 184.168.131.241\n  http.cml-use1prod.link \u2192 35.172.214.108\n  kofinyame.com \u2192 161.35.49.148\n  kofinyame.com \u2192 68.235.37.83\n  www.california89.com \u2192 35.172.214.108\n\nIP TRAFFIC (4):\n  114.114.114.114:53 (UDP)\n  184.168.131.241:443 (TCP)\n  35.172.214.108:443 (TCP)\n  68.235.37.83:443 (TCP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  3bb2cafbf868cf06_budha.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (7):\n  - encode data using XOR\n  - compress data via WinAPI\n  - get common file path\n  - get file size\n  - link function at runtime on Windows\n  - download and write a file\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - Process::Create Process [C0017]\n  - Communication::HTTP Communication [C0002]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Data::Compress Data [C0024]\n  - Discovery::File and Directory Discovery [E1083]\n  - Communication::HTTP Communication::Send Request [C0002.003]\n  - Communication::HTTP Communication::Create Request [C0002.012]\n  - File System::Delete File [C0047]\n  - Process::Terminate Process [C0018]\n  - File System::Read File [C0051]\n  - link function at runtime on Windows\n  - Communication::HTTP Communication::Connect to Server [C0002.009]\n  - Communication::HTTP Communication::Get Response [C0002.017]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - File System::Writes File [C0052]\n  - Command and Control::C2 Communication::Server to Client File Transfer [B0030.003]\n  - Execution::Install Additional Program [B0023]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - read and send data from client to server\n  - receive and write data from server to client\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  budha.exe  [sha256: b7f8f767eb11e216...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe  [sha256: 6fb3f7f00c8aedaa...]\n  c:\\users\\admin\\appdata\\local\\temp\\budha.exe  [sha256: 3312bd82b6f79863...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe\n\nOTHER REGISTRY KEYS SET (2):\n  HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap//U\n  HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap//A\n\nMUTEXES CREATED (5):\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n  RasPbFile\n\nPROCESSES CREATED (3):\n  C:\\3bb2cafbf868cf06e9938e0738e0c8b33a2e3680291e43f36f5556ab74e3c512.exe\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe\" \"\n  C:\\Users\\admin\\AppData\\Local\\Temp\\budha.exe \n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryW\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=5.15\n  .rdata       entropy=3.93\n  .data        entropy=0.36\n  .rsrc        entropy=5.07\n  .reloc       entropy=1.95\n  [overlay]    entropy=3.376065254211426  size=5034\n",
+  "ground_truth": {
+    "hash": "3bb2cafbf868cf06e9938e0738e0c8b33a2e3680291e43f36f5556ab74e3c512",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8732,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "ppatre",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1105",
+        "signature_description": "download and write a file"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      },
+      {
+        "id": "T1560",
+        "signature_description": "compress data via WinAPI"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "create process on Windows",
+      "get HTTP content length",
+      "encode data using XOR",
+      "contain loop",
+      "compress data via WinAPI",
+      "get common file path",
+      "get file size",
+      "send HTTP request",
+      "create HTTP request",
+      "delete file",
+      "terminate process",
+      "read file on Windows",
+      "link function at runtime on Windows",
+      "connect to HTTP server",
+      "read data from Internet",
+      "receive data",
+      "write file on Windows",
+      "download and write a file",
+      "write and execute a file",
+      "send data",
+      "read and send data from client to server",
+      "receive and write data from server to client",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "114.114.114.114",
+        "184.168.131.241",
+        "35.172.214.108",
+        "68.235.37.83"
+      ],
+      "domains": [
+        "627491.shoplightspeed.com",
+        "california89.com",
+        "http.cml-use1prod.link",
+        "kofinyame.com",
+        "www.california89.com"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 2,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe",
+        "budha.exe",
+        "c:\\users\\admin\\appdata\\local\\temp\\budha.exe"
+      ],
+      "mutexes": [
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\3bb2cafbf868cf06e9938e0738e0c8b33a2e3680291e43f36f5556ab74e3c512.exe",
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\budha.exe\" \"",
+        "C:\\Users\\admin\\AppData\\Local\\Temp\\budha.exe "
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Sangfor ZSand",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

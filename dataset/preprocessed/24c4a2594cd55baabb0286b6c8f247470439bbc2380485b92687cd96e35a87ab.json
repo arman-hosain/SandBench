@@ -1,0 +1,43 @@
+{
+  "hash": "24c4a2594cd55baabb0286b6c8f247470439bbc2380485b92687cd96e35a87ab",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    t9153gv.exe\n      lg6u1b6.exe\n        316sn.exe\n          6nib2.exe\n            b1uf5nv.exe\n              tijdoq2.exe\n                8e0m20.exe\n                  3s5n8.exe\n                    u0i5gk.exe\n                      x8k72w.exe\n                        s3921.exe\n                          71dv25d.exe\n                            c93tb.exe\n                              2592f3.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - contain obfuscated stackstrings\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - contain loop\n  - resolve function by parsing PE exports\n  - Data::Decompress Data [C0025]\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (30):\n  C:\\17323t3.exe\n  C:\\253gt3o.exe\n  C:\\2592f3.exe\n  C:\\316sn.exe\n  C:\\3s5n8.exe\n  C:\\4sru5.exe\n  C:\\5br4t.exe\n  C:\\6nib2.exe\n  C:\\71dv25d.exe\n  C:\\8e0m20.exe\n  C:\\8jkc24.exe\n  C:\\9g6s155.exe\n  C:\\b1uf5nv.exe\n  C:\\bcv46qp.exe\n  C:\\c3m8d0.exe\n  C:\\c93tb.exe\n  C:\\ddwo665.exe\n  C:\\ggtirl.exe\n  C:\\lg6u1b6.exe\n  C:\\mf86gt.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Packer] DxPack\n  [Protector] Obsidium\n  Packers: {'F-PROT': 'UPX_LZMA'}\n\nPE SECTIONS (entropy):\n  .rsrc        entropy=7.98\n  coderpub     entropy=5.8\n  [overlay]    entropy=4.739679336547852  size=6203\n",
+  "ground_truth": {
+    "hash": "24c4a2594cd55baabb0286b6c8f247470439bbc2380485b92687cd96e35a87ab",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8873,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "decompress data using LZO",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO"
+  ]
+}

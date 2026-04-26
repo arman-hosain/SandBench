@@ -1,0 +1,63 @@
+{
+  "hash": "23bebd09cc3581de8726f7d986ce99c079ba4d94f0bde67a875ac2e9175568d6",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ykqie.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\ykqie.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\ykqie.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\ykqie.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - query environment variable\n  - get disk information\n  - link function at runtime on Windows\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Discovery::System Information Discovery [E1082]\n  - contain loop\n  - get thread local storage value\n  - Operating System::Environment Variable::Set Variable [C0034.001]\n  - Cryptography::Hashed Message Authentication Code [C0061]\n  - File System::Read File [C0051]\n  - link function at runtime on Windows\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  ykqie.exe  [sha256: 496c3460b73eb394...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\ykqie.exe  [sha256: ae2fce6a1f101501...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\ykqie.exe\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\ykqie.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\ykqie.exe\" \"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress\n\nPE SECTIONS (entropy):\n  .text        entropy=6.94\n  .rdata       entropy=3.58\n  .data        entropy=5.74\n  .rsrc        entropy=4.2\n  [overlay]    entropy=3.515191078186035  size=4806\n",
+  "ground_truth": {
+    "hash": "23bebd09cc3581de8726f7d986ce99c079ba4d94f0bde67a875ac2e9175568d6",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8857,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "delay execution",
+      "query environment variable",
+      "get disk information",
+      "contain loop",
+      "get thread local storage value",
+      "set environment variable",
+      "authenticate HMAC",
+      "read .ini file",
+      "link function at runtime on Windows",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\ykqie.exe",
+        "ykqie.exe"
+      ],
+      "mutexes": [],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\ykqie.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\ykqie.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

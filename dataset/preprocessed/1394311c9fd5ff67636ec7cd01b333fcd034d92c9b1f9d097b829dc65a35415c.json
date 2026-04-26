@@ -1,0 +1,83 @@
+{
+  "hash": "1394311c9fd5ff67636ec7cd01b333fcd034d92c9b1f9d097b829dc65a35415c",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  auditpol.pe32\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (9):\n  - get user security identifier\n  - modify access privileges\n  - get hostname\n  - query or enumerate registry value\n  - check if file exists\n  - parse PE header\n  - get system information on Windows\n  - link function at runtime on Windows\n  - access PE header\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - get user security identifier\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - File System::Create File [C0016]\n  - compare security identifiers\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Memory::Allocate Memory [C0007]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block BeingDebugged [B0001.035]\n  - contain loop\n  - modify access privileges\n  - Discovery::System Information Discovery [E1082]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Delete File [C0047]\n  - File System::Writes File [C0052]\n  - print debug messages\n  - parse PE header\n  - get OS version\n  - get system information on Windows\n  - link function at runtime on Windows\n  - access PE header\n  - contain a resource (.rsrc) section\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  ADVAPI32.dll: AdjustTokenPrivileges, OpenProcessToken\n  KERNEL32.dll: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.36\n  .data        entropy=2.35\n  .rsrc        entropy=4.41\n  .reloc       entropy=7.77\n",
+  "ground_truth": {
+    "hash": "1394311c9fd5ff67636ec7cd01b333fcd034d92c9b1f9d097b829dc65a35415c",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.4722,
+    "malicious_count": 34,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get hostname"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "check if file exists"
+      },
+      {
+        "id": "T1087",
+        "signature_description": "get user security identifier"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "modify access privileges"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "get user security identifier",
+      "create or open registry key",
+      "create or open file",
+      "compare security identifiers",
+      "delay execution",
+      "allocate memory",
+      "allocate RW memory",
+      "PEB access",
+      "check for PEB BeingDebugged flag",
+      "contain loop",
+      "modify access privileges",
+      "get hostname",
+      "query or enumerate registry value",
+      "set registry value",
+      "check if file exists",
+      "delete file",
+      "write file on Windows",
+      "print debug messages",
+      "parse PE header",
+      "get OS version",
+      "get system information on Windows",
+      "link function at runtime on Windows",
+      "access PE header",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX"
+  ]
+}

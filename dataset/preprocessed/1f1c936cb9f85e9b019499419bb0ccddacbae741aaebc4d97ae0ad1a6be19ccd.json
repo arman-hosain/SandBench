@@ -1,0 +1,50 @@
+{
+  "hash": "1f1c936cb9f85e9b019499419bb0ccddacbae741aaebc4d97ae0ad1a6be19ccd",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - encode data using XOR\n  - link function at runtime on Windows\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - link function at runtime on Windows\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  ctvqzym.exe  [sha256: 6a7aaf692d1bbbd1...]\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: d63631d0d7793849...]\n\nFILES WRITTEN (2):\n  C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\ctvqzym.exe\n  C:\\WINDOWS\\Tasks\\hiqvsnd.job\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Compiler] LCC-Win32\n  [Linker] LCC Linker\n  Packers: {'PEiD': 'Microsoft Visual C++ (3.0 old crap)'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.69\n  .bss         entropy=0.0\n  .data        entropy=6.74\n  .idata       entropy=4.41\n  .rsrc        entropy=4.14\n  [overlay]    entropy=7.999746322631836  size=1038292\n",
+  "ground_truth": {
+    "hash": "1f1c936cb9f85e9b019499419bb0ccddacbae741aaebc4d97ae0ad1a6be19ccd",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8169,
+    "malicious_count": 58,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain loop",
+      "link function at runtime on Windows",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "ctvqzym.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

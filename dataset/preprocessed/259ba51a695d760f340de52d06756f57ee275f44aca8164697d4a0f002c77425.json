@@ -1,0 +1,103 @@
+{
+  "hash": "259ba51a695d760f340de52d06756f57ee275f44aca8164697d4a0f002c77425",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  259ba51a695d760f_documents and settings .exe\n    C:\\ProgramData\\putegm.exe\n\nCOMMAND EXECUTIONS (2):\n  C:\\Users\\<USER>\\Downloads\\259ba51a695d760f_documents and settings\n  \"C:\\ProgramData\\pvvvw.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (5):\n  - contain obfuscated stackstrings\n  - get startup folder\n  - set file attributes\n  - get common file path\n  - accept command line arguments\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - get startup folder\n  - Process::Create Process [C0017]\n  - File System::Set File Attributes [C0050]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Delete File [C0047]\n  - File System::Create Directory [C0046]\n  - Process::Allocate Thread Local Storage [C0040]\n  - get thread local storage value\n  - Process::Set Thread Local Storage Value [C0041]\n  - File System::Read File [C0051]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - resolve function by parsing PE exports\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (26):\n  C:\\ProgramData\\Saaaalamm\\Mira.h  [sha256: 76fa5e43ea55a857...]\n  c:\\$Recycle.Bin .exe  [sha256: 52389859f0928e7d...]\n  c:\\dev_man.exe .exe  [sha256: bc5ce64e2f9d6f1f...]\n  c:\\Documents and Settings .exe  [sha256: 69fa0429821aaa2a...]\n  c:\\l.bat .exe  [sha256: 63941bfb77be8312...]\n  c:\\pagefile.sys .exe  [sha256: 172df1eb864d5e42...]\n  c:\\PerfLogs .exe  [sha256: 212c828f2a8fb6df...]\n  \\ProgramData .exe  [sha256: f2c947e2f4e5e034...]\n  \\$Recycle.Bin .exe  [sha256: 0939a7599bd2cbcd...]\n  \\config.sys .exe  [sha256: c9396716e2056fbe...]\n  \\tmprzcakn .exe  [sha256: 7a581a28d892d433...]\n  \\MSOCache .exe  [sha256: e4357bd6bd14334b...]\n  \\System Volume Information .exe  [sha256: 6d036417394cb3f1...]\n  \\Program Files .exe  [sha256: 02f85d3c179ccc60...]\n  \\pagefile.sys .exe  [sha256: 12c64631977e5769...]\n  \\tmpmqgko7 .exe  [sha256: f8e7f4acf465ac17...]\n  \\Users .exe  [sha256: 9ad89d5f8bf8c41c...]\n  \\Documents and Settings .exe  [sha256: 23a416d13f7f76ec...]\n  \\autoexec.bat .exe  [sha256: 963633d198f51508...]\n  \\tmp_xg9dg .exe  [sha256: 8048b11cf617b14f...]\n\nFILES WRITTEN (3):\n  C:\\ProgramData\\putegm.exe\n  C:\\ProgramData\\pvvvw.exe\n  c:\\Mirak\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft\u00ae Windows\u00ae Operating System = C:\\ProgramData\\putegm.exe\n\nOTHER REGISTRY KEYS SET (1):\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n\nPROCESSES CREATED (1):\n  pvvvw.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n  Packers: {'PEiD': 'MingWin32 v?.? (h)'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.08\n  .data        entropy=0.71\n  .rdata       entropy=5.01\n  .bss         entropy=0.0\n  .idata       entropy=4.29\n  .rsrc        entropy=4.73\n  [overlay]    entropy=6.7339324951171875  size=540595\n",
+  "ground_truth": {
+    "hash": "259ba51a695d760f340de52d06756f57ee275f44aca8164697d4a0f002c77425",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9444,
+    "malicious_count": 68,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "get startup folder"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "get startup folder",
+      "create process on Windows",
+      "set file attributes",
+      "delay execution",
+      "create or open file",
+      "contain loop",
+      "get common file path",
+      "delete file",
+      "create directory",
+      "allocate thread local storage",
+      "get thread local storage value",
+      "set thread local storage value",
+      "read file on Windows",
+      "accept command line arguments",
+      "resolve function by parsing PE exports",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Microsoft\u00ae Windows\u00ae Operating System"
+      ],
+      "registry_all_count": 2,
+      "files_dropped": [
+        "C:\\ProgramData\\Saaaalamm\\Mira.h",
+        "\\$Recycle.Bin .exe",
+        "\\Documents and Settings .exe",
+        "\\MSOCache .exe",
+        "\\PerfLogs .exe",
+        "\\Program Files .exe",
+        "\\ProgramData .exe",
+        "\\ProgramData\\Saaaalamm\\Mira.h",
+        "\\ProgramData\\pvvvw.exe",
+        "\\Python27 .exe",
+        "\\Recovery .exe",
+        "\\System Volume Information .exe",
+        "\\Users .exe",
+        "\\Windows .exe",
+        "\\autoexec.bat .exe",
+        "\\config.sys .exe",
+        "\\pagefile.sys .exe",
+        "\\tmp_xg9dg .exe",
+        "\\tmpmqgko7 .exe",
+        "\\tmprzcakn .exe",
+        "c:\\$Recycle.Bin .exe",
+        "c:\\Documents and Settings .exe",
+        "c:\\PerfLogs .exe",
+        "c:\\dev_man.exe .exe",
+        "c:\\l.bat .exe",
+        "c:\\pagefile.sys .exe"
+      ],
+      "mutexes": [],
+      "processes": [
+        "pvvvw.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "hash": "015b1b82d575836948b6ec9160e1a38fc87b6b7f6af6be4944149e8cf64892b3",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity, including DNS lookups and IP traffic to unknown domains. It also creates a process in the user's temp directory, which is a common tactic for malware. Additionally, it contains anti-VM strings and has a resource (.rsrc) section, which are indicators of malicious behavior.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior suggests that it is a Trojan, as it establishes a connection to an unknown server and transfers data. This is a common tactic for Trojans, which are designed to allow attackers to remotely control a compromised system.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1059\", \"name\": \"Command and Control (C2) - Server C2\"},\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1204\", \"name\": \"User Execution of Malicious File\"},\n      {\"id\": \"T1052\", \"name\": \"Exfiltration Over Command and Control Channel\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 2543,
+      "response_chars": 1009,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity, including DNS lookups and IP traffic to unknown domains. It also creates a process in the user's temp directory, which is a common tactic for malware. Additionally, it contains anti-VM strings and has a resource (.rsrc) section, which are indicators of malicious behavior.\"\n  },\n  \"q2\": {\n  ",
+      "elapsed_seconds": 4.84
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 4.84,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9014
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1083",
+        "T1105",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1052",
+        "T1059",
+        "T1204"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1052",
+        "T1059",
+        "T1204"
+      ],
+      "q3_missed_ttps": [
+        "T1083",
+        "T1105",
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

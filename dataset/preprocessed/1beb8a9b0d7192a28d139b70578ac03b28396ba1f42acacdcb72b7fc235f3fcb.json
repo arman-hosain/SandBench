@@ -1,0 +1,60 @@
+{
+  "hash": "1beb8a9b0d7192a28d139b70578ac03b28396ba1f42acacdcb72b7fc235f3fcb",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (2):\n  automotive-technology.com \u2192 43.242.212.139\n  tradeledstore.co.uk \u2192 181.214.86.147\n\nIP TRAFFIC (2):\n  181.214.86.147:443 (TCP)\n  43.242.212.139:443 (TCP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  operaupdater.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\operaupdater.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\operaupdater.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\operaupdater.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - hide graphical window\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - hide graphical window\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  operaupdater.exe  [sha256: a9415e18d8b0a7f7...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\operaupdater.exe  [sha256: 39f9c888d4f82ae8...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\operaupdater.exe\n\nMUTEXES CREATED (1):\n  RasPbFile\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\operaupdater.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\operaupdater.exe\" \"\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.87\n  .rdata       entropy=4.33\n  .data        entropy=4.43\n  .rsrc        entropy=4.74\n  [overlay]    entropy=3.499490737915039  size=18074\n",
+  "ground_truth": {
+    "hash": "1beb8a9b0d7192a28d139b70578ac03b28396ba1f42acacdcb72b7fc235f3fcb",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9014,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      }
+    ],
+    "capa_sig_names": [
+      "hide graphical window",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "181.214.86.147",
+        "43.242.212.139"
+      ],
+      "domains": [
+        "automotive-technology.com",
+        "tradeledstore.co.uk"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\operaupdater.exe",
+        "operaupdater.exe"
+      ],
+      "mutexes": [
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\operaupdater.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\operaupdater.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

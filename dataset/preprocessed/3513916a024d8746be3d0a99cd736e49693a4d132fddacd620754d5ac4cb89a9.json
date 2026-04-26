@@ -1,0 +1,52 @@
+{
+  "hash": "3513916a024d8746be3d0a99cd736e49693a4d132fddacd620754d5ac4cb89a9",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  c:\\windows\\system\\explorer.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - acquire debug privileges\n  - parse PE header\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - acquire debug privileges\n  - contain loop\n  - Communication::HTTP Communication::Read Header [C0002.014]\n  - parse PE header\n  - contain a resource (.rsrc) section\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n\n--- ARTIFACTS ---\n\nPROCESSES CREATED (1):\n  c:\\windows\\system\\explorer.exe\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n\nPE SECTIONS (entropy):\n  .text        entropy=5.95\n  .data        entropy=0.0\n  .rsrc        entropy=6.25\n  [overlay]    entropy=7.052303791046143  size=23572\n",
+  "ground_truth": {
+    "hash": "3513916a024d8746be3d0a99cd736e49693a4d132fddacd620754d5ac4cb89a9",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9577,
+    "malicious_count": 68,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "acquire debug privileges"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "acquire debug privileges",
+      "contain loop",
+      "check HTTP status code",
+      "parse PE header",
+      "contain a resource (.rsrc) section",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": [
+        "c:\\windows\\system\\explorer.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

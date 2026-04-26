@@ -1,0 +1,60 @@
+{
+  "hash": "3609b30f0f40360dc9df132fc419042616fd3d7a04659294bf5c21f547ebe570",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (2):\n  disenart.info\n  vxatape.com \u2192 69.175.35.162\n\nIP TRAFFIC (1):\n  69.175.35.162:443 (TCP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  3609b30f0f40360d_wefi.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\wefi.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\wefi.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\wefi.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - hide graphical window\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - hide graphical window\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  wefi.exe  [sha256: 63ca56ef7a789aae...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\wefi.exe  [sha256: c3763189794094cf...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\wefi.exe\n\nMUTEXES CREATED (1):\n  RasPbFile\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\wefi.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\wefi.exe\" \"\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.55\n  .rdata       entropy=3.9\n  .data        entropy=3.45\n  .rsrc        entropy=5.21\n  [overlay]    entropy=3.4829888343811035  size=13362\n",
+  "ground_truth": {
+    "hash": "3609b30f0f40360dc9df132fc419042616fd3d7a04659294bf5c21f547ebe570",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.913,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "hide graphical window",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "69.175.35.162"
+      ],
+      "domains": [
+        "disenart.info",
+        "vxatape.com"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\wefi.exe",
+        "wefi.exe"
+      ],
+      "mutexes": [
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\wefi.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\wefi.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

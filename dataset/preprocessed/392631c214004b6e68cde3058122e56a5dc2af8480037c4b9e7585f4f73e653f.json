@@ -1,0 +1,77 @@
+{
+  "hash": "392631c214004b6e68cde3058122e56a5dc2af8480037c4b9e7585f4f73e653f",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nSERVICES OPENED (2):\n  csrsdsvr\n  csrsedit\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    fltmlpq.exe cmdliles\"\n      ~2.tmp 1792 250376 1532 1\n      ~3.tmp 1392 250376 1532 2\n  services.exe\n    csrsedit.exe -s\n  explorer.exe\n    ~4.tmp 1392 250376 1792 2\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - encode data using XOR\n  - get file size\n  - link function at runtime on Windows\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - Memory::Allocate Memory [C0007]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Data::Decompress Data::aPLib [C0025.003]\n  - Process::Terminate Process [C0018]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Read File [C0051]\n  - link function at runtime on Windows\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (4):\n  csrsdsvr.exe  [sha256: 91442fc31dc6fb5c...]\n  ~4.tmp  [sha256: e600c71901e6c9ea...]\n  ~5.tmp  [sha256: e600c71901e6c9ea...]\n  C:\\Users\\<USER>\\AppData\\Roaming\\Regivate\\ie4upsr.exe  [sha256: 7337f98a7a560930...]\n\nFILES WRITTEN (10):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\~4.tmp\n  C:\\DiskX\\Temp.exe\n  C:\\Documents and Settings\\<USER>\\Application Data\\cscrperf\\rsopll32.exe\n  C:\\Documents and Settings\\Administrator\\Application Data\\cmdliles\\fltMlpq.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\~2.tmp\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\~3.tmp\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\~4.tmp\n  C:\\WINDOWS\\system32\\csrsdsvr.exe\n  C:\\WINDOWS\\system32\\csrsedit.exe\n  C:\\Windows\\system32\\cttuhost.exe\n\nPERSISTENCE REGISTRY KEYS (2):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\dxdipsr = C\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\compfmon = C:\\Documents and Settings\\Administrator\\Application Data\\cmdliles\\fltMlpq.exe\u0000\n\nOTHER REGISTRY KEYS SET (1):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\SessionInformation\\ProgramCount\n\nMUTEXES CREATED (4):\n  ShimCacheMutex\n  cea0d88feca283992433f6dd98178a61\n  d5ee4e9ee565d780dfb269b48306ad28\n  e0a47326f04dd54807bad1fc2b8e95f0\n\nPROCESSES CREATED (4):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\~4.tmp 768 250376 1336 2\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\~5.tmp 1664 250376 1336 2\n  C:\\Documents and Settings\\<USER>\\Application Data\\cscrperf\\rsopll32.exe C:\\Documents and Settings\\<USER>\\Application Data\\cscrperf\"\"\n  C:\\WINDOWS\\system32\\drwtsn32 -p 1564 -e 208 -g\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=5.8\n  .rdata       entropy=4.34\n  .data        entropy=0.0\n  .rsrc        entropy=8.0\n  .reloc       entropy=0.56\n",
+  "ground_truth": {
+    "hash": "392631c214004b6e68cde3058122e56a5dc2af8480037c4b9e7585f4f73e653f",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9028,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "allocate memory",
+      "allocate RWX memory",
+      "encode data using XOR",
+      "contain loop",
+      "decompress data using aPLib",
+      "terminate process",
+      "get file size",
+      "read file on Windows",
+      "link function at runtime on Windows",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\dxdipsr",
+        "\\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\compfmon"
+      ],
+      "registry_all_count": 3,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Roaming\\Regivate\\ie4upsr.exe",
+        "csrsdsvr.exe",
+        "~4.tmp",
+        "~5.tmp"
+      ],
+      "mutexes": [
+        "ShimCacheMutex",
+        "cea0d88feca283992433f6dd98178a61",
+        "d5ee4e9ee565d780dfb269b48306ad28",
+        "e0a47326f04dd54807bad1fc2b8e95f0"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\~4.tmp 768 250376 1336 2",
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\~5.tmp 1664 250376 1336 2",
+        "C:\\Documents and Settings\\<USER>\\Application Data\\cscrperf\\rsopll32.exe C:\\Documents and Settings\\<USER>\\Application Data\\cscrperf\"\"",
+        "C:\\WINDOWS\\system32\\drwtsn32 -p 1564 -e 208 -g"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

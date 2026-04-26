@@ -1,0 +1,55 @@
+{
+  "hash": "3e0115f1010277bc8652d50a2de31c5b5f46ceac1d4a022cb0326b8fe98eaf08",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  c:\\windows\\system\\spoolsv.exe\n    c:\\windows\\system\\explorer.exe\n      c:\\windows\\system\\spoolsv.exe SE\n        c:\\windows\\system\\svchost.exe\n          c:\\windows\\system\\spoolsv.exe PR\n      c:\\windows\\system\\spoolsv.exe SE\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - acquire debug privileges\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - acquire debug privileges\n  - contain loop\n  - Communication::HTTP Communication::Read Header [C0002.014]\n  - contain a resource (.rsrc) section\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  c:\\windows\\system\\explorer.exe  [sha256: ded84a0b1a85ed47...]\n  C:\\Users\\<USER>\\AppData\\Roaming\\mrsys.exe  [sha256: 6501fb1f7fd89eb4...]\n  c:\\windows\\system\\svchost.exe  [sha256: 851fbbed7106362d...]\n\nPERSISTENCE REGISTRY KEYS (2):\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\Explorer = c:\\windows\\system\\explorer.exe RO\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\Svchost = c:\\windows\\system\\svchost.exe RO\n\nOTHER REGISTRY KEYS SET (4):\n  HKCU\\Software\\VB and VBA Program Settings\\Explorer\\Process\\LO\n  HKLM\\Software\\Microsoft\\Active Setup\\Installed Components\\{Y479C6D0-OTRW-U5GH-S1EE-E0AC10B4E666}\\StubPath\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowSuperHidden\n  HKLM\\Software\\Microsoft\\Active Setup\\Installed Components\\{F146C9B1-VMVQ-A9RC-NUFL-D0BA00B4E999}\\StubPath\n\nPROCESSES CREATED (1):\n  c:\\windows\\system\\explorer.exe\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n\nPE SECTIONS (entropy):\n  .text        entropy=5.92\n  .data        entropy=0.0\n  .rsrc        entropy=5.04\n  [overlay]    entropy=7.3570122718811035  size=14949\n",
+  "ground_truth": {
+    "hash": "3e0115f1010277bc8652d50a2de31c5b5f46ceac1d4a022cb0326b8fe98eaf08",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9296,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1134",
+        "signature_description": "acquire debug privileges"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "acquire debug privileges",
+      "contain loop",
+      "check HTTP status code",
+      "contain a resource (.rsrc) section",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\Explorer",
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\Svchost"
+      ],
+      "registry_all_count": 6,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Roaming\\mrsys.exe",
+        "c:\\windows\\system\\explorer.exe",
+        "c:\\windows\\system\\svchost.exe"
+      ],
+      "mutexes": [],
+      "processes": [
+        "c:\\windows\\system\\explorer.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

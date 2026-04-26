@@ -1,0 +1,75 @@
+{
+  "hash": "01067ad1797faa1cbc17d1525d7cef1d0f04bdf14b83f48e63a52a5cd08c13a3",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as enumerating GUI resources, getting disk information, and checking if a file exists, which suggests a malicious intent. Additionally, the presence of PE imports from KERNEL32.dll: CreateProcessA and a resource (.rsrc) section further supports this verdict.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior of enumerating GUI resources, getting disk information, and checking if a file exists, along with its use of CreateProcessA, suggests that it is a Trojan, which is designed to secretly install malicious software on a user's computer.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"},\n      {\"id\": \"T1083\", \"name\": \"File and Directory Discovery\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1218\", \"name\": \"File and Directory Permissions Modification\"},\n      {\"id\": \"T1219\", \"name\": \"System Service Discovery\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 931,
+      "response_chars": 1037,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as enumerating GUI resources, getting disk information, and checking if a file exists, which suggests a malicious intent. Additionally, the presence of PE imports from KERNEL32.dll: CreateProcessA and a resource (.rsrc) section further supports this verdict.\"\n  },\n  \"q2\": {\n    \"family\": [\"Troj",
+      "elapsed_seconds": 4.7
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 4.7,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9014
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.5,
+      "ttp_precision": 0.4,
+      "ttp_recall": 0.6667,
+      "gt_ttps": [
+        "T1010",
+        "T1082",
+        "T1083"
+      ],
+      "pred_ttps": [
+        "T1055",
+        "T1082",
+        "T1083",
+        "T1218",
+        "T1219"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1218",
+        "T1219"
+      ],
+      "q3_missed_ttps": [
+        "T1010"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5,
+      "breakdown": {
+        "ttp_f1": 0.5
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

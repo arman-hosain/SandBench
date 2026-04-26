@@ -1,0 +1,45 @@
+{
+  "hash": "2e1982cb1fb0957c20242d5f0e4846b4dfc6f46824f533219c60e32f60f48162",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  10a8524664d232b554be373aa1fdf769.virus.exe\n    c:\\users\\<USER>\\downloads\\10a8524664d232b554be373aa1fdf769.virus_3202.exe\n      c:\\users\\<USER>\\downloads\\10a8524664d232b554be373aa1fdf769.virus_3202a.exe\n        c:\\users\\<USER>\\downloads\\10a8524664d232b554be373aa1fdf769.virus_3202b.exe\n          c:\\users\\<USER>\\downloads\\10a8524664d232b554be373aa1fdf769.virus_3202c.exe\n            c:\\users\\<USER>\\downloads\\10a8524664d232b554be373aa1fdf769.virus_3202d.exe\n              c:\\users\\<USER>\\downloads\\10a8524664d232b554be373aa1fdf769.virus_3202e.exe\n                c:\\users\\<USER>\\downloads\\10a8524664d232b554be373aa1fdf769.virus_3202f.exe\n                  c:\\users\\<USER>\\downloads\\10a8524664d232b554be373aa1fdf769.virus_3202g.exe\n                    c:\\users\\<USER>\\downloads\\10a8524664d232b554be373aa1fdf769.virus_3202h.exe\n                      c:\\users\\<USER>\\downloads\\10a8524664d232b554be373aa1fdf769.virus_3202i.exe\n                        c:\\users\\<USER>\\downloads\\10a8524664d232b554be373aa1fdf769.virus_3202j.exe\n                          c:\\users\\<USER>\\downloads\\10a8524664d232b554be373aa1fdf769.virus_3202k.exe\n                            c:\\users\\<USER>\\downloads\\10a8524664d232b554be373aa1fdf769.virus_3202l.exe\n                              c:\\users\\<USER>\\downloads\\10a8524664d232b554be373aa1fdf769.virus_3202m.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - packed with generic packer\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - contain a resource (.rsrc) section\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Trickler = \"c:\\users\\<USER>\\downloads\\10a8524664d232b554be373aa1fdf769.virus_3202.exe\"\n\nOTHER REGISTRY KEYS SET (3):\n  HKLM\\Software\\CLASSES\\CLSID\\{21FFB6C0-0DA1-11D5-A9D5-00500413153C}\\uets\n  HKLM\\software\\Qwertyuio\\Trickler\\AppPath\n  HKLM\\software\\Qwertyuio\\Trickler\\OldTrickler\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'UPX 2.90 [LZMA] -> Markus Oberhumer, Laszlo Molnar & John Reiser', 'F-PROT': 'UPX'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.91\n  .rsrc        entropy=3.36\n  [overlay]    entropy=1.8781976699829102  size=226107\n",
+  "ground_truth": {
+    "hash": "2e1982cb1fb0957c20242d5f0e4846b4dfc6f46824f533219c60e32f60f48162",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8873,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "gator",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "packed with generic packer",
+      "packed with UPX",
+      "contain a resource (.rsrc) section",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Trickler"
+      ],
+      "registry_all_count": 4,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

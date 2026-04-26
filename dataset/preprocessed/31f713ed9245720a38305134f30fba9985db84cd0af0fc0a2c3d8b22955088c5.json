@@ -1,0 +1,61 @@
+{
+  "hash": "31f713ed9245720a38305134f30fba9985db84cd0af0fc0a2c3d8b22955088c5",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  <PATH_SAMPLE.EXE>\n    %APPDATA%\\extvisual\\<SAMPLE.EXE>\n  %APPDATA%\\extvisual\\<SAMPLE.EXE>\n    <SYSTEM32>\\svchost.exe\n  <SYSTEM32>\\svchost.exe\n  <SYSTEM32>\\svchost.exe\n  <PATH_SAMPLE.EXE>\n    %APPDATA%\\extvisual\\ocnnjmq.exe\n  %APPDATA%\\extvisual\\ocnnjmq.exe\n    <SYSTEM32>\\svchost.exe\n  <SYSTEM32>\\svchost.exe\n    <SYSTEM32>\\taskeng.exe\n  <SYSTEM32>\\taskeng.exe\n    %APPDATA%\\extvisual\\ocnnjmq.exe\n  %APPDATA%\\extvisual\\ocnnjmq.exe\n\n--- CAPABILITIES (CAPA) ---\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  %APPDATA%\\extvisual\\<SAMPLE.EXE>  [sha256: 31f713ed9245720a...]\n  <SYSTEM32>\\tasks\\cache system extension  [sha256: 4cced6ce97e648b3...]\n  %APPDATA%\\extvisual\\ocnnjmq.exe  [sha256: 31f713ed9245720a...]\n\nFILES WRITTEN (2):\n  C:\\Documents and Settings\\Administrator\\Application Data\\extvisual\\998E.exe\n  C:\\Documents and Settings\\All Users\\Application Data\\Microsoft\\Dr Watson\\drwtsn32.log\n\nOTHER REGISTRY KEYS SET (10):\n  \\REGISTRY\\A\\{08cdd8dc-fa9b-11e9-a166-42f4b4992136}\\DefaultObjectStore\\ObjectTable\\E9\\_ObjectId_\n  \\REGISTRY\\A\\{08cdd8dc-fa9b-11e9-a166-42f4b4992136}\\DefaultObjectStore\\LruList\\CurrentLru\n  \\REGISTRY\\A\\{08cdd8dc-fa9b-11e9-a166-42f4b4992136}\\DefaultObjectStore\\LruList\\00000000000002FD\\ObjectId\n  \\REGISTRY\\A\\{08cdd8dc-fa9b-11e9-a166-42f4b4992136}\\DefaultObjectStore\\LruList\\00000000000002FD\\ObjectLru\n  \\REGISTRY\\A\\{08cdd8dc-fa9b-11e9-a166-42f4b4992136}\\DefaultObjectStore\\ObjectTable\\E9\\_ObjectLru_\n  \\REGISTRY\\A\\{08cdd8dc-fa9b-11e9-a166-42f4b4992136}\\DefaultObjectStore\\ObjectTable\\E9\\_FileId_\n  \\REGISTRY\\A\\{08cdd8dc-fa9b-11e9-a166-42f4b4992136}\\DefaultObjectStore\\ObjectTable\\E9\\_Usn_\n  \\REGISTRY\\A\\{08cdd8dc-fa9b-11e9-a166-42f4b4992136}\\DefaultObjectStore\\ObjectTable\\E9\\_UsnJournalId_\n  \\REGISTRY\\A\\{08cdd8dc-fa9b-11e9-a166-42f4b4992136}\\DefaultObjectStore\\ObjectTable\\E9\\Indexes\\FileIdIndex-{c84d25cd-f368-\n  \\REGISTRY\\A\\{08cdd8dc-fa9b-11e9-a166-42f4b4992136}\\DefaultObjectStore\\IndexTable\\FileIdIndex-{c84d25cd-f368-11e4-889d-80\n\nMUTEXES CREATED (14):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  Global\\E3A5908E423932960\n  ShimCacheMutex\n  \\Sessions\\1\\BaseNamedObjects\\C:?CIOO?MCLLJKO.EXE\n  \\Sessions\\1\\BaseNamedObjects\\C:?RHDWQN?BDZT.EXE\n\nPROCESSES CREATED (7):\n  %APPDATA%\\extvisual\\<SAMPLE.EXE>\n  %APPDATA%\\extvisual\\ocnnjmq.exe\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\svchost.exe\n  <SYSTEM32>\\taskeng.exe\n  C:\\Documents and Settings\\<USER>\\Application Data\\extvisual\\31f913ed9247920a38307134f30fba9987db84cd0af0fc0a2c3d8b22977088c7\n  C:\\WINDOWS\\system32\\drwtsn32 -p 1032 -e 336 -g\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.DLL: VirtualAlloc\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n\nPE SECTIONS (entropy):\n  .text        entropy=5.88\n  .data        entropy=0.0\n  .rsrc        entropy=7.97\n",
+  "ground_truth": {
+    "hash": "31f713ed9245720a38305134f30fba9985db84cd0af0fc0a2c3d8b22955088c5",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.831,
+    "malicious_count": 59,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [],
+    "capa_sig_names": [],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 56,
+      "files_dropped": [
+        "%APPDATA%\\extvisual\\<SAMPLE.EXE>",
+        "%APPDATA%\\extvisual\\ocnnjmq.exe",
+        "<SYSTEM32>\\tasks\\cache system extension"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "Global\\E3A5908E423932960",
+        "ShimCacheMutex",
+        "\\Sessions\\1\\BaseNamedObjects\\C:?CIOO?MCLLJKO.EXE",
+        "\\Sessions\\1\\BaseNamedObjects\\C:?RHDWQN?BDZT.EXE",
+        "\\Sessions\\1\\BaseNamedObjects\\C:?USERS?USER?APPDATA?ROAMING?EXTVISUAL?BDZT.EXE",
+        "\\Sessions\\1\\BaseNamedObjects\\C:?USERS?USER?APPDATA?ROAMING?EXTVISUAL?OCNNJMQ.EXE",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\2335919E467932960",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\41A5E8AEA2B932960"
+      ],
+      "processes": [
+        "%APPDATA%\\extvisual\\<SAMPLE.EXE>",
+        "%APPDATA%\\extvisual\\ocnnjmq.exe",
+        "<PATH_SAMPLE.EXE>",
+        "<SYSTEM32>\\svchost.exe",
+        "<SYSTEM32>\\taskeng.exe",
+        "C:\\Documents and Settings\\<USER>\\Application Data\\extvisual\\31f913ed9247920a38307134f30fba9987db84cd0af0fc0a2c3d8b22977088c7",
+        "C:\\WINDOWS\\system32\\drwtsn32 -p 1032 -e 336 -g"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "Dr.Web vxCube",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

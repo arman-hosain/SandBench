@@ -1,0 +1,51 @@
+{
+  "hash": "2af11a4e34322b7e46c5138ba4c3d523e22b84b43c63d366a7d03896f2348713",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\WINDOWS\\system32\\drwtsn32 -p 2032 -e 168 -g\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - encode data using XOR\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - reference absolute stream path on Windows\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - contain loop\n  - resolve function by parsing PE exports\n  - Execution::Install Additional Program [B0023]\n  - contains PDB path\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  C:\\WINDOWS\\system32\\drwtsn32 -p 2032 -e 168 -g\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .            entropy=5.86\n  .            entropy=5.45\n  .            entropy=3.1\n  .imports     entropy=3.35\n  [overlay]    entropy=7.099810600280762  size=913239\n",
+  "ground_truth": {
+    "hash": "2af11a4e34322b7e46c5138ba4c3d523e22b84b43c63d366a7d03896f2348713",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8857,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "generickdz",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "reference absolute stream path on Windows",
+      "encode data using XOR",
+      "PEB access",
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "contain an embedded PE file",
+      "contains PDB path"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\system32\\drwtsn32 -p 2032 -e 168 -g"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork"
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "hash": "24071c66563d9580e8be688a80f3d965d8f81158f3279b6ef222dd08b71c3b64",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  GET http://aq.qq.com/cn2/unionverify/unionverify_jump?jumpname=setquestion&PTime=  UA: Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1; 125LA; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)\n  GET http://aq.qq.com/cn2/unionverify/unionverify_jump?jumpname=modifyquestion&PTime=  UA: Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1; 125LA; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)\n\nDNS LOOKUPS (2):\n  aq.qq.com \u2192 14.18.180.36\n  i2.tietuku.com\n\nIP TRAFFIC (2):\n  14.18.180.36:443 (TCP)\n  14.18.180.36:80 (TCP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\Syslemcekma.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\Syslemcekma.exe\" \"\n\nCOMMAND EXECUTIONS (1):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\Syslemcekma(null) []\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (11):\n  - encode data using XOR\n  - enumerate processes\n  - capture screenshot\n  - get common file path\n  - log keystrokes via polling\n  - check if file exists\n  - get file size\n  - query or enumerate registry value\n  - accept command line arguments\n  - link function at runtime on Windows\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Process::Terminate Thread [C0039]\n  - Process::Open Process [C0065]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Process [C0017]\n  - File System::Create File [C0016]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Communication::HTTP Communication::Send Request [C0002.003]\n  - Communication::HTTP Communication::Create Request [C0002.012]\n  - make an HTTP request with a Cookie\n  - Communication::HTTP Communication::Connect to Server [C0002.009]\n  - Communication::HTTP Communication::Get Response [C0002.017]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - enumerate processes\n  - Process::Terminate Process [C0018]\n  - Discovery::Application Window Discovery [E1010]\n  - Collection::Screen Capture::WinAPI [E1113.m01]\n  - Discovery::File and Directory Discovery [E1083]\n  - Collection::Keylogging::Polling [F0002.002]\n  - resolve function by parsing PE exports\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  Syslamwindwsa.exe  [sha256: 15ad0ef8c476838f...]\n  Syslemcekma.exe  [sha256: b213664c1bd39c3c...]\n\nFILES WRITTEN (4):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\2l.dat\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\Syslamwindwsa.exe\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\Syslemcekma.exe\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\lpath.ini\n\nMUTEXES CREATED (1):\n  RasPbFile\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\Syslemcekma.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\Syslemcekma.exe\" \"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  UPX0         entropy=5.95\n  UPX1         entropy=3.04\n  UPX2         entropy=3.23\n  .imports     entropy=4.69\n  [overlay]    entropy=3.461005210876465  size=1236\n",
+  "ground_truth": {
+    "hash": "24071c66563d9580e8be688a80f3d965d8f81158f3279b6ef222dd08b71c3b64",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8986,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1113",
+        "signature_description": "capture screenshot"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "terminate thread",
+      "open process",
+      "delay execution",
+      "create process on Windows",
+      "create or open file",
+      "create or open registry key",
+      "encode data using XOR",
+      "contain loop",
+      "send HTTP request",
+      "create HTTP request",
+      "make an HTTP request with a Cookie",
+      "connect to HTTP server",
+      "read data from Internet",
+      "receive data",
+      "send data",
+      "enumerate processes",
+      "terminate process",
+      "get graphical window text",
+      "capture screenshot",
+      "get common file path",
+      "log keystrokes via polling",
+      "check if file exists",
+      "resolve function by parsing PE exports",
+      "get file size",
+      "read file on Windows",
+      "query or enumerate registry value",
+      "read .ini file",
+      "write file on Windows",
+      "accept command line arguments",
+      "link function at runtime on Windows",
+      "hash data with MD5",
+      "packed with UPX",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [
+        "14.18.180.36"
+      ],
+      "domains": [
+        "aq.qq.com",
+        "i2.tietuku.com"
+      ],
+      "urls": [
+        "http://aq.qq.com/cn2/unionverify/unionverify_jump?jumpname=modifyquestion&PTime=",
+        "http://aq.qq.com/cn2/unionverify/unionverify_jump?jumpname=setquestion&PTime="
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "Syslamwindwsa.exe",
+        "Syslemcekma.exe"
+      ],
+      "mutexes": [
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\Syslemcekma.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\Syslemcekma.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

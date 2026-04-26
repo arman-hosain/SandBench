@@ -1,0 +1,48 @@
+{
+  "hash": "0f1febcb06e8a6026f68fc6c538ff7fd2d4fc17fd6632b6cf8f0c0747c30f58a",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  dcare.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\dcare.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\dcare.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\dcare.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - hide graphical window\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - hide graphical window\n  - contain loop\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  dcare.exe  [sha256: 8532810461c90ee7...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\dcare.exe  [sha256: 56d633363ad3d5a5...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\dcare.exe\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\dcare.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\dcare.exe\" \"\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=5.58\n  .rdata       entropy=6.97\n  .data        entropy=3.31\n  .rsrc        entropy=4.34\n  [overlay]    entropy=3.493272304534912  size=6100\n",
+  "ground_truth": {
+    "hash": "0f1febcb06e8a6026f68fc6c538ff7fd2d4fc17fd6632b6cf8f0c0747c30f58a",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9437,
+    "malicious_count": 67,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "hide graphical window",
+      "contain loop",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\dcare.exe",
+        "dcare.exe"
+      ],
+      "mutexes": [],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\dcare.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\dcare.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

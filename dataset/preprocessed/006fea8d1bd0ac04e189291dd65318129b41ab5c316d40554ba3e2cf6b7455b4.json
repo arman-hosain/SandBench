@@ -1,0 +1,124 @@
+{
+  "hash": "006fea8d1bd0ac04e189291dd65318129b41ab5c316d40554ba3e2cf6b7455b4",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (2):\n  192.168.0.180 \u2192 192.168.0.180\n  dns.msfncsi.com\n\nIP TRAFFIC (4):\n  20.99.133.109:443 (TCP)\n  23.216.81.152:80 (TCP)\n  69.164.41.0:80 (TCP)\n  a83f:8110:1c1d:1bff:1c1d:1bff:1b1c:1aff:53 (UDP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  %WINDIR%\\explorer.exe\n    %SAMPLEPATH%\\ab.exe\n\nCOMMAND EXECUTIONS (2):\n  \"%SAMPLEPATH%\\ab.exe\" \n   \n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (12):\n  - link function at runtime on Windows\n  - access PEB ldr_data\n  - encode data using XOR\n  - query environment variable\n  - accept command line arguments\n  - get socket status\n  - check OS version\n  - encode data using Base64\n  - resolve function by hash\n  - parse PE header\n  - encrypt data using RC4 PRGA\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - link function at runtime on Windows\n  - interact with driver via IOCTL\n  - access PEB ldr_data\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Process::Terminate Process [C0018]\n  - Discovery::System Information Discovery [E1082]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Process::Allocate Thread Local Storage [C0040]\n  - Communication::Socket Communication::Initialize Winsock Library [C0001.009]\n  - Communication::Socket Communication::Get Socket Status [C0001.012]\n  - Communication::Socket Communication::Set Socket Config [C0001.001]\n  - Communication::DNS Communication::Resolve [C0011.001]\n  - Communication::Socket Communication::Send Data [C0001.007]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - Communication::Socket Communication::Receive Data [C0001.006]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - Process::Create Mutex [C0042]\n  - File System::Read File [C0051]\n  - Communication::Interprocess Communication::Read Pipe [C0003.003]\n  - File System::Writes File [C0052]\n  - Data::Encode Data::Base64 [C0026.001]\n  - resolve function by parsing PE exports\n  - resolve function by hash\n  - parse PE header\n\n--- ARTIFACTS ---\n\nPROCESSES CREATED (3):\n  \"C:\\Users\\<USER>\\Desktop\\ab.exe\"\n  \"C:\\Users\\user\\Desktop\\ab.exe\"\n  %SAMPLEPATH%\\ab.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'F-PROT': 'embedded'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.43\n  .rdata       entropy=5.48\n  .data        entropy=4.41\n  .rsrc        entropy=1.96\n  .hxre        entropy=6.43\n",
+  "ground_truth": {
+    "hash": "006fea8d1bd0ac04e189291dd65318129b41ab5c316d40554ba3e2cf6b7455b4",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8732,
+    "malicious_count": 62,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 24
+      },
+      {
+        "value": "hacktool",
+        "count": 3
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "meterpreter",
+        "count": 10
+      },
+      {
+        "value": "shellcode",
+        "count": 7
+      },
+      {
+        "value": "dump",
+        "count": 6
+      }
+    ],
+    "suggested_label": "trojan.meterpreter/shellcode",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1016",
+        "signature_description": "get socket status"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "link function at runtime on Windows",
+      "interact with driver via IOCTL",
+      "access PEB ldr_data",
+      "encode data using XOR",
+      "terminate process",
+      "query environment variable",
+      "accept command line arguments",
+      "allocate thread local storage",
+      "initialize Winsock library",
+      "get socket status",
+      "set socket configuration",
+      "resolve DNS",
+      "send data on socket",
+      "send data",
+      "receive data on socket",
+      "receive data",
+      "create mutex",
+      "check OS version",
+      "read file on Windows",
+      "read pipe",
+      "write file on Windows",
+      "encode data using Base64",
+      "resolve function by parsing PE exports",
+      "resolve function by hash",
+      "parse PE header",
+      "check HTTP status code",
+      "encrypt data using RC4 PRGA",
+      "reference Base64 string",
+      "contain an embedded PE file",
+      "linked against ZLIB"
+    ],
+    "iocs": {
+      "ips": [
+        "20.99.133.109",
+        "23.216.81.152",
+        "69.164.41.0",
+        "a83f:8110:1c1d:1bff:1c1d:1bff:1b1c:1aff"
+      ],
+      "domains": [
+        "192.168.0.180",
+        "dns.msfncsi.com"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": [
+        "\"C:\\Users\\<USER>\\Desktop\\ab.exe\"",
+        "\"C:\\Users\\user\\Desktop\\ab.exe\"",
+        "%SAMPLEPATH%\\ab.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 8,
+  "sandbox_names": [
+    "CAPA",
+    "CAPE Sandbox",
+    "Microsoft Sysinternals",
+    "Rising MOVES",
+    "SNDBOX",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox",
+    "Zenbox"
+  ]
+}

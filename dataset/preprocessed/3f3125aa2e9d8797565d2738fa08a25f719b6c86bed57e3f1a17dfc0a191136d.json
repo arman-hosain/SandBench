@@ -1,0 +1,74 @@
+{
+  "hash": "3f3125aa2e9d8797565d2738fa08a25f719b6c86bed57e3f1a17dfc0a191136d",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  ddos.dnsnb8.net \u2192 185.87.187.198\n\nIP TRAFFIC (1):\n  185.87.187.198:799 (TCP)\n\nSERVICES OPENED (2):\n  RASMAN\n  Sens\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  3f3125aa2e9d8797_sndll32.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\fApziL.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (6):\n  - access PEB ldr_data\n  - contain obfuscated stackstrings\n  - link function at runtime on Windows\n  - parse PE header\n  - link many functions at runtime\n  - packed with ASPack\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Process::Create Process [C0017]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - access PEB ldr_data\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - link function at runtime on Windows\n  - contain loop\n  - parse PE header\n  - get thread local storage value\n  - print debug messages\n  - link many functions at runtime\n  - resolve function by parsing PE exports\n  - Anti-Static Analysis::Software Packing [F0001]\n  - Execution::Install Additional Program [B0023]\n  - contain a resource (.rsrc) section\n  - contains PDB path\n  - (internal) packer file limitation\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  fApziL.exe  [sha256: 4354970ccc7cd6bb...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\fApziL.exe  [sha256: 4354970ccc7cd6bb...]\n\nFILES WRITTEN (4):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\fApziL.exe\n  C:\\Program Files\\Microsoft Office\\Office10\\excel.exe\n  C:\\Python27\\Lib\\distutils\\command\\wininst-6.0.exe\n  C:\\Python27\\pythonw.exe\n\nOTHER REGISTRY KEYS SET (3):\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n\nMUTEXES CREATED (2):\n  IESQMMUTEX_0_208\n  RasPbFile\n\nMUTEXES OPENED (3):\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\fApziL.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessW, GetProcAddress, LoadLibraryExW, LoadLibraryW\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.66\n  .rdata       entropy=4.58\n  .data        entropy=3.25\n  .rsrc        entropy=4.71\n  .reloc       entropy=6.39\n  XBn+\\xa3u\\x89 entropy=6.93\n",
+  "ground_truth": {
+    "hash": "3f3125aa2e9d8797565d2738fa08a25f719b6c86bed57e3f1a17dfc0a191136d",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8732,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "create process on Windows",
+      "delay execution",
+      "create or open file",
+      "PEB access",
+      "access PEB ldr_data",
+      "contain obfuscated stackstrings",
+      "link function at runtime on Windows",
+      "contain loop",
+      "parse PE header",
+      "get thread local storage value",
+      "print debug messages",
+      "link many functions at runtime",
+      "resolve function by parsing PE exports",
+      "packed with ASPack",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "contains PDB path",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [
+        "185.87.187.198"
+      ],
+      "domains": [
+        "ddos.dnsnb8.net"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 3,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\fApziL.exe",
+        "fApziL.exe"
+      ],
+      "mutexes": [
+        "IESQMMUTEX_0_208",
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\fApziL.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

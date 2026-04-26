@@ -1,0 +1,70 @@
+{
+  "hash": "02a1e0b3028622007cbb15fac546e94b63308616eb2fa8f1e046ca06b3b29b2f",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic malware behavior including spawning a long chain of identical processes (likely to evade detection or create a persistent loop), writing files to the System32 directory (dropping a DLL and EXE), modifying registry keys to load shell extensions, and utilizing dangerous API imports like WinExec and CreateProcessA. The presence of XOR encoding and generic packing further indicates an attempt to evade static analysis.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample behaves like a Trojan by dropping additional executables and DLLs to System32, modifying registry keys to persist or load components, and executing arbitrary code via WinExec. It does not show specific ransomware encryption patterns, worm propagation to other hosts, or spyware data exfiltration in this report, but its deceptive installation and execution methods fit the Trojan profile.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1562.001\",\n        \"name\": \"Disable Defender\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1854,
+      "response_chars": 1365,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic malware behavior including spawning a long chain of identical processes (likely to evade detection or create a persistent loop), writing files to the System32 directory (dropping a DLL and EXE), modifying registry keys to load shell extensions, and utilizing dangerous API imports like WinExec and CreateProcessA",
+      "elapsed_seconds": 11.44
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 11.44,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9296
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.4,
+      "ttp_precision": 0.25,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1059",
+        "T1547",
+        "T1562"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1059",
+        "T1547",
+        "T1562"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4,
+      "breakdown": {
+        "ttp_f1": 0.4
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

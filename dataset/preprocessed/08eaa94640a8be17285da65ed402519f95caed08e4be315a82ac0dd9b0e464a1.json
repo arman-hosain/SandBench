@@ -1,0 +1,46 @@
+{
+  "hash": "08eaa94640a8be17285da65ed402519f95caed08e4be315a82ac0dd9b0e464a1",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  evhmc.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\evhmc.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\evhmc.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\evhmc.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - encode data using XOR\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  evhmc.exe  [sha256: 4c6a82fb39c9939a...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\evhmc.exe  [sha256: b67cd9b98576776b...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\evhmc.exe\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\evhmc.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\evhmc.exe\" \"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: VirtualAlloc\n\nPE SECTIONS (entropy):\n  .text        entropy=3.48\n  .rdata       entropy=1.65\n  [overlay]    entropy=3.4307448863983154  size=6890\n",
+  "ground_truth": {
+    "hash": "08eaa94640a8be17285da65ed402519f95caed08e4be315a82ac0dd9b0e464a1",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8261,
+    "malicious_count": 57,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain loop"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\evhmc.exe",
+        "evhmc.exe"
+      ],
+      "mutexes": [],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\evhmc.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\evhmc.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

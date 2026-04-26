@@ -1,0 +1,166 @@
+{
+  "hash": "23d34513b52f88b6df6dfa2836e0ac64d95a91ed47c24c104635991f4dbc2dca",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://nomoreransom.bit/\n\nDNS LOOKUPS (5):\n  dns1.soprodns.ru\n  emsisoft.bit\n  gandcrab.bit\n  ipv4bot.whatismyipaddress.com \u2192 66.171.248.178\n  nomoreransom.bit\n\nIP TRAFFIC (1):\n  66.171.248.178:80 (TCP)\n\nSERVICES OPENED (1):\n  Sens\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  0a2b48be671442fcd6eabc30294ce040.virus.exe\n    nslookup nomoreransom.bit dns1.soprodns.ru\n    nslookup gandcrab.bit dns1.soprodns.ru\n    nslookup emsisoft.bit dns1.soprodns.ru\n    nslookup nomoreransom.bit dns1.soprodns.ru\n    nslookup gandcrab.bit dns1.soprodns.ru\n    nslookup emsisoft.bit dns1.soprodns.ru\n    nslookup nomoreransom.bit dns1.soprodns.ru\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (25):\n  - hide graphical window\n  - encode data using XOR\n  - set file attributes\n  - decode data using Base64 via WinAPI\n  - contain obfuscated stackstrings\n  - get Program Files directory\n  - get file size\n  - query environment variable\n  - get common file path\n  - link function at runtime on Windows\n  - get disk information\n  - enumerate processes\n  - encrypt data using RC4 KSA\n  - encrypt data using RC4 PRGA\n  - create new key via CryptAcquireContext\n  - encrypt or decrypt via WinCrypt\n  - enumerate files on Windows\n  - enumerate files recursively\n  - query or enumerate registry value\n  - get system information on Windows\n  - get hostname\n  - get disk size\n  - get session user name\n  - get CPU information\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - File System::Create File [C0016]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Memory::Allocate Memory [C0007]\n  - Process::Create Thread [C0038]\n  - hide graphical window\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - File System::Get File Attributes [C0049]\n  - File System::Set File Attributes [C0050]\n  - Process::Create Process [C0017]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Open Process [C0065]\n  - Process::Terminate Thread [C0039]\n  - decode data using Base64 via WinAPI\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - get Program Files directory\n  - File System::Writes File [C0052]\n  - Discovery::File and Directory Discovery [E1083]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - Discovery::System Information Discovery [E1082]\n  - contain loop\n  - Process::Terminate Process [C0018]\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\kibcfb.exe  [sha256: a05b3d7f191aab88...]\n\nFILES WRITTEN (3):\n  C:\\Documents and Settings\\Administrator\\Application Data\\Microsoft\\Crypto\\RSA\\S-1-5-21-1482476501-1645522239-1417001333-500\\a18ca4003deb042bbee7a40f15e1970b_dcff734b-bc3f-43cb-8911-9b5d467629cf\n  C:\\Documents and Settings\\Administrator\\Application Data\\Microsoft\\vpkzgi.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows\\Temporary Internet Files\\Content.IE5\\XBL73YY1\\ipv4bot_whatismyipaddress_com[1].htm\n\nPERSISTENCE REGISTRY KEYS (2):\n  HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\sodnpsufysr = \"\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\lufmagsvtsd = \"C:\\Documents and Settings\\Administrator\\Application Data\\Microsoft\\vpkzgi.exe\"\u0000\n\nOTHER REGISTRY KEYS SET (3):\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n\nMUTEXES CREATED (3):\n  Global\\pc_group=WORKGROUP&ransom_id=2d84a7bff44048e7\n  Global\\pc_group=WORKGROUP&ransom_id=4029414471d2c847\n  IESQMMUTEX_0_208\n\nMUTEXES OPENED (3):\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessW, GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.3\n  .rdata       entropy=6.13\n  .data        entropy=3.45\n  .CRT         entropy=0.06\n  .rsrc        entropy=4.71\n  .reloc       entropy=6.43\n",
+  "ground_truth": {
+    "hash": "23d34513b52f88b6df6dfa2836e0ac64d95a91ed47c24c104635991f4dbc2dca",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.942,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1033",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get Program Files directory"
+      },
+      {
+        "id": "T1087",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1140",
+        "signature_description": "decode data using Base64 via WinAPI"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "create or open file",
+      "create or open registry key",
+      "allocate memory",
+      "allocate RWX memory",
+      "create thread",
+      "hide graphical window",
+      "allocate RW memory",
+      "encode data using XOR",
+      "get file attributes",
+      "set file attributes",
+      "create process on Windows",
+      "delay execution",
+      "open process",
+      "terminate thread",
+      "decode data using Base64 via WinAPI",
+      "contain obfuscated stackstrings",
+      "get Program Files directory",
+      "write file on Windows",
+      "get file size",
+      "set registry value",
+      "query environment variable",
+      "get common file path",
+      "contain loop",
+      "terminate process",
+      "read file on Windows",
+      "move file",
+      "link function at runtime on Windows",
+      "get OS version",
+      "resolve function by parsing PE exports",
+      "get disk information",
+      "check for time delay via GetTickCount",
+      "create mutex",
+      "check mutex and exit",
+      "enumerate processes",
+      "terminate process by name",
+      "create a process with modified I/O handles and window",
+      "create two anonymous pipes",
+      "create pipe",
+      "encrypt data using RC4 KSA",
+      "encrypt data using RC4 PRGA",
+      "create new key via CryptAcquireContext",
+      "encrypt or decrypt via WinCrypt",
+      "manipulate boot configuration",
+      "enumerate files on Windows",
+      "enumerate files recursively",
+      "query or enumerate registry value",
+      "get system information on Windows",
+      "get hostname",
+      "get disk size",
+      "get session user name",
+      "get CPU information",
+      "create HTTP request",
+      "send HTTP request",
+      "connect to HTTP server",
+      "read data from Internet",
+      "receive data",
+      "send data",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "66.171.248.178"
+      ],
+      "domains": [
+        "dns1.soprodns.ru",
+        "emsisoft.bit",
+        "gandcrab.bit",
+        "ipv4bot.whatismyipaddress.com",
+        "nomoreransom.bit"
+      ],
+      "urls": [
+        "http://nomoreransom.bit/"
+      ],
+      "registry_persistence": [
+        "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\sodnpsufysr",
+        "\\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\lufmagsvtsd"
+      ],
+      "registry_all_count": 5,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\kibcfb.exe"
+      ],
+      "mutexes": [
+        "Global\\pc_group=WORKGROUP&ransom_id=2d84a7bff44048e7",
+        "Global\\pc_group=WORKGROUP&ransom_id=4029414471d2c847",
+        "IESQMMUTEX_0_208"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

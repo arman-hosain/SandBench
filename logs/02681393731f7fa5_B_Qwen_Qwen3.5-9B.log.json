@@ -1,0 +1,77 @@
+{
+  "hash": "02681393731f7fa5d9ac1279515b21422b59a7102fee646c9d8d8f189c85d037",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits strong indicators of obfuscation and anti-analysis techniques, including packing with UPX (specifically using LZMA compression), the presence of a resource section, and the use of VirtualProtect and GetProcAddress. While these behaviors are common in legitimate software, the combination of heavy packing, entropy in the overlay, and specific anti-static analysis triggers suggests the intent to evade detection, warranting a suspicious verdict until further behavioral evidence (like network activity or file drops) confirms malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"PUA\"],\n    \"explanation\": \"The sample is packed with UPX and contains anti-analysis triggers (loop, standard compression). Without evidence of specific malicious actions like data exfiltration, ransomware encryption, or unauthorized persistence, it is classified as Potentially Unwanted Application (PUA) or a false positive, as it primarily demonstrates evasion capabilities rather than confirmed malicious payload execution.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 843,
+      "response_chars": 1214,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits strong indicators of obfuscation and anti-analysis techniques, including packing with UPX (specifically using LZMA compression), the presence of a resource section, and the use of VirtualProtect and GetProcAddress. While these behaviors are common in legitimate software, the combination of heavy packing, entropy in th",
+      "elapsed_seconds": 8.66
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": false,
+      "gap_summary": "",
+      "missed_behavior_count": 0,
+      "ttps_found": [
+        "T1027"
+      ],
+      "hallucinated_ttps": [],
+      "ttp_tp": 1,
+      "ttp_fp": 0
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 8.66,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 0.5,
+      "predicted": "SUSPICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8889
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 1.0,
+      "ttp_precision": 1.0,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 1.0,
+      "breakdown": {
+        "ttp_f1": 1.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

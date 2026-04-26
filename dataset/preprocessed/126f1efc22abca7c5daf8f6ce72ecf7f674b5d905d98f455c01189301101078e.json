@@ -1,0 +1,45 @@
+{
+  "hash": "126f1efc22abca7c5daf8f6ce72ecf7f674b5d905d98f455c01189301101078e",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nIP TRAFFIC (2):\n  121.88.5.183:11300 (TCP)\n  121.88.5.184:11170 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  sander.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\sander.exe\n\nCOMMAND EXECUTIONS (4):\n  ((null)) C:\\WINDOWS\\system32\\sander.exe [(null)]\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_sannuyex.bat(null) [(null)]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\sander.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\_sannuyex.bat\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  sander.exe  [sha256: f635b160168659e4...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\sander.exe  [sha256: 9b5971abae69177c...]\n\nFILES WRITTEN (5):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_sannuyex.bat\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\golfinfo.ini\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\_sannuyex.bat\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\golfinfo.ini\n  C:\\WINDOWS\\system32\\sander.exe\n\nOTHER REGISTRY KEYS SET (1):\n  HKCU\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\Run\n\nMUTEXES CREATED (3):\n  DBWinMutex\n  RasPbFile\n  ShimCacheMutex\n\nMUTEXES OPENED (1):\n  oleacc-msaa-loaded\n\nPROCESSES CREATED (2):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_sannuyex.bat\" \"\n  C:\\WINDOWS\\system32\\sander.exe C:\\WINDOWS\\system32\\sander.exe\" \"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Packer] PECompact\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'F-PROT': 'PECompact', 'Cyren': 'PECompact'}\n\nPE SECTIONS (entropy):\n  .text        entropy=7.99\n  .rsrc        entropy=6.72\n  .reloc       entropy=0.24\n  [overlay]    entropy=4.669776916503906  size=3752\n",
+  "ground_truth": {
+    "hash": "126f1efc22abca7c5daf8f6ce72ecf7f674b5d905d98f455c01189301101078e",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.831,
+    "malicious_count": 59,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [],
+    "capa_sig_names": [],
+    "iocs": {
+      "ips": [
+        "121.88.5.183",
+        "121.88.5.184"
+      ],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\sander.exe",
+        "sander.exe"
+      ],
+      "mutexes": [
+        "DBWinMutex",
+        "RasPbFile",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\_sannuyex.bat\" \"",
+        "C:\\WINDOWS\\system32\\sander.exe C:\\WINDOWS\\system32\\sander.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

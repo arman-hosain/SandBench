@@ -1,0 +1,238 @@
+{
+  "hash": "01eee0c28353230310dc7c8b4a70e2cd92d12d8730e641290b42f0674355770a",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is confirmed malicious due to its capability to capture screenshots, log keystrokes, retrieve geographical location, and hide its graphical window to evade detection. It employs anti-analysis techniques including debugger detection, anti-VM strings targeting Qemu, and delayed execution. The use of UPX packing, XOR/Base64 obfuscation, and runtime function linking further confirms its malicious nature.\"\n  },\n  \"q2\": {\n    \"family\": [\"Spyware\", \"Backdoor\"],\n    \"explanation\": \"The primary classification is Spyware due to the explicit capabilities of capturing screenshots, logging keystrokes, and retrieving geographical location. The presence of anti-VM strings, debugger detection, and the ability to hide its window suggests it may also function as a Backdoor to maintain persistence and evade analysis.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1056\",\n        \"name\": \"Input Capture\"\n      },\n      {\n        \"id\": \"T1082\",\n        \"name\": \"System Information Discovery\"\n      },\n      {\n        \"id\": \"T1083\",\n        \"name\": \"File and Directory Discovery\"\n      },\n      {\n        \"id\": \"T1562.001\",\n        \"name\": \"Indicator Removal\"\n      },\n      {\n        \"id\": \"T1562.004\",\n        \"name\": \"Disable or Modify Tools\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 4549,
+      "response_chars": 1203,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits multiple indicators of compromise including keylogging (log keystrokes via polling, set global application hook), screenshot capture, geographic location retrieval, and anti-analysis techniques (anti-VM strings, debugger detection, delayed execution). It is packed with UPX and uses obfuscation (XOR, Base64), confirming",
+      "elapsed_seconds": 11.43
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "8 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 8,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1056",
+        "T1057",
+        "T1083",
+        "T1218",
+        "T1562",
+        "T1566"
+      ],
+      "hallucinated_ttps": [
+        "T1055",
+        "T1057",
+        "T1218",
+        "T1562",
+        "T1566"
+      ],
+      "ttp_tp": 3,
+      "ttp_fp": 5
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- find graphical window\n- query or enumerate registry value\n- get disk size\n- capture screenshot\n- link function at runtime on Windows\n- reference anti-VM strings targeting Qemu\n- hide graphical window\n- get geographical location\n\nInstructions:\n- Add a TT",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1055",
+        "T1056",
+        "T1082",
+        "T1083",
+        "T1562"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 4,
+      "best_ttp_fp": 2
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "7 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 7,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1056",
+        "T1082",
+        "T1083",
+        "T1562"
+      ],
+      "hallucinated_ttps": [
+        "T1055",
+        "T1562"
+      ],
+      "ttp_tp": 4,
+      "ttp_fp": 2
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- find graphical window\n- query or enumerate registry value\n- capture screenshot\n- link function at runtime on Windows\n- reference anti-VM strings targeting Qemu\n- hide graphical window\n- get geographical location\n\nInstructions:\n- Add a TTP only when the ",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1027",
+        "T1056",
+        "T1082",
+        "T1083",
+        "T1562"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 4,
+      "best_ttp_fp": 1
+    },
+    {
+      "step": 8,
+      "type": "judge_check",
+      "iteration": 3,
+      "needs_more": true,
+      "gap_summary": "7 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 7,
+      "ttps_found": [
+        "T1027",
+        "T1056",
+        "T1082",
+        "T1083",
+        "T1562"
+      ],
+      "hallucinated_ttps": [
+        "T1562"
+      ],
+      "ttp_tp": 4,
+      "ttp_fp": 1
+    },
+    {
+      "step": 9,
+      "type": "judge_feedback",
+      "iteration": 3,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- find graphical window\n- query or enumerate registry value\n- capture screenshot\n- link function at runtime on Windows\n- reference anti-VM strings targeting Qemu\n- hide graphical window\n- get geographical location\n\nInstructions:\n- Add a TTP only when the ",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 10,
+      "type": "refinement_rejected",
+      "iteration": 3,
+      "reason": "response not in structured format - keeping previous output",
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is confirmed malicious due to its capability to capture screenshots, log keystrokes, retrieve geographical location, and hide its"
+    },
+    {
+      "step": 11,
+      "type": "analyst_refinement",
+      "iteration": 3,
+      "ttps_now": [
+        "T1027",
+        "T1056",
+        "T1082",
+        "T1083",
+        "T1562"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 4,
+      "best_ttp_fp": 1
+    },
+    {
+      "step": 12,
+      "type": "refinement_stopped",
+      "iteration": 3,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 4,
+      "ttp_fp": 1
+    }
+  ],
+  "total_llm_calls": 4,
+  "total_elapsed": 106.52,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8472
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.5,
+      "ttp_precision": 0.8,
+      "ttp_recall": 0.3636,
+      "gt_ttps": [
+        "T1010",
+        "T1012",
+        "T1027",
+        "T1056",
+        "T1082",
+        "T1083",
+        "T1113",
+        "T1129",
+        "T1497",
+        "T1564",
+        "T1614"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1056",
+        "T1082",
+        "T1083",
+        "T1562"
+      ],
+      "tp": 4,
+      "q3_hallucinated_ttps": [
+        "T1562"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1012",
+        "T1113",
+        "T1129",
+        "T1497",
+        "T1564",
+        "T1614"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5,
+      "breakdown": {
+        "ttp_f1": 0.5
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

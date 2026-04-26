@@ -1,0 +1,98 @@
+{
+  "hash": "108bf28c116c7f4ede80c37d4b9183bb40095524247cff742af5d6087264ed24",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (4):\n  GET http://188.165.204.210:18903/1509uk1/analyst0-2d1671/0/51-sp3/0/\n  GET http://188.165.204.210:18903/1509uk1/analyst0-2d1671/1/0/0/\n  GET http://green-fuel.us/upload/box/1509uk1.ltc\n  GET http://188.165.204.210:18903/1509uk1/analyst0-2d1671/41/5/4/\n\nDNS LOOKUPS (1):\n  green-fuel.us\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    kyyjs.exe\n      ejwmu.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\kyyjs.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\kyyjs.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - hide graphical window\n  - find graphical window\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - hide graphical window\n  - contain loop\n  - find graphical window\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  kyyjs.exe  [sha256: 7dd97f2d0ec2f11c...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\kyyjs.exe  [sha256: 8a4d3ab441d754e7...]\n\nFILES WRITTEN (3):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\kyyjs.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\ejwmu.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\kyyjs.exe\n\nOTHER REGISTRY KEYS SET (3):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\DOCUME~1\n\nMUTEXES CREATED (10):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  RasPbFile\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n\nMUTEXES OPENED (4):\n  _!MSFTHISTORY!_\n  c:!documents and settings!administrator!cookies!\n  c:!documents and settings!administrator!local settings!history!history.ie5!\n  c:!documents and settings!administrator!local settings!temporary internet files!content.ie5!\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\kyyjs.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\kyyjs.exe\" \"\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.46\n  .rdata       entropy=3.8\n  .data        entropy=1.97\n  .rsrc        entropy=4.64\n  [overlay]    entropy=3.4941658973693848  size=15736\n",
+  "ground_truth": {
+    "hash": "108bf28c116c7f4ede80c37d4b9183bb40095524247cff742af5d6087264ed24",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9167,
+    "malicious_count": 66,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 36
+      },
+      {
+        "value": "downloader",
+        "count": 18
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "upatre",
+        "count": 14
+      },
+      {
+        "value": "ppatre",
+        "count": 6
+      },
+      {
+        "value": "waski",
+        "count": 6
+      }
+    ],
+    "suggested_label": "trojan.upatre/ppatre",
+    "av_family_vote": "ppatre",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      }
+    ],
+    "capa_sig_names": [
+      "hide graphical window",
+      "contain loop",
+      "find graphical window",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [
+        "green-fuel.us"
+      ],
+      "urls": [
+        "http://188.165.204.210:18903/1509uk1/analyst0-2d1671/0/51-sp3/0/",
+        "http://188.165.204.210:18903/1509uk1/analyst0-2d1671/1/0/0/",
+        "http://188.165.204.210:18903/1509uk1/analyst0-2d1671/41/5/4/",
+        "http://green-fuel.us/upload/box/1509uk1.ltc"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 3,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\kyyjs.exe",
+        "kyyjs.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "RasPbFile",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\kyyjs.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\kyyjs.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

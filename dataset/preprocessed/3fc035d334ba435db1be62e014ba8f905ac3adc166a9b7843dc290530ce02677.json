@@ -1,0 +1,55 @@
+{
+  "hash": "3fc035d334ba435db1be62e014ba8f905ac3adc166a9b7843dc290530ce02677",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - encode data using XOR\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain pusha popa sequence\n  - contain loop\n  - Cryptography::Hashed Message Authentication Code [C0061]\n  - contain a thread local storage (.tls) section\n  - contain a resource (.rsrc) section\n  - Anti-Static Analysis::Disassembler Evasion [B0012]\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (3):\n  .\\BlockIPAreaList.txt\n  .\\BlockIPList.txt\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\Config.ini\n\nMUTEXES CREATED (8):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  MSCTF.Shared.MUTEX.AEH\n  MSCTF.Shared.MUTEX.EBH\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, LoadLibraryW, VirtualAlloc, VirtualProtect, WriteProcessMemory\n\nCOMPILER AND PACKER:\n  [Protector] VMProtect\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n\nPE SECTIONS (entropy):\n  .text        entropy=0.0\n  .itext       entropy=0.0\n  .data        entropy=0.0\n  .bss         entropy=0.0\n  .idata       entropy=0.0\n  .tls         entropy=0.0\n  .rdata       entropy=0.0\n  .upx0        entropy=0.0\n  .upx1        entropy=7.92\n  .reloc       entropy=2.29\n  .rsrc        entropy=4.15\n  [overlay]    entropy=6.0374016761779785  size=76\n",
+  "ground_truth": {
+    "hash": "3fc035d334ba435db1be62e014ba8f905ac3adc166a9b7843dc290530ce02677",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7606,
+    "malicious_count": 54,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain pusha popa sequence",
+      "contain loop",
+      "authenticate HMAC",
+      "contain a thread local storage (.tls) section",
+      "contain a resource (.rsrc) section",
+      "contain anti-disasm techniques"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "MSCTF.Shared.MUTEX.AEH",
+        "MSCTF.Shared.MUTEX.EBH"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

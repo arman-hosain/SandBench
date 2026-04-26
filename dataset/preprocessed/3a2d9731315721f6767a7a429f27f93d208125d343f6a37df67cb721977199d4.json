@@ -1,0 +1,81 @@
+{
+  "hash": "3a2d9731315721f6767a7a429f27f93d208125d343f6a37df67cb721977199d4",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (6):\n  - set file attributes\n  - get file size\n  - enumerate gui resources\n  - get disk information\n  - check if file exists\n  - reference anti-VM strings targeting VirtualBox\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - Process::Create Process [C0017]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Get File Attributes [C0049]\n  - File System::Set File Attributes [C0050]\n  - contain loop\n  - File System::Writes File [C0052]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Read File [C0051]\n  - Communication::Interprocess Communication::Create Pipe [C0003.001]\n  - enumerate gui resources\n  - Discovery::System Information Discovery [E1082]\n  - File System::Create Directory [C0046]\n  - Execution::Install Additional Program [B0023]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - contains PDB path\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (30):\n  C:\\CONFIG.SYS\n  C:\\DllLoader.exe\n  C:\\Documents and Settings\\Administrator\\Application Data\\Adobe\\Acrobat\\9.0\\AdobeCMapFnt09.lst\n  C:\\Documents and Settings\\Administrator\\Application Data\\Adobe\\Acrobat\\9.0\\AdobeSysFnt09.lst\n  C:\\Documents and Settings\\Administrator\\Application Data\\Adobe\\Acrobat\\9.0\\JavaScripts\\glob.js\n  C:\\Documents and Settings\\Administrator\\Application Data\\Adobe\\Acrobat\\9.0\\JavaScripts\\glob.settings.js\n  C:\\Documents and Settings\\Administrator\\Application Data\\Adobe\\Acrobat\\9.0\\SharedDataEvents\n  C:\\Documents and Settings\\Administrator\\Application Data\\Adobe\\Acrobat\\9.0\\UserCache.bin\n  C:\\Documents and Settings\\Administrator\\Application Data\\Macromedia\\Flash Player\\#SharedObjects\\EEY47AFV\\admaster.com.cn\\admck.sol\n  C:\\Documents and Settings\\Administrator\\Application Data\\Macromedia\\Flash Player\\#SharedObjects\\EEY47AFV\\macromedia.com\\redirectSO.sol\n  C:\\Documents and Settings\\Administrator\\Application Data\\Macromedia\\Flash Player\\macromedia.com\\support\\flashplayer\\sys\\#admaster.com.cn\\settings.sol\n  C:\\Documents and Settings\\Administrator\\Application Data\\Macromedia\\Flash Player\\macromedia.com\\support\\flashplayer\\sys\\#adobe.com\\settings.sol\n  C:\\Documents and Settings\\Administrator\\Application Data\\Macromedia\\Flash Player\\macromedia.com\\support\\flashplayer\\sys\\#macromedia.com\\settings.sol\n  C:\\Documents and Settings\\Administrator\\Application Data\\Macromedia\\Flash Player\\macromedia.com\\support\\flashplayer\\sys\\settings.sol\n  C:\\Documents and Settings\\Administrator\\Application Data\\Macromedia\\Flash Player\\www.macromedia.com\\bin\\fpupdateax\\digest.s\n  C:\\Documents and Settings\\Administrator\\Application Data\\Macromedia\\Flash Player\\www.macromedia.com\\bin\\fpupdateax\\fpupdateax.exe\n  C:\\Documents and Settings\\Administrator\\Application Data\\Microsoft\\CryptnetUrlCache\\Content\\12236C41CDDF9E40BA5606CDF086B821\n  C:\\Documents and Settings\\Administrator\\Application Data\\Microsoft\\CryptnetUrlCache\\Content\\2BF68F4714092295550497DD56F57004\n  C:\\Documents and Settings\\Administrator\\Application Data\\Microsoft\\CryptnetUrlCache\\Content\\60E31627FDA0A46932B0E5948949F2A5\n  C:\\Documents and Settings\\Administrator\\Application Data\\Microsoft\\CryptnetUrlCache\\Content\\62B5AF9BE9ADC1085C3C56EC07A82BF6\n\nMUTEXES CREATED (6):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] PureBasic\n  [Linker] Polink\n\nPE SECTIONS (entropy):\n  .code        entropy=4.99\n  .text        entropy=6.14\n  .rdata       entropy=0.18\n  .data        entropy=4.83\n  .rsrc        entropy=4.13\n  .NewSec      entropy=0.0\n  [overlay]    entropy=5.977539539337158  size=931301\n",
+  "ground_truth": {
+    "hash": "3a2d9731315721f6767a7a429f27f93d208125d343f6a37df67cb721977199d4",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "cosmu",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "enumerate gui resources"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk information"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "create process on Windows",
+      "delay execution",
+      "get file attributes",
+      "set file attributes",
+      "contain loop",
+      "write file on Windows",
+      "get file size",
+      "read file on Windows",
+      "create pipe",
+      "create a process with modified I/O handles and window",
+      "enumerate gui resources",
+      "get disk information",
+      "check if file exists",
+      "create directory",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting VirtualBox",
+      "contains PDB path",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO"
+  ]
+}

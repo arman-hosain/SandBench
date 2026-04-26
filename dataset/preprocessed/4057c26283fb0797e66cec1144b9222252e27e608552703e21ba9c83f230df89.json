@@ -1,0 +1,78 @@
+{
+  "hash": "4057c26283fb0797e66cec1144b9222252e27e608552703e21ba9c83f230df89",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  ryan12345.no-ip.biz \u2192 0.0.0.0\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  <PATH_SAMPLE.EXE>\n    %TEMP%\\vbc.exe\n  %TEMP%\\vbc.exe\n    %WINDIR%\\syswow64\\cmd.exe\n    %WINDIR%\\syswow64\\cmd.exe\n    %WINDIR%\\syswow64\\cmd.exe\n    %WINDIR%\\syswow64\\cmd.exe\n  <SYSTEM32>\\svchost.exe\n  %WINDIR%\\syswow64\\cmd.exe\n    %WINDIR%\\syswow64\\reg.exe\n  %WINDIR%\\syswow64\\cmd.exe\n    %WINDIR%\\syswow64\\reg.exe\n  %WINDIR%\\syswow64\\cmd.exe\n    %WINDIR%\\syswow64\\reg.exe\n  %WINDIR%\\syswow64\\cmd.exe\n\nCOMMAND EXECUTIONS (5):\n  \\??\\C:\\Windows\\system32\\conhost.exe\n  C:\\Windows\\system32\\schtasks.exe /delete /f /TN \"Microsoft\\Windows\\Customer Experience Improvement Program\\Uploader\"\n  C:\\Windows\\System32\\wsqmcons.exe \n  dw20.exe -x -s 512\n   \n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - load .NET assembly\n  - decode data using Base64 in .NET\n\nCAPA RULE MATCHES (MBC):\n  - access .NET resource\n  - load .NET assembly\n  - Data::Decode Data::Base64 [C0053.001]\n  - Cryptography::Cryptographic Hash::MD5 [C0029.001]\n  - compiled to the .NET platform\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nFILES DROPPED (5):\n  %TEMP%\\rs  [sha256: bd0f5da05c3b7b15...]\n  %TEMP%\\va.exe  [sha256: dbd0105069227d7f...]\n  %TEMP%\\vbc.exe  [sha256: 6df94b7fa33f1b87...]\n  <REM_DRIVE>:\\autorun.ini  [sha256: 2fcb1967182e278f...]\n  <REM_DRIVE>:\\<SAMPLE.EXE>  [sha256: dbd0105069227d7f...]\n\nPERSISTENCE REGISTRY KEYS (3):\n  <HKCU>\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\Windows Defender = %TEMP%\\Va.exe\n  <HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\\Windows Defender = %TEMP%\\Va.exe\n  <HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\policies\\Explorer\\run\\Windows Defender = %TEMP%\\Va.exe\n\nOTHER REGISTRY KEYS SET (7):\n  <HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Active Setup\\Installed Components\\{F9EFAFEA-AC8A-F1AB-2CBD-CBFEA4CCEC1A}\\StubPath\n  <HKCU>\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components\\{F9EFAFEA-AC8A-F1AB-2CBD-CBFEA4CCEC1A}\\StubPath\n  <HKCU>\\Software\\VB and VBA Program Settings\\SrvID\\ID\\W8Y9GFU73N\n  <HKCU>\\Software\\VB and VBA Program Settings\\INSTALL\\DATE\\W8Y9GFU73N\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SQMClient\\Windows\\AdaptiveSqm\\ManifestInfo\\Version\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SQMClient\\Windows\\WSqmConsLastEventTimeStamp\n  HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SQMClient\\Windows\\WSqmConsLastRunTime\n\nMUTEXES CREATED (6):\n  Global\\SQMWindowsConsolidator\n  Global\\e37f0250-f519-11e9-9394-525400748cb9\n  Local\\MSCTF.Asm.MutexDefault0\n  \\Sessions\\1\\BaseNamedObjects\\C:?LONKWDM?CFAUZBT.EXE\n  \\Sessions\\1\\BaseNamedObjects\\Global\\CorDBIPCSetupSyncEvent_2752\n  \\Sessions\\1\\BaseNamedObjects\\W8Y9GFU73N\n\nMUTEXES OPENED (2):\n  Global\\CLR_CASOFF_MUTEX\n  \\Sessions\\1\\BaseNamedObjects\\Global\\BFE_Notify_Event_{8e2838d7-6e78-4355-bf48-5e240dc0e636}\n\nPROCESSES CREATED (7):\n  %TEMP%\\vbc.exe\n  %WINDIR%\\syswow64\\cmd.exe\n  %WINDIR%\\syswow64\\reg.exe\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\conhost.exe\n  C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\dw20.exe\n  C:\\Windows\\System32\\schtasks.exe\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Library] .NET\n  [Compiler] VB.NET\n  [Compiler] VB.NET\n  [Library] .NET\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': '.NET executable'}\n\nPE SECTIONS (entropy):\n  .text        entropy=7.94\n  .rsrc        entropy=0.7\n  .reloc       entropy=0.02\n  [overlay]    entropy=5.15072774887085  size=1872\n",
+  "ground_truth": {
+    "hash": "4057c26283fb0797e66cec1144b9222252e27e608552703e21ba9c83f230df89",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8571,
+    "malicious_count": 60,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "msil",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1140",
+        "signature_description": "decode data using Base64 in .NET"
+      },
+      {
+        "id": "T1620",
+        "signature_description": "load .NET assembly"
+      }
+    ],
+    "capa_sig_names": [
+      "access .NET resource",
+      "load .NET assembly",
+      "decode data using Base64 in .NET",
+      "hash data with MD5",
+      "compiled to the .NET platform",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [
+        "ryan12345.no-ip.biz"
+      ],
+      "urls": [],
+      "registry_persistence": [
+        "<HKCU>\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\Windows Defender",
+        "<HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\\Windows Defender",
+        "<HKLM>\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\policies\\Explorer\\run\\Windows Defender"
+      ],
+      "registry_all_count": 10,
+      "files_dropped": [
+        "%TEMP%\\rs",
+        "%TEMP%\\va.exe",
+        "%TEMP%\\vbc.exe",
+        "<REM_DRIVE>:\\<SAMPLE.EXE>",
+        "<REM_DRIVE>:\\autorun.ini"
+      ],
+      "mutexes": [
+        "Global\\SQMWindowsConsolidator",
+        "Global\\e37f0250-f519-11e9-9394-525400748cb9",
+        "Local\\MSCTF.Asm.MutexDefault0",
+        "\\Sessions\\1\\BaseNamedObjects\\C:?LONKWDM?CFAUZBT.EXE",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\CorDBIPCSetupSyncEvent_2752",
+        "\\Sessions\\1\\BaseNamedObjects\\W8Y9GFU73N"
+      ],
+      "processes": [
+        "%TEMP%\\vbc.exe",
+        "%WINDIR%\\syswow64\\cmd.exe",
+        "%WINDIR%\\syswow64\\reg.exe",
+        "<PATH_SAMPLE.EXE>",
+        "<SYSTEM32>\\conhost.exe",
+        "C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\dw20.exe",
+        "C:\\Windows\\System32\\schtasks.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "Dr.Web vxCube",
+    "Rising MOVES",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

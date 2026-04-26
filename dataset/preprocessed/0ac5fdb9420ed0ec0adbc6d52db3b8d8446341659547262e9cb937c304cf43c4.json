@@ -1,0 +1,43 @@
+{
+  "hash": "0ac5fdb9420ed0ec0adbc6d52db3b8d8446341659547262e9cb937c304cf43c4",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    jon52.exe\n      0p48m.exe\n        b12783.exe\n          bofa9.exe\n            97a0fs.exe\n              98c3390.exe\n                n47vt3a.exe\n                  0pk0555.exe\n                    l92j4o.exe\n                      d5pg8.exe\n                        43l84v.exe\n                          948t8.exe\n                            852kvu.exe\n                              l63400.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - packed with generic packer\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - resolve function by parsing PE exports\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (30):\n  C:\\0n04mtn.exe\n  C:\\0p48m.exe\n  C:\\0pk0555.exe\n  C:\\10jqw23.exe\n  C:\\171et6o.exe\n  C:\\29ejgo5.exe\n  C:\\32mw3k4.exe\n  C:\\3cv4fdc.exe\n  C:\\3in7uqh.exe\n  C:\\43l84v.exe\n  C:\\4m1p1ar.exe\n  C:\\71d1tg1.exe\n  C:\\852kvu.exe\n  C:\\948t8.exe\n  C:\\97a0fs.exe\n  C:\\98c3390.exe\n  C:\\9uojfqw.exe\n  C:\\b12783.exe\n  C:\\bofa9.exe\n  C:\\d5pg8.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  Packers: {'F-PROT': 'UPX_LZMA'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.97\n  UPX2         entropy=2.93\n  [overlay]    entropy=3.888543128967285  size=264628\n",
+  "ground_truth": {
+    "hash": "0ac5fdb9420ed0ec0adbc6d52db3b8d8446341659547262e9cb937c304cf43c4",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9306,
+    "malicious_count": 67,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "packed with generic packer",
+      "packed with UPX",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO"
+  ]
+}

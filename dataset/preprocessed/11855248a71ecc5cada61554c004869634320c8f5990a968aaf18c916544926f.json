@@ -1,0 +1,70 @@
+{
+  "hash": "11855248a71ecc5cada61554c004869634320c8f5990a968aaf18c916544926f",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  <PATH_SAMPLE.EXE>\n    %APPDATA%\\extvisual\\mryeew.exe\n  %APPDATA%\\extvisual\\mryeew.exe\n    <SYSTEM32>\\svchost.exe\n  <SYSTEM32>\\svchost.exe\n    <SYSTEM32>\\taskeng.exe\n  <SYSTEM32>\\taskeng.exe\n    %APPDATA%\\extvisual\\mryeew.exe\n  %APPDATA%\\extvisual\\mryeew.exe\n  <SYSTEM32>\\svchost.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - parse PE header\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - contain loop\n  - parse PE header\n  - contain a resource (.rsrc) section\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  %APPDATA%\\extvisual\\mryeew.exe  [sha256: 11855248a71ecc5c...]\n  <SYSTEM32>\\tasks\\system network extensions  [sha256: b8f63a5ffb07c4a2...]\n\nFILES WRITTEN (4):\n  C:\\Documents and Settings\\Administrator\\Application Data\\extvisual\\998E.exe\n  C:\\Documents and Settings\\All Users\\Application Data\\Microsoft\\Dr Watson\\drwtsn32.log\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF3C06E471CFE56073.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DFF2C5657CA1C5E635.TMP\n\nOTHER REGISTRY KEYS SET (10):\n  \\REGISTRY\\A\\{cae81ac8-fa86-11e9-8b6d-7a2962353e0f}\\DefaultObjectStore\\ObjectTable\\E9\\_ObjectId_\n  \\REGISTRY\\A\\{cae81ac8-fa86-11e9-8b6d-7a2962353e0f}\\DefaultObjectStore\\LruList\\CurrentLru\n  \\REGISTRY\\A\\{cae81ac8-fa86-11e9-8b6d-7a2962353e0f}\\DefaultObjectStore\\LruList\\00000000000002FD\\ObjectId\n  \\REGISTRY\\A\\{cae81ac8-fa86-11e9-8b6d-7a2962353e0f}\\DefaultObjectStore\\LruList\\00000000000002FD\\ObjectLru\n  \\REGISTRY\\A\\{cae81ac8-fa86-11e9-8b6d-7a2962353e0f}\\DefaultObjectStore\\ObjectTable\\E9\\_ObjectLru_\n  \\REGISTRY\\A\\{cae81ac8-fa86-11e9-8b6d-7a2962353e0f}\\DefaultObjectStore\\ObjectTable\\E9\\_FileId_\n  \\REGISTRY\\A\\{cae81ac8-fa86-11e9-8b6d-7a2962353e0f}\\DefaultObjectStore\\ObjectTable\\E9\\_Usn_\n  \\REGISTRY\\A\\{cae81ac8-fa86-11e9-8b6d-7a2962353e0f}\\DefaultObjectStore\\ObjectTable\\E9\\_UsnJournalId_\n  \\REGISTRY\\A\\{cae81ac8-fa86-11e9-8b6d-7a2962353e0f}\\DefaultObjectStore\\ObjectTable\\E9\\Indexes\\FileIdIndex-{c84d25cd-f368-\n  \\REGISTRY\\A\\{cae81ac8-fa86-11e9-8b6d-7a2962353e0f}\\DefaultObjectStore\\IndexTable\\FileIdIndex-{c84d25cd-f368-11e4-889d-80\n\nMUTEXES CREATED (11):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  Global\\E3A5908E423932960\n  ShimCacheMutex\n  \\Sessions\\1\\BaseNamedObjects\\C:?STBZU?KPYEEW.EXE\n  \\Sessions\\1\\BaseNamedObjects\\C:?USERS?USER?APPDATA?ROAMING?EXTVISUAL?MRYEEW.EXE\n\nPROCESSES CREATED (6):\n  %APPDATA%\\extvisual\\mryeew.exe\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\svchost.exe\n  <SYSTEM32>\\taskeng.exe\n  C:\\Documents and Settings\\<USER>\\Application Data\\extvisual\\11877248a91ecc7cada81774c004889834320c8f7990a988aaf18c918744928f\n  C:\\WINDOWS\\system32\\drwtsn32 -p 164 -e 392 -g\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.DLL: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n\nPE SECTIONS (entropy):\n  .text        entropy=5.72\n  .data        entropy=0.0\n  .rsrc        entropy=7.69\n",
+  "ground_truth": {
+    "hash": "11855248a71ecc5cada61554c004869634320c8f5990a968aaf18c916544926f",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8732,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RWX memory",
+      "contain loop",
+      "parse PE header",
+      "contain a resource (.rsrc) section",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 29,
+      "files_dropped": [
+        "%APPDATA%\\extvisual\\mryeew.exe",
+        "<SYSTEM32>\\tasks\\system network extensions"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "Global\\E3A5908E423932960",
+        "ShimCacheMutex",
+        "\\Sessions\\1\\BaseNamedObjects\\C:?STBZU?KPYEEW.EXE",
+        "\\Sessions\\1\\BaseNamedObjects\\C:?USERS?USER?APPDATA?ROAMING?EXTVISUAL?MRYEEW.EXE",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\5D8C855E157932960"
+      ],
+      "processes": [
+        "%APPDATA%\\extvisual\\mryeew.exe",
+        "<PATH_SAMPLE.EXE>",
+        "<SYSTEM32>\\svchost.exe",
+        "<SYSTEM32>\\taskeng.exe",
+        "C:\\Documents and Settings\\<USER>\\Application Data\\extvisual\\11877248a91ecc7cada81774c004889834320c8f7990a988aaf18c918744928f",
+        "C:\\WINDOWS\\system32\\drwtsn32 -p 164 -e 392 -g"
+      ]
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "Dr.Web vxCube",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

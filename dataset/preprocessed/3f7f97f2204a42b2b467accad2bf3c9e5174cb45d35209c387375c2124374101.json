@@ -1,0 +1,137 @@
+{
+  "hash": "3f7f97f2204a42b2b467accad2bf3c9e5174cb45d35209c387375c2124374101",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (16):\n  - contain obfuscated stackstrings\n  - encode data using XOR\n  - query environment variable\n  - link function at runtime on Windows\n  - query or enumerate registry value\n  - link many functions at runtime\n  - encode data using Base64\n  - encrypt data using RC4 KSA\n  - encrypt data using RC4 PRGA\n  - get file size\n  - enumerate files on Windows\n  - enumerate files recursively\n  - get session user name\n  - query or enumerate registry key\n  - get disk information\n  - get hostname\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Terminate Thread [C0039]\n  - Process::Create Thread [C0038]\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - Process::Create Process [C0017]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - query remote server for available data\n  - File System::Create File [C0016]\n  - contain loop\n  - Discovery::System Information Discovery [E1082]\n  - link function at runtime on Windows\n  - Process::Create Mutex [C0042]\n  - Process::Terminate Process [C0018]\n  - File System::Writes File [C0052]\n  - Communication::Interprocess Communication::Create Pipe [C0003.001]\n  - Communication::Socket Communication::Initialize Winsock Library [C0001.009]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Anti-Behavioral Analysis::Debugger Detection::Timing/Delay Check GetTickCount [B0001.032]\n  - Communication::HTTP Communication::Send Request [C0002.003]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessW, GetProcAddress, LoadLibraryW\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.33\n  .rdata       entropy=4.62\n  .data        entropy=6.16\n  .pdata       entropy=5.38\n  .rsrc        entropy=3.42\n  .reloc       entropy=3.54\n  [overlay]    entropy=7.9023542404174805  size=327176\n",
+  "ground_truth": {
+    "hash": "3f7f97f2204a42b2b467accad2bf3c9e5174cb45d35209c387375c2124374101",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8356,
+    "malicious_count": 61,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 32
+      },
+      {
+        "value": "miner",
+        "count": 2
+      },
+      {
+        "value": "pua",
+        "count": 2
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "sednit",
+        "count": 8
+      },
+      {
+        "value": "sofacy",
+        "count": 7
+      },
+      {
+        "value": "bcps",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.sednit/sofacy",
+    "av_family_vote": "generickd",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1033",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1087",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "delay execution",
+      "terminate thread",
+      "create thread",
+      "contain obfuscated stackstrings",
+      "create process on Windows",
+      "encode data using XOR",
+      "create or open registry key",
+      "query remote server for available data",
+      "create or open file",
+      "contain loop",
+      "query environment variable",
+      "link function at runtime on Windows",
+      "create mutex",
+      "terminate process",
+      "write file on Windows",
+      "create a process with modified I/O handles and window",
+      "create two anonymous pipes",
+      "create pipe",
+      "initialize Winsock library",
+      "set registry value",
+      "query or enumerate registry value",
+      "check for time delay via GetTickCount",
+      "send HTTP request",
+      "create HTTP request",
+      "connect to HTTP server",
+      "send data",
+      "link many functions at runtime",
+      "read data from Internet",
+      "receive data",
+      "encode data using Base64",
+      "encrypt data using RC4 KSA",
+      "encrypt data using RC4 PRGA",
+      "get file size",
+      "read file on Windows",
+      "delete file",
+      "enumerate files on Windows",
+      "enumerate files recursively",
+      "get session user name",
+      "query or enumerate registry key",
+      "check mutex and exit",
+      "get disk information",
+      "get hostname",
+      "hash data using fnv",
+      "contain a resource (.rsrc) section",
+      "run as service",
+      "create or open file",
+      "write file on Windows",
+      "read file on Windows",
+      "hash data using fnv"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "hash": "030ccaaae8b7b85be32b744d6160fcf1bed4a378dd7b241dfb89cea9156a00a6",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic behavior of a downloader or dropper. It is packed with a generic SFX (Self-Extracting) archive and uses XOR obfuscation to evade analysis. Upon execution, it spawns Internet Explorer to open numerous temporary HTML files, which is a common technique for delivering payloads or executing scripts. It also modifies the registry to persist or facilitate execution (ShellServiceObjectDelayLoad) and creates additional processes. The combination of packing, obfuscation, registry modification, and spawning browser processes to load external content strongly indicates malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The primary behavior observed is the unpacking of the main executable and the subsequent launching of Internet Explorer to load external HTML files from the temp directory. This pattern is characteristic of a Dropper, which delivers and executes additional malware (often via the loaded HTML/JS) rather than performing the malicious action itself (like encryption or data theft) directly. It does not exhibit ransomware behavior (no file encryption), spyware behavior (no data exfiltration observed), or worm behavior (no self-replication to other systems observed).\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1562\",\n        \"name\": \"Impair Defenses\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1547\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 6644,
+      "response_chars": 1764,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic behavior of a downloader or dropper. It is packed with a generic SFX (Self-Extracting) archive and uses XOR obfuscation to evade analysis. Upon execution, it spawns Internet Explorer to open numerous temporary HTML files, which is a common technique for delivering payloads or executing scripts. It also modifies",
+      "elapsed_seconds": 14.53
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 14.53,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9577
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.3333,
+      "ttp_precision": 0.2,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1547",
+        "T1562"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1059",
+        "T1547",
+        "T1562"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.3333,
+      "breakdown": {
+        "ttp_f1": 0.3333
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

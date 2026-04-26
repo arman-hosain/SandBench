@@ -1,0 +1,101 @@
+{
+  "hash": "014645d77e15c16a481fbc3a2668a06c665c713ba8b6abc8230a66ccd50dd5d3",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity, execution chain, and capabilities that suggest malicious intent. It communicates with an unknown IP address, executes multiple files, and employs various evasion techniques.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior, including its network activity, execution chain, and capabilities, suggests that it is a Trojan. It appears to be designed to establish a connection to a remote server and execute additional files, which is consistent with the behavior of a Trojan.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1204\", \"name\": \"User Execution\"},\n      {\"id\": \"T1218\", \"name\": \"File and Directory Discovery\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1053\", \"name\": \"Scheduled Task/Job\"},\n      {\"id\": \"T1052\", \"name\": \"Signed Binary Proxy Execution\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 3473,
+      "response_chars": 1004,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious network activity, execution chain, and capabilities that suggest malicious intent. It communicates with an unknown IP address, executes multiple files, and employs various evasion techniques.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior, including its network activity, ",
+      "elapsed_seconds": 4.79
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 4.79,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8493
+    },
+    "family": {
+      "family_f1": 1.0,
+      "family_precision": 1.0,
+      "family_recall": 1.0,
+      "predicted": [
+        "trojan"
+      ],
+      "matched": [
+        "trojan"
+      ],
+      "reachable_gt": [
+        "trojan"
+      ],
+      "gt_pool": [
+        "avkill",
+        "mint",
+        "trojan",
+        "urelas"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 0.1429,
+      "ttp_precision": 0.1667,
+      "ttp_recall": 0.125,
+      "gt_ttps": [
+        "T1012",
+        "T1027",
+        "T1082",
+        "T1083",
+        "T1105",
+        "T1129",
+        "T1222",
+        "T1569"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1052",
+        "T1053",
+        "T1055",
+        "T1204",
+        "T1218"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1052",
+        "T1053",
+        "T1055",
+        "T1204",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1012",
+        "T1082",
+        "T1083",
+        "T1105",
+        "T1129",
+        "T1222",
+        "T1569"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.1429,
+      "breakdown": {
+        "ttp_f1": 0.1429
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

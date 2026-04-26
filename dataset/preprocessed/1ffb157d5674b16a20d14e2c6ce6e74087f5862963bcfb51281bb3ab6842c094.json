@@ -1,0 +1,43 @@
+{
+  "hash": "1ffb157d5674b16a20d14e2c6ce6e74087f5862963bcfb51281bb3ab6842c094",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - link function at runtime on Windows\n\nCAPA RULE MATCHES (MBC):\n  - link function at runtime on Windows\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Execution::Install Additional Program [B0023]\n  - contains PDB path\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Sign tool] Windows Authenticode\n\nPE SECTIONS (entropy):\n  .text        entropy=5.59\n  .rdata       entropy=4.28\n  .data        entropy=0.35\n  .rsrc        entropy=4.81\n  [overlay]    entropy=6.097442150115967  size=2391339\n",
+  "ground_truth": {
+    "hash": "1ffb157d5674b16a20d14e2c6ce6e74087f5862963bcfb51281bb3ab6842c094",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.5775,
+    "malicious_count": 41,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "link function at runtime on Windows",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "contains PDB path"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO"
+  ]
+}

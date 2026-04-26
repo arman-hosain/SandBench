@@ -1,0 +1,47 @@
+{
+  "hash": "061fe54a3dafe283279c110969947f2128d12d3502a6fe1ee846a6be5c2e22ba",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  microsoft.pe32\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - packed with generic packer\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - contain a resource (.rsrc) section\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (4):\n  \\Windows\\Intelx386\\Capitulos ineditos de DragonBall Z jamas emitidos.exe  [sha256: b02fbbbaddcabbcd...]\n  \\Windows\\Intelx386\\Download Accelerator Plus (DAP) (full version with serial).exe  [sha256: 02e1b70665dfd595...]\n  \\Windows\\Intelx386\\Simpsons pack guiones (Temporada 2004).exe  [sha256: c5ff261aad4d4f79...]\n  \\Windows\\Intelx386\\Nero 7.5.1.0 (cracked!).exe  [sha256: f19b0cf614477487...]\n\nFILES WRITTEN (1):\n  C:\\Windows\\Intelx386\\Winamp 5.0 (full version).exe\n\nOTHER REGISTRY KEYS SET (1):\n  \\REGISTRY\\MACHINE\\HexStream = 53004F004600540057004100520045005C004D006900630072006F0073006F00660074005C00570069006E0064\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualProtect\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'UPX 2.90 [LZMA] -> Markus Oberhumer, Laszlo Molnar & John Reiser', 'F-PROT': 'UPX'}\n\nPE SECTIONS (entropy):\n  GlFCfAHi     entropy=0.0\n  iqsNyMnI     entropy=7.84\n  .rsrc        entropy=3.49\n  [overlay]    entropy=0.0  size=9086040\n",
+  "ground_truth": {
+    "hash": "061fe54a3dafe283279c110969947f2128d12d3502a6fe1ee846a6be5c2e22ba",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9437,
+    "malicious_count": 67,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "packed with generic packer",
+      "contain a resource (.rsrc) section",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "\\Windows\\Intelx386\\Capitulos ineditos de DragonBall Z jamas emitidos.exe",
+        "\\Windows\\Intelx386\\Download Accelerator Plus (DAP) (full version with serial).exe",
+        "\\Windows\\Intelx386\\Nero 7.5.1.0 (cracked!).exe",
+        "\\Windows\\Intelx386\\Simpsons pack guiones (Temporada 2004).exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX"
+  ]
+}

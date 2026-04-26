@@ -1,0 +1,88 @@
+{
+  "hash": "24a48a1f96b6cf668367c44bf38f078ef55f26a58bda31b6ceb936e3783ee3ff",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://crt.comodoca.com/COMODORSADomainValidationSecureServerCA.crt\n\nDNS LOOKUPS (3):\n  164.132.75.109\n  89.22.113.245\n  crt.comodoca.com \u2192 91.199.212.52\n\nIP TRAFFIC (2):\n  164.132.75.109:443 (TCP)\n  89.22.113.245:691 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  C:\\Users\\Lucas\\AppData\\Local\\Temp\\gdvgunXwtF6jjVQ5jIJ0AOn.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\Users\\Lucas\\AppData\\Local\\Temp\\gdvgunXwtF6jjVQ5jIJ0AOn.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - log keystrokes via polling\n  - link function at runtime on Windows\n\nCAPA RULE MATCHES (MBC):\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - contain loop\n  - Process::Terminate Process [C0018]\n  - Collection::Keylogging::Polling [F0002.002]\n  - link function at runtime on Windows\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nOTHER REGISTRY KEYS SET (10):\n  HKLM\\SOFTWARE\\MICROSOFT\\SYSTEMCERTIFICATES\\AUTHROOT\\CERTIFICATES\\5F4E1FCF31B7913B850B54F6E5FF501A2B6FC6CF\n  HKLM\\SOFTWARE\\MICROSOFT\\SYSTEMCERTIFICATES\\AUTHROOT\\CERTIFICATES\\925A8F8D2C6D04E0665F596AFF22D863E8256F3F\n  HKLM\\SOFTWARE\\MICROSOFT\\SYSTEMCERTIFICATES\\AUTHROOT\\CERTIFICATES\\00EA522C8A9C06AA3ECCE0B4FA6CDC21D92E8099\n  HKLM\\SOFTWARE\\MICROSOFT\\SYSTEMCERTIFICATES\\AUTHROOT\\CERTIFICATES\\39410BC2303748066069A72A664DE4C743481296\n  HKLM\\SOFTWARE\\MICROSOFT\\SYSTEMCERTIFICATES\\AUTHROOT\\CERTIFICATES\\1B4B396126276B6491A2686DD70243212D1F1D96\n  HKLM\\SOFTWARE\\MICROSOFT\\SYSTEMCERTIFICATES\\AUTHROOT\\CERTIFICATES\\750251B2C632536F9D917279543C137CD721C6E0\n  HKLM\\SOFTWARE\\MICROSOFT\\SYSTEMCERTIFICATES\\AUTHROOT\\CERTIFICATES\\B172B1A56D95F91FE50287E14D37EA6A4463768A\n  HKLM\\SOFTWARE\\MICROSOFT\\SYSTEMCERTIFICATES\\AUTHROOT\\CERTIFICATES\\D8C5388AB7301B1B6ED47AE645253A6F9F1A2761\n  HKLM\\SOFTWARE\\MICROSOFT\\SYSTEMCERTIFICATES\\AUTHROOT\\CERTIFICATES\\8781C25A96BDC2FB4C65064FF9390B26048A0E01\n  HKLM\\SOFTWARE\\MICROSOFT\\SYSTEMCERTIFICATES\\AUTHROOT\\CERTIFICATES\\968338F113E36A7BABDD08F7776391A68736582E\n\nMUTEXES CREATED (4):\n  DBWinMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n  RasPbFile\n\nPROCESSES CREATED (1):\n  C:\\Users\\Lucas\\AppData\\Local\\Temp\\gdvgunXwtF6jjVQ5jIJ0AOn.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAlloc, VirtualAllocEx\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n\nPE SECTIONS (entropy):\n  .text        entropy=6.13\n  .rdata       entropy=3.26\n  .data        entropy=5.5\n  .rsrc        entropy=5.05\n",
+  "ground_truth": {
+    "hash": "24a48a1f96b6cf668367c44bf38f078ef55f26a58bda31b6ceb936e3783ee3ff",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8493,
+    "malicious_count": 62,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 25
+      },
+      {
+        "value": "downloader",
+        "count": 4
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "mint",
+        "count": 6
+      },
+      {
+        "value": "zard",
+        "count": 6
+      },
+      {
+        "value": "cridex",
+        "count": 3
+      }
+    ],
+    "suggested_label": "trojan.mint/zard",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open registry key",
+      "contain loop",
+      "terminate process",
+      "log keystrokes via polling",
+      "link function at runtime on Windows",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "164.132.75.109",
+        "89.22.113.245"
+      ],
+      "domains": [
+        "164.132.75.109",
+        "89.22.113.245",
+        "crt.comodoca.com"
+      ],
+      "urls": [
+        "http://crt.comodoca.com/COMODORSADomainValidationSecureServerCA.crt"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 215,
+      "files_dropped": [],
+      "mutexes": [
+        "DBWinMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\Users\\Lucas\\AppData\\Local\\Temp\\gdvgunXwtF6jjVQ5jIJ0AOn.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Lastline",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

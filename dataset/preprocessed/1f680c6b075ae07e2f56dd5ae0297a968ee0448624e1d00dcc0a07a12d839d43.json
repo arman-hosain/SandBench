@@ -1,0 +1,145 @@
+{
+  "hash": "1f680c6b075ae07e2f56dd5ae0297a968ee0448624e1d00dcc0a07a12d839d43",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nIP TRAFFIC (1):\n  148.70.56.33:137 (UDP)\n\nSERVICES OPENED (2):\n  RemoteAccess\n  Router\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  5e1d09dd74692338b87cdc7f8e1f83eb.EXE\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (7):\n  - contain obfuscated stackstrings\n  - hide graphical window\n  - link function at runtime on Windows\n  - parse PE header\n  - query or enumerate registry value\n  - interact with driver via control codes\n  - query or enumerate registry key\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - Memory::Allocate Memory [C0007]\n  - Process::Create Thread [C0038]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - reference absolute stream path on Windows\n  - inspect load icon resource\n  - hide graphical window\n  - contain loop\n  - File System::Writes File [C0052]\n  - link function at runtime on Windows\n  - parse PE header\n  - Discovery::Code Discovery::Inspect Section Memory Permissions [B0046.002]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - interact with driver via control codes\n  - File System::Read File [C0051]\n  - Process::Create Mutex [C0042]\n  - Operating System::Registry::Query Registry Key [C0036.005]\n  - Discovery::Application Window Discovery [E1010]\n  - extract resource via kernel32 functions\n  - File System::Move File [C0063]\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n  kernel32.dll.ReadFile\n  kernel32.dll.WinExec\n  kernel32.dll.FreeLibrary\n  kernel32.dll.CreateMutexA\n  kernel32.dll.ExitProcess\n  kernel32.dll.GetCurrentThreadId\n  kernel32.dll.OutputDebugStringA\n  kernel32.dll.CreateProcessA\n  kernel32.dll.DeviceIoControl\n  kernel32.dll.WriteFile\n  kernel32.dll.FindFirstFileA\n  user32.dll.SendMessageA\n  advapi32.dll.RegQueryValueA\n  advapi32.dll.CreateProcessAsUserA\n  advapi32.dll.CreateServiceA\n  shell32.dll.ShellExecuteExA\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (2):\n  C:\\Documents and Settings\\All Users\\Application Data\\Microsoft\\Dr Watson\\drwtsn32.log\n  C:\\Program Files (x86)\\Common Files\\7D379A2A.exe\n\nPERSISTENCE REGISTRY KEYS (4):\n  HKLM\\SYSTEM\\CurrentControlSet\\Services\\Rsiiqq ecsgooqa\\ConnectGroup = Default\n  HKLM\\SYSTEM\\CurrentControlSet\\Services\\Rsiiqq ecsgooqa\\MarkTime = 2019-11-29\n  \\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\Rsiiqq ecsgooqa\\ConnectGroup = Default\u0000\n  \\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\Rsiiqq ecsgooqa\\MarkTime = 2019-11-30\u0000\n\nOTHER REGISTRY KEYS SET (1):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\ActiveMovie\\devenum\\Version\n\nMUTEXES CREATED (12):\n  148.70.56.33:8000:Rsiiqq ecsgooqa\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  ShimCacheMutex\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n\nPROCESSES CREATED (22):\n  C:\\Users\\RA491~1.VUL\\AppData\\Local\\Temp\\12db0c0fbda8564b4750e0da5f350643.EXE \n  C:\\WINDOWS\\system32\\drwtsn32 -p 420 -e 168 -g\n  C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\mscorsvw.exe\n  C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\mscorsvw.exe\n  C:\\Windows\\System32\\wevtutil.exe query-events microsoft-windows-powershell/operational /rd:true /e:root /format:xml /uni:true\n  C:\\Windows\\system32\\schtasks.exe /delete /f /TN Microsoft\\Windows\\Customer Experience Improvement Program\\Uploader\n  C:\\Windows\\system32\\svchost.exe -k LocalServiceAndNoImpersonation\n  C:\\Windows\\system32\\wbem\\wmiprvse.exe -Embedding\n  C:\\Windows\\system32\\wbem\\wmiprvse.exe -secured -Embedding\n  C:\\nutbcxvn\\bin\\ZXbr.exe /Terminate\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualAlloc\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.45\n  .rdata       entropy=4.47\n  .data        entropy=2.85\n  .rsrc        entropy=5.27\n  [overlay]    entropy=7.340521335601807  size=367\n",
+  "ground_truth": {
+    "hash": "1f680c6b075ae07e2f56dd5ae0297a968ee0448624e1d00dcc0a07a12d839d43",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7671,
+    "malicious_count": 56,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 26
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "farfli",
+        "count": 11
+      },
+      {
+        "value": "beacon",
+        "count": 7
+      },
+      {
+        "value": "dump",
+        "count": 7
+      }
+    ],
+    "suggested_label": "trojan.farfli/beacon",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "delay execution",
+      "create or open file",
+      "contain obfuscated stackstrings",
+      "allocate memory",
+      "allocate RW memory",
+      "create thread",
+      "create or open registry key",
+      "reference absolute stream path on Windows",
+      "inspect load icon resource",
+      "hide graphical window",
+      "contain loop",
+      "write file on Windows",
+      "link function at runtime on Windows",
+      "parse PE header",
+      "inspect section memory permissions",
+      "query or enumerate registry value",
+      "interact with driver via control codes",
+      "read file on Windows",
+      "create mutex",
+      "query or enumerate registry key",
+      "get graphical window text",
+      "extract resource via kernel32 functions",
+      "move file",
+      "delete file",
+      "get thread local storage value",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "148.70.56.33"
+      ],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Rsiiqq ecsgooqa\\ConnectGroup",
+        "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Rsiiqq ecsgooqa\\MarkTime",
+        "\\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\Rsiiqq ecsgooqa\\ConnectGroup",
+        "\\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\Rsiiqq ecsgooqa\\MarkTime"
+      ],
+      "registry_all_count": 5,
+      "files_dropped": [],
+      "mutexes": [
+        "148.70.56.33:8000:Rsiiqq ecsgooqa",
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "ShimCacheMutex",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex",
+        "eed3bd3a-a1ad-4e99-987b-d7cb3fcfa7f0 - S-1-5-21-1482476501-1645522239-1417001333-500"
+      ],
+      "processes": [
+        "C:\\Users\\RA491~1.VUL\\AppData\\Local\\Temp\\12db0c0fbda8564b4750e0da5f350643.EXE ",
+        "C:\\WINDOWS\\system32\\drwtsn32 -p 420 -e 168 -g",
+        "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\mscorsvw.exe",
+        "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\mscorsvw.exe",
+        "C:\\Windows\\System32\\wevtutil.exe query-events microsoft-windows-powershell/operational /rd:true /e:root /format:xml /uni:true",
+        "C:\\Windows\\system32\\schtasks.exe /delete /f /TN Microsoft\\Windows\\Customer Experience Improvement Program\\Uploader",
+        "C:\\Windows\\system32\\svchost.exe -k LocalServiceAndNoImpersonation",
+        "C:\\Windows\\system32\\wbem\\wmiprvse.exe -Embedding",
+        "C:\\Windows\\system32\\wbem\\wmiprvse.exe -secured -Embedding",
+        "C:\\nutbcxvn\\bin\\ZXbr.exe /Terminate",
+        "C:\\nutbcxvn\\bin\\tPhFHBYLg.exe inject 296 1564 \\qcQSCvx.dll",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -10631047092117131479-3499447961171950593-17364263291811492178-1302015851-1835789404",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -112414407-88484831-8242466848324620835400793-1506451953-209948620-282609554",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -225276676-16350997521818919531449680821-12893400041431443401-653317446136266388",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -5404319919948919261319470701267001364223056185959859404-15960129081773995172",
+        "\\??\\C:\\Windows\\system32\\conhost.exe -8864571942147391911-5601687601488479979933865844-1075360941231280394-521631621",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 1073963058-497120837-149880103714896444275739633231414107582-2107983820-777119340",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 1141523271-1761441654-40826521524861609-220941486-5605903381989852323-1276353188",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 2066829643500659413827571243-39691176315691643401903659524-13258135501615193213",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 2074081343574786977731844989-474002347-8030961574477861101806428133-1264564311",
+        "\\??\\C:\\Windows\\system32\\conhost.exe 9179092431355860055-1194250109597199416-2145498451806292117-25000976653543762",
+        "wmiadap.exe /F /T /R"
+      ]
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox",
+    "Yomi Hunter"
+  ]
+}

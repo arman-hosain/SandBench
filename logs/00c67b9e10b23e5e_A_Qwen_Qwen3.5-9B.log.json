@@ -1,0 +1,97 @@
+{
+  "hash": "00c67b9e10b23e5eacfc55443df65133cbc2072d8575010a9aaf18700a7026e2",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including keylogging (polling), screen capture, C2 communication (HTTP requests, receiving/sending data), and process termination. It is packed with UPX and uses XOR encoding for evasion, indicating a sophisticated threat designed for data exfiltration and surveillance.\"\n  },\n  \"q2\": {\n    \"family\": [\"Spyware\", \"Backdoor\"],\n    \"explanation\": \"The primary functionality involves collecting user data via keylogging and screen capture, which defines Spyware. The ability to receive commands, send data, and terminate processes suggests a persistent remote access capability, characteristic of a Backdoor.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1057\", \"name\": \"Process Discovery\"},\n      {\"id\": \"T1059\", \"name\": \"Command and Scripting Interpreter\"},\n      {\"id\": \"T1070\", \"name\": \"Indicator Removal on Host\"},\n      {\"id\": \"T1071\", \"name\": \"Application Layer Protocol\"},\n      {\"id\": \"T1078\", \"name\": \"Valid Accounts\"},\n      {\"id\": \"T1113\", \"name\": \"Screen Capture\"},\n      {\"id\": \"T1113\", \"name\": \"Keylogging\"},\n      {\"id\": \"T1562\", \"name\": \"Impair Defenses\"},\n      {\"id\": \"T1566\", \"name\": \"Phishing\"},\n      {\"id\": \"T1568\", \"name\": \"Dynamic Resolution\"},\n      {\"id\": \"T1571\", \"name\": \"Exfiltration Over C2 Channel\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 3013,
+      "response_chars": 1462,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including keylogging (polling), screen capture, C2 communication (HTTP requests, receiving/sending data), and process termination. It is packed with UPX and uses XOR encoding for evasion, indicating a sophisticated threat designed for data exfiltration and surveillance.\"\n  },\n  \"q2\": {\n    \"fam",
+      "elapsed_seconds": 8.51
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 8.51,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.831
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.381,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 0.4444,
+      "gt_ttps": [
+        "T1012",
+        "T1027",
+        "T1056",
+        "T1057",
+        "T1059",
+        "T1083",
+        "T1113",
+        "T1129",
+        "T1518"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1057",
+        "T1059",
+        "T1070",
+        "T1071",
+        "T1078",
+        "T1113",
+        "T1562",
+        "T1566",
+        "T1568",
+        "T1571"
+      ],
+      "tp": 4,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1070",
+        "T1071",
+        "T1078",
+        "T1562",
+        "T1566",
+        "T1568",
+        "T1571"
+      ],
+      "q3_missed_ttps": [
+        "T1012",
+        "T1056",
+        "T1083",
+        "T1129",
+        "T1518"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.381,
+      "breakdown": {
+        "ttp_f1": 0.381
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

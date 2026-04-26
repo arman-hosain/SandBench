@@ -1,0 +1,72 @@
+{
+  "hash": "3c400726f0417e40e9eff27f87733dca8edee26f49b58fa26e78e7355bf9ff1d",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - log keystrokes via polling\n  - link function at runtime on Windows\n\nCAPA RULE MATCHES (MBC):\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - contain loop\n  - Process::Terminate Process [C0018]\n  - Collection::Keylogging::Polling [F0002.002]\n  - link function at runtime on Windows\n  - contain a resource (.rsrc) section\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAlloc, VirtualAllocEx\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n\nPE SECTIONS (entropy):\n  .text        entropy=6.13\n  .rdata       entropy=3.26\n  .data        entropy=5.5\n  .rsrc        entropy=5.05\n",
+  "ground_truth": {
+    "hash": "3c400726f0417e40e9eff27f87733dca8edee26f49b58fa26e78e7355bf9ff1d",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7945,
+    "malicious_count": 58,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 23
+      },
+      {
+        "value": "downloader",
+        "count": 4
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "mint",
+        "count": 7
+      },
+      {
+        "value": "zard",
+        "count": 6
+      },
+      {
+        "value": "cridex",
+        "count": 4
+      }
+    ],
+    "suggested_label": "trojan.mint/zard",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open registry key",
+      "contain loop",
+      "terminate process",
+      "log keystrokes via polling",
+      "link function at runtime on Windows",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

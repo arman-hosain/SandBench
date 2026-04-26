@@ -1,0 +1,77 @@
+{
+  "hash": "03f61efd94a574accc7e28b44fbd68ac22e6076309a70e2eb293b7941e5bb174",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a range of malicious behaviors, including the creation of persistence registry keys, modification of file associations, and the execution of multiple processes and commands. Additionally, the sample drops a large number of files, including executable files, and creates mutexes and processes.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior is consistent with that of a Trojan, which is a type of malware that disguises itself as legitimate software but actually contains malicious code. The sample's ability to modify file associations, create persistence registry keys, and execute multiple processes and commands suggests that it is designed to remain on the system and perform malicious actions.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"},\n      {\"id\": \"T1106\", \"name\": \"Execution through API\"},\n      {\"id\": \"T1210\", \"name\": \"Input Capture\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 7742,
+      "response_chars": 1142,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a range of malicious behaviors, including the creation of persistence registry keys, modification of file associations, and the execution of multiple processes and commands. Additionally, the sample drops a large number of files, including executable files, and creates mutexes and processes.\"\n  },\n  \"q2\": {\n    \"family",
+      "elapsed_seconds": 5.38
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 5.38,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.913
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1057",
+        "T1129"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1106",
+        "T1210",
+        "T1218"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1055",
+        "T1106",
+        "T1210",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1057",
+        "T1129"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "hash": "01e089c0bf771cd76fec42851e2a48c2a5944f9aabf15c6c632d58e98fb12de8",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample is confirmed malicious due to active evasion and defense-evasion techniques. It disables Windows Defender real-time protection via PowerShell and registry keys, drops additional executables, and employs anti-analysis measures including VM detection (targeting VMWare) and runtime function linking. The use of obfuscated stack strings and Visual Basic compilation further indicates a sophisticated threat designed to bypass static analysis.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Dropper\"],\n    \"explanation\": \"The sample exhibits Trojan behavior by masquerading as legitimate software (WinSocket) and executing in the user's context to disable security controls. It also functions as a Dropper, evidenced by the 'Execution::Install Additional Program' trigger and the creation of new executable files (997F.exe) in the AppData directory, suggesting it is delivering a secondary payload.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1562.001\",\n        \"name\": \"Disable or Modify System Defense\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1079\",\n        \"name\": \"Virtual Machine Detection\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 2977,
+      "response_chars": 1336,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including disabling Windows Defender real-time protection via PowerShell and registry modifications, executing anti-VM detection checks, using obfuscated stack strings, and dropping additional executable files. The combination of anti-analysis techniques and security bypass capabilities confirm",
+      "elapsed_seconds": 11.13
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "2 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 2,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1057",
+        "T1079",
+        "T1562"
+      ],
+      "hallucinated_ttps": [
+        "T1055",
+        "T1057",
+        "T1079",
+        "T1562"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 4
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- link function at runtime on Windows\n- reference anti-VM strings targeting VMWare\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1055",
+        "T1079",
+        "T1562"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 1,
+      "best_ttp_fp": 3
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "2 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 2,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1079",
+        "T1562"
+      ],
+      "hallucinated_ttps": [
+        "T1055",
+        "T1079",
+        "T1562"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 3
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- link function at runtime on Windows\n- reference anti-VM strings targeting VMWare\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1027",
+        "T1055",
+        "T1079",
+        "T1562"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 1,
+      "best_ttp_fp": 3
+    },
+    {
+      "step": 8,
+      "type": "refinement_stopped",
+      "iteration": 2,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 1,
+      "ttp_fp": 3
+    }
+  ],
+  "total_llm_calls": 3,
+  "total_elapsed": 34.08,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9296
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.2857,
+      "ttp_precision": 0.25,
+      "ttp_recall": 0.3333,
+      "gt_ttps": [
+        "T1027",
+        "T1129",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1079",
+        "T1562"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1079",
+        "T1562"
+      ],
+      "q3_missed_ttps": [
+        "T1129",
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2857,
+      "breakdown": {
+        "ttp_f1": 0.2857
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

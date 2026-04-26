@@ -1,0 +1,67 @@
+{
+  "hash": "3f7e447837be9a5c1425753943e5294b1b0d0d569967e29c60c94c69cf9c2746",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - enumerate gui resources\n  - get disk information\n  - check if file exists\n  - reference anti-VM strings targeting Qemu\n\nCAPA RULE MATCHES (MBC):\n  - File System::Get File Attributes [C0049]\n  - contain loop\n  - File System::Writes File [C0052]\n  - enumerate gui resources\n  - Discovery::System Information Discovery [E1082]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Create Directory [C0046]\n  - contain a resource (.rsrc) section\n  - Execution::Install Additional Program [B0023]\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (30):\n  C:\\CONFIG.SYS\n  C:\\DllLoader.exe\n  C:\\Documents and Settings\\Administrator\\Application Data\\Adobe\\Acrobat\\9.0\\AdobeCMapFnt09.lst\n  C:\\Documents and Settings\\Administrator\\Application Data\\Adobe\\Acrobat\\9.0\\AdobeSysFnt09.lst\n  C:\\Documents and Settings\\Administrator\\Application Data\\Adobe\\Acrobat\\9.0\\JavaScripts\\glob.js\n  C:\\Documents and Settings\\Administrator\\Application Data\\Adobe\\Acrobat\\9.0\\JavaScripts\\glob.settings.js\n  C:\\Documents and Settings\\Administrator\\Application Data\\Adobe\\Acrobat\\9.0\\SharedDataEvents\n  C:\\Documents and Settings\\Administrator\\Application Data\\Adobe\\Acrobat\\9.0\\UserCache.bin\n  C:\\Documents and Settings\\Administrator\\Application Data\\Macromedia\\Flash Player\\#SharedObjects\\EEY47AFV\\admaster.com.cn\\admck.sol\n  C:\\Documents and Settings\\Administrator\\Application Data\\Macromedia\\Flash Player\\#SharedObjects\\EEY47AFV\\macromedia.com\\redirectSO.sol\n  C:\\Documents and Settings\\Administrator\\Application Data\\Macromedia\\Flash Player\\macromedia.com\\support\\flashplayer\\sys\\#admaster.com.cn\\settings.sol\n  C:\\Documents and Settings\\Administrator\\Application Data\\Macromedia\\Flash Player\\macromedia.com\\support\\flashplayer\\sys\\#adobe.com\\settings.sol\n  C:\\Documents and Settings\\Administrator\\Application Data\\Macromedia\\Flash Player\\macromedia.com\\support\\flashplayer\\sys\\#macromedia.com\\settings.sol\n  C:\\Documents and Settings\\Administrator\\Application Data\\Macromedia\\Flash Player\\macromedia.com\\support\\flashplayer\\sys\\settings.sol\n  C:\\Documents and Settings\\Administrator\\Application Data\\Macromedia\\Flash Player\\www.macromedia.com\\bin\\fpupdateax\\digest.s\n  C:\\Documents and Settings\\Administrator\\Application Data\\Macromedia\\Flash Player\\www.macromedia.com\\bin\\fpupdateax\\fpupdateax.exe\n  C:\\Documents and Settings\\Administrator\\Application Data\\Microsoft\\CryptnetUrlCache\\Content\\12236C41CDDF9E40BA5606CDF086B821\n  C:\\Documents and Settings\\Administrator\\Application Data\\Microsoft\\CryptnetUrlCache\\Content\\2BF68F4714092295550497DD56F57004\n  C:\\Documents and Settings\\Administrator\\Application Data\\Microsoft\\CryptnetUrlCache\\Content\\60E31627FDA0A46932B0E5948949F2A5\n  C:\\Documents and Settings\\Administrator\\Application Data\\Microsoft\\CryptnetUrlCache\\Content\\62B5AF9BE9ADC1085C3C56EC07A82BF6\n\nMUTEXES CREATED (6):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCOMPILER AND PACKER:\n  [Linker] Polink\n\nPE SECTIONS (entropy):\n  .code        entropy=5.34\n  .text        entropy=6.19\n  .rdata       entropy=1.77\n  .data        entropy=4.98\n  .rsrc        entropy=5.07\n  .NewSec      entropy=0.53\n  [overlay]    entropy=4.969933032989502  size=858687\n",
+  "ground_truth": {
+    "hash": "3f7e447837be9a5c1425753943e5294b1b0d0d569967e29c60c94c69cf9c2746",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9028,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "agent",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "enumerate gui resources"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk information"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "check if file exists"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting Qemu"
+      }
+    ],
+    "capa_sig_names": [
+      "get file attributes",
+      "contain loop",
+      "write file on Windows",
+      "enumerate gui resources",
+      "get disk information",
+      "check if file exists",
+      "create directory",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "reference anti-VM strings targeting Qemu"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO"
+  ]
+}

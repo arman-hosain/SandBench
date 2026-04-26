@@ -1,0 +1,159 @@
+{
+  "hash": "087fa111a5700c66e943eefd1b835d6727d04b42faafccfe1a3067c5318de349",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (31):\n  - contain obfuscated stackstrings\n  - encode data using XOR\n  - acquire debug privileges\n  - access PEB ldr_data\n  - query environment variable\n  - encrypt data using RC4 PRGA\n  - get common file path\n  - modify access privileges\n  - write process memory\n  - link function at runtime on Windows\n  - inject thread\n  - inject dll\n  - enumerate processes\n  - check if file exists\n  - get file size\n  - enumerate files on Windows\n  - enumerate files recursively\n  - parse PE header\n  - query or enumerate registry value\n  - delete registry value\n  - get number of processors\n  - link many functions at runtime\n  - query service status\n  - log keystrokes via application hook\n  - get disk information\n  - interact with driver via control codes\n  - query or enumerate registry key\n  - accept command line arguments\n  - get system information on Windows\n  - get geographical location\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - File System::Create File [C0016]\n  - Process::Create Thread [C0038]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Process [C0017]\n  - acquire debug privileges\n  - Process::Open Process [C0065]\n  - Memory::Allocate Memory [C0007]\n  - File System::Get File Attributes [C0049]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - access PEB ldr_data\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Discovery::System Information Discovery [E1082]\n  - contain loop\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Generate Pseudo-random Sequence::RC4 PRGA [C0021.004]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Delete File [C0047]\n  - File System::Writes File [C0052]\n  - Execution::Install Additional Program [B0023]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  ADVAPI32.dll: AdjustTokenPrivileges, OpenProcessToken\n  KERNEL32.dll: CreateProcessA, CreateRemoteThread, GetProcAddress, VirtualAlloc, VirtualAllocEx, VirtualProtect, WriteProcessMemory\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++ v7.0'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.35\n  .rdata       entropy=4.96\n  .data        entropy=1.98\n  .rsrc        entropy=0.84\n  [overlay]    entropy=3.062924861907959  size=15388\n",
+  "ground_truth": {
+    "hash": "087fa111a5700c66e943eefd1b835d6727d04b42faafccfe1a3067c5318de349",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8611,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1007",
+        "signature_description": "query service status"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1055",
+        "signature_description": "write process memory"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via application hook"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry value"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "acquire debug privileges"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      },
+      {
+        "id": "T1620",
+        "signature_description": "inject thread"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "contain obfuscated stackstrings",
+      "encode data using XOR",
+      "create or open file",
+      "create thread",
+      "delay execution",
+      "create process on Windows",
+      "acquire debug privileges",
+      "open process",
+      "allocate memory",
+      "allocate RW memory",
+      "get file attributes",
+      "PEB access",
+      "access PEB ldr_data",
+      "create or open registry key",
+      "query environment variable",
+      "contain loop",
+      "encrypt data using RC4 PRGA",
+      "get common file path",
+      "delete file",
+      "write file on Windows",
+      "write and execute a file",
+      "resolve function by parsing PE exports",
+      "create mutex",
+      "modify access privileges",
+      "write process memory",
+      "link function at runtime on Windows",
+      "inject thread",
+      "inject dll",
+      "enumerate processes",
+      "check if file exists",
+      "get file size",
+      "read file via mapping",
+      "enumerate files on Windows",
+      "enumerate files recursively",
+      "authenticate HMAC",
+      "parse PE header",
+      "read file on Windows",
+      "execute anti-debugging instructions",
+      "query or enumerate registry value",
+      "set registry value",
+      "move file",
+      "delete registry value",
+      "copy file",
+      "get number of processors",
+      "link many functions at runtime",
+      "extract resource via kernel32 functions",
+      "get service handle",
+      "query service status",
+      "set application hook",
+      "log keystrokes via application hook",
+      "get disk information",
+      "interact with driver via control codes",
+      "query or enumerate registry key",
+      "get OS version",
+      "accept command line arguments",
+      "allocate thread local storage",
+      "terminate process",
+      "get system information on Windows",
+      "get geographical location",
+      "contain a resource (.rsrc) section",
+      "reference Base64 string"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

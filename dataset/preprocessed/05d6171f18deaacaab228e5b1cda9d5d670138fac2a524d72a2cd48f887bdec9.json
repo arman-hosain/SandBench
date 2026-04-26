@@ -1,0 +1,40 @@
+{
+  "hash": "05d6171f18deaacaab228e5b1cda9d5d670138fac2a524d72a2cd48f887bdec9",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - contain obfuscated stackstrings\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - contain loop\n  - contain a resource (.rsrc) section\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] MinGW\n  [Linker] GNU linker ld (GNU Binutils)\n  Packers: {'PEiD': 'MingWin32 v?.? (h)'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.95\n  .data        entropy=6.43\n  .rdata       entropy=7.08\n  .bss         entropy=0.0\n  .idata       entropy=6.65\n  .rsrc        entropy=7.04\n  .NewSec      entropy=7.03\n  [overlay]    entropy=6.829071521759033  size=294285\n",
+  "ground_truth": {
+    "hash": "05d6171f18deaacaab228e5b1cda9d5d670138fac2a524d72a2cd48f887bdec9",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8169,
+    "malicious_count": 58,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "agent",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "contain loop",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

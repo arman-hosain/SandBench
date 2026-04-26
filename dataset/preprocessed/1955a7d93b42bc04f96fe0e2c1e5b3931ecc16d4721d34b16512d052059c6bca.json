@@ -1,0 +1,91 @@
+{
+  "hash": "1955a7d93b42bc04f96fe0e2c1e5b3931ecc16d4721d34b16512d052059c6bca",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - packed with generic packer\n  - reference anti-VM strings targeting Xen\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (30):\n  cb32.exe  [sha256: e3b0c44298fc1c14...]\n  conf.exe  [sha256: e3b0c44298fc1c14...]\n  dialer.exe  [sha256: 92a89082f7bf5653...]\n  DWTRIG20.exe  [sha256: 1b8ac7ee0d99a023...]\n  excel.exe  [sha256: e3b0c44298fc1c14...]\n  hypertrm.exe  [sha256: 7b232af765509d03...]\n  icwconn1.exe  [sha256: dca5400ac55653e7...]\n  icwconn2.exe  [sha256: e3b0c44298fc1c14...]\n  icwrmind.exe  [sha256: e3b0c44298fc1c14...]\n  icwtutor.exe  [sha256: e3b0c44298fc1c14...]\n  iedw.exe  [sha256: e3b0c44298fc1c14...]\n  IEXPLORE.exe  [sha256: e3b0c44298fc1c14...]\n  inetwiz.exe  [sha256: e3b0c44298fc1c14...]\n  isignup.exe  [sha256: e3b0c44298fc1c14...]\n  migrate.exe  [sha256: e3b0c44298fc1c14...]\n  moviemk.exe  [sha256: e3b0c44298fc1c14...]\n  msinfo32.exe  [sha256: c7514fea1da8d7d1...]\n  oemig50.exe  [sha256: e3b0c44298fc1c14...]\n  Setup.sa.exe  [sha256: be0ceee1c1e9b09b...]\n  setup50.exe  [sha256: e3b0c44298fc1c14...]\n\nFILES WRITTEN (30):\n  C:\\WINDOWS\\system32\\DC++ Share\\IEXPLORE.exe\n  C:\\WINDOWS\\system32\\DC++ Share\\RCX4.tmp\n  C:\\WINDOWS\\system32\\DC++ Share\\RCX5.tmp\n  C:\\WINDOWS\\system32\\DC++ Share\\RCX6.tmp\n  C:\\WINDOWS\\system32\\DC++ Share\\RCX7.tmp\n  C:\\WINDOWS\\system32\\DC++ Share\\RCX9.tmp\n  C:\\WINDOWS\\system32\\DC++ Share\\RCXA.tmp\n  C:\\WINDOWS\\system32\\DC++ Share\\RCXB.tmp\n  C:\\WINDOWS\\system32\\DC++ Share\\VBoxControl.exe\n  C:\\WINDOWS\\system32\\DC++ Share\\VBoxDrvInst.exe\n  C:\\WINDOWS\\system32\\DC++ Share\\VBoxTray.exe\n  C:\\WINDOWS\\system32\\DC++ Share\\VBoxWHQLFake.exe\n  C:\\WINDOWS\\system32\\DC++ Share\\WINWORD.exe\n  C:\\WINDOWS\\system32\\DC++ Share\\cb32.exe\n  C:\\WINDOWS\\system32\\DC++ Share\\excel.exe\n  C:\\WINDOWS\\system32\\DC++ Share\\icwconn1.exe\n  C:\\WINDOWS\\system32\\DC++ Share\\icwconn2.exe\n  C:\\WINDOWS\\system32\\DC++ Share\\icwrmind.exe\n  C:\\WINDOWS\\system32\\DC++ Share\\icwtutor.exe\n  C:\\WINDOWS\\system32\\DC++ Share\\iedw.exe\n\nMUTEXES CREATED (1):\n  sIRC4\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n  Packers: {'PEiD': 'UPX v0.89.6 - v1.02 / v1.05 -v1.22 (Delphi) stub', 'F-PROT': 'UPX'}\n\nPE SECTIONS (entropy):\n  cKrwgWRk     entropy=0.0\n  QCYiaatN     entropy=7.86\n  .rsrc        entropy=3.34\n  [overlay]    entropy=7.999948978424072  size=3561368\n",
+  "ground_truth": {
+    "hash": "1955a7d93b42bc04f96fe0e2c1e5b3931ecc16d4721d34b16512d052059c6bca",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8889,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting Xen"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "packed with generic packer",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting Xen",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "DWTRIG20.exe",
+        "IEXPLORE.exe",
+        "Setup.sa.exe",
+        "VBoxControl.exe",
+        "VBoxDrvInst.exe",
+        "VBoxTray.exe",
+        "VBoxWHQLFake.exe",
+        "WINWORD.exe",
+        "Wireless Network Setup Wizard.exe",
+        "cb32.exe",
+        "conf.exe",
+        "dialer.exe",
+        "excel.exe",
+        "hypertrm.exe",
+        "icwconn1.exe",
+        "icwconn2.exe",
+        "icwrmind.exe",
+        "icwtutor.exe",
+        "iedw.exe",
+        "inetwiz.exe",
+        "isignup.exe",
+        "migrate.exe",
+        "moviemk.exe",
+        "msinfo32.exe",
+        "oemig50.exe",
+        "setup50.exe",
+        "setup_wm.exe",
+        "setuptools_build_ex.exe",
+        "setuptools_extensio.exe",
+        "spotify.exe",
+        "uninst.exe",
+        "wab.exe",
+        "wabmig.exe",
+        "wb32.exe",
+        "wininst-6.0.exe",
+        "wininst-7.1.exe",
+        "wininst-8.0.exe",
+        "wininst-9.0-amd64.exe",
+        "wininst-9.0.exe",
+        "wordpad.exe"
+      ],
+      "mutexes": [
+        "sIRC4"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

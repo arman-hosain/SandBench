@@ -1,0 +1,64 @@
+{
+  "hash": "0df2ec25b6b6dbbbf359ad55703f9e5b7b7076bcb8ff6baf5e569ebafe86061d",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  szgfw.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\szgfw.exe\n\nCOMMAND EXECUTIONS (3):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\szgfw.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\szgfw.exe\n  \"C:\\Users\\Petra\\AppData\\Local\\Temp\\szgfw.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - query environment variable\n  - link function at runtime on Windows\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - get thread local storage value\n  - contain loop\n  - Discovery::System Information Discovery [E1082]\n  - Operating System::Environment Variable::Set Variable [C0034.001]\n  - File System::Read File [C0051]\n  - link function at runtime on Windows\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  szgfw.exe  [sha256: e59552b4e047e2b1...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\szgfw.exe  [sha256: e54dd781ce551266...]\n  \\Users\\Petra\\AppData\\Local\\Temp\\szgfw.exe  [sha256: 27b7ecd41e03a37a...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\szgfw.exe\n\nOTHER REGISTRY KEYS SET (1):\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n\nMUTEXES CREATED (4):\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n\nPROCESSES CREATED (2):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\szgfw.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\szgfw.exe\" \"\n  szgfw.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress\n\nPE SECTIONS (entropy):\n  .text        entropy=6.98\n  .rdata       entropy=4.11\n  .data        entropy=5.18\n  .rsrc        entropy=3.12\n  [overlay]    entropy=3.5395495891571045  size=16248\n",
+  "ground_truth": {
+    "hash": "0df2ec25b6b6dbbbf359ad55703f9e5b7b7076bcb8ff6baf5e569ebafe86061d",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9437,
+    "malicious_count": 67,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "delay execution",
+      "get thread local storage value",
+      "contain loop",
+      "query environment variable",
+      "set environment variable",
+      "read .ini file",
+      "link function at runtime on Windows",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\szgfw.exe",
+        "\\Users\\Petra\\AppData\\Local\\Temp\\szgfw.exe",
+        "szgfw.exe"
+      ],
+      "mutexes": [
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\szgfw.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\szgfw.exe\" \"",
+        "szgfw.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

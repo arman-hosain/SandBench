@@ -1,0 +1,2021 @@
+{
+  "hash": "367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730",
+  "metadata": {
+    "id": "367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730",
+    "type": "file",
+    "links": {
+      "self": "https://www.virustotal.com/api/v3/files/367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730"
+    },
+    "attributes": {
+      "total_votes": {
+        "harmless": 0,
+        "malicious": 1
+      },
+      "meaningful_name": "jusched.exe",
+      "type_tag": "peexe",
+      "crowdsourced_ids_results": [
+        {
+          "rule_category": "Malware Command and Control Activity Detected",
+          "alert_severity": "high",
+          "rule_msg": "ET MALWARE Win32/Comrerop Checkin to FTP server",
+          "rule_raw": "alert ftp $HOME_NET any -> $EXTERNAL_NET any (msg:\"ET MALWARE Win32/Comrerop Checkin to FTP server\"; flow:established,to_server; content:\"USER griptoloji|0d 0a|\"; fast_pattern; reference:md5,6b16290b05afd1a9d638737924f2ab5c; classtype:command-and-control; sid:2014757; rev:5; metadata:created_at 2012_05_16, former_category MALWARE, updated_at 2022_03_17;)",
+          "rule_url": "https://rules.emergingthreats.net/",
+          "alert_context": [
+            {
+              "dest_ip": "209.202.252.54",
+              "dest_port": 21
+            }
+          ],
+          "rule_references": [
+            "https://www.virustotal.com/gui/search/6b16290b05afd1a9d638737924f2ab5c"
+          ],
+          "rule_source": "Proofpoint Emerging Threats Open",
+          "rule_id": "1:2014757"
+        },
+        {
+          "rule_category": "trojan-activity",
+          "alert_severity": "high",
+          "rule_msg": "MALWARE-CNC Win.Trojan.Lolbot variant outbound connection",
+          "rule_raw": "alert tcp $HOME_NET any -> $EXTERNAL_NET 21 ( msg:\"MALWARE-CNC Win.Trojan.Lolbot variant outbound connection\"; flow:to_server,established; content:\"USER griptoloji\",fast_pattern,nocase; metadata:impact_flag red; service:ftp; reference:url,www.virustotal.com/file/6317bf0843703c2356243b58a961b82ba2ffbbcb1d744402c17c94c139d3ea5b/analysis/; classtype:trojan-activity; sid:23109; rev:4; )",
+          "rule_url": "https://www.snort.org/downloads/#rule-downloads",
+          "alert_context": [
+            {
+              "dest_ip": "209.202.252.54",
+              "dest_port": 21
+            }
+          ],
+          "rule_references": [
+            "https://www.virustotal.com/file/6317bf0843703c2356243b58a961b82ba2ffbbcb1d744402c17c94c139d3ea5b/analysis/"
+          ],
+          "rule_source": "Snort registered user ruleset",
+          "rule_id": "1:23109"
+        },
+        {
+          "rule_category": "Generic Protocol Command Decode",
+          "alert_severity": "low",
+          "rule_msg": "SURICATA Applayer Detect protocol only one direction",
+          "rule_raw": "alert ip any any -> any any (msg:\"SURICATA Applayer Detect protocol only one direction\"; flow:established; app-layer-event:applayer_detect_protocol_only_one_direction; flowint:applayer.anomaly.count,+,1; classtype:protocol-command-decode; sid:2260002; rev:1;)",
+          "alert_context": [
+            {
+              "src_ip": "209.202.252.54",
+              "src_port": 21
+            }
+          ],
+          "rule_url": "https://www.openinfosecfoundation.org/",
+          "rule_source": "Suricata",
+          "rule_id": "1:2260002"
+        }
+      ],
+      "sha256": "367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730",
+      "type_tags": [
+        "executable",
+        "windows",
+        "win32",
+        "pe",
+        "peexe"
+      ],
+      "trid": [
+        {
+          "file_type": "Win64 Executable (generic)",
+          "probability": 28.5
+        },
+        {
+          "file_type": "Win32 Dynamic Link Library (generic)",
+          "probability": 17.8
+        },
+        {
+          "file_type": "Win16 NE executable (generic)",
+          "probability": 13.6
+        },
+        {
+          "file_type": "Win32 Executable (generic)",
+          "probability": 12.2
+        },
+        {
+          "file_type": "Win16/32 Executable Delphi generic",
+          "probability": 5.6
+        }
+      ],
+      "last_analysis_results": {
+        "Bkav": {
+          "method": "blacklist",
+          "engine_name": "Bkav",
+          "engine_version": "2.0.0.1",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "W32.AIDetectMalware"
+        },
+        "Lionic": {
+          "method": "blacklist",
+          "engine_name": "Lionic",
+          "engine_version": "7.5",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trojan.Win32.Zbot.tqYA"
+        },
+        "Elastic": {
+          "method": "blacklist",
+          "engine_name": "Elastic",
+          "engine_version": "4.0.107",
+          "engine_update": "20230922",
+          "category": "malicious",
+          "result": "malicious (high confidence)"
+        },
+        "MicroWorld-eScan": {
+          "method": "blacklist",
+          "engine_name": "MicroWorld-eScan",
+          "engine_version": "14.0.409.0",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trojan.GenericKDZ.94923"
+        },
+        "FireEye": {
+          "method": "blacklist",
+          "engine_name": "FireEye",
+          "engine_version": "35.24.1.0",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Generic.mg.daf8fd058d9d7f4f"
+        },
+        "CAT-QuickHeal": {
+          "method": "blacklist",
+          "engine_name": "CAT-QuickHeal",
+          "engine_version": "22.00",
+          "engine_update": "20230924",
+          "category": "malicious",
+          "result": "Worm.Duptwux.A4"
+        },
+        "McAfee": {
+          "method": "blacklist",
+          "engine_name": "McAfee",
+          "engine_version": "6.0.6.653",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "BackDoor-FAI"
+        },
+        "Cylance": {
+          "method": "blacklist",
+          "engine_name": "Cylance",
+          "engine_version": "2.0.0.0",
+          "engine_update": "20230830",
+          "category": "malicious",
+          "result": "unsafe"
+        },
+        "VIPRE": {
+          "method": "blacklist",
+          "engine_name": "VIPRE",
+          "engine_version": "6.0.0.35",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trojan.GenericKDZ.94923"
+        },
+        "Sangfor": {
+          "method": "blacklist",
+          "engine_name": "Sangfor",
+          "engine_version": "2.23.0.0",
+          "engine_update": "20230918",
+          "category": "malicious",
+          "result": "Trojan.Win32.Save.a"
+        },
+        "K7AntiVirus": {
+          "method": "blacklist",
+          "engine_name": "K7AntiVirus",
+          "engine_version": "12.116.49703",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Riskware ( 0040eff71 )"
+        },
+        "BitDefender": {
+          "method": "blacklist",
+          "engine_name": "BitDefender",
+          "engine_version": "7.2",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trojan.GenericKDZ.94923"
+        },
+        "K7GW": {
+          "method": "blacklist",
+          "engine_name": "K7GW",
+          "engine_version": "12.116.49703",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Riskware ( 0040eff71 )"
+        },
+        "Cybereason": {
+          "method": "blacklist",
+          "engine_name": "Cybereason",
+          "engine_version": "1.2.449",
+          "engine_update": "20230911",
+          "category": "malicious",
+          "result": "malicious.4b57ff"
+        },
+        "Arcabit": {
+          "method": "blacklist",
+          "engine_name": "Arcabit",
+          "engine_version": "2022.0.0.18",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trojan.Generic.D172CB"
+        },
+        "BitDefenderTheta": {
+          "method": "blacklist",
+          "engine_name": "BitDefenderTheta",
+          "engine_version": "7.2.37796.0",
+          "engine_update": "20230920",
+          "category": "malicious",
+          "result": "Gen:NN.ZexaF.36722.iqX@a4Oi98ii"
+        },
+        "VirIT": {
+          "method": "blacklist",
+          "engine_name": "VirIT",
+          "engine_version": "9.5.543",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Backdoor.Win32.LolBot.RO"
+        },
+        "Cyren": {
+          "method": "blacklist",
+          "engine_name": "Cyren",
+          "engine_version": "6.5.1.2",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "W32/LolBot.A.gen!Eldorado"
+        },
+        "Symantec": {
+          "method": "blacklist",
+          "engine_name": "Symantec",
+          "engine_version": "1.20.0.0",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "W32.Griptolo"
+        },
+        "tehtris": {
+          "method": "blacklist",
+          "engine_name": "tehtris",
+          "engine_version": "v0.1.4-109-g76614fd",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Generic.Malware"
+        },
+        "ESET-NOD32": {
+          "method": "blacklist",
+          "engine_name": "ESET-NOD32",
+          "engine_version": "27966",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Win32/Agent.SBR"
+        },
+        "APEX": {
+          "method": "blacklist",
+          "engine_name": "APEX",
+          "engine_version": "6.458",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Malicious"
+        },
+        "TrendMicro-HouseCall": {
+          "method": "blacklist",
+          "engine_name": "TrendMicro-HouseCall",
+          "engine_version": "10.0.0.1040",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "WORM_DUPTWU.SMIA"
+        },
+        "Paloalto": {
+          "method": "blacklist",
+          "engine_name": "Paloalto",
+          "engine_version": "0.9.0.1003",
+          "engine_update": "20230925",
+          "category": "undetected",
+          "result": null
+        },
+        "ClamAV": {
+          "method": "blacklist",
+          "engine_name": "ClamAV",
+          "engine_version": "1.2.0.0",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Win.Trojan.Lolbot-6804733-0"
+        },
+        "Kaspersky": {
+          "method": "blacklist",
+          "engine_name": "Kaspersky",
+          "engine_version": "22.0.1.28",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Backdoor.Win32.LolBot.gen"
+        },
+        "Alibaba": {
+          "method": "blacklist",
+          "engine_name": "Alibaba",
+          "engine_version": "0.3.0.5",
+          "engine_update": "20190527",
+          "category": "malicious",
+          "result": "Malware:Win32/km_24ecc.None"
+        },
+        "NANO-Antivirus": {
+          "method": "blacklist",
+          "engine_name": "NANO-Antivirus",
+          "engine_version": "1.0.146.25796",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trojan.Win32.LolBot.cqyqex"
+        },
+        "ViRobot": {
+          "method": "blacklist",
+          "engine_name": "ViRobot",
+          "engine_version": "2014.3.20.0",
+          "engine_update": "20230925",
+          "category": "undetected",
+          "result": null
+        },
+        "Rising": {
+          "method": "blacklist",
+          "engine_name": "Rising",
+          "engine_version": "25.0.0.27",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Worm.Win32.FakeFolder.ak (CLASSIC)"
+        },
+        "TACHYON": {
+          "method": "blacklist",
+          "engine_name": "TACHYON",
+          "engine_version": "2023-09-25.02",
+          "engine_update": "20230925",
+          "category": "undetected",
+          "result": null
+        },
+        "Sophos": {
+          "method": "blacklist",
+          "engine_name": "Sophos",
+          "engine_version": "2.3.1.0",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "W32/Clovis-A"
+        },
+        "Baidu": {
+          "method": "blacklist",
+          "engine_name": "Baidu",
+          "engine_version": "1.0.0.2",
+          "engine_update": "20190318",
+          "category": "malicious",
+          "result": "Win32.Trojan.Agent.apt"
+        },
+        "F-Secure": {
+          "method": "blacklist",
+          "engine_name": "F-Secure",
+          "engine_version": "18.10.1137.128",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trojan.TR/Dropper.Gen"
+        },
+        "DrWeb": {
+          "method": "blacklist",
+          "engine_name": "DrWeb",
+          "engine_version": "7.0.61.8090",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trojan.DownLoader5.5739"
+        },
+        "Zillya": {
+          "method": "blacklist",
+          "engine_name": "Zillya",
+          "engine_version": "2.0.0.4961",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Backdoor.LolBot.Win32.288"
+        },
+        "TrendMicro": {
+          "method": "blacklist",
+          "engine_name": "TrendMicro",
+          "engine_version": "11.0.0.1006",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "WORM_DUPTWU.SMIA"
+        },
+        "McAfee-GW-Edition": {
+          "method": "blacklist",
+          "engine_name": "McAfee-GW-Edition",
+          "engine_version": "v2021.2.0+4045",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "BehavesLike.Win32.Backdoor.cz"
+        },
+        "Trapmine": {
+          "method": "blacklist",
+          "engine_name": "Trapmine",
+          "engine_version": "4.0.14.91",
+          "engine_update": "20230907",
+          "category": "malicious",
+          "result": "malicious.moderate.ml.score"
+        },
+        "CMC": {
+          "method": "blacklist",
+          "engine_name": "CMC",
+          "engine_version": "2.4.2022.1",
+          "engine_update": "20230822",
+          "category": "undetected",
+          "result": null
+        },
+        "Emsisoft": {
+          "method": "blacklist",
+          "engine_name": "Emsisoft",
+          "engine_version": "2022.6.0.32461",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trojan.GenericKDZ.94923 (B)"
+        },
+        "SentinelOne": {
+          "method": "blacklist",
+          "engine_name": "SentinelOne",
+          "engine_version": "23.3.0.3",
+          "engine_update": "20230705",
+          "category": "malicious",
+          "result": "Static AI - Malicious PE"
+        },
+        "Jiangmin": {
+          "method": "blacklist",
+          "engine_name": "Jiangmin",
+          "engine_version": "16.0.100",
+          "engine_update": "20230924",
+          "category": "malicious",
+          "result": "Backdoor/LolBot.ic"
+        },
+        "Webroot": {
+          "method": "blacklist",
+          "engine_name": "Webroot",
+          "engine_version": "1.0.0.403",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "W32.Lolbot.Gen"
+        },
+        "Google": {
+          "method": "blacklist",
+          "engine_name": "Google",
+          "engine_version": "1695679224",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Detected"
+        },
+        "Avira": {
+          "method": "blacklist",
+          "engine_name": "Avira",
+          "engine_version": "8.3.3.16",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "TR/Dropper.Gen"
+        },
+        "Antiy-AVL": {
+          "method": "blacklist",
+          "engine_name": "Antiy-AVL",
+          "engine_version": "3.0",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trojan[Backdoor]/Win32.LolBot"
+        },
+        "Kingsoft": {
+          "method": "blacklist",
+          "engine_name": "Kingsoft",
+          "engine_version": "2023.8.30.1",
+          "engine_update": "20230906",
+          "category": "malicious",
+          "result": "malware.kb.a.995"
+        },
+        "Gridinsoft": {
+          "method": "blacklist",
+          "engine_name": "Gridinsoft",
+          "engine_version": "1.0.139.174",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trojan.Win32.Agent.bot!s1"
+        },
+        "Xcitium": {
+          "method": "blacklist",
+          "engine_name": "Xcitium",
+          "engine_version": "36032",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Backdoor.Win32.LolBot.GB@48x7ig"
+        },
+        "Microsoft": {
+          "method": "blacklist",
+          "engine_name": "Microsoft",
+          "engine_version": "1.1.23080.2005",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trojan:Win32/Fakefolder!pz"
+        },
+        "SUPERAntiSpyware": {
+          "method": "blacklist",
+          "engine_name": "SUPERAntiSpyware",
+          "engine_version": "5.6.0.1032",
+          "engine_update": "20230923",
+          "category": "malicious",
+          "result": "Trojan.Agent/Gen-Lolbot"
+        },
+        "ZoneAlarm": {
+          "method": "blacklist",
+          "engine_name": "ZoneAlarm",
+          "engine_version": "1.0",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Backdoor.Win32.LolBot.gen"
+        },
+        "GData": {
+          "method": "blacklist",
+          "engine_name": "GData",
+          "engine_version": "A:25.36553B:27.33272",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Win32.Worm.Ganelp.A"
+        },
+        "Cynet": {
+          "method": "blacklist",
+          "engine_name": "Cynet",
+          "engine_version": "4.0.0.27",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Malicious (score: 100)"
+        },
+        "AhnLab-V3": {
+          "method": "blacklist",
+          "engine_name": "AhnLab-V3",
+          "engine_version": "3.24.0.10447",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Backdoor/Win32.LolBot.R2281"
+        },
+        "Acronis": {
+          "method": "blacklist",
+          "engine_name": "Acronis",
+          "engine_version": "1.2.0.121",
+          "engine_update": "20230828",
+          "category": "malicious",
+          "result": "suspicious"
+        },
+        "VBA32": {
+          "method": "blacklist",
+          "engine_name": "VBA32",
+          "engine_version": "5.0.0",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trojan.Downloader"
+        },
+        "ALYac": {
+          "method": "blacklist",
+          "engine_name": "ALYac",
+          "engine_version": "1.1.3.1",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trojan.GenericKDZ.94923"
+        },
+        "MAX": {
+          "method": "blacklist",
+          "engine_name": "MAX",
+          "engine_version": "2023.1.4.1",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "malware (ai score=82)"
+        },
+        "DeepInstinct": {
+          "method": "blacklist",
+          "engine_name": "DeepInstinct",
+          "engine_version": "3.1.0.15",
+          "engine_update": "20230918",
+          "category": "malicious",
+          "result": "MALICIOUS"
+        },
+        "Malwarebytes": {
+          "method": "blacklist",
+          "engine_name": "Malwarebytes",
+          "engine_version": "4.5.5.54",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Generic.Malware.AI.DDS"
+        },
+        "Panda": {
+          "method": "blacklist",
+          "engine_name": "Panda",
+          "engine_version": "4.6.4.2",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trj/Genetic.gen"
+        },
+        "Zoner": {
+          "method": "blacklist",
+          "engine_name": "Zoner",
+          "engine_version": "2.2.2.0",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trojan.Win32.32428"
+        },
+        "Tencent": {
+          "method": "blacklist",
+          "engine_name": "Tencent",
+          "engine_version": "1.0.0.1",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trojan.Win32.Agent.fk"
+        },
+        "Yandex": {
+          "method": "blacklist",
+          "engine_name": "Yandex",
+          "engine_version": "5.5.2.24",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trojan.GenAsa!pzhHdHqL0kI"
+        },
+        "Ikarus": {
+          "method": "blacklist",
+          "engine_name": "Ikarus",
+          "engine_version": "6.2.4.0",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trojan.SuspectCRC"
+        },
+        "MaxSecure": {
+          "method": "blacklist",
+          "engine_name": "MaxSecure",
+          "engine_version": "1.0.0.1",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Trojan.Malware.300983.susgen"
+        },
+        "Fortinet": {
+          "method": "blacklist",
+          "engine_name": "Fortinet",
+          "engine_version": "None",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "W32/Agent.RTK!tr"
+        },
+        "AVG": {
+          "method": "blacklist",
+          "engine_name": "AVG",
+          "engine_version": "23.9.8494.0",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Win32:Rbot-GQG [Trj]"
+        },
+        "Avast": {
+          "method": "blacklist",
+          "engine_name": "Avast",
+          "engine_version": "23.9.8494.0",
+          "engine_update": "20230925",
+          "category": "malicious",
+          "result": "Win32:Rbot-GQG [Trj]"
+        },
+        "CrowdStrike": {
+          "method": "blacklist",
+          "engine_name": "CrowdStrike",
+          "engine_version": "1.0",
+          "engine_update": "20220812",
+          "category": "malicious",
+          "result": "win/malicious_confidence_100% (W)"
+        },
+        "Trustlook": {
+          "method": "blacklist",
+          "engine_name": "Trustlook",
+          "engine_version": "1.0",
+          "engine_update": "20230925",
+          "category": "type-unsupported",
+          "result": null
+        },
+        "SymantecMobileInsight": {
+          "method": "blacklist",
+          "engine_name": "SymantecMobileInsight",
+          "engine_version": "2.0",
+          "engine_update": "20230119",
+          "category": "type-unsupported",
+          "result": null
+        },
+        "BitDefenderFalx": {
+          "method": "blacklist",
+          "engine_name": "BitDefenderFalx",
+          "engine_version": "2.0.936",
+          "engine_update": "20230921",
+          "category": "type-unsupported",
+          "result": null
+        },
+        "Avast-Mobile": {
+          "method": "blacklist",
+          "engine_name": "Avast-Mobile",
+          "engine_version": "230925-00",
+          "engine_update": "20230925",
+          "category": "type-unsupported",
+          "result": null
+        }
+      },
+      "pe_info": {
+        "timestamp": 1292097662,
+        "imphash": "7568fd2720750e36a6992434b5b7efe9",
+        "machine_type": 332,
+        "entry_point": 18304,
+        "resource_details": [
+          {
+            "lang": "ENGLISH US",
+            "chi2": 779257.75,
+            "filetype": "unknown",
+            "entropy": 3.3031601905822754,
+            "sha256": "f646a4ee9ed26addbbe4229adad50bdcbaa96c856b92c4ac01b58dce7ae63f7c",
+            "type": "RT_ICON"
+          },
+          {
+            "lang": "ENGLISH US",
+            "chi2": 282341.88,
+            "filetype": "unknown",
+            "entropy": 3.799161434173584,
+            "sha256": "e2c435a87ee0aec25a8fa5ab5c529219dfb75dab22bd6211b4ca32c31a262ca0",
+            "type": "RT_ICON"
+          },
+          {
+            "lang": "ENGLISH US",
+            "chi2": 159898.22,
+            "filetype": "unknown",
+            "entropy": 3.9794301986694336,
+            "sha256": "49f75fdeedc3e173214e83a0525a0f4d6115f0174767d3ac4be009999a941501",
+            "type": "RT_ICON"
+          },
+          {
+            "lang": "ENGLISH US",
+            "chi2": 13246.22,
+            "filetype": "unknown",
+            "entropy": 2.921464204788208,
+            "sha256": "461e6f2f3a1fa8ec72c977789a95270730561113445e7c91225fac538d730628",
+            "type": "RT_DIALOG"
+          },
+          {
+            "lang": "ENGLISH US",
+            "chi2": 3664.0,
+            "filetype": "ICO",
+            "entropy": 2.515885591506958,
+            "sha256": "b5f2b626ab902aee02e5d70dff3c953253418a6ed68d9ae7b98257598a7681a0",
+            "type": "RT_GROUP_ICON"
+          }
+        ],
+        "resource_langs": {
+          "ENGLISH US": 5
+        },
+        "resource_types": {
+          "RT_ICON": 3,
+          "RT_DIALOG": 1,
+          "RT_GROUP_ICON": 1
+        },
+        "overlay": {
+          "chi2": 7116.55,
+          "filetype": "unknown",
+          "entropy": 3.934593439102173,
+          "offset": 135680,
+          "size": 431,
+          "md5": "4993196eb0318e95f9835c7581569c1a"
+        },
+        "sections": [
+          {
+            "name": ".text",
+            "chi2": 284160.81,
+            "virtual_address": 4096,
+            "flags": "rwx",
+            "raw_size": 37376,
+            "entropy": 6.44,
+            "virtual_size": 37254,
+            "md5": "7b71bb99ad916324928dc3988b9422cf"
+          },
+          {
+            "name": ".rdata",
+            "chi2": 117694.21,
+            "virtual_address": 45056,
+            "flags": "r",
+            "raw_size": 5632,
+            "entropy": 5.45,
+            "virtual_size": 5368,
+            "md5": "5fa81110fb8f37156857e27091889fc4"
+          },
+          {
+            "name": ".data",
+            "chi2": 827703.94,
+            "virtual_address": 53248,
+            "flags": "rw",
+            "raw_size": 5120,
+            "entropy": 1.9,
+            "virtual_size": 5124,
+            "md5": "787425d730303c75659e7fd997b0cfe5"
+          },
+          {
+            "name": ".rsrc",
+            "chi2": 18043044.0,
+            "virtual_address": 61440,
+            "flags": "rwx",
+            "raw_size": 86528,
+            "entropy": 0.97,
+            "virtual_size": 90112,
+            "md5": "4c14ef1486ce85417ca3d639c3e1aa62"
+          }
+        ],
+        "import_list": [
+          {
+            "library_name": "KERNEL32.dll",
+            "imported_functions": [
+              "CloseHandle",
+              "CreateFileA",
+              "DeleteFileA",
+              "DuplicateHandle",
+              "ExitProcess",
+              "FileTimeToLocalFileTime",
+              "FileTimeToSystemTime",
+              "FreeEnvironmentStringsA",
+              "GetCommandLineA",
+              "GetConsoleCP",
+              "GetConsoleMode",
+              "GetConsoleOutputCP",
+              "GetCurrentProcess",
+              "GetEnvironmentStrings",
+              "GetFileTime",
+              "GetFileType",
+              "GetLastError",
+              "GetLocaleInfoA",
+              "GetLocalTime",
+              "GetModuleFileNameA",
+              "GetModuleHandleA",
+              "GetStartupInfoA",
+              "GetStdHandle",
+              "GetSystemTimeAsFileTime",
+              "HeapAlloc",
+              "HeapCreate",
+              "HeapDestroy",
+              "HeapFree",
+              "HeapReAlloc",
+              "HeapSize",
+              "HeapValidate",
+              "MultiByteToWideChar",
+              "ReadFile",
+              "RtlUnwind",
+              "SetConsoleCtrlHandler",
+              "SetEndOfFile",
+              "SetFilePointer",
+              "SetHandleCount",
+              "SetStdHandle",
+              "Sleep",
+              "UnhandledExceptionFilter",
+              "VirtualAlloc",
+              "VirtualQuery",
+              "WideCharToMultiByte",
+              "WriteFile"
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "peexe",
+        "overlay",
+        "malware"
+      ],
+      "first_submission_date": 1575008859,
+      "size": 136111,
+      "crowdsourced_ids_stats": {
+        "high": 2,
+        "info": 0,
+        "medium": 0,
+        "low": 1
+      },
+      "last_analysis_stats": {
+        "malicious": 68,
+        "suspicious": 0,
+        "undetected": 4,
+        "harmless": 0,
+        "timeout": 0,
+        "confirmed-timeout": 0,
+        "failure": 0,
+        "type-unsupported": 4
+      },
+      "unique_sources": 1,
+      "reputation": -9,
+      "creation_date": 1292097662,
+      "ssdeep": "768:z/5inm+cd5rHemPXkqUEphjVuvios1rPr4adL0NqlJMU60+ppQ1TTGfLE2c2222f:zRsvcdcQjosnvnZ6LQ1EE2c222226",
+      "times_submitted": 1,
+      "names": [
+        "jusched.exe"
+      ],
+      "md5": "daf8fd058d9d7f4f673053d571b8f288",
+      "last_modification_date": 1714262610,
+      "type_extension": "exe",
+      "detectiteasy": {
+        "filetype": "PE32",
+        "values": [
+          {
+            "info": "GUI32",
+            "version": "2.50*",
+            "type": "Linker",
+            "name": "Polink"
+          }
+        ]
+      },
+      "last_submission_date": 1575008859,
+      "vhash": "01504e655d1f1az2d!z",
+      "last_analysis_date": 1695681869,
+      "type_description": "Win32 EXE",
+      "magic": "PE32 executable (GUI) Intel 80386, for MS Windows",
+      "sha1": "16caf634b57ff9c62988a765a943eb1c239a5abd",
+      "tlsh": "T19ED35C2337418429E3610D3423582B7477A6EF736216F667E3A5F91C3F325C6AE187A2",
+      "authentihash": "674a606d602a846326a8f38a1fcb3253040f16813685f46a075af749cfe98ac1"
+    }
+  },
+  "behavior": [
+    {
+      "id": "367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730_CAPA",
+      "type": "file_behaviour",
+      "links": {
+        "self": "https://www.virustotal.com/api/v3/file_behaviours/367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730_CAPA"
+      },
+      "attributes": {
+        "last_modification_date": 1695681930,
+        "has_memdump": false,
+        "mitre_attack_techniques": [
+          {
+            "refs": [
+              {
+                "ref": "#signature_matches",
+                "value": "parse PE header"
+              }
+            ],
+            "signature_description": "parse PE header",
+            "id": "T1129",
+            "severity": "IMPACT_SEVERITY_INFO"
+          },
+          {
+            "refs": [
+              {
+                "ref": "#signature_matches",
+                "value": "get geographical location"
+              }
+            ],
+            "signature_description": "get geographical location",
+            "id": "T1614",
+            "severity": "IMPACT_SEVERITY_INFO"
+          },
+          {
+            "refs": [
+              {
+                "ref": "#signature_matches",
+                "value": "accept command line arguments"
+              }
+            ],
+            "signature_description": "accept command line arguments",
+            "id": "T1059",
+            "severity": "IMPACT_SEVERITY_INFO"
+          },
+          {
+            "refs": [
+              {
+                "ref": "#signature_matches",
+                "value": "query environment variable"
+              }
+            ],
+            "signature_description": "query environment variable",
+            "id": "T1082",
+            "severity": "IMPACT_SEVERITY_INFO"
+          }
+        ],
+        "analysis_date": 1695681930,
+        "behash": "afcf22fa3d5e5fb0c79036d7c7fafec7",
+        "signature_matches": [
+          {
+            "format": "SIG_FORMAT_CAPA",
+            "rule_src": "rule:\n  meta:\n    name: calculate modulo 256 via x86 assembly\n    authors:\n      - moritz.raabe@mandiant.com\n    lib: true\n    scope: instruction\n    mbc:\n      - Data::Modulo [C0058]\n    examples:\n      - 9324D1A8AE37A36AE560C37448C9705A:0x4049A9\n  features:\n    #  and ecx, 800000FFh\n    #  and ecx, 0FFh\n    - and:\n      - mnemonic: and\n      - or:\n        - number: 0x800000FF\n        - number: 0xFF\n",
+            "name": "calculate modulo 256 via x86 assembly",
+            "authors": [
+              "moritz.raabe@mandiant.com"
+            ]
+          },
+          {
+            "refs": [
+              {
+                "ref": "https://docs.microsoft.com/en-us/windows/win32/sync/wait-functions"
+              },
+              {
+                "ref": "https://github.com/LordNoteworthy/al-khaser/blob/master/al-khaser/TimingAttacks/timing.cpp"
+              }
+            ],
+            "format": "SIG_FORMAT_CAPA",
+            "rule_src": "rule:\n  meta:\n    name: delay execution\n    authors:\n      - michael.hunhoff@mandiant.com\n      - \"@ramen0x3f\"\n    lib: true\n    scope: basic block\n    mbc:\n      - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n    references:\n      - https://docs.microsoft.com/en-us/windows/win32/sync/wait-functions\n      - https://github.com/LordNoteworthy/al-khaser/blob/master/al-khaser/TimingAttacks/timing.cpp\n    examples:\n      - al-khaser_x86.exe_:0x449770\n      - B5F85C26D7AA5A1FB4AF5821B6B5AB9B:0x402FA6\n  features:\n    - or:\n      - and:\n        - os: windows\n        - or:\n          - api: kernel32.Sleep\n          - api: kernel32.SleepEx\n          - api: kernel32.WaitForSingleObject\n          - api: kernel32.SignalObjectAndWait\n          - api: kernel32.WaitForSingleObjectEx\n          - api: kernel32.WaitForMultipleObjects\n          - api: kernel32.WaitForMultipleObjectsEx\n          - api: kernel32.RegisterWaitForSingleObject\n          - api: WaitOnAddress\n          - api: user32.MsgWaitForMultipleObjects\n          - api: user32.MsgWaitForMultipleObjectsEx\n          - api: NtDelayExecution\n          - api: KeWaitForSingleObject\n          - api: KeDelayExecutionThread\n      - and:\n        - os: linux\n        - or:\n          - api: sleep\n          - api: usleep\n",
+            "name": "delay execution",
+            "authors": [
+              "michael.hunhoff@mandiant.com",
+              "@ramen0x3f"
+            ]
+          },
+          {
+            "format": "SIG_FORMAT_CAPA",
+            "rule_src": "rule:\n  meta:\n    name: allocate memory\n    authors:\n      - 0x534a@mailbox.org\n    lib: true\n    scope: basic block\n    mbc:\n      - Memory::Allocate Memory [C0007]\n    examples:\n      - Practical Malware Analysis Lab 03-03.exe_:0x4010EA\n      # ntdll\n      - 563653399B82CD443F120ECEFF836EA3678D4CF11D9B351BB737573C2D856299:0x140001ABA\n  features:\n    - or:\n      - api: kernel32.VirtualAlloc\n      - api: kernel32.VirtualAllocEx\n      - api: kernel32.VirtualAllocExNuma\n      - api: kernel32.VirtualProtect\n      - api: kernel32.VirtualProtectEx\n      - api: NtAllocateVirtualMemory\n      - api: ZwAllocateVirtualMemory\n      - api: NtMapViewOfSection\n      - api: ZwMapViewOfSection\n",
+            "name": "allocate memory",
+            "authors": [
+              "0x534a@mailbox.org"
+            ]
+          },
+          {
+            "format": "SIG_FORMAT_CAPA",
+            "rule_src": "rule:\n  meta:\n    name: allocate RW memory\n    authors:\n      - 0x534a@mailbox.org\n    lib: true\n    scope: basic block\n    mbc:\n      - Memory::Allocate Memory [C0007]\n    examples:\n      - Practical Malware Analysis Lab 17-02.dll_:0x1000D10D\n  features:\n    - and:\n      - match: allocate memory\n      - number: 0x4 = PAGE_READWRITE\n",
+            "name": "allocate RW memory",
+            "authors": [
+              "0x534a@mailbox.org"
+            ]
+          },
+          {
+            "format": "SIG_FORMAT_CAPA",
+            "rule_src": "rule:\n  meta:\n    name: create or open file\n    authors:\n      - michael.hunhoff@mandiant.com\n      - joakim@intezer.com\n    lib: true\n    scope: basic block\n    mbc:\n      - File System::Create File [C0016]\n    examples:\n      - B5F85C26D7AA5A1FB4AF5821B6B5AB9B:0x401D7E\n  features:\n    - or:\n      - api: CreateFile\n      - api: CreateFileEx\n      - api: IoCreateFile\n      - api: IoCreateFileEx\n      - api: ZwOpenFile\n      - api: ZwCreateFile\n      - api: NtOpenFile\n      - api: NtCreateFile\n      - api: fopen\n      - api: fopen64\n      - api: fdopen\n      - api: freopen\n      - api: open\n      - api: openat\n",
+            "name": "create or open file",
+            "authors": [
+              "michael.hunhoff@mandiant.com",
+              "joakim@intezer.com"
+            ]
+          },
+          {
+            "format": "SIG_FORMAT_CAPA",
+            "rule_src": "rule:\n  meta:\n    name: contain loop\n    authors:\n      - moritz.raabe@mandiant.com\n    lib: true\n    scope: function\n    examples:\n      - 08AC667C65D36D6542917655571E61C8:0x406EAA\n  features:\n    - or:\n      - characteristic: loop\n      - characteristic: tight loop\n      - characteristic: recursive call\n",
+            "name": "contain loop",
+            "authors": [
+              "moritz.raabe@mandiant.com"
+            ]
+          },
+          {
+            "format": "SIG_FORMAT_CAPA",
+            "authors": [
+              "sara-rn"
+            ],
+            "rule_src": "rule:\n  meta:\n    name: resolve function by parsing PE exports\n    namespace: load-code/pe\n    authors:\n      - sara-rn\n    scope: function\n    examples:\n      - 73CE04892E5F39EC82B00C02FC04C70F:0x406BA1\n  features:\n    - and:\n      - os: windows\n      - or:\n        - characteristic: loop\n        - mnemonic: movzx\n      - and:\n        - offset: 0x3C = IMAGE_DOS_HEADER.PE.e_lfanew\n        - or:\n          - and:\n            - arch: i386\n            - offset: 0x78 = offset to IMAGE_DATA_DIRECTORY[IMAGE_DIRECTORY_ENTRY_EXPORT]\n          - and:\n            - arch: amd64\n            - offset: 0x88 = offset to IMAGE_DATA_DIRECTORY[IMAGE_DIRECTORY_ENTRY_EXPORT]\n        - 3 or more:\n          - offset: 0x14 = IMAGE_EXPORT_DIRECTORY.NumberOfFunctions\n          - offset: 0x24 = IMAGE_EXPORT_DIRECTORY.AddressOfNameOrdinals\n          - offset: 0x20 = IMAGE_EXPORT_DIRECTORY.AddressOfNames\n          - offset: 0x18 = IMAGE_EXPORT_DIRECTORY.NumberOfNames\n          - offset: 0x1C = IMAGE_EXPORT_DIRECTORY.AddressOfFunctions\n      - optional:\n        - or:\n          - api: LoadLibrary\n          - api: strcmp\n",
+            "name": "resolve function by parsing PE exports",
+            "description": "load-code/pe"
+          },
+          {
+            "format": "SIG_FORMAT_CAPA",
+            "authors": [
+              "moritz.raabe@mandiant.com"
+            ],
+            "rule_src": "rule:\n  meta:\n    name: parse PE header\n    namespace: load-code/pe\n    authors:\n      - moritz.raabe@mandiant.com\n    scope: function\n    att&ck:\n      - Execution::Shared Modules [T1129]\n    examples:\n      - 9324D1A8AE37A36AE560C37448C9705A:0x403DD0\n  features:\n    - and:\n      - os: windows\n      - and:\n        - mnemonic: cmp\n        - or:\n          - number: 0x4550 = IMAGE_NT_SIGNATURE (PE)\n          - and:\n            - number: 0x50\n            - number: 0x45\n        - or:\n          - number: 0x5A4D = IMAGE_DOS_SIGNATURE (MZ)\n          - and:\n            - number: 0x4D\n            - number: 0x5A\n        - optional:\n          - and:\n            - operand[1].offset: 0x3C = IMAGE_DOS_HEADER.e_lfanew\n            - or:\n              - and:\n                - arch: i386\n                - operand[1].offset: 0x50 = IMAGE_NT_HEADERS.OptionalHeader.SizeOfImage\n                - operand[1].offset: 0x34 = IMAGE_NT_HEADERS.OptionalHeader.ImageBase\n              - and:\n                - arch: amd64\n                - operand[1].offset: 0x50 = IMAGE_NT_HEADERS64.OptionalHeader.SizeOfImage\n                - operand[1].offset: 0x30 = IMAGE_NT_HEADERS64.OptionalHeader.ImageBase\n          - basic block:\n            - and:\n              - operand[1].offset: 0x3C = IMAGE_DOS_HEADER.e_lfanew\n              - 3 or more:\n                - operand[1].offset: 0x4 = IMAGE_NT_HEADERS.FileHeader.Machine\n                - operand[1].offset: 0x6 = IMAGE_NT_HEADERS.FileHeader.NumberOfSections\n                - operand[1].offset: 0x14 = IMAGE_NT_HEADERS.FileHeader.SizeOfOptionalHeader\n                - operand[1].offset: 0x16 = IMAGE_NT_HEADERS.FileHeader.Characteristics\n                - operand[1].offset: 0x28 = IMAGE_NT_HEADERS.OptionalHeader.AddressOfEntryPoint  # for 32 and 64 bit\n                - or:\n                  - and:\n                    - arch: i386\n                    - operand[1].offset: 0x34 = IMAGE_NT_HEADERS.OptionalHeader.ImageBase\n                    - operand[1].offset: 0x50 = IMAGE_NT_HEADERS.OptionalHeader.SizeOfImage\n                  - and:\n                    - arch: amd64\n                    - operand[1].offset: 0x30 = IMAGE_NT_HEADERS.OptionalHeader.ImageBase\n                    - operand[1].offset: 0x50 = IMAGE_NT_HEADERS64.OptionalHeader.SizeOfImage\n",
+            "name": "parse PE header",
+            "description": "load-code/pe"
+          },
+          {
+            "format": "SIG_FORMAT_CAPA",
+            "authors": [
+              "moritz.raabe",
+              "michael.hunhoff@mandiant.com"
+            ],
+            "rule_src": "# generated using capa explorer for IDA Pro\nrule:\n  meta:\n    name: get geographical location\n    namespace: collection\n    authors:\n      - moritz.raabe\n      - michael.hunhoff@mandiant.com\n    scope: function\n    att&ck:\n      - Discovery::System Location Discovery [T1614]\n    examples:\n      - 9879D201DC5ACA863F357184CD1F170E:0x10001A99\n  features:\n    - or:\n      - api: GetLocaleInfo\n      - api: GetLocaleInfoEx\n      - api: kernel32.GetUserGeoID\n      - api: kernel32.GetGeoInfo\n      # strings part of requests or parsed from response\n      # \"geo\" and \"zip\" are too short\n      # \"region\" results in FPs mostly related to memory\n      - string: /geolocation/i\n      - string: /geo-location/i\n      - string: /^city/i\n      - string: /region_code/i\n      - string: /region_name/i\n      - string: /^country/i\n      - string: /country_code/i\n      - string: /countrycode/i\n      - string: /country_name/i\n      - string: /continent_code/i\n      - string: /continent_name/i\n      - string: /^latitude/i\n      - string: /^longitude/i\n",
+            "name": "get geographical location",
+            "description": "collection"
+          },
+          {
+            "format": "SIG_FORMAT_CAPA",
+            "authors": [
+              "moritz.raabe@mandiant.com",
+              "anushka.virgaonkar@mandiant.com"
+            ],
+            "rule_src": "rule:\n  meta:\n    name: accept command line arguments\n    namespace: host-interaction/cli\n    authors:\n      - moritz.raabe@mandiant.com\n      - anushka.virgaonkar@mandiant.com\n    scope: function\n    att&ck:\n      - Execution::Command and Scripting Interpreter [T1059]\n    mbc:\n      - Execution::Command and Scripting Interpreter [E1059]\n    examples:\n      - e5369ac309f1be6d77afeeb3edab0ed8:0x402760\n  features:\n    - or:\n      - api: GetCommandLine\n      - api: CommandLineToArgv\n      - api: System.Environment::GetCommandLineArgs\n",
+            "name": "accept command line arguments",
+            "description": "host-interaction/cli"
+          },
+          {
+            "format": "SIG_FORMAT_CAPA",
+            "authors": [
+              "moritz.raabe@mandiant.com",
+              "michael.hunhoff@mandiant.com",
+              "anushka.virgaonkar@mandiant.com"
+            ],
+            "rule_src": "rule:\n  meta:\n    name: terminate process\n    namespace: host-interaction/process/terminate\n    authors:\n      - moritz.raabe@mandiant.com\n      - michael.hunhoff@mandiant.com\n      - anushka.virgaonkar@mandiant.com\n    scope: function\n    mbc:\n      - Process::Terminate Process [C0018]\n    examples:\n      - C91887D861D9BD4A5872249B641BC9F9:0x401A77\n      - 9B7CCAA2AE6A5B96E3110EBCBC4311F6:0x10010307\n  features:\n    - or:\n      - api: System.Diagnostics.Process::Kill\n      - api: System.Diagnostics.Process::WaitForExit\n      - api: System.Diagnostics.Process::WaitForExitAsync\n      - api: System.Environment::Exit\n      - api: System.Windows.Forms.Application::Exit\n      - and:\n        - optional:\n          - match: open process\n        - or:\n          - api: kernel32.TerminateProcess\n          - api: ntdll.NtTerminateProcess\n          - api: kernel32.ExitProcess\n",
+            "name": "terminate process",
+            "description": "host-interaction/process/terminate"
+          },
+          {
+            "format": "SIG_FORMAT_CAPA",
+            "authors": [
+              "michael.hunhoff@mandiant.com",
+              "@_re_fox"
+            ],
+            "rule_src": "rule:\n  meta:\n    name: query environment variable\n    namespace: host-interaction/environment-variable\n    authors:\n      - michael.hunhoff@mandiant.com\n      - \"@_re_fox\"\n    scope: function\n    att&ck:\n      - Discovery::System Information Discovery [T1082]\n    mbc:\n      - Discovery::System Information Discovery [E1082]\n    examples:\n      - Practical Malware Analysis Lab 14-02.exe_:0x401880\n      - 0761142efbda6c4b1e801223de723578:0x65483490\n  features:\n    - or:\n      - api: kernel32.GetEnvironmentVariable\n      - api: kernel32.GetEnvironmentStrings\n      - api: kernel32.ExpandEnvironmentStrings\n      - api: msvcr90.getenv\n      - api: msvcrt.getenv\n      - api: System.Environment::GetEnvironmentVariable\n      - api: System.Environment::GetEnvironmentVariables\n      - api: System.Environment::ExpandEnvironmentVariables\n",
+            "name": "query environment variable",
+            "description": "host-interaction/environment-variable"
+          },
+          {
+            "format": "SIG_FORMAT_CAPA",
+            "authors": [
+              "moritz.raabe@mandiant.com",
+              "anushka.virgaonkar@mandiant.com"
+            ],
+            "rule_src": "rule:\n  meta:\n    name: read file on Windows\n    namespace: host-interaction/file-system/read\n    authors:\n      - moritz.raabe@mandiant.com\n      - anushka.virgaonkar@mandiant.com\n    scope: function\n    mbc:\n      - File System::Read File [C0051]\n    examples:\n      - BFB9B5391A13D0AFD787E87AB90F14F5:0x1314567B\n  features:\n    - or:\n      - and:\n        - os: windows\n        - optional:\n          - and:\n            - number: 0x80000000 = GENERIC_READ\n            - api: kernel32.CreateFile\n        - or:\n          - api: kernel32.ReadFile\n          - api: ReadFileEx\n          - api: NtReadFile\n          - api: ZwReadFile\n          - api: _read\n          - api: fread\n      - api: System.IO.File::ReadAllBytes\n      - api: System.IO.File::ReadAllBytesAsync\n      - api: System.IO.File::ReadAllLines\n      - api: System.IO.File::ReadAllLinesAsync\n      - api: System.IO.File::ReadAllText\n      - api: System.IO.File::ReadAllTextAsync\n      - api: System.IO.File::ReadLines\n",
+            "name": "read file on Windows",
+            "description": "host-interaction/file-system/read"
+          },
+          {
+            "format": "SIG_FORMAT_CAPA",
+            "authors": [
+              "william.ballenthin@mandiant.com",
+              "anushka.virgaonkar@mandiant.com"
+            ],
+            "rule_src": "rule:\n  meta:\n    name: write file on Windows\n    namespace: host-interaction/file-system/write\n    authors:\n      - william.ballenthin@mandiant.com\n      - anushka.virgaonkar@mandiant.com\n    scope: function\n    mbc:\n      - File System::Writes File [C0052]\n    examples:\n      - Practical Malware Analysis Lab 01-04.exe_:0x4011FC\n      # ntdll\n      - 563653399B82CD443F120ECEFF836EA3678D4CF11D9B351BB737573C2D856299:0x1400025C4\n  features:\n    - or:\n      - and:\n        - os: windows\n        - optional:\n          - or:\n            - and:\n              - number: 0x40000000 = GENERIC_WRITE\n              - api: kernel32.CreateFile\n            - and:\n              - number: 0x2 = FILE_WRITE_DATA\n              - or:\n                - api: NtCreateFile\n                - api: ZwCreateFile\n        - or:\n          - api: kernel32.WriteFile\n          - api: kernel32.WriteFileEx\n          - api: NtWriteFile\n          - api: ZwWriteFile\n          - api: _fwrite\n          - api: fwrite\n      - api: System.IO.File::WriteAllBytes\n      - api: System.IO.File::WriteAllBytesAsync\n      - api: System.IO.File::WriteAllLines\n      - api: System.IO.File::WriteAllLinesAsync\n      - api: System.IO.File::WriteAllText\n      - api: System.IO.File::WriteAllTextAsync\n      - api: System.IO.File::AppendAllLines\n      - api: System.IO.File::AppendAllLinesAsync\n      - api: System.IO.File::AppendAllText\n      - api: System.IO.File::AppendAllTextAsync\n      - api: System.IO.File::AppendText\n      - api: System.IO.FileInfo::AppendText\n",
+            "name": "write file on Windows",
+            "description": "host-interaction/file-system/write"
+          },
+          {
+            "format": "SIG_FORMAT_CAPA",
+            "authors": [
+              "moritz.raabe@mandiant.com",
+              "michael.hunhoff@mandiant.com"
+            ],
+            "rule_src": "rule:\n  meta:\n    name: delete file\n    namespace: host-interaction/file-system/delete\n    authors:\n      - moritz.raabe@mandiant.com\n      - michael.hunhoff@mandiant.com\n    scope: function\n    mbc:\n      - File System::Delete File [C0047]\n    examples:\n      - 946A99F36A46D335DEC080D9A4371940:0x100015F0\n      # MoveFileEx\n      - 31600AD0D1A7EA615690DF111AE36C73:0x401A15\n      # NtDeleteFile\n      - 563653399B82CD443F120ECEFF836EA3678D4CF11D9B351BB737573C2D856299:0x140001E04\n  features:\n    - or:\n      - api: kernel32.DeleteFile\n      - api: DeleteFileTransacted\n      - api: NtDeleteFile\n      - api: ZwDeleteFile\n      - api: remove\n      - api: _wremove\n      - api: System.IO.File::Delete\n      - api: System.IO.FileSystemInfo::Delete\n      - basic block:\n        - and:\n          - number: 3 = FO_DELETE\n          - or:\n            - api: kernel32.SHFileOperation\n      - basic block:\n        - and:\n          - number: 4 = MOVEFILE_DELAY_UNTIL_REBOOT\n          - number: 0 = NULL\n          - api: MoveFileEx\n",
+            "name": "delete file",
+            "description": "host-interaction/file-system/delete"
+          },
+          {
+            "format": "SIG_FORMAT_CAPA",
+            "authors": [
+              "moritz.raabe@mandiant.com"
+            ],
+            "rule_src": "rule:\n  meta:\n    name: contain a resource (.rsrc) section\n    namespace: executable/pe/section/rsrc\n    authors:\n      - moritz.raabe@mandiant.com\n    scope: file\n    examples:\n      - A933A1A402775CFA94B6BEE0963F4B46:0x41fd25\n  features:\n    - section: .rsrc\n",
+            "name": "contain a resource (.rsrc) section",
+            "description": "executable/pe/section/rsrc"
+          }
+        ],
+        "sandbox_name": "CAPA",
+        "has_pcap": false,
+        "has_evtx": false,
+        "has_html_report": false
+      }
+    },
+    {
+      "id": "367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730_Rising MOVES",
+      "type": "file_behaviour",
+      "links": {
+        "self": "https://www.virustotal.com/api/v3/file_behaviours/367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730_Rising MOVES"
+      },
+      "attributes": {
+        "files_written": [
+          "C:\\Program Files\\Java\\jre-09",
+          "C:\\Program Files\\Java\\jre-09\\bin",
+          "C:\\Program Files\\Java\\jre-09\\bin\\UF",
+          "C:\\Program Files\\Java\\jre-09\\bin\\jusched.exe"
+        ],
+        "last_modification_date": 1577503885,
+        "has_memdump": false,
+        "analysis_date": 1577503879,
+        "command_executions": [
+          "\"C:\\Program Files\\Java\\jre-09\\bin\\jusched.exe\" ",
+          " "
+        ],
+        "processes_created": [
+          "C:\\Program Files\\Java\\jre-09\\bin\\jusched.exe"
+        ],
+        "sandbox_name": "Rising MOVES",
+        "registry_keys_set": [
+          {
+            "key": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\AutoDetect",
+            "value": "1"
+          },
+          {
+            "key": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\UNCAsIntranet",
+            "value": "0"
+          }
+        ],
+        "files_opened": [
+          "C:\\Program Files\\Java\\jre-09",
+          "C:\\Program Files\\Java\\jre-09\\bin",
+          "C:\\Program Files\\Java\\jre-09\\bin\\UF",
+          "C:\\Program Files\\Java\\jre-09\\bin\\jusched.exe",
+          "\\??\\MountPointManager",
+          "\\SystemRoot\\AppPatch\\sysmain.sdb",
+          "C:\\"
+        ],
+        "has_pcap": false,
+        "has_evtx": false,
+        "has_html_report": false
+      }
+    },
+    {
+      "id": "367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730_Sangfor ZSand",
+      "type": "file_behaviour",
+      "links": {
+        "self": "https://www.virustotal.com/api/v3/file_behaviours/367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730_Sangfor ZSand"
+      },
+      "attributes": {
+        "ip_traffic": [
+          {
+            "transport_layer_protocol": "UDP",
+            "destination_ip": "114.114.114.114",
+            "destination_port": 53
+          },
+          {
+            "transport_layer_protocol": "TCP",
+            "destination_ip": "209.202.252.54",
+            "destination_port": 21
+          }
+        ],
+        "dns_lookups": [
+          {
+            "hostname": "hohoho.ho.funpic.org"
+          },
+          {
+            "hostname": "griptoloji.host-ed.net"
+          },
+          {
+            "resolved_ips": [
+              "209.202.252.54"
+            ],
+            "hostname": "ftp.tripod.com"
+          }
+        ],
+        "last_modification_date": 1696232354,
+        "mutexes_created": [
+          "Local\\ZonesCounterMutex",
+          "Local\\ZoneAttributeCacheCounterMutex",
+          "Local\\ZonesCacheCounterMutex",
+          "Local\\ZonesLockedCacheCounterMutex",
+          "Local\\_!MSFTHISTORY!_",
+          "Local\\c:!users!admin!appdata!local!microsoft!windows!temporary internet files!content.ie5!",
+          "Local\\c:!users!admin!appdata!roaming!microsoft!windows!cookies!",
+          "Local\\c:!users!admin!appdata!local!microsoft!windows!history!history.ie5!",
+          "Local\\WininetStartupMutex",
+          "Local\\WininetConnectionMutex",
+          "Local\\WininetProxyRegistryMutex",
+          "RasPbFile"
+        ],
+        "memory_pattern_ips": [
+          "2.5.4.10",
+          "6.0.0.0",
+          "5.7.1.2",
+          "2.5.4.11",
+          "2.5.29.32",
+          "2.5.4.26",
+          "2.5.4.12",
+          "2.5.4.13",
+          "2.5.4.32",
+          "2.5.4.33",
+          "2.5.4.43",
+          "2.5.29.27",
+          "2.5.4.30",
+          "2.5.4.8",
+          "2.5.4.9",
+          "2.5.4.6",
+          "2.5.4.7",
+          "2.5.4.4",
+          "2.5.4.5",
+          "2.5.4.3",
+          "2.5.4.17",
+          "1.0.0.0",
+          "2.5.29.21",
+          "2.5.29.20",
+          "2.5.29.17",
+          "117.136.191.142",
+          "2.5.29.28",
+          "2.5.4.36",
+          "2.5.4.37",
+          "2.5.4.34",
+          "2.5.4.35",
+          "2.5.4.14",
+          "2.5.4.15",
+          "2.5.4.16",
+          "2.5.4.31",
+          "2.5.4.18",
+          "2.5.4.19",
+          "2.5.29.46",
+          "5.7.2.2",
+          "2.5.4.38",
+          "2.5.4.39",
+          "2.5.29.1",
+          "2.5.29.2",
+          "2.5.29.3",
+          "2.5.29.4",
+          "2.5.29.5",
+          "2.5.29.7",
+          "2.5.29.8",
+          "2.5.29.18",
+          "2.5.4.46",
+          "2.5.29.19",
+          "2.5.29.30",
+          "2.5.29.31",
+          "2.5.29.54",
+          "2.5.29.33",
+          "2.5.29.35",
+          "2.5.29.36",
+          "2.5.29.37",
+          "2.5.4.29",
+          "2.5.4.28",
+          "2.5.29.10",
+          "2.5.4.42",
+          "5.1.0.0",
+          "2.5.29.14",
+          "2.5.29.15",
+          "2.5.4.21",
+          "2.5.4.20",
+          "2.5.4.23",
+          "2.5.4.22",
+          "2.5.4.25",
+          "2.5.4.24",
+          "2.5.4.27",
+          "2.5.4.40"
+        ],
+        "has_memdump": false,
+        "analysis_date": 1696234161,
+        "behash": "d74942d8f123e8dca09d5c991a19fd63",
+        "files_dropped": [
+          {
+            "path": "c:\\program files\\java\\jre-09\\bin\\jusched.exe",
+            "sha256": "77dd213ad0651c5d0276f08b5b657bf3155ed7850135a8b703af788b08a67b70"
+          },
+          {
+            "path": "c:\\program files\\java\\jre-09\\bin\\jusched.exe",
+            "sha256": "a98c13010d259d24e32779c687e92cc7b7b4ef9ddd61f49dcf4741b3730a2cc9"
+          },
+          {
+            "path": "c:\\program files\\java\\jre-09\\bin\\uf",
+            "sha256": "df58baa544abcb27e9d8ff835e3aec0bd3924db120c05e447c355b0c2ab0baf1"
+          }
+        ],
+        "processes_created": [
+          "C:\\Program Files\\Java\\jre-09\\bin\\jusched.exe ",
+          "C:\\367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730.exe"
+        ],
+        "sandbox_name": "Sangfor ZSand",
+        "registry_keys_opened": [
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/5.0/Cache/Content",
+          "HKCR/SystemFileAssociations/.exe",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/5.0/Cache/Extensible Cache/PrivacIE:",
+          "HKLM/System/CurrentControlSet/Services/WinSock2/Parameters/Protocol_Catalog9/Catalog_Entries/000000000010",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/5.0/Cache/Extensible Cache",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_USE_UTF8_FOR_BASIC_AUTH_KB967545",
+          "HKLM/System/CurrentControlSet/Services/WinSock2/Parameters/Protocol_Catalog9/Catalog_Entries/000000000011",
+          "HKLM/System/CurrentControlSet/Control/Session Manager/AppCertDlls",
+          "HKLM/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Lockdown_Zones",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_HTTP_USERNAME_PASSWORD_DISABLE",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_BUFFERBREAKING_818408",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Internet Settings",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/CLSID/{7b8a2d94-0ac9-11d1-896c-00c04Fb6bfc4}/TreatAs",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl",
+          "HKLM/Software/Policies/Microsoft/System/DNSClient",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_SKIP_POST_RETRY_ON_INTERNETWRITEFILE_KB895954",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/.adp",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/CLSID/{7b8a2d94-0ac9-11d1-896c-00c04Fb6bfc4}/InprocServer32",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/exefile/Progid",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/.cpl",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/.ade",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Policies/NonEnum",
+          "HKLM/SOFTWARE/Policies/Microsoft/Windows/CurrentVersion/Internet Settings",
+          "HKLM/Software/Microsoft/Tracing",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_USE_CNAME_FOR_SPN_KB911149",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Lockdown_Zones",
+          "HKLM/Software/Microsoft/Windows NT/CurrentVersion/IME Compatibility",
+          "HKLM/Software/Microsoft/Windows NT/CurrentVersion/AppCompatFlags/Layers",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_SECURITY_FLAG_IGNORE_REVOCATION_KB2275828",
+          "HKCR/AutoProxyTypes",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/CLSID/{7b8a2d94-0ac9-11d1-896c-00c04Fb6bfc4}/Progid",
+          "HKCR/Drive/shellex/FolderExtensions/{fbeb8a05-beee-4442-804e-409d6c4515e9}",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/CLSID/{1f486a52-3cb1-48fd-8f50-b8dc300d9f9d}/InprocHandler",
+          "HKLM/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Zones/1",
+          "HKLM/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Zones/0",
+          "HKLM/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Zones/3",
+          "HKLM/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Zones/2",
+          "HKLM/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Zones/4",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_DISALLOW_NULL_IN_RESPONSE_HEADERS",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_UNC_SAVEDFILECHECK",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/CLSID/{1f486a52-3cb1-48fd-8f50-b8dc300d9f9d}/InprocServer32",
+          "HKLM/Software",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_ENABLE_PASSPORT_SESSION_STORE_KB948608",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/Directory/BrowseInPlace",
+          "HKCR/.com",
+          "HKCR/Drive/shellex/FolderExtensions",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Explorer",
+          "HKCR/.exe/OpenWithProgids",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/AllFilesystemObjects/DocObject",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_RELEASE_KEYS_ON_UNLOAD_KB975619",
+          "HKLM/Software/Microsoft/Tracing/jusched_RASAPI32",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/ShellCompatibility/ProgIDs/exefile",
+          "HKCR/CLSID/{20D04FE0-3AEA-1069-A2D8-08002B30309D}/ShellFolder",
+          "HKCR/CLSID/{1F486A52-3CB1-48FD-8F50-B8DC300D9F9D}",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/5.0/Cache/Extensible Cache/ietld",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings",
+          "HKLM/System/CurrentControlSet/Services/Psched/Parameters/Winsock",
+          "HKLM/SOFTWARE/Microsoft/OLE",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/.exe",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_FIX_CHUNKED_PROXY_SCRIPT_DOWNLOAD_KB843289",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_ZONES_CHECK_ZONEMAP_POLICY_KB941001",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Security",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/Directory",
+          "HKLM/Software/Microsoft/SQMClient/Windows/DisabledSessions",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Internet Settings/5.0/Cache/Cookies",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap/Ranges",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/Directory/ShellEx/IconHandler",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Setup",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Explorer/MountPoints2/CPC/Volume",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Policies/Associations",
+          "HKLM/System/CurrentControlSet/Services/WinSock2/Parameters/Protocol_Catalog9",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_DISALLOW_NULL_IN_RESPONSE_HEADERS",
+          "HKLM",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_ZONES_DEFAULT_DRIVE_INTRANET_KB941000",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/Zones//4",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Policies/Associations",
+          "HKLM/Software/Policies/Microsoft/Internet Explorer/Main/FeatureControl",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Policies/Explorer",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Zones/4",
+          "HKCR/.chm",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/CLSID/{1f486a52-3cb1-48fd-8f50-b8dc300d9f9d}",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Zones/0",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Zones/3",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Zones/2",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Zones",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/5.0/Cache",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Internet Explorer/Main/FeatureControl",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Control Panel/Desktop/MuiCached/MachineLanguageConfiguration",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/.asp",
+          "HKLM/System/CurrentControlSet/Control/Srp/GP/DLL",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/CLSID/{1f486a52-3cb1-48fd-8f50-b8dc300d9f9d}/Progid",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Explorer/SessionInfo/1",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Internet Explorer",
+          "HKCR/CLSID/{7B8A2D94-0AC9-11D1-896C-00C04FB6BFC4}",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Explorer/FolderDescriptions/{5E6C858F-0E22-4760-9AFE-EA3317B67173}",
+          "HKLM/System/CurrentControlSet/Services/WinSock2/Parameters/Protocol_Catalog9/Catalog_Entries/000000000014",
+          "HKLM/System/CurrentControlSet/Services/WinSock2/Parameters/Protocol_Catalog9/Catalog_Entries/000000000015",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/Folder/BrowseInPlace",
+          "HKLM/SOFTWARE/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/5.0/Cache",
+          "HKLM/System/CurrentControlSet/Services/WinSock2/Parameters/Protocol_Catalog9/Catalog_Entries/000000000016",
+          "HKLM/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Lockdown_Zones/4",
+          "HKLM/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Lockdown_Zones/2",
+          "HKLM/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Lockdown_Zones/3",
+          "HKLM/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Lockdown_Zones/0",
+          "HKLM/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Lockdown_Zones/1",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Zones/1",
+          "HKLM/SOFTWARE/Microsoft/Windows/CurrentVersion/ShellCompatibility/Applications/sample.exe",
+          "HKLM/SYSTEM/CurrentControlSet/Services/Winsock/Setup Migration/Providers/Psched",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/Lockdown_Zones",
+          "HKLM/System/CurrentControlSet/Services/WinSock2/Parameters/Protocol_Catalog9/Catalog_Entries/000000000012",
+          "HKLM/System/CurrentControlSet/Services/WinSock2/Parameters/Protocol_Catalog9/Catalog_Entries/000000000013",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Explorer/SessionInfo/1/KnownFolders",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_COMPAT_USE_CONNECTION_BASED_NEGOTIATE_AUTH_KB2151543",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_SECURITY_FLAG_IGNORE_REVOCATION_KB2275828",
+          "HKLM/Software/Microsoft/Windows NT/CurrentVersion/AppCompatFlags/Custom/jusched.exe",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_ALLOW_REVERSE_SOLIDUS_IN_USERINFO_KB932562",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/5.0/Cache/Extensible Cache/DOMStore",
+          "HKLM/SYSTEM/CurrentControlSet/Services/crypt32",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_INITIALIZE_URLACTION_SHELLEXECUTE_TO_ALLOW_KB936610",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_ALLOW_LONG_INTERNATIONAL_FILENAMES",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/exefile/shell/open/command",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/App Paths/jusched.exe",
+          "HKLM/Software/Microsoft/Windows/Shell/RegisteredApplications/UrlAssociations/Directory/OpenWithProgids",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Explorer/FileExts/.exe",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Explorer/MountPoints2/CPC/Volume/{561ec7c3-eb9f-11e9-af89-806e6f6e6963}",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/RETRY_HEADERONLYPOST_ONCONNECTIONRESET",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/AllFilesystemObjects/BrowseInPlace",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_INITIALIZE_URLACTION_SHELLEXECUTE_TO_ALLOW_KB936610",
+          "HKLM/Software/Microsoft/Windows NT/CurrentVersion/Windows",
+          "HKLM/Software/Microsoft/Windows NT/CurrentVersion/ProfileList/S-1-5-21-470376811-3006406624-3672060426-1000",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Explorer/KnownFolderSettings",
+          "HKLM/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_PROTOCOL_LOCKDOWN",
+          "HKLM/Software/Policies/Microsoft/MUI/Settings",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/Zones//1",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/Zones//0",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/Zones//3",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/Zones//2",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/exefile/Clsid",
+          "HKLM/System/CurrentControlSet/Services/WinSock2/Parameters",
+          "HKCR/.asp",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_PROTOCOL_LOCKDOWN",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Explorer/FolderDescriptions/{F1B32785-6FBA-4FCF-9D55-7B8E7F157091}/PropertyBag",
+          "HKLM/Software/Microsoft/SQMClient/Windows",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/SideBySide/AssemblyStorageRoots",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_RETURN_FAILED_CONNECT_CONTENT_KB942615",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Control Panel/Desktop",
+          "HKLM/System/CurrentControlSet/Services/Tcpip/Parameters/Winsock",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_EXCLUDE_INVALID_CLIENT_CERT_KB929477",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/windows/CurrentVersion/Internet Settings/Connections",
+          "HKCR/.crt",
+          "HKCR/AllFilesystemObjects",
+          "HKCR/Directory",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap//Domains",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Explorer/FolderDescriptions/{5E6C858F-0E22-4760-9AFE-EA3317B67173}/PropertyBag",
+          "HKLM/System/CurrentControlSet/Services/WinSock2/Parameters/Protocol_Catalog9/Catalog_Entries",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/Directory/DocObject",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/Drive/shellex/FolderExtensions",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Lockdown_Zones/4",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Lockdown_Zones/2",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/Folder/DocObject",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/exefile/shell/open/ddeexec",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Lockdown_Zones/1",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_ALLOW_LONG_INTERNATIONAL_FILENAMES",
+          "HKLM/SOFTWARE/Microsoft/Windows/CurrentVersion/Internet Settings",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Explorer/FolderDescriptions",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap",
+          "HKLM/Software/Microsoft/Windows NT/CurrentVersion/ProfileList",
+          "HKLM/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap/Ranges",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/AutoProxyTypes/Application/x-internet-signup",
+          "HKLM/Software/Policies/Microsoft/SQMClient/Windows",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Explorer/FolderDescriptions/{352481E8-33BE-4251-BA85-6007CAEDCF9D}",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_SKIP_POST_RETRY_ON_INTERNETWRITEFILE_KB895954",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/SideBySide",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Explorer",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Explorer/MountPoints2/CPC/Volume/{561ec7c4-eb9f-11e9-af89-806e6f6e6963}",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Explorer/CLSID/{20D04FE0-3AEA-1069-A2D8-08002B30309D}/ShellFolder",
+          "HKLM/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Windows/Explorer",
+          "HKLM/System/CurrentControlSet/Control/SafeBoot/Option",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Explorer/Shell Folders",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/AutoProxyTypes",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/RETRY_HEADERONLYPOST_ONCONNECTIONRESET",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/AllFilesystemObjects",
+          "HKLM/Software/Policies/Microsoft/Windows/Explorer",
+          "HKLM/Software/Policies/Microsoft/Windows/Safer/CodeIdentifiers",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap//Ranges",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_COMPAT_USE_CONNECTION_BASED_NEGOTIATE_AUTH_KB2151543",
+          "HKLM/Software/Policies",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Internet Settings/5.0/Cache",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Explorer/CLSID/{20D04FE0-3AEA-1069-A2D8-08002B30309D}/ShellFolder",
+          "HKLM/SYSTEM/CurrentControlSet/Services/Winsock/Parameters",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Explorer/FolderDescriptions/{D9DC8A3B-B784-432E-A781-5A1130A75963}/PropertyBag",
+          "HKLM/SYSTEM/CurrentControlSet/Services/Winsock/Setup Migration/Providers/Tcpip6",
+          "HKCR/Folder",
+          "HKLM/System/CurrentControlSet/Control/Nls/ExtendedLocale",
+          "HKLM/System/CurrentControlSet/Control/SQMServiceList",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_HTTP_USERNAME_PASSWORD_DISABLE",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Internet Settings/5.0/Cache/Content",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_FIX_CHUNKED_PROXY_SCRIPT_DOWNLOAD_KB843289",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_DISABLE_UNICODE_HANDLE_CLOSING_CALLBACK",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software",
+          "HKLM/Software/Policies/Microsoft/Windows/AppCompat",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Explorer/FolderDescriptions/{3EB685DB-65F9-4CF6-A03A-E3EF65729F3D}",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/Zones",
+          "HKLM/Software/Microsoft/Tracing/jusched_RASMANCS",
+          "HKLM/Software/Microsoft/Windows/Windows Error Reporting/WMR",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/Shell/Associations/UrlAssociations/Directory",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/SystemFileAssociations/.exe/DocObject",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_DISABLE_NOTIFY_UNVERIFIED_SPN_KB2385266",
+          "HKLM/Software/Policies/Microsoft/Windows NT/Rpc",
+          "HKLM/System/CurrentControlSet/Services/WinSock2/Parameters/NameSpace_Catalog5/Catalog_Entries/000000000001",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_DISABLE_NOTIFY_UNVERIFIED_SPN_KB2385266",
+          "HKLM/System/CurrentControlSet/Control/Terminal Server",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_PERMIT_CACHE_FOR_AUTHENTICATED_FTP_KB910274",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_RELEASE_KEYS_ON_UNLOAD_KB975619",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/5.0/Cache/Extensible Cache/feedplat",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Explorer/FolderDescriptions/{2B0F765D-C0E9-4171-908E-08A611B84FF6}/PropertyBag",
+          "HKLM/Software/Policies/Microsoft/Windows NT/DnsClient",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_ZONES_CHECK_ZONEMAP_POLICY_KB941001",
+          "HKCR/.exe",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Lockdown_Zones/3",
+          "HKLM/System/CurrentControlSet/Services/WinSock2/Parameters/AppId_Catalog",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Lockdown_Zones/0",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Explorer/KindMap",
+          "HKLM/SYSTEM/CurrentControlSet/Services/SharedAccess/Parameters/FirewallPolicy/StandardProfile/AuthorizedApplications/List",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/.com",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/SOFTWARE/Policies/Microsoft/Windows/CurrentVersion/Internet Settings",
+          "HKCR/.app",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/Directory/CurVer",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/windows/CurrentVersion/Internet Settings/Wpad",
+          "HKLM/SOFTWARE/Microsoft/Windows/CurrentVersion/Internet Settings/5.0/Cache",
+          "HKLM/Software/Policies/Microsoft/Windows/System",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_ALLOW_REVERSE_SOLIDUS_IN_USERINFO_KB932562",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_ZONES_DEFAULT_DRIVE_INTRANET_KB941000",
+          "HKLM/Software/Microsoft/Windows NT/CurrentVersion/GRE_Initialize",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Explorer/FolderDescriptions/{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}/PropertyBag",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_EXCLUDE_INVALID_CLIENT_CERT_KB929477",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_LOCALMACHINE_LOCKDOWN",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_IGNORE_POLICIES_ZONEMAP_IF_ESC_ENABLED_KB918915",
+          "HKCR/.csh",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows NT/CurrentVersion/AppCompatFlags/Layers",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/App Paths/jusched.exe",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/.crt",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Control Panel/Desktop",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Explorer/User Shell Folders",
+          "HKLM/System/CurrentControlSet/Control/Session Manager",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Explorer/FolderDescriptions/{352481E8-33BE-4251-BA85-6007CAEDCF9D}/PropertyBag",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap/Domains",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/SystemFileAssociations/.exe/Clsid",
+          "HKLM/Software/Microsoft/Windows NT/CurrentVersion/Compatibility32",
+          "HKCR/.cmd",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap//ProtocolDefaults",
+          "HKLM/System/CurrentControlSet/Control/ComputerName/ActiveComputerName",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/Lockdown_Zones/4",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_IGNORE_POLICIES_ZONEMAP_IF_ESC_ENABLED_KB918915",
+          "HKLM/Software/Microsoft/Internet Explorer/Security",
+          "HKLM/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/Zones",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Explorer/FolderDescriptions/{1B3EA5DC-B587-4786-B4EF-BD1DC332AEAE}",
+          "HKLM/System/CurrentControlSet/Services/LDAP",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_USE_UTF8_FOR_BASIC_AUTH_KB967545",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/Lockdown_Zones/3",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Policies/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap/Domains",
+          "HKLM/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_DIGEST_NO_EXTRAS_IN_URI",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/5.0/Cache/History",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/SystemFileAssociations/.exe/BrowseInPlace",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Explorer/FileExts/.exe//UserChoice",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/.cer",
+          "HKLM/System/CurrentControlSet/Services/WinSock2/Parameters/NameSpace_Catalog5/0000000C",
+          "HKCR/.bat",
+          "HKCR/.bas",
+          "HKLM/Software/Microsoft/Windows NT/CurrentVersion/Diagnostics",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/Folder",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/windows/CurrentVersion/Internet Settings",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/5.0/Cache/Extensible Cache/UserData",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/5.0/Cache/Cookies",
+          "HKLM/System/CurrentControlSet/Control/Nls/CustomLocale",
+          "HKLM/System/CurrentControlSet/Services/WinSock2/Parameters/NameSpace_Catalog5/Catalog_Entries/000000000006",
+          "HKLM/System/CurrentControlSet/Services/WinSock2/Parameters/NameSpace_Catalog5/Catalog_Entries/000000000005",
+          "HKLM/System/CurrentControlSet/Services/WinSock2/Parameters/NameSpace_Catalog5/Catalog_Entries/000000000004",
+          "HKLM/System/CurrentControlSet/Services/WinSock2/Parameters/NameSpace_Catalog5/Catalog_Entries/000000000003",
+          "HKLM/System/CurrentControlSet/Services/WinSock2/Parameters/NameSpace_Catalog5/Catalog_Entries/000000000002",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Policies/NonEnum",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/CLSID/{1f486a52-3cb1-48fd-8f50-b8dc300d9f9d}/InprocHandler32",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Internet Explorer/Main/FeatureControl/FEATURE_RETURN_FAILED_CONNECT_CONTENT_KB942615",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/SystemFileAssociations/.exe/ShellEx/IconHandler",
+          "HKLM/SYSTEM/CurrentControlSet/Services/Winsock/Setup Migration/Providers",
+          "HKLM/System/CurrentControlSet/Services/DnsCache/Parameters",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/CLSID/{1f486a52-3cb1-48fd-8f50-b8dc300d9f9d}/TreatAs",
+          "HKU",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/Directory/Clsid",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000_Classes/.bat"
+        ],
+        "registry_keys_set": [
+          {
+            "key": "HKLM/Software/Microsoft/Tracing/jusched_RASAPI32/ConsoleTracingMask"
+          },
+          {
+            "key": "HKLM/Software/Microsoft/Tracing/jusched_RASMANCS/MaxFileSize"
+          },
+          {
+            "key": "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap//UNCAsIntranet"
+          },
+          {
+            "key": "HKLM/Software/Microsoft/Tracing/jusched_RASAPI32/EnableConsoleTracing"
+          },
+          {
+            "key": "HKLM/Software/Microsoft/Tracing/jusched_RASMANCS/EnableFileTracing"
+          },
+          {
+            "key": "HKLM/Software/Microsoft/Tracing/jusched_RASAPI32/FileDirectory",
+            "value": "%windir%\\tracing"
+          },
+          {
+            "key": "HKLM/Software/Microsoft/Tracing/jusched_RASAPI32/MaxFileSize"
+          },
+          {
+            "key": "HKLM/Software/Microsoft/Tracing/jusched_RASMANCS/EnableConsoleTracing"
+          },
+          {
+            "key": "HKLM/Software/Microsoft/Tracing/jusched_RASMANCS/FileDirectory",
+            "value": "%windir%\\tracing"
+          },
+          {
+            "key": "HKLM/Software/Microsoft/Tracing/jusched_RASMANCS/ConsoleTracingMask"
+          },
+          {
+            "key": "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap//AutoDetect",
+            "value": "\u0001"
+          },
+          {
+            "key": "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/windows/CurrentVersion/Internet Settings/ProxyEnable"
+          },
+          {
+            "key": "HKLM/Software/Microsoft/Tracing/jusched_RASMANCS/FileTracingMask"
+          },
+          {
+            "key": "HKLM/Software/Microsoft/Tracing/jusched_RASAPI32/FileTracingMask"
+          },
+          {
+            "key": "HKLM/Software/Microsoft/Tracing/jusched_RASAPI32/EnableFileTracing"
+          },
+          {
+            "key": "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/windows/CurrentVersion/Internet Settings/Connections/SavedLegacySettings",
+            "value": "F"
+          }
+        ],
+        "files_opened": [
+          "C:\\Windows\\system32\\wininet.dll",
+          "C:\\Windows\\system32\\rtutils.dll",
+          "C:\\Windows\\system32\\PROPSYS.dll",
+          "C:\\Windows\\system32\\urlmon.dll",
+          "C:\\Windows\\System32\\wshtcpip.dll",
+          "C:\\Windows\\system32\\uxtheme.dll",
+          "C:\\Windows\\system32\\apphelp.dll",
+          "C:\\Windows\\system32\\rasadhlp.dll",
+          "C:\\New Folder",
+          "C:\\Windows\\System32\\wship6.dll",
+          "C:\\Windows\\SYSTEM32\\sechost.dll",
+          "C:\\Windows\\WindowsShell.Manifest",
+          "C:\\Program Files\\Java\\jre-09\\bin\\jusched.exe",
+          "C:\\Windows\\system32\\sensapi.dll",
+          "C:\\Windows\\system32\\IMM32.DLL",
+          "C:\\Windows\\System32\\fwpuclnt.dll",
+          "C:\\Windows\\system32\\profapi.dll",
+          "C:\\Windows\\system32\\iphlpapi.DLL",
+          "C:\\Windows\\system32\\dnsapi.DLL",
+          "C:\\Windows\\system32\\WINNSI.DLL",
+          "C:\\Windows\\system32\\shell32.dll",
+          "C:\\Windows\\system32\\rasman.dll",
+          "C:\\Windows\\system32\\CRYPTBASE.dll",
+          "C:\\Windows\\system32\\rpcss.dll",
+          "C:\\Windows\\WinSxS\\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\\comctl32.dll",
+          "C:\\Windows\\system32\\mswsock.dll",
+          "C:\\Windows\\system32\\RASAPI32.dll",
+          "C:\\Windows\\system32\\SspiCli.dll",
+          "C:\\Windows\\system32\\ntmarta.dll"
+        ],
+        "tags": [
+          "FTP_COMMUNICATION"
+        ],
+        "modules_loaded": [
+          "advapi32.dll",
+          "imm32.dll",
+          "gdi32.dll",
+          "shell32.dll",
+          "uxtheme.dll",
+          "propsys.dll",
+          "ole32.dll",
+          "comctl32.dll",
+          "ntmarta.dll",
+          "sspicli.dll",
+          "api-ms-win-core-localregistry-l1-1-0.dll",
+          "jusched.exe",
+          "wininet.dll",
+          "ws2_32",
+          "dnsapi",
+          "iphlpapi",
+          "kernel32.dll",
+          "rasapi32.dll",
+          "shlwapi.dll",
+          "rasman.dll",
+          "rtutils.dll",
+          "api-ms-win-service-winsvc-l1-1-0.dll",
+          "api-ms-win-service-management-l1-1-0.dll",
+          "sensapi.dll"
+        ],
+        "has_pcap": true,
+        "has_evtx": false,
+        "ids_alerts": [
+          {
+            "rule_category": "trojan-activity",
+            "alert_severity": "high",
+            "rule_msg": "MALWARE-CNC Win.Trojan.Lolbot variant outbound connection",
+            "rule_raw": "alert tcp $HOME_NET any -> $EXTERNAL_NET 21 ( msg:\"MALWARE-CNC Win.Trojan.Lolbot variant outbound connection\"; flow:to_server,established; content:\"USER griptoloji\",fast_pattern,nocase; metadata:impact_flag red; service:ftp; reference:url,www.virustotal.com/file/6317bf0843703c2356243b58a961b82ba2ffbbcb1d744402c17c94c139d3ea5b/analysis/; classtype:trojan-activity; sid:23109; rev:4; )",
+            "rule_references": [
+              "https://www.virustotal.com/file/6317bf0843703c2356243b58a961b82ba2ffbbcb1d744402c17c94c139d3ea5b/analysis/"
+            ],
+            "alert_context": {
+              "dest_port": 21,
+              "dest_ip": "209.202.252.54"
+            },
+            "rule_url": "https://www.snort.org/downloads/#rule-downloads",
+            "rule_source": "Snort registered user ruleset",
+            "rule_id": "1:23109"
+          },
+          {
+            "rule_category": "Generic Protocol Command Decode",
+            "alert_severity": "low",
+            "rule_msg": "SURICATA Applayer Detect protocol only one direction",
+            "rule_raw": "alert ip any any -> any any (msg:\"SURICATA Applayer Detect protocol only one direction\"; flow:established; app-layer-event:applayer_detect_protocol_only_one_direction; flowint:applayer.anomaly.count,+,1; classtype:protocol-command-decode; sid:2260002; rev:1;)",
+            "alert_context": {
+              "src_ip": "209.202.252.54",
+              "src_port": 21
+            },
+            "rule_url": "https://www.openinfosecfoundation.org/",
+            "rule_source": "Suricata",
+            "rule_id": "1:2260002"
+          },
+          {
+            "rule_category": "Malware Command and Control Activity Detected",
+            "alert_severity": "high",
+            "rule_msg": "ET MALWARE Win32/Comrerop Checkin to FTP server",
+            "rule_raw": "alert ftp $HOME_NET any -> $EXTERNAL_NET any (msg:\"ET MALWARE Win32/Comrerop Checkin to FTP server\"; flow:established,to_server; content:\"USER griptoloji|0d 0a|\"; fast_pattern; reference:md5,6b16290b05afd1a9d638737924f2ab5c; classtype:command-and-control; sid:2014757; rev:5; metadata:created_at 2012_05_16, former_category MALWARE, updated_at 2022_03_17;)",
+            "rule_references": [
+              "https://www.virustotal.com/gui/search/6b16290b05afd1a9d638737924f2ab5c"
+            ],
+            "alert_context": {
+              "dest_port": 21,
+              "dest_ip": "209.202.252.54"
+            },
+            "rule_url": "https://rules.emergingthreats.net/",
+            "rule_source": "Proofpoint Emerging Threats Open",
+            "rule_id": "1:2014757"
+          }
+        ],
+        "has_html_report": false,
+        "mutexes_opened": [
+          "Local\\_!MSFTHISTORY!_",
+          "Local\\c:!users!admin!appdata!local!microsoft!windows!temporary internet files!content.ie5!",
+          "Local\\c:!users!admin!appdata!roaming!microsoft!windows!cookies!",
+          "Local\\c:!users!admin!appdata!local!microsoft!windows!history!history.ie5!",
+          "Local\\WininetStartupMutex",
+          "Local\\WininetConnectionMutex",
+          "Local\\WininetProxyRegistryMutex"
+        ],
+        "memory_pattern_domains": [
+          "scorecardresearch.com",
+          "sogo.com",
+          "griptoloji.host-ed.net",
+          "onlinedown.net",
+          "oePari.recFtutMSrtiipSnsaldzLereiati.eeecllYt.rlPeinvsrnhoCtdryeiSrSaPrdstisedonu.As",
+          "ss0.baidu.com",
+          "sohu.com",
+          "img-s-msn-com.akamaized.net",
+          "media.net",
+          "ss3.baidu.com",
+          "zdfans.com",
+          "3lift.com",
+          "microsoftupdate.microsoft.com",
+          "sp2.baidu.com",
+          "123.sogou.com",
+          "www.baidu.com",
+          "forspeed.onlinedown.net",
+          "U.Awf.Aw",
+          "office.microsoft.com",
+          "bing.com",
+          "www.zdfans.com",
+          "static.chartbeat.com",
+          "c.msn.cn",
+          "baidu.com",
+          "tYHt9Ht.Ht",
+          "wustats.microsoft.com",
+          "windowsupdate.microsoft.com",
+          "download.microsoft.com",
+          "hm.baidu.com",
+          "dl.pinyin.sogou.com",
+          "pinyin.sogou.com",
+          "cambrian-images.cdn.bcebos.com",
+          "ss1.bdstatic.com",
+          "www.msn.com",
+          "2Fwww.baidu.com",
+          "mmstat.com",
+          "microsoftupdate.com",
+          "armmf.adobe.com",
+          "iptoloji.host-ed.net",
+          "config.pinyin.sogou.com",
+          "msdn.microsoft.com",
+          "js.users.51.la",
+          "src.onlinedown.net",
+          "www.msdn.com",
+          "go.microsoft.com",
+          "www.msn.cn",
+          "static-global-s-msn-com.akamaized.net",
+          "update.microsoft.com",
+          "support.microsoft.com",
+          "sp0.baidu.com",
+          "www.bing.com",
+          "msdn.com",
+          "www.microsoft.com",
+          "ss1.baidu.com",
+          "hoho.ho.funpic.org",
+          "c.bing.com",
+          "zdfans7.com",
+          "m.baidu.com",
+          "ftp.tripod.com",
+          "ss2.baidu.com",
+          "windowsupdate.com",
+          "pos.baidu.com",
+          "microsoft.com",
+          "www.onlinedown.net",
+          "schemas.microsoft.com",
+          "sogou.com",
+          "p.tripod.com",
+          "soso.com",
+          "hohoho.ho.funpic.org"
+        ],
+        "registry_keys_deleted": [
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap//ProxyBypass",
+          "HKLM/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap//IntranetName",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/windows/CurrentVersion/Internet Settings/ProxyOverride",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/windows/CurrentVersion/Internet Settings/AutoConfigURL",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/windows/CurrentVersion/Internet Settings/ProxyServer",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap//ProxyBypass",
+          "HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap//IntranetName"
+        ]
+      }
+    },
+    {
+      "id": "367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730_VirusTotal Cuckoofork",
+      "type": "file_behaviour",
+      "links": {
+        "self": "https://www.virustotal.com/api/v3/file_behaviours/367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730_VirusTotal Cuckoofork"
+      },
+      "attributes": {
+        "files_written": [
+          "C:\\Program Files\\Java\\jre-09\\bin\\jusched.exe",
+          "C:\\Program Files\\Java\\jre-09\\bin\\UF"
+        ],
+        "dns_lookups": [
+          {
+            "hostname": "hohoho.ho.funpic.org"
+          },
+          {
+            "hostname": "griptoloji.host-ed.net"
+          }
+        ],
+        "last_modification_date": 1575009294,
+        "mutexes_created": [
+          "ShimCacheMutex",
+          "RasPbFile"
+        ],
+        "has_memdump": false,
+        "analysis_date": 1575005689,
+        "files_dropped": [
+          {
+            "path": "jusched.exe",
+            "sha256": "e589664393a4a3aa5703effb0831a02ecfd63be55196fa296d73e8dc49f77d3c"
+          }
+        ],
+        "command_executions": [
+          "(open) C:\\Program Files\\Java\\jre-09\\bin\\jusched.exe(null) [(null)]"
+        ],
+        "processes_created": [
+          "C:\\Program Files\\Java\\jre-09\\bin\\jusched.exe C:\\Program Files\\Java\\jre-09\\bin\\jusched.exe\" \""
+        ],
+        "services_opened": [
+          "RASMAN"
+        ],
+        "sandbox_name": "VirusTotal Cuckoofork",
+        "files_opened": [
+          "C:\\WINDOWS\\regedit.exe",
+          "C:\\WINDOWS\\Registration\\R000000000007.clb",
+          "C:\\Program Files\\Java\\jre-09\\bin\\jusched.exe",
+          "c:\\autoexec.bat",
+          "C:\\WINDOWS\\regedit.exe",
+          "C:\\Program Files\\Java\\jre-09\\bin\\jusched.exe",
+          "C:\\367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730",
+          "C:\\Program Files\\Java\\jre-09\\bin\\jusched.exe",
+          "C:\\Program Files\\Java\\jre-09\\bin\\UF",
+          "\\\\.\\PIPE\\wkssvc",
+          "\\\\.\\PIPE\\lsarpc",
+          "\\\\.\\MountPointManager",
+          "C:\\WINDOWS\\Registration\\R000000000007.clb",
+          "C:\\Program Files\\Java\\VirtualDevice.vxd",
+          "\\\\.\\PIPE\\ROUTER",
+          "\\\\.\\Ip",
+          "c:\\autoexec.bat"
+        ],
+        "modules_loaded": [
+          "ole32.dll",
+          "netapi32",
+          "rpcrt4.dll",
+          "shell32.dll",
+          "setupapi.dll",
+          "clbcatq.dll",
+          "secur32.dll",
+          "version.dll",
+          "advapi32.dll",
+          "wsock32",
+          "ws2_32",
+          "comctl32.dll",
+          "rasapi32.dll",
+          "rtutils.dll",
+          "rasman.dll",
+          "c:\\windows\\system32\\msv1_0.dll",
+          "sensapi.dll",
+          "ntdll.dll",
+          "userenv.dll",
+          "netapi32.dll",
+          "c:\\windows\\system32\\mswsock.dll",
+          "dnsapi.dll",
+          "rasadhlp.dll",
+          "kernel32.dll",
+          "wininet.dll"
+        ],
+        "has_pcap": true,
+        "files_copied": [
+          {
+            "source": "C:\\367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730",
+            "destination": "C:\\Program Files\\Java\\jre-09\\bin\\jusched.exe"
+          }
+        ],
+        "has_evtx": false,
+        "has_html_report": true,
+        "mutexes_opened": [
+          "RasPbFile"
+        ]
+      }
+    }
+  ],
+  "comments": [
+    {
+      "id": "f-367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730-65f301fe",
+      "type": "comment",
+      "links": {
+        "self": "https://www.virustotal.com/api/v3/comments/f-367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730-65f301fe"
+      },
+      "attributes": {
+        "tags": [
+          "malware",
+          "jaffacakes118",
+          "367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730"
+        ],
+        "text": "(NOTE: If you know that this file is 100% safe, then you can safely ignore this comment, this comments purpose is to act as more of an insight into the file and what it does.)\n[b]File Info:[/b]\n\n[b]Filename:[/b]\n367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730\n\n[b]Threat Score:[/b]\n10/10\n\n[b]Family:[/b]\nN/A\n\n[b]File Report:[/b]\nhttps://tria.ge/210517-axkcctxy1s\n\n[b]Tags:[/b]\n#malware\n#jaffacakes118\n#367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730",
+        "votes": {
+          "positive": 0,
+          "negative": 0,
+          "abuse": 0
+        },
+        "date": 1714262609,
+        "html": "(NOTE: If you know that this file is 100% safe, then you can safely ignore this comment, this comments purpose is to act as more of an insight into the file and what it does.)<br /><strong>File Info:</strong><br /><br /><strong>Filename:</strong><br />367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730<br /><br /><strong>Threat Score:</strong><br />10/10<br /><br /><strong>Family:</strong><br />N/A<br /><br /><strong>File Report:</strong><br />https://tria.ge/210517-axkcctxy1s<br /><br /><strong>Tags:</strong><br />#malware<br />#jaffacakes118<br />#367e15524b0fd912d4ffd3ea32c1f9ff7948584840b7521b53da03ae8e3fb730"
+      }
+    }
+  ]
+}

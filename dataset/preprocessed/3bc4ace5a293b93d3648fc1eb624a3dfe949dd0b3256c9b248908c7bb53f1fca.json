@@ -1,0 +1,74 @@
+{
+  "hash": "3bc4ace5a293b93d3648fc1eb624a3dfe949dd0b3256c9b248908c7bb53f1fca",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://carder.bit/  UA: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36\n\nDNS LOOKUPS (2):\n  ipv4bot.whatismyipaddress.com \u2192 66.171.248.178\n  ns1.wowservers.ru \u2192 185.103.243.59\n\nIP TRAFFIC (2):\n  185.103.243.59:53 (UDP)\n  66.171.248.178:80 (TCP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  nslookup carder.bit ns1.wowservers.ru\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - get common file path\n  - encrypt data using RC4 KSA\n  - link function at runtime on Windows\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - contain loop\n  - get thread local storage value\n  - Discovery::File and Directory Discovery [E1083]\n  - Communication::Interprocess Communication [C0003]\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Encryption Key::RC4 KSA [C0028.002]\n  - print debug messages\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  zkodzv.exe  [sha256: eb1ecd8e921dd071...]\n\nFILES WRITTEN (1):\n  C:\\Documents and Settings\\<USER>\\Application Data\\Microsoft\\zkodzv.exe\n\nMUTEXES CREATED (2):\n  RasPbFile\n  ShimCacheMutex\n\nMUTEXES OPENED (1):\n  Global\\pc_group=WORKGROUP&ransom_id=e8b0adc86c78a9c3\n\nPROCESSES CREATED (1):\n  nslookup carder.bit ns1.wowservers.ru\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryExW, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.71\n  .rdata       entropy=4.77\n  .data        entropy=3.03\n  .rsrc        entropy=7.87\n  .reloc       entropy=6.27\n  [overlay]    entropy=2.947702646255493  size=9\n",
+  "ground_truth": {
+    "hash": "3bc4ace5a293b93d3648fc1eb624a3dfe949dd0b3256c9b248908c7bb53f1fca",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9296,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encrypt data using RC4 KSA"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "delay execution",
+      "create or open file",
+      "contain loop",
+      "get thread local storage value",
+      "get common file path",
+      "create mailslot",
+      "encrypt data using RC4 KSA",
+      "print debug messages",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "185.103.243.59",
+        "66.171.248.178"
+      ],
+      "domains": [
+        "ipv4bot.whatismyipaddress.com",
+        "ns1.wowservers.ru"
+      ],
+      "urls": [
+        "http://carder.bit/"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "zkodzv.exe"
+      ],
+      "mutexes": [
+        "RasPbFile",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "nslookup carder.bit ns1.wowservers.ru"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

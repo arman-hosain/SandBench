@@ -1,0 +1,70 @@
+{
+  "hash": "0235fccca1a5f8816bb9c3f89a36c9b1c9dbf67147a2e87125261baa5d852550",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it uses a deep process tree with random-named child processes to evade detection, drops multiple executable files to the root of the C: drive, and utilizes obfuscation techniques (stack strings, argument obfuscation) and packers (DxPack, UPX) to hide its payload. The presence of 'ShimCacheMutex' suggests an attempt to manipulate system artifacts or hide execution history. The combination of anti-analysis capabilities, file dropping, and process injection/creation patterns confirms malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The primary behavior observed is the dropping of additional executable files (0fhd84.exe, 3i41569.exe) and numerous other random-named executables to the filesystem. The sample itself acts as a carrier, using obfuscation and packing to deliver these secondary payloads, which is the defining characteristic of a Dropper.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1562.001\",\n        \"name\": \"Clear Windows Event Logs\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1036\",\n        \"name\": \"Masquerading\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1691,
+      "response_chars": 1358,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it uses a deep process tree with random-named child processes to evade detection, drops multiple executable files to the root of the C: drive, and utilizes obfuscation techniques (stack strings, argument obfuscation) and packers (DxPack, UPX) to hide its payload. The presence of 'ShimCacheMute",
+      "elapsed_seconds": 11.99
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 11.99,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9028
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.4,
+      "ttp_precision": 0.25,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1036",
+        "T1055",
+        "T1562"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1036",
+        "T1055",
+        "T1562"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4,
+      "breakdown": {
+        "ttp_f1": 0.4
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

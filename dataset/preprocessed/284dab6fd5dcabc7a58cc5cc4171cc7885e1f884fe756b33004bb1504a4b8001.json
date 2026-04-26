@@ -1,0 +1,100 @@
+{
+  "hash": "284dab6fd5dcabc7a58cc5cc4171cc7885e1f884fe756b33004bb1504a4b8001",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (9):\n  GET http://ransomware.bit/  UA: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36\n  GET http://ransomware.bit/\n  GET http://ipv4bot.whatismyipaddress.com/\n  POST http://110.110.110.3/aiplow\n  POST http://110.110.110.3/eelf\n  POST http://110.110.110.3/oreph\n  POST http://110.110.110.3/deea?zaai=phereza\n  POST http://110.110.110.3/iezaore\n  POST http://110.110.110.3/seyfui?ssauf=owsc\n\nDNS LOOKUPS (6):\n  ipv4bot.whatismyipaddress.com\n  ipv4bot.whatismyipaddress.com \u2192 66.171.248.178\n  ns1.corp-servers.ru\n  ns2.corp-servers.ru\n  ransomware.bit\n  zonealarm.bit\n\nIP TRAFFIC (2):\n  66.171.248.178:80 (TCP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (2):\n  RASMAN\n  Sens\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  01c5f75fcb5b8619db2dd59a50f68b5a.virus.exe\n    nslookup ransomware.bit ns1.corp-servers.ru\n    nslookup zonealarm.bit ns2.corp-servers.ru\n    nslookup ransomware.bit ns2.corp-servers.ru\n    nslookup zonealarm.bit ns1.corp-servers.ru\n    nslookup ransomware.bit ns1.corp-servers.ru\n    nslookup zonealarm.bit ns2.corp-servers.ru\n    nslookup ransomware.bit ns2.corp-servers.ru\n    nslookup zonealarm.bit ns1.corp-servers.ru\n    nslookup ransomware.bit ns1.corp-servers.ru\n    nslookup zonealarm.bit ns2.corp-servers.ru\n    nslookup ransomware.bit ns2.corp-servers.ru\n    nslookup zonealarm.bit ns1.corp-servers.ru\n    nslookup ransomware.bit ns1.corp-servers.ru\n    nslookup zonealarm.bit ns2.corp-servers.ru\n\nCOMMAND EXECUTIONS (1):\n  nslookup zonealarm.bit ns1.corp-servers.ru\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - set file attributes\n  - contain obfuscated stackstrings\n  - link function at runtime on Windows\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - File System::Set File Attributes [C0050]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - File System::Create File [C0016]\n  - contain loop\n  - Discovery::File and Directory Discovery::Log File [E1083.m01]\n  - File System::Read File [C0051]\n  - File System::Writes File [C0052]\n  - Operating System::Console [C0033]\n  - Process::Terminate Process [C0018]\n  - Process::Allocate Thread Local Storage [C0040]\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - contain a resource (.rsrc) section\n  - linked against CPP standard library\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  thbldc.exe  [sha256: 41dbb40e67141d8f...]\n  C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\poscrb.exe  [sha256: 2f5e42f3229bb791...]\n\nFILES WRITTEN (3):\n  C:\\Documents and Settings\\<USER>\\Application Data\\Microsoft\\thbldc.exe\n  C:\\Documents and Settings\\Administrator\\Application Data\\Microsoft\\xjruve.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows\\Temporary Internet Files\\Content.IE5\\XBL73YY1\\ipv4bot_whatismyipaddress_com[1].htm\n\nPERSISTENCE REGISTRY KEYS (2):\n  HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\azslokfmavx = \"\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\qzjzmtojndt = \"C:\\Documents and Settings\\Administrator\\Application Data\\Microsoft\\xjruve.exe\"\u0000\n\nOTHER REGISTRY KEYS SET (4):\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n\nMUTEXES CREATED (8):\n  Global\\pc_group=WORKGROUP&ransom_id=2d84a7bff44048e7\n  Global\\pc_group=WORKGROUP&ransom_id=4029414471d2c847\n  IESQMMUTEX_0_208\n  RasPbFile\n  ShimCacheMutex\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n\nMUTEXES OPENED (8):\n  Global\\pc_group=WORKGROUP&ransom_id=cd19fdb96c78a9c3\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n  _!MSFTHISTORY!_\n  c:!documents and settings!administrator!cookies!\n  c:!documents and settings!administrator!local settings!history!history.ie5!\n  c:!documents and settings!administrator!local settings!temporary internet files!content.ie5!\n\nPROCESSES CREATED (2):\n  C:\\WINDOWS\\system32\\nslookup.exe\n  nslookup zonealarm.bit ns1.corp-servers.ru\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryW, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.61\n  .rdata       entropy=5.34\n  .data        entropy=2.5\n  .rsrc        entropy=7.57\n  .reloc       entropy=2.02\n  [overlay]    entropy=2.503258466720581  size=9\n",
+  "ground_truth": {
+    "hash": "284dab6fd5dcabc7a58cc5cc4171cc7885e1f884fe756b33004bb1504a4b8001",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9296,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      }
+    ],
+    "capa_sig_names": [
+      "set file attributes",
+      "delay execution",
+      "contain obfuscated stackstrings",
+      "create or open file",
+      "contain loop",
+      "access the Windows event log",
+      "read file on Windows",
+      "write file on Windows",
+      "manipulate console buffer",
+      "terminate process",
+      "allocate thread local storage",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section",
+      "linked against CPP standard library",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [
+        "66.171.248.178",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "ipv4bot.whatismyipaddress.com",
+        "ns1.corp-servers.ru",
+        "ns2.corp-servers.ru",
+        "ransomware.bit",
+        "zonealarm.bit"
+      ],
+      "urls": [
+        "http://110.110.110.3/aiplow",
+        "http://110.110.110.3/deea?zaai=phereza",
+        "http://110.110.110.3/eelf",
+        "http://110.110.110.3/iezaore",
+        "http://110.110.110.3/oreph",
+        "http://110.110.110.3/seyfui?ssauf=owsc",
+        "http://ipv4bot.whatismyipaddress.com/",
+        "http://ransomware.bit/"
+      ],
+      "registry_persistence": [
+        "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\azslokfmavx",
+        "\\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\qzjzmtojndt"
+      ],
+      "registry_all_count": 6,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\poscrb.exe",
+        "thbldc.exe"
+      ],
+      "mutexes": [
+        "Global\\pc_group=WORKGROUP&ransom_id=2d84a7bff44048e7",
+        "Global\\pc_group=WORKGROUP&ransom_id=4029414471d2c847",
+        "IESQMMUTEX_0_208",
+        "RasPbFile",
+        "ShimCacheMutex",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\system32\\nslookup.exe",
+        "nslookup zonealarm.bit ns1.corp-servers.ru"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

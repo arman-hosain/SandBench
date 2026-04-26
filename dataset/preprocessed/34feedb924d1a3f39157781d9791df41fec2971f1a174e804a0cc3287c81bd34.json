@@ -1,0 +1,71 @@
+{
+  "hash": "34feedb924d1a3f39157781d9791df41fec2971f1a174e804a0cc3287c81bd34",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    regsvr32.exe /s scrrun.dll\n    ntsd.exe -c q -pn Navapw32.exe\n\nCOMMAND EXECUTIONS (3):\n  regsvr32.exe /s scrrun.dll\n  ntsd.exe -c q -pn Navapw32.exe\n  wscript.exe \"C:\\documents and settings\\Petra\\Local Settings\\Temporary Internet Files\\Content.IE5\\2C10A89\\617901.vbs\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - reference absolute stream path on Windows\n  - contain loop\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - Execution::Install Additional Program [B0023]\n  - contain a resource (.rsrc) section\n  - contains PDB path\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n  - (internal) packer file limitation\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (6):\n  C:\\10a0699fa37928d39c\\spfirewall.exe\n  C:\\10a0699fa37928d39c\\spinst.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF48F1DB558AB9470C.TMP\n  C:\\documents and settings\\<USER>\\Local Settings\\Temporary Internet Files\\Content.IE5\\2C10A89\\732967.vbs\n  C:\\documents and settings\\Petra\\Local Settings\\Temporary Internet Files\\Content.IE5\\2C10A89\\617901.vbs\n  CONOUT$\n\nPERSISTENCE REGISTRY KEYS (4):\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\FileProtector = C:\\10a0699fa37928d39c\\spfirewall.exe\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\RegSCRLib = regsvr32.exe /s scrrun.dll\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\FileProtector = C:\\10a0699fa37928d39c\\spfirewall.exe\u0000\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\RegSCRLib = regsvr32.exe /s scrrun.dll\u0000\n\nOTHER REGISTRY KEYS SET (10):\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\TypeLib\\{420B2830-E718-11CF-893D-00A0C9054228}\\1.0\\\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\TypeLib\\{420B2830-E718-11CF-893D-00A0C9054228}\\1.0\\FLAGS\\\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\TypeLib\\{420B2830-E718-11CF-893D-00A0C9054228}\\1.0\\0\\win32\\\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\TypeLib\\{420B2830-E718-11CF-893D-00A0C9054228}\\1.0\\HELPDIR\\\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\Interface\\{42C642C1-97E1-11CF-978F-00A02463E06F}\\\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\Interface\\{42C642C1-97E1-11CF-978F-00A02463E06F}\\ProxyStubClsid\\\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\Interface\\{42C642C1-97E1-11CF-978F-00A02463E06F}\\ProxyStubClsid32\\\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\Interface\\{42C642C1-97E1-11CF-978F-00A02463E06F}\\TypeLib\\\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\Interface\\{42C642C1-97E1-11CF-978F-00A02463E06F}\\TypeLib\\Version\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\Interface\\{0AB5A3D0-E5B6-11D0-ABF5-00A0C90FFFC0}\\\n\nMUTEXES CREATED (7):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  ShimCacheMutex\n\nPROCESSES CREATED (6):\n  C:\\WINDOWS\\system32\\ntsd.exe\n  C:\\WINDOWS\\system32\\regsvr32.exe\n  ntsd.exe -c q -pn Navapw32.exe\n  regsvr32.exe\n  regsvr32.exe /s scrrun.dll\n  wscript.exe\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=6.06\n  UPX1         entropy=3.91\n  .rsrc        entropy=3.19\n  .imports     entropy=4.01\n  [overlay]    entropy=6.735148906707764  size=2944161\n",
+  "ground_truth": {
+    "hash": "34feedb924d1a3f39157781d9791df41fec2971f1a174e804a0cc3287c81bd34",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9306,
+    "malicious_count": 67,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with UPX"
+      }
+    ],
+    "capa_sig_names": [
+      "reference absolute stream path on Windows",
+      "contain loop",
+      "packed with UPX",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "contains PDB path",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation",
+      "(internal) packer file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\FileProtector",
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\RegSCRLib",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\FileProtector",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\RegSCRLib"
+      ],
+      "registry_all_count": 113,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\system32\\ntsd.exe",
+        "C:\\WINDOWS\\system32\\regsvr32.exe",
+        "ntsd.exe -c q -pn Navapw32.exe",
+        "regsvr32.exe",
+        "regsvr32.exe /s scrrun.dll",
+        "wscript.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

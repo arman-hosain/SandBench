@@ -1,0 +1,70 @@
+{
+  "hash": "364b241660c8a735d6d87bd93779e22e35822c843f9803ba67e6d263576f5c0a",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  sys.zief.pl \u2192 148.81.111.121\n\nIP TRAFFIC (1):\n  148.81.111.121:65520 (TCP)\n\nSERVICES OPENED (7):\n  AudioSrv\n  ProtectedStorage\n  RASMAN\n  RasMan\n  RemoteAccess\n  Router\n  mnmsrvc\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  svchost.exe\n    conf.exe -Embedding\n      rundll32.exe msconf.dll,CleanupNetMeetingDispDriver 144\n\nCOMMAND EXECUTIONS (2):\n  C:\\PROGRA~1\\NETMEE~1\\conf.exe -Embedding\n  \"C:\\WINDOWS\\system32\\rundll32.exe\" msconf.dll,CleanupNetMeetingDispDriver 144\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - accept command line arguments\n\nCAPA RULE MATCHES (MBC):\n  - Execution::Command and Scripting Interpreter [E1059]\n  - contain loop\n  - Process::Terminate Process [C0018]\n  - resolve function by parsing PE exports\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (3):\n  C:\\Documents and Settings\\Administrator\\Application Data\\Microsoft\\Address Book\\Administrator.wab\n  C:\\Program Files\\NetMeeting\\conf.exe\n  C:\\WINDOWS\\system32\\rundll32.exe\n\nPERSISTENCE REGISTRY KEYS (3):\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\!CleanupNetMeetingDispDriver = \"C:\\WINDOWS\\system32\\rundll32.exe\" msconf.dll,CleanupNetMeetingDispDriver 0\u0000\n  \\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\AuthorizedApplications\\List\\\\??\\C:\\WINDOWS\\system32\\winlogon.exe = \\??\\C:\\WINDOWS\\system32\\winlogon.exe:*:enabled:@shell32.dll,-1\u0000\n  \\REGISTRY\\USER\\.DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders\\Cache = C:\\Documents and Settings\\Administrator\\Local Settings\\Temporary Internet Files\u0000\n\nOTHER REGISTRY KEYS SET (10):\n  \\REGISTRY\\MACHINE\\SAM\\SAM\\Domains\\Account\\Users\\000001F4\\F\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\ProfileList\\S-1-5-21-1482476501-1645522239-1417001333-500\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Conferencing\\UI\\CallMRU\\DefDir\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\WAB\\WAB4\\Wab File Name\\\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\WAB\\WAB4\\OlkContactRefresh\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\WAB\\WAB4\\OlkFolderRefresh\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Identities\\{CFD7C28A-208C-4447-B3FF-2FDAC596C2FD}\\Identity \n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Identities\\Identity Ordinal\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\ActiveMovie\\devenum\\Version\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\ShellNoRoam\\MUICache\\C:\\PROGRA~1\n\nMUTEXES CREATED (14):\n  CONF.EXE\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  MPSWABOlkStoreNotifyMutex\n  MPSWabDataAccessMutex\n  MSCTF.Shared.MUTEX.EBH\n\nMUTEXES OPENED (4):\n  _!MSFTHISTORY!_\n  c:!documents and settings!administrator!cookies!\n  c:!documents and settings!administrator!local settings!history!history.ie5!\n  c:!documents and settings!administrator!local settings!temporary internet files!content.ie5!\n\nPROCESSES CREATED (2):\n  C:\\PROGRA~1\\NETMEE~1\\conf.exe\n  C:\\WINDOWS\\system32\\rundll32.exe\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=2.7\n  .rsrc        entropy=7.22\n",
+  "ground_truth": {
+    "hash": "364b241660c8a735d6d87bd93779e22e35822c843f9803ba67e6d263576f5c0a",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8472,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      }
+    ],
+    "capa_sig_names": [
+      "accept command line arguments",
+      "contain loop",
+      "terminate process",
+      "resolve function by parsing PE exports",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "148.81.111.121"
+      ],
+      "domains": [
+        "sys.zief.pl"
+      ],
+      "urls": [],
+      "registry_persistence": [
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\!CleanupNetMeetingDispDriver",
+        "\\REGISTRY\\MACHINE\\SYSTEM\\ControlSet002\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\AuthorizedApplications\\List\\\\??\\C:\\WINDOWS\\system32\\winlogon.exe",
+        "\\REGISTRY\\USER\\.DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders\\Cache"
+      ],
+      "registry_all_count": 15,
+      "files_dropped": [],
+      "mutexes": [
+        "CONF.EXE",
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "MPSWABOlkStoreNotifyMutex",
+        "MPSWabDataAccessMutex",
+        "MSCTF.Shared.MUTEX.EBH",
+        "MSIdent Logon",
+        "RasPbFile",
+        "eed3bd3a-a1ad-4e99-987b-d7cb3fcfa7f0 - S-1-5-21-1482476501-1645522239-1417001333-500",
+        "l0r2"
+      ],
+      "processes": [
+        "C:\\PROGRA~1\\NETMEE~1\\conf.exe",
+        "C:\\WINDOWS\\system32\\rundll32.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork"
+  ]
+}

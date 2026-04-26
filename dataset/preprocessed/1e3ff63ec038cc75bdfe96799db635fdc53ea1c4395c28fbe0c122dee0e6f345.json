@@ -1,0 +1,86 @@
+{
+  "hash": "1e3ff63ec038cc75bdfe96799db635fdc53ea1c4395c28fbe0c122dee0e6f345",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  2b2642b22444830a4968312012c63140.exe\n    c:\\windows\\W_X_C.bat\n      C:\\windows\\hosts.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe\n      c:\\windows\\W_X_C.bat\n        C:\\windows\\hosts.exe\n          C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe\n      C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe\n    REG DELETE HKLM\\SYSTEM\\CurrentControlSet\\Control\\SafeBoot /f\n\nCOMMAND EXECUTIONS (3):\n  C:\\Windows\\W_X_C.vbs\n  REG DELETE HKLM\\SYSTEM\\C2rren2Con2rolSe2\\Con2rol\\SafeBoo2 /f\n  \"C:\\WINDOWS\\system32\\ntvdm.exe\" -f -i1 -o\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - parse PE header\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - parse PE header\n  - Execution::Install Additional Program [B0023]\n  - contain a resource (.rsrc) section\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe  [sha256: 90fa4c73105b94f6...]\n  C:\\Windows\\hosts.exe  [sha256: 2c0eb358f919985e...]\n\nFILES WRITTEN (11):\n  %WINDIR%\\W_X_C.bat\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\avscan.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\avscan.exe\n  C:\\WINDOWS\\TEMP\\scs4.tmp\n  C:\\WINDOWS\\TEMP\\scs5.tmp\n  C:\\WINDOWS\\TEMP\\scs6.tmp\n  C:\\WINDOWS\\Temp\\scs2.tmp\n  C:\\WINDOWS\\Temp\\scs3.tmp\n  C:\\WINDOWS\\hosts.exe\n  C:\\windows\\W_X_C.vbs\n  c:\\windows\\W_X_C.bat\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\avscan = C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe\n\nOTHER REGISTRY KEYS SET (10):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\HideFileExt\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\SuperHidden\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowSuperHidden\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Folder\\HideFileExt\\DefaultValue\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Folder\\HideFileExt\\UncheckedValue\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsof2\\Windo2s\\C2rren2Version\\R2n\\a2scan\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Sof22are\\Microsof2\\Windo2s\\C2rren2Version\\E\ue525plorer\\Ad2anced\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Sof22are\\Microsof2\\Windo2s\\C2rren2Version\\E\ue525plorer\\Ad2anced\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Sof22are\\Microsof2\\Windo2s\\C2rren2Version\\E\ue525plorer\\Ad2anced\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsof2\\Windo2s\\C2rren2Version\\E\ue525plorer\\Ad2anced\\Folder\\HideFileE\ue5252\\Defa2l2Val2e\n\nMUTEXES CREATED (7):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  ShimCacheMutex\n\nPROCESSES CREATED (7):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\avscan.exe\n  C:\\WINDOWS\\W_X_C.vbs W_X_C.vbs\n  C:\\WINDOWS\\system32\\ntvdm.exe\n  C:\\WINDOWS\\system32\\reg.exe\n  C:\\windows\\hosts.exe C:\\windows\\hosts.exe\n  REG DELETE HKLM\\SYSTEM\\CurrentControlSet\\Control\\SafeBoot /f\n  c:\\windows\\W_X_C.bat\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.08\n  .rsrc        entropy=7.64\n  [overlay]    entropy=7.943471908569336  size=1927824\n",
+  "ground_truth": {
+    "hash": "1e3ff63ec038cc75bdfe96799db635fdc53ea1c4395c28fbe0c122dee0e6f345",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9206,
+    "malicious_count": 58,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 33
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "lunam",
+        "count": 13
+      },
+      {
+        "value": "sillyfdc",
+        "count": 3
+      },
+      {
+        "value": "otfrem",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.lunam/sillyfdc",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "parse PE header",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\avscan"
+      ],
+      "registry_all_count": 12,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe",
+        "C:\\Windows\\hosts.exe"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\avscan.exe",
+        "C:\\WINDOWS\\W_X_C.vbs W_X_C.vbs",
+        "C:\\WINDOWS\\system32\\ntvdm.exe",
+        "C:\\WINDOWS\\system32\\reg.exe",
+        "C:\\windows\\hosts.exe C:\\windows\\hosts.exe",
+        "REG DELETE HKLM\\SYSTEM\\CurrentControlSet\\Control\\SafeBoot /f",
+        "c:\\windows\\W_X_C.bat"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

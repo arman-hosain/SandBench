@@ -1,0 +1,169 @@
+"""
+SandBench Mode D: ReAct Agentic Investigation + Judge (VT Edition)
+"""
+import time
+from tools.llm_utils import safe_llm_call
+from modes.mode_c import run_mode_c
+from modes.mode_b import (
+    _build_reviewer_feedback,
+    _count_ttps_in_output,
+    _is_structured,
+    _judge_needs_more,
+    _score_rank,
+    _score_ttp_prediction,
+)
+
+REFINE_SYSTEM = """You are an expert malware analyst. A senior reviewer identified gaps in your previous analysis.
+
+Output the COMPLETE updated analysis as a single valid JSON object. Re-answer all three questions incorporating the reviewer's feedback. No text before or after the JSON.
+
+Required schema:
+{
+  "q1": {
+    "verdict": "MALICIOUS | SUSPICIOUS | BENIGN",
+    "explanation": "<updated reasoning>"
+  },
+  "q2": {
+    "family": ["<one or more from: Ransomware, Trojan, Adware, Dropper, Spyware, Worm, PUA, Backdoor, Unknown>"],
+    "explanation": "<updated reasoning>"
+  },
+  "q3": {
+    "ttps": [
+      {"id": "T1027", "name": "<technique name>"}
+    ]
+  }
+}
+
+Reviewer feedback may identify behavior phrases evidenced in the report, but it will not provide ATT&CK IDs.
+Map those behavior phrases to real MITRE ATT&CK Enterprise technique IDs only when you know the exact mapping.
+If you are unsure of the exact ID, omit it rather than inventing one.
+Do NOT use placeholder IDs such as T1234."""
+
+
+def run_mode_d(client, model_name, report_text, tool_env=None, gt=None,
+               budget=15, max_iterations=3, max_tokens=2048, temperature=0.3,
+               seed_report_chars=3000, observation_chars=3000, synthesis_report_chars=1500,
+               refine_report_chars=2000, prev_output_chars=2000):
+    gt = gt or {}
+
+    # Step 1: Run Mode C agentic loop
+    c_result = run_mode_c(client, model_name, report_text, tool_env=tool_env,
+                          budget=budget, max_tokens=max_tokens, temperature=temperature,
+                          seed_report_chars=seed_report_chars,
+                          observation_chars=observation_chars,
+                          synthesis_report_chars=synthesis_report_chars)
+    current_output = c_result["output"]
+    best_output    = current_output
+    current_score  = _score_ttp_prediction(current_output, gt)
+    best_score     = current_score
+    all_logs       = list(c_result["log"])
+    hypotheses     = c_result["hypotheses"]
+    trajectory     = c_result["trajectory"]
+    total_calls    = c_result["total_llm_calls"]
+    total_elapsed  = c_result["total_elapsed"]
+
+    # Step 2: Judge refinement loop (same pattern as Mode B)
+    for iteration in range(1, max_iterations + 1):
+        needs_more, gap_summary, missed_behaviors = _judge_needs_more(current_output, gt)
+        current_score = _score_ttp_prediction(current_output, gt)
+
+        all_logs.append({
+            "step": len(all_logs) + 1,
+            "type": "judge_check",
+            "iteration": iteration,
+            "needs_more": needs_more,
+            "gap_summary": gap_summary,
+            "missed_behavior_count": len(missed_behaviors),
+            "ttps_found": current_score["pred_ttps"],
+            "hallucinated_ttps": current_score["hallucinated_ttps"],
+            "ttp_tp": current_score["tp"],
+            "ttp_fp": current_score["fp"],
+        })
+
+        if not needs_more:
+            break
+
+        feedback = _build_reviewer_feedback(missed_behaviors)
+
+        all_logs.append({
+            "step": len(all_logs) + 1,
+            "type": "judge_feedback",
+            "iteration": iteration,
+            "feedback_preview": feedback[:500],
+            "feedback_kind": "deterministic_behavior_feedback",
+        })
+
+        refine_prompt = (
+            "=== REPORT ===\n" + report_text[:refine_report_chars] +
+            "\n\n=== YOUR PREVIOUS ANALYSIS ===\n" + current_output[:prev_output_chars] +
+            "\n\n=== REVIEWER FEEDBACK ===\n" + feedback +
+            "\n\nNow output the COMPLETE updated analysis as a JSON object. "
+            "Respond with ONLY the JSON — no other text."
+        )
+
+        refinement_accepted = False
+        t0 = time.time()
+        try:
+            refined = safe_llm_call(
+                client, model_name,
+                [{"role": "system", "content": REFINE_SYSTEM},
+                 {"role": "user",   "content": refine_prompt}],
+                max_tokens=max_tokens, temperature=temperature,
+            )
+            total_calls += 1
+            total_elapsed += time.time() - t0
+
+            if refined.strip():
+                if _is_structured(refined):
+                    current_output = refined
+                    refinement_accepted = True
+                    refined_score = _score_ttp_prediction(refined, gt)
+                    if _score_rank(refined_score) > _score_rank(best_score):
+                        best_output = refined
+                        best_score = refined_score
+                else:
+                    # Conversational response - keep best structured output
+                    all_logs.append({
+                        "step": len(all_logs) + 1,
+                        "type": "refinement_rejected",
+                        "iteration": iteration,
+                        "reason": "response not in structured format - keeping previous output",
+                        "response_preview": refined[:200],
+                    })
+        except Exception as e:
+            total_calls += 1
+
+        all_logs.append({
+            "step": len(all_logs) + 1,
+            "type": "analyst_refinement",
+            "iteration": iteration,
+            "ttps_now": sorted(_count_ttps_in_output(current_output)),
+            "is_structured": _is_structured(current_output),
+            "best_ttp_tp": best_score["tp"],
+            "best_ttp_fp": best_score["fp"],
+        })
+
+        if refinement_accepted:
+            new_score = _score_ttp_prediction(current_output, gt)
+            if _score_rank(new_score) <= _score_rank(current_score):
+                all_logs.append({
+                    "step": len(all_logs) + 1,
+                    "type": "refinement_stopped",
+                    "iteration": iteration,
+                    "reason": "no TTP true-positive improvement after evidence feedback",
+                    "ttp_tp": new_score["tp"],
+                    "ttp_fp": new_score["fp"],
+                })
+                break
+
+    # Return best structured output seen across all iterations
+    final_output = best_output if _is_structured(best_output) else current_output
+
+    return {
+        "output": final_output,
+        "hypotheses": hypotheses,
+        "trajectory": trajectory,
+        "log": all_logs,
+        "total_llm_calls": total_calls,
+        "total_elapsed": round(total_elapsed, 2),
+    }

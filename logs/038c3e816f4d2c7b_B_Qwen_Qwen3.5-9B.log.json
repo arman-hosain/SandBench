@@ -1,0 +1,77 @@
+{
+  "hash": "038c3e816f4d2c7b5b7321fd87e7762272b0cf5845ebf2461804e91f0ccb15f2",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample is packed with Mpress (MPRESS), a common packer used by both legitimate software and malware to evade analysis. It exhibits anti-static analysis behaviors (CAPA rules) and drops a file in the Temp directory. While it opens RASMAN (Remote Access Service) and creates a mutex named 'RasPbFile' (suggesting it might be a legitimate remote access tool or a dropper for one), the presence of obfuscation and anti-analysis techniques warrants a suspicious verdict until further behavioral evidence confirms its benign nature.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The sample is heavily packed with Mpress and contains anti-static analysis indicators. It drops a file in the Temp directory and opens RASMAN, which is typical behavior for a dropper designed to deploy a payload (likely a remote access tool) or for a legitimate remote access application that has been obfuscated. Given the lack of direct payload execution evidence in this short report but the clear presence of packing and anti-analysis features, 'Dropper' is the most appropriate classification from the provided vocabulary.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1488,
+      "response_chars": 1313,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample is packed with Mpress (MPRESS), a common packer used by both legitimate software and malware to evade analysis. It exhibits anti-static analysis behaviors (CAPA rules) and drops a file in the Temp directory. While it opens RASMAN (Remote Access Service) and creates a mutex named 'RasPbFile' (suggesting it might be a legitimate",
+      "elapsed_seconds": 10.25
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": false,
+      "gap_summary": "",
+      "missed_behavior_count": 0,
+      "ttps_found": [
+        "T1027"
+      ],
+      "hallucinated_ttps": [],
+      "ttp_tp": 1,
+      "ttp_fp": 0
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 10.25,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 0.5,
+      "predicted": "SUSPICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9155
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 1.0,
+      "ttp_precision": 1.0,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 1.0,
+      "breakdown": {
+        "ttp_f1": 1.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

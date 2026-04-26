@@ -1,0 +1,54 @@
+{
+  "hash": "20130a4f308b80ac30fbd0c52c153da895a8b9ace1ccfb946790a32f309779c4",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - encode data using Base64 via WinAPI\n  - get common file path\n\nCAPA RULE MATCHES (MBC):\n  - encode data using Base64 via WinAPI\n  - Memory::Allocate Memory [C0007]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - Communication::Socket Communication::Initialize Winsock Library [C0001.009]\n  - contain pusha popa sequence\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  ctvqzym.exe  [sha256: d71f6ccba40e425e...]\n  C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe  [sha256: b4a37d35568e2ee5...]\n\nFILES WRITTEN (2):\n  C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\Mozilla\\ctvqzym.exe\n  C:\\WINDOWS\\Tasks\\hiqvsnd.job\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] Watcom\n  [Linker] Watcom Linker\n\nPE SECTIONS (entropy):\n  AUTO         entropy=6.51\n  DGROUP       entropy=6.58\n  .idata       entropy=4.51\n  .reloc       entropy=4.75\n  .rsrc        entropy=2.44\n  [overlay]    entropy=7.646111488342285  size=600\n",
+  "ground_truth": {
+    "hash": "20130a4f308b80ac30fbd0c52c153da895a8b9ace1ccfb946790a32f309779c4",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8472,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using Base64 via WinAPI"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using Base64 via WinAPI",
+      "allocate memory",
+      "allocate RWX memory",
+      "allocate RW memory",
+      "contain loop",
+      "get common file path",
+      "initialize Winsock library",
+      "contain pusha popa sequence"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\PROGRA~3\\Mozilla\\zhsrrgd.exe",
+        "ctvqzym.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

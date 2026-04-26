@@ -1,0 +1,77 @@
+{
+  "hash": "2247feeaed8d6a8b339247fb04951cb29294017fee685e3c1e4d6eda12426659",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://infikuje.freevnn.com/list.php\n\nDNS LOOKUPS (2):\n  11776.BODIS.com \u2192 199.59.242.153\n  infikuje.freevnn.com \u2192 199.59.242.153\n\nIP TRAFFIC (1):\n  199.59.242.153:80 (TCP)\n\nSERVICES OPENED (1):\n  Sens\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  svhost.exe\n    C:\\Windows\\system32\\rundll32.exe C:\\Windows\\syswow64\\WININET.dll,DispatchAPICall 1\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - packed with generic packer\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - contain a resource (.rsrc) section\n  - Execution::Install Additional Program [B0023]\n  - (internal) packer file limitation\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (12):\n  svhost.exe  [sha256: 05c5bba8b9647106...]\n  C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\starup.exe  [sha256: 0923cc6173280427...]\n  c:\\$Recycle.Bin.exe  [sha256: 8567d1b55237cd38...]\n  c:\\Documents and Settings.exe  [sha256: 36053a6a114427ad...]\n  c:\\PerfLogs.exe  [sha256: b4533b83152efdc1...]\n  c:\\Program Files.exe  [sha256: 269b0425b9a603bb...]\n  c:\\Program Files (x86).exe  [sha256: a7eba370b931bbe8...]\n  c:\\ProgramData.exe  [sha256: a0a9f3e2a3bf5ba4...]\n  c:\\Recovery.exe  [sha256: bee37bf73882e289...]\n  c:\\System Volume Information.exe  [sha256: 3a86b47f4df5c25f...]\n  c:\\Users.exe  [sha256: 2f8de1e7970c12f4...]\n  c:\\Windows.exe  [sha256: 84aa688efc95df9e...]\n\nFILES WRITTEN (3):\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows\\Temporary Internet Files\\Content.IE5\\XBL73YY1\\list[1].php\n  C:\\WINDOWS\\svhost.exe\n  C:\\Windows\\list.txt\n\nOTHER REGISTRY KEYS SET (3):\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n\nMUTEXES CREATED (6):\n  IESQMMUTEX_0_208\n  Local\\_!MSFTHISTORY!_LOW!_\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!low!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!low!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!low!\n  ShimCacheMutex\n\nMUTEXES OPENED (3):\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n\nPROCESSES CREATED (4):\n  C:\\WINDOWS\\system32\\at.exe at 9:00 /interactive  C:\\WINDOWS\\svhost.exe\n  C:\\WINDOWS\\system32\\cmd.exe /C at 9:00 /interactive  C:\\WINDOWS\\svhost.exe\n  C:\\WINDOWS\\system32\\cmd.exe /C schtasks /run /tn at1\n  explorer.exe C:\\2247feeaed8d6a8b339247fb04951cb29294017fee685e3c1e4d6eda12426659\"\"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Overlay] AutoIt compiled script\n  Packers: {'PEiD': 'UPX v0.89.6 - v1.02 / v1.05 -v1.24 -> Markus & Laszlo [overlay]', 'F-PROT': 'UPX'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.93\n  .rsrc        entropy=4.15\n  [overlay]    entropy=7.890887260437012  size=2591923\n",
+  "ground_truth": {
+    "hash": "2247feeaed8d6a8b339247fb04951cb29294017fee685e3c1e4d6eda12426659",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8169,
+    "malicious_count": 58,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "packed with generic packer",
+      "packed with UPX",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [
+        "199.59.242.153"
+      ],
+      "domains": [
+        "11776.bodis.com",
+        "infikuje.freevnn.com"
+      ],
+      "urls": [
+        "http://infikuje.freevnn.com/list.php"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 3,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\starup.exe",
+        "c:\\$Recycle.Bin.exe",
+        "c:\\Documents and Settings.exe",
+        "c:\\PerfLogs.exe",
+        "c:\\Program Files (x86).exe",
+        "c:\\Program Files.exe",
+        "c:\\ProgramData.exe",
+        "c:\\Recovery.exe",
+        "c:\\System Volume Information.exe",
+        "c:\\Users.exe",
+        "c:\\Windows.exe",
+        "svhost.exe"
+      ],
+      "mutexes": [
+        "IESQMMUTEX_0_208",
+        "Local\\_!MSFTHISTORY!_LOW!_",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!low!history.ie5!",
+        "Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!low!content.ie5!",
+        "Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!low!",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\system32\\at.exe at 9:00 /interactive  C:\\WINDOWS\\svhost.exe",
+        "C:\\WINDOWS\\system32\\cmd.exe /C at 9:00 /interactive  C:\\WINDOWS\\svhost.exe",
+        "C:\\WINDOWS\\system32\\cmd.exe /C schtasks /run /tn at1",
+        "explorer.exe C:\\2247feeaed8d6a8b339247fb04951cb29294017fee685e3c1e4d6eda12426659\"\""
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

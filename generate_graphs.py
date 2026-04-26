@@ -1,0 +1,449 @@
+#!/usr/bin/env python3
+"""
+SandBench: Generate Comparison Graphs
+Reads benchmark_results.json and produces publication-quality charts.
+
+Usage:
+    python generate_graphs.py
+    python generate_graphs.py --results ./results/benchmark_results.json --output ./charts/
+"""
+
+import json
+import os
+import sys
+import argparse
+import numpy as np
+
+# Use Agg backend for headless environments
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+from matplotlib.patches import FancyBboxPatch
+
+
+# ── Styling ──
+MODEL_COLORS = {
+    "llama-3.1-8b": "#1E88E5",
+    "gpt-oss-20b": "#43A047",
+    "qwen3-8b": "#E53935",
+}
+MODEL_LABELS = {
+    "llama-3.1-8b": "Llama-3.1-8B",
+    "gpt-oss-20b": "GPT-OSS-20B",
+    "qwen3-8b": "Qwen3-8B",
+}
+MODE_LABELS = {
+    "A": "Single-Shot",
+    "B": "Judge-Refined",
+    "C": "Agentic",
+    "D": "Agentic+Judge",
+}
+MODE_HATCHES = {"A": "", "B": "//", "C": "xx", "D": ".."}
+
+plt.rcParams.update({
+    "font.family": "sans-serif",
+    "font.sans-serif": ["DejaVu Sans", "Arial", "Helvetica"],
+    "font.size": 11,
+    "axes.titlesize": 14,
+    "axes.labelsize": 12,
+    "figure.dpi": 150,
+    "savefig.dpi": 200,
+    "savefig.bbox": "tight",
+})
+
+
+def load_results(path):
+    with open(path) as f:
+        data = json.load(f)
+    return data.get("results", [])
+
+
+def aggregate(results, metric_path):
+    """Aggregate a nested metric across samples for each model×mode combination."""
+    agg = {}  # (model_key, mode) -> list of values
+    for r in results:
+        key = (r["model_key"], r["mode"])
+        val = r.get("evaluation", {})
+        for p in metric_path.split("."):
+            if isinstance(val, dict):
+                val = val.get(p, 0)
+            else:
+                val = 0
+        agg.setdefault(key, []).append(float(val) if val is not None else 0)
+    # Compute mean and std
+    stats = {}
+    for key, vals in agg.items():
+        stats[key] = {"mean": np.mean(vals), "std": np.std(vals), "n": len(vals)}
+    return stats
+
+
+VT_RADAR_METRICS = [
+    ("ttp.ttp_f1", "TTP\nF1"),
+    ("ttp.ttp_recall", "TTP\nRecall"),
+    ("verdict.verdict_score", "Threat Verdict\nAccuracy"),
+    ("composite.composite_score", "Composite\nScore"),
+]
+
+VT_HEATMAP_METRICS = [
+    ("composite.composite_score", "Composite"),
+    ("ttp.ttp_f1", "TTP F1"),
+    ("ttp.ttp_recall", "TTP Recall"),
+    ("verdict.verdict_score", "Threat Verdict Accuracy"),
+]
+
+
+def get_models_and_modes(results):
+    models = sorted(set(r["model_key"] for r in results))
+    modes = sorted(set(r["mode"] for r in results))
+    return models, modes
+
+
+# ── Chart 1: Composite Score by Model × Mode (Grouped Bar) ──
+
+def chart_composite_grouped_bar(results, output_dir):
+    stats = aggregate(results, "composite.composite_score")
+    models, modes = get_models_and_modes(results)
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+    x = np.arange(len(models))
+    width = 0.18
+
+    for i, mode in enumerate(modes):
+        means = [stats.get((m, mode), {}).get("mean", 0) for m in models]
+        stds = [stats.get((m, mode), {}).get("std", 0) for m in models]
+        bars = ax.bar(x + i * width, means, width, yerr=stds,
+                      label=MODE_LABELS.get(mode, mode),
+                      color=[MODEL_COLORS.get(m, "#888") for m in models],
+                      alpha=0.7 + i * 0.08,
+                      hatch=MODE_HATCHES.get(mode, ""),
+                      edgecolor="white", linewidth=0.8,
+                      capsize=3)
+        # Value labels
+        for bar, mean in zip(bars, means):
+            if mean > 0:
+                ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.01,
+                        f"{mean:.3f}", ha="center", va="bottom", fontsize=8)
+
+    ax.set_xlabel("Model")
+    ax.set_ylabel("Composite Score")
+    ax.set_title("SandBench Composite Score: Model × Mode Comparison")
+    ax.set_xticks(x + width * (len(modes) - 1) / 2)
+    ax.set_xticklabels([MODEL_LABELS.get(m, m) for m in models])
+    ax.legend(title="Evaluation Mode")
+    ax.set_ylim(0, 1.05)
+    ax.grid(axis="y", alpha=0.3)
+
+    path = os.path.join(output_dir, "01_composite_grouped_bar.png")
+    fig.savefig(path)
+    plt.close(fig)
+    print(f"  Saved: {path}")
+
+
+# ── Chart 2: Multi-Metric Radar Chart per Model ──
+
+def chart_radar_per_model(results, output_dir):
+    models, modes = get_models_and_modes(results)
+
+    metrics = VT_RADAR_METRICS
+
+    fig, axes = plt.subplots(1, len(models), figsize=(5 * len(models), 5),
+                              subplot_kw=dict(polar=True))
+    if len(models) == 1:
+        axes = [axes]
+
+    for ax, model in zip(axes, models):
+        angles = np.linspace(0, 2 * np.pi, len(metrics), endpoint=False).tolist()
+        angles += angles[:1]
+
+        for mode in modes:
+            values = []
+            for metric_path, _ in metrics:
+                stats = aggregate(results, metric_path)
+                values.append(stats.get((model, mode), {}).get("mean", 0))
+            values += values[:1]
+
+            ax.plot(angles, values, "o-", linewidth=2, markersize=4,
+                    label=MODE_LABELS.get(mode, mode), alpha=0.8)
+            ax.fill(angles, values, alpha=0.1)
+
+        ax.set_xticks(angles[:-1])
+        ax.set_xticklabels([label for _, label in metrics], fontsize=9)
+        ax.set_ylim(0, 1)
+        ax.set_title(MODEL_LABELS.get(model, model), fontsize=13, fontweight="bold", pad=20)
+        ax.legend(loc="upper right", bbox_to_anchor=(1.3, 1.1), fontsize=8)
+
+    fig.suptitle("SandBench: Per-Model Metric Profiles Across Modes", fontsize=15, y=1.02)
+    fig.tight_layout()
+
+    path = os.path.join(output_dir, "02_radar_per_model.png")
+    fig.savefig(path)
+    plt.close(fig)
+    print(f"  Saved: {path}")
+
+
+# ── Chart 3: Mode Improvement Heatmap ──
+
+def chart_mode_improvement_heatmap(results, output_dir):
+    models, modes = get_models_and_modes(results)
+
+    metrics_info = VT_HEATMAP_METRICS
+
+    data = np.zeros((len(metrics_info), len(models) * len(modes)))
+    col_labels = []
+
+    for j, model in enumerate(models):
+        for k, mode in enumerate(modes):
+            col_idx = j * len(modes) + k
+            col_labels.append(f"{MODEL_LABELS.get(model, model)[:8]}\n{MODE_LABELS.get(mode, mode)[:6]}")
+            for i, (metric_path, _) in enumerate(metrics_info):
+                stats = aggregate(results, metric_path)
+                data[i, col_idx] = stats.get((model, mode), {}).get("mean", 0)
+
+    fig, ax = plt.subplots(figsize=(max(12, len(col_labels) * 1.2), 5))
+    im = ax.imshow(data, cmap="RdYlGn", aspect="auto", vmin=0, vmax=1)
+
+    ax.set_xticks(range(len(col_labels)))
+    ax.set_xticklabels(col_labels, fontsize=8, rotation=45, ha="right")
+    ax.set_yticks(range(len(metrics_info)))
+    ax.set_yticklabels([label for _, label in metrics_info])
+
+    # Add value annotations
+    for i in range(data.shape[0]):
+        for j in range(data.shape[1]):
+            color = "white" if data[i, j] < 0.4 or data[i, j] > 0.8 else "black"
+            ax.text(j, i, f"{data[i,j]:.2f}", ha="center", va="center",
+                    fontsize=8, color=color, fontweight="bold")
+
+    plt.colorbar(im, ax=ax, shrink=0.8, label="Score")
+    ax.set_title("SandBench: All Metrics × All Conditions", fontsize=14)
+    fig.tight_layout()
+
+    path = os.path.join(output_dir, "03_heatmap_all_conditions.png")
+    fig.savefig(path)
+    plt.close(fig)
+    print(f"  Saved: {path}")
+
+
+# ── Chart 4: LLM Calls & Latency by Mode ──
+
+def chart_cost_comparison(results, output_dir):
+    models, modes = get_models_and_modes(results)
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+
+    # LLM calls
+    x = np.arange(len(models))
+    width = 0.18
+    for i, mode in enumerate(modes):
+        means = []
+        for m in models:
+            vals = [r["total_llm_calls"] for r in results
+                    if r["model_key"] == m and r["mode"] == mode]
+            means.append(np.mean(vals) if vals else 0)
+        ax1.bar(x + i * width, means, width,
+                label=MODE_LABELS.get(mode, mode),
+                color=[MODEL_COLORS.get(m, "#888") for m in models],
+                alpha=0.7 + i * 0.08, hatch=MODE_HATCHES.get(mode, ""),
+                edgecolor="white")
+
+    ax1.set_xlabel("Model")
+    ax1.set_ylabel("Avg LLM Calls per Sample")
+    ax1.set_title("LLM API Calls by Mode")
+    ax1.set_xticks(x + width * (len(modes) - 1) / 2)
+    ax1.set_xticklabels([MODEL_LABELS.get(m, m) for m in models])
+    ax1.legend(fontsize=8)
+    ax1.grid(axis="y", alpha=0.3)
+
+    # Latency
+    for i, mode in enumerate(modes):
+        means = []
+        for m in models:
+            vals = [r["total_elapsed_seconds"] for r in results
+                    if r["model_key"] == m and r["mode"] == mode]
+            means.append(np.mean(vals) if vals else 0)
+        ax2.bar(x + i * width, means, width,
+                label=MODE_LABELS.get(mode, mode),
+                color=[MODEL_COLORS.get(m, "#888") for m in models],
+                alpha=0.7 + i * 0.08, hatch=MODE_HATCHES.get(mode, ""),
+                edgecolor="white")
+
+    ax2.set_xlabel("Model")
+    ax2.set_ylabel("Avg Time per Sample (seconds)")
+    ax2.set_title("Inference Latency by Mode")
+    ax2.set_xticks(x + width * (len(modes) - 1) / 2)
+    ax2.set_xticklabels([MODEL_LABELS.get(m, m) for m in models])
+    ax2.legend(fontsize=8)
+    ax2.grid(axis="y", alpha=0.3)
+
+    fig.suptitle("SandBench: Cost & Latency Analysis", fontsize=14)
+    fig.tight_layout()
+
+    path = os.path.join(output_dir, "04_cost_comparison.png")
+    fig.savefig(path)
+    plt.close(fig)
+    print(f"  Saved: {path}")
+
+
+# ── Chart 5: Mode A vs Mode D Delta (improvement from agentic+judge) ──
+
+def chart_improvement_delta(results, output_dir):
+    models, modes = get_models_and_modes(results)
+
+    if "A" not in modes or "D" not in modes:
+        print("  Skipping improvement delta chart (need modes A and D)")
+        return
+
+    metrics_info = VT_HEATMAP_METRICS
+
+    fig, ax = plt.subplots(figsize=(10, 5))
+    x = np.arange(len(metrics_info))
+    width = 0.25
+
+    for i, model in enumerate(models):
+        deltas = []
+        for metric_path, _ in metrics_info:
+            stats = aggregate(results, metric_path)
+            a_val = stats.get((model, "A"), {}).get("mean", 0)
+            d_val = stats.get((model, "D"), {}).get("mean", 0)
+            deltas.append(d_val - a_val)
+
+        bars = ax.bar(x + i * width, deltas, width,
+                      label=MODEL_LABELS.get(model, model),
+                      color=MODEL_COLORS.get(model, "#888"),
+                      edgecolor="white", linewidth=0.8)
+        for bar, delta in zip(bars, deltas):
+            ax.text(bar.get_x() + bar.get_width()/2,
+                    bar.get_height() + (0.005 if delta >= 0 else -0.015),
+                    f"{delta:+.3f}", ha="center", va="bottom" if delta >= 0 else "top",
+                    fontsize=9, fontweight="bold")
+
+    ax.axhline(y=0, color="black", linewidth=0.8)
+    ax.set_xlabel("Metric")
+    ax.set_ylabel("Improvement (Mode D - Mode A)")
+    ax.set_title("SandBench: Improvement from Single-Shot to Agentic+Judge")
+    ax.set_xticks(x + width * (len(models) - 1) / 2)
+    ax.set_xticklabels([label for _, label in metrics_info])
+    ax.legend()
+    ax.grid(axis="y", alpha=0.3)
+
+    path = os.path.join(output_dir, "05_improvement_delta.png")
+    fig.savefig(path)
+    plt.close(fig)
+    print(f"  Saved: {path}")
+
+
+# ── Chart 6: Threat Verdict Accuracy by Model × Mode ──
+
+def chart_per_sample_scatter(results, output_dir):
+    models, modes = get_models_and_modes(results)
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+    x = np.arange(len(models))
+    width = 0.18
+
+    for i, mode in enumerate(modes):
+        means = []
+        stds  = []
+        for m in models:
+            vals = [r.get("evaluation", {}).get("verdict", {}).get("verdict_score", 0)
+                    for r in results if r["model_key"] == m and r["mode"] == mode]
+            means.append(np.mean(vals) if vals else 0)
+            stds.append(np.std(vals) if vals else 0)
+        bars = ax.bar(x + i * width, means, width, yerr=stds,
+                      label=MODE_LABELS.get(mode, mode),
+                      color=[MODEL_COLORS.get(m, "#888") for m in models],
+                      alpha=0.7 + i * 0.08,
+                      hatch=MODE_HATCHES.get(mode, ""),
+                      edgecolor="white", linewidth=0.8, capsize=3)
+        for bar, mean in zip(bars, means):
+            if mean > 0:
+                ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.01,
+                        f"{mean:.3f}", ha="center", va="bottom", fontsize=8)
+
+    ax.set_xlabel("Model")
+    ax.set_ylabel("Threat Verdict Accuracy")
+    ax.set_title("SandBench: Threat Verdict Accuracy — Model × Mode Comparison")
+    ax.set_xticks(x + width * (len(modes) - 1) / 2)
+    ax.set_xticklabels([MODEL_LABELS.get(m, m) for m in models])
+    ax.legend(title="Evaluation Mode")
+    ax.set_ylim(0, 1.05)
+    ax.grid(axis="y", alpha=0.3)
+
+    path = os.path.join(output_dir, "06_threat_verdict_accuracy.png")
+    fig.savefig(path)
+    plt.close(fig)
+    print(f"  Saved: {path}")
+
+
+# ── Chart: Separate Radar per Mode (all models on one radar each) ──
+
+def chart_radar_per_mode(results, output_dir):
+    models, modes = get_models_and_modes(results)
+
+    metrics = VT_RADAR_METRICS
+
+    angles = np.linspace(0, 2 * np.pi, len(metrics), endpoint=False).tolist()
+    angles += angles[:1]
+
+    for mode in modes:
+        fig, ax = plt.subplots(figsize=(7, 7), subplot_kw=dict(polar=True))
+
+        for model in models:
+            values = []
+            for metric_path, _ in metrics:
+                stats = aggregate(results, metric_path)
+                values.append(stats.get((model, mode), {}).get("mean", 0))
+            values += values[:1]
+
+            color = MODEL_COLORS.get(model, "#888")
+            ax.plot(angles, values, "o-", linewidth=2, markersize=5,
+                    label=MODEL_LABELS.get(model, model), color=color, alpha=0.85)
+            ax.fill(angles, values, alpha=0.12, color=color)
+
+        ax.set_xticks(angles[:-1])
+        ax.set_xticklabels([label for _, label in metrics], fontsize=10)
+        ax.set_ylim(0, 1)
+        ax.set_title(f"Mode {mode}: {MODE_LABELS.get(mode, mode)}",
+                     fontsize=14, fontweight="bold", pad=25)
+        ax.legend(loc="upper right", bbox_to_anchor=(1.35, 1.15), fontsize=10)
+        ax.grid(alpha=0.3)
+
+        fig.suptitle("SandBench: Metric Profile — All Models", fontsize=13, y=1.01)
+        fig.tight_layout()
+
+        path = os.path.join(output_dir, f"radar_mode_{mode}.png")
+        fig.savefig(path)
+        plt.close(fig)
+        print(f"  Saved: {path}")
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Generate SandBench comparison charts")
+    parser.add_argument("--results", default="./results/benchmark_results.json")
+    parser.add_argument("--output", default="./charts")
+    args = parser.parse_args()
+
+    os.makedirs(args.output, exist_ok=True)
+
+    print("=" * 50)
+    print("  SandBench: Generating Comparison Charts")
+    print("=" * 50)
+
+    results = load_results(args.results)
+    print(f"  Loaded {len(results)} experiment results")
+
+    chart_composite_grouped_bar(results, args.output)
+    chart_radar_per_model(results, args.output)
+    chart_radar_per_mode(results, args.output)
+    chart_mode_improvement_heatmap(results, args.output)
+    chart_cost_comparison(results, args.output)
+    chart_improvement_delta(results, args.output)
+    chart_per_sample_scatter(results, args.output)
+
+    print(f"\n  All charts saved to: {args.output}/")
+    print("  Done!")
+
+
+if __name__ == "__main__":
+    main()

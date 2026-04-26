@@ -1,0 +1,97 @@
+{
+  "hash": "1813e812babdc401e286b4a817f5b06591cbbbe9187b2dfbd683ddaca16fe22d",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  wmplayer.pe32\n\nCOMMAND EXECUTIONS (2):\n  (open) setup_wm.exe/RunOnce:C:\\1813e812babdc401e286b4a817f5b06591cbbbe9187b2dfbd683ddaca16fe22d\"\" [(null)]\n  setup_wm.exe /RunOnce:\"13c5d421dbdc83d89c9b6d1bca0804e2.virus.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (6):\n  - find graphical window\n  - accept command line arguments\n  - link function at runtime on Windows\n  - query or enumerate registry value\n  - check OS version\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Process::Create Process [C0017]\n  - get OS version\n  - find graphical window\n  - Execution::Command and Scripting Interpreter [E1059]\n  - set current directory\n  - Process::Create Mutex [C0042]\n  - Process::Terminate Process [C0018]\n  - link function at runtime on Windows\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Process::Check Mutex [C0043]\n  - Discovery::System Information Discovery [E1082]\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Execution::Install Additional Program [B0023]\n  - Data::Encode Data::Base64 [C0026.001]\n  - Data::Check String [C0019]\n  - contains PDB path\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (2):\n  Microsoft_WMP_70_CheckForOtherInstanceMutex\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  C:\\Program Files\\Windows Media Player\\setup_wm.exe C:\\Program Files\\Windows Media Player\\setup_wm.exe\" /RunOnce:\"C:\\1813e812babdc401e286b4a817f5b06591cbbbe9187b2dfbd683ddaca16fe22d\"\"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Linker] Microsoft Linker\n\nPE SECTIONS (entropy):\n  .text        entropy=4.58\n  .data        entropy=0.04\n  .rsrc        entropy=5.73\n  [overlay]    entropy=4.64024543762207  size=7118821\n",
+  "ground_truth": {
+    "hash": "1813e812babdc401e286b4a817f5b06591cbbbe9187b2dfbd683ddaca16fe22d",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.6575,
+    "malicious_count": 48,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 17
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "lazy",
+        "count": 7
+      },
+      {
+        "value": "wkysol",
+        "count": 7
+      }
+    ],
+    "suggested_label": "trojan.lazy/wkysol",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "reference Base64 string"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "check OS version"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open registry key",
+      "create process on Windows",
+      "get OS version",
+      "find graphical window",
+      "accept command line arguments",
+      "set current directory",
+      "create mutex",
+      "terminate process",
+      "link function at runtime on Windows",
+      "query or enumerate registry value",
+      "check mutex and exit",
+      "check OS version",
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "reference Base64 string",
+      "contains PDB path",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "Microsoft_WMP_70_CheckForOtherInstanceMutex",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\Program Files\\Windows Media Player\\setup_wm.exe C:\\Program Files\\Windows Media Player\\setup_wm.exe\" /RunOnce:\"C:\\1813e812babdc401e286b4a817f5b06591cbbbe9187b2dfbd683ddaca16fe22d\"\""
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

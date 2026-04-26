@@ -1,0 +1,76 @@
+{
+  "hash": "39e3565624da034c0152166c9106f166dc10c017ee4446551cd00cb25c2606fe",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  demandtosupply.com \u2192 156.249.134.138\n\nIP TRAFFIC (2):\n  156.249.134.138:443 (TCP)\n  8.8.8.8:53 (UDP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  weyjba.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\weyjba.exe\n\nCOMMAND EXECUTIONS (2):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\weyjba.exe\n  \"C:\\Users\\Petra\\AppData\\Local\\Temp\\weyjba.exe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - encrypt data using RC4 PRGA\n  - accept command line arguments\n  - get hostname\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - contain loop\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Generate Pseudo-random Sequence::RC4 PRGA [C0021.004]\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Discovery::System Information Discovery [E1082]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\weyjba.exe  [sha256: b0bb6ac5234bb930...]\n  \\Users\\Petra\\AppData\\Local\\Temp\\weyjba.exe  [sha256: c3f0464cfb7ab176...]\n\nOTHER REGISTRY KEYS SET (8):\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C0054007200610063\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C0054007200610063\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n\nMUTEXES CREATED (7):\n  IESQMMUTEX_0_208\n  Local\\!IETld!Mutex\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n  RasPbFile\n\nPROCESSES CREATED (1):\n  weyjba.exe\n\n--- FILE IDENTITY ---\n\nPE SECTIONS (entropy):\n  .text        entropy=6.27\n  .rdata       entropy=3.36\n  .data        entropy=2.39\n  .bss         entropy=4.84\n  .rsrc        entropy=5.32\n  [overlay]    entropy=3.4581620693206787  size=22074\n",
+  "ground_truth": {
+    "hash": "39e3565624da034c0152166c9106f166dc10c017ee4446551cd00cb25c2606fe",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8873,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "ppatre",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encrypt data using RC4 PRGA"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get hostname"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "contain loop",
+      "encrypt data using RC4 PRGA",
+      "accept command line arguments",
+      "get hostname",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings"
+    ],
+    "iocs": {
+      "ips": [
+        "156.249.134.138",
+        "8.8.8.8"
+      ],
+      "domains": [
+        "demandtosupply.com"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 8,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\weyjba.exe",
+        "\\Users\\Petra\\AppData\\Local\\Temp\\weyjba.exe"
+      ],
+      "mutexes": [
+        "IESQMMUTEX_0_208",
+        "Local\\!IETld!Mutex",
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "RasPbFile"
+      ],
+      "processes": [
+        "weyjba.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Jujubox"
+  ]
+}

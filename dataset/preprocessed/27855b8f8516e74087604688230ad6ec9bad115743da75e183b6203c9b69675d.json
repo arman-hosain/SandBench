@@ -1,0 +1,134 @@
+{
+  "hash": "27855b8f8516e74087604688230ad6ec9bad115743da75e183b6203c9b69675d",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (5):\n  GET http://api.vk.com/method/wall.get.xml  UA: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.5) Gecko/20060127 Netscape/8.1\n  GET http://api.vk.com/method/wall.get.xml  UA: Mozilla/5.0 (compatible; Konqueror/4.3; Linux) KHTML/4.3.5 (like Gecko)\n  GET http://api.vk.com/method/wall.get.xml  UA: Mozilla/4.0 (compatible; MSIE 6.0; America Online Browser 1.1; rev1.5; Windows NT 5.1;)\n  GET http://api.vk.com/method/wall.get.xml  UA: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)\n  GET http://api.vk.com/method/wall.get.xml\n\nDNS LOOKUPS (4):\n  1.lalkaboy.z8.ru\n  api.vk.com \u2192 87.240.129.140, 87.240.137.130\n  api.vk.com \u2192 87.240.137.208\n  api.vk.com \u2192 87.240.190.75, 93.186.225.205\n\nIP TRAFFIC (4):\n  8.8.8.8:53 (UDP)\n  87.240.129.140:80 (TCP)\n  87.240.137.207:80 (TCP)\n  87.240.190.75:80 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ceaefc84e320dded6264a54189c3e859.virus.exe\n    C:\\.Trash-100\\ActivateDesktop.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\.Trash-100\\ActivateDesktop.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (9):\n  - encode data using XOR\n  - set file attributes\n  - enumerate files on Windows\n  - enumerate processes\n  - connect to WMI namespace via WbemLocator\n  - reference WMI statements\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - get geographical location\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - reference absolute stream path on Windows\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - Process::Create Process [C0017]\n  - File System::Set File Attributes [C0050]\n  - Process::Create Thread [C0038]\n  - Process::Open Process [C0065]\n  - contain loop\n  - File System::Writes File [C0052]\n  - File System::Create Directory [C0046]\n  - File System::Delete File [C0047]\n  - Discovery::File and Directory Discovery [E1083]\n  - Process::Terminate Process [C0018]\n  - resolve function by parsing PE exports\n  - Process::Create Mutex [C0042]\n  - Process::Check Mutex [C0043]\n  - Communication::DNS Communication::Resolve [C0011.001]\n  - Communication::Socket Communication::Send Data [C0001.007]\n  - Communication::Socket Communication::Receive Data [C0001.006]\n  - Communication::Socket Communication::Initialize Winsock Library [C0001.009]\n  - Communication::HTTP Communication::Send Request [C0002.003]\n  - send HTTP request with Host header\n\n--- ARTIFACTS ---\n\nFILES DROPPED (3):\n  ActivateDesktop.exe  [sha256: cf547a67cae1472d...]\n  C:\\.Trash-100\\ActivateDesktop.exe  [sha256: a6f55c27ba45651e...]\n  \\.Trash-100\\ActivateDesktop.exe  [sha256: 69cf3764f66616a3...]\n\nFILES WRITTEN (3):\n  C:\\.Trash-100\\ActivateDesktop.exe\n  C:\\.Trash-100\\db\\framework_exe\n  C:\\.Trash-100\\db\\version\n\nMUTEXES CREATED (2):\n  SamaelLovesMe\n  ShimCacheMutex\n\nPROCESSES CREATED (3):\n  ActivateDesktop.exe\n  C:\\.Trash-100\\ActivateDesktop.exe\n  C:\\.Trash-100\\registry_tool.exe -autorun C:\\.Trash-100\\ActivateDesktop.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA, GetProcAddress, LoadLibraryExW, LoadLibraryW\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.59\n  .rdata       entropy=4.76\n  .data        entropy=4.62\n  .rsrc        entropy=4.72\n  .reloc       entropy=2.2\n  [overlay]    entropy=2.0  size=4\n",
+  "ground_truth": {
+    "hash": "27855b8f8516e74087604688230ad6ec9bad115743da75e183b6203c9b69675d",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8889,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1047",
+        "signature_description": "connect to WMI namespace via WbemLocator"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "enumerate files on Windows"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1213",
+        "signature_description": "reference WMI statements"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "PEB access",
+      "reference absolute stream path on Windows",
+      "encode data using XOR",
+      "delay execution",
+      "create or open file",
+      "create process on Windows",
+      "set file attributes",
+      "create thread",
+      "open process",
+      "contain loop",
+      "write file on Windows",
+      "create directory",
+      "delete file",
+      "enumerate files on Windows",
+      "terminate process",
+      "resolve function by parsing PE exports",
+      "create mutex",
+      "check mutex and exit",
+      "resolve DNS",
+      "send data on socket",
+      "receive data on socket",
+      "initialize Winsock library",
+      "send HTTP request",
+      "send HTTP request with Host header",
+      "receive data",
+      "reference HTTP User-Agent string",
+      "send data",
+      "enumerate processes",
+      "connect to WMI namespace via WbemLocator",
+      "reference WMI statements",
+      "get thread local storage value",
+      "read file on Windows",
+      "print debug messages",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "get geographical location",
+      "linked against CPP standard library",
+      "contain a resource (.rsrc) section",
+      "contains PDB path",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [
+        "8.8.8.8",
+        "87.240.129.140",
+        "87.240.137.207",
+        "87.240.190.75"
+      ],
+      "domains": [
+        "1.lalkaboy.z8.ru",
+        "api.vk.com"
+      ],
+      "urls": [
+        "http://api.vk.com/method/wall.get.xml"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "ActivateDesktop.exe",
+        "C:\\.Trash-100\\ActivateDesktop.exe",
+        "\\.Trash-100\\ActivateDesktop.exe"
+      ],
+      "mutexes": [
+        "SamaelLovesMe",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "ActivateDesktop.exe",
+        "C:\\.Trash-100\\ActivateDesktop.exe",
+        "C:\\.Trash-100\\registry_tool.exe -autorun C:\\.Trash-100\\ActivateDesktop.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

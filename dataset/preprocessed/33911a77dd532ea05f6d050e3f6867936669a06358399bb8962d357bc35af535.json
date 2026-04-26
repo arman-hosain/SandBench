@@ -1,0 +1,204 @@
+{
+  "hash": "33911a77dd532ea05f6d050e3f6867936669a06358399bb8962d357bc35af535",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (27):\n  - set file attributes\n  - encode data using XOR\n  - acquire debug privileges\n  - get Program Files directory\n  - get outbound credentials handle via CredSSP\n  - encrypt data via SSPI\n  - decrypt data via SSPI\n  - get file system object information\n  - check if file exists\n  - encrypt data using RC4 KSA\n  - encrypt data using RC4 PRGA\n  - write process memory\n  - parse PE header\n  - inject thread\n  - modify access privileges\n  - get common file path\n  - persist via Run registry key\n  - get socket status\n  - get client handle via SChannel\n  - interact with driver via control codes\n  - overwrite Master Boot Record (MBR)\n  - get disk information\n  - get geographical location\n  - check OS version\n  - bypass Mark of the Web\n  - enumerate files on Windows\n  - get file size\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - File System::Get File Attributes [C0049]\n  - reference absolute stream path on Windows\n  - File System::Set File Attributes [C0050]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - File System::Create File [C0016]\n  - Communication::Socket Communication::Create UDP Socket [C0001.010]\n  - Communication::Socket Communication::Create TCP Socket [C0001.011]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Memory::Allocate Memory [C0007]\n  - Process::Create Thread [C0038]\n  - Process::Open Process [C0065]\n  - acquire debug privileges\n  - get Program Files directory\n  - get outbound credentials handle via CredSSP\n  - encrypt data via SSPI\n  - decrypt data via SSPI\n  - Process::Create Process [C0017]\n  - query remote server for available data\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - get file system object information\n  - Process::Check Mutex [C0043]\n\n--- ARTIFACTS ---\n\nOTHER REGISTRY KEYS SET (3):\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\ProfileList\\S-1-5-21-1482476501-1645522239-1417001333-500\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Prefetcher\\TracesProcessed\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\SessionInformation\\ProgramCount\n\nMUTEXES CREATED (1):\n  -f1171061Mutex\n\nMUTEXES OPENED (2):\n  \u00cbD\tf\"3\"G+]^W\u00e30\u00cf\u00a9\n  \u8589\tf\"3\"G+]^W?\u70ef\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessW, CreateRemoteThread, LoadLibraryW, VirtualAlloc, VirtualAllocEx, WriteProcessMemory\n  ADVAPI32.dll: AdjustTokenPrivileges, OpenProcessToken\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.43\n  .rdata       entropy=5.32\n  .data        entropy=6.16\n  .reloc       entropy=6.05\n",
+  "ground_truth": {
+    "hash": "33911a77dd532ea05f6d050e3f6867936669a06358399bb8962d357bc35af535",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8611,
+    "malicious_count": 62,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 23
+      },
+      {
+        "value": "ransomware",
+        "count": 7
+      },
+      {
+        "value": "worm",
+        "count": 7
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "dorkbot",
+        "count": 14
+      },
+      {
+        "value": "locky",
+        "count": 7
+      },
+      {
+        "value": "ngrbot",
+        "count": 4
+      }
+    ],
+    "suggested_label": "trojan.dorkbot/locky",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1016",
+        "signature_description": "get socket status"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1055",
+        "signature_description": "write process memory"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk information"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get Program Files directory"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "acquire debug privileges"
+      },
+      {
+        "id": "T1140",
+        "signature_description": "decrypt data via SSPI"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "persist via Run registry key"
+      },
+      {
+        "id": "T1553",
+        "signature_description": "bypass Mark of the Web"
+      },
+      {
+        "id": "T1561",
+        "signature_description": "overwrite Master Boot Record (MBR)"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      },
+      {
+        "id": "T1620",
+        "signature_description": "inject thread"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "get file attributes",
+      "reference absolute stream path on Windows",
+      "set file attributes",
+      "encode data using XOR",
+      "create or open file",
+      "create UDP socket",
+      "create TCP socket",
+      "delay execution",
+      "PEB access",
+      "allocate memory",
+      "allocate RWX memory",
+      "create thread",
+      "open process",
+      "acquire debug privileges",
+      "get Program Files directory",
+      "get outbound credentials handle via CredSSP",
+      "encrypt data via SSPI",
+      "decrypt data via SSPI",
+      "allocate RW memory",
+      "create process on Windows",
+      "query remote server for available data",
+      "create or open registry key",
+      "get file system object information",
+      "check mutex",
+      "move file",
+      "contain loop",
+      "delete file",
+      "check if file exists",
+      "encrypt data using RC4 KSA",
+      "encrypt data using RC4 PRGA",
+      "write file on Windows",
+      "hash data with CRC32",
+      "read file on Windows",
+      "initialize hashing via WinCrypt",
+      "hash data with MD5",
+      "hash data via WinCrypt",
+      "send data on socket",
+      "initialize Winsock library",
+      "send data",
+      "connect TCP socket",
+      "act as TCP client",
+      "resolve DNS",
+      "receive data on socket",
+      "receive data",
+      "set socket configuration",
+      "write process memory",
+      "resolve function by parsing PE exports",
+      "parse PE header",
+      "create pipe",
+      "connect pipe",
+      "inject thread",
+      "spawn thread to RWX shellcode",
+      "create mutex",
+      "check mutex and exit",
+      "modify access privileges",
+      "get OS version",
+      "get common file path",
+      "persist via Run registry key",
+      "get socket status",
+      "check for time delay via GetTickCount",
+      "get client handle via SChannel",
+      "interact with driver via control codes",
+      "overwrite Master Boot Record (MBR)",
+      "create HTTP request",
+      "connect to URL",
+      "check HTTP status code",
+      "read data from Internet",
+      "get disk information",
+      "get geographical location",
+      "check OS version",
+      "set registry value",
+      "terminate process",
+      "bypass Mark of the Web",
+      "copy file",
+      "create shortcut via IShellLink",
+      "set current directory",
+      "enumerate files on Windows",
+      "get storage device properties",
+      "create directory",
+      "get file size"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 3,
+      "files_dropped": [],
+      "mutexes": [
+        "-f1171061Mutex"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "hash": "028bb8d242e5cf94a50b8c5b6d49f35862488c1c2951e98727761f0ce362e992",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample is packed with UPX, has a resource section, and was compiled with Borland Delphi, which are common characteristics of suspicious software.\"\n  },\n  \"q2\": {\n    \"family\": [\"PUA\"],\n    \"explanation\": \"The presence of a resource section, packed with UPX, and compiled with Borland Delphi suggests that the sample may be a Potentially Unwanted Application (PUA).\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1204\", \"name\": \"Code Signing\"},\n      {\"id\": \"T1036\", \"name\": \"Masquerading as a Legitimate Service or Process\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 700,
+      "response_chars": 665,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample is packed with UPX, has a resource section, and was compiled with Borland Delphi, which are common characteristics of suspicious software.\"\n  },\n  \"q2\": {\n    \"family\": [\"PUA\"],\n    \"explanation\": \"The presence of a resource section, packed with UPX, and compiled with Borland Delphi suggests that the sample may be a Potentiall",
+      "elapsed_seconds": 3.43
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": false,
+      "gap_summary": "",
+      "missed_behavior_count": 0,
+      "ttps_found": [
+        "T1027",
+        "T1036",
+        "T1204"
+      ],
+      "hallucinated_ttps": [
+        "T1036",
+        "T1204"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 2
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 3.43,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 0.5,
+      "predicted": "SUSPICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8472
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.5,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1036",
+        "T1204"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1036",
+        "T1204"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5,
+      "breakdown": {
+        "ttp_f1": 0.5
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

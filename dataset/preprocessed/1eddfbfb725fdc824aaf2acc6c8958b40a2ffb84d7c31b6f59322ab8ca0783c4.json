@@ -1,0 +1,48 @@
+{
+  "hash": "1eddfbfb725fdc824aaf2acc6c8958b40a2ffb84d7c31b6f59322ab8ca0783c4",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\Documents and Settings\\backup.exe C:\\Documents and Settings\\\n  C:\\Program Files\\backup.exe C:\\Program Files\\\n  C:\\Python27\\backup.exe C:\\Python27\\\n  C:\\WINDOWS\\backup.exe C:\\WINDOWS\\\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - reference anti-VM strings targeting VirtualBox\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (3):\n  C:\\WINDOWS\\TEMP\\scs6.tmp\n  C:\\WINDOWS\\TEMP\\scs9.tmp\n  C:\\WINDOWS\\TEMP\\scsA.tmp\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nMUTEXES OPENED (1):\n  Pro3\n\nPROCESSES CREATED (4):\n  C:\\Documents and Settings\\backup.exe C:\\Documents and Settings\\\n  C:\\Program Files\\backup.exe C:\\Program Files\\\n  C:\\Python27\\backup.exe C:\\Python27\\\n  C:\\WINDOWS\\backup.exe C:\\WINDOWS\\\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Linker] Microsoft Linker\n\nPE SECTIONS (entropy):\n  .rsrc        entropy=6.11\n  .idata       entropy=0.18\n  unqdsqip     entropy=7.9\n  czyqhzgr     entropy=2.16\n  [overlay]    entropy=3.6010055541992188  size=158\n",
+  "ground_truth": {
+    "hash": "1eddfbfb725fdc824aaf2acc6c8958b40a2ffb84d7c31b6f59322ab8ca0783c4",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8028,
+    "malicious_count": 57,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting VirtualBox"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\backup.exe C:\\Documents and Settings\\",
+        "C:\\Program Files\\backup.exe C:\\Program Files\\",
+        "C:\\Python27\\backup.exe C:\\Python27\\",
+        "C:\\WINDOWS\\backup.exe C:\\WINDOWS\\"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

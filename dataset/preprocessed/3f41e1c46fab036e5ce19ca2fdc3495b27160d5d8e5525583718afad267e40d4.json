@@ -1,0 +1,80 @@
+{
+  "hash": "3f41e1c46fab036e5ce19ca2fdc3495b27160d5d8e5525583718afad267e40d4",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (27):\n  acm.org \u2192 104.17.80.191\n  bb.org \u2192 103.224.182.249\n  bounce2.pobox.com \u2192 64.147.108.74\n  dd.org \u2192 162.221.74.65\n  dom.ain\n  freebsd.org \u2192 96.47.72.84\n  ietf.org \u2192 4.31.198.44\n  linuxuser.co.uk \u2192 185.113.25.34\n  mail.dom.ain\n  mail.ietf.org \u2192 4.31.198.44\n  mail.linuxuser.co.uk\n  mail.mailroute.net \u2192 199.89.1.120\n  mail.python.org \u2192 188.166.95.178\n  mx.dom.ain\n  mx.linuxuser.co.uk\n  mx.python.org\n  mx1.freebsd.org \u2192 96.47.72.80\n  mx66.freebsd.org \u2192 96.47.72.85\n  mxg.dd.org \u2192 207.136.192.136\n  mxm.dd.org \u2192 162.221.74.65\n\nIP TRAFFIC (5):\n  152.16.216.218:1042 (TCP)\n  159.142.58.70:1042 (TCP)\n  16.80.225.62:1042 (TCP)\n  167.198.242.142:1042 (TCP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (1):\n  Sens\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - packed with generic packer\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - contain a resource (.rsrc) section\n  - (internal) packer file limitation\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (2):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\1iki.txt\n  C:\\Windows\\lsass.exe\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Traybar = C:\\Windows\\lsass.exe\n\nOTHER REGISTRY KEYS SET (1):\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n\nMUTEXES OPENED (3):\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  Packers: {'PEiD': 'UPX 2.90 [LZMA] -> Markus Oberhumer, Laszlo Molnar & John Reiser'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.9\n  .rsrc        entropy=2.65\n  [overlay]    entropy=7.590592861175537  size=31100\n",
+  "ground_truth": {
+    "hash": "3f41e1c46fab036e5ce19ca2fdc3495b27160d5d8e5525583718afad267e40d4",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9437,
+    "malicious_count": 67,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "packed with generic packer",
+      "packed with UPX",
+      "contain a resource (.rsrc) section",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [
+        "152.16.216.218",
+        "159.142.58.70",
+        "16.80.225.62",
+        "167.198.242.142",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "acm.org",
+        "bb.org",
+        "bounce2.pobox.com",
+        "dd.org",
+        "dom.ain",
+        "freebsd.org",
+        "ietf.org",
+        "linuxuser.co.uk",
+        "mail.dom.ain",
+        "mail.ietf.org",
+        "mail.linuxuser.co.uk",
+        "mail.mailroute.net",
+        "mail.python.org",
+        "mx.dom.ain",
+        "mx.linuxuser.co.uk",
+        "mx.python.org",
+        "mx1.freebsd.org",
+        "mx66.freebsd.org",
+        "mxg.dd.org",
+        "mxm.dd.org",
+        "park-mx.above.com",
+        "pb-bounce4.pobox.com",
+        "pb-bounce5.pobox.com",
+        "python.org",
+        "smtp.dom.ain",
+        "smtp.linuxuser.co.uk",
+        "www.linux.org.uk"
+      ],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Traybar"
+      ],
+      "registry_all_count": 2,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

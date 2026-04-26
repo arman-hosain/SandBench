@@ -1,0 +1,91 @@
+{
+  "hash": "2a15985995c94aa545ddd537ed6225fbac2fc05fc8f9d783b89b2fdb7df6e936",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  2a15985995c94aa5_mdm.exe\n    C:\\Users\\<USER>\\Downloads\\2a15985995c94aa5_mdm.exe c3dWGAnu\n      C:\\Users\\<USER>\\Downloads\\Fvd4a.exe gCkNHGwM\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (11):\n  - access PEB ldr_data\n  - get kernel32 base address\n  - encrypt data using RC4 KSA\n  - encrypt data using RC4 PRGA\n  - get file size\n  - parse PE header\n  - accept command line arguments\n  - get number of processors\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - File System::Create File [C0016]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - access PEB ldr_data\n  - get kernel32 base address\n  - Process::Create Process [C0017]\n  - Process::Create Process::Create Suspended Process [C0017.003]\n  - contain loop\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Encryption Key::RC4 KSA [C0028.002]\n  - Cryptography::Generate Pseudo-random Sequence::RC4 PRGA [C0021.004]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Read File [C0051]\n  - File System::Writes File [C0052]\n  - parse PE header\n  - Execution::Command and Scripting Interpreter [E1059]\n  - File System::Delete File [C0047]\n  - resolve function by parsing PE exports\n  - Execution::Install Additional Program [B0023]\n  - get number of processors\n  - Process::Terminate Process [C0018]\n  - Process::Allocate Thread Local Storage [C0040]\n  - link function at runtime on Windows\n  - link many functions at runtime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  2a15985995c94aa545ddd537ed6225fbac2fc05fc8f9d783b89b2fdb7df6e936  [sha256: 4cd858f834cdaffc...]\n  C:\\Users\\<USER>\\Downloads\\Fvd4a.exe  [sha256: 564bd9f944cd0e1f...]\n\nFILES WRITTEN (2):\n  C:\\2a15985995c94aa545ddd537ed6225fbac2fc05fc8f9d783b89b2fdb7df6e936\n  C:\\L4ObC.exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (3):\n  C:\\2a15985995c94aa545ddd537ed6225fbac2fc05fc8f9d783b89b2fdb7df6e936 2rDQytYD\n  C:\\2a15985995c94aa545ddd537ed6225fbac2fc05fc8f9d783b89b2fdb7df6e936 C:\\L4ObC.exe\" zwEmDvTd\"\n  C:\\L4ObC.exe C:\\2a15985995c94aa545ddd537ed6225fbac2fc05fc8f9d783b89b2fdb7df6e936\" YXNfE6g8\"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessW, GetProcAddress, LoadLibraryW, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.58\n  .rdata       entropy=4.76\n  .data        entropy=7.94\n  .rsrc        entropy=2.69\n",
+  "ground_truth": {
+    "hash": "2a15985995c94aa545ddd537ed6225fbac2fc05fc8f9d783b89b2fdb7df6e936",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8889,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encrypt data using RC4 KSA"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get number of processors"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "allocate RW memory",
+      "create or open file",
+      "PEB access",
+      "access PEB ldr_data",
+      "get kernel32 base address",
+      "create process on Windows",
+      "create process suspended",
+      "contain loop",
+      "encrypt data using RC4 KSA",
+      "encrypt data using RC4 PRGA",
+      "get file size",
+      "read file on Windows",
+      "write file on Windows",
+      "parse PE header",
+      "accept command line arguments",
+      "delete file",
+      "resolve function by parsing PE exports",
+      "write and execute a file",
+      "get number of processors",
+      "terminate process",
+      "allocate thread local storage",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section",
+      "reference Base64 string"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "2a15985995c94aa545ddd537ed6225fbac2fc05fc8f9d783b89b2fdb7df6e936",
+        "C:\\Users\\<USER>\\Downloads\\Fvd4a.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\2a15985995c94aa545ddd537ed6225fbac2fc05fc8f9d783b89b2fdb7df6e936 2rDQytYD",
+        "C:\\2a15985995c94aa545ddd537ed6225fbac2fc05fc8f9d783b89b2fdb7df6e936 C:\\L4ObC.exe\" zwEmDvTd\"",
+        "C:\\L4ObC.exe C:\\2a15985995c94aa545ddd537ed6225fbac2fc05fc8f9d783b89b2fdb7df6e936\" YXNfE6g8\""
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

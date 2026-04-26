@@ -1,0 +1,117 @@
+{
+  "hash": "3551ffe103dc6fece51f99818f3ed234bfee01917ad73080acbf15aa0b658a53",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (6):\n  GET http://dwonload.wencyy.top/wuming/png/monids.png\n  GET http://api.ip138.com/query/\n  GET http://aa.softznz.com/op.php?value=ODQxMzcyNDA2NzI3MjkzNTQ5NDA0OTQ4NjcxMTQ4MzI2NTUyMDczNTA1Mzc2NzUzNDUyNTQ1Mzk0OTM3NDk1MjY1NTIxNzUyNDU1MjEzMDE2NTExMzM0MDY1NDAyODcwMTMwMDMzNDc0OTY0MzU0ODEzNTI0ODQ3NDkyMzQ0NzA2OTEyMDUyOTM5NjI0MzExNDQ2NzA1MTMzOTYyMjYxMTI4NTUwNTI5Mzk1ODQwMTEzMjU1MDU2MTE1MjUwNzQ3NjczNjYyMzU2OTQwMjkzMA%3D%3D\n  GET http://dl.softznz.com/a/.dat\n  GET http://aa.softznz.com/x.php?value=MzUxZjZlMDlhNmExOWM0YTYwZWZmNmRmYmQ1NDVjNjgJQnVuZGxlQmluZAkxLjIuMS41CQlXaW5kb3dzWFAJMAkwCQkJMQlvcGVuCQkw\n  GET http://101.37.129.204/x.txt?value=MzUxZjZlMDlhNmExOWM0YTYwZWZmNmRmYmQ1NDVjNjgJQnVuZGxlQmluZAkxLjIuMS41CQlXaW5kb3dzWFAJMAkwCQkJMQlvcGVuCQkw\n\nDNS LOOKUPS (5):\n  aa.softznz.com \u2192 112.124.193.155\n  api.ip138.com \u2192 129.226.77.151\n  dl.softznz.com \u2192 163.171.130.132\n  dwonload.wencyy.top\n  dwonload.wencyy.top \u2192 163.171.131.87\n\nIP TRAFFIC (5):\n  101.37.129.204:80 (TCP)\n  112.124.193.155:80 (TCP)\n  129.226.77.151:80 (TCP)\n  163.171.130.132:80 (TCP)\n  163.171.131.87:80 (TCP)\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (13):\n  - encode data using XOR\n  - get socket information\n  - get local IPv4 addresses\n  - parse PE header\n  - get common file path\n  - link function at runtime on Windows\n  - get socket status\n  - query environment variable\n  - get hostname\n  - get system information on Windows\n  - check OS version\n  - reference Base64 string\n  - reference anti-VM strings targeting Xen\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Communication::Socket Communication::Create UDP Socket [C0001.010]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Thread [C0038]\n  - contain loop\n  - contain pusha popa sequence\n  - Process::Terminate Process [C0018]\n  - Communication::Socket Communication::Initialize Winsock Library [C0001.009]\n  - Data::Non-Cryptographic Hash::djb2 [C0030.006]\n  - Communication::Socket Communication::Receive Data [C0001.006]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - Communication::Socket Communication::Send Data [C0001.007]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - File System::Writes File [C0052]\n  - Communication::Socket Communication::Set Socket Config [C0001.001]\n  - get socket information\n  - get local IPv4 addresses\n  - parse PE header\n  - Discovery::File and Directory Discovery [E1083]\n  - link function at runtime on Windows\n  - Communication::DNS Communication::Resolve [C0011.001]\n  - Communication::HTTP Communication::Read Header [C0002.014]\n  - Communication::Socket Communication::Get Socket Status [C0001.012]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAllocEx\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.51\n  .rdata       entropy=5.42\n  .data        entropy=7.84\n  .tls         entropy=0.02\n  .rsrc        entropy=4.36\n  .reloc       entropy=6.58\n",
+  "ground_truth": {
+    "hash": "3551ffe103dc6fece51f99818f3ed234bfee01917ad73080acbf15aa0b658a53",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7778,
+    "malicious_count": 56,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1016",
+        "signature_description": "get socket information"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting Xen"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "encode data using XOR",
+      "create UDP socket",
+      "delay execution",
+      "create thread",
+      "contain loop",
+      "contain pusha popa sequence",
+      "terminate process",
+      "initialize Winsock library",
+      "hash data using djb2",
+      "receive data on socket",
+      "receive data",
+      "send data on socket",
+      "send data",
+      "write file on Windows",
+      "set socket configuration",
+      "get socket information",
+      "get local IPv4 addresses",
+      "parse PE header",
+      "get common file path",
+      "link function at runtime on Windows",
+      "resolve DNS",
+      "check HTTP status code",
+      "get socket status",
+      "read pipe",
+      "read file on Windows",
+      "query environment variable",
+      "hash data with MD5",
+      "authenticate HMAC",
+      "get hostname",
+      "get system information on Windows",
+      "get OS version",
+      "check OS version",
+      "set environment variable",
+      "contain a resource (.rsrc) section",
+      "contain a thread local storage (.tls) section",
+      "reference Base64 string",
+      "contains PDB path",
+      "reference anti-VM strings targeting Xen",
+      "linked against libcurl"
+    ],
+    "iocs": {
+      "ips": [
+        "101.37.129.204",
+        "112.124.193.155",
+        "129.226.77.151",
+        "163.171.130.132",
+        "163.171.131.87"
+      ],
+      "domains": [
+        "aa.softznz.com",
+        "api.ip138.com",
+        "dl.softznz.com",
+        "dwonload.wencyy.top"
+      ],
+      "urls": [
+        "http://101.37.129.204/x.txt?value=MzUxZjZlMDlhNmExOWM0YTYwZWZmNmRmYmQ1NDVjNjgJQnVuZGxlQmluZAkxLjIuMS41CQlXaW5kb3dzWFAJMAkwCQkJMQlvcGVuCQkw",
+        "http://aa.softznz.com/op.php?value=ODQxMzcyNDA2NzI3MjkzNTQ5NDA0OTQ4NjcxMTQ4MzI2NTUyMDczNTA1Mzc2NzUzNDUyNTQ1Mzk0OTM3NDk1MjY1NTIxNzUyNDU1MjEzMDE2NTExMzM0MDY1NDAyODcwMTMwMDMzNDc0OTY0MzU0ODEzNTI0ODQ3NDkyMzQ0NzA2OTEyMDUyOTM5NjI0MzExNDQ2NzA1MTMzOTYyMjYxMTI4NTUwNTI5Mzk1ODQwMTEzMjU1MDU2MTE1MjUwNzQ3NjczNjYyMzU2OTQwMjkzMA%3D%3D",
+        "http://aa.softznz.com/x.php?value=MzUxZjZlMDlhNmExOWM0YTYwZWZmNmRmYmQ1NDVjNjgJQnVuZGxlQmluZAkxLjIuMS41CQlXaW5kb3dzWFAJMAkwCQkJMQlvcGVuCQkw",
+        "http://api.ip138.com/query/",
+        "http://dl.softznz.com/a/.dat",
+        "http://dwonload.wencyy.top/wuming/png/monids.png"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork"
+  ]
+}

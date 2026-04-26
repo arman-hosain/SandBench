@@ -1,0 +1,69 @@
+{
+  "hash": "351992f4b5a7bda5f9e285c4ff3debac044816e04200f6cc9d162f76adf01b53",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  a0edcf01807fde9300b060c552b6ffa0.virus.exe\n    C:\\Windows\\System\\SexVdSj.exe\n    C:\\Windows\\System\\jMTOEVv.exe\n    C:\\Windows\\System\\kZfFojM.exe\n    C:\\Windows\\System\\rjWuzJm.exe\n    C:\\Windows\\System\\vXkAOhV.exe\n    C:\\Windows\\System\\OcUrclE.exe\n    C:\\Windows\\System\\zwubKPG.exe\n    C:\\Windows\\System\\yUiJucu.exe\n    C:\\Windows\\System\\YvZXkfd.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - link function at runtime on Windows\n  - packed with UPX\n  - reference anti-VM strings targeting VirtualBox\n  - reference anti-VM strings targeting Qemu\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - contain loop\n  - Process::Terminate Process [C0018]\n  - link function at runtime on Windows\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - contain a resource (.rsrc) section\n  - Execution::Install Additional Program [B0023]\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (9):\n  C:\\Windows\\System\\YvZXkfd.exe  [sha256: ef1b4058ff3409ad...]\n  C:\\Windows\\System\\yUiJucu.exe  [sha256: 9ec5c7c4aeb2ffba...]\n  C:\\Windows\\System\\zwubKPG.exe  [sha256: 392c639d5694e124...]\n  C:\\Windows\\System\\OcUrclE.exe  [sha256: 0d4fc353e0670601...]\n  C:\\Windows\\System\\vXkAOhV.exe  [sha256: f433cd7e69751e1d...]\n  C:\\Windows\\System\\rjWuzJm.exe  [sha256: 0cbcfe73210b80ed...]\n  C:\\Windows\\System\\kZfFojM.exe  [sha256: 74a583f1fc4e8819...]\n  C:\\Windows\\System\\jMTOEVv.exe  [sha256: 8d49b597730d9d0a...]\n  C:\\Windows\\System\\SexVdSj.exe  [sha256: a0bcbf38fa29573b...]\n\nMUTEXES CREATED (1):\n  sfdkjjhgkdsfhgjksd\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualProtect\n\nCOMPILER AND PACKER:\n  [sfx] temporary EXE SFX\n  [Packer] UPX\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Overlay] EXE file\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.91\n  .rsrc        entropy=4.24\n  [overlay]    entropy=6.3703107833862305  size=680937\n",
+  "ground_truth": {
+    "hash": "351992f4b5a7bda5f9e285c4ff3debac044816e04200f6cc9d162f76adf01b53",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.875,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with UPX"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RW memory",
+      "contain loop",
+      "terminate process",
+      "link function at runtime on Windows",
+      "packed with UPX",
+      "contain a resource (.rsrc) section",
+      "contain an embedded PE file",
+      "reference anti-VM strings targeting VirtualBox",
+      "reference anti-VM strings targeting Qemu",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Windows\\System\\OcUrclE.exe",
+        "C:\\Windows\\System\\SexVdSj.exe",
+        "C:\\Windows\\System\\YvZXkfd.exe",
+        "C:\\Windows\\System\\jMTOEVv.exe",
+        "C:\\Windows\\System\\kZfFojM.exe",
+        "C:\\Windows\\System\\rjWuzJm.exe",
+        "C:\\Windows\\System\\vXkAOhV.exe",
+        "C:\\Windows\\System\\yUiJucu.exe",
+        "C:\\Windows\\System\\zwubKPG.exe"
+      ],
+      "mutexes": [
+        "sfdkjjhgkdsfhgjksd"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

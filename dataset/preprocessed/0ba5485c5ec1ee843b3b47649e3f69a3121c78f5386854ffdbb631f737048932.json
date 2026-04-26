@@ -1,0 +1,182 @@
+{
+  "hash": "0ba5485c5ec1ee843b3b47649e3f69a3121c78f5386854ffdbb631f737048932",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  wmplayer.pe32\n    msmsgs.eXe\n      reg.exe\n      reg.exe\n      svchost.eXe\n    angle.eXe\n      reg.exe\n      reg.exe\n    Rar.exe\n    reg.exe\n    svchost.eXe\n      reg.exe\n      reg.exe\n    reg.exe\n\nCOMMAND EXECUTIONS (15):\n  reg.exe import C:\\Windows\\regedit.reg\n  reg.exe export HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\\srservice C:\\Windows\\regedit.reg\n  winzip32.exe -min -a -en -r \"C:\\Users\\Public\\Music\\angle.Zip\" \"C:\\Users\\Public\\Music\\angle.eXe\"\n  rar.exe a -ao -ep \"C:\\Users\\Public\\Music\\angle.Zip\" \"C:\\Users\\Public\\Music\\angle.eXe\"\n  C:\\Users\\Public\\Pictures\\svchost.eXe\n  C:\\Users\\Public\\Music\\svchost.eXe\n  C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\msmsgs.eXe\n  C:\\Windows\\system32\\angle.eXe\n  \"C:\\Windows\\System32\\reg.exe\" export HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\\srservice C:\\Windows\\regedit.reg\n  \"C:\\Users\\Public\\Pictures\\svchost.eXe\"\n  \"C:\\Users\\Public\\Music\\svchost.eXe\"\n  \"C:\\Windows\\System32\\reg.exe\" import C:\\Windows\\regedit.reg\n  \"C:\\Program Files\\WinRAR\\Rar.exe\" a -ao -ep \"C:\\Users\\Public\\Music\\angle.Zip\" \"C:\\Users\\Public\\Music\\angle.eXe\"\n  \"C:\\Windows\\system32\\angle.eXe\"\n  \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\msmsgs.eXe\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (20):\n  - set file attributes\n  - acquire debug privileges\n  - get Program Files directory\n  - get startup folder\n  - enumerate files on Windows\n  - persist via Windows service\n  - enumerate gui resources\n  - shutdown system\n  - modify access privileges\n  - get common file path\n  - get hostname\n  - enumerate network shares\n  - get disk information\n  - enumerate files recursively\n  - check OS version\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - query or enumerate registry value\n  - query or enumerate registry key\n  - get socket status\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - Process::Create Process [C0017]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Set File Attributes [C0050]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - acquire debug privileges\n  - get Program Files directory\n  - reference absolute stream path on Windows\n  - get startup folder\n  - create raw socket\n  - Communication::Socket Communication::Create UDP Socket [C0001.010]\n  - Communication::Socket Communication::Create TCP Socket [C0001.011]\n  - Process::Create Thread [C0038]\n  - contain loop\n  - Process::Terminate Process [C0018]\n  - File System::Copy File [C0045]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Delete File [C0047]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - persist via Windows service\n  - enumerate gui resources\n  - shutdown system\n  - modify access privileges\n  - Discovery::Application Window Discovery [E1010]\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES DROPPED (6):\n  C:\\Windows\\ziprar.eXe  [sha256: 5560e4267e661425...]\n  \\Windows\\ziprar.eXe  [sha256: 0260f47f4b63d50d...]\n  \\Users\\Public\\Pictures\\iexplore.eXe  [sha256: ef5ee04a42381b18...]\n  \\Users\\Public\\Music\\angle.eXe  [sha256: 9674a9c133421f67...]\n  \\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\msmsgs.eXe  [sha256: 0ba5485c5ec1ee84...]\n  \\Users\\Public\\Music\\svchost.eXe  [sha256: 39ce5f6ef4d2b31e...]\n\nFILES WRITTEN (23):\n  C:\\Documents and Settings\\All Users\\Application Data\\Microsoft\\Dr Watson\\drwtsn32.log\n  C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\msmsgs.eXe\n  C:\\Surat Buat Presiden.htm\n  C:\\Users\\<USER>\\Music\\RCX2855.tmp\n  C:\\Users\\<USER>\\Music\\RCX3613.tmp\n  C:\\Users\\<USER>\\Music\\RCX915E.tmp\n  C:\\Users\\<USER>\\Music\\RCXA835.tmp\n  C:\\Users\\<USER>\\Music\\angle.Zip\n  C:\\Users\\<USER>\\Music\\angle.eXe\n  C:\\Users\\<USER>\\Music\\svchost.eXe\n  C:\\Users\\<USER>\\Pictures\\RCX241E.tmp\n  C:\\Users\\<USER>\\Pictures\\RCX7205.tmp\n  C:\\Users\\<USER>\\Pictures\\RCX7998.tmp\n  C:\\Users\\<USER>\\Pictures\\iexplore.eXe\n  C:\\Users\\<USER>\\Pictures\\jpg.eXe\n  C:\\Users\\<USER>\\Pictures\\svchost.eXe\n  C:\\Users\\<USER>\\Pictures\\wmplayer.eXe\n  C:\\Windows\\RCX2CCA.tmp\n  C:\\Windows\\RCX5237.tmp\n  C:\\Windows\\RCX9864.tmp\n\nOTHER REGISTRY KEYS SET (7):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Hidden\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\HideFileExt\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 51006D006400760075006300700067005E0052006D006E0\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n\nMUTEXES CREATED (6):\n  DBWinMutex\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n  ShimCacheMutex\n\nPROCESSES CREATED (6):\n  C:\\WINDOWS\\system32\\drwtsn32 -p 1792 -e 188 -g\n  Rar.exe\n  angle.eXe\n  msmsgs.eXe\n  reg.exe\n  svchost.eXe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA, GetProcAddress, WinExec\n  ADVAPI32.dll: AdjustTokenPrivileges, OpenProcessToken\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Library] MFC\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.22\n  .rdata       entropy=5.52\n  .data        entropy=5.35\n  .rsrc        entropy=5.43\n",
+  "ground_truth": {
+    "hash": "0ba5485c5ec1ee843b3b47649e3f69a3121c78f5386854ffdbb631f737048932",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8873,
+    "malicious_count": 63,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 29
+      },
+      {
+        "value": "pua",
+        "count": 2
+      },
+      {
+        "value": "worm",
+        "count": 2
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "ircbot",
+        "count": 21
+      },
+      {
+        "value": "dacic",
+        "count": 6
+      },
+      {
+        "value": "surubat",
+        "count": 4
+      }
+    ],
+    "suggested_label": "trojan.ircbot/dacic",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "enumerate gui resources"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1016",
+        "signature_description": "get socket status"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get hostname"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get Program Files directory"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "acquire debug privileges"
+      },
+      {
+        "id": "T1135",
+        "signature_description": "enumerate network shares"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1529",
+        "signature_description": "shutdown system"
+      },
+      {
+        "id": "T1543",
+        "signature_description": "persist via Windows service"
+      },
+      {
+        "id": "T1547",
+        "signature_description": "get startup folder"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "persist via Windows service"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "create process on Windows",
+      "delay execution",
+      "set file attributes",
+      "create or open registry key",
+      "acquire debug privileges",
+      "get Program Files directory",
+      "reference absolute stream path on Windows",
+      "get startup folder",
+      "create raw socket",
+      "create UDP socket",
+      "create TCP socket",
+      "create thread",
+      "contain loop",
+      "terminate process",
+      "copy file",
+      "enumerate files on Windows",
+      "delete file",
+      "set registry value",
+      "persist via Windows service",
+      "enumerate gui resources",
+      "shutdown system",
+      "modify access privileges",
+      "get graphical window text",
+      "get common file path",
+      "initialize Winsock library",
+      "resolve DNS",
+      "get hostname",
+      "enumerate network shares",
+      "get disk information",
+      "enumerate files recursively",
+      "write file on Windows",
+      "read file via mapping",
+      "get OS version",
+      "check OS version",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "query or enumerate registry value",
+      "resolve function by parsing PE exports",
+      "query or enumerate registry key",
+      "send data on socket",
+      "send data",
+      "get socket status",
+      "write and execute a file",
+      "connect TCP socket",
+      "act as TCP client",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 7,
+      "files_dropped": [
+        "C:\\Windows\\ziprar.eXe",
+        "\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\msmsgs.eXe",
+        "\\Users\\Public\\Music\\angle.eXe",
+        "\\Users\\Public\\Music\\svchost.eXe",
+        "\\Users\\Public\\Pictures\\iexplore.eXe",
+        "\\Windows\\ziprar.eXe"
+      ],
+      "mutexes": [
+        "DBWinMutex",
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\system32\\drwtsn32 -p 1792 -e 188 -g",
+        "Rar.exe",
+        "angle.eXe",
+        "msmsgs.eXe",
+        "reg.exe",
+        "svchost.eXe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

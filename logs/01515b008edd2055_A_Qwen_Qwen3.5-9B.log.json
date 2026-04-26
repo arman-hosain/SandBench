@@ -1,0 +1,89 @@
+{
+  "hash": "01515b008edd2055ece4ab6a60b9f3288ccc8856bfa6dd1531a3b4575df2dca2",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it unpacks itself (UPX), creates a deep chain of child processes (divxenc_3202.exe through ...m.exe), drops numerous files to the Temp directory, and establishes persistence via the Windows Run registry key. The combination of process injection/creation chains, registry persistence, and obfuscation techniques confirms malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The primary behavior observed is the creation of a long chain of child processes and the dropping of multiple executable files to the Temp folder. This 'dropping' mechanism is characteristic of a Dropper, which is designed to deploy other payloads or components to the system.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1070\",\n        \"name\": \"Indicator Removal\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 7745,
+      "response_chars": 1255,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it unpacks itself (UPX), creates a deep chain of child processes (divxenc_3202.exe through ...m.exe), drops numerous files to the Temp directory, and establishes persistence via the Windows Run registry key. The combination of process injection/creation chains, registry persistence, and obfusc",
+      "elapsed_seconds": 7.32
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 7.32,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9155
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.2667,
+      "ttp_precision": 0.4,
+      "ttp_recall": 0.2,
+      "gt_ttps": [
+        "T1010",
+        "T1012",
+        "T1027",
+        "T1082",
+        "T1083",
+        "T1112",
+        "T1129",
+        "T1222",
+        "T1547",
+        "T1564"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1547"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1059",
+        "T1070"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1012",
+        "T1082",
+        "T1083",
+        "T1112",
+        "T1129",
+        "T1222",
+        "T1564"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2667,
+      "breakdown": {
+        "ttp_f1": 0.2667
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

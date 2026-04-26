@@ -1,0 +1,85 @@
+{
+  "hash": "2bf52102572c9043a6a98bf5fe528183cc117ad5a968659a154ecd2c6ab802a1",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  2fd4a536b03898bc153fbd09dc258024.virus.exe\n    c:\\windows\\W_X_C.bat\n      C:\\windows\\hosts.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe\n      c:\\windows\\W_X_C.bat\n        C:\\windows\\hosts.exe\n          C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe\n      C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe\n    REG DELETE HKLM\\SYSTEM\\CurrentControlSet\\Control\\SafeBoot /f\n\nCOMMAND EXECUTIONS (1):\n  C:\\Windows\\W_X_C.vbs\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - parse PE header\n  - reference anti-VM strings targeting VirtualBox\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - parse PE header\n  - Execution::Install Additional Program [B0023]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe  [sha256: a6ab96bd74892032...]\n  C:\\Windows\\hosts.exe  [sha256: ed7c5866a9f2a6d0...]\n\nFILES WRITTEN (7):\n  %WINDIR%\\W_X_C.bat\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\avscan.exe\n  C:\\WINDOWS\\TEMP\\scs4.tmp\n  C:\\WINDOWS\\TEMP\\scs5.tmp\n  C:\\WINDOWS\\TEMP\\scs6.tmp\n  C:\\windows\\W_X_C.vbs\n  c:\\windows\\W_X_C.bat\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\avscan = C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe\n\nOTHER REGISTRY KEYS SET (5):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\HideFileExt\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\SuperHidden\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowSuperHidden\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Folder\\HideFileExt\\DefaultValue\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Folder\\HideFileExt\\UncheckedValue\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (5):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\avscan.exe\n  C:\\WINDOWS\\W_X_C.vbs W_X_C.vbs\n  C:\\windows\\hosts.exe C:\\windows\\hosts.exe\n  REG DELETE HKLM\\SYSTEM\\CurrentControlSet\\Control\\SafeBoot /f\n  c:\\windows\\W_X_C.bat\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0', 'F-PROT': 'ZIP'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.08\n  .rsrc        entropy=7.64\n  [overlay]    entropy=7.429989337921143  size=2590559\n",
+  "ground_truth": {
+    "hash": "2bf52102572c9043a6a98bf5fe528183cc117ad5a968659a154ecd2c6ab802a1",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9167,
+    "malicious_count": 66,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 35
+      },
+      {
+        "value": "worm",
+        "count": 2
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "lunam",
+        "count": 17
+      },
+      {
+        "value": "sillyfdc",
+        "count": 3
+      },
+      {
+        "value": "otfrem",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.lunam/sillyfdc",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "parse PE header",
+      "contain an embedded PE file",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting VirtualBox",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\avscan"
+      ],
+      "registry_all_count": 6,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\avscan.exe",
+        "C:\\Windows\\hosts.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\avscan.exe",
+        "C:\\WINDOWS\\W_X_C.vbs W_X_C.vbs",
+        "C:\\windows\\hosts.exe C:\\windows\\hosts.exe",
+        "REG DELETE HKLM\\SYSTEM\\CurrentControlSet\\Control\\SafeBoot /f",
+        "c:\\windows\\W_X_C.bat"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

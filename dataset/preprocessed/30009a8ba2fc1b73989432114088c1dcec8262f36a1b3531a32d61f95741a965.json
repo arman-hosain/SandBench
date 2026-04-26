@@ -1,0 +1,77 @@
+{
+  "hash": "30009a8ba2fc1b73989432114088c1dcec8262f36a1b3531a32d61f95741a965",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  30009a8ba2fc1b73_wlx863.exe\n    c:\\6640446.exe\n      c:\\028846.exe\n        c:\\604244.exe\n          c:\\26044.exe\n            c:\\822268.exe\n              c:\\48682.exe\n                c:\\420084.exe\n                  c:\\20082.exe\n                    c:\\440284.exe\n                      c:\\80084.exe\n                        c:\\00284.exe\n                          c:\\82466.exe\n                            c:\\628422.exe\n                              c:\\02000.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - contain obfuscated stackstrings\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - contain loop\n  - resolve function by parsing PE exports\n  - Data::Decompress Data [C0025]\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (28):\n  o0070.exe  [sha256: b693d978b040841f...]\n  c:\\6640446.exe  [sha256: d5cb1dcc616401d9...]\n  c:\\028846.exe  [sha256: be4ddb1bdf5785ae...]\n  c:\\604244.exe  [sha256: fa9c04db018ec1e6...]\n  c:\\26044.exe  [sha256: fd5c95452ac03e17...]\n  c:\\822268.exe  [sha256: 406d9f3778eacd42...]\n  c:\\48682.exe  [sha256: 736b02d89f590a2d...]\n  c:\\420084.exe  [sha256: 4c6caa1c6ecb0cec...]\n  c:\\20082.exe  [sha256: cf51913fe2b91afc...]\n  c:\\440284.exe  [sha256: dbe74c8d03227516...]\n  c:\\80084.exe  [sha256: 0e25567f973d832a...]\n  c:\\00284.exe  [sha256: 8c857690f7a24f2f...]\n  c:\\82466.exe  [sha256: fc7e0efa1e9cfdf1...]\n  c:\\628422.exe  [sha256: c4ea4d5b08f43b90...]\n  c:\\02000.exe  [sha256: 7a85864d583cdb82...]\n  c:\\6248488.exe  [sha256: a0c4ca79833b4fb5...]\n  c:\\480402.exe  [sha256: 4941278470f0efe7...]\n  c:\\80646.exe  [sha256: b386a9baf3452a7c...]\n  c:\\06408.exe  [sha256: 53ceb4172b25be45...]\n  c:\\24482.exe  [sha256: 7dc18c3b836880dc...]\n\nFILES WRITTEN (1):\n  c:\\o0070.exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  c:\\o0070.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Packer] DxPack\n  Packers: {'F-PROT': 'UPX_LZMA'}\n\nPE SECTIONS (entropy):\n  .rsrc        entropy=2.99\n  .rsrc        entropy=7.6\n  [overlay]    entropy=4.925762176513672  size=53179\n",
+  "ground_truth": {
+    "hash": "30009a8ba2fc1b73989432114088c1dcec8262f36a1b3531a32d61f95741a965",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8611,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain obfuscated stackstrings",
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "decompress data using LZO",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "c:\\00284.exe",
+        "c:\\0084840.exe",
+        "c:\\02000.exe",
+        "c:\\028846.exe",
+        "c:\\06408.exe",
+        "c:\\20082.exe",
+        "c:\\2266422.exe",
+        "c:\\2268006.exe",
+        "c:\\242808.exe",
+        "c:\\242860.exe",
+        "c:\\24482.exe",
+        "c:\\26044.exe",
+        "c:\\420084.exe",
+        "c:\\440284.exe",
+        "c:\\480402.exe",
+        "c:\\48682.exe",
+        "c:\\604244.exe",
+        "c:\\6248488.exe",
+        "c:\\628422.exe",
+        "c:\\6640446.exe",
+        "c:\\80084.exe",
+        "c:\\80646.exe",
+        "c:\\8068228.exe",
+        "c:\\822268.exe",
+        "c:\\82466.exe",
+        "c:\\84662.exe",
+        "c:\\848080.exe",
+        "o0070.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "c:\\o0070.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

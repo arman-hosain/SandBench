@@ -1,0 +1,68 @@
+{
+  "hash": "02645f91d0e2ebc18ee48b834b09acbc3cc0242335352c7f7dc1a94b066d9313",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as encoding data using XOR, packed with generic packer, and creating multiple instances of Internet Explorer to execute arbitrary URLs. This suggests a malicious intent to evade detection and execute potentially malicious content.\"\n  },\n  \"q2\": {\n    \"family\": [\"Adware\"],\n    \"explanation\": \"The sample's behavior of creating multiple instances of Internet Explorer to execute arbitrary URLs, and its use of encoding and packing techniques, is consistent with the behavior of adware. Adware typically generates revenue by displaying unwanted advertisements, and this sample's behavior suggests it may be designed to do the same.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1204\", \"name\": \"User Execution\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 6441,
+      "response_chars": 954,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior such as encoding data using XOR, packed with generic packer, and creating multiple instances of Internet Explorer to execute arbitrary URLs. This suggests a malicious intent to evade detection and execute potentially malicious content.\"\n  },\n  \"q2\": {\n    \"family\": [\"Adware\"],\n    \"explanation\": \"Th",
+      "elapsed_seconds": 4.42
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 4.42,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9412
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.5,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1204",
+        "T1218"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1204",
+        "T1218"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.5,
+      "breakdown": {
+        "ttp_f1": 0.5
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

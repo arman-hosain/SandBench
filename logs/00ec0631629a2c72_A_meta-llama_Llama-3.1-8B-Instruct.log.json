@@ -1,0 +1,85 @@
+{
+  "hash": "00ec0631629a2c72c7b9e938b99bb517fdb729b9e2ba2aa0033c48e40c452781",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior, such as downloading and executing files from unknown sources, packing with Mpress, and encoding data using XOR. These indicators suggest a malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's purpose appears to be to deliver and execute malicious payloads, which is characteristic of a Trojan. The use of packing and encoding techniques further supports this classification.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"Code Injection\"},\n      {\"id\": \"T1210\", \"name\": \"Exploitation of Remote Services\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 3248,
+      "response_chars": 737,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior, such as downloading and executing files from unknown sources, packing with Mpress, and encoding data using XOR. These indicators suggest a malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's purpose appears to be to deliver and execute malicious payloads, wh",
+      "elapsed_seconds": 3.56
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 3.56,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8732
+    },
+    "family": {
+      "family_f1": 0.6667,
+      "family_precision": 1.0,
+      "family_recall": 0.5,
+      "predicted": [
+        "trojan"
+      ],
+      "matched": [
+        "trojan"
+      ],
+      "reachable_gt": [
+        "dropper",
+        "trojan"
+      ],
+      "gt_pool": [
+        "babar",
+        "downloader",
+        "trojan",
+        "upatre",
+        "waski"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 0.4,
+      "ttp_precision": 0.3333,
+      "ttp_recall": 0.5,
+      "gt_ttps": [
+        "T1027",
+        "T1082"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1210",
+        "T1218"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1210",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1082"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4,
+      "breakdown": {
+        "ttp_f1": 0.4
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

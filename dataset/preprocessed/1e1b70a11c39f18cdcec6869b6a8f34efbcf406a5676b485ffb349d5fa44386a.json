@@ -1,0 +1,50 @@
+{
+  "hash": "1e1b70a11c39f18cdcec6869b6a8f34efbcf406a5676b485ffb349d5fa44386a",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nIP TRAFFIC (3):\n  112.175.88.208:11150 (TCP)\n  112.175.88.209:11120 (TCP)\n  112.175.88.209:11170 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  huter.pe32\n    huter.exe\n    cmd.exe\n\nCOMMAND EXECUTIONS (4):\n  ((null)) C:\\WINDOWS\\system32\\huter.exe [(null)]\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\sanfdr.bat(null) [(null)]\n  cmd /c \"\"C:\\Users\\Petra\\AppData\\Local\\Temp\\sanfdr.bat\" \"\n  \"C:\\Users\\Petra\\AppData\\Local\\Temp\\huter.exe\"\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  huter.exe  [sha256: 45d72581da55a4ca...]\n  \\Users\\Petra\\AppData\\Local\\Temp\\huter.exe  [sha256: e2dd2e3a3f7e0004...]\n\nFILES WRITTEN (6):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\golfinfo.ini\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\sanfdr.bat\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\golfinfo.ini\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\huter.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\sanfdr.bat\n  C:\\WINDOWS\\system32\\huter.exe\n\nOTHER REGISTRY KEYS SET (2):\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n\nMUTEXES CREATED (6):\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n  RasPbFile\n  ShimCacheMutex\n\nPROCESSES CREATED (4):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\sanfdr.bat\" \"\n  C:\\WINDOWS\\system32\\huter.exe C:\\WINDOWS\\system32\\huter.exe\" \"\n  cmd.exe\n  huter.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Packer] Packman\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Packman V1.0 -> Brandon LaCombe', 'F-PROT': 'RLPack, Packman', 'Cyren': 'Packman, RLPack'}\n\nPE SECTIONS (entropy):\n  .text        entropy=7.86\n  .rdata       entropy=5.26\n  .data        entropy=2.16\n  .rsrc        entropy=5.69\n  .reloc       entropy=6.24\n  bijdhfdg     entropy=4.78\n  [overlay]    entropy=4.65761137008667  size=8690\n",
+  "ground_truth": {
+    "hash": "1e1b70a11c39f18cdcec6869b6a8f34efbcf406a5676b485ffb349d5fa44386a",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8857,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [],
+    "capa_sig_names": [],
+    "iocs": {
+      "ips": [
+        "112.175.88.208",
+        "112.175.88.209"
+      ],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 2,
+      "files_dropped": [
+        "\\Users\\Petra\\AppData\\Local\\Temp\\huter.exe",
+        "huter.exe"
+      ],
+      "mutexes": [
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "RasPbFile",
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\sanfdr.bat\" \"",
+        "C:\\WINDOWS\\system32\\huter.exe C:\\WINDOWS\\system32\\huter.exe\" \"",
+        "cmd.exe",
+        "huter.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "SNDBOX",
+    "VirusTotal Cuckoofork"
+  ]
+}

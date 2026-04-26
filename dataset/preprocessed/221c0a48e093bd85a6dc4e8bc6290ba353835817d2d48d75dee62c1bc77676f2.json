@@ -1,0 +1,55 @@
+{
+  "hash": "221c0a48e093bd85a6dc4e8bc6290ba353835817d2d48d75dee62c1bc77676f2",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (3):\n  - packed with generic packer\n  - packed with UPX\n  - reference anti-VM strings targeting VirtualBox\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - debug build\n  - contain a resource (.rsrc) section\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - Execution::Install Additional Program [B0023]\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - packaged as a NSIS installer\n  - contains PDB path\n  - (internal) installer file limitation\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (19):\n  C:\\Program Files\\Common Files\\Microsoft Shared\\MSInfo\\msinfo32.exe-\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\ConvertInkStore.exe-\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\FlickLearningWizard.exe-\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\InkWatson.exe-\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\InputPersonalization.exe-\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\ShapeCollector.exe-\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\TabTip.exe-\n  C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\mip.exe-\n  C:\\Program Files\\DVD Maker\\DVDMaker.exe-\n  C:\\Program Files\\Internet Explorer\\ieinstal.exe-\n  C:\\Program Files\\Internet Explorer\\ielowutil.exe-\n  C:\\Program Files\\Internet Explorer\\iexplore.exe-\n  C:\\Program Files\\Sublime Text 3\\crash_reporter.exe-\n  C:\\Program Files\\Sublime Text 3\\plugin_host.exe-\n  C:\\Program Files\\Sublime Text 3\\subl.exe-\n  C:\\Program Files\\Sublime Text 3\\sublime_text.exe-\n  C:\\Program Files\\Sublime Text 3\\unins000.exe-\n  C:\\Program Files\\Sublime Text 3\\update_installer.exe-\n  C:\\Program Files\\dotnet\\dotnet.exe-\n\nMUTEXES CREATED (1):\n  BagarBubba\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n  Packers: {'PEiD': 'UPX 2.90 [LZMA] -> Markus Oberhumer, Laszlo Molnar & John Reiser'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.68\n  .rsrc        entropy=2.76\n  [overlay]    entropy=6.08536958694458  size=1911154\n",
+  "ground_truth": {
+    "hash": "221c0a48e093bd85a6dc4e8bc6290ba353835817d2d48d75dee62c1bc77676f2",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9155,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "generickd",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "packed with generic packer",
+      "debug build",
+      "contain a resource (.rsrc) section",
+      "packed with UPX",
+      "contain an embedded PE file",
+      "reference anti-VM strings targeting VirtualBox",
+      "packaged as a NSIS installer",
+      "contains PDB path",
+      "(internal) installer file limitation",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "BagarBubba"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

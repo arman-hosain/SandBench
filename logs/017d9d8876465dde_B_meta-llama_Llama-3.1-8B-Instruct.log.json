@@ -1,0 +1,306 @@
+{
+  "hash": "017d9d8876465dde5f0ea392982169c30b08ae266bb35366ca5bc22b38738fc5",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior, including obfuscated code, creation of mutexes, execution of a secondary executable, and acceptance of command line arguments, which indicates a potential malware infection. Additionally, the sample's ability to get common file path, set file attributes, and get startup folder suggests a level of persistence and control over the system.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior suggests it is a Trojan, as it executes a secondary executable, drops multiple files, and sets file attributes, potentially for malicious purposes. The ability to get common file path and set file attributes further supports this classification.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1053\", \"name\": \"Scheduled Task/Job\"},\n      {\"id\": \"T1210\", \"name\": \"Input Capture\"},\n      {\"id\": \"T1212\", \"name\": \"Exploitation for Client Execution\"},\n      {\"id\": \"T1112\", \"name\": \"Modify Registry\"},\n      {\"id\": \"T1211\", \"name\": \"Code Signing\"},\n      {\"id\": \"T1059\", \"name\": \"Command and Control\"},\n      {\"id\": \"T1071\", \"name\": \"Application Layer Protocol\"},\n      {\"id\": \"T1082\", \"name\": \"System Service Discovery\"},\n      {\"id\": \"T1060\", \"name\": \"API Call Monitor\"},\n      {\"id\": \"T1552.004\", \"name\": \"Impair Defenses: Disable or Modify System Security Features\"},\n      {\"id\": \"T1547.001\", \"name\": \"Boot or Logon Autostart Execution: User Initiated\"},\n      {\"id\": \"T1036.005\", \"name\": \"Masquerading: Use of Disguised Malware\"},\n      {\"id\": \"T1216\", \"name\": \"Drive-by Content Injection\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 2896,
+      "response_chars": 818,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits suspicious behavior, including obfuscated code, creation of mutexes, and execution of a secondary executable. It also drops multiple files and creates directories, indicating a potential malware infection.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior suggests it is a Trojan, as it",
+      "elapsed_seconds": 3.91
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "4 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 4,
+      "ttps_found": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1210",
+        "T1218"
+      ],
+      "hallucinated_ttps": [
+        "T1053",
+        "T1055",
+        "T1210",
+        "T1218"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 4
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- accept command line arguments\n- get common file path\n- set file attributes\n- get startup folder\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- R",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1060",
+        "T1071",
+        "T1082",
+        "T1112",
+        "T1210",
+        "T1211",
+        "T1212",
+        "T1218"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 2,
+      "best_ttp_fp": 10
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "3 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 3,
+      "ttps_found": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1060",
+        "T1071",
+        "T1082",
+        "T1112",
+        "T1210",
+        "T1211",
+        "T1212",
+        "T1218"
+      ],
+      "hallucinated_ttps": [
+        "T1053",
+        "T1055",
+        "T1060",
+        "T1071",
+        "T1082",
+        "T1112",
+        "T1210",
+        "T1211",
+        "T1212",
+        "T1218"
+      ],
+      "ttp_tp": 2,
+      "ttp_fp": 10
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- get common file path\n- set file attributes\n- get startup folder\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1027",
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1060",
+        "T1071",
+        "T1082",
+        "T1112",
+        "T1210",
+        "T1211",
+        "T1212",
+        "T1216",
+        "T1218",
+        "T1547",
+        "T1552"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 3,
+      "best_ttp_fp": 13
+    },
+    {
+      "step": 8,
+      "type": "judge_check",
+      "iteration": 3,
+      "needs_more": true,
+      "gap_summary": "2 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 2,
+      "ttps_found": [
+        "T1027",
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1060",
+        "T1071",
+        "T1082",
+        "T1112",
+        "T1210",
+        "T1211",
+        "T1212",
+        "T1216",
+        "T1218",
+        "T1547",
+        "T1552"
+      ],
+      "hallucinated_ttps": [
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1060",
+        "T1071",
+        "T1082",
+        "T1112",
+        "T1210",
+        "T1211",
+        "T1212",
+        "T1216",
+        "T1218",
+        "T1552"
+      ],
+      "ttp_tp": 3,
+      "ttp_fp": 13
+    },
+    {
+      "step": 9,
+      "type": "judge_feedback",
+      "iteration": 3,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- get common file path\n- set file attributes\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by the rep",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 10,
+      "type": "analyst_refinement",
+      "iteration": 3,
+      "ttps_now": [
+        "T1027",
+        "T1036",
+        "T1052",
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1060",
+        "T1071",
+        "T1082",
+        "T1111",
+        "T1112",
+        "T1210",
+        "T1211",
+        "T1212",
+        "T1216",
+        "T1218",
+        "T1547",
+        "T1552"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 3,
+      "best_ttp_fp": 13
+    },
+    {
+      "step": 11,
+      "type": "refinement_stopped",
+      "iteration": 3,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 3,
+      "ttp_fp": 15
+    }
+  ],
+  "total_llm_calls": 4,
+  "total_elapsed": 28.7,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9296
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.2857,
+      "ttp_precision": 0.1875,
+      "ttp_recall": 0.6,
+      "gt_ttps": [
+        "T1027",
+        "T1059",
+        "T1083",
+        "T1222",
+        "T1547"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1060",
+        "T1071",
+        "T1082",
+        "T1112",
+        "T1210",
+        "T1211",
+        "T1212",
+        "T1216",
+        "T1218",
+        "T1547",
+        "T1552"
+      ],
+      "tp": 3,
+      "q3_hallucinated_ttps": [
+        "T1036",
+        "T1053",
+        "T1055",
+        "T1060",
+        "T1071",
+        "T1082",
+        "T1112",
+        "T1210",
+        "T1211",
+        "T1212",
+        "T1216",
+        "T1218",
+        "T1552"
+      ],
+      "q3_missed_ttps": [
+        "T1083",
+        "T1222"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2857,
+      "breakdown": {
+        "ttp_f1": 0.2857
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

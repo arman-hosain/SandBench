@@ -1,0 +1,275 @@
+{
+  "hash": "14fbfac1ea754bf18949d0dc704b88163cf22c5c5f1f1e72f419a7e805be1d49",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://www4.cedesunjerinkas.com/chr/wtb/lt.exe\n\nDNS LOOKUPS (41):\n  adatum.com\n  alt1.gmail-smtp-in.l.google.com \u2192 209.85.233.26\n  alt2.gmail-smtp-in.l.google.com \u2192 172.217.194.26\n  alt3.gmail-smtp-in.l.google.com \u2192 108.177.97.26\n  alt4.gmail-smtp-in.l.google.com \u2192 173.194.202.26\n  apple.com\n  bigmir.net\n  contoso.com\n  fabrikam.com\n  gmail-smtp-in.l.google.com \u2192 74.125.140.26\n  gmail.com\n  hotmail-com.olc.protection.outlook.com \u2192 104.47.46.33, 104.47.44.33\n  hotmail-com.olc.protection.outlook.com \u2192 104.47.51.33, 104.47.57.33\n  hotmail.com\n  inbox.lv\n  mail.com\n  mta5.am0.yahoodns.net \u2192 67.195.204.79, 67.195.228.111\n  mta5.am0.yahoodns.net \u2192 67.195.228.110\n  mta6.am0.yahoodns.net \u2192 67.195.228.110\n  mta6.am0.yahoodns.net \u2192 98.136.96.76, 67.195.228.94\n\nIP TRAFFIC (32):\n  104.47.17.74:25 (TCP)\n  104.47.46.33:25 (TCP)\n  104.47.51.33:25 (TCP)\n  108.177.97.26:25 (TCP)\n  114.114.114.114:53 (UDP)\n  142.250.115.26:25 (TCP)\n  142.250.115.27:25 (TCP)\n  142.250.141.26:25 (TCP)\n  164.90.197.143:25 (TCP)\n  172.217.194.26:25 (TCP)\n  173.194.202.26:25 (TCP)\n  176.223.123.126:25 (TCP)\n  178.218.165.214:25 (TCP)\n  178.62.199.248:25 (TCP)\n  185.175.124.58:25 (TCP)\n  193.166.255.171:80 (TCP)\n  193.239.68.121:25 (TCP)\n  193.239.71.112:25 (TCP)\n  193.239.71.113:25 (TCP)\n  194.152.32.72:25 (TCP)\n\nSERVICES OPENED (12):\n  MpfService\n  OutpostFirewall\n  RASMAN\n  Sens\n  SharedAccess\n  SmcService\n  Symantec Core LC\n  WinRoute\n  sppsvc\n  sppuinotify\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    tserv.exe\n      ~3.tmp\n    notepad.exe 2.tmp\n\nCOMMAND EXECUTIONS (1):\n  C:\\WINDOWS\\System32\\notepad.exe C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\2.tmp\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (31):\n  - contain obfuscated stackstrings\n  - encode data using XOR\n  - acquire debug privileges\n  - access PEB ldr_data\n  - query environment variable\n  - encrypt data using RC4 PRGA\n  - get common file path\n  - modify access privileges\n  - write process memory\n  - link function at runtime on Windows\n  - inject thread\n  - inject dll\n  - enumerate processes\n  - check if file exists\n  - get file size\n  - enumerate files on Windows\n  - enumerate files recursively\n  - parse PE header\n  - query or enumerate registry value\n  - delete registry value\n  - get number of processors\n  - link many functions at runtime\n  - query service status\n  - log keystrokes via application hook\n  - get disk information\n  - interact with driver via control codes\n  - query or enumerate registry key\n  - accept command line arguments\n  - get system information on Windows\n  - get geographical location\n  - reference Base64 string\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - File System::Create File [C0016]\n  - Process::Create Thread [C0038]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Process [C0017]\n  - acquire debug privileges\n  - Process::Open Process [C0065]\n  - Memory::Allocate Memory [C0007]\n  - File System::Get File Attributes [C0049]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - access PEB ldr_data\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - Discovery::System Information Discovery [E1082]\n  - contain loop\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Generate Pseudo-random Sequence::RC4 PRGA [C0021.004]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Delete File [C0047]\n  - File System::Writes File [C0052]\n  - Execution::Install Additional Program [B0023]\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  c:\\windows\\tserv.exe  [sha256: 966a6ae9e6ae1488...]\n  c:\\windows\\tserv.wax  [sha256: d8e02d870e1e700c...]\n\nFILES WRITTEN (6):\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\2.tmp\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\~3.tmp\n  C:\\Users\\<USER>\\Downloads\\7A09.tmp\n  C:\\WINDOWS\\system32\\3.tmp\n  C:\\WINDOWS\\tserv.exe\n  C:\\WINDOWS\\tserv.wax\n\nPERSISTENCE REGISTRY KEYS (5):\n  HKLM/SOFTWARE/Microsoft/Windows NT/CurrentVersion/Windows/AppInit_DLLs =  msji449c14b7.dll\n  HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs =  msji449c14b7.dll\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\tserv = C:\\Windows\\tserv.exe s\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs =  msji449c14b7.dll\u0000\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\tserv = C:\\WINDOWS\\tserv.exe s\u0000\n\nOTHER REGISTRY KEYS SET (10):\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\n  HKLM/SOFTWARE/Microsoft/Windows/CurrentVersion/Run/tserv\n  HKLM/Software/Microsoft/Tracing/tserv_RASAPI32/EnableFileTracing\n  HKLM/Software/Microsoft/Tracing/tserv_RASAPI32/EnableConsoleTracing\n  HKLM/Software/Microsoft/Tracing/tserv_RASAPI32/FileTracingMask\n  HKLM/Software/Microsoft/Tracing/tserv_RASAPI32/ConsoleTracingMask\n  HKLM/Software/Microsoft/Tracing/tserv_RASAPI32/MaxFileSize\n\nMUTEXES CREATED (26):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  IESQMMUTEX_0_208\n  Local\\!IETld!Mutex\n  Local\\WininetConnectionMutex\n  Local\\WininetProxyRegistryMutex\n\nMUTEXES OPENED (7):\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n  _!MSFTHISTORY!_\n  c:!documents and settings!administrator!cookies!\n  c:!documents and settings!administrator!local settings!history!history.ie5!\n  c:!documents and settings!administrator!local settings!temporary internet files!content.ie5!\n\nPROCESSES CREATED (5):\n  C:\\14fbfac1ea754bf18949d0dc704b88163cf22c5c5f1f1e72f419a7e805be1d49.exe\n  C:\\WINDOWS\\System32\\notepad.exe C:\\WINDOWS\\system32\\3.tmp\n  C:\\WINDOWS\\system32\\notepad.exe\n  C:\\WINDOWS\\tserv.exe s\n  C:\\Windows\\tserv.exe s\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  ADVAPI32.dll: AdjustTokenPrivileges, OpenProcessToken\n  KERNEL32.dll: CreateProcessA, CreateRemoteThread, GetProcAddress, VirtualAlloc, VirtualAllocEx, VirtualProtect, WriteProcessMemory\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++ v7.0'}\n\nPE SECTIONS (entropy):\n  .text        entropy=6.35\n  .rdata       entropy=4.96\n  .data        entropy=1.98\n  .rsrc        entropy=0.63\n  [overlay]    entropy=1.8093085289001465  size=53920\n",
+  "ground_truth": {
+    "hash": "14fbfac1ea754bf18949d0dc704b88163cf22c5c5f1f1e72f419a7e805be1d49",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8592,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1007",
+        "signature_description": "query service status"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1055",
+        "signature_description": "write process memory"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via application hook"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry value"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1134",
+        "signature_description": "acquire debug privileges"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      },
+      {
+        "id": "T1620",
+        "signature_description": "inject thread"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "contain obfuscated stackstrings",
+      "encode data using XOR",
+      "create or open file",
+      "create thread",
+      "delay execution",
+      "create process on Windows",
+      "acquire debug privileges",
+      "open process",
+      "allocate memory",
+      "allocate RW memory",
+      "get file attributes",
+      "PEB access",
+      "access PEB ldr_data",
+      "create or open registry key",
+      "query environment variable",
+      "contain loop",
+      "encrypt data using RC4 PRGA",
+      "get common file path",
+      "delete file",
+      "write file on Windows",
+      "write and execute a file",
+      "resolve function by parsing PE exports",
+      "create mutex",
+      "modify access privileges",
+      "write process memory",
+      "link function at runtime on Windows",
+      "inject thread",
+      "inject dll",
+      "enumerate processes",
+      "check if file exists",
+      "get file size",
+      "read file via mapping",
+      "enumerate files on Windows",
+      "enumerate files recursively",
+      "authenticate HMAC",
+      "parse PE header",
+      "read file on Windows",
+      "execute anti-debugging instructions",
+      "query or enumerate registry value",
+      "set registry value",
+      "move file",
+      "delete registry value",
+      "copy file",
+      "get number of processors",
+      "link many functions at runtime",
+      "extract resource via kernel32 functions",
+      "get service handle",
+      "query service status",
+      "set application hook",
+      "log keystrokes via application hook",
+      "get disk information",
+      "interact with driver via control codes",
+      "query or enumerate registry key",
+      "get OS version",
+      "accept command line arguments",
+      "allocate thread local storage",
+      "terminate process",
+      "get system information on Windows",
+      "get geographical location",
+      "contain a resource (.rsrc) section",
+      "reference Base64 string"
+    ],
+    "iocs": {
+      "ips": [
+        "104.47.17.74",
+        "104.47.46.33",
+        "104.47.51.33",
+        "108.177.97.26",
+        "114.114.114.114",
+        "142.250.115.26",
+        "142.250.115.27",
+        "142.250.141.26",
+        "164.90.197.143",
+        "172.217.194.26",
+        "173.194.202.26",
+        "176.223.123.126",
+        "178.218.165.214",
+        "178.62.199.248",
+        "185.175.124.58",
+        "193.166.255.171",
+        "193.239.68.121",
+        "193.239.71.112",
+        "193.239.71.113",
+        "194.152.32.72",
+        "194.152.32.75",
+        "209.85.233.26",
+        "218.85.157.99",
+        "52.101.11.10",
+        "52.101.40.24",
+        "52.101.8.46",
+        "62.109.128.119",
+        "67.195.204.73",
+        "67.195.204.79",
+        "74.125.140.26",
+        "77.88.21.249",
+        "98.136.96.76"
+      ],
+      "domains": [
+        "adatum.com",
+        "alt1.gmail-smtp-in.l.google.com",
+        "alt2.gmail-smtp-in.l.google.com",
+        "alt3.gmail-smtp-in.l.google.com",
+        "alt4.gmail-smtp-in.l.google.com",
+        "apple.com",
+        "bigmir.net",
+        "contoso.com",
+        "fabrikam.com",
+        "gmail-smtp-in.l.google.com",
+        "gmail.com",
+        "hotmail-com.olc.protection.outlook.com",
+        "hotmail.com",
+        "inbox.lv",
+        "mail.com",
+        "mta5.am0.yahoodns.net",
+        "mta6.am0.yahoodns.net",
+        "mta7.am0.yahoodns.net",
+        "mx.yandex.ru",
+        "mx00.mail.com",
+        "mx01.mail.com",
+        "mx1.bigmir.net",
+        "mx1.inbox.lv",
+        "mx12.bigmir.net",
+        "mx13.bigmir.net",
+        "mx2.inbox.lv",
+        "mx8.bigmir.net",
+        "proseware.com",
+        "tut.by",
+        "unicode.org",
+        "www3.cedesunjerinkas.com",
+        "www4.cedesunjerinkas.com",
+        "yahoo.com",
+        "yandex.ru"
+      ],
+      "urls": [
+        "http://www4.cedesunjerinkas.com/chr/wtb/lt.exe"
+      ],
+      "registry_persistence": [
+        "HKLM/SOFTWARE/Microsoft/Windows NT/CurrentVersion/Windows/AppInit_DLLs",
+        "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs",
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\tserv",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\tserv"
+      ],
+      "registry_all_count": 28,
+      "files_dropped": [
+        "c:\\windows\\tserv.exe",
+        "c:\\windows\\tserv.wax"
+      ],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "IESQMMUTEX_0_208",
+        "Local\\!IETld!Mutex",
+        "Local\\WininetConnectionMutex",
+        "Local\\WininetProxyRegistryMutex",
+        "Local\\WininetStartupMutex",
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex",
+        "Local\\_!MSFTHISTORY!_",
+        "Local\\c:!users!admin!appdata!local!microsoft!windows!history!history.ie5!",
+        "Local\\c:!users!admin!appdata!local!microsoft!windows!temporary internet files!content.ie5!",
+        "Local\\c:!users!admin!appdata!roaming!microsoft!windows!cookies!",
+        "MSCTF.Shared.MUTEX.EBH",
+        "MSCTF.Shared.MUTEX.MMH",
+        "RasPbFile",
+        "ShimCacheMutex",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\14fbfac1ea754bf18949d0dc704b88163cf22c5c5f1f1e72f419a7e805be1d49.exe",
+        "C:\\WINDOWS\\System32\\notepad.exe C:\\WINDOWS\\system32\\3.tmp",
+        "C:\\WINDOWS\\system32\\notepad.exe",
+        "C:\\WINDOWS\\tserv.exe s",
+        "C:\\Windows\\tserv.exe s"
+      ]
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "Sangfor ZSand",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

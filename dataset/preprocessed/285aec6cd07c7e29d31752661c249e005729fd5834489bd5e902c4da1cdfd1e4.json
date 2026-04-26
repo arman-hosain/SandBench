@@ -1,0 +1,59 @@
+{
+  "hash": "285aec6cd07c7e29d31752661c249e005729fd5834489bd5e902c4da1cdfd1e4",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (5):\n  - enumerate gui resources\n  - get disk information\n  - check if file exists\n  - reference anti-VM strings targeting VirtualBox\n  - reference anti-VM strings targeting VMWare\n\nCAPA RULE MATCHES (MBC):\n  - File System::Get File Attributes [C0049]\n  - contain loop\n  - File System::Writes File [C0052]\n  - enumerate gui resources\n  - Discovery::System Information Discovery [E1082]\n  - Discovery::File and Directory Discovery [E1083]\n  - File System::Create Directory [C0046]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA\n\nCOMPILER AND PACKER:\n  [Linker] Polink\n\nPE SECTIONS (entropy):\n  .code        entropy=5.34\n  .text        entropy=6.19\n  .rdata       entropy=1.77\n  .data        entropy=4.98\n  .rsrc        entropy=5.07\n  .NewSec      entropy=0.53\n  [overlay]    entropy=6.00404691696167  size=594242\n",
+  "ground_truth": {
+    "hash": "285aec6cd07c7e29d31752661c249e005729fd5834489bd5e902c4da1cdfd1e4",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9155,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "agent",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "enumerate gui resources"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk information"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "check if file exists"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting VirtualBox"
+      }
+    ],
+    "capa_sig_names": [
+      "get file attributes",
+      "contain loop",
+      "write file on Windows",
+      "enumerate gui resources",
+      "get disk information",
+      "check if file exists",
+      "create directory",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting VirtualBox",
+      "reference anti-VM strings targeting VMWare"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

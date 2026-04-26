@@ -1,0 +1,186 @@
+{
+  "hash": "2b47ff5a0a06db0ecd3a894a99fddacf2b389dfe66d295741007531a65fa5517",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  POST http://api.baizhu.cc/api/getdown\n  POST http://api.baizhu.cc /api/getdown\n\nDNS LOOKUPS (3):\n  api.baizhu.cc\n  api.baizhu.cc \u2192 39.97.130.28\n  api.baizhu.cc \u2192 39.97.130.28, 39.108.27.173\n\nIP TRAFFIC (3):\n  39.108.27.173:80 (TCP)\n  39.97.130.28:80 (TCP)\n  8.8.8.8:53 (UDP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  speed-cloud-download.pe32\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (22):\n  - hide graphical window\n  - contain obfuscated stackstrings\n  - encode data using XOR\n  - set file attributes\n  - access PEB ldr_data\n  - get kernel32 base address\n  - capture screenshot\n  - download and write a file\n  - get common file path\n  - interact with driver via control codes\n  - get MAC address on Windows\n  - query or enumerate registry value\n  - check if file exists\n  - get number of processors\n  - enumerate processes\n  - link function at runtime on Windows\n  - encode data using Base64\n  - enumerate files on Windows\n  - get hostname\n  - link many functions at runtime\n  - reference anti-VM strings targeting Xen\n  - reference anti-VM strings targeting VMWare\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Communication::Socket Communication::Create TCP Socket [C0001.011]\n  - Communication::Socket Communication::Create UDP Socket [C0001.010]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - File System::Create File [C0016]\n  - Process::Create Thread [C0038]\n  - Process::Create Process [C0017]\n  - reference absolute stream path on Windows\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - hide graphical window\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - File System::Set File Attributes [C0050]\n  - File System::Writes File [C0052]\n  - access PEB ldr_data\n  - get kernel32 base address\n  - contain loop\n  - Collection::Screen Capture::WinAPI [E1113.m01]\n  - Communication::Socket Communication::Receive Data [C0001.006]\n  - Communication::DNS Communication::Resolve [C0011.001]\n  - Communication::Socket Communication::Send Data [C0001.007]\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (13):\n  ATL:ANALYST0-2D1671\n  ATL:PETRA-PC\n  ATL:USER-PC\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  MSCTF.Shared.MUTEX.EBH\n\nMUTEXES OPENED (1):\n  ATL:<MACHINE_NAME>\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: CreateProcessA, GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAlloc, VirtualProtect\n\nCERTIFICATE INFO:\n  Signer: Anhui Shuyang Science and Technology Co., Ltd.; WoSign Class 3 Code Signing CA G2; WoSign\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Sign tool] Windows Authenticode\n\nPE SECTIONS (entropy):\n  .text        entropy=6.6\n  .rdata       entropy=4.83\n  .data        entropy=6.13\n  .rsrc        entropy=4.02\n  .reloc       entropy=6.64\n  [overlay]    entropy=7.491145133972168  size=7760\n",
+  "ground_truth": {
+    "hash": "2b47ff5a0a06db0ecd3a894a99fddacf2b389dfe66d295741007531a65fa5517",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.831,
+    "malicious_count": 59,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get MAC address on Windows"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1105",
+        "signature_description": "download and write a file"
+      },
+      {
+        "id": "T1113",
+        "signature_description": "capture screenshot"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "access PEB ldr_data"
+      },
+      {
+        "id": "T1222",
+        "signature_description": "set file attributes"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting Xen"
+      },
+      {
+        "id": "T1518",
+        "signature_description": "enumerate processes"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "create TCP socket",
+      "create UDP socket",
+      "delay execution",
+      "create or open file",
+      "create thread",
+      "create process on Windows",
+      "reference absolute stream path on Windows",
+      "PEB access",
+      "create or open registry key",
+      "hide graphical window",
+      "contain obfuscated stackstrings",
+      "encode data using XOR",
+      "set file attributes",
+      "create process memory minidump",
+      "access PEB ldr_data",
+      "get kernel32 base address",
+      "contain loop",
+      "capture screenshot",
+      "receive data on socket",
+      "resolve DNS",
+      "send data on socket",
+      "send HTTP request",
+      "send HTTP request with Host header",
+      "receive data",
+      "reference HTTP User-Agent string",
+      "write file on Windows",
+      "download and write a file",
+      "send data",
+      "receive and write data from server to client",
+      "connect TCP socket",
+      "act as TCP client",
+      "set socket configuration",
+      "get common file path",
+      "create directory",
+      "create a process with modified I/O handles and window",
+      "delete file",
+      "check for time delay via GetTickCount",
+      "resolve function by parsing PE exports",
+      "write and execute a file",
+      "interact with driver via control codes",
+      "get OS version",
+      "get MAC address on Windows",
+      "hash data with MD5",
+      "check for PEB NtGlobalFlag flag",
+      "query or enumerate registry value",
+      "check if file exists",
+      "read file on Windows",
+      "terminate process",
+      "get number of processors",
+      "get graphical window text",
+      "enumerate processes",
+      "create shortcut via IShellLink",
+      "link function at runtime on Windows",
+      "encode data using Base64",
+      "enumerate files on Windows",
+      "get hostname",
+      "set current directory",
+      "initialize Winsock library",
+      "create mutex",
+      "check mutex and exit",
+      "set registry value",
+      "download URL",
+      "move file",
+      "hash data with CRC32",
+      "compute adler32 checksum",
+      "get thread local storage value",
+      "print debug messages",
+      "link many functions at runtime",
+      "linked against CPP JSON library",
+      "linked against CPP standard library",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings targeting Xen",
+      "reference anti-VM strings targeting VMWare"
+    ],
+    "iocs": {
+      "ips": [
+        "39.108.27.173",
+        "39.97.130.28",
+        "8.8.8.8"
+      ],
+      "domains": [
+        "api.baizhu.cc"
+      ],
+      "urls": [
+        "http://api.baizhu.cc /api/getdown",
+        "http://api.baizhu.cc/api/getdown"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "ATL:ANALYST0-2D1671",
+        "ATL:PETRA-PC",
+        "ATL:USER-PC",
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "MSCTF.Shared.MUTEX.EBH",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 5,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

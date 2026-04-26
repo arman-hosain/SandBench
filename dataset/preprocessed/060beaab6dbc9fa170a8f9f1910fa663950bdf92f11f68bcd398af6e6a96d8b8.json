@@ -1,0 +1,48 @@
+{
+  "hash": "060beaab6dbc9fa170a8f9f1910fa663950bdf92f11f68bcd398af6e6a96d8b8",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  c:\\060beaab6dbc9fa170a8f9f1910fa663950bdf92f11f68bcd398af6e6a96d8b8 c:\\060beaab6dbc9fa170a8f9f1910fa663950bdf92f11f68bcd398af6e6a96d8b8 _3202.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - packed with generic packer\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - contain a resource (.rsrc) section\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  060beaab6dbc9fa170a8f9f1910fa663950bdf92f11f68bcd398af6e6a96d8b8_3202.exe  [sha256: 7b0990d7dbd2ed62...]\n\nFILES WRITTEN (1):\n  c:\\060beaab6dbc9fa170a8f9f1910fa663950bdf92f11f68bcd398af6e6a96d8b8\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (1):\n  c:\\060beaab6dbc9fa170a8f9f1910fa663950bdf92f11f68bcd398af6e6a96d8b8 c:\\060beaab6dbc9fa170a8f9f1910fa663950bdf92f11f68bcd398af6e6a96d8b8 _3202.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualProtect\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'UPX 2.90 [LZMA] -> Markus Oberhumer, Laszlo Molnar & John Reiser', 'F-PROT': 'UPX'}\n\nPE SECTIONS (entropy):\n  NDltoTPW     entropy=0.0\n  tJrdyPER     entropy=7.89\n  .rsrc        entropy=3.46\n  [overlay]    entropy=1.6284778118133545  size=30782\n",
+  "ground_truth": {
+    "hash": "060beaab6dbc9fa170a8f9f1910fa663950bdf92f11f68bcd398af6e6a96d8b8",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9014,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "gator",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "packed with generic packer",
+      "contain a resource (.rsrc) section",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "060beaab6dbc9fa170a8f9f1910fa663950bdf92f11f68bcd398af6e6a96d8b8_3202.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "c:\\060beaab6dbc9fa170a8f9f1910fa663950bdf92f11f68bcd398af6e6a96d8b8 c:\\060beaab6dbc9fa170a8f9f1910fa663950bdf92f11f68bcd398af6e6a96d8b8 _3202.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork"
+  ]
+}

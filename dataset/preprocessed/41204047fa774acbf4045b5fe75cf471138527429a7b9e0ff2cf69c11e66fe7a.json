@@ -1,0 +1,97 @@
+{
+  "hash": "41204047fa774acbf4045b5fe75cf471138527429a7b9e0ff2cf69c11e66fe7a",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (2):\n  GET http://ransomware.bit/  UA: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36\n  GET http://ransomware.bit/\n\nDNS LOOKUPS (3):\n  ipv4bot.whatismyipaddress.com \u2192 66.171.248.178\n  ns1.corp-servers.ru\n  zonealarm.bit\n\nIP TRAFFIC (3):\n  66.171.248.178:80 ()\n  66.171.248.178:80 (TCP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\nSERVICES OPENED (2):\n  RASMAN\n  Sens\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\svchost.exe\n  <SYSTEM32>\\svchost.exe\n    %WINDIR%\\syswow64\\werfault.exe\n  %WINDIR%\\syswow64\\werfault.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (5):\n  - contain obfuscated stackstrings\n  - encrypt data using RC4 KSA\n  - find graphical window\n  - link function at runtime on Windows\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Memory::Allocate Memory [C0007]\n  - File System::Create File [C0016]\n  - contain loop\n  - get OS version\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Encryption Key::RC4 KSA [C0028.002]\n  - Operating System::Console [C0033]\n  - find graphical window\n  - Discovery::File and Directory Discovery::Log File [E1083.m01]\n  - Operating System::Environment Variable::Set Variable [C0034.001]\n  - File System::Read File [C0051]\n  - link function at runtime on Windows\n  - Process::Set Thread Local Storage Value [C0041]\n  - get thread local storage value\n  - print debug messages\n  - link many functions at runtime\n  - contain a resource (.rsrc) section\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\nHIGHLIGHTED CALLS:\n  SetFileTime\n\n--- ARTIFACTS ---\n\nFILES DROPPED (4):\n  xkceqw.exe  [sha256: 3b0de192b6643431...]\n  C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\oasidx.exe  [sha256: 31e6f0d530acc809...]\n  %APPDATA%\\Microsoft\\Crypto\\RSA\\S-1-5-21-1960123792-2022915161-3775307078-1001\\f58155b4b1d5a524ca0261c3ee99fb50_36d1130a-ac2e-44f7-9dc1-e424fbcbe0ee  [sha256: 8a1020634191c27b...]\n  %APPDATA%\\microsoft\\wmcill.exe  [sha256: 520345d7d40837ba...]\n\nFILES WRITTEN (2):\n  C:\\Documents and Settings\\<USER>\\Application Data\\Microsoft\\xkceqw.exe\n  C:\\Users\\<USER>\\AppData\\Local\\Microsoft\\Windows\\Temporary Internet Files\\Content.IE5\\XBL73YY1\\ipv4bot_whatismyipaddress_com[1].htm\n\nPERSISTENCE REGISTRY KEYS (2):\n  <HKCU>\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\jeiqikydaxo = \"%APPDATA%\\Microsoft\\wmcill.exe\"\n  HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\aycbqywlpta = \"\n\nOTHER REGISTRY KEYS SET (5):\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\ProxyEnable\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  HKU\\S-1-5-21-364843204-231886559-199882026-1001\\Software\\Microsoft\\windows\\CurrentVersion\\Internet Settings\\Connections\\\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\\\UNCAsIntranet\n  <HKCU>\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\\\AutoDetect\n\nMUTEXES CREATED (6):\n  Global\\pc_group=WORKGROUP&ransom_id=4029414471d2c847\n  IESQMMUTEX_0_208\n  RasPbFile\n  ShimCacheMutex\n  \\Sessions\\1\\BaseNamedObjects\\Global\\pc_group=WORKGROUP&ransom_id=ae4d38f3dc1978a\n  \\Sessions\\1\\BaseNamedObjects\\IESQMMUTEX_0_208\n\nMUTEXES OPENED (15):\n  Global\\pc_group=WORKGROUP&ransom_id=e8b0adc86c78a9c3\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!users!<USER>!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!users!<USER>!appdata!roaming!microsoft!windows!cookies!\n  \\KernelObjects\\SystemErrorPortReady\n  \\Sessions\\1\\BaseNamedObjects\\Global\\BFE_Notify_Event_{a81df1c5-2909-423b-b27a-f5fee648c98d}\n  \\Sessions\\1\\BaseNamedObjects\\Local\\!IETld!Mutex\n  \\Sessions\\1\\BaseNamedObjects\\Local\\WininetConnectionMutex\n  \\Sessions\\1\\BaseNamedObjects\\Local\\WininetProxyRegistryMutex\n  \\Sessions\\1\\BaseNamedObjects\\Local\\WininetStartupMutex\n\nPROCESSES CREATED (4):\n  %WINDIR%\\syswow64\\werfault.exe\n  <PATH_SAMPLE.EXE>\n  <SYSTEM32>\\svchost.exe\n  nslookup zonealarm.bit ns1.corp-servers.ru\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryExW, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.68\n  .rdata       entropy=4.8\n  .data        entropy=3.06\n  .rsrc        entropy=7.79\n  .reloc       entropy=6.37\n  [overlay]    entropy=3.026986598968506  size=13\n",
+  "ground_truth": {
+    "hash": "41204047fa774acbf4045b5fe75cf471138527429a7b9e0ff2cf69c11e66fe7a",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9577,
+    "malicious_count": 68,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "contain obfuscated stackstrings",
+      "delay execution",
+      "allocate memory",
+      "create or open file",
+      "contain loop",
+      "get OS version",
+      "encrypt data using RC4 KSA",
+      "manipulate console buffer",
+      "find graphical window",
+      "access the Windows event log",
+      "set environment variable",
+      "read .ini file",
+      "link function at runtime on Windows",
+      "set thread local storage value",
+      "get thread local storage value",
+      "print debug messages",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [
+        "66.171.248.178",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "ipv4bot.whatismyipaddress.com",
+        "ns1.corp-servers.ru",
+        "zonealarm.bit"
+      ],
+      "urls": [
+        "http://ransomware.bit/"
+      ],
+      "registry_persistence": [
+        "<HKCU>\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\jeiqikydaxo",
+        "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\aycbqywlpta"
+      ],
+      "registry_all_count": 7,
+      "files_dropped": [
+        "%APPDATA%\\Microsoft\\Crypto\\RSA\\S-1-5-21-1960123792-2022915161-3775307078-1001\\f58155b4b1d5a524ca0261c3ee99fb50_36d1130a-ac2e-44f7-9dc1-e424fbcbe0ee",
+        "%APPDATA%\\microsoft\\wmcill.exe",
+        "C:\\Users\\<USER>\\AppData\\Roaming\\Microsoft\\oasidx.exe",
+        "xkceqw.exe"
+      ],
+      "mutexes": [
+        "Global\\pc_group=WORKGROUP&ransom_id=4029414471d2c847",
+        "IESQMMUTEX_0_208",
+        "RasPbFile",
+        "ShimCacheMutex",
+        "\\Sessions\\1\\BaseNamedObjects\\Global\\pc_group=WORKGROUP&ransom_id=ae4d38f3dc1978a",
+        "\\Sessions\\1\\BaseNamedObjects\\IESQMMUTEX_0_208"
+      ],
+      "processes": [
+        "%WINDIR%\\syswow64\\werfault.exe",
+        "<PATH_SAMPLE.EXE>",
+        "<SYSTEM32>\\svchost.exe",
+        "nslookup zonealarm.bit ns1.corp-servers.ru"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Dr.Web vxCube",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

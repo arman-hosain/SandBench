@@ -1,0 +1,85 @@
+{
+  "hash": "01402e148a0737d16eee3d2194461ff085df700a9db1f8076045f633c3663353",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a high level of suspicious behavior, including repeated execution of WinRAR.exe, creation of multiple files and registry keys, and use of anti-VM evasion techniques. The presence of multiple files with suspicious hashes and the use of a packer also suggest malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior is consistent with a Trojan, as it appears to be a dropper that installs multiple malicious files and registry keys. The use of a packer and the presence of anti-VM evasion techniques also suggest a high level of sophistication, which is typical of Trojans.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1027\", \"name\": \"Obfuscated Files or Information\"},\n      {\"id\": \"T1218\", \"name\": \"Signed Binary Proxy Execution\"},\n      {\"id\": \"T1210\", \"name\": \"Operator Execution\"},\n      {\"id\": \"T1055\", \"name\": \"Process Injection\"},\n      {\"id\": \"T1053\", \"name\": \"Scheduled Task/Job\"},\n      {\"id\": \"T1059\", \"name\": \"Command and Control\"},\n      {\"id\": \"T1082\", \"name\": \"System Information Discovery\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 5540,
+      "response_chars": 1142,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits a high level of suspicious behavior, including repeated execution of WinRAR.exe, creation of multiple files and registry keys, and use of anti-VM evasion techniques. The presence of multiple files with suspicious hashes and the use of a packer also suggest malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n   ",
+      "elapsed_seconds": 5.78
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 5.78,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9722
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.1667,
+      "ttp_precision": 0.1429,
+      "ttp_recall": 0.2,
+      "gt_ttps": [
+        "T1012",
+        "T1016",
+        "T1059",
+        "T1083",
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1082",
+        "T1210",
+        "T1218"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1082",
+        "T1210",
+        "T1218"
+      ],
+      "q3_missed_ttps": [
+        "T1012",
+        "T1016",
+        "T1083",
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.1667,
+      "breakdown": {
+        "ttp_f1": 0.1667
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

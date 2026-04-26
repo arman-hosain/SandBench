@@ -1,0 +1,149 @@
+{
+  "hash": "02c83078be3b64612d255c7e7646cfcfd4b291571928935ba98a4aff165e88f3",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits definitive malicious indicators including anti-analysis checks (IsDebuggerPresent), process termination, file deletion, and the use of Base64 encoding/decoding to obfuscate data. The combination of these evasion techniques with destructive actions (terminating processes, deleting files) confirms malicious intent, moving the verdict from Suspicious to Malicious.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\", \"Backdoor\"],\n    \"explanation\": \"The sample is a .NET executable that decodes Base64 data and creates new processes, which is characteristic of a Dropper. Additionally, the presence of 'Process::Terminate Process' and 'File System::Delete File' capabilities, combined with the ability to spawn new processes, suggests it may be a Backdoor designed to establish persistence or execute remote commands while cleaning up traces.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1083\",\n        \"name\": \"File and Directory Discovery\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1188,
+      "response_chars": 1188,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits multiple evasion and malicious behaviors: it uses Base64 encoding/decoding, terminates processes, deletes files, and checks for debuggers (IsDebuggerPresent). While it is a .NET executable, the combination of process termination, file deletion, and anti-analysis checks suggests malicious intent or a sophisticated drop",
+      "elapsed_seconds": 9.07
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "2 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 2,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1059"
+      ],
+      "hallucinated_ttps": [
+        "T1055",
+        "T1059"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 2
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- enumerate files on Windows\n- decode data using Base64 in .NET\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly j",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1027",
+        "T1083"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 2,
+      "best_ttp_fp": 0
+    },
+    {
+      "step": 5,
+      "type": "judge_check",
+      "iteration": 2,
+      "needs_more": true,
+      "gap_summary": "1 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 1,
+      "ttps_found": [
+        "T1027",
+        "T1083"
+      ],
+      "hallucinated_ttps": [],
+      "ttp_tp": 2,
+      "ttp_fp": 0
+    },
+    {
+      "step": 6,
+      "type": "judge_feedback",
+      "iteration": 2,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- decode data using Base64 in .NET\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by the report.\nDIREC",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 7,
+      "type": "analyst_refinement",
+      "iteration": 2,
+      "ttps_now": [
+        "T1027",
+        "T1055",
+        "T1083"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 2,
+      "best_ttp_fp": 0
+    },
+    {
+      "step": 8,
+      "type": "refinement_stopped",
+      "iteration": 2,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 2,
+      "ttp_fp": 1
+    }
+  ],
+  "total_llm_calls": 3,
+  "total_elapsed": 28.34,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.7887
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.8,
+      "ttp_precision": 1.0,
+      "ttp_recall": 0.6667,
+      "gt_ttps": [
+        "T1027",
+        "T1083",
+        "T1140"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1083"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [],
+      "q3_missed_ttps": [
+        "T1140"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.8,
+      "breakdown": {
+        "ttp_f1": 0.8
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "hash": "15c8357e298b0ea397045938e382201fc560a953abb4431c7482dc0819f28b65",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  15c8357e298b0ea3_b7f416.exe\n    c:\\2604004.exe\n      c:\\226640.exe\n        c:\\62666.exe\n          c:\\20080.exe\n            c:\\04868.exe\n              c:\\2602608.exe\n                c:\\04600.exe\n                  c:\\6628480.exe\n                    c:\\8484408.exe\n                      c:\\6442022.exe\n                        c:\\8646820.exe\n                          c:\\066888.exe\n                            c:\\04262.exe\n                              c:\\0046826.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - packed with generic packer\n  - packed with UPX\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - resolve function by parsing PE exports\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Anti-Static Analysis::Software Packing::UPX [F0001.008]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (30):\n  c:\\2604004.exe  [sha256: 7d458d30cd6cc3c7...]\n  c:\\226640.exe  [sha256: f5ec7f3495513690...]\n  c:\\62666.exe  [sha256: 5b151967249eae36...]\n  c:\\20080.exe  [sha256: 7ba839b0654cc59e...]\n  c:\\04868.exe  [sha256: b9c5d4956e05dc0f...]\n  c:\\2602608.exe  [sha256: e7b5bb0d4b887a01...]\n  c:\\04600.exe  [sha256: e4a681336161a2d8...]\n  c:\\6628480.exe  [sha256: 88d36f97f5fcb31e...]\n  c:\\8484408.exe  [sha256: 947a16989c6bf21a...]\n  c:\\6442022.exe  [sha256: 1dec10f5a3b43b88...]\n  c:\\8646820.exe  [sha256: b544432349adc0d6...]\n  c:\\066888.exe  [sha256: d2968b808d82eb37...]\n  c:\\04262.exe  [sha256: c2009a5fbc41411c...]\n  c:\\0046826.exe  [sha256: 8634fd952f965294...]\n  c:\\4222222.exe  [sha256: b4e0ef93ab7ec58c...]\n  c:\\26624.exe  [sha256: f4ceed715c1ad06c...]\n  c:\\68640.exe  [sha256: 305a6b725c885644...]\n  c:\\868064.exe  [sha256: 5cd4eb49dcc71eb4...]\n  c:\\80224.exe  [sha256: 246030bfe6768aed...]\n  c:\\40464.exe  [sha256: a7177fbca3670a34...]\n\nFILES WRITTEN (9):\n  c:\\0024422.exe\n  c:\\44208.exe\n  c:\\622640.exe\n  c:\\80002.exe\n  c:\\80228.exe\n  c:\\826422.exe\n  c:\\82860.exe\n  c:\\8462622.exe\n  c:\\84828.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualAlloc, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  Packers: {'F-PROT': 'UPX_LZMA'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.97\n  UPX2         entropy=2.93\n  [overlay]    entropy=4.199736595153809  size=45053\n",
+  "ground_truth": {
+    "hash": "15c8357e298b0ea397045938e382201fc560a953abb4431c7482dc0819f28b65",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9437,
+    "malicious_count": 67,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with generic packer"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "resolve function by parsing PE exports",
+      "packed with generic packer",
+      "packed with UPX",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "c:\\0024422.exe",
+        "c:\\0046826.exe",
+        "c:\\04262.exe",
+        "c:\\04600.exe",
+        "c:\\04868.exe",
+        "c:\\066888.exe",
+        "c:\\20080.exe",
+        "c:\\2064060.exe",
+        "c:\\208244.exe",
+        "c:\\226640.exe",
+        "c:\\2602608.exe",
+        "c:\\2604004.exe",
+        "c:\\26624.exe",
+        "c:\\2806046.exe",
+        "c:\\40464.exe",
+        "c:\\4222222.exe",
+        "c:\\44208.exe",
+        "c:\\4444220.exe",
+        "c:\\4680444.exe",
+        "c:\\4860406.exe",
+        "c:\\622640.exe",
+        "c:\\62666.exe",
+        "c:\\6442022.exe",
+        "c:\\648820.exe",
+        "c:\\6628480.exe",
+        "c:\\68640.exe",
+        "c:\\80002.exe",
+        "c:\\80224.exe",
+        "c:\\80228.exe",
+        "c:\\822288.exe",
+        "c:\\826422.exe",
+        "c:\\8264462.exe",
+        "c:\\82860.exe",
+        "c:\\8462622.exe",
+        "c:\\84828.exe",
+        "c:\\8484408.exe",
+        "c:\\8646820.exe",
+        "c:\\868064.exe",
+        "c:\\8886264.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

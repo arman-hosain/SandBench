@@ -1,0 +1,90 @@
+{
+  "hash": "063dcff4c2c3fa4f855f07fd90a18013ef2a78d3e257d441952dc1ecf392e6aa",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  POST http://recdataoneveter.cc/vet7sdfh678sdjjs7er0k/\n\nDNS LOOKUPS (1):\n  recdataoneveter.cc \u2192 216.218.185.162\n\nIP TRAFFIC (1):\n  216.218.185.162:80 (TCP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  68b05b1ab04000d7487017cdb868ba93.virus.exe\n    C:\\Users\\<USER>\\Downloads\\68b05b1ab04000d7487017cdb868ba93.virus.exe\n      winver\n    C:\\Users\\<USER>\\Downloads\\68b05b1ab04000d7487017cdb868ba93.virus.exe\n    C:\\Users\\<USER>\\Downloads\\68b05b1ab04000d7487017cdb868ba93.virus.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - contain obfuscated stackstrings\n  - get common file path\n  - encode data using Base64\n  - parse PE header\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - set current directory\n  - Process::Terminate Process [C0018]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::Base64 [C0026.001]\n  - parse PE header\n  - contain a resource (.rsrc) section\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExW\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  C:\\Users\\<USER>\\AppData\\Roaming\\139AFF2E\\bin.exe  [sha256: e76e0c29ba892466...]\n\nFILES WRITTEN (2):\n  C:\\Documents and Settings\\All Users\\Application Data\\Microsoft\\Dr Watson\\drwtsn32.log\n  C:\\Users\\<USER>\\Downloads\\68b05b1ab04000d7487017cdb868ba93.virus.exe\n\nPERSISTENCE REGISTRY KEYS (1):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\139AFF2E = C:\\Users\\<USER>\\AppData\\Roaming\\139AFF2E\\bin.exe\n\nMUTEXES CREATED (1):\n  139AFF2E\n\nMUTEXES OPENED (1):\n  qazwsxedc\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Library] MFC\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  [Archive] Zip\n  Packers: {'PEiD': 'Microsoft Visual C++', 'F-PROT': 'ZIP', 'Cyren': 'ZIP', 'Varist': 'ZIP'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.4\n  .rdata       entropy=3.58\n  .data        entropy=0.41\n  .rsrc        entropy=1.46\n  [overlay]    entropy=7.994978427886963  size=52148\n",
+  "ground_truth": {
+    "hash": "063dcff4c2c3fa4f855f07fd90a18013ef2a78d3e257d441952dc1ecf392e6aa",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9041,
+    "malicious_count": 66,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 31
+      },
+      {
+        "value": "dropper",
+        "count": 5
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "ulise",
+        "count": 7
+      },
+      {
+        "value": "tinba",
+        "count": 6
+      },
+      {
+        "value": "fondu",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.ulise/tinba",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "parse PE header"
+      }
+    ],
+    "capa_sig_names": [
+      "PEB access",
+      "contain obfuscated stackstrings",
+      "contain loop",
+      "get common file path",
+      "set current directory",
+      "terminate process",
+      "encode data using Base64",
+      "parse PE header",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "216.218.185.162"
+      ],
+      "domains": [
+        "recdataoneveter.cc"
+      ],
+      "urls": [
+        "http://recdataoneveter.cc/vet7sdfh678sdjjs7er0k/"
+      ],
+      "registry_persistence": [
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\139AFF2E"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Roaming\\139AFF2E\\bin.exe"
+      ],
+      "mutexes": [
+        "139AFF2E"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "hash": "033d67a30349754abb7e2b455cf309fa93dfcce7b365428ffcb1336141a4ff39",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence mechanisms (registry keys for AppInit_DLLs and a scheduled task), file drops in system directories, and the use of dangerous API imports like GetProcAddress. The process tree shows a legitimate host (svchost.exe) spawning a suspicious child, and the file identity indicates a custom compiler/packer often associated with malware.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample uses the AppInit_DLLs registry hack to inject code into other processes (specifically targeting Mozilla/MSEdge based on the path) and establishes persistence via a scheduled task. This behavior is characteristic of a Trojan designed to load malicious DLLs into legitimate applications.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1546.013\",\n        \"name\": \"Event Triggered Execution: Windows Management Instrumentation Event Subscription\"\n      },\n      {\n        \"id\": \"T1571\",\n        \"name\": \"Boot or Logon Autostart Execution: AppInit_DLLs\"\n      },\n      {\n        \"id\": \"T1055.004\",\n        \"name\": \"Process Injection: Dynamic Resolution\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1817,
+      "response_chars": 1337,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence mechanisms (registry keys for AppInit_DLLs and a scheduled task), file drops in system directories, and the use of dangerous API imports like GetProcAddress. The process tree shows a legitimate host (svchost.exe) spawning a suspicious child, and the file identity indicates",
+      "elapsed_seconds": 6.85
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 6.85,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8592
+    },
+    "family": {
+      "family_f1": 0.6667,
+      "family_precision": 1.0,
+      "family_recall": 0.5,
+      "predicted": [
+        "trojan"
+      ],
+      "matched": [
+        "trojan"
+      ],
+      "reachable_gt": [
+        "trojan",
+        "dropper"
+      ],
+      "gt_pool": [
+        "dropper",
+        "gen7",
+        "gepys",
+        "shipup",
+        "trojan"
+      ]
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1129"
+      ],
+      "pred_ttps": [
+        "T1055",
+        "T1546",
+        "T1547",
+        "T1571"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1546",
+        "T1547",
+        "T1571"
+      ],
+      "q3_missed_ttps": [
+        "T1129"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

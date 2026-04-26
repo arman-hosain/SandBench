@@ -1,0 +1,89 @@
+{
+  "hash": "0031922e2725037c02d866b020498d1989447a810e58ba50b952d49b815a8032",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic malicious behavior including a deep process tree (dropper chain), persistence via Registry Run keys, creation of multiple file drops in Temp directories, use of XOR encoding for obfuscation, and dynamic function linking. The presence of 'Trickler' in registry keys and the behavior of spawning child processes to execute payloads confirms malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The primary behavior observed is the creation of a long chain of child processes (****_3202.exe through ****_3202m.exe) and the dropping of numerous executable files in the Temp folder. This pattern is characteristic of a Dropper, which is designed to download or deploy additional malware components rather than performing the final malicious action itself (like encryption or data theft) directly.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1547\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1070\",\n        \"name\": \"Indicator Removal\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 8100,
+      "response_chars": 1374,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic malicious behavior including a deep process tree (dropper chain), persistence via Registry Run keys, creation of multiple file drops in Temp directories, use of XOR encoding for obfuscation, and dynamic function linking. The presence of 'Trickler' in registry keys and the behavior of spawning child processes to",
+      "elapsed_seconds": 9.03
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 9.03,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8732
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.2667,
+      "ttp_precision": 0.4,
+      "ttp_recall": 0.2,
+      "gt_ttps": [
+        "T1010",
+        "T1012",
+        "T1027",
+        "T1082",
+        "T1083",
+        "T1112",
+        "T1129",
+        "T1222",
+        "T1547",
+        "T1564"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1547"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1059",
+        "T1070"
+      ],
+      "q3_missed_ttps": [
+        "T1010",
+        "T1012",
+        "T1082",
+        "T1083",
+        "T1112",
+        "T1129",
+        "T1222",
+        "T1564"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2667,
+      "breakdown": {
+        "ttp_f1": 0.2667
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

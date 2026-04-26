@@ -1,0 +1,63 @@
+{
+  "hash": "3f067573d31a80807416fcd5f010c1581fbe808cba3e12f2f3903e0d8ebddcb7",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (6):\n  GET http://pastebin.com/raw/XMKKNkb0\n  GET http://pastebin.com/XMKKNkb0\n  GET http://www.download.windowsupdate.com/msdownload/update/v3/static/trustedr/en/authrootseq.txt  UA: Microsoft-CryptoAPI/5.131.2600.5512\n  GET http://www.download.windowsupdate.com/msdownload/update/v3/static/trustedr/en/authrootstl.cab  UA: Microsoft-CryptoAPI/5.131.2600.5512\n  GET http://www.download.windowsupdate.com/msdownload/update/v3/static/trustedr/en/02FAF3E291435468607857694DF5E45B68851868.crt  UA: Microsoft-CryptoAPI/5.131.2600.5512\n  GET http://paste.ee/r/Jcre9\n\nDNS LOOKUPS (3):\n  paste.ee \u2192 104.18.48.20\n  pastebin.com \u2192 104.20.68.143\n  www.download.windowsupdate.com \u2192 92.123.226.81\n\nIP TRAFFIC (6):\n  104.18.49.20:443 (TCP)\n  104.18.49.20:80 (TCP)\n  104.20.68.143:443 (TCP)\n  104.20.68.143:80 (TCP)\n  92.123.226.81:80 (TCP)\n  <MACHINE_DNS_SERVER>:53 (UDP)\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - load .NET assembly\n\nCAPA RULE MATCHES (MBC):\n  - Process::Create Thread [C0038]\n  - load .NET assembly\n  - Cryptography::Cryptographic Hash::MD5 [C0029.001]\n  - access .NET resource\n  - compiled to the .NET platform\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nMUTEXES CREATED (1):\n  5cd8f17f4086744065eb0992a09e05a2\n\nMUTEXES OPENED (1):\n  Global\\CLR_CASOFF_MUTEX\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Library] .NET\n  [Library] .NET\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': '.NET executable'}\n\nPE SECTIONS (entropy):\n  .text        entropy=7.31\n  .rsrc        entropy=3.68\n  .reloc       entropy=0.1\n  [overlay]    entropy=4.0491790771484375  size=4500\n",
+  "ground_truth": {
+    "hash": "3f067573d31a80807416fcd5f010c1581fbe808cba3e12f2f3903e0d8ebddcb7",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8873,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "msil",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1620",
+        "signature_description": "load .NET assembly"
+      }
+    ],
+    "capa_sig_names": [
+      "create thread",
+      "load .NET assembly",
+      "hash data with MD5",
+      "access .NET resource",
+      "compiled to the .NET platform",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [
+        "104.18.49.20",
+        "104.20.68.143",
+        "92.123.226.81",
+        "<MACHINE_DNS_SERVER>"
+      ],
+      "domains": [
+        "paste.ee",
+        "pastebin.com",
+        "www.download.windowsupdate.com"
+      ],
+      "urls": [
+        "http://paste.ee/r/Jcre9",
+        "http://pastebin.com/XMKKNkb0",
+        "http://pastebin.com/raw/XMKKNkb0",
+        "http://www.download.windowsupdate.com/msdownload/update/v3/static/trustedr/en/02FAF3E291435468607857694DF5E45B68851868.crt",
+        "http://www.download.windowsupdate.com/msdownload/update/v3/static/trustedr/en/authrootseq.txt",
+        "http://www.download.windowsupdate.com/msdownload/update/v3/static/trustedr/en/authrootstl.cab"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [
+        "5cd8f17f4086744065eb0992a09e05a2"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

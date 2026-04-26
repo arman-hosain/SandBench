@@ -1,0 +1,54 @@
+{
+  "hash": "001ec69971edbb63e4ab851fee4933516c941cbe7cf17425761da1914eafd307",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ikavapit.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\Ikavapit.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\Ikavapit.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\Ikavapit.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - encode data using XOR\n  - link function at runtime on Windows\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Cryptography::Hashed Message Authentication Code [C0061]\n  - link function at runtime on Windows\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  Ikavapit.exe  [sha256: 8ad4703b3306d3df...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\Ikavapit.exe  [sha256: 65bbb3ddc348c480...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\Ikavapit.exe\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\Ikavapit.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\Ikavapit.exe\" \"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=5.77\n  .rdata       entropy=3.24\n  .data        entropy=1.34\n  .rsrc        entropy=5.72\n  [overlay]    entropy=3.4311320781707764  size=1932\n",
+  "ground_truth": {
+    "hash": "001ec69971edbb63e4ab851fee4933516c941cbe7cf17425761da1914eafd307",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9155,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "delay execution",
+      "encode data using XOR",
+      "contain loop",
+      "authenticate HMAC",
+      "link function at runtime on Windows",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\Ikavapit.exe",
+        "Ikavapit.exe"
+      ],
+      "mutexes": [],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\Ikavapit.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\Ikavapit.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

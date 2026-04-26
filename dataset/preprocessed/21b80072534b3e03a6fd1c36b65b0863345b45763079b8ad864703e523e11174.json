@@ -1,0 +1,50 @@
+{
+  "hash": "21b80072534b3e03a6fd1c36b65b0863345b45763079b8ad864703e523e11174",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  dac84bd5958bd23ed773.pe32\n    Pcnfqiio.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\Windows\\system32\\Pcnfqiio.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - encode data using XOR\n  - packed with generic packer\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Anti-Static Analysis::Software Packing::Standard Compression [F0001.002]\n  - Execution::Install Additional Program [B0023]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  \\Windows\\System32\\Jidlka32.dll  [sha256: 912da0274532a5e5...]\n  \\Windows\\System32\\Pcnfqiio.exe  [sha256: ad78df4d2f1b5a98...]\n\nFILES WRITTEN (3):\n  C:\\Windows\\system32\\Jidlka32.dll\n  C:\\Windows\\system32\\Pcnfqiio.exe\n  C:\\Windows\\system32\\diifmckfhmig\n\nOTHER REGISTRY KEYS SET (10):\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C00490045003400\n  \\REGISTRY\\MACHINE\\HexStream = 53006F006600740077006100720065005C004D006900630072006F0073006F00660074005C00570069006E0064\n  \\REGISTRY\\USER\\HexStream = 2E00440045004600410055004C0054005C0053004F004600540057004100520045005C004D006900630072006F007\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53004F004600540057004100520045005C004D006900630\n  \\REGISTRY\\USER\\S-1-5-21-3616907901-860437140-2684471051-1001\\HexStream = 53006F006600740077006100720065005C004D006900630\n\nMUTEXES CREATED (1):\n  ENGEL_12\n\nPROCESSES CREATED (1):\n  Pcnfqiio.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: CreateProcessA, GetProcAddress, WinExec\n\nCOMPILER AND PACKER:\n  [sfx] temporary EXE SFX\n  [Linker] LCC Linker\n  [Overlay] EXE file\n  Packers: {'Cyren': 'dropped'}\n\nPE SECTIONS (entropy):\n  .text        entropy=7.13\n  .bss         entropy=0.0\n  .data        entropy=6.02\n  .idata       entropy=4.97\n  .ajelhf      entropy=2.25\n  [overlay]    entropy=7.429797649383545  size=202752\n",
+  "ground_truth": {
+    "hash": "21b80072534b3e03a6fd1c36b65b0863345b45763079b8ad864703e523e11174",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9014,
+    "malicious_count": 64,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain loop",
+      "packed with generic packer",
+      "contain an embedded PE file",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 10,
+      "files_dropped": [
+        "\\Windows\\System32\\Jidlka32.dll",
+        "\\Windows\\System32\\Pcnfqiio.exe"
+      ],
+      "mutexes": [
+        "ENGEL_12"
+      ],
+      "processes": [
+        "Pcnfqiio.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX"
+  ]
+}

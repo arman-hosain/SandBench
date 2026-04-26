@@ -1,0 +1,70 @@
+{
+  "hash": "0029a61d22eb2fcb24e74d6333823bf73a363c7904b4a722cd588ff600c9b3cb",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it is packed with a generic SFX (Self-Extracting) archive, uses XOR obfuscation, and upon execution, spawns multiple instances of Internet Explorer to open random .htm files from the Temp directory. It also modifies the registry to persist or facilitate execution (ShellServiceObjectDelayLoad) and imports dangerous APIs like WinExec and CreateProcessA. The combination of packing, obfuscation, and spawning browser processes to load potentially malicious content classifies this as malicious.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The primary behavior of the sample is to extract and execute additional payloads (the .htm files) rather than performing the payload's function itself (like stealing data or encrypting files). The use of an SFX packer and the spawning of external processes (iexplore.exe) to load content is the defining characteristic of a Dropper.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1562\",\n        \"name\": \"Impair Defenses\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 6442,
+      "response_chars": 1368,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it is packed with a generic SFX (Self-Extracting) archive, uses XOR obfuscation, and upon execution, spawns multiple instances of Internet Explorer to open random .htm files from the Temp directory. It also modifies the registry to persist or facilitate execution (ShellServiceObjectDelayLoad) ",
+      "elapsed_seconds": 7.31
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 7.31,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9306
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.4,
+      "ttp_precision": 0.25,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1562"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1059",
+        "T1562"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4,
+      "breakdown": {
+        "ttp_f1": 0.4
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

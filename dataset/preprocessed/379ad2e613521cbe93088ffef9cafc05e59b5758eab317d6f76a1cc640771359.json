@@ -1,0 +1,67 @@
+{
+  "hash": "379ad2e613521cbe93088ffef9cafc05e59b5758eab317d6f76a1cc640771359",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nHTTP CONVERSATIONS (1):\n  GET http://www.backpackinglight.com.au/wp-content/uploads/2010/11/pdf.exe\n\nDNS LOOKUPS (5):\n  612526.shoplightspeed.com \u2192 18.207.122.59\n  backpackinglight.com.au \u2192 184.168.131.241\n  http.cml-use1prod.link \u2192 18.207.122.59\n  littlepaperlane.com.au \u2192 23.227.38.32\n  www.backpackinglight.com.au \u2192 18.207.122.59\n\nIP TRAFFIC (4):\n  18.207.122.59:443 (TCP)\n  18.207.122.59:80 (TCP)\n  184.168.131.241:443 (TCP)\n  23.227.38.32:443 (TCP)\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  379ad2e613521cbe_papers.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\papers.exe\n\nCOMMAND EXECUTIONS (2):\n  (open) C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\papers.exe(null) [C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\papers.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (2):\n  - packed with Mpress\n  - reference anti-VM strings\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Anti-Static Analysis::Software Packing [F0001]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Virtual Machine Detection [B0009]\n  - (internal) packer file limitation\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  papers.exe  [sha256: acb7918a60ddabb8...]\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\papers.exe  [sha256: 2387c86394e48e67...]\n\nFILES WRITTEN (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\papers.exe\n\nOTHER REGISTRY KEYS SET (1):\n  HKLM\\Software\\Microsoft\\Direct3D\\MostRecentApplication\\Name\n\nMUTEXES CREATED (1):\n  RasPbFile\n\nMUTEXES OPENED (3):\n  DDrawWindowListMutex\n  __DDrawCheckExclMode__\n  __DDrawExclMode__\n\nPROCESSES CREATED (1):\n  C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\papers.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\papers.exe\" \"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress\n\nCOMPILER AND PACKER:\n  [Packer] EP:MPRESS\n  [Packer] MPRESS\n\nPE SECTIONS (entropy):\n  .MPRESS1     entropy=7.23\n  .MPRESS2     entropy=5.88\n  .rsrc        entropy=4.58\n  [overlay]    entropy=3.463653326034546  size=17528\n",
+  "ground_truth": {
+    "hash": "379ad2e613521cbe93088ffef9cafc05e59b5758eab317d6f76a1cc640771359",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8714,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "ppatre",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "packed with Mpress"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "packed with Mpress",
+      "contain a resource (.rsrc) section",
+      "reference anti-VM strings",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [
+        "18.207.122.59",
+        "184.168.131.241",
+        "23.227.38.32"
+      ],
+      "domains": [
+        "612526.shoplightspeed.com",
+        "backpackinglight.com.au",
+        "http.cml-use1prod.link",
+        "littlepaperlane.com.au",
+        "www.backpackinglight.com.au"
+      ],
+      "urls": [
+        "http://www.backpackinglight.com.au/wp-content/uploads/2010/11/pdf.exe"
+      ],
+      "registry_persistence": [],
+      "registry_all_count": 1,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\papers.exe",
+        "papers.exe"
+      ],
+      "mutexes": [
+        "RasPbFile"
+      ],
+      "processes": [
+        "C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\papers.exe C:\\DOCUME~1\\<USER>~1\\LOCALS~1\\Temp\\papers.exe\" \""
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

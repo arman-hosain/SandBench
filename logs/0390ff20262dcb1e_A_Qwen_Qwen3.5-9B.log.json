@@ -1,0 +1,70 @@
+{
+  "hash": "0390ff20262dcb1ea21efbc8b98b233eccf4b4703cb48e8083e2f426fce46654",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence mechanisms (Registry Run Keys), file system enumeration, and the dropping of multiple fake executable files in the Windows directory. The presence of an overlay section with high entropy and dangerous imports (GetProcAddress, VirtualAlloc) suggests a dropper or downloader designed to evade analysis and deploy payloads.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The sample drops multiple fake files (Winamp, Photoshop updates) to a system directory and establishes persistence via the Registry Run key. This behavior is characteristic of a Dropper, which installs or downloads other malware or deceptive files rather than performing a specific payload itself immediately.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1083\",\n        \"name\": \"File and Directory Discovery\"\n      },\n      {\n        \"id\": \"T1562.001\",\n        \"name\": \"Disable or Modify System Defenses: Impair Defenses\"\n      },\n      {\n        \"id\": \"T1036\",\n        \"name\": \"Masquerading\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1767,
+      "response_chars": 1264,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence mechanisms (Registry Run Keys), file system enumeration, and the dropping of multiple fake executable files in the Windows directory. The presence of an overlay section with high entropy and dangerous imports (GetProcAddress, VirtualAlloc) suggests a dropper or downloader ",
+      "elapsed_seconds": 6.37
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 6.37,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8592
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.6667,
+      "ttp_precision": 0.5,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1083",
+        "T1547"
+      ],
+      "pred_ttps": [
+        "T1036",
+        "T1083",
+        "T1547",
+        "T1562"
+      ],
+      "tp": 2,
+      "q3_hallucinated_ttps": [
+        "T1036",
+        "T1562"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.6667,
+      "breakdown": {
+        "ttp_f1": 0.6667
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

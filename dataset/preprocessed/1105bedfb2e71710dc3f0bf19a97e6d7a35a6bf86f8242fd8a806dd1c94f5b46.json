@@ -1,0 +1,99 @@
+{
+  "hash": "1105bedfb2e71710dc3f0bf19a97e6d7a35a6bf86f8242fd8a806dd1c94f5b46",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  sys.zief.pl \u2192 148.81.111.121\n\nIP TRAFFIC (1):\n  148.81.111.121:65520 (TCP)\n\nSERVICES OPENED (1):\n  ProtectedStorage\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  wab.pe32\n    winlogon.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (9):\n  - encode data using XOR\n  - query or enumerate registry value\n  - check if file exists\n  - query environment variable\n  - link function at runtime on Windows\n  - find graphical window\n  - accept command line arguments\n  - link many functions at runtime\n  - get file size\n\nCAPA RULE MATCHES (MBC):\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - File System::Get File Attributes [C0049]\n  - File System::Create File [C0016]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - contain loop\n  - get OS version\n  - Discovery::File and Directory Discovery [E1083]\n  - Discovery::System Information Discovery [E1082]\n  - link function at runtime on Windows\n  - find graphical window\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Process::Terminate Process [C0018]\n  - link many functions at runtime\n  - File System::Read File [C0051]\n  - resolve function by parsing PE exports\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (2):\n  C:\\Documents and Settings\\<USER>\\Application Data\\Microsoft\\Address Book\\<USER>.wab\n  C:\\Windows\\system32\\DRIVERS\\ETC\\HOSTS\n\nPERSISTENCE REGISTRY KEYS (1):\n  \\REGISTRY\\MACHINE\\SYSTEM\\ControlSet001\\services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\AuthorizedApplications\\HexStream = 4C00690073007400 = C:\\Windows\\system32\\winlogon.exe\n\nMUTEXES CREATED (8):\n  Local\\WininetProxyRegistryMutex\n  Local\\WininetStartupMutex\n  Local\\_!MSFTHISTORY!_\n  Local\\c:!windows!system32!config!systemprofile!appdata!local!microsoft!windows!history!history.ie5!\n  Local\\c:!windows!system32!config!systemprofile!appdata!local!microsoft!windows!temporary internet files!content.ie5!\n  Local\\c:!windows!system32!config!systemprofile!appdata!roaming!microsoft!windows!cookies!\n  RasPbFile\n  l0r2\n\nMUTEXES OPENED (3):\n  MPSWABOlkStoreNotifyMutex\n  MPSWabDataAccessMutex\n  MSIdent Logon\n\nPROCESSES CREATED (1):\n  winlogon.exe\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n\nPE SECTIONS (entropy):\n  .text        entropy=6.24\n  .data        entropy=2.42\n  .rsrc        entropy=6.58\n",
+  "ground_truth": {
+    "hash": "1105bedfb2e71710dc3f0bf19a97e6d7a35a6bf86f8242fd8a806dd1c94f5b46",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.875,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": null,
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "check if file exists"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open registry key",
+      "get file attributes",
+      "create or open file",
+      "encode data using XOR",
+      "query or enumerate registry value",
+      "set registry value",
+      "contain loop",
+      "get OS version",
+      "check if file exists",
+      "query environment variable",
+      "link function at runtime on Windows",
+      "find graphical window",
+      "accept command line arguments",
+      "terminate process",
+      "link many functions at runtime",
+      "get file size",
+      "read file on Windows",
+      "resolve function by parsing PE exports",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "148.81.111.121"
+      ],
+      "domains": [
+        "sys.zief.pl"
+      ],
+      "urls": [],
+      "registry_persistence": [
+        "\\REGISTRY\\MACHINE\\SYSTEM\\ControlSet001\\services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\AuthorizedApplications\\HexStream = 4C00690073007400"
+      ],
+      "registry_all_count": 1,
+      "files_dropped": [],
+      "mutexes": [
+        "Local\\WininetProxyRegistryMutex",
+        "Local\\WininetStartupMutex",
+        "Local\\_!MSFTHISTORY!_",
+        "Local\\c:!windows!system32!config!systemprofile!appdata!local!microsoft!windows!history!history.ie5!",
+        "Local\\c:!windows!system32!config!systemprofile!appdata!local!microsoft!windows!temporary internet files!content.ie5!",
+        "Local\\c:!windows!system32!config!systemprofile!appdata!roaming!microsoft!windows!cookies!",
+        "RasPbFile",
+        "l0r2"
+      ],
+      "processes": [
+        "winlogon.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "SNDBOX",
+    "VirusTotal Cuckoofork"
+  ]
+}

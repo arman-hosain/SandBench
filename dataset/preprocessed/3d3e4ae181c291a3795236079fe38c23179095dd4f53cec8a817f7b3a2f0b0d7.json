@@ -1,0 +1,127 @@
+{
+  "hash": "3d3e4ae181c291a3795236079fe38c23179095dd4f53cec8a817f7b3a2f0b0d7",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE (flat):\n  C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\csc.exe\n  C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\csc.exe upx.exe -3 C:\\Documents and Settings\\<USER>\\Application Data\\winup.exe\"\"\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (19):\n  - encode data using XOR\n  - hide graphical window\n  - query or enumerate registry value\n  - link function at runtime on Windows\n  - get geographical location\n  - find graphical window\n  - get disk size\n  - get file version info\n  - get system information on Windows\n  - capture screenshot\n  - link many functions at runtime\n  - enumerate gui resources\n  - log keystrokes via polling\n  - get number of processors\n  - log keystrokes\n  - get keyboard layout\n  - encode data using Base64\n  - packed with UPX\n  - reference anti-VM strings targeting Qemu\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Memory::Allocate Memory [C0007]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - File System::Create File [C0016]\n  - Anti-Behavioral Analysis::Debugger Detection::Process Environment Block [B0001.019]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - hide graphical window\n  - set global application hook\n  - Process::Create Thread [C0038]\n  - contain loop\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - File System::Writes File [C0052]\n  - link function at runtime on Windows\n  - get geographical location\n  - Process::Set Thread Local Storage Value [C0041]\n  - get thread local storage value\n  - find graphical window\n  - Discovery::System Information Discovery [E1082]\n  - get OS version\n  - Discovery::File and Directory Discovery [E1083]\n  - extract resource via kernel32 functions\n  - get system information on Windows\n\n--- ARTIFACTS ---\n\nFILES DROPPED (1):\n  winup.exe  [sha256: 10c7776ae7ead4ff...]\n\nFILES WRITTEN (1):\n  C:\\Documents and Settings\\<USER>\\Application Data\\winup.exe\n\nMUTEXES CREATED (1):\n  ShimCacheMutex\n\nPROCESSES CREATED (2):\n  C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\csc.exe\n  C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\csc.exe upx.exe -3 C:\\Documents and Settings\\<USER>\\Application Data\\winup.exe\"\"\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  kernel32.dll: GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] Borland Delphi\n  [Linker] Turbo Linker\n  Packers: {'PEiD': 'BobSoft Mini Delphi -> BoB / BobSoft'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=6.29\n  UPX1         entropy=5.9\n  .rsrc        entropy=3.7\n  .64305       entropy=0.0\n  .79623       entropy=0.02\n  .88117       entropy=0.0\n  .74263       entropy=0.01\n  .11853       entropy=0.0\n  .19510       entropy=0.01\n  .4839        entropy=0.0\n  .60260       entropy=0.01\n  .64206       entropy=0.0\n  .73094       entropy=0.0\n  .ap0x        entropy=4.56\n  .5932        entropy=0.0\n  .22371       entropy=0.0\n  .19167       entropy=0.0\n  .42518       entropy=0.0\n  .38662       entropy=0.01\n  .50827       entropy=0.0\n  .83931       entropy=0.0\n  .28676       entropy=0.0\n  .66009       entropy=0.0\n  .97429       entropy=0.0\n  .65645       entropy=0.0\n  .16620       entropy=0.0\n  .56245       entropy=0.0\n  .42953       entropy=0.0\n  .88603       entropy=0.0\n  .86741       entropy=0.01\n  .73937       entropy=0.0\n  .20260       entropy=0.0\n  .7069        entropy=0.0\n  .39701       entropy=0.0\n  .40170       entropy=0.0\n  .9063        entropy=0.0\n  .17251       entropy=0.01\n  .16161       entropy=0.01\n  .78763       entropy=0.0\n  .28963       entropy=0.0\n  .82746       entropy=0.0\n  .43571       entropy=0.0\n  .2525        entropy=0.0\n  .61842       entropy=0.0\n  .96498       entropy=0.0\n  .43576       entropy=0.0\n  .10685       entropy=0.01\n  .81672       entropy=0.0\n  .83543       entropy=0.0\n  .73927       entropy=0.0\n",
+  "ground_truth": {
+    "hash": "3d3e4ae181c291a3795236079fe38c23179095dd4f53cec8a817f7b3a2f0b0d7",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8472,
+    "malicious_count": 61,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1056",
+        "signature_description": "log keystrokes via polling"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "get disk size"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file version info"
+      },
+      {
+        "id": "T1113",
+        "signature_description": "capture screenshot"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "reference anti-VM strings targeting Qemu"
+      },
+      {
+        "id": "T1564",
+        "signature_description": "hide graphical window"
+      },
+      {
+        "id": "T1614",
+        "signature_description": "get geographical location"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "allocate memory",
+      "allocate RW memory",
+      "create or open registry key",
+      "create or open file",
+      "PEB access",
+      "delay execution",
+      "allocate RWX memory",
+      "encode data using XOR",
+      "hide graphical window",
+      "set global application hook",
+      "create thread",
+      "contain loop",
+      "query or enumerate registry value",
+      "write file on Windows",
+      "link function at runtime on Windows",
+      "get geographical location",
+      "set thread local storage value",
+      "get thread local storage value",
+      "find graphical window",
+      "get disk size",
+      "get OS version",
+      "get file version info",
+      "extract resource via kernel32 functions",
+      "get system information on Windows",
+      "capture screenshot",
+      "link many functions at runtime",
+      "enumerate gui resources",
+      "check for time delay via GetTickCount",
+      "log keystrokes via polling",
+      "get number of processors",
+      "log keystrokes",
+      "get keyboard layout",
+      "set application hook",
+      "get graphical window text",
+      "encode data using Base64",
+      "contain a resource (.rsrc) section",
+      "packed with UPX",
+      "reference anti-VM strings targeting Qemu",
+      "compiled with Borland Delphi",
+      "(internal) packer file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "winup.exe"
+      ],
+      "mutexes": [
+        "ShimCacheMutex"
+      ],
+      "processes": [
+        "C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\csc.exe",
+        "C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\csc.exe upx.exe -3 C:\\Documents and Settings\\<USER>\\Application Data\\winup.exe\"\""
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

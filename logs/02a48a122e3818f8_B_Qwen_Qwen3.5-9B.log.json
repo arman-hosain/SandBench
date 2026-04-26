@@ -1,0 +1,99 @@
+{
+  "hash": "02a48a122e3818f87e3c0ea72e699329e30ef9bd0b98df1eb54b8ed2f2b80d2c",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it is heavily packed (DxPack, UPX_LZMA) and obfuscated (stackstrings, argument obfuscation), creates a deep process tree of numerous temporary executables, and drops a final payload (0jtvrgq.exe) to the filesystem. The presence of dangerous imports like GetProcAddress and the specific anti-analysis capabilities confirm malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Dropper\"],\n    \"explanation\": \"The primary behavior observed is the dropping of additional files (0jtvrgq.exe) and spawning a chain of processes, which is the definition of a Dropper. While it may eventually deploy other malware, the current observable behavior is that of a dropper.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1562.001\",\n        \"name\": \"Disable or Modify System Protection\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1053\",\n        \"name\": \"Scheduled Task/Job\"\n      },\n      {\n        \"id\": \"T1070\",\n        \"name\": \"Indicator Removal\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 1716,
+      "response_chars": 1310,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic dropper behavior: it is heavily packed (DxPack, UPX_LZMA) and obfuscated (stackstrings, argument obfuscation), creates a deep process tree of numerous temporary executables, and drops a final payload (0jtvrgq.exe) to the filesystem. The presence of dangerous imports like GetProcAddress and the specific anti-ana",
+      "elapsed_seconds": 12.26
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": false,
+      "gap_summary": "",
+      "missed_behavior_count": 0,
+      "ttps_found": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1562"
+      ],
+      "hallucinated_ttps": [
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1562"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 5
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 12.26,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8611
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.2857,
+      "ttp_precision": 0.1667,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1562"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1053",
+        "T1055",
+        "T1059",
+        "T1070",
+        "T1562"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.2857,
+      "breakdown": {
+        "ttp_f1": 0.2857
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

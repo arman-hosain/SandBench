@@ -1,0 +1,63 @@
+{
+  "hash": "03c743f8b61fdf54e8577a548ddf8a120ac6eaacd1f8a3c121aa9dc4cba2dd95",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample is packed with UPX, a common packer used by both legitimate software and malware to evade analysis. The presence of dangerous imports like VirtualProtect, VirtualAlloc, and GetProcAddress suggests potential for code injection or memory manipulation. However, the report lacks definitive evidence of malicious actions (e.g., network connections, file encryption, registry modification, or process injection), making it suspicious but not confirmed malicious based solely on this data.\"\n  },\n  \"q2\": {\n    \"family\": [\"PUA\"],\n    \"explanation\": \"The sample exhibits characteristics of Potentially Unwanted Applications (PUA). It uses UPX packing to obfuscate its code and includes standard suspicious imports, but the provided behavioral report does not show clear malicious intent typical of Ransomware, Trojans, or Spyware (such as data exfiltration, encryption, or persistence mechanisms). PUAs often use packing to hide their presence and may perform minor unwanted actions or simply be adware/toolbars, fitting the 'suspicious but not clearly harmful' profile here.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 798,
+      "response_chars": 1270,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample is packed with UPX, a common packer used by both legitimate software and malware to evade analysis. The presence of dangerous imports like VirtualProtect, VirtualAlloc, and GetProcAddress suggests potential for code injection or memory manipulation. However, the report lacks definitive evidence of malicious actions (e.g., netw",
+      "elapsed_seconds": 5.64
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 5.64,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 0.5,
+      "predicted": "SUSPICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8873
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 1.0,
+      "ttp_precision": 1.0,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 1.0,
+      "breakdown": {
+        "ttp_f1": 1.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

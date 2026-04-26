@@ -1,0 +1,63 @@
+{
+  "hash": "063960aa0001a823cc13e9b6112a1ec3bed944893bcca21eb1f1e2ea3a80083b",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - encode data using XOR\n\nCAPA RULE MATCHES (MBC):\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Data::Decompress Data::aPLib [C0025.003]\n  - contain a resource (.rsrc) section\n\n--- FILE IDENTITY ---\n\nCOMPILER AND PACKER:\n  [Linker] Microsoft Linker\n\nPE SECTIONS (entropy):\n  SEC          entropy=5.22\n  .rsrc        entropy=7.78\n  [overlay]    entropy=7.782323837280273  size=1626984\n",
+  "ground_truth": {
+    "hash": "063960aa0001a823cc13e9b6112a1ec3bed944893bcca21eb1f1e2ea3a80083b",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8219,
+    "malicious_count": 60,
+    "popular_threat_category": [
+      {
+        "value": "trojan",
+        "count": 27
+      },
+      {
+        "value": "dropper",
+        "count": 13
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "aacm",
+        "count": 2
+      },
+      {
+        "value": "bkdr",
+        "count": 2
+      },
+      {
+        "value": "hupigon",
+        "count": 2
+      }
+    ],
+    "suggested_label": "trojan.aacm/bkdr",
+    "av_family_vote": "crypt",
+    "has_family_label": true,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      }
+    ],
+    "capa_sig_names": [
+      "encode data using XOR",
+      "contain loop",
+      "decompress data using aPLib",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

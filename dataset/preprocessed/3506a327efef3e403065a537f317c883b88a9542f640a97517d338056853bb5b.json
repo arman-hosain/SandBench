@@ -1,0 +1,66 @@
+{
+  "hash": "3506a327efef3e403065a537f317c883b88a9542f640a97517d338056853bb5b",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  a13c0bf4a31d8b87d9ed27b748e75c50.virus.exe\n    C:\\Windows\\System\\OwbZMYu.exe\n    C:\\Windows\\System\\WvIzoPa.exe\n    C:\\Windows\\System\\ZJugvrb.exe\n    C:\\Windows\\System\\BxbaaWe.exe\n    C:\\Windows\\System\\tmYjPqn.exe\n\n--- ARTIFACTS ---\n\nFILES DROPPED (6):\n  C:\\Windows\\System\\tmYjPqn.exe  [sha256: 23da40984810e67a...]\n  C:\\Windows\\System\\BxbaaWe.exe  [sha256: 36064e6932d22c18...]\n  C:\\Windows\\System\\ZJugvrb.exe  [sha256: b153a366bf7e6f65...]\n  C:\\Windows\\System\\WvIzoPa.exe  [sha256: 806e69ca950c3076...]\n  C:\\Windows\\System\\OwbZMYu.exe  [sha256: 544afd2830d8e275...]\n  C:\\Windows\\System\\sSbfSgI.exe  [sha256: 5244bddae1da162d...]\n\nMUTEXES CREATED (1):\n  sfdkjjhgkdsfhgjksd\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.DLL: GetProcAddress, VirtualProtect\n\nCOMPILER AND PACKER:\n  [Packer] UPX\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'F-PROT': 'appended, embedded'}\n\nPE SECTIONS (entropy):\n  UPX0         entropy=0.0\n  UPX1         entropy=7.91\n  .rsrc        entropy=4.24\n  [overlay]    entropy=6.464552402496338  size=3723561\n",
+  "ground_truth": {
+    "hash": "3506a327efef3e403065a537f317c883b88a9542f640a97517d338056853bb5b",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.863,
+    "malicious_count": 63,
+    "popular_threat_category": [
+      {
+        "value": "miner",
+        "count": 30
+      },
+      {
+        "value": "trojan",
+        "count": 24
+      },
+      {
+        "value": "downloader",
+        "count": 2
+      }
+    ],
+    "popular_threat_name": [
+      {
+        "value": "banload",
+        "count": 3
+      },
+      {
+        "value": "bcnn",
+        "count": 2
+      },
+      {
+        "value": "gen8",
+        "count": 2
+      }
+    ],
+    "suggested_label": "miner.banload/bcnn",
+    "av_family_vote": "win32",
+    "has_family_label": true,
+    "ttps": [],
+    "capa_sig_names": [],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [
+        "C:\\Windows\\System\\BxbaaWe.exe",
+        "C:\\Windows\\System\\OwbZMYu.exe",
+        "C:\\Windows\\System\\WvIzoPa.exe",
+        "C:\\Windows\\System\\ZJugvrb.exe",
+        "C:\\Windows\\System\\sSbfSgI.exe",
+        "C:\\Windows\\System\\tmYjPqn.exe"
+      ],
+      "mutexes": [
+        "sfdkjjhgkdsfhgjksd"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "VirusTotal Jujubox"
+  ]
+}

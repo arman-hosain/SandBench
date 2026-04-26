@@ -1,0 +1,76 @@
+{
+  "hash": "2c6bc7185dcb3930d6a57f140680e78ca13c4329b949acdad036132077254a42",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (9):\n  - get Program Files directory\n  - get token membership\n  - find graphical window\n  - get file version info\n  - get common file path\n  - enumerate process modules\n  - enumerate gui resources\n  - link function at runtime on Windows\n  - encrypt data using RC4 PRGA\n\nCAPA RULE MATCHES (MBC):\n  - get Program Files directory\n  - Process::Open Process [C0065]\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Create Process [C0017]\n  - get token membership\n  - find graphical window\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - Discovery::File and Directory Discovery::Log File [E1083.m01]\n  - enumerate process modules\n  - Discovery::Application Window Discovery [E1010]\n  - enumerate gui resources\n  - Anti-Behavioral Analysis::Debugger Detection::Timing/Delay Check GetTickCount [B0001.032]\n  - File System::Read File [C0051]\n  - link function at runtime on Windows\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Generate Pseudo-random Sequence::RC4 PRGA [C0021.004]\n  - contain a resource (.rsrc) section\n  - Anti-Behavioral Analysis::Conditional Execution::Runs as Service [B0025.007]\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.13\n  .data        entropy=1.21\n  .pdata       entropy=3.11\n  .rsrc        entropy=5.23\n  .reloc       entropy=7.22\n",
+  "ground_truth": {
+    "hash": "2c6bc7185dcb3930d6a57f140680e78ca13c4329b949acdad036132077254a42",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7639,
+    "malicious_count": 55,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1027",
+        "signature_description": "encrypt data using RC4 PRGA"
+      },
+      {
+        "id": "T1033",
+        "signature_description": "get token membership"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate process modules"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get Program Files directory"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "get Program Files directory",
+      "open process",
+      "delay execution",
+      "create process on Windows",
+      "get token membership",
+      "find graphical window",
+      "contain loop",
+      "get file version info",
+      "get common file path",
+      "access the Windows event log",
+      "enumerate process modules",
+      "get graphical window text",
+      "enumerate gui resources",
+      "check for time delay via GetTickCount",
+      "read file via mapping",
+      "link function at runtime on Windows",
+      "encrypt data using RC4 PRGA",
+      "contain a resource (.rsrc) section",
+      "run as service"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

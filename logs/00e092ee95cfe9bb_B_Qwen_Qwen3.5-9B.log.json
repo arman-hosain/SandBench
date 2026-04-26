@@ -1,0 +1,118 @@
+{
+  "hash": "00e092ee95cfe9bb032ccd5360e7fc068a94f4beb0cfac190a5b61c665f8db50",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits several suspicious behaviors including dynamic analysis evasion (delayed execution), process termination capabilities, and the creation of a mutex with a 'ransom_id' in its name. However, the network activity is limited to a single DNS lookup and HTTP request to a domain that appears to be a legitimate Romanian political party website (politiaromana.bit), and the dropped file is named 'brfjdf.exe' without clear ransomware indicators like encryption or file extension changes. The combination of evasion techniques and the ransom-related mutex name warrants a suspicious verdict rather than malicious, as the primary payload's intent is not definitively confirmed by the provided evidence.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample uses dynamic analysis evasion techniques (delayed execution) and drops a new executable, which is characteristic of a Trojan or Dropper. Given the lack of clear ransomware behavior (no encryption observed) and the specific evasion tactics, 'Trojan' is the most appropriate classification from the fixed vocabulary. It could also be a Dropper, but Trojan is a broader and safer fit for a sample with these capabilities.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1055.004\",\n        \"name\": \"Process Injection via DLL\"\n      },\n      {\n        \"id\": \"T1055.012\",\n        \"name\": \"Process Injection via Thread Local Storage\"\n      },\n      {\n        \"id\": \"T1055.013\",\n        \"name\": \"Process Injection via Dynamic Link Library\"\n      },\n      {\n        \"id\": \"T1055.014\",\n        \"name\": \"Process Injection via Thread Local Storage\"\n      },\n      {\n        \"id\": \"T1055.015\",\n        \"name\": \"Process Injection via Dynamic Link Library\"\n      },\n      {\n        \"id\": \"T1055.016\",\n        \"name\": \"Process Injection via Thread Local Storage\"\n      },\n      {\n        \"id\": \"T1055.017\",\n        \"name\": \"Process Injection via Dynamic Link Library\"\n      },\n      {\n        \"id\": \"T1055.018\",\n        \"name\": \"Process Injection via Thread Local Storage\"\n      },\n      {\n        \"id\": \"T1055.019\",\n        \"name\": \"Process Injection via Dynamic Link Library\"\n      },\n      {\n        \"id\": \"T1055.020\",\n        \"name\": \"Process Injection via Thread Local Storage\"\n      },\n      {\n        \"id\": \"T1055.021\",\n        \"name\": \"Process Injection via Dynamic Link Library\"\n      },\n      {\n        \"id\": \"T1055.022\",\n        \"name\": \"Process Injection via Thread Local Storage\"\n      },\n      {\n        \"id\": \"T1055.023\",\n        \"name\": \"Process Injection via Dynamic Link Library\"\n      },\n      {\n        \"id\": \"T1055.024\",\n        \"name\": \"Process Injection via Thread Local Storage\"\n      },\n      {\n        \"id\": \"T1055.025\",\n        \"name\": \"Process Injection via Dynamic Link Library\"\n      },\n      {\n        \"id\": \"T1055.026\",\n        \"name\": \"Process Injection via Thread Local Storage\"\n      },\n      {\n        \"id\": \"T1055.027\",\n        \"name\": \"Process Injection via Dynamic Link Library\"\n      },\n      {\n        \"id\": \"T1055.028\",\n        \"name\": \"Process Injection via Thread Local Storage\"\n      },\n      {\n        \"id\": \"T1055.029\",\n        \"name\": \"Process Injection via Dynamic Link Library\"\n      },\n      {\n        \"id\": \"T1055.030\",\n        \"name\": \"Process Injection via Thread Local Storage\"\n      },\n      {\n        \"id\": \"T1055.031\",\n        \"name\": \"Process Injection via Dynamic Link Library\"\n      },\n      {\n        \"id\": \"T1055.032\",\n        \"name\": \"Process Injection via Thread Local Storage\"\n      },\n      {\n        \"id\": \"T1055.033\",\n        \"name\": \"Process Injection via Dynamic Link Library\"\n      },\n      {\n        \"id\": \"T1055.034\",\n        \"name\": \"Process Injection via Thread Local Storage\"\n      },\n      {\n        \"id\": \"T1055.035\",\n        \"name\": \"Process Injection via Dynamic Link Library\"\n      },\n      {\n        \"id\"",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 2047,
+      "response_chars": 12702,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"SUSPICIOUS\",\n    \"explanation\": \"The sample exhibits several suspicious behaviors including dynamic analysis evasion (delayed execution), process termination capabilities, and the creation of a mutex with a 'ransom_id' in its name. However, the network activity is limited to a single DNS lookup and HTTP request to a domain that appears to be a legitimate Romanian politi",
+      "elapsed_seconds": 88.11
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "2 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 2,
+      "ttps_found": [
+        "T1055"
+      ],
+      "hallucinated_ttps": [
+        "T1055"
+      ],
+      "ttp_tp": 0,
+      "ttp_fp": 1
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- get hostname\n- link function at runtime on Windows\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "refinement_rejected",
+      "iteration": 1,
+      "reason": "response not in structured format - keeping previous output",
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious indicators including dynamic analysis evasion (delayed execution), process termination capabilities, and"
+    },
+    {
+      "step": 5,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1055"
+      ],
+      "is_structured": false,
+      "best_ttp_tp": 0,
+      "best_ttp_fp": 1
+    },
+    {
+      "step": 6,
+      "type": "refinement_stopped",
+      "iteration": 1,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 0,
+      "ttp_fp": 1
+    }
+  ],
+  "total_llm_calls": 2,
+  "total_elapsed": 217.39,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": true,
+    "verdict": {
+      "verdict_score": 0.5,
+      "predicted": "SUSPICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9155
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1082",
+        "T1129"
+      ],
+      "pred_ttps": [
+        "T1055"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1055"
+      ],
+      "q3_missed_ttps": [
+        "T1082",
+        "T1129"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

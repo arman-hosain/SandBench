@@ -1,0 +1,95 @@
+{
+  "hash": "03ff0d3b7982d8c78e90b688eb9f6cf2a542dce6d4acd08191c943713d99cd6f",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (2):\n  evaniz.com\n  merrymilkfoods.com \u2192 199.188.201.227\n\nIP TRAFFIC (1):\n  114.114.114.114:53 (UDP)\n\n--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  budha.exe\n    C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe\n\nCOMMAND EXECUTIONS (1):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (6):\n  - encode data using XOR\n  - get file size\n  - compress data via WinAPI\n  - get common file path\n  - link function at runtime on Windows\n  - download and write a file\n\nCAPA RULE MATCHES (MBC):\n  - File System::Create File [C0016]\n  - Process::Create Process [C0017]\n  - Communication::HTTP Communication [C0002]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - Data::Compress Data [C0024]\n  - Communication::HTTP Communication::Send Request [C0002.003]\n  - Communication::HTTP Communication::Create Request [C0002.012]\n  - File System::Delete File [C0047]\n  - Process::Terminate Process [C0018]\n  - File System::Read File [C0051]\n  - link function at runtime on Windows\n  - Communication::HTTP Communication::Connect to Server [C0002.009]\n  - Communication::HTTP Communication::Get Response [C0002.017]\n  - Command and Control::C2 Communication::Receive Data [B0030.002]\n  - File System::Writes File [C0052]\n  - Command and Control::C2 Communication::Server to Client File Transfer [B0030.003]\n  - Execution::Install Additional Program [B0023]\n  - Command and Control::C2 Communication::Send Data [B0030.001]\n  - read and send data from client to server\n  - receive and write data from server to client\n  - contain a resource (.rsrc) section\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe  [sha256: 5a7d93878d88f83c...]\n  c:\\users\\admin\\appdata\\local\\temp\\budha.exe  [sha256: 0500f21d3e92a292...]\n\nOTHER REGISTRY KEYS SET (2):\n  HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap//A\n  HKU/S-1-5-21-470376811-3006406624-3672060426-1000/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap//U\n\nMUTEXES CREATED (4):\n  Local\\ZoneAttributeCacheCounterMutex\n  Local\\ZonesCacheCounterMutex\n  Local\\ZonesCounterMutex\n  Local\\ZonesLockedCacheCounterMutex\n\nPROCESSES CREATED (2):\n  C:\\03ff0d3b7982d8c78e90b688eb9f6cf2a542dce6d4acd08191c943713d99cd6f.exe\n  C:\\Users\\admin\\AppData\\Local\\Temp\\budha.exe \n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryW\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=5.15\n  .bss         entropy=0.0\n  .rdata       entropy=3.99\n  .rsrc        entropy=5.07\n  .reloc       entropy=1.97\n  [overlay]    entropy=3.3229002952575684  size=3544\n",
+  "ground_truth": {
+    "hash": "03ff0d3b7982d8c78e90b688eb9f6cf2a542dce6d4acd08191c943713d99cd6f",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.875,
+    "malicious_count": 63,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "generickdz",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get file size"
+      },
+      {
+        "id": "T1105",
+        "signature_description": "download and write a file"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1560",
+        "signature_description": "compress data via WinAPI"
+      }
+    ],
+    "capa_sig_names": [
+      "create or open file",
+      "create process on Windows",
+      "get HTTP content length",
+      "encode data using XOR",
+      "contain loop",
+      "get file size",
+      "compress data via WinAPI",
+      "get common file path",
+      "send HTTP request",
+      "create HTTP request",
+      "delete file",
+      "terminate process",
+      "read file on Windows",
+      "link function at runtime on Windows",
+      "connect to HTTP server",
+      "read data from Internet",
+      "receive data",
+      "write file on Windows",
+      "download and write a file",
+      "write and execute a file",
+      "send data",
+      "read and send data from client to server",
+      "receive and write data from server to client",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [
+        "114.114.114.114"
+      ],
+      "domains": [
+        "evaniz.com",
+        "merrymilkfoods.com"
+      ],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 2,
+      "files_dropped": [
+        "C:\\Users\\<USER>\\AppData\\Local\\Temp\\budha.exe",
+        "c:\\users\\admin\\appdata\\local\\temp\\budha.exe"
+      ],
+      "mutexes": [
+        "Local\\ZoneAttributeCacheCounterMutex",
+        "Local\\ZonesCacheCounterMutex",
+        "Local\\ZonesCounterMutex",
+        "Local\\ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\03ff0d3b7982d8c78e90b688eb9f6cf2a542dce6d4acd08191c943713d99cd6f.exe",
+        "C:\\Users\\admin\\AppData\\Local\\Temp\\budha.exe "
+      ]
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Sangfor ZSand",
+    "VirusTotal Jujubox"
+  ]
+}

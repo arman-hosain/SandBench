@@ -1,0 +1,60 @@
+{
+  "hash": "1a190a65025371d52633e36b8d967b9c915b7044b73b899ed5ad1d4d7e0a075e",
+  "report_text": "--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (4):\n  - encrypt data using RC4 KSA\n  - get common file path\n  - interact with driver via control codes\n  - link function at runtime on Windows\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - File System::Create File [C0016]\n  - contain loop\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Encryption Key::RC4 KSA [C0028.002]\n  - Discovery::File and Directory Discovery [E1083]\n  - interact with driver via control codes\n  - link function at runtime on Windows\n  - Communication::Interprocess Communication [C0003]\n  - contain a resource (.rsrc) section\n  - linked against CPP standard library\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryExW, LoadLibraryW, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.66\n  .rdata       entropy=5.54\n  .data        entropy=3.07\n  .gfids       entropy=1.6\n  .rsrc        entropy=7.91\n  .reloc       entropy=6.48\n  [overlay]    entropy=2.503258466720581  size=9\n",
+  "ground_truth": {
+    "hash": "1a190a65025371d52633e36b8d967b9c915b7044b73b899ed5ad1d4d7e0a075e",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9167,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "ransom",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encrypt data using RC4 KSA"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1569",
+        "signature_description": "interact with driver via control codes"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RWX memory",
+      "create or open file",
+      "contain loop",
+      "encrypt data using RC4 KSA",
+      "get common file path",
+      "interact with driver via control codes",
+      "link function at runtime on Windows",
+      "create mailslot",
+      "contain a resource (.rsrc) section",
+      "linked against CPP standard library"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 1,
+  "sandbox_names": [
+    "CAPA"
+  ]
+}

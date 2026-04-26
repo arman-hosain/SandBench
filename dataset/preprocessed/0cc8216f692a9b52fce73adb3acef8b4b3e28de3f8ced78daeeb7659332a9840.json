@@ -1,0 +1,63 @@
+{
+  "hash": "0cc8216f692a9b52fce73adb3acef8b4b3e28de3f8ced78daeeb7659332a9840",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nIP TRAFFIC (1):\n  1.224.34.14:9000 (TCP)\n\nSERVICES OPENED (1):\n  CJEDROIICevxF0rF\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (6):\n  - encode data using XOR\n  - query environment variable\n  - link function at runtime on Windows\n  - accept command line arguments\n  - encrypt data using XTEA\n  - parse PE header\n\nCAPA RULE MATCHES (MBC):\n  - Memory::Allocate Memory [C0007]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - contain loop\n  - Discovery::System Information Discovery [E1082]\n  - Process::Terminate Process [C0018]\n  - link function at runtime on Windows\n  - Execution::Command and Scripting Interpreter [E1059]\n  - Defense Evasion::Obfuscated Files or Information::Encryption-Standard Algorithm [E1027.m05]\n  - parse PE header\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualAlloc\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n  Packers: {'PEiD': 'Microsoft Visual C++ v7.1 EXE'}\n\nPE SECTIONS (entropy):\n  .text        entropy=7.51\n  .rdata       entropy=4.14\n  .data        entropy=0.86\n  .shared      entropy=2.73\n  .sxdata      entropy=0.02\n",
+  "ground_truth": {
+    "hash": "0cc8216f692a9b52fce73adb3acef8b4b3e28de3f8ced78daeeb7659332a9840",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9155,
+    "malicious_count": 65,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "encode data using XOR"
+      },
+      {
+        "id": "T1059",
+        "signature_description": "accept command line arguments"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "allocate memory",
+      "allocate RWX memory",
+      "encode data using XOR",
+      "contain loop",
+      "query environment variable",
+      "terminate process",
+      "link function at runtime on Windows",
+      "accept command line arguments",
+      "encrypt data using XTEA",
+      "parse PE header"
+    ],
+    "iocs": {
+      "ips": [
+        "1.224.34.14"
+      ],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 0,
+      "files_dropped": [],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 3,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

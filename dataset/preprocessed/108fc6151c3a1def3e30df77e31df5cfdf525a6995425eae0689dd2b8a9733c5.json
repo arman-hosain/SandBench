@@ -1,0 +1,81 @@
+{
+  "hash": "108fc6151c3a1def3e30df77e31df5cfdf525a6995425eae0689dd2b8a9733c5",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nDNS LOOKUPS (1):\n  iplogger.com\n\nSERVICES OPENED (1):\n  RASMAN\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (6):\n  - contain obfuscated stackstrings\n  - encode data using XOR\n  - encrypt data using RC4 PRGA\n  - enumerate process modules\n  - link function at runtime on Windows\n  - link many functions at runtime\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - Anti-Static Analysis::Executable Code Obfuscation::Argument Obfuscation [B0032.020]\n  - Anti-Static Analysis::Executable Code Obfuscation::Stack Strings [B0032.017]\n  - Defense Evasion::Obfuscated Files or Information::Encoding-Standard Algorithm [E1027.m02]\n  - Data::Encode Data::XOR [C0026.002]\n  - File System::Create File [C0016]\n  - contain loop\n  - Cryptography::Encrypt Data::RC4 [C0027.009]\n  - Cryptography::Generate Pseudo-random Sequence::RC4 PRGA [C0021.004]\n  - enumerate process modules\n  - link function at runtime on Windows\n  - resolve function by parsing PE exports\n  - extract resource via kernel32 functions\n  - Data::Checksum::Adler [C0032.005]\n  - Data::Checksum::CRC32 [C0032.001]\n  - compress data via ZLIB inflate or deflate\n  - Process::Terminate Process [C0018]\n  - Process::Allocate Thread Local Storage [C0040]\n  - link many functions at runtime\n  - contain a resource (.rsrc) section\n  - Discovery::Analysis Tool Discovery::Process detection [B0013.001]\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (4):\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\%localappdata%\\{6AF9029D-9160-4265-B634-972F3764AA27}\\msservices.exe\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\%localappdata%\\{F4BAFD74-B772-4C17-B8AD-13B04F77FABC}\\msservices.exe\n  C:\\Documents and Settings\\All Users\\{0C660565-0A8F-4BBE-8AB8-7A99868126F8}\\msservices.exe\n  C:\\Documents and Settings\\All Users\\{29502DEE-BE71-4075-B4B7-0CC5A98C37B7}\\msservices.exe\n\nPERSISTENCE REGISTRY KEYS (4):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\shell = explorer, \"C:\\Documents and Settings\\All Users\\{0C660565-0A8F-4BBE-8AB8-7A99868126F8}\\msservices.exe\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\shell = explorer, \"C:\\Documents and Settings\\All Users\\{29502DEE-BE71-4075-B4B7-0CC5A98C37B7}\\msservices.exe\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\msservices = \"%localappdata%\\{6AF9029D-9160-4265-B634-972F3764AA27}\\msservices.exe\"\u0000\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\msservices = \"%localappdata%\\{F4BAFD74-B772-4C17-B8AD-13B04F77FABC}\\msservices.exe\"\u0000\n\nMUTEXES CREATED (9):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  RasPbFile\n  ShimCacheMutex\n  {d23d29ad-c0ec-4092-85bd-cbc7e760cedf}\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, VirtualAlloc\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Protector] .NET Reactor\n  [Compiler] EP:Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Compiler] Microsoft Visual C/C++\n  [Linker] Microsoft Linker\n  [Tool] Visual Studio\n\nPE SECTIONS (entropy):\n  .text        entropy=6.75\n  .rdata       entropy=6.44\n  .data        entropy=3.26\n  .rsrc        entropy=8.0\n  [overlay]    entropy=7.876794338226318  size=1600\n",
+  "ground_truth": {
+    "hash": "108fc6151c3a1def3e30df77e31df5cfdf525a6995425eae0689dd2b8a9733c5",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8169,
+    "malicious_count": 58,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1027",
+        "signature_description": "contain obfuscated stackstrings"
+      },
+      {
+        "id": "T1057",
+        "signature_description": "enumerate process modules"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "contain obfuscated stackstrings",
+      "encode data using XOR",
+      "create or open file",
+      "contain loop",
+      "encrypt data using RC4 PRGA",
+      "enumerate process modules",
+      "link function at runtime on Windows",
+      "resolve function by parsing PE exports",
+      "extract resource via kernel32 functions",
+      "compute adler32 checksum",
+      "hash data with CRC32",
+      "compress data via ZLIB inflate or deflate",
+      "terminate process",
+      "allocate thread local storage",
+      "link many functions at runtime",
+      "contain a resource (.rsrc) section",
+      "reference analysis tools strings"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [
+        "iplogger.com"
+      ],
+      "urls": [],
+      "registry_persistence": [
+        "\\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\shell",
+        "\\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\msservices"
+      ],
+      "registry_all_count": 2,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "RasPbFile",
+        "ShimCacheMutex",
+        "{d23d29ad-c0ec-4092-85bd-cbc7e760cedf}"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

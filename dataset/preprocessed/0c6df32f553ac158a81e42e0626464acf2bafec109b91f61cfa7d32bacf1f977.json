@@ -1,0 +1,59 @@
+{
+  "hash": "0c6df32f553ac158a81e42e0626464acf2bafec109b91f61cfa7d32bacf1f977",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  3fda0f5a6269738db43432f43d0ccff6.virus.exe\n    C:\\Windows\\svchost.exe\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - persist via Run registry key\n\nCAPA RULE MATCHES (MBC):\n  - contain loop\n  - Persistence::Registry Run Keys / Startup Folder [F0012]\n  - contain a resource (.rsrc) section\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (4):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF4CEDAFFEB6DFB2C3.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF6DDECE1F23D65B57.TMP\n  C:\\WINDOWS\\svchost.exe\n  C:\\WINDOWS\\system32\\BttnServ.exe\n\nPERSISTENCE REGISTRY KEYS (4):\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\(Default) = C:\\Windows\\svchost.exe\n  HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\CPQEASYBTTN = C:\\Windows\\system32\\BttnServ.exe\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\(Default) = C:\\WINDOWS\\svchost.exe\u0000\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\CPQEASYBTTN = C:\\WINDOWS\\system32\\BttnServ.exe\u0000\n\nMUTEXES CREATED (6):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n\nPROCESSES CREATED (1):\n  C:\\WINDOWS\\svchost.exe\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': 'Microsoft Visual Basic v5.0/v6.0'}\n\nPE SECTIONS (entropy):\n  .text        entropy=5.82\n  .data        entropy=0.0\n  .rsrc        entropy=6.55\n",
+  "ground_truth": {
+    "hash": "0c6df32f553ac158a81e42e0626464acf2bafec109b91f61cfa7d32bacf1f977",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9167,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1547",
+        "signature_description": "persist via Run registry key"
+      }
+    ],
+    "capa_sig_names": [
+      "contain loop",
+      "persist via Run registry key",
+      "contain a resource (.rsrc) section",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\(Default)",
+        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\CPQEASYBTTN",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\(Default)",
+        "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\CPQEASYBTTN"
+      ],
+      "registry_all_count": 4,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500"
+      ],
+      "processes": [
+        "C:\\WINDOWS\\svchost.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO",
+    "VirusTotal Cuckoofork",
+    "VirusTotal Jujubox"
+  ]
+}

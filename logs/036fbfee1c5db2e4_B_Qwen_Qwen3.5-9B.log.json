@@ -1,0 +1,91 @@
+{
+  "hash": "036fbfee1c5db2e4d7e5641c4c97648799d5e1b2f7435dc5c9d63b00037735b7",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic malware behavior including spawning a long chain of identical processes (likely to evade detection or consume resources), dropping multiple files to System32, creating registry keys for persistence (ShellServiceObjectDelayLoad), and utilizing dangerous API imports like CreateProcessA and WinExec. The CAPA analysis confirms the use of XOR encoding and generic packing, indicating an effort to evade static analysis.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Dropper\"],\n    \"explanation\": \"The sample acts as a Dropper by unpacking and executing additional payloads (Pbkbqc32.exe) and dropping DLLs/exes to System32. It functions as a Trojan due to its ability to execute arbitrary code, modify the registry for persistence, and spawn new processes without user consent.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1546.001\",\n        \"name\": \"Scheduled Task/Job\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 3297,
+      "response_chars": 1238,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic malware behavior including spawning a long chain of identical processes (likely to evade detection or consume resources), dropping multiple files to System32, creating registry keys for persistence (ShellServiceObjectDelayLoad), and utilizing dangerous API imports like CreateProcessA and WinExec. The CAPA analy",
+      "elapsed_seconds": 6.72
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": false,
+      "gap_summary": "",
+      "missed_behavior_count": 0,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1546"
+      ],
+      "hallucinated_ttps": [
+        "T1055",
+        "T1059",
+        "T1546"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 3
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 6.72,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9014
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.4,
+      "ttp_precision": 0.25,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1546"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1059",
+        "T1546"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.4,
+      "breakdown": {
+        "ttp_f1": 0.4
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

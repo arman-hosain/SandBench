@@ -1,0 +1,123 @@
+{
+  "hash": "35236bb764f9e0e3fe8732560ecb35a9ffd9e1e780253a63a070af6a0c4ecec1",
+  "report_text": "--- NETWORK ACTIVITY ---\n\nSERVICES OPENED (2):\n  AudioSrv\n  ProtectedStorage\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (13):\n  - get common file path\n  - find graphical window\n  - delete registry key\n  - delete registry value\n  - capture screenshot\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - query environment variable\n  - query or enumerate registry value\n  - get domain controller name\n  - check for unmoving mouse cursor\n  - get session user name\n  - parse PE header\n\nCAPA RULE MATCHES (MBC):\n  - Anti-Behavioral Analysis::Dynamic Analysis Evasion::Delayed Execution [B0003.003]\n  - Process::Terminate Thread [C0039]\n  - Process::Create Thread [C0038]\n  - Process::Create Process [C0017]\n  - File System::Create File [C0016]\n  - Operating System::Registry::Create Registry Key [C0036.004]\n  - Operating System::Registry::Open Registry Key [C0036.003]\n  - reference absolute stream path on Windows\n  - contain loop\n  - Discovery::File and Directory Discovery [E1083]\n  - Anti-Behavioral Analysis::Debugger Detection::Timing/Delay Check GetTickCount [B0001.032]\n  - File System::Delete File [C0047]\n  - File System::Read File [C0051]\n  - find graphical window\n  - Operating System::Registry::Delete Registry Key [C0036.002]\n  - Operating System::Registry::Set Registry Key [C0036.001]\n  - Operating System::Registry::Delete Registry Value [C0036.007]\n  - Collection::Screen Capture::WinAPI [E1113.m01]\n  - File System::Writes File [C0052]\n  - link function at runtime on Windows\n  - link many functions at runtime\n  - Discovery::System Information Discovery [E1082]\n  - Operating System::Registry::Query Registry Value [C0036.006]\n  - get domain controller name\n  - Anti-Behavioral Analysis::Virtual Machine Detection::Human User Check [B0009.012]\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (2):\n  C:\\Documents and Settings\\Administrator\\Application Data\\Microsoft\\Address Book\\Administrator.wab\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Application Data\\Microsoft\\Dialer\\Administrator_buddies.dat\n\nOTHER REGISTRY KEYS SET (10):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\Software\\Microsoft\\Dialer\\VersionNumber\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\Dialer\\\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\PhoneDialer.Document\\\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\CLSID\\{A0D7A956-3C0B-11D1-B4F9-00C04FC98AD3}\\\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\PhoneDialer.Document\\CLSID\\\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\CLSID\\{A0D7A956-3C0B-11D1-B4F9-00C04FC98AD3}\\ProgID\\\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\CLSID\\{A0D7A956-3C0B-11D1-B4F9-00C04FC98AD3}\\InprocHandler32\\\n  \\REGISTRY\\MACHINE\\SOFTWARE\\Classes\\CLSID\\{A0D7A956-3C0B-11D1-B4F9-00C04FC98AD3}\\LocalServer32\\\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\AppEvents\\Schemes\\Apps\\Dialer\\\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\AppEvents\\Schemes\\Apps\\Dialer\\Incoming call\\.Current\\\n\nMUTEXES CREATED (12):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  MPSWABOlkStoreNotifyMutex\n  MPSWabDataAccessMutex\n  MSCTF.Shared.MUTEX.EBH\n  MSCTF.Shared.MUTEX.IEH\n\n--- FILE IDENTITY ---\n\nPE IMPORTS (DANGEROUS):\n  KERNEL32.dll: GetProcAddress, LoadLibraryW\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Library] MFC\n  [Compiler] Microsoft Visual C++\n  [Compiler] MASM\n  [Library] MFC\n  [Linker] Microsoft Linker\n\nPE SECTIONS (entropy):\n  .text        entropy=6.18\n  .data        entropy=4.82\n  .rsrc        entropy=5.29\n",
+  "ground_truth": {
+    "hash": "35236bb764f9e0e3fe8732560ecb35a9ffd9e1e780253a63a070af6a0c4ecec1",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.8857,
+    "malicious_count": 62,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1010",
+        "signature_description": "find graphical window"
+      },
+      {
+        "id": "T1012",
+        "signature_description": "query or enumerate registry value"
+      },
+      {
+        "id": "T1016",
+        "signature_description": "get domain controller name"
+      },
+      {
+        "id": "T1033",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1082",
+        "signature_description": "query environment variable"
+      },
+      {
+        "id": "T1083",
+        "signature_description": "get common file path"
+      },
+      {
+        "id": "T1087",
+        "signature_description": "get session user name"
+      },
+      {
+        "id": "T1112",
+        "signature_description": "delete registry key"
+      },
+      {
+        "id": "T1113",
+        "signature_description": "capture screenshot"
+      },
+      {
+        "id": "T1129",
+        "signature_description": "link function at runtime on Windows"
+      },
+      {
+        "id": "T1497",
+        "signature_description": "check for unmoving mouse cursor"
+      }
+    ],
+    "capa_sig_names": [
+      "delay execution",
+      "terminate thread",
+      "create thread",
+      "create process on Windows",
+      "create or open file",
+      "create or open registry key",
+      "reference absolute stream path on Windows",
+      "contain loop",
+      "get common file path",
+      "check for time delay via GetTickCount",
+      "delete file",
+      "read .ini file",
+      "find graphical window",
+      "delete registry key",
+      "set registry value",
+      "delete registry value",
+      "capture screenshot",
+      "write file on Windows",
+      "link function at runtime on Windows",
+      "link many functions at runtime",
+      "query environment variable",
+      "query or enumerate registry value",
+      "get domain controller name",
+      "check for unmoving mouse cursor",
+      "extract resource via kernel32 functions",
+      "create directory",
+      "get session user name",
+      "terminate process",
+      "parse PE header",
+      "print debug messages",
+      "resolve function by parsing PE exports",
+      "contain a resource (.rsrc) section"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 39,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "MPSWABOlkStoreNotifyMutex",
+        "MPSWabDataAccessMutex",
+        "MSCTF.Shared.MUTEX.EBH",
+        "MSCTF.Shared.MUTEX.IEH",
+        "MSIdent Logon",
+        "l0r2"
+      ],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "Tencent HABO"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "hash": "30bea2c30f92b73b21160d269764bb0e52128a201b26e33e8eabb11f87270011",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  ****.exe\n    cmd.exe /C type nul > ****.exe:zone.identifier\"\n    cmd.exe /C type nul > ****.exe:zone.identifier\"\n    ****.exe\n\nCOMMAND EXECUTIONS (4):\n  cmd.exe /C type nul > \"b76cb04d858d1873b9f63b28b986d54f89f48cf7.exe:Zone.Identifier\"\n  \"C:\\WINDOWS\\system32\\cmd.exe\" /C type nul > \"C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe:Zone.Identifier\"\n  \"C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe\"\n   \n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - load .NET assembly\n\nCAPA RULE MATCHES (MBC):\n  - Process::Suspend Thread [C0055]\n  - load .NET assembly\n  - access .NET resource\n  - compiled to the .NET platform\n\nHIGHLIGHTED CALLS:\n  IsDebuggerPresent\n\n--- ARTIFACTS ---\n\nFILES WRITTEN (1):\n  b76cb04d858d1873b9f63b28b986d54f89f48cf7.exe:Zone.Identifier\n\nOTHER REGISTRY KEYS SET (1):\n  \\REGISTRY\\USER\\S-1-5-21-1482476501-1645522239-1417001333-500\\\n\nMUTEXES CREATED (9):\n  CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500\n  ZonesCacheCounterMutex\n  ZonesCounterMutex\n  ZonesLockedCacheCounterMutex\n\nPROCESSES CREATED (2):\n  C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe\n  C:\\WINDOWS\\system32\\cmd.exe\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Library] .NET\n  [Library] .NET\n  [Linker] Microsoft Linker\n  Packers: {'PEiD': '.NET executable'}\n\nPE SECTIONS (entropy):\n  .text        entropy=7.85\n  .rsrc        entropy=4.51\n  .reloc       entropy=0.1\n",
+  "ground_truth": {
+    "hash": "30bea2c30f92b73b21160d269764bb0e52128a201b26e33e8eabb11f87270011",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.7083,
+    "malicious_count": 51,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "msil",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1620",
+        "signature_description": "load .NET assembly"
+      }
+    ],
+    "capa_sig_names": [
+      "suspend thread",
+      "load .NET assembly",
+      "access .NET resource",
+      "compiled to the .NET platform"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [],
+      "registry_all_count": 1,
+      "files_dropped": [],
+      "mutexes": [
+        "CTF.Asm.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Compart.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.LBES.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.Layouts.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TMD.MutexDefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "CTF.TimListCache.FMPDefaultS-1-5-21-1482476501-1645522239-1417001333-500MUTEX.DefaultS-1-5-21-1482476501-1645522239-1417001333-500",
+        "ZonesCacheCounterMutex",
+        "ZonesCounterMutex",
+        "ZonesLockedCacheCounterMutex"
+      ],
+      "processes": [
+        "C:\\Documents and Settings\\Administrator\\Local Settings\\Temp\\EB93A6\\996E.exe",
+        "C:\\WINDOWS\\system32\\cmd.exe"
+      ]
+    }
+  },
+  "num_sandboxes": 4,
+  "sandbox_names": [
+    "CAPA",
+    "Rising MOVES",
+    "Tencent HABO",
+    "VirusTotal Jujubox"
+  ]
+}

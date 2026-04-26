@@ -1,0 +1,99 @@
+{
+  "hash": "035860ebf52b4239358a4e3df848d7ca54e5aa1ee5ab256c87a71ff4f7901a27",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "A",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence via the Run registry key, creation of mutexes, extensive file system enumeration, and dropping numerous executable files with pornographic names to various system directories. The use of obfuscated filenames and the 'Polink' linker suggests an attempt to evade detection while establishing a foothold.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample behaves like a Trojan by masquerading as a video file (.exe with pornographic names), executing arbitrary code, establishing persistence, and dropping additional payloads. It does not exhibit the specific encryption behavior of Ransomware, nor does it primarily display the characteristics of Adware (though it drops files, the primary mechanism is execution and persistence).\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1547.001\",\n        \"name\": \"Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1005\",\n        \"name\": \"Data from Local System\"\n      },\n      {\n        \"id\": \"T1045\",\n        \"name\": \"Network Service Discovery\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 5795,
+      "response_chars": 1382,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits clear malicious behavior including persistence via the Run registry key, creation of mutexes, extensive file system enumeration, and dropping numerous executable files with pornographic names to various system directories. The use of obfuscated filenames and the 'Polink' linker suggests an attempt to evade detection wh",
+      "elapsed_seconds": 7.26
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 7.26,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9577
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.1053,
+      "ttp_precision": 0.2,
+      "ttp_recall": 0.0714,
+      "gt_ttps": [
+        "T1007",
+        "T1010",
+        "T1012",
+        "T1057",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1135",
+        "T1489",
+        "T1518",
+        "T1543",
+        "T1547",
+        "T1569"
+      ],
+      "pred_ttps": [
+        "T1005",
+        "T1027",
+        "T1045",
+        "T1055",
+        "T1547"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1005",
+        "T1027",
+        "T1045",
+        "T1055"
+      ],
+      "q3_missed_ttps": [
+        "T1007",
+        "T1010",
+        "T1012",
+        "T1057",
+        "T1059",
+        "T1082",
+        "T1083",
+        "T1129",
+        "T1135",
+        "T1489",
+        "T1518",
+        "T1543",
+        "T1569"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.1053,
+      "breakdown": {
+        "ttp_f1": 0.1053
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}
