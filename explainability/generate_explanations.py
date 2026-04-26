@@ -18,6 +18,9 @@ import json
 import time
 import argparse
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 try:
     from openai import OpenAI

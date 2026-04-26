@@ -21,7 +21,10 @@ import re
 import json
 import argparse
 from pathlib import Path
+from dotenv import load_dotenv
 from openai import OpenAI
+
+load_dotenv()
 
 # ── CWE keyword maps ──────────────────────────────────────────────────────────
 # Maps CWE ID → keywords that should appear in a correct explanation
