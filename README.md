@@ -52,8 +52,41 @@ sandbench/
 
 ## Setup
 
+### 1. Create the conda environment
+
 ```bash
-pip install openai numpy matplotlib
+conda create -n sandbench python=3.13 -y
+conda activate sandbench
+pip install -r requirements.txt
+```
+
+This installs all dependencies for the full project including the core benchmark,
+chart generators, and the SOCForensics sub-project (`bert-score`, `pandas`, `torch`, etc.).
+
+### 2. Configure secrets
+
+Copy the example and fill in your key:
+
+```bash
+cp .env.example .env   # then edit .env
+```
+
+Or create `.env` directly:
+
+```
+OPENAI_API_KEY=sk-proj-...
+```
+
+The key is loaded automatically at runtime via `python-dotenv`. It is only needed
+for models with `"client": "openai"` in `config.json`. Leave it blank if you are
+running local vLLM models only.
+
+> **Note:** `.env` is listed in `.gitignore` and will never be committed.
+
+### 3. Activate before running
+
+```bash
+conda activate sandbench
 ```
 
 ---

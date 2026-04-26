@@ -18,6 +18,9 @@ import time
 import argparse
 import shutil
 
+from dotenv import load_dotenv
+load_dotenv()
+
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from tools.vt_environment import VTToolEnv
@@ -47,7 +50,7 @@ def build_clients(cfg):
     clients = {}
     local_url = cfg.get("local_vllm_base_url", "http://localhost:8001/v1")
     local_key = cfg.get("local_vllm_api_key", "EMPTY")
-    oai_key   = cfg.get("openai_api_key", "")
+    oai_key   = cfg.get("openai_api_key") or os.environ.get("OPENAI_API_KEY", "")
     clients["local"] = OpenAI(base_url=local_url, api_key=local_key)
     if oai_key:
         clients["openai"] = OpenAI(api_key=oai_key)
