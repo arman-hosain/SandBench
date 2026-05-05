@@ -1,0 +1,95 @@
+{
+  "hash": "00a671318b564a76e8306eb07828306473e10d17950fddad93ed9417143c34d1",
+  "model": "Qwen/Qwen3.5-9B",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic malicious behavior: it is packed with a generic SFX packer, uses XOR obfuscation, drops multiple executable and DLL files to System32, creates registry keys for persistence (ShellServiceObjectDelayLoad), and launches Internet Explorer with obfuscated HTML files (likely containing malicious scripts or exploits). The combination of file dropping, persistence mechanisms, and evasion techniques confirms a malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\", \"Dropper\"],\n    \"explanation\": \"The sample acts as a Dropper by unpacking and executing additional payloads (Iodeoifd.exe, Ekempmhl.dll) to System32. It functions as a Trojan because it disguises itself as a legitimate process (using IE) and performs unauthorized actions like registry modification and file dropping without user consent. The behavior aligns with a Trojan/Dropper combo often used to deliver further malware.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\n        \"id\": \"T1027\",\n        \"name\": \"Obfuscated Files or Information\"\n      },\n      {\n        \"id\": \"T1055\",\n        \"name\": \"Process Injection\"\n      },\n      {\n        \"id\": \"T1547\",\n        \"name\": \"Boot or Logon Autostart Execution\"\n      },\n      {\n        \"id\": \"T1059\",\n        \"name\": \"Command and Scripting Interpreter\"\n      },\n      {\n        \"id\": \"T1562\",\n        \"name\": \"Impair Defenses\"\n      }\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "Qwen/Qwen3.5-9B",
+      "prompt_chars": 6576,
+      "response_chars": 1442,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The sample exhibits classic malicious behavior: it is packed with a generic SFX packer, uses XOR obfuscation, drops multiple executable and DLL files to System32, creates registry keys for persistence (ShellServiceObjectDelayLoad), and launches Internet Explorer with obfuscated HTML files (likely containing malicious scripts or exploits).",
+      "elapsed_seconds": 13.33
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": false,
+      "gap_summary": "",
+      "missed_behavior_count": 0,
+      "ttps_found": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1547",
+        "T1562"
+      ],
+      "hallucinated_ttps": [
+        "T1055",
+        "T1059",
+        "T1547",
+        "T1562"
+      ],
+      "ttp_tp": 1,
+      "ttp_fp": 4
+    }
+  ],
+  "total_llm_calls": 1,
+  "total_elapsed": 13.33,
+  "evaluation": {
+    "parse_ok": true,
+    "parse_repaired": false,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.9028
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.3333,
+      "ttp_precision": 0.2,
+      "ttp_recall": 1.0,
+      "gt_ttps": [
+        "T1027"
+      ],
+      "pred_ttps": [
+        "T1027",
+        "T1055",
+        "T1059",
+        "T1547",
+        "T1562"
+      ],
+      "tp": 1,
+      "q3_hallucinated_ttps": [
+        "T1055",
+        "T1059",
+        "T1547",
+        "T1562"
+      ],
+      "q3_missed_ttps": []
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.3333,
+      "breakdown": {
+        "ttp_f1": 0.3333
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

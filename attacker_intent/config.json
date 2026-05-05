@@ -1,0 +1,39 @@
+{
+    "dataset": {
+        "path": "./dataset/pentest_dataset_expanded.xlsx",
+        "input_columns": [
+            "Output Summary",
+            "Full Tool Input"
+        ],
+        "ground_truth_column": "Ground Truth\n(User Intent)"
+    },
+    "models": [
+        {
+            "key": "llama3-8b",
+            "model_string": "meta-llama/Meta-Llama-3-8B-Instruct",
+            "host": "http://localhost:8001/v1",
+            "enabled": true
+        },
+        {
+            "key": "gpt-oss-20b",
+            "model_string": "openai/gpt-oss-20b",
+            "host": "http://localhost:8002/v1",
+            "enabled": true
+        },
+        {
+            "key": "Qwen/Qwen3.5-9B",
+            "model_string": "Qwen/Qwen3.5-9B",
+            "host": "http://localhost:8002/v1",
+            "enabled": false
+        }
+    ],
+    "judge": {
+        "model": "gpt-4o",
+        "api_key": "",
+        "temperature": 0
+    },
+    "output": {
+        "results_dir": "./results",
+        "log_file": "./results/run.log"
+    }
+}

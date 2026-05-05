@@ -1,8 +1,45 @@
-# Python
-__pycache__/
-
-
-
-# Secrets
-*.env
+# ── Secrets ───────────────────────────────────────────────────────────────────
 .env
+*.env
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# ── Large dataset files (full dataset hosted separately — see README) ──────────
+malware_analysis/dataset/vt_high_speed_results/*.json
+malware_analysis/dataset/preprocessed/*.json
+malware_analysis/dataset/ground_truth.json
+
+# ── Experiment logs and result backups (large, reproducible) ──────────────────
+malware_analysis/logs/*.log.json
+malware_analysis/results/*.bak
+
+# ── Generated outputs (reproducible from source) ──────────────────────────────
+malware_analysis/charts/*.png
+malware_analysis/charts/log_viewer.html
+malware_analysis/tables/*.tex
+malware_analysis/tables/*.md
+
+# ── Explanation outputs ────────────────────────────────────────────────────────
+vuln_explanation/explanations/**/results.json
+vuln_explanation/explanations/**/scores.json
+
+# ── Attacker intent cache (non-deterministic, not needed for review) ──────────
+attacker_intent/results/cache.json
+attacker_intent/results/*.log
+
+# ── Jupyter / IDE ─────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db

@@ -1,0 +1,51 @@
+{
+  "hash": "004a3c3f2c55a1b2b7133b4e7180a484c46d284a7c1f8f56b30b585153ed8128",
+  "report_text": "--- EXECUTION CHAIN ---\n\nPROCESS TREE:\n  c:\\windows\\resources\\themes\\explorer.exe\n    C:\\Windows\\Explorer.exe\n    c:\\windows\\resources\\spoolsv.exe SE\n      c:\\windows\\resources\\svchost.exe\n        schtasks /create /tn svchost /tr c:\\windows\\resources\\svchost.exe /sc daily /st 06:07 /f\n        c:\\windows\\resources\\spoolsv.exe PR\n\nCOMMAND EXECUTIONS (1):\n  opennewwindow\n\n--- CAPABILITIES (CAPA) ---\n\nTECHNIQUE TRIGGERS (1):\n  - acquire debug privileges\n\nCAPA RULE MATCHES (MBC):\n  - Data::Modulo [C0058]\n  - acquire debug privileges\n  - contain loop\n  - Communication::HTTP Communication::Read Header [C0002.014]\n  - contain a resource (.rsrc) section\n  - compiled from Visual Basic\n  - (internal) Visual Basic file limitation\n\nHIGHLIGHTED CALLS:\n  SetWindowsHookExA\n\n--- ARTIFACTS ---\n\nFILES DROPPED (2):\n  c:\\windows\\resources\\spoolsv.exe  [sha256: 8b362060239d1b43...]\n  c:\\windows\\resources\\svchost.exe  [sha256: bb76af10e0d39e17...]\n\nFILES WRITTEN (4):\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF0A09E880B78AD6C6.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF13DDD92FF9831E86.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF29C5AFA96EB95957.TMP\n  C:\\Users\\<USER>\\AppData\\Local\\Temp\\~DF99DF093A5B056B51.TMP\n\nPERSISTENCE REGISTRY KEYS (2):\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\Explorer = c:\\windows\\resources\\themes\\explorer.exe RO\n  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\Svchost = c:\\windows\\resources\\svchost.exe RO\n\nOTHER REGISTRY KEYS SET (1):\n  HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowSuperHidden\n\n--- FILE IDENTITY ---\n\nCERTIFICATE INFO:\n\nCOMPILER AND PACKER:\n  [Compiler] Microsoft Visual Basic\n  [Compiler] Visual Basic\n  [Linker] Microsoft Linker\n\nPE SECTIONS (entropy):\n  .text        entropy=5.73\n  .data        entropy=0.0\n  .rsrc        entropy=0.65\n  [overlay]    entropy=7.237669944763184  size=23482\n",
+  "ground_truth": {
+    "hash": "004a3c3f2c55a1b2b7133b4e7180a484c46d284a7c1f8f56b30b585153ed8128",
+    "verdict": "MALICIOUS",
+    "detection_rate": 0.9167,
+    "malicious_count": 66,
+    "popular_threat_category": [],
+    "popular_threat_name": [],
+    "suggested_label": null,
+    "av_family_vote": "win32",
+    "has_family_label": false,
+    "ttps": [
+      {
+        "id": "T1134",
+        "signature_description": "acquire debug privileges"
+      }
+    ],
+    "capa_sig_names": [
+      "calculate modulo 256 via x86 assembly",
+      "acquire debug privileges",
+      "contain loop",
+      "check HTTP status code",
+      "contain a resource (.rsrc) section",
+      "compiled from Visual Basic",
+      "(internal) Visual Basic file limitation"
+    ],
+    "iocs": {
+      "ips": [],
+      "domains": [],
+      "urls": [],
+      "registry_persistence": [
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\Explorer",
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\Svchost"
+      ],
+      "registry_all_count": 3,
+      "files_dropped": [
+        "c:\\windows\\resources\\spoolsv.exe",
+        "c:\\windows\\resources\\svchost.exe"
+      ],
+      "mutexes": [],
+      "processes": []
+    }
+  },
+  "num_sandboxes": 2,
+  "sandbox_names": [
+    "CAPA",
+    "VirusTotal Jujubox"
+  ]
+}

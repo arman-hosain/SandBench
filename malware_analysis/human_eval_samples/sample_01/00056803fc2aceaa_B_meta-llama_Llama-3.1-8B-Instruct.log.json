@@ -1,0 +1,108 @@
+{
+  "hash": "00056803fc2aceaa39a67eb71dd0afdc495318a99ea7558429e639b0fd8e22a2",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "B",
+  "llm_output": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The presence of anti-VM strings targeting Xen, use of VirtualAlloc and VirtualProtect, and the presence of a packed executable suggest malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior of dropping an executable in a common location and using anti-VM detection suggests a Trojan-like behavior, likely designed to evade detection and execute malicious code.\"\n  },\n  \"q3\": {\n    \"ttps\": [\n      {\"id\": \"T1505\", \"name\": \"Driver Execution\"}\n    ]\n  }\n}",
+  "trajectory": [],
+  "hypotheses": [],
+  "log_entries": [
+    {
+      "step": 1,
+      "type": "single_shot",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_chars": 847,
+      "response_chars": 559,
+      "response_preview": "{\n  \"q1\": {\n    \"verdict\": \"MALICIOUS\",\n    \"explanation\": \"The presence of anti-VM strings targeting Xen, use of VirtualAlloc and VirtualProtect, and the presence of a packed executable suggest malicious intent.\"\n  },\n  \"q2\": {\n    \"family\": [\"Trojan\"],\n    \"explanation\": \"The sample's behavior of dropping an executable in a common location and using anti-VM detection suggests a Trojan-like behav",
+      "elapsed_seconds": 2.58
+    },
+    {
+      "step": 2,
+      "type": "judge_check",
+      "iteration": 1,
+      "needs_more": true,
+      "gap_summary": "1 report-backed behavior(s) are absent from the TTP mapping",
+      "missed_behavior_count": 1,
+      "ttps_found": [
+        "T1505"
+      ],
+      "hallucinated_ttps": [
+        "T1505"
+      ],
+      "ttp_tp": 0,
+      "ttp_fp": 1
+    },
+    {
+      "step": 3,
+      "type": "judge_feedback",
+      "iteration": 1,
+      "feedback_preview": "Reviewer feedback: revisit these behavior phrases that are evidenced in the report.\nThey are behavior descriptions, not ATT&CK IDs. Map them only if you know the real MITRE ATT&CK Enterprise technique ID.\n\nMissed report-backed behavior phrases:\n- reference anti-VM strings targeting Xen\n\nInstructions:\n- Add a TTP only when the behavior phrase and report evidence support that exact technique.\n- Do not invent placeholder IDs such as T1234.\n- Remove TTPs that are not directly justified by the report",
+      "feedback_kind": "deterministic_behavior_feedback"
+    },
+    {
+      "step": 4,
+      "type": "analyst_refinement",
+      "iteration": 1,
+      "ttps_now": [
+        "T1490"
+      ],
+      "is_structured": true,
+      "best_ttp_tp": 0,
+      "best_ttp_fp": 1
+    },
+    {
+      "step": 5,
+      "type": "refinement_stopped",
+      "iteration": 1,
+      "reason": "no TTP true-positive improvement after evidence feedback",
+      "ttp_tp": 0,
+      "ttp_fp": 1
+    }
+  ],
+  "total_llm_calls": 2,
+  "total_elapsed": 5.56,
+  "evaluation": {
+    "parse_ok": true,
+    "verdict": {
+      "verdict_score": 1.0,
+      "predicted": "MALICIOUS",
+      "gt": "MALICIOUS",
+      "detection_rate": 0.8592
+    },
+    "family": {
+      "family_f1": null,
+      "family_precision": null,
+      "family_recall": null,
+      "predicted": [],
+      "matched": [],
+      "note": "no GT family data"
+    },
+    "ttp": {
+      "ttp_f1": 0.0,
+      "ttp_precision": 0.0,
+      "ttp_recall": 0.0,
+      "gt_ttps": [
+        "T1497"
+      ],
+      "pred_ttps": [
+        "T1505"
+      ],
+      "tp": 0,
+      "q3_hallucinated_ttps": [
+        "T1505"
+      ],
+      "q3_missed_ttps": [
+        "T1497"
+      ]
+    },
+    "evidence_grounding": null,
+    "composite": {
+      "composite_score": 0.0,
+      "breakdown": {
+        "ttp_f1": 0.0
+      },
+      "composite_weights_used": {
+        "ttp_f1": 1.0
+      }
+    }
+  }
+}

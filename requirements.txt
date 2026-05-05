@@ -1,16 +1,21 @@
-# ── Core (run_benchmark.py, all modes, eval, tools) ──────────────────────────
-openai>=1.30.0          # OpenAI-compatible client; v1.x API required (from openai import OpenAI)
-python-dotenv>=1.0.0    # load OPENAI_API_KEY and other secrets from .env
-numpy>=1.26.0           # eval/vt_metrics.py, generate_graphs.py, generate_tables.py
+# CyFER-Bench unified requirements
+# Install: pip install -r requirements.txt
 
-# ── Charts (generate_graphs.py, generate_extended_charts.py) ─────────────────
+# ── Core LLM client ───────────────────────────────────────────────────────────
+openai>=1.30.0          # OpenAI-compatible client; used for cloud and local vLLM
+python-dotenv>=1.0.0    # Load OPENAI_API_KEY from .env
+
+# ── Evaluation and numerics ───────────────────────────────────────────────────
+numpy>=1.26.0
+bert-score>=0.3.13      # Attacker intent module: BERTScore F1
+
+# ── Charts and tables (malware_analysis) ──────────────────────────────────────
 matplotlib>=3.8.0
 
-# ── vLLM (local model server — Modes C & D, all local models) ────────────────
-vllm==0.19.1            # OpenAI-compatible inference server; pinned because it
-                        # requires an exact torch version (2.10.0)
+# ── Dataset loading (attacker_intent) ─────────────────────────────────────────
+pandas>=2.1.0
+openpyxl>=3.1.0
 
-# ── SOCForensics / pentest_intent_eval.py ────────────────────────────────────
-pandas>=2.1.0           # dataset loading from .xlsx
-openpyxl>=3.1.0         # pandas Excel engine for .xlsx files
-bert-score>=0.3.13      # BERTScore F1 metric
+# ── Local model inference (optional) ──────────────────────────────────────────
+# vllm==0.19.1          # Uncomment to install the local vLLM server
+                        # Requires torch==2.10.0; pinned for compatibility
